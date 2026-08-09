@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HOLOS Matteresan F–9</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --blue: #3478c7;
+      --light-blue: #eaf5ff;
+      --green: #4fa66f;
+      --light-green: #ecf8f0;
+      --orange: #f29d49;
+      --light-orange: #fff3e5;
+      --purple: #8264c7;
+      --light-purple: #f1edff;
+      --yellow: #ffd66b;
+      --white: #ffffff;
+      --background: #f7fafc;
+      --text: #243447;
+      --muted: #637487;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* TOPP */
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #183653, #3478c7);
+      color: white;
+      padding: 25px 20px 55px;
+    }
+
+    .topbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .teacher-link {
+      text-decoration: none;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.55);
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+    }
+
+    .teacher-link:hover {
+      background: white;
+      color: var(--dark);
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 55px auto 0;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.17);
+      padding: 7px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      line-height: 1.05;
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      font-size: clamp(1.15rem, 3vw, 1.55rem);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      font-size: 1.05rem;
+      color: #edf7ff;
+    }
+
+    /* GEMENSAMT */
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    section {
+      margin-bottom: 65px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      margin: 0 auto 32px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    /* STADIER */
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 32px 25px;
+      min-height: 290px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      transition: 0.25s ease;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 8px 25px rgba(22, 45, 70, 0.08);
+    }
+
+    .stage-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 16px 35px rgba(22, 45, 70, 0.14);
+    }
+
+    .stage-f3 {
+      background: var(--light-green);
+    }
+
+    .stage-46 {
+      background: var(--light-blue);
+    }
+
+    .stage-79 {
+      background: var(--light-purple);
+    }
+
+    .stage-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .stage-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 5px;
+    }
+
+    .stage-card h4 {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: var(--muted);
+    }
+
+    .stage-card p {
+      flex-grow: 1;
+    }
+
+    .button {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 22px;
+      background: var(--dark);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    /* HUVUDDELAR */
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 20px;
+      padding: 23px;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid #e8edf2;
+      transition: 0.2s;
+      min-height: 170px;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: #bfd5eb;
+      box-shadow: 0 9px 25px rgba(20, 50, 75, 0.09);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .feature-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+      font-size: 1.1rem;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    /* MATTEPRAT */
+
+    .highlight {
+      border-radius: 28px;
+      padding: 40px;
+      background: linear-gradient(135deg, #fff8df, #fff1c0);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .highlight h2 {
+      font-size: 2rem;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .highlight-example {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(70, 55, 15, 0.08);
+    }
+
+    .thought {
+      margin-top: 12px;
+      padding: 10px 13px;
+      background: #f5f8fb;
+      border-radius: 10px;
+    }
+
+    /* RÖD TRÅD */
+
+    .progression {
+      background: white;
+      border-radius: 26px;
+      padding: 35px;
+      border: 1px solid #e6edf3;
+    }
+
+    .progression-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .progression-box {
+      text-align: center;
+      padding: 22px;
+      border-radius: 18px;
+    }
+
+    .p1 {
+      background: var(--light-green);
+    }
+
+    .p2 {
+      background: var(--light-blue);
+    }
+
+    .p3 {
+      background: var(--light-purple);
+    }
+
+    /* MOTTO */
+
+    .motto {
+      text-align: center;
+      padding: 55px 20px;
+      background: var(--dark);
+      color: white;
+      border-radius: 30px;
+    }
+
+    .motto h2 {
+      font-size: clamp(1.7rem, 4vw, 2.7rem);
+      margin-bottom: 12px;
+    }
+
+    .motto p {
+      font-size: 1.2rem;
+      color: #dcecf8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 950px) {
+
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        padding-bottom: 40px;
+      }
+
+      .topbar {
+        flex-direction: column;
+      }
+
+      .feature-grid,
+      .progression-row {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight,
+      .progression {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS
+    </div>
+
+    <a class="teacher-link" href="larare.html">
+      👩‍🏫 Lärarvy
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-badge">
+      Matematik från förskoleklass till årskurs 9
+    </div>
+
+    <h1>
+      MATTERESAN
+    </h1>
+
+    <div class="subtitle">
+      Upptäck • Tänk • Prata • Lös
+    </div>
+
+    <p>
+      En matematikplattform med en tydlig röd tråd genom hela grundskolan.
+      Här får du utforska matematik, prata om hur du tänker, lösa problem,
+      spela, undersöka och anta matematiska utmaningar.
+    </p>
+
+  </div>
+
+</header>
+
+<main>
+
+  <!-- VÄLJ STADIUM -->
+
+  <section>
+
+    <h2 class="section-title">
+      Var börjar din matteresa?
+    </h2>
+
+    <p class="section-intro">
+      Välj ditt stadium. Du möter matematik på din nivå och bygger vidare
+      på det du redan kan.
+    </p>
+
+    <div class="stage-grid">
+
+      <a href="f-3.html" class="stage-card stage-f3">
+
+        <div class="stage-icon">🌱</div>
+
+        <h3>F–3</h3>
+
+        <h4>Jag upptäcker matematiken</h4>
+
+        <p>
+          Upptäck tal, former, mönster, strategier och problemlösning.
+          Prata matematik, prova idéer och bygg en stark matematisk grund.
+        </p>
+
+        <span class="button">
+          Starta →
+        </span>
+
+      </a>
+
+
+      <a href="4-6.html" class="stage-card stage-46">
+
+        <div class="stage-icon">🌿</div>
+
+        <h3>4–6</h3>
+
+        <h4>Jag utvecklar mitt matematiska tänkande</h4>
+
+        <p>
+          Se samband, jämför strategier, utveckla ditt matematiska språk
+          och använd matematiken för att lösa allt mer utmanande problem.
+        </p>
+
+        <span class="button">
+          Starta →
+        </span>
+
+      </a>
+
+
+      <a href="7-9.html" class="stage-card stage-79">
+
+        <div class="stage-icon">🚀</div>
+
+        <h3>7–9</h3>
+
+        <h4>Jag fördjupar och använder matematiken</h4>
+
+        <p>
+          Analysera, generalisera, argumentera och använd matematiken
+          i komplexa problem och verkliga situationer.
+        </p>
+
+        <span class="button">
+          Starta →
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- PLATTFORMENS DELAR -->
+
+  <section>
+
+    <h2 class="section-title">
+      Utforska matematiken
+    </h2>
+
+    <p class="section-intro">
+      Matematik är mer än att räkna. Här får du tänka, prata,
+      undersöka och använda matematiken.
+    </p>
+
+    <div class="feature-grid">
+
+      <a href="matteprat.html" class="feature-card">
+        <div class="feature-icon">🗣️</div>
+        <h3>Matteprat</h3>
+        <p>
+          Förklara hur du tänker och jämför olika matematiska strategier.
+        </p>
+      </a>
+
+
+      <a href="aventyr.html" class="feature-card">
+        <div class="feature-icon">🧭</div>
+        <h3>Matematikäventyr</h3>
+        <p>
+          Lös mysterier och uppdrag där matematiken hjälper dig vidare.
+        </p>
+      </a>
+
+
+      <a href="problemlosning.html" class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3>Problemlösning</h3>
+        <p>
+          Träna på att förstå problem, välja strategi och förklara lösningar.
+        </p>
+      </a>
+
+
+      <a href="spel.html" class="feature-card">
+        <div class="feature-icon">🎮</div>
+        <h3>Mattespel</h3>
+        <p>
+          Utmana dig själv och träna matematik genom spel.
+        </p>
+      </a>
+
+
+      <a href="undersok.html" class="feature-card">
+        <div class="feature-icon">🔎</div>
+        <h3>Undersök matematik</h3>
+        <p>
+          Upptäck mönster och undersök vad som händer när något förändras.
+        </p>
+      </a>
+
+
+      <a href="verkligheten.html" class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3>Matematik i verkligheten</h3>
+        <p>
+          Använd matematik i vardagen, samhället, naturen och tekniken.
+        </p>
+      </a>
+
+
+      <a href="begrepp.html" class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3>Språk & begrepp</h3>
+        <p>
+          Förstå matematikens ord, symboler och uttryck.
+        </p>
+      </a>
+
+
+      <a href="strategier.html" class="feature-card">
+        <div class="feature-icon">🧩</div>
+        <h3>Strategibanken</h3>
+        <p>
+          Upptäck olika sätt att tänka och lösa matematiska uppgifter.
+        </p>
+      </a>
+
+
+      <a href="stod.html" class="feature-card">
+        <div class="feature-icon">🛟</div>
+        <h3>Jag behöver hjälp</h3>
+        <p>
+          Få tydliga exempel, visuellt stöd och hjälp steg för steg.
+        </p>
+      </a>
+
+
+      <a href="utmaning.html" class="feature-card">
+        <div class="feature-icon">🚀</div>
+        <h3>Utmana mig</h3>
+        <p>
+          Prova kluringar och problem som kräver extra tankekraft.
+        </p>
+      </a>
+
+
+      <a href="veckansproblem.html" class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <h3>Veckans problem</h3>
+        <p>
+          Ett nytt problem att lösa, diskutera och jämföra lösningar på.
+        </p>
+      </a>
+
+
+      <a href="minresa.html" class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>Min matteresa</h3>
+        <p>
+          Se vad du arbetar med och vilka matematiska steg som kommer härnäst.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- MATTEPRAT EXEMPEL -->
+
+  <section>
+
+    <div class="highlight">
+
+      <div>
+
+        <h2>
+          🗣️ Matteprat
+        </h2>
+
+        <p>
+          I Matteresan är det lika viktigt att kunna förklara
+          <strong>hur</strong> du tänker som att hitta ett svar.
+        </p>
+
+        <br>
+
+        <p>
+          Jämför strategier. Ställ frågor. Visa med bilder.
+          Hitta flera lösningar och lär tillsammans.
+        </p>
+
+      </div>
+
+
+      <div class="highlight-example">
+
+        <strong>Hur skulle du räkna?</strong>
+
+        <h2 style="margin-top:10px;">
+          48 + 27
+        </h2>
+
+        <div class="thought">
+          👧 Mira: 50 + 27 − 2
+        </div>
+
+        <div class="thought">
+          👦 Samir: 40 + 20 + 8 + 7
+        </div>
+
+        <div class="thought">
+          🧒 Alex: 48 + 30 − 3
+        </div>
+
+        <p style="margin-top:18px;">
+          💭 Vilken strategi skulle du välja? Varför?
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- RÖDA TRÅDEN -->
+
+  <section>
+
+    <div class="progression">
+
+      <h2 class="section-title">
+        🔗 Den röda tråden F–9
+      </h2>
+
+      <p class="section-intro">
+        Du möter matematiska idéer flera gånger under din skoltid.
+        Varje gång bygger du vidare och förstår lite mer.
+      </p>
+
+      <div class="progression-row">
+
+        <div class="progression-box p1">
+
+          <h3>🌱 F–3</h3>
+
+          <p>
+            Upptäcka<br>
+            Prova<br>
+            Beskriva<br>
+            Bygga grunden
+          </p>
+
+        </div>
+
+
+        <div class="progression-box p2">
+
+          <h3>🌿 4–6</h3>
+
+          <p>
+            Förstå samband<br>
+            Jämföra strategier<br>
+            Resonera<br>
+            Använda
+          </p>
+
+        </div>
+
+
+        <div class="progression-box p3">
+
+          <h3>🚀 7–9</h3>
+
+          <p>
+            Fördjupa<br>
+            Generalisera<br>
+            Argumentera<br>
+            Lösa komplexa problem
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SLUT -->
+
+  <section>
+
+    <div class="motto">
+
+      <h2>
+        Matematik är något vi tänker tillsammans.
+      </h2>
+
+      <p>
+        Upptäck • Tänk • Prata • Lös
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  Matematik genom hela grundskolan
+
+</footer>
+
+</body>
+</html>
