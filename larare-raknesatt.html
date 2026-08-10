@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>De fyra räknesätten F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --red: #b85d5d;
+      --red-dark: #874141;
+      --red-light: #fff0f0;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
+        linear-gradient(135deg, #713535, #b85d5d);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--red-dark);
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 4.6rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: auto;
+      color: #fff3f3;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--red-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 860px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .core-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .core-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 180px;
+      border: 1px solid #e6ebef;
+    }
+
+    .core-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .core-card h3 {
+      color: var(--red-dark);
+      margin-bottom: 6px;
+    }
+
+    .core-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .progression-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
+        linear-gradient(135deg, #17324d, #764646);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .progression-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .progression-box > p {
+      color: #fff3f3;
+      max-width: 830px;
+    }
+
+    .progression-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .progression-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 280px;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .f3 { background: rgba(118,211,149,0.15); }
+    .m46 { background: rgba(110,177,238,0.15); }
+    .m79 { background: rgba(177,147,245,0.15); }
+
+    .progression-card span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 7px;
+    }
+
+    .progression-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .progression-card ul {
+      padding-left: 20px;
+      color: #fffafa;
+      font-size: 0.93rem;
+    }
+
+    .progression-card li {
+      margin-bottom: 6px;
+    }
+
+    .operation {
+      background: white;
+      border-radius: 28px;
+      padding: 32px;
+      border: 1px solid #e6ebef;
+      margin-bottom: 25px;
+    }
+
+    .operation-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .operation-header span {
+      font-size: 2.7rem;
+    }
+
+    .operation-header h2 {
+      color: var(--dark);
+      font-size: 1.75rem;
+    }
+
+    .operation-header p {
+      color: var(--muted);
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .mini-card {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 190px;
+    }
+
+    .mini-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .mini-card p,
+    .mini-card ul {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .mini-card ul {
+      padding-left: 20px;
+    }
+
+    .mini-card li {
+      margin-bottom: 6px;
+    }
+
+    .m1 { background: var(--green-light); }
+    .m2 { background: var(--blue-light); }
+    .m3 { background: var(--yellow-light); }
+
+    .strategy-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 24px;
+    }
+
+    .strategy-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 180px;
+      border: 1px solid #dfe8ef;
+    }
+
+    .strategy-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .strategy-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .strategy-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .mis-box {
+      background: var(--pink-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .mis-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .mis-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 200px;
+      border: 1px solid #eee1e5;
+    }
+
+    .mis-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .mis-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .mis-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .question-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .question-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .question-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 170px;
+      border: 1px solid #eee3c6;
+    }
+
+    .question-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .question-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .support-grid,
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .support-card,
+    .assessment-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 180px;
+      border: 1px solid #e6ebef;
+    }
+
+    .support-card span,
+    .assessment-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .support-card h3,
+    .assessment-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .support-card p,
+    .assessment-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .challenge-box {
+      background: var(--purple-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 24px;
+    }
+
+    .challenge-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 180px;
+      border: 1px solid #e2dcf1;
+    }
+
+    .challenge-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .challenge-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .challenge-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .link-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 175px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .link-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
+    }
+
+    .link-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .link-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .link-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .c1 { background: var(--red-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--orange-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--yellow-light); }
+
+    .note {
+      background: var(--yellow-light);
+      border-left: 6px solid #dba327;
+      border-radius: 14px;
+      padding: 20px;
+      color: #665528;
+      margin-top: 25px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 1000px) {
+      .core-grid,
+      .strategy-grid,
+      .support-grid,
+      .assessment-grid,
+      .challenge-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .progression-grid,
+      .three-grid,
+      .mis-grid,
+      .question-grid,
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .core-grid,
+      .strategy-grid,
+      .support-grid,
+      .assessment-grid,
+      .challenge-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .progression-box,
+      .operation,
+      .strategy-box,
+      .mis-box,
+      .question-box,
+      .challenge-box {
+        padding: 25px 18px;
+      }
+
+      .operation-header {
+        align-items: flex-start;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      section,
+      .operation {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="larare.html" class="back-link">
+      ← Lärarvy
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">➕➖✖️➗</div>
+
+    <h1>De fyra räknesätten F–9</h1>
+
+    <h2>Förstå innebörden • Välj strategi • Beräkna • Kontrollera</h2>
+
+    <p>
+      Räknesätten utvecklas från konkreta handlingar och enkla talrelationer
+      till flexibla strategier, skriftliga metoder, algebraiska samband
+      och beräkningar med rationella tal.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>🧠 Metoder behöver byggas på mening</h2>
+
+      <p>
+        Att kunna en algoritm är inte samma sak som att förstå ett räknesätt.
+        Elever behöver förstå vilken situation addition, subtraktion,
+        multiplikation eller division representerar, hur räknesätten hänger ihop
+        och varför olika strategier fungerar.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Fyra räknesätt – flera betydelser
+    </h2>
+
+    <p class="section-intro">
+      Samma räknesätt kan representera flera olika typer av situationer.
+    </p>
+
+    <div class="core-grid">
+
+      <div class="core-card">
+        <span>➕</span>
+        <h3>Addition</h3>
+        <p>
+          Lägga ihop, öka, kombinera och beskriva en helhet av flera delar.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>➖</span>
+        <h3>Subtraktion</h3>
+        <p>
+          Ta bort, minska, jämföra, hitta skillnad och komplettera.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>✖️</span>
+        <h3>Multiplikation</h3>
+        <p>
+          Lika stora grupper, rektangulära strukturer, skalning och multiplikativa relationer.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>➗</span>
+        <h3>Division</h3>
+        <p>
+          Dela lika, gruppera, mäta hur många gånger något ryms och invertera multiplikation.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="progression-box">
+
+      <h2>🌱 → 🌿 → 🚀 Progression F–9</h2>
+
+      <p>
+        Räknesättens innebörd introduceras tidigt men fördjupas när talområden och problem blir mer komplexa.
+      </p>
+
+      <div class="progression-grid">
+
+        <div class="progression-card f3">
+
+          <span>🌱</span>
+
+          <h3>F–3</h3>
+
+          <ul>
+            <li>addition som sammanläggning och ökning</li>
+            <li>subtraktion som borttagning, skillnad och komplettering</li>
+            <li>multiplikation som lika grupper och mönster</li>
+            <li>division som delning och gruppering</li>
+            <li>tiokompisar</li>
+            <li>dubbelt och hälften</li>
+            <li>del–helhet</li>
+            <li>tidiga skriftliga representationer</li>
+          </ul>
+
+        </div>
+
+
+        <div class="progression-card m46">
+
+          <span>🌿</span>
+
+          <h3>4–6</h3>
+
+          <ul>
+            <li>flexibla huvudräkningsstrategier</li>
+            <li>skriftliga metoder</li>
+            <li>överslag</li>
+            <li>beräkningar med decimaltal</li>
+            <li>multiplikation och division med större tal</li>
+            <li>bråk och procent i beräkningar</li>
+            <li>strategival</li>
+            <li>rimlighetsbedömning</li>
+          </ul>
+
+        </div>
+
+
+        <div class="progression-card m79">
+
+          <span>🚀</span>
+
+          <h3>7–9</h3>
+
+          <ul>
+            <li>beräkningar med rationella tal</li>
+            <li>negativa tal</li>
+            <li>potenser</li>
+            <li>prioriteringsregler</li>
+            <li>algebraiska uttryck</li>
+            <li>procentuell förändring</li>
+            <li>digitala och manuella metoder</li>
+            <li>strategiskt val av verktyg</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="operation">
+
+      <div class="operation-header">
+        <span>➕</span>
+
+        <div>
+          <h2>Addition</h2>
+          <p>Bygg från del–helhet och talrelationer mot flexibla strategier.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+          <h3>Förstå innebörden</h3>
+          <ul>
+            <li>lägga ihop mängder</li>
+            <li>öka ett antal</li>
+            <li>kombinera delar till helhet</li>
+            <li>förändring över tid</li>
+          </ul>
+        </div>
+
+        <div class="mini-card m2">
+          <h3>Strategier</h3>
+          <ul>
+            <li>dela upp tal</li>
+            <li>göra tiotal</li>
+            <li>kompensera</li>
+            <li>använd dubbelt</li>
+            <li>skriftlig metod</li>
+          </ul>
+        </div>
+
+        <div class="mini-card m3">
+          <h3>Fråga</h3>
+          <ul>
+            <li>Kan du se ett lättare tal?</li>
+            <li>Vad kan delas upp?</li>
+            <li>Kan du göra ett helt tiotal?</li>
+            <li>Vilken metod är effektiv här?</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="operation">
+
+      <div class="operation-header">
+        <span>➖</span>
+
+        <div>
+          <h2>Subtraktion</h2>
+          <p>Subtraktion behöver mötas i flera betydelser.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+          <h3>Förstå innebörden</h3>
+          <ul>
+            <li>ta bort</li>
+            <li>minska</li>
+            <li>jämföra</li>
+            <li>hitta skillnad</li>
+            <li>komplettera</li>
+          </ul>
+        </div>
+
+        <div class="mini-card m2">
+          <h3>Strategier</h3>
+          <ul>
+            <li>räkna uppåt</li>
+            <li>dela upp</li>
+            <li>kompensera</li>
+            <li>använd tallinje</li>
+            <li>skriftlig metod</li>
+          </ul>
+        </div>
+
+        <div class="mini-card m3">
+          <h3>Fråga</h3>
+          <ul>
+            <li>Är det lättare att räkna uppåt?</li>
+            <li>Hur stor är skillnaden?</li>
+            <li>Vad händer om båda talen ökar med 1?</li>
+            <li>Kan addition kontrollera svaret?</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="operation">
+
+      <div class="operation-header">
+        <span>✖️</span>
+
+        <div>
+          <h2>Multiplikation</h2>
+          <p>Utveckla från lika grupper till skalning och distributiva samband.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+          <h3>Förstå innebörden</h3>
+          <ul>
+            <li>lika stora grupper</li>
+            <li>rektangulära mönster</li>
+            <li>kombinationer</li>
+            <li>skalning</li>
+            <li>förhållanden</li>
+          </ul>
+        </div>
+
+        <div class="mini-card m2">
+          <h3>Strategier</h3>
+          <ul>
+            <li>dubbla och halvera</li>
+            <li>dela upp faktorer</li>
+            <li>distributiva lagen</li>
+            <li>använd kända produkter</li>
+            <li>skriftlig metod</li>
+          </ul>
+        </div>
+
+        <div class="mini-card m3">
+          <h3>Fråga</h3>
+          <ul>
+            <li>Vilken produkt känner du redan?</li>
+            <li>Kan faktorn delas upp?</li>
+            <li>Vad händer om vi dubblar ena faktorn?</li>
+            <li>Hur syns beräkningen i en areamodell?</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="operation">
+
+      <div class="operation-header">
+        <span>➗</span>
+
+        <div>
+          <h2>Division</h2>
+          <p>Koppla alltid division till multiplikation och proportionella relationer.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+          <h3>Förstå innebörden</h3>
+          <ul>
+            <li>dela lika</li>
+            <li>gruppera</li>
+            <li>hur många gånger ryms?</li>
+            <li>förhållande</li>
+            <li>invers till multiplikation</li>
+          </ul>
+        </div>
+
+        <div class="mini-card m2">
+          <h3>Strategier</h3>
+          <ul>
+            <li>använd multiplikationsfakta</li>
+            <li>dela upp tal</li>
+            <li>halvera stegvis</li>
+            <li>skala</li>
+            <li>skriftlig metod</li>
+          </ul>
+        </div>
+
+        <div class="mini-card m3">
+          <h3>Fråga</h3>
+          <ul>
+            <li>Hur många grupper blir det?</li>
+            <li>Hur många i varje grupp?</li>
+            <li>Vilken multiplikation hör ihop?</li>
+            <li>Är kvoten rimlig?</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="strategy-box">
+
+      <h2 class="section-title">
+        🧩 Strategier före mekanik
+      </h2>
+
+      <p class="section-intro">
+        Elever behöver ett repertoar av strategier och kunna avgöra när de är användbara.
+      </p>
+
+      <div class="strategy-grid">
+
+        <div class="strategy-card">
+          <span>🧱</span>
+          <h3>Dela upp</h3>
+          <p>
+            Exempel: 47 + 36 = 40 + 30 + 7 + 6.
+          </p>
+        </div>
+
+        <div class="strategy-card">
+          <span>⚖️</span>
+          <h3>Kompensera</h3>
+          <p>
+            Exempel: 198 + 47 = 200 + 47 − 2.
+          </p>
+        </div>
+
+        <div class="strategy-card">
+          <span>✖️</span>
+          <h3>Distributivt</h3>
+          <p>
+            Exempel: 7 × 18 = 7 × 20 − 7 × 2.
+          </p>
+        </div>
+
+        <div class="strategy-card">
+          <span>🔄</span>
+          <h3>Inversa samband</h3>
+          <p>
+            Addition kontrolleras med subtraktion och multiplikation med division.
+          </p>
+        </div>
+
+        <div class="strategy-card">
+          <span>↔️</span>
+          <h3>Tallinje</h3>
+          <p>
+            Särskilt användbar för skillnad, förändring och negativa tal.
+          </p>
+        </div>
+
+        <div class="strategy-card">
+          <span>🔢</span>
+          <h3>Kända talfakta</h3>
+          <p>
+            Använd tidigare kunskap för att härleda nya beräkningar.
+          </p>
+        </div>
+
+        <div class="strategy-card">
+          <span>👀</span>
+          <h3>Överslag</h3>
+          <p>
+            Uppskatta resultatets storlek före eller efter beräkning.
+          </p>
+        </div>
+
+        <div class="strategy-card">
+          <span>📝</span>
+          <h3>Skriftlig metod</h3>
+          <p>
+            Används när den är effektiv och förståelsen för platsvärde är stabil.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="mis-box">
+
+      <h2 class="section-title">
+        ⚠️ Vanliga missuppfattningar
+      </h2>
+
+      <p class="section-intro">
+        Felsvar visar ofta att eleven följer en regel utan att förstå räknesättets struktur.
+      </p>
+
+      <div class="mis-grid">
+
+        <div class="mis-card">
+          <span>➖</span>
+          <h3>Alltid större minus mindre</h3>
+          <p>
+            Eleven kan exempelvis behandla varje sifferkolumn separat och välja den största siffran först.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>✖️</span>
+          <h3>Multiplikation gör alltid större</h3>
+          <p>
+            Detta fungerar inte vid multiplikation med tal mellan 0 och 1.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>➗</span>
+          <h3>Division gör alltid mindre</h3>
+          <p>
+            8 ÷ 0,5 blir större än 8. Eleven behöver förstå division som mätning och gruppering.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>🔢</span>
+          <h3>Algoritmen styr platsvärdet</h3>
+          <p>
+            Eleven följer steg men tappar vad hundratal, tiotal, ental och decimaldelar betyder.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>➕</span>
+          <h3>Alla textuppgifter med ”fler” kräver addition</h3>
+          <p>
+            Kontexten behöver förstås. Nyckelord ensamma avgör inte räknesättet.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>🧮</span>
+          <h3>Miniräknarens svar är alltid rimligt</h3>
+          <p>
+            Strategiskt användande av digitala verktyg kräver fortsatt taluppfattning och kontroll.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="question-box">
+
+      <h2 class="section-title">
+        💬 Frågor som utvecklar strategival
+      </h2>
+
+      <p class="section-intro">
+        Fokusera inte bara på hur eleven räknar utan varför just den metoden valdes.
+      </p>
+
+      <div class="question-grid">
+
+        <div class="question-card">
+          <h3>Kan du lösa på ett annat sätt?</h3>
+          <p>
+            Synliggör flexibilitet och gör olika strategier möjliga att jämföra.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Vilken metod är effektivast här?</h3>
+          <p>
+            Flyttar fokus från en standardmetod till ett medvetet strategival.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Varför fungerar metoden?</h3>
+          <p>
+            Synliggör om eleven förstår relationerna bakom stegen.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Vilket svar väntar du dig ungefär?</h3>
+          <p>
+            Aktiverar överslag och rimlighetsbedömning före beräkningen.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Vilket räknesätt hör ihop med detta?</h3>
+          <p>
+            Hjälper eleven se inversa samband och strukturer.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Hur kan du kontrollera?</h3>
+          <p>
+            Låt kontrollen bli en naturlig del av lösningsprocessen.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      🛟 Stöd när beräkningarna blir svåra
+    </h2>
+
+    <p class="section-intro">
+      Gå tillbaka till räknesättets innebörd och talens struktur.
+    </p>
+
+    <div class="support-grid">
+
+      <div class="support-card">
+        <span>🧱</span>
+        <h3>Konkretisera</h3>
+        <p>
+          Använd material för att visa grupper, delning, växling och platsvärde.
+        </p>
+      </div>
+
+      <div class="support-card">
+        <span>🖼️</span>
+        <h3>Rita modell</h3>
+        <p>
+          Stapelmodell, areamodell eller tallinje kan synliggöra operationens innebörd.
+        </p>
+      </div>
+
+      <div class="support-card">
+        <span>🔢</span>
+        <h3>Mindre tal – samma idé</h3>
+        <p>
+          Förenkla talen tillfälligt men behåll problemets matematiska struktur.
+        </p>
+      </div>
+
+      <div class="support-card">
+        <span>🔄</span>
+        <h3>Koppla till känt</h3>
+        <p>
+          Använd talfakta och strategier eleven redan behärskar som startpunkt.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="challenge-box">
+
+      <h2 class="section-title">
+        🚀 Fördjupa räknesätten
+      </h2>
+
+      <p class="section-intro">
+        Utmaning kan skapas utan att bara använda större tal.
+      </p>
+
+      <div class="challenge-grid">
+
+        <div class="challenge-card">
+          <span>🧩</span>
+          <h3>Tre strategier</h3>
+          <p>
+            Lös samma beräkning på flera sätt och analysera vilken som är mest effektiv.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <span>🔎</span>
+          <h3>Hitta talet</h3>
+          <p>
+            Skapa en beräkning som ger ett bestämt svar under givna villkor.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <span>⚖️</span>
+          <h3>Sant eller falskt?</h3>
+          <p>
+            Bedöm generella påståenden om räknesätten och motivera eller hitta motexempel.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <span>🚀</span>
+          <h3>Generalisera</h3>
+          <p>
+            Vad händer med summan, differensen, produkten eller kvoten när talen förändras?
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      📊 Bedömning – vad ska läraren få syn på?
+    </h2>
+
+    <p class="section-intro">
+      Säker beräkning är viktig, men också förståelse och strategisk flexibilitet.
+    </p>
+
+    <div class="assessment-grid">
+
+      <div class="assessment-card">
+        <span>🧠</span>
+        <h3>Innebörd</h3>
+        <p>
+          Förstår eleven vilket räknesätt situationen representerar och varför?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>🧩</span>
+        <h3>Strategival</h3>
+        <p>
+          Kan eleven välja och byta strategi när tal eller situation förändras?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>🔢</span>
+        <h3>Metodsäkerhet</h3>
+        <p>
+          Kan eleven genomföra lämpliga muntliga, skriftliga och digitala metoder?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>✅</span>
+        <h3>Kontroll</h3>
+        <p>
+          Kan eleven uppskatta, kontrollera och bedöma om resultatet är rimligt?
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Relaterade lärarsidor
+    </h2>
+
+    <p class="section-intro">
+      Räknesätten utvecklas tillsammans med taluppfattning, bråk, algebra och problemlösning.
+    </p>
+
+    <div class="links-grid">
+
+      <a href="larare-tal.html" class="link-card c1">
+        <span>🔢</span>
+        <h3>Taluppfattning</h3>
+        <p>
+          En stabil talförståelse gör flexibla beräkningsstrategier möjliga.
+        </p>
+      </a>
+
+      <a href="larare-brak.html" class="link-card c2">
+        <span>🍕</span>
+        <h3>Bråk</h3>
+        <p>
+          Räknesätten får nya betydelser när talområdet utvidgas.
+        </p>
+      </a>
+
+      <a href="larare-decimal.html" class="link-card c3">
+        <span>🔟</span>
+        <h3>Decimaltal</h3>
+        <p>
+          Platsvärde och beräkningsstrategier behöver fortsätta fungera i decimalform.
+        </p>
+      </a>
+
+      <a href="larare-algebra.html" class="link-card c4">
+        <span>🔤</span>
+        <h3>Algebra</h3>
+        <p>
+          Räknesättens egenskaper utvecklas till algebraiska regler och uttryck.
+        </p>
+      </a>
+
+      <a href="larare-problemlosning.html" class="link-card c5">
+        <span>🧠</span>
+        <h3>Problemlösning</h3>
+        <p>
+          Elever behöver avgöra vilket räknesätt och vilken strategi en situation kräver.
+        </p>
+      </a>
+
+      <a href="larare-missuppfattningar.html" class="link-card c6">
+        <span>⚠️</span>
+        <h3>Missuppfattningar</h3>
+        <p>
+          Fördjupa analysen av systematiska fel och bakomliggande elevtankar.
+        </p>
+      </a>
+
+    </div>
+
+    <div class="note">
+      <strong>Kom ihåg:</strong>
+      automatisering och säkerhet är viktiga, men de ska utvecklas tillsammans med förståelse.
+      Målet är att eleven både kan beräkna och förstår varför metoden fungerar.
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  ➕➖✖️➗ De fyra räknesätten – förstå, välj strategi, beräkna och kontrollera
+
+</footer>
+
+</body>
+</html>
