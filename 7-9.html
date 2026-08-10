@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>7–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #1d2d44;
+      --purple: #7057c7;
+      --purple-dark: #4f3b98;
+      --purple-light: #f0ecff;
+      --blue-light: #eaf4ff;
+      --green-light: #eaf7ef;
+      --yellow: #fff1bb;
+      --orange: #ffe1c3;
+      --pink: #ffe5ef;
+      --white: #ffffff;
+      --background: #f8f8fc;
+      --text: #293645;
+      --muted: #677789;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #4f3b98, #8068d8);
+      color: white;
+      padding: 22px 20px 55px;
+    }
+
+    .topbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .home-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .home-link:hover {
+      background: white;
+      color: var(--purple-dark);
+    }
+
+    .hero {
+      max-width: 850px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4rem;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #f4f1ff;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 65px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .grade-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grade-card {
+      background: white;
+      border-radius: 22px;
+      padding: 30px 24px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(45, 35, 90, 0.08);
+      border: 1px solid #e7e1f6;
+      transition: 0.2s;
+    }
+
+    .grade-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(45, 35, 90, 0.14);
+    }
+
+    .grade-icon {
+      font-size: 2.9rem;
+      margin-bottom: 10px;
+    }
+
+    .grade-card h3 {
+      color: var(--purple-dark);
+      margin-bottom: 8px;
+      font-size: 1.4rem;
+    }
+
+    .grade-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .grade-button {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: var(--purple-dark);
+      color: white;
+      font-weight: bold;
+    }
+
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .area-card {
+      min-height: 165px;
+      border-radius: 20px;
+      padding: 22px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .area-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    }
+
+    .area-card h3 {
+      margin: 8px 0 6px;
+      color: var(--dark);
+      font-size: 1.08rem;
+    }
+
+    .area-card p {
+      font-size: 0.92rem;
+      color: #536372;
+    }
+
+    .area-icon {
+      font-size: 2rem;
+    }
+
+    .c1 { background: var(--purple-light); }
+    .c2 { background: var(--blue-light); }
+    .c3 { background: var(--green-light); }
+    .c4 { background: var(--yellow); }
+    .c5 { background: var(--orange); }
+    .c6 { background: var(--pink); }
+
+    .learning-box {
+      background: white;
+      border-radius: 28px;
+      padding: 35px;
+      border: 1px solid #e5e1f1;
+    }
+
+    .learning-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .learning-step {
+      text-align: center;
+      padding: 24px 16px;
+      border-radius: 20px;
+      background: #f7f5fc;
+    }
+
+    .learning-step span {
+      font-size: 2.3rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .learning-step h3 {
+      color: var(--purple-dark);
+      margin-bottom: 5px;
+    }
+
+    .talk {
+      background: linear-gradient(135deg, #fff4ca, #ffe69b);
+      border-radius: 28px;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .talk h2 {
+      color: var(--dark);
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .talk-card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(70,55,15,0.08);
+    }
+
+    .bubble {
+      margin-top: 10px;
+      background: #f4f7f9;
+      padding: 11px 14px;
+      border-radius: 12px;
+    }
+
+    .adventure {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 35%),
+        linear-gradient(135deg, #27214f, #5e4aa0);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .adventure h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .adventure p {
+      max-width: 760px;
+      color: #f1eeff;
+    }
+
+    .adventure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 25px;
+    }
+
+    .adventure-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 18px;
+      padding: 22px;
+      transition: 0.2s;
+    }
+
+    .adventure-card:hover {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-3px);
+    }
+
+    .extra-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .extra-card {
+      background: white;
+      border: 1px solid #e5e1f1;
+      border-radius: 20px;
+      padding: 23px;
+      min-height: 150px;
+      transition: 0.2s;
+    }
+
+    .extra-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(30,50,60,0.09);
+    }
+
+    .extra-card div {
+      font-size: 2rem;
+    }
+
+    .extra-card h3 {
+      margin: 7px 0;
+      color: var(--dark);
+    }
+
+    .extra-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .progression {
+      background: var(--purple-light);
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .progression h2 {
+      text-align: center;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .progression p {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .progression-row {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .progression-item {
+      background: white;
+      border-radius: 17px;
+      padding: 20px;
+      text-align: center;
+      font-weight: bold;
+      color: var(--purple-dark);
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf0f5;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 950px) {
+      .area-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .learning-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .talk {
+        grid-template-columns: 1fr;
+      }
+
+      .extra-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .grade-grid,
+      .adventure-grid,
+      .progression-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .area-grid,
+      .learning-grid,
+      .extra-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .talk,
+      .learning-box,
+      .adventure,
+      .progression {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .home-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+
+      .grade-card,
+      .area-card,
+      .extra-card,
+      .learning-box,
+      .talk,
+      .progression {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="index.html" class="home-link">
+      ← Startsidan
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🚀</div>
+
+    <h1>7–9</h1>
+
+    <h2>Jag fördjupar och använder matematiken</h2>
+
+    <p>
+      Här utvecklar du din förmåga att analysera, generalisera,
+      argumentera och använda matematik i mer komplexa problem och verkliga situationer.
+    </p>
+
+  </div>
+
+</header>
+
+<main>
+
+  <section>
+
+    <h2 class="section-title">
+      Välj din årskurs
+    </h2>
+
+    <p class="section-intro">
+      Bygg vidare på dina kunskaper och fördjupa ditt matematiska tänkande.
+    </p>
+
+    <div class="grade-grid">
+
+      <a href="ak7.html" class="grade-card">
+
+        <div class="grade-icon">🧭</div>
+
+        <h3>Årskurs 7</h3>
+
+        <p>
+          Fördjupa tal, algebra, geometri, procent, statistik och problemlösning.
+        </p>
+
+        <span class="grade-button">
+          Öppna →
+        </span>
+
+      </a>
+
+      <a href="ak8.html" class="grade-card">
+
+        <div class="grade-icon">🔬</div>
+
+        <h3>Årskurs 8</h3>
+
+        <p>
+          Utveckla algebraiska samband, proportionalitet, funktioner och matematiska resonemang.
+        </p>
+
+        <span class="grade-button">
+          Öppna →
+        </span>
+
+      </a>
+
+      <a href="ak9.html" class="grade-card">
+
+        <div class="grade-icon">🎯</div>
+
+        <h3>Årskurs 9</h3>
+
+        <p>
+          Använd matematiken självständigt, argumentera och lös mer komplexa problem.
+        </p>
+
+        <span class="grade-button">
+          Öppna →
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Matematikområden
+    </h2>
+
+    <p class="section-intro">
+      Fördjupa förståelsen och se samband mellan olika matematiska områden.
+    </p>
+
+    <div class="area-grid">
+
+      <a href="79-tal.html" class="area-card c1">
+        <div class="area-icon">🔢</div>
+        <h3>Tal & beräkningar</h3>
+        <p>
+          Reella tal, potenser, prioriteringsregler, beräkningar och överslagsräkning.
+        </p>
+      </a>
+
+      <a href="79-algebra.html" class="area-card c2">
+        <div class="area-icon">🔤</div>
+        <h3>Algebra</h3>
+        <p>
+          Uttryck, ekvationer, formler, variabler och algebraiska samband.
+        </p>
+      </a>
+
+      <a href="79-procent.html" class="area-card c3">
+        <div class="area-icon">%</div>
+        <h3>Procent & förändring</h3>
+        <p>
+          Förändringsfaktor, procentuell ökning och minskning och jämförelser.
+        </p>
+      </a>
+
+      <a href="79-geometri.html" class="area-card c4">
+        <div class="area-icon">📐</div>
+        <h3>Geometri</h3>
+        <p>
+          Area, volym, skala, likformighet, Pythagoras sats och geometriska samband.
+        </p>
+      </a>
+
+      <a href="79-funktioner.html" class="area-card c5">
+        <div class="area-icon">📈</div>
+        <h3>Funktioner & samband</h3>
+        <p>
+          Tabeller, grafer, linjära samband, proportionalitet och funktioner.
+        </p>
+      </a>
+
+      <a href="79-statistik.html" class="area-card c6">
+        <div class="area-icon">📊</div>
+        <h3>Statistik</h3>
+        <p>
+          Data, diagram, lägesmått, spridning, tolkning och kritisk granskning.
+        </p>
+      </a>
+
+      <a href="79-sannolikhet.html" class="area-card c1">
+        <div class="area-icon">🎲</div>
+        <h3>Sannolikhet</h3>
+        <p>
+          Slumpförsök, kombinatorik, sannolikheter och matematiska modeller.
+        </p>
+      </a>
+
+      <a href="79-koordinater.html" class="area-card c2">
+        <div class="area-icon">🗺️</div>
+        <h3>Koordinater & grafer</h3>
+        <p>
+          Koordinatsystem, grafer, förändringar och tolkning av samband.
+        </p>
+      </a>
+
+      <a href="79-monster.html" class="area-card c3">
+        <div class="area-icon">🧩</div>
+        <h3>Mönster & generalisering</h3>
+        <p>
+          Beskriv regler, formulera generaliseringar och uttryck samband algebraisk.
+        </p>
+      </a>
+
+      <a href="79-problemlosning.html" class="area-card c4">
+        <div class="area-icon">🧠</div>
+        <h3>Problemlösning</h3>
+        <p>
+          Tolka, modellera, välja metod, värdera lösningar och argumentera.
+        </p>
+      </a>
+
+      <a href="79-resonemang.html" class="area-card c5">
+        <div class="area-icon">💬</div>
+        <h3>Resonemang</h3>
+        <p>
+          Förklara, motivera, jämföra och föra matematiska argument.
+        </p>
+      </a>
+
+      <a href="79-modellering.html" class="area-card c6">
+        <div class="area-icon">🌍</div>
+        <h3>Matematisk modellering</h3>
+        <p>
+          Använd matematik för att beskriva och analysera verkliga situationer.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="learning-box">
+
+      <h2 class="section-title">
+        Så fördjupar du ditt matematiska tänkande
+      </h2>
+
+      <p class="section-intro">
+        I 7–9 blir matematiken mer abstrakt.
+        Samtidigt blir din förmåga att resonera och se samband allt viktigare.
+      </p>
+
+      <div class="learning-grid">
+
+        <div class="learning-step">
+          <span>🔎</span>
+          <h3>Analysera</h3>
+          <p>
+            Undersök information och identifiera matematiska samband.
+          </p>
+        </div>
+
+        <div class="learning-step">
+          <span>🔗</span>
+          <h3>Generalisera</h3>
+          <p>
+            Beskriv regler och samband som gäller i flera situationer.
+          </p>
+        </div>
+
+        <div class="learning-step">
+          <span>🗣️</span>
+          <h3>Argumentera</h3>
+          <p>
+            Motivera varför en lösning eller slutsats är rimlig.
+          </p>
+        </div>
+
+        <div class="learning-step">
+          <span>🌍</span>
+          <h3>Använd</h3>
+          <p>
+            Tillämpa matematiken på verkliga och nya problem.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="talk">
+
+      <div>
+
+        <h2>🗣️ Matteprat</h2>
+
+        <p>
+          I Matteprat får du jämföra metoder, analysera påståenden,
+          argumentera och upptäcka matematiska samband tillsammans med andra.
+        </p>
+
+        <br>
+
+        <a href="matteprat-79.html" class="grade-button">
+          Gå till Matteprat →
+        </a>
+
+      </div>
+
+      <div class="talk-card">
+
+        <strong>Vem har rätt?</strong>
+
+        <h2 style="margin-top:10px;">
+          2(x + 4) = 2x + 8
+        </h2>
+
+        <div class="bubble">
+          👧 Sara: Det fungerar alltid.
+        </div>
+
+        <div class="bubble">
+          👦 Adam: Det fungerar bara för vissa värden på x.
+        </div>
+
+        <div class="bubble">
+          🧠 Hur kan du visa vem som har rätt?
+        </div>
+
+        <div class="bubble">
+          💭 Kan du förklara utan att prova en massa olika tal?
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="adventure">
+
+      <h2>🧭 Matematikäventyr 7–9</h2>
+
+      <p>
+        Lös större uppdrag där flera matematiska områden kombineras.
+        Du behöver analysera information, välja modeller och argumentera för dina beslut.
+      </p>
+
+      <div class="adventure-grid">
+
+        <a href="aventyr-7.html" class="adventure-card">
+          <h3>🧪 Åk 7</h3>
+          <p>Laboratoriets hemliga kod</p>
+        </a>
+
+        <a href="aventyr-8.html" class="adventure-card">
+          <h3>🏙️ Åk 8</h3>
+          <p>Bygg framtidens stad</p>
+        </a>
+
+        <a href="aventyr-9.html" class="adventure-card">
+          <h3>🕵️ Åk 9</h3>
+          <p>Det matematiska mysteriet</p>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Mer att utforska
+    </h2>
+
+    <p class="section-intro">
+      Träna, resonera, undersök och använd matematiken på allt mer avancerade sätt.
+    </p>
+
+    <div class="extra-grid">
+
+      <a href="spel-79.html" class="extra-card">
+        <div>🎮</div>
+        <h3>Mattespel</h3>
+        <p>
+          Träna matematik genom strategispel, utmaningar och problemlösning.
+        </p>
+      </a>
+
+      <a href="strategier-79.html" class="extra-card">
+        <div>🧩</div>
+        <h3>Strategibanken</h3>
+        <p>
+          Jämför metoder och välj effektiva strategier.
+        </p>
+      </a>
+
+      <a href="begrepp-79.html" class="extra-card">
+        <div>💬</div>
+        <h3>Språk & begrepp</h3>
+        <p>
+          Förstå matematiska begrepp, uttryck och symboler.
+        </p>
+      </a>
+
+      <a href="undersok-79.html" class="extra-card">
+        <div>🔎</div>
+        <h3>Undersök matematik</h3>
+        <p>
+          Testa hypoteser, upptäck mönster och formulera generaliseringar.
+        </p>
+      </a>
+
+      <a href="stod-79.html" class="extra-card">
+        <div>🛟</div>
+        <h3>Jag behöver hjälp</h3>
+        <p>
+          Få förklaringar, exempel och stöd steg för steg.
+        </p>
+      </a>
+
+      <a href="utmaning-79.html" class="extra-card">
+        <div>🚀</div>
+        <h3>Utmana mig</h3>
+        <p>
+          Lös mer komplexa problem och matematiska kluringar.
+        </p>
+      </a>
+
+      <a href="verkligheten-79.html" class="extra-card">
+        <div>🌍</div>
+        <h3>Matematik i verkligheten</h3>
+        <p>
+          Använd matematik inom ekonomi, teknik, samhälle, natur och vardagsliv.
+        </p>
+      </a>
+
+      <a href="veckansproblem-79.html" class="extra-card">
+        <div>⭐</div>
+        <h3>Veckans problem</h3>
+        <p>
+          Lös problem där du behöver resonera och argumentera.
+        </p>
+      </a>
+
+      <a href="minresa-79.html" class="extra-card">
+        <div>🏆</div>
+        <h3>Min matteresa</h3>
+        <p>
+          Följ din utveckling och se vilka matematiska steg som kommer härnäst.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="progression">
+
+      <h2>
+        🔗 Din röda tråd genom 7–9
+      </h2>
+
+      <p>
+        Du går från att fördjupa tidigare kunskaper till att kunna
+        generalisera, argumentera och använda matematiken självständigt.
+      </p>
+
+      <div class="progression-row">
+
+        <div class="progression-item">
+          🧭 Åk 7<br>
+          Fördjupa & koppla ihop
+        </div>
+
+        <div class="progression-item">
+          🔬 Åk 8<br>
+          Analysera & generalisera
+        </div>
+
+        <div class="progression-item">
+          🎯 Åk 9<br>
+          Argumentera & använda självständigt
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🚀 7–9 – Jag fördjupar och använder matematiken
+
+</footer>
+
+</body>
+</html>
