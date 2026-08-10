@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Matteprat | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --yellow: #ffe79e;
+      --yellow-light: #fff8df;
+      --green-light: #ecf8f0;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --white: #ffffff;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --accent: #d98a00;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #a86500, #e0a11b);
+      color: white;
+      padding: 22px 20px 55px;
+    }
+
+    .topbar {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: #8b5800;
+    }
+
+    .hero {
+      max-width: 850px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #fff8e7;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 760px;
+      margin: auto;
+      color: #5d6570;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 30px 24px;
+      min-height: 235px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stage-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    }
+
+    .f3 {
+      background: var(--green-light);
+    }
+
+    .m46 {
+      background: var(--blue-light);
+    }
+
+    .m79 {
+      background: var(--purple-light);
+    }
+
+    .stage-icon {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card p {
+      color: var(--muted);
+      flex-grow: 1;
+    }
+
+    .stage-button {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 18px;
+      background: var(--dark);
+      color: white;
+      padding: 10px 17px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .question-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .question-card {
+      background: white;
+      border-radius: 20px;
+      padding: 23px;
+      border: 1px solid #e5e9ed;
+      min-height: 170px;
+    }
+
+    .question-card span {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .question-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .question-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .example-box {
+      background: linear-gradient(135deg, #fff5cc, #ffe49a);
+      border-radius: 28px;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .example-box h2 {
+      color: var(--dark);
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .example-card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(70,55,15,0.08);
+    }
+
+    .bubble {
+      margin-top: 10px;
+      background: #f5f7f8;
+      border-radius: 12px;
+      padding: 11px 14px;
+    }
+
+    .rules {
+      background: white;
+      border-radius: 28px;
+      padding: 35px;
+      border: 1px solid #e7ebef;
+    }
+
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 25px;
+    }
+
+    .rule-card {
+      text-align: center;
+      background: #f7f9fb;
+      border-radius: 18px;
+      padding: 20px 14px;
+    }
+
+    .rule-card span {
+      font-size: 2.2rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .rule-card h3 {
+      color: var(--accent);
+      margin-bottom: 5px;
+    }
+
+    .year-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 13px;
+    }
+
+    .year-card {
+      background: white;
+      border-radius: 17px;
+      padding: 17px 10px;
+      text-align: center;
+      border: 1px solid #e6eaee;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .year-card:hover {
+      transform: translateY(-3px);
+      border-color: #e2b24e;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 900px) {
+      .question-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .example-box {
+        grid-template-columns: 1fr;
+      }
+
+      .rules-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .year-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .question-grid,
+      .rules-grid,
+      .year-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .example-box,
+      .rules {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        padding: 0;
+        max-width: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="index.html" class="back-link">
+      ← Startsidan
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🗣️</div>
+
+    <h1>Matteprat</h1>
+
+    <h2>Tänk tillsammans – förstå mer</h2>
+
+    <p>
+      Matteprat handlar om att förklara, lyssna, jämföra och argumentera.
+      Det finns ofta flera bra sätt att tänka matematiskt.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>💬 Vad är Matteprat?</h2>
+
+      <p>
+        I Matteprat får du inte bara ge ett svar.
+        Du får beskriva hur du tänker, jämföra olika strategier,
+        ställa frågor och försöka förstå varför matematiken fungerar.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Välj nivå
+    </h2>
+
+    <p class="section-intro">
+      Frågorna förändras och blir mer avancerade genom hela F–9.
+    </p>
+
+    <div class="stage-grid">
+
+      <a href="matteprat-f3.html" class="stage-card f3">
+
+        <div class="stage-icon">🌱</div>
+
+        <h3>F–3</h3>
+
+        <p>
+          Se, räkna, jämför, visa med bilder och berätta hur du tänker.
+        </p>
+
+        <span class="stage-button">
+          Öppna Matteprat F–3 →
+        </span>
+
+      </a>
+
+
+      <a href="matteprat-46.html" class="stage-card m46">
+
+        <div class="stage-icon">🌿</div>
+
+        <h3>4–6</h3>
+
+        <p>
+          Jämför strategier, se samband och motivera varför en lösning fungerar.
+        </p>
+
+        <span class="stage-button">
+          Öppna Matteprat 4–6 →
+        </span>
+
+      </a>
+
+
+      <a href="matteprat-79.html" class="stage-card m79">
+
+        <div class="stage-icon">🚀</div>
+
+        <h3>7–9</h3>
+
+        <p>
+          Analysera påståenden, generalisera och argumentera matematiskt.
+        </p>
+
+        <span class="stage-button">
+          Öppna Matteprat 7–9 →
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Frågor som får matematiken att växa
+    </h2>
+
+    <p class="section-intro">
+      De här frågorna kan användas i nästan alla matematiska samtal.
+    </p>
+
+    <div class="question-grid">
+
+      <div class="question-card">
+        <span>🧠</span>
+        <h3>Hur tänkte du?</h3>
+        <p>
+          Beskriv din väg från frågan till lösningen.
+        </p>
+      </div>
+
+
+      <div class="question-card">
+        <span>🔎</span>
+        <h3>Hur vet du?</h3>
+        <p>
+          Visa varför du tror att din lösning är riktig.
+        </p>
+      </div>
+
+
+      <div class="question-card">
+        <span>🔄</span>
+        <h3>Finns ett annat sätt?</h3>
+        <p>
+          Leta efter en annan strategi eller representation.
+        </p>
+      </div>
+
+
+      <div class="question-card">
+        <span>⚖️</span>
+        <h3>Vilken strategi är bäst?</h3>
+        <p>
+          Jämför metoder och fundera på när de är användbara.
+        </p>
+      </div>
+
+
+      <div class="question-card">
+        <span>🖼️</span>
+        <h3>Kan du visa det?</h3>
+        <p>
+          Visa med bild, konkret material, tabell, graf eller symboler.
+        </p>
+      </div>
+
+
+      <div class="question-card">
+        <span>❓</span>
+        <h3>Är det alltid så?</h3>
+        <p>
+          Testa om din idé gäller i fler situationer.
+        </p>
+      </div>
+
+
+      <div class="question-card">
+        <span>🔗</span>
+        <h3>Vad hör ihop?</h3>
+        <p>
+          Leta efter samband mellan olika matematiska idéer.
+        </p>
+      </div>
+
+
+      <div class="question-card">
+        <span>✅</span>
+        <h3>Är svaret rimligt?</h3>
+        <p>
+          Kontrollera om resultatet verkar möjligt.
+        </p>
+      </div>
+
+
+      <div class="question-card">
+        <span>🚀</span>
+        <h3>Vad händer om...?</h3>
+        <p>
+          Ändra något och undersök hur resultatet påverkas.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="example-box">
+
+      <div>
+
+        <h2>🗣️ Ett Matteprat</h2>
+
+        <p>
+          Ett bra Matteprat börjar ofta med en uppgift
+          där flera strategier är möjliga.
+        </p>
+
+        <br>
+
+        <p>
+          Målet är inte att snabbt hitta svaret.
+          Målet är att förstå matematiken bakom lösningen.
+        </p>
+
+      </div>
+
+
+      <div class="example-card">
+
+        <strong>Hur skulle du räkna?</strong>
+
+        <h2 style="margin-top:12px;">
+          49 + 36
+        </h2>
+
+        <div class="bubble">
+          👧 Amina: 50 + 36 − 1
+        </div>
+
+        <div class="bubble">
+          👦 Leo: 40 + 30 + 9 + 6
+        </div>
+
+        <div class="bubble">
+          🧠 Får båda samma svar?
+        </div>
+
+        <div class="bubble">
+          🗣️ Vilken strategi skulle du välja? Varför?
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="rules">
+
+      <h2 class="section-title">
+        Fyra regler för ett bra Matteprat
+      </h2>
+
+      <p class="section-intro">
+        Alla ska kunna delta, tänka och ändra sig.
+      </p>
+
+      <div class="rules-grid">
+
+        <div class="rule-card">
+          <span>👂</span>
+          <h3>Lyssna</h3>
+          <p>
+            Försök förstå hur någon annan tänker.
+          </p>
+        </div>
+
+        <div class="rule-card">
+          <span>🗣️</span>
+          <h3>Förklara</h3>
+          <p>
+            Berätta vad du gjorde och varför.
+          </p>
+        </div>
+
+        <div class="rule-card">
+          <span>🤔</span>
+          <h3>Fråga</h3>
+          <p>
+            Fråga när du vill förstå mer.
+          </p>
+        </div>
+
+        <div class="rule-card">
+          <span>🔄</span>
+          <h3>Ändra tanke</h3>
+          <p>
+            Det är okej att ändra sin idé när man lär sig något nytt.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Matteprat årskurs för årskurs
+    </h2>
+
+    <p class="section-intro">
+      Gå direkt till din årskurs.
+    </p>
+
+    <div class="year-grid">
+
+      <a href="matteprat-f.html" class="year-card">
+        🌼 F
+      </a>
+
+      <a href="matteprat-ak1.html" class="year-card">
+        🐞 Åk 1
+      </a>
+
+      <a href="matteprat-ak2.html" class="year-card">
+        🌻 Åk 2
+      </a>
+
+      <a href="matteprat-ak3.html" class="year-card">
+        🌳 Åk 3
+      </a>
+
+      <a href="matteprat-ak4.html" class="year-card">
+        🧭 Åk 4
+      </a>
+
+      <a href="matteprat-ak5.html" class="year-card">
+        🔎 Åk 5
+      </a>
+
+      <a href="matteprat-ak6.html" class="year-card">
+        🚀 Åk 6
+      </a>
+
+      <a href="matteprat-ak7.html" class="year-card">
+        🧭 Åk 7
+      </a>
+
+      <a href="matteprat-ak8.html" class="year-card">
+        🔬 Åk 8
+      </a>
+
+      <a href="matteprat-ak9.html" class="year-card">
+        🎯 Åk 9
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🗣️ Matteprat – Tänk tillsammans, förstå mer
+
+</footer>
+
+</body>
+</html>
