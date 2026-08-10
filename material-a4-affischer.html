@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A4-affischer F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --teal-light: #eaf7f5;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #5d4f7c, #8272a6);
+      color: white;
+      padding: 22px 20px 55px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero {
+      max-width: 920px;
+      margin: 45px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.2rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 4.3rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: auto;
+      color: #faf7ff;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 42px 20px;
+    }
+
+    section {
+      margin-bottom: 58px;
+    }
+
+    .intro {
+      background: var(--purple-light);
+      border-radius: 26px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      max-width: 880px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--dark);
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      color: var(--muted);
+      max-width: 850px;
+      margin: 0 auto 28px;
+    }
+
+    .poster-grid,
+    .stage-grid,
+    .other-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .poster-card,
+    .stage-card,
+    .other-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 215px;
+      transition: 0.2s;
+    }
+
+    .poster-card:hover,
+    .other-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(30,50,60,0.08);
+    }
+
+    .poster-card span,
+    .stage-card span,
+    .other-card span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .poster-card h3,
+    .stage-card h3,
+    .other-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .poster-card p,
+    .stage-card p,
+    .other-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .open-button {
+      display: inline-block;
+      margin-top: 15px;
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 15px;
+      font-size: 0.87rem;
+      font-weight: bold;
+    }
+
+    .p1 { background: var(--green-light); }
+    .p2 { background: var(--blue-light); }
+    .p3 { background: var(--purple-light); }
+    .p4 { background: var(--yellow-light); }
+    .p5 { background: var(--orange-light); }
+    .p6 { background: var(--teal-light); }
+    .p7 { background: var(--pink-light); }
+    .p8 { background: #eef2f4; }
+    .p9 { background: #fff4e8; }
+    .p10 { background: #edf6ff; }
+    .p11 { background: #f4edff; }
+    .p12 { background: #ecf8f4; }
+
+    .stage-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 35%),
+        linear-gradient(135deg, #17324d, #66577f);
+      color: white;
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .stage-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .stage-box > p {
+      max-width: 860px;
+      color: #faf7ff;
+    }
+
+    .stage-grid {
+      margin-top: 24px;
+    }
+
+    .stage-card {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: white;
+    }
+
+    .stage-card h3 {
+      color: white;
+    }
+
+    .stage-card p {
+      color: #faf7ff;
+    }
+
+    .print-guide {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .guide-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid #eadfbb;
+      min-height: 165px;
+    }
+
+    .guide-card span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .guide-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .guide-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .o1 { background: var(--green-light); }
+    .o2 { background: var(--blue-light); }
+    .o3 { background: var(--purple-light); }
+    .o4 { background: var(--orange-light); }
+    .o5 { background: var(--pink-light); }
+    .o6 { background: var(--teal-light); }
+
+    .note {
+      background: var(--orange-light);
+      border-left: 6px solid #c77f43;
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 24px;
+      color: #654c37;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      text-align: center;
+      padding: 34px 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 1000px) {
+      .poster-grid,
+      .stage-grid,
+      .other-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .guide-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .poster-grid,
+      .stage-grid,
+      .other-grid,
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro,
+      .stage-box,
+      .print-guide {
+        padding: 24px 17px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 12mm;
+    }
+
+    @media print {
+      header,
+      footer {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+        color: black;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      .poster-card,
+      .stage-card,
+      .guide-card,
+      .other-card {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">HOLOS MATTERESAN</div>
+
+    <a href="larare-utskrift.html" class="back-link">
+      ← Utskriftscentralen
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🖼️🖨️</div>
+
+    <h1>A4-affischer F–9</h1>
+
+    <h2>Öppna • Skriv ut • Sätt upp • Använd</h2>
+
+    <p>
+      Matteresans visuella matematikstöd samlat på ett ställe.
+      Öppna affischbanken och skriv ut de affischer som är relevanta
+      för det matematiska innehåll eleverna arbetar med.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro">
+
+      <h2>🖨️ Affischer som ska användas – inte bara hänga</h2>
+
+      <p>
+        Visuellt stöd fungerar bäst när läraren återkommer till det under
+        genomgångar, samtal och problemlösning och när eleverna själva vet
+        hur de kan använda stödet.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🖼️ Matteresans affischer</h2>
+
+    <p class="section-intro">
+      Alla affischer finns samlade på den färdiga utskriftssidan.
+    </p>
+
+    <div class="poster-grid">
+
+      <a href="material-affischer.html" class="poster-card p1">
+        <span>🧠🧩</span>
+        <h3>Så löser jag problem</h3>
+        <p>
+          Förstå, planera, pröva, förklara och kontrollera.
+        </p>
+        <span class="open-button">Öppna affischbanken →</span>
+      </a>
+
+      <a href="material-affischer.html" class="poster-card p2">
+        <span>🧭</span>
+        <h3>Problemlösningsstrategier</h3>
+        <p>
+          Rita, gör tabell, pröva systematiskt, arbeta baklänges och hitta mönster.
+        </p>
+        <span class="open-button">Öppna affischbanken →</span>
+      </a>
+
+      <a href="material-affischer.html" class="poster-card p3">
+        <span>💬</span>
+        <h3>Matteprat</h3>
+        <p>
+          Meningsstarter som hjälper eleverna förklara, jämföra och argumentera.
+        </p>
+        <span class="open-button">Öppna affischbanken →</span>
+      </a>
+
+      <a href="material-affischer.html" class="poster-card p4">
+        <span>🍕🔟💯</span>
+        <h3>Bråk • Decimal • Procent</h3>
+        <p>
+          Visar samband mellan flera representationer av samma värde.
+        </p>
+        <span class="open-button">Öppna affischbanken →</span>
+      </a>
+
+      <a href="material-affischer.html" class="poster-card p5">
+        <span>➕➖✖️➗</span>
+        <h3>De fyra räknesätten</h3>
+        <p>
+          Betydelser och situationer för addition, subtraktion, multiplikation och division.
+        </p>
+        <span class="open-button">Öppna affischbanken →</span>
+      </a>
+
+      <a href="material-affischer.html" class="poster-card p6">
+        <span>⚖️</span>
+        <h3>Likhetstecknet</h3>
+        <p>
+          = betyder lika mycket på båda sidor – en viktig grund för algebra.
+        </p>
+        <span class="open-button">Öppna affischbanken →</span>
+      </a>
+
+      <a href="material-affischer.html" class="poster-card p7">
+        <span>📐</span>
+        <h3>Geometriska mått</h3>
+        <p>
+          Omkrets, area, volym och enheterna som visar vad som mäts.
+        </p>
+        <span class="open-button">Öppna affischbanken →</span>
+      </a>
+
+      <a href="material-affischer.html" class="poster-card p8">
+        <span>📊</span>
+        <h3>Statistik</h3>
+        <p>
+          Medelvärde, median, typvärde och variationsbredd.
+        </p>
+        <span class="open-button">Öppna affischbanken →</span>
+      </a>
+
+      <a href="material-affischer.html" class="poster-card p9">
+        <span>🎲</span>
+        <h3>Sannolikhet</h3>
+        <p>
+          Gynnsamma och möjliga utfall samt grundläggande sannolikhetsbegrepp.
+        </p>
+        <span class="open-button">Öppna affischbanken →</span>
+      </a>
+
+      <a href="material-affischer.html" class="poster-card p10">
+        <span>💯📈</span>
+        <h3>Procentuell förändring</h3>
+        <p>
+          Ökning, minskning och förändringsfaktor.
+        </p>
+        <span class="open-button">Öppna affischbanken →</span>
+      </a>
+
+      <a href="material-affischer.html" class="poster-card p11">
+        <span>📈🔗</span>
+        <h3>Linjära samband</h3>
+        <p>
+          Tabell, graf, formel, förändringstakt och startvärde.
+        </p>
+        <span class="open-button">Öppna affischbanken →</span>
+      </a>
+
+      <a href="material-affischer.html" class="poster-card p12">
+        <span>🌟</span>
+        <h3>I vårt matteklassrum</h3>
+        <p>
+          Ett klassrum där elever vågar pröva, förklara, lyssna och lära av fel.
+        </p>
+        <span class="open-button">Öppna affischbanken →</span>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="stage-box">
+
+      <h2>🌱 🌿 🚀 Affischer genom F–9</h2>
+
+      <p>
+        Samma visuella stöd kan användas på olika sätt beroende på stadium och undervisningsmål.
+      </p>
+
+      <div class="stage-grid">
+
+        <div class="stage-card">
+          <span>🌱</span>
+          <h3>F–3</h3>
+          <p>
+            Läs affischen tillsammans. Peka, visa med material och koppla orden till konkreta exempel.
+          </p>
+        </div>
+
+        <div class="stage-card">
+          <span>🌿</span>
+          <h3>4–6</h3>
+          <p>
+            Låt eleverna själva använda affischen som stöd för strategi, begrepp och förklaring.
+          </p>
+        </div>
+
+        <div class="stage-card">
+          <span>🚀</span>
+          <h3>7–9</h3>
+          <p>
+            Använd affischen som minnesstöd men låt eleven motivera varför regler och samband fungerar.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="print-guide">
+
+      <h2 class="section-title">🖨️ Så skriver du ut</h2>
+
+      <p class="section-intro">
+        Affischbanken är byggd för A4-utskrift.
+      </p>
+
+      <div class="guide-grid">
+
+        <div class="guide-card">
+          <span>1️⃣</span>
+          <h3>Öppna banken</h3>
+          <p>
+            Klicka på valfri affisch ovan. Du kommer till den samlade affischsidan.
+          </p>
+        </div>
+
+        <div class="guide-card">
+          <span>2️⃣</span>
+          <h3>Välj Skriv ut</h3>
+          <p>
+            Använd sidans utskriftsknapp eller webbläsarens utskriftsfunktion.
+          </p>
+        </div>
+
+        <div class="guide-card">
+          <span>3️⃣</span>
+          <h3>Välj sidor</h3>
+          <p>
+            Om du bara behöver en affisch väljer du just den sidan i utskriftsdialogen.
+          </p>
+        </div>
+
+        <div class="guide-card">
+          <span>4️⃣</span>
+          <h3>Använd aktivt</h3>
+          <p>
+            Introducera affischen tillsammans med eleverna innan den blir permanent stöd.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🗂️ Fler utskriftsmaterial</h2>
+
+    <div class="other-grid">
+
+      <a href="material-a4-elevblad.html" class="other-card o1">
+        <span>✏️</span>
+        <h3>A4 Elevblad</h3>
+        <p>
+          Elevblad inom alla matematikområden.
+        </p>
+      </a>
+
+      <a href="material-a4-kort.html" class="other-card o2">
+        <span>🃏</span>
+        <h3>A4-kort</h3>
+        <p>
+          Begrepps-, samtals-, strategi- och problemlösningskort.
+        </p>
+      </a>
+
+      <a href="material-a4-larare.html" class="other-card o3">
+        <span>👩‍🏫</span>
+        <h3>A4 för lärare</h3>
+        <p>
+          Planerings-, observations- och bedömningsunderlag.
+        </p>
+      </a>
+
+      <a href="material-begrepp.html" class="other-card o4">
+        <span>📚</span>
+        <h3>Begreppsbank</h3>
+        <p>
+          Fördjupa begreppen som synliggörs på affischerna.
+        </p>
+      </a>
+
+      <a href="material-matteprat.html" class="other-card o5">
+        <span>💬</span>
+        <h3>Matteprat</h3>
+        <p>
+          Samtalsaktiviteter som passar tillsammans med affischerna.
+        </p>
+      </a>
+
+      <a href="larare-utskrift.html" class="other-card o6">
+        <span>🖨️</span>
+        <h3>Utskriftscentralen</h3>
+        <p>
+          Tillbaka till allt utskriftsmaterial i Matteresan.
+        </p>
+      </a>
+
+    </div>
+
+    <div class="note">
+      <strong>Tips:</strong>
+      välj hellre några få affischer som används aktivt än att fylla väggarna med stöd
+      som eleverna aldrig tittar på. Byt affischer när undervisningsområdet förändras.
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🖼️ A4-affischer – öppna, skriv ut, sätt upp och använd
+
+</footer>
+
+</body>
+</html>
