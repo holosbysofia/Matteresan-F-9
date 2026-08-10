@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Decimaltal F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --blue: #4f8fc9;
+      --blue-dark: #31658f;
+      --blue-light: #eaf5ff;
+      --green-light: #edf9f1;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
+        linear-gradient(135deg, #285a81, #4f8fc9);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--blue-dark);
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.7rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: auto;
+      color: #eef8ff;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 860px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .core-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .core-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 180px;
+      border: 1px solid #e6ebef;
+    }
+
+    .core-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .core-card h3 {
+      color: var(--blue-dark);
+      margin-bottom: 6px;
+    }
+
+    .core-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .progression-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
+        linear-gradient(135deg, #17324d, #315f86);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .progression-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .progression-box > p {
+      color: #eef8ff;
+      max-width: 830px;
+    }
+
+    .progression-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .progression-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 280px;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .f3 { background: rgba(118,211,149,0.15); }
+    .m46 { background: rgba(110,177,238,0.15); }
+    .m79 { background: rgba(177,147,245,0.15); }
+
+    .progression-card span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 7px;
+    }
+
+    .progression-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .progression-card ul {
+      padding-left: 20px;
+      color: #f8fbff;
+      font-size: 0.93rem;
+    }
+
+    .progression-card li {
+      margin-bottom: 6px;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px;
+      border: 1px solid #e6ebef;
+      margin-bottom: 25px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .section-header span {
+      font-size: 2.7rem;
+    }
+
+    .section-header h2 {
+      color: var(--dark);
+      font-size: 1.75rem;
+    }
+
+    .section-header p {
+      color: var(--muted);
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .mini-card {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 190px;
+    }
+
+    .mini-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .mini-card p,
+    .mini-card ul {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .mini-card ul {
+      padding-left: 20px;
+    }
+
+    .mini-card li {
+      margin-bottom: 6px;
+    }
+
+    .m1 { background: var(--green-light); }
+    .m2 { background: var(--blue-light); }
+    .m3 { background: var(--yellow-light); }
+
+    .representation-box {
+      background: var(--green-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .representation-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      margin-top: 24px;
+    }
+
+    .rep-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      min-height: 175px;
+      border: 1px solid #dfe9e2;
+    }
+
+    .rep-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .rep-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .rep-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .mis-box {
+      background: var(--pink-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .mis-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .mis-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 200px;
+      border: 1px solid #eee1e5;
+    }
+
+    .mis-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .mis-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .mis-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .question-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .question-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .question-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 170px;
+      border: 1px solid #eee3c6;
+    }
+
+    .question-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .question-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .support-grid,
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .support-card,
+    .assessment-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 180px;
+      border: 1px solid #e6ebef;
+    }
+
+    .support-card span,
+    .assessment-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .support-card h3,
+    .assessment-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .support-card p,
+    .assessment-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .challenge-box {
+      background: var(--purple-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 24px;
+    }
+
+    .challenge-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 180px;
+      border: 1px solid #e2dcf1;
+    }
+
+    .challenge-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .challenge-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .challenge-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .link-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 175px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .link-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
+    }
+
+    .link-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .link-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .link-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .c1 { background: var(--blue-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--orange-light); }
+    .c4 { background: var(--yellow-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--pink-light); }
+
+    .note {
+      background: var(--yellow-light);
+      border-left: 6px solid #dba327;
+      border-radius: 14px;
+      padding: 20px;
+      color: #665528;
+      margin-top: 25px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 1050px) {
+      .representation-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .core-grid,
+      .support-grid,
+      .assessment-grid,
+      .challenge-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .progression-grid,
+      .three-grid,
+      .mis-grid,
+      .question-grid,
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .core-grid,
+      .representation-grid,
+      .support-grid,
+      .assessment-grid,
+      .challenge-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .progression-box,
+      .section-card,
+      .representation-box,
+      .mis-box,
+      .question-box,
+      .challenge-box {
+        padding: 25px 18px;
+      }
+
+      .section-header {
+        align-items: flex-start;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      section,
+      .section-card {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="larare.html" class="back-link">
+      ← Lärarvy
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🔟</div>
+
+    <h1>Decimaltal F–9</h1>
+
+    <h2>Platsvärde • Storlek • Samband • Beräkning</h2>
+
+    <p>
+      Decimaltal bygger vidare på samma positionssystem som heltal.
+      Elever behöver förstå tiondelar, hundradelar och vidare decimalpositioner
+      som tal med bestämd storlek och tydliga samband till bråk och procent.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>🔟 Decimaltecknet skapar inte ett nytt talsystem</h2>
+
+      <p>
+        Samma platsvärdesprincip fortsätter på andra sidan decimaltecknet.
+        Varje position är tio gånger större än positionen till höger
+        och en tiondel av positionen till vänster.
+        Denna struktur behöver göras tydlig innan eleverna lär procedurer för decimalberäkningar.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Fyra kärnor i decimalförståelse
+    </h2>
+
+    <p class="section-intro">
+      Decimaltal behöver förstås som tal – inte som två heltal på varsin sida av decimaltecknet.
+    </p>
+
+    <div class="core-grid">
+
+      <div class="core-card">
+        <span>🔟</span>
+        <h3>Platsvärde</h3>
+        <p>
+          Ental, tiondelar, hundradelar och tusendelar ingår i samma positionssystem.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>↔️</span>
+        <h3>Storlek</h3>
+        <p>
+          Decimaltal kan placeras, jämföras och uppskattas på tallinjen.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>🍕</span>
+        <h3>Samband</h3>
+        <p>
+          0,5, 1/2 och 50 % är olika representationer av samma värde.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>➕</span>
+        <h3>Beräkning</h3>
+        <p>
+          Beräkningsmetoder bygger på förståelsen av platsvärde och talens storlek.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="progression-box">
+
+      <h2>🌱 → 🌿 → 🚀 Progression F–9</h2>
+
+      <p>
+        Förståelsen för decimaler växer fram ur mätning, pengar, bråk och positionssystem.
+      </p>
+
+      <div class="progression-grid">
+
+        <div class="progression-card f3">
+
+          <span>🌱</span>
+
+          <h3>F–3 – förbered grunden</h3>
+
+          <ul>
+            <li>positionssystem med heltal</li>
+            <li>ental och tiotal</li>
+            <li>hundratal</li>
+            <li>dela helheter</li>
+            <li>hälften och fjärdedelar</li>
+            <li>pengar och mått i vardagliga situationer</li>
+          </ul>
+
+        </div>
+
+
+        <div class="progression-card m46">
+
+          <span>🌿</span>
+
+          <h3>4–6 – bygg decimalförståelse</h3>
+
+          <ul>
+            <li>tiondelar och hundradelar</li>
+            <li>platsvärde</li>
+            <li>jämföra decimaltal</li>
+            <li>tallinje</li>
+            <li>bråk ↔ decimal</li>
+            <li>decimal ↔ procent</li>
+            <li>avrundning</li>
+            <li>beräkningar med decimaltal</li>
+          </ul>
+
+        </div>
+
+
+        <div class="progression-card m79">
+
+          <span>🚀</span>
+
+          <h3>7–9 – använd flexibelt</h3>
+
+          <ul>
+            <li>rationella tal</li>
+            <li>decimalform i algebra och statistik</li>
+            <li>procentuell förändring</li>
+            <li>precision</li>
+            <li>avrundning i modeller</li>
+            <li>strategiskt val mellan decimal, bråk och procent</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🔟</span>
+
+        <div>
+          <h2>Platsvärde</h2>
+          <p>Decimalförståelsen måste börja i positionssystemet.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Exempel: 4,372</h3>
+
+          <ul>
+            <li>4 ental</li>
+            <li>3 tiondelar</li>
+            <li>7 hundradelar</li>
+            <li>2 tusendelar</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Synliggör med</h3>
+
+          <ul>
+            <li>positionsschema</li>
+            <li>tiobasmaterial</li>
+            <li>meter och centimeter</li>
+            <li>pengar</li>
+            <li>hundrarutor</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fråga</h3>
+
+          <ul>
+            <li>Vad betyder siffran 7?</li>
+            <li>Hur mycket är en tiondel?</li>
+            <li>Vad händer om siffran flyttas en position?</li>
+            <li>Hur kan 4,372 delas upp?</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>↔️</span>
+
+        <div>
+          <h2>Jämföra decimaltal</h2>
+          <p>Utgå från talens storlek och position – inte antalet siffror.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Exempel</h3>
+
+          <p>
+            0,8 är större än 0,35 eftersom åtta tiondelar är större än tre tiondelar och fem hundradelar.
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Använd referenstal</h3>
+
+          <ul>
+            <li>0</li>
+            <li>0,25</li>
+            <li>0,5</li>
+            <li>0,75</li>
+            <li>1</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fråga</h3>
+
+          <ul>
+            <li>Vilket ligger närmast 1?</li>
+            <li>Vilket är större än 0,5?</li>
+            <li>Var ligger talet på tallinjen?</li>
+            <li>Hur vet du?</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🍕</span>
+
+        <div>
+          <h2>Bråk ↔ decimal ↔ procent</h2>
+          <p>Talformerna ska kopplas ihop – inte läras var för sig.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Ankartal</h3>
+
+          <ul>
+            <li>1/2 = 0,5 = 50 %</li>
+            <li>1/4 = 0,25 = 25 %</li>
+            <li>3/4 = 0,75 = 75 %</li>
+            <li>1/10 = 0,1 = 10 %</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Representationer</h3>
+
+          <ul>
+            <li>hundraruta</li>
+            <li>tallinje</li>
+            <li>bråkstav</li>
+            <li>dubbel tallinje</li>
+            <li>tabell</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fråga</h3>
+
+          <ul>
+            <li>Hur kan talet skrivas i bråkform?</li>
+            <li>Hur kan det skrivas i procentform?</li>
+            <li>Vilken form är enklast här?</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>➕➖</span>
+
+        <div>
+          <h2>Addition & subtraktion med decimaltal</h2>
+          <p>Platsvärden måste ställas mot motsvarande platsvärden.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Exempel</h3>
+
+          <p>
+            3,4 + 0,75 kan förstås som
+            3 ental + 4 tiondelar + 7 tiondelar + 5 hundradelar.
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Strategier</h3>
+
+          <ul>
+            <li>dela upp</li>
+            <li>kompensera</li>
+            <li>tallinje</li>
+            <li>positionsschema</li>
+            <li>skriftlig metod</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Kontrollera</h3>
+
+          <p>
+            Gör överslag före beräkningen:
+            3,4 + 0,75 bör bli lite mer än 4.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>✖️➗</span>
+
+        <div>
+          <h2>Multiplikation & division med decimaltal</h2>
+          <p>Storleksbedömning måste följa med proceduren.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Multiplikation</h3>
+
+          <p>
+            8 × 0,5 betyder åtta halvor och kan kopplas till bråk, skalning och tallinje.
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Division</h3>
+
+          <p>
+            8 ÷ 0,5 kan förstås som:
+            hur många halvor ryms i 8?
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fråga</h3>
+
+          <ul>
+            <li>Ska svaret bli större eller mindre?</li>
+            <li>Vilken storleksordning är rimlig?</li>
+            <li>Kan du koppla till ett bråk?</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="representation-box">
+
+      <h2 class="section-title">
+        🖼️ Representationer för decimaltal
+      </h2>
+
+      <p class="section-intro">
+        Byt representation när symbolerna döljer talets storlek.
+      </p>
+
+      <div class="representation-grid">
+
+        <div class="rep-card">
+          <span>🔟</span>
+          <h3>Positionsschema</h3>
+          <p>
+            Synliggör varje siffras platsvärde.
+          </p>
+        </div>
+
+        <div class="rep-card">
+          <span>↔️</span>
+          <h3>Tallinje</h3>
+          <p>
+            Visar ordning, storlek och avstånd.
+          </p>
+        </div>
+
+        <div class="rep-card">
+          <span>💯</span>
+          <h3>Hundraruta</h3>
+          <p>
+            Kopplar hundradelar till decimal och procent.
+          </p>
+        </div>
+
+        <div class="rep-card">
+          <span>📏</span>
+          <h3>Mätning</h3>
+          <p>
+            Meter, liter och kilogram ger meningsfulla decimaler.
+          </p>
+        </div>
+
+        <div class="rep-card">
+          <span>💰</span>
+          <h3>Pengar</h3>
+          <p>
+            Kan hjälpa vid hundradelar, men behöver kopplas till generell platsvärdesförståelse.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="mis-box">
+
+      <h2 class="section-title">
+        ⚠️ Vanliga missuppfattningar
+      </h2>
+
+      <p class="section-intro">
+        Många decimalfel uppstår när eleven använder regler för heltal.
+      </p>
+
+      <div class="mis-grid">
+
+        <div class="mis-card">
+          <span>🔢</span>
+          <h3>0,125 är större än 0,8</h3>
+          <p>
+            Eleven ser 125 och 8 som heltal istället för att jämföra platsvärden.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>0️⃣</span>
+          <h3>0,5 och 0,50 är olika stora</h3>
+          <p>
+            Eleven tolkar fler siffror som större eller annorlunda värde.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>🔟</span>
+          <h3>3,04 läses som 3,4</h3>
+          <p>
+            Nollans funktion som platshållare är inte stabil.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>➕</span>
+          <h3>Decimaltecken ställs inte under varandra</h3>
+          <p>
+            Eleven organiserar efter antal siffror istället för platsvärde.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>✖️</span>
+          <h3>Multiplikation måste ge större svar</h3>
+          <p>
+            Exempelvis 10 × 0,2 ger 2, inte ett tal större än 10.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>➗</span>
+          <h3>Division måste ge mindre svar</h3>
+          <p>
+            Division med ett tal mellan 0 och 1 kan ge större resultat.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="question-box">
+
+      <h2 class="section-title">
+        💬 Diagnostiska frågor
+      </h2>
+
+      <p class="section-intro">
+        Använd korta frågor för att synliggöra om förståelsen är platsvärdesbaserad.
+      </p>
+
+      <div class="question-grid">
+
+        <div class="question-card">
+          <h3>Vilket är störst: 0,6 eller 0,58?</h3>
+          <p>
+            Be eleven motivera utan att bara ge ett svar.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Var ligger 0,37?</h3>
+          <p>
+            Låt eleven placera talet på en tom tallinje mellan 0 och 1.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Vad betyder 7:an i 2,47?</h3>
+          <p>
+            Synliggör om eleven kan uttrycka sju hundradelar.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Vilket tal ligger mellan 0,4 och 0,5?</h3>
+          <p>
+            Visar om eleven förstår att det finns många decimaltal mellan två tal.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Hur skriver du 3/4 i decimalform?</h3>
+          <p>
+            Synliggör sambandet mellan talformer.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Är 4,8 × 0,2 större eller mindre än 4,8?</h3>
+          <p>
+            Testar om eleven förstår multiplikation som skalning.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      🛟 Stöd när decimaler blir svåra
+    </h2>
+
+    <p class="section-intro">
+      Gå tillbaka till platsvärde, talstorlek och representationer.
+    </p>
+
+    <div class="support-grid">
+
+      <div class="support-card">
+        <span>🔟</span>
+        <h3>Positionsschema</h3>
+        <p>
+          Skriv siffrorna i rätt position och låt eleven namnge varje platsvärde.
+        </p>
+      </div>
+
+      <div class="support-card">
+        <span>↔️</span>
+        <h3>Tallinje</h3>
+        <p>
+          Placera decimalerna och jämför deras avstånd till 0, 0,5 och 1.
+        </p>
+      </div>
+
+      <div class="support-card">
+        <span>💯</span>
+        <h3>Hundradelsmodell</h3>
+        <p>
+          Använd rutnät för att synliggöra exempelvis 0,37 som 37 hundradelar.
+        </p>
+      </div>
+
+      <div class="support-card">
+        <span>🔗</span>
+        <h3>Koppla till bråk</h3>
+        <p>
+          0,3 = 3/10 och 0,25 = 25/100 = 1/4 kan göra strukturen tydligare.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="challenge-box">
+
+      <h2 class="section-title">
+        🚀 Fördjupa decimalförståelsen
+      </h2>
+
+      <p class="section-intro">
+        Utmana genom täthet, precision, samband och generalisering.
+      </p>
+
+      <div class="challenge-grid">
+
+        <div class="challenge-card">
+          <span>↔️</span>
+          <h3>Mellan två tal</h3>
+          <p>
+            Hitta fem olika tal mellan 0,41 och 0,42. Finns det fler?
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <span>🔎</span>
+          <h3>Skapa talet</h3>
+          <p>
+            Skapa ett decimaltal med bestämda villkor för ental, tiondelar och hundradelar.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <span>⚖️</span>
+          <h3>Välj representation</h3>
+          <p>
+            När är 0,375 enklare att använda som decimal och när är 3/8 bättre?
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <span>🚀</span>
+          <h3>Generalisera</h3>
+          <p>
+            Vad händer med ett tal när varje siffra flyttas en position åt höger eller vänster?
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      📊 Bedömning – vad ska läraren få syn på?
+    </h2>
+
+    <p class="section-intro">
+      Bedöm förståelsen bakom procedurerna.
+    </p>
+
+    <div class="assessment-grid">
+
+      <div class="assessment-card">
+        <span>🔟</span>
+        <h3>Platsvärde</h3>
+        <p>
+          Kan eleven förklara vad varje siffra representerar?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>↔️</span>
+        <h3>Storlek</h3>
+        <p>
+          Kan eleven placera, jämföra och ordna decimaler?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>🔗</span>
+        <h3>Samband</h3>
+        <p>
+          Kan eleven växla mellan decimal, bråk och procent?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>✅</span>
+        <h3>Beräkning & rimlighet</h3>
+        <p>
+          Kan eleven välja metod och upptäcka orimliga resultat?
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Relaterade lärarsidor
+    </h2>
+
+    <p class="section-intro">
+      Decimaltal är nära kopplade till taluppfattning, bråk, procent och beräkningar.
+    </p>
+
+    <div class="links-grid">
+
+      <a href="larare-tal.html" class="link-card c1">
+        <span>🔢</span>
+        <h3>Taluppfattning</h3>
+        <p>
+          Decimaler bygger vidare på platsvärde och talens relativa storlek.
+        </p>
+      </a>
+
+      <a href="larare-brak.html" class="link-card c2">
+        <span>🍕</span>
+        <h3>Bråk</h3>
+        <p>
+          Många decimaler kan förstås som tiondelar, hundradelar och andra bråk.
+        </p>
+      </a>
+
+      <a href="larare-procent.html" class="link-card c3">
+        <span>%</span>
+        <h3>Procent</h3>
+        <p>
+          Hundradelar ger en naturlig bro mellan decimal och procent.
+        </p>
+      </a>
+
+      <a href="larare-raknesatt.html" class="link-card c4">
+        <span>➕➖✖️➗</span>
+        <h3>Räknesätten</h3>
+        <p>
+          Beräkningsmetoder behöver bygga vidare på stabil platsvärdesförståelse.
+        </p>
+      </a>
+
+      <a href="larare-samband.html" class="link-card c5">
+        <span>🔗</span>
+        <h3>Samband & förändring</h3>
+        <p>
+          Decimaler används i proportionalitet, hastighet, procent och funktioner.
+        </p>
+      </a>
+
+      <a href="larare-missuppfattningar.html" class="link-card c6">
+        <span>⚠️</span>
+        <h3>Missuppfattningar</h3>
+        <p>
+          Fördjupa analysen av platsvärdes- och jämförelsefel.
+        </p>
+      </a>
+
+    </div>
+
+    <div class="note">
+      <strong>Kom ihåg:</strong>
+      när en elev gör fel med decimaler är det ofta värdefullt att fråga
+      ”Hur stort är talet?” innan fokus läggs på själva beräkningsproceduren.
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🔟 Decimaltal F–9 – platsvärde, storlek, samband och beräkning
+
+</footer>
+
+</body>
+</html>
