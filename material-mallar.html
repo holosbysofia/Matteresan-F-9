@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Matematikmallar F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --teal-light: #eaf7f5;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
+        linear-gradient(135deg, #36526d, #5e7f9a);
+      color: white;
+      padding: 22px 20px 55px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero {
+      max-width: 920px;
+      margin: 45px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.2rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 4.3rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: auto;
+      color: #f2f7fb;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 42px 20px;
+    }
+
+    section {
+      margin-bottom: 58px;
+    }
+
+    .intro {
+      background: var(--blue-light);
+      border-radius: 26px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      max-width: 880px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .print-button {
+      display: inline-block;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 18px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--dark);
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      color: var(--muted);
+      max-width: 850px;
+      margin: 0 auto 28px;
+    }
+
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .template {
+      background: white;
+      border-radius: 22px;
+      padding: 25px;
+      border: 1px solid rgba(0,0,0,0.07);
+      break-inside: avoid;
+    }
+
+    .template-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .template-head span {
+      font-size: 2.5rem;
+    }
+
+    .template-head h3 {
+      color: var(--dark);
+      font-size: 1.3rem;
+    }
+
+    .template-head p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .box {
+      border: 1.5px solid #95a2ac;
+      border-radius: 11px;
+      min-height: 85px;
+      padding: 12px;
+      margin-top: 10px;
+      background: white;
+    }
+
+    .box.large {
+      min-height: 130px;
+    }
+
+    .box.xlarge {
+      min-height: 170px;
+    }
+
+    .label {
+      font-weight: bold;
+      color: var(--dark);
+      margin-top: 14px;
+    }
+
+    .four-field {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .field {
+      border: 1.5px solid #95a2ac;
+      border-radius: 12px;
+      min-height: 125px;
+      padding: 12px;
+    }
+
+    .field strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .compare-box {
+      border: 1.5px solid #95a2ac;
+      border-radius: 12px;
+      min-height: 140px;
+      padding: 12px;
+    }
+
+    .compare-box strong {
+      color: var(--dark);
+    }
+
+    .checklist {
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .checklist li {
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .checklist li::before {
+      content: "☐ ";
+      font-weight: bold;
+      color: var(--dark);
+    }
+
+    .sentence-box {
+      background: var(--yellow-light);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .sentence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .sentence-card {
+      background: white;
+      border-radius: 17px;
+      padding: 19px;
+      border: 1px solid #eadfbb;
+    }
+
+    .sentence-card span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .sentence-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .sentence-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .method {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 35%),
+        linear-gradient(135deg, #17324d, #465f78);
+      color: white;
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .method h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .method > p {
+      max-width: 860px;
+      color: #f4f8fb;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .method-card {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 18px;
+      padding: 19px;
+      min-height: 170px;
+    }
+
+    .method-card span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .method-card h3 {
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .method-card p {
+      color: #f7f9fb;
+      font-size: 0.89rem;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .tool-card {
+      border-radius: 20px;
+      padding: 23px;
+      min-height: 185px;
+      transition: 0.2s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .tool-card span {
+      display: block;
+      font-size: 2.3rem;
+      margin-bottom: 7px;
+    }
+
+    .tool-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .tool-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .t1 { background: var(--green-light); }
+    .t2 { background: var(--blue-light); }
+    .t3 { background: var(--purple-light); }
+    .t4 { background: var(--orange-light); }
+    .t5 { background: var(--pink-light); }
+    .t6 { background: var(--teal-light); }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      text-align: center;
+      padding: 34px 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .template-grid,
+      .sentence-grid,
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .method-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .four-field,
+      .compare,
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro,
+      .sentence-box,
+      .method {
+        padding: 24px 17px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 12mm;
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link,
+      .intro,
+      .sentence-box,
+      .method,
+      .tool-grid,
+      .print-button,
+      .section-title,
+      .section-intro {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+        color: black;
+        font-size: 10pt;
+      }
+
+      main {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      section {
+        margin: 0;
+      }
+
+      .template-grid {
+        display: block;
+      }
+
+      .template {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        page-break-after: always;
+        break-after: page;
+        min-height: 265mm;
+      }
+
+      .template:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .box,
+      .field,
+      .compare-box {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">HOLOS MATTERESAN</div>
+
+    <a href="larare-material.html" class="back-link">
+      ← Materialbanken
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">📝🧠</div>
+
+    <h1>Matematikmallar F–9</h1>
+
+    <h2>Strukturera • Visa • Förklara • Jämför • Reflektera</h2>
+
+    <p>
+      Färdiga mallar för problemlösning, begreppsarbete, resonemang,
+      strategi-jämförelse, felanalys och elevens egen reflektion.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro">
+
+      <h2>📄 Mallar ska stödja tänkandet – inte styra bort matematiken</h2>
+
+      <p>
+        En bra mall avlastar struktur och språk så att eleven kan lägga mer kraft
+        på den matematiska idén. Mallarna kan användas flexibelt och behöver inte
+        fyllas i från början till slut varje gång.
+      </p>
+
+      <button class="print-button" onclick="window.print()">
+        🖨️ Skriv ut alla mallar
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🧠 Utskriftsklara matematikmallar</h2>
+
+    <p class="section-intro">
+      Vid utskrift placeras varje mall på en egen A4-sida.
+    </p>
+
+    <div class="template-grid">
+
+
+      <article class="template">
+
+        <div class="template-head">
+          <span>🧩</span>
+          <div>
+            <h3>Problemlösningsmall</h3>
+            <p>Förstå • planera • lösa • kontrollera</p>
+          </div>
+        </div>
+
+        <p>
+          Namn: ______________________________ Datum: ______________
+        </p>
+
+        <div class="label">1. Vad handlar problemet om?</div>
+        <div class="box"></div>
+
+        <div class="label">2. Vad vet jag?</div>
+        <div class="box"></div>
+
+        <div class="label">3. Vad ska jag ta reda på?</div>
+        <div class="box"></div>
+
+        <div class="label">4. Min strategi</div>
+
+        <ul class="checklist">
+          <li>Rita en bild eller modell</li>
+          <li>Göra en tabell</li>
+          <li>Pröva systematiskt</li>
+          <li>Arbeta baklänges</li>
+          <li>Hitta ett mönster</li>
+          <li>Annat: __________________________</li>
+        </ul>
+
+        <div class="label">5. Min lösning</div>
+        <div class="box xlarge"></div>
+
+        <div class="label">6. Mitt svar</div>
+        <div class="box"></div>
+
+        <div class="label">7. Så kontrollerade jag</div>
+        <div class="box"></div>
+
+      </article>
+
+
+      <article class="template">
+
+        <div class="template-head">
+          <span>📚</span>
+          <div>
+            <h3>Begreppsfyrfältare</h3>
+            <p>Ord • förklaring • exempel • representation</p>
+          </div>
+        </div>
+
+        <p>
+          Begrepp: ______________________________________________
+        </p>
+
+        <div class="four-field">
+
+          <div class="field">
+            <strong>🗣️ Förklaring med egna ord</strong>
+          </div>
+
+          <div class="field">
+            <strong>🔢 Matematiskt exempel</strong>
+          </div>
+
+          <div class="field">
+            <strong>🎨 Bild / modell / symbol</strong>
+          </div>
+
+          <div class="field">
+            <strong>🔗 Begrepp som hör ihop</strong>
+          </div>
+
+        </div>
+
+        <div class="label">Ett icke-exempel:</div>
+        <div class="box"></div>
+
+        <div class="label">En mening där jag använder begreppet:</div>
+        <div class="box"></div>
+
+      </article>
+
+
+      <article class="template">
+
+        <div class="template-head">
+          <span>💬</span>
+          <div>
+            <h3>Resonemangsmall</h3>
+            <p>Påstående • förklaring • exempel • slutsats</p>
+          </div>
+        </div>
+
+        <p>
+          Namn: ______________________________ Datum: ______________
+        </p>
+
+        <div class="label">Mitt påstående</div>
+        <div class="box"></div>
+
+        <div class="label">Jag tror detta eftersom...</div>
+        <div class="box large"></div>
+
+        <div class="label">Ett matematiskt exempel som stödjer mitt resonemang</div>
+        <div class="box large"></div>
+
+        <div class="label">Finns ett motexempel?</div>
+        <div class="box"></div>
+
+        <div class="label">Min slutsats</div>
+        <div class="box large"></div>
+
+      </article>
+
+
+      <article class="template">
+
+        <div class="template-head">
+          <span>⚖️</span>
+          <div>
+            <h3>Jämför två strategier</h3>
+            <p>Likheter • skillnader • effektivitet</p>
+          </div>
+        </div>
+
+        <p>
+          Uppgift: ______________________________________________
+        </p>
+
+        <div class="compare">
+
+          <div class="compare-box">
+            <strong>Strategi A</strong>
+          </div>
+
+          <div class="compare-box">
+            <strong>Strategi B</strong>
+          </div>
+
+        </div>
+
+        <div class="label">Vad är lika?</div>
+        <div class="box"></div>
+
+        <div class="label">Vad är olika?</div>
+        <div class="box"></div>
+
+        <div class="label">Vilken strategi tycker jag passar bäst här? Varför?</div>
+        <div class="box large"></div>
+
+        <div class="label">När skulle den andra strategin kunna vara bättre?</div>
+        <div class="box"></div>
+
+      </article>
+
+
+      <article class="template">
+
+        <div class="template-head">
+          <span>🕵️</span>
+          <div>
+            <h3>Felanalys – Felfinnaren</h3>
+            <p>Hitta • förklara • rätta • generalisera</p>
+          </div>
+        </div>
+
+        <p>
+          Namn: ______________________________ Datum: ______________
+        </p>
+
+        <div class="label">Elevens lösning</div>
+        <div class="box large"></div>
+
+        <div class="label">Var uppstår felet?</div>
+        <div class="box"></div>
+
+        <div class="label">Varför tror du att eleven tänkte så?</div>
+        <div class="box large"></div>
+
+        <div class="label">Rätta lösningen</div>
+        <div class="box large"></div>
+
+        <div class="label">Vilket råd skulle du ge eleven?</div>
+        <div class="box"></div>
+
+      </article>
+
+
+      <article class="template">
+
+        <div class="template-head">
+          <span>🎨</span>
+          <div>
+            <h3>Fyra representationer</h3>
+            <p>Situation • bild • språk • symbol</p>
+          </div>
+        </div>
+
+        <p>
+          Matematisk idé: ________________________________________
+        </p>
+
+        <div class="four-field">
+
+          <div class="field">
+            <strong>🌍 Situation</strong>
+            Verklig eller vardagsnära situation.
+          </div>
+
+          <div class="field">
+            <strong>🎨 Bild / modell</strong>
+            Rita eller visa.
+          </div>
+
+          <div class="field">
+            <strong>🗣️ Ord</strong>
+            Förklara med matematiskt språk.
+          </div>
+
+          <div class="field">
+            <strong>🔢 Symboler</strong>
+            Skriv beräkning, uttryck eller formel.
+          </div>
+
+        </div>
+
+        <div class="label">Hur hänger representationerna ihop?</div>
+        <div class="box large"></div>
+
+      </article>
+
+
+      <article class="template">
+
+        <div class="template-head">
+          <span>🔍</span>
+          <div>
+            <h3>Sant, falskt eller ibland?</h3>
+            <p>Ta ställning och motivera</p>
+          </div>
+        </div>
+
+        <p>
+          Påstående:
+        </p>
+
+        <div class="box"></div>
+
+        <ul class="checklist">
+          <li>Sant</li>
+          <li>Falskt</li>
+          <li>Ibland sant</li>
+        </ul>
+
+        <div class="label">Min motivering</div>
+        <div class="box large"></div>
+
+        <div class="label">Ett exempel</div>
+        <div class="box"></div>
+
+        <div class="label">Ett motexempel</div>
+        <div class="box"></div>
+
+        <div class="label">När gäller påståendet?</div>
+        <div class="box large"></div>
+
+      </article>
+
+
+      <article class="template">
+
+        <div class="template-head">
+          <span>🧩</span>
+          <div>
+            <h3>Hitta alla lösningar</h3>
+            <p>Systematik • ordning • kontroll</p>
+          </div>
+        </div>
+
+        <p>
+          Problem:
+        </p>
+
+        <div class="box"></div>
+
+        <div class="label">Mina lösningar</div>
+        <div class="box xlarge"></div>
+
+        <div class="label">Så arbetade jag systematiskt</div>
+        <div class="box large"></div>
+
+        <div class="label">Hur vet jag att jag hittat alla?</div>
+        <div class="box large"></div>
+
+      </article>
+
+
+      <article class="template">
+
+        <div class="template-head">
+          <span>📈</span>
+          <div>
+            <h3>Tabell – graf – formel</h3>
+            <p>Representera ett samband på tre sätt</p>
+          </div>
+        </div>
+
+        <p>
+          Samband / situation:
+        </p>
+
+        <div class="box"></div>
+
+        <div class="label">Tabell</div>
+
+        <div class="four-field">
+          <div class="field">
+            <strong>x-värden</strong>
+          </div>
+
+          <div class="field">
+            <strong>y-värden</strong>
+          </div>
+        </div>
+
+        <div class="label">Graf</div>
+        <div class="box xlarge"></div>
+
+        <div class="label">Formel / regel</div>
+        <div class="box"></div>
+
+        <div class="label">Vad visar sambandet?</div>
+        <div class="box large"></div>
+
+      </article>
+
+
+      <article class="template">
+
+        <div class="template-head">
+          <span>⭐</span>
+          <div>
+            <h3>Min matematikreflektion</h3>
+            <p>Vad kan jag? Vad behöver jag utveckla?</p>
+          </div>
+        </div>
+
+        <p>
+          Namn: ______________________________ Datum: ______________
+        </p>
+
+        <div class="label">Det här förstår jag bra</div>
+        <div class="box large"></div>
+
+        <div class="label">En strategi jag kan använda</div>
+        <div class="box"></div>
+
+        <div class="label">Det här behöver jag träna mer på</div>
+        <div class="box large"></div>
+
+        <div class="label">En fråga jag fortfarande har</div>
+        <div class="box"></div>
+
+        <div class="label">Mitt nästa steg</div>
+        <div class="box large"></div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="sentence-box">
+
+      <h2 class="section-title">🗣️ Meningsstarter att använda i mallarna</h2>
+
+      <p class="section-intro">
+        Passar särskilt bra när elever behöver stöd att uttrycka sitt matematiska tänkande.
+      </p>
+
+      <div class="sentence-grid">
+
+        <div class="sentence-card">
+          <span>🧠</span>
+          <h3>Förklara</h3>
+          <p>
+            Jag tänkte så här...<br>
+            Först... sedan...<br>
+            Det fungerar eftersom...
+          </p>
+        </div>
+
+        <div class="sentence-card">
+          <span>⚖️</span>
+          <h3>Jämföra</h3>
+          <p>
+            De är lika eftersom...<br>
+            Skillnaden är...<br>
+            Den här strategin är...
+          </p>
+        </div>
+
+        <div class="sentence-card">
+          <span>🔍</span>
+          <h3>Argumentera</h3>
+          <p>
+            Jag vet att... eftersom...<br>
+            Ett exempel är...<br>
+            Ett motexempel är...
+          </p>
+        </div>
+
+        <div class="sentence-card">
+          <span>🔄</span>
+          <h3>Generalisera</h3>
+          <p>
+            Jag ser ett mönster...<br>
+            Detta gäller när...<br>
+            Regeln kan skrivas...
+          </p>
+        </div>
+
+        <div class="sentence-card">
+          <span>🔎</span>
+          <h3>Kontrollera</h3>
+          <p>
+            Jag kontrollerade genom att...<br>
+            Svaret är rimligt eftersom...
+          </p>
+        </div>
+
+        <div class="sentence-card">
+          <span>❓</span>
+          <h3>Reflektera</h3>
+          <p>
+            Jag behöver förstå...<br>
+            Nästa gång ska jag...<br>
+            Jag undrar fortfarande...
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="method">
+
+      <h2>🧭 Så kan mallarna användas</h2>
+
+      <p>
+        Samma mall behöver inte användas på samma sätt av alla elever.
+        Välj de delar som faktiskt hjälper eleven att synliggöra matematiken.
+      </p>
+
+      <div class="method-grid">
+
+        <div class="method-card">
+          <span>1️⃣</span>
+          <h3>Modellera</h3>
+          <p>
+            Visa första gången hur en mall kan fyllas i med ett gemensamt exempel.
+          </p>
+        </div>
+
+        <div class="method-card">
+          <span>2️⃣</span>
+          <h3>Använd selektivt</h3>
+          <p>
+            Eleven behöver inte alltid fylla i varje ruta.
+          </p>
+        </div>
+
+        <div class="method-card">
+          <span>3️⃣</span>
+          <h3>Samtala</h3>
+          <p>
+            Använd elevens anteckningar som utgångspunkt för matteprat.
+          </p>
+        </div>
+
+        <div class="method-card">
+          <span>4️⃣</span>
+          <h3>Fasa ut</h3>
+          <p>
+            När strukturen är internaliserad kan stödet minskas eller ersättas av friare format.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🗂️ Relaterat material</h2>
+
+    <div class="tool-grid">
+
+      <a href="material-problem.html" class="tool-card t1">
+        <span>🧠</span>
+        <h3>Problembank</h3>
+        <p>
+          Använd problemlösningsmallen tillsammans med färdiga problem.
+        </p>
+      </a>
+
+      <a href="material-begrepp.html" class="tool-card t2">
+        <span>📚</span>
+        <h3>Begreppsbank</h3>
+        <p>
+          Kombinera begreppsfyrfältaren med matematiska nyckelbegrepp.
+        </p>
+      </a>
+
+      <a href="material-matteprat.html" class="tool-card t3">
+        <span>💬</span>
+        <h3>Matteprat</h3>
+        <p>
+          Använd mallarna som stöd för samtal och jämförelser.
+        </p>
+      </a>
+
+      <a href="material-diagnos.html" class="tool-card t4">
+        <span>🩺</span>
+        <h3>Diagnosbank</h3>
+        <p>
+          Låt mallarna synliggöra elevens strategi efter en diagnostisk uppgift.
+        </p>
+      </a>
+
+      <a href="larare-sva.html" class="tool-card t5">
+        <span>🌍</span>
+        <h3>SVA & flerspråkighet</h3>
+        <p>
+          Språkstöd som hjälper elever uttrycka matematik utan att sänka nivån.
+        </p>
+      </a>
+
+      <a href="larare-npf.html" class="tool-card t6">
+        <span>🧩</span>
+        <h3>NPF-stöd</h3>
+        <p>
+          Mallar kan avlasta arbetsminne och göra arbetsgången tydligare.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  📝 Matematikmallar – strukturera, visa, förklara, jämför och reflektera
+
+</footer>
+
+</body>
+</html>
