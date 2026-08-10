@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Årskurs 4 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --blue: #3478c7;
+      --blue-dark: #24598f;
+      --blue-light: #eaf5ff;
+      --green-light: #eaf7ef;
+      --yellow: #fff2bd;
+      --orange: #ffe2c4;
+      --purple: #eee8ff;
+      --pink: #ffe6ef;
+      --background: #f7fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #24598f, #4d91d6);
+      color: white;
+      padding: 22px 20px 52px;
+    }
+
+    .topbar {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--blue-dark);
+    }
+
+    .hero {
+      max-width: 820px;
+      margin: 45px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 7vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #eef7ff;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 740px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--blue-light);
+      border-radius: 26px;
+      padding: 34px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 760px;
+      margin: auto;
+      color: #536574;
+    }
+
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .area-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 185px;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+
+    .area-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    }
+
+    .area-icon {
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+
+    .area-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+      font-size: 1.12rem;
+    }
+
+    .area-card p {
+      color: #596978;
+      font-size: 0.94rem;
+    }
+
+    .c1 { background: var(--blue-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--yellow); }
+    .c4 { background: var(--orange); }
+    .c5 { background: var(--purple); }
+    .c6 { background: var(--pink); }
+
+    .talk-box {
+      background: linear-gradient(135deg, #fff5cc, #ffe79e);
+      border-radius: 28px;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .talk-box h2 {
+      color: var(--dark);
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .example {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(70,55,15,0.08);
+    }
+
+    .bubble {
+      margin-top: 10px;
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: #f5f7f8;
+    }
+
+    .thinking-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .thinking-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid #e4ebf2;
+      min-height: 165px;
+    }
+
+    .thinking-card span {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .thinking-card h3 {
+      color: var(--blue-dark);
+      margin-bottom: 7px;
+    }
+
+    .thinking-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .adventure {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.15), transparent 35%),
+        linear-gradient(135deg, #193f61, #376f9d);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .adventure h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .adventure p {
+      color: #edf6ff;
+      max-width: 760px;
+    }
+
+    .adventure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .adventure-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 18px;
+      padding: 20px;
+      transition: 0.2s;
+    }
+
+    .adventure-card:hover {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-3px);
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .support-card {
+      background: white;
+      border: 1px solid #e3ebf3;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 150px;
+      transition: 0.2s;
+    }
+
+    .support-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(30,50,60,0.08);
+    }
+
+    .support-card div {
+      font-size: 2rem;
+    }
+
+    .support-card h3 {
+      margin: 7px 0;
+      color: var(--dark);
+    }
+
+    .support-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .progression {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 38px;
+      text-align: center;
+    }
+
+    .progression h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .progression p {
+      max-width: 740px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .progression-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .progression-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .progression-card strong {
+      color: var(--blue-dark);
+    }
+
+    .next-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 11px 19px;
+      border-radius: 999px;
+      background: var(--blue-dark);
+      color: white;
+      font-weight: bold;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 900px) {
+      .area-grid,
+      .thinking-grid,
+      .support-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .talk-box {
+        grid-template-columns: 1fr;
+      }
+
+      .adventure-grid,
+      .progression-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .area-grid,
+      .thinking-grid,
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .talk-box,
+      .intro-box,
+      .adventure,
+      .progression {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        padding: 0;
+        max-width: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="4-6.html" class="back-link">
+      ← Till 4–6
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🧭</div>
+
+    <h1>Årskurs 4</h1>
+
+    <h2>Jag bygger vidare och ser samband</h2>
+
+    <p>
+      Här utvecklar du din förståelse för större tal,
+      räknesätt, bråk, geometri, statistik och problemlösning.
+      Du tränar på att se samband och förklara dina strategier.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>🌿 Nu börjar nästa del av matteresan</h2>
+
+      <p>
+        I årskurs 4 bygger du vidare på grunden från F–3.
+        Matematiska idéer blir mer avancerade och du får arbeta
+        mer med modeller, samband, resonemang och olika representationer.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Matematik i årskurs 4
+    </h2>
+
+    <p class="section-intro">
+      Välj ett område och fortsätt utveckla ditt matematiska tänkande.
+    </p>
+
+    <div class="area-grid">
+
+      <a href="ak4-tal.html" class="area-card c1">
+        <div class="area-icon">🔢</div>
+        <h3>Taluppfattning</h3>
+        <p>
+          Större tal, positionssystem, talens egenskaper, negativa tal och tallinjen.
+        </p>
+      </a>
+
+
+      <a href="ak4-raknesatt.html" class="area-card c2">
+        <div class="area-icon">➕➖✖️➗</div>
+        <h3>De fyra räknesätten</h3>
+        <p>
+          Huvudräkning, skriftliga metoder, överslag och samband mellan räknesätten.
+        </p>
+      </a>
+
+
+      <a href="ak4-brak.html" class="area-card c3">
+        <div class="area-icon">🍕</div>
+        <h3>Bråk</h3>
+        <p>
+          Del av helhet, del av antal, jämförelser och enkla samband mellan bråk.
+        </p>
+      </a>
+
+
+      <a href="ak4-decimal.html" class="area-card c4">
+        <div class="area-icon">🔟</div>
+        <h3>Decimaltal</h3>
+        <p>
+          Tiondelar och hundradelar och sambandet mellan hela tal och decimaler.
+        </p>
+      </a>
+
+
+      <a href="ak4-algebra.html" class="area-card c5">
+        <div class="area-icon">🔤</div>
+        <h3>Algebra</h3>
+        <p>
+          Likheter, obekanta tal, enkla uttryck och matematiska mönster.
+        </p>
+      </a>
+
+
+      <a href="ak4-geometri.html" class="area-card c6">
+        <div class="area-icon">📐</div>
+        <h3>Geometri</h3>
+        <p>
+          Vinklar, geometriska objekt, omkrets, area, symmetri och koordinater.
+        </p>
+      </a>
+
+
+      <a href="ak4-matning.html" class="area-card c1">
+        <div class="area-icon">📏</div>
+        <h3>Mätning</h3>
+        <p>
+          Längd, massa, volym, tid och omvandling mellan vanliga enheter.
+        </p>
+      </a>
+
+
+      <a href="ak4-statistik.html" class="area-card c2">
+        <div class="area-icon">📊</div>
+        <h3>Statistik</h3>
+        <p>
+          Samla data, läsa tabeller och tolka olika typer av diagram.
+        </p>
+      </a>
+
+
+      <a href="ak4-sannolikhet.html" class="area-card c3">
+        <div class="area-icon">🎲</div>
+        <h3>Sannolikhet</h3>
+        <p>
+          Resonera om möjliga utfall och vad som är mer eller mindre sannolikt.
+        </p>
+      </a>
+
+
+      <a href="ak4-samband.html" class="area-card c4">
+        <div class="area-icon">🔗</div>
+        <h3>Samband</h3>
+        <p>
+          Upptäck hur tal, tabeller, mönster och förändringar hänger ihop.
+        </p>
+      </a>
+
+
+      <a href="ak4-problem.html" class="area-card c5">
+        <div class="area-icon">🧠</div>
+        <h3>Problemlösning</h3>
+        <p>
+          Tolka problem, välja strategi, pröva lösningar och bedöma rimlighet.
+        </p>
+      </a>
+
+
+      <a href="ak4-begrepp.html" class="area-card c6">
+        <div class="area-icon">💬</div>
+        <h3>Språk & begrepp</h3>
+        <p>
+          Förstå och använda matematiska ord, symboler och förklaringar.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="talk-box">
+
+      <div>
+
+        <h2>🗣️ Matteprat</h2>
+
+        <p>
+          I årskurs 4 blir det allt viktigare att kunna beskriva
+          varför en strategi fungerar och jämföra olika lösningar.
+        </p>
+
+        <br>
+
+        <a href="matteprat-ak4.html" class="next-button">
+          Öppna Matteprat →
+        </a>
+
+      </div>
+
+      <div class="example">
+
+        <strong>Vilken strategi är mest effektiv?</strong>
+
+        <h2 style="margin-top:12px;">
+          398 + 247
+        </h2>
+
+        <div class="bubble">
+          🧭 Jag tänker 400 + 247 − 2.
+        </div>
+
+        <div class="bubble">
+          🌳 Jag tänker 300 + 200 + 90 + 40 + 8 + 7.
+        </div>
+
+        <div class="bubble">
+          💭 Får båda samma svar?
+        </div>
+
+        <div class="bubble">
+          🗣️ När skulle du välja den ena strategin framför den andra?
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Utveckla ditt matematiska tänkande
+    </h2>
+
+    <p class="section-intro">
+      I årskurs 4 går vi från att bara lösa uppgifter till att också förstå varför metoder fungerar.
+    </p>
+
+    <div class="thinking-grid">
+
+      <div class="thinking-card">
+        <span>👀</span>
+        <h3>Se strukturen</h3>
+        <p>
+          Leta efter mönster och samband i tal och uppgifter.
+        </p>
+      </div>
+
+      <div class="thinking-card">
+        <span>🧠</span>
+        <h3>Välj strategi</h3>
+        <p>
+          Fundera på vilken metod som passar bäst i situationen.
+        </p>
+      </div>
+
+      <div class="thinking-card">
+        <span>🖼️</span>
+        <h3>Använd representationer</h3>
+        <p>
+          Visa samma matematik med bild, konkret material, ord och symboler.
+        </p>
+      </div>
+
+      <div class="thinking-card">
+        <span>🔎</span>
+        <h3>Undersök</h3>
+        <p>
+          Testa vad som händer när tal eller villkor förändras.
+        </p>
+      </div>
+
+      <div class="thinking-card">
+        <span>✅</span>
+        <h3>Bedöm rimlighet</h3>
+        <p>
+          Kontrollera om ditt svar verkar rimligt och använd överslag.
+        </p>
+      </div>
+
+      <div class="thinking-card">
+        <span>🗣️</span>
+        <h3>Resonera</h3>
+        <p>
+          Förklara dina lösningar och lyssna på andras matematiska idéer.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="adventure">
+
+      <h2>🧭 Matematikäventyr i årskurs 4</h2>
+
+      <p>
+        Lös större uppdrag där du använder flera matematiska områden samtidigt.
+      </p>
+
+      <div class="adventure-grid">
+
+        <a href="aventyr-4.html" class="adventure-card">
+          <h3>🌍 Expedition Matematik</h3>
+          <p>
+            Planera en expedition och lös problem med tal, mätning, kartor och logik.
+          </p>
+        </a>
+
+
+        <a href="ak4-skattjakten.html" class="adventure-card">
+          <h3>🗺️ Skattjakten</h3>
+          <p>
+            Tolka koordinater, skala, ledtrådar och matematiska koder.
+          </p>
+        </a>
+
+
+        <a href="ak4-staden.html" class="adventure-card">
+          <h3>🏙️ Bygg en stad</h3>
+          <p>
+            Använd geometri, area, omkrets och problemlösning för att planera en stad.
+          </p>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Jag vill...
+    </h2>
+
+    <p class="section-intro">
+      Välj hur du vill arbeta vidare.
+    </p>
+
+    <div class="support-grid">
+
+      <a href="spel-ak4.html" class="support-card">
+        <div>🎮</div>
+        <h3>Spela</h3>
+        <p>
+          Träna matematik genom strategispel och utmaningar.
+        </p>
+      </a>
+
+
+      <a href="strategier-ak4.html" class="support-card">
+        <div>🧩</div>
+        <h3>Strategibanken</h3>
+        <p>
+          Jämför metoder och lär dig flera sätt att tänka.
+        </p>
+      </a>
+
+
+      <a href="begrepp-ak4.html" class="support-card">
+        <div>💬</div>
+        <h3>Språk & begrepp</h3>
+        <p>
+          Träna ord, symboler och matematiska förklaringar.
+        </p>
+      </a>
+
+
+      <a href="stod-ak4.html" class="support-card">
+        <div>🛟</div>
+        <h3>Få hjälp</h3>
+        <p>
+          Få visuellt stöd, exempel och steg-för-steg-förklaringar.
+        </p>
+      </a>
+
+
+      <a href="utmaning-ak4.html" class="support-card">
+        <div>🚀</div>
+        <h3>Få en utmaning</h3>
+        <p>
+          Lös öppna problem och matematiska kluringar.
+        </p>
+      </a>
+
+
+      <a href="undersok-ak4.html" class="support-card">
+        <div>🔎</div>
+        <h3>Undersök matematik</h3>
+        <p>
+          Ställ frågor, testa idéer och hitta mönster.
+        </p>
+      </a>
+
+
+      <a href="verkligheten-ak4.html" class="support-card">
+        <div>🌍</div>
+        <h3>Matematik i verkligheten</h3>
+        <p>
+          Använd matematik i pengar, resor, byggande, sport och vardag.
+        </p>
+      </a>
+
+
+      <a href="veckansproblem-ak4.html" class="support-card">
+        <div>⭐</div>
+        <h3>Veckans problem</h3>
+        <p>
+          Lös ett problem och jämför olika strategier.
+        </p>
+      </a>
+
+
+      <a href="minresa-ak4.html" class="support-card">
+        <div>🏆</div>
+        <h3>Min matteresa</h3>
+        <p>
+          Se vad du utvecklar och vad nästa steg blir.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="progression">
+
+      <h2>🔗 Din röda tråd</h2>
+
+      <p>
+        Årskurs 4 är bron mellan F–3 och den mer avancerade matematiken i 4–6.
+        Du använder tidigare kunskaper i nya sammanhang och börjar se fler samband.
+      </p>
+
+      <div class="progression-row">
+
+        <div class="progression-card">
+          🌳<br>
+          <strong>Årskurs 3</strong>
+          <p>Fördjupa & förklara</p>
+        </div>
+
+        <div class="progression-card">
+          🧭<br>
+          <strong>Årskurs 4</strong>
+          <p>Bygga vidare & se samband</p>
+        </div>
+
+        <div class="progression-card">
+          🔎<br>
+          <strong>Årskurs 5</strong>
+          <p>Jämföra & fördjupa</p>
+        </div>
+
+      </div>
+
+      <a href="ak5.html" class="next-button">
+        Se nästa steg: Åk 5 →
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🧭 Årskurs 4 – Jag bygger vidare och ser samband
+
+</footer>
+
+</body>
+</html>
