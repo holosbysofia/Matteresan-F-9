@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Veckans problem | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --gold: #d89b23;
+      --gold-dark: #9f6f12;
+      --gold-light: #fff5d9;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #8e6519, #d6a23b);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--gold-dark);
+    }
+
+    .hero {
+      max-width: 850px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #fff9eb;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--gold-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 780px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 30px 24px;
+      min-height: 245px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .stage-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    }
+
+    .f3 {
+      background: var(--green-light);
+    }
+
+    .m46 {
+      background: var(--blue-light);
+    }
+
+    .m79 {
+      background: var(--purple-light);
+    }
+
+    .stage-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card p {
+      color: var(--muted);
+      flex-grow: 1;
+    }
+
+    .stage-button {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 18px;
+      background: var(--dark);
+      color: white;
+      padding: 10px 17px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .problem-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 35%),
+        linear-gradient(135deg, #5d4215, #9a711f);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .problem-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .problem-box > div:first-child p {
+      color: #fff9eb;
+    }
+
+    .problem-card {
+      background: white;
+      color: var(--text);
+      border-radius: 20px;
+      padding: 25px;
+    }
+
+    .step {
+      margin-top: 10px;
+      background: #f5f7f8;
+      border-radius: 12px;
+      padding: 11px 14px;
+    }
+
+    .think-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .think-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+      border: 1px solid #e6ebef;
+      min-height: 175px;
+    }
+
+    .think-card span {
+      display: block;
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+
+    .think-card h3 {
+      color: var(--gold-dark);
+      margin-bottom: 6px;
+    }
+
+    .think-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .archive-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 190px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .archive-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
+    }
+
+    .archive-card span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .archive-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .archive-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .c1 { background: var(--gold-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--orange-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--pink-light); }
+
+    .share-box {
+      background: var(--gold-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .share-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .share-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid #eee5d3;
+      min-height: 180px;
+    }
+
+    .share-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .share-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 950px) {
+      .think-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .archive-grid,
+      .share-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .problem-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .think-grid,
+      .archive-grid,
+      .share-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .problem-box,
+      .share-box {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        padding: 0;
+        max-width: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="index.html" class="back-link">
+      ← Startsidan
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">⭐</div>
+
+    <h1>Veckans problem</h1>
+
+    <h2>Ett problem • Många tankar • Flera vägar</h2>
+
+    <p>
+      Varje vecka möter du ett problem som är gjort för att diskuteras,
+      undersökas och lösas på flera olika sätt.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>💡 Här är tänkandet viktigast</h2>
+
+      <p>
+        Veckans problem handlar inte om att bli klar först.
+        Du ska få tid att tänka, prova, rita, diskutera,
+        jämföra lösningar och förklara varför din strategi fungerar.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Välj din nivå
+    </h2>
+
+    <p class="section-intro">
+      Veckans problem finns i tre nivåområden med tydlig progression genom F–9.
+    </p>
+
+    <div class="stage-grid">
+
+      <a href="veckansproblem-f3.html" class="stage-card f3">
+
+        <div class="stage-icon">🌱</div>
+
+        <h3>Veckans problem F–3</h3>
+
+        <p>
+          Rita, bygg, prova och berätta. Problem med tal, former, mönster och vardag.
+        </p>
+
+        <span class="stage-button">
+          Öppna F–3 →
+        </span>
+
+      </a>
+
+
+      <a href="veckansproblem-46.html" class="stage-card m46">
+
+        <div class="stage-icon">🌿</div>
+
+        <h3>Veckans problem 4–6</h3>
+
+        <p>
+          Problem med flera steg, strategier, samband och matematiska resonemang.
+        </p>
+
+        <span class="stage-button">
+          Öppna 4–6 →
+        </span>
+
+      </a>
+
+
+      <a href="veckansproblem-79.html" class="stage-card m79">
+
+        <div class="stage-icon">🚀</div>
+
+        <h3>Veckans problem 7–9</h3>
+
+        <p>
+          Öppna och komplexa problem med algebra, modeller, generalisering och argumentation.
+        </p>
+
+        <span class="stage-button">
+          Öppna 7–9 →
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="problem-box">
+
+      <div>
+
+        <h2>⭐ Veckans exempelproblem</h2>
+
+        <p>
+          Ett bra veckoproblem ska gå att börja på men också kunna utvecklas långt.
+          Därför kan samma problem innehålla både stöd och extra utmaningar.
+        </p>
+
+      </div>
+
+      <div class="problem-card">
+
+        <strong>Problemet:</strong>
+
+        <h2 style="margin-top:12px;">
+          Talet 36
+        </h2>
+
+        <div class="step">
+          🔢 Hitta så många olika sätt som möjligt att skriva 36 med hjälp av fyra tal.
+        </div>
+
+        <div class="step">
+          ➕➖✖️➗ Du får använda olika räknesätt.
+        </div>
+
+        <div class="step">
+          🧠 Kan du hitta tre helt olika strategier?
+        </div>
+
+        <div class="step">
+          🔎 Vilka regler behöver ni bestämma?
+        </div>
+
+        <div class="step">
+          🚀 Kan du skapa samma utmaning för talet 72?
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Så arbetar du med Veckans problem
+    </h2>
+
+    <p class="section-intro">
+      Försök först själv och använd sedan samtalet för att utveckla din lösning.
+    </p>
+
+    <div class="think-grid">
+
+      <div class="think-card">
+        <span>1️⃣</span>
+        <h3>Tänk själv</h3>
+        <p>
+          Läs problemet och ge dig själv tid att fundera.
+        </p>
+      </div>
+
+      <div class="think-card">
+        <span>2️⃣</span>
+        <h3>Visa din idé</h3>
+        <p>
+          Rita, skriv, gör en tabell eller använd matematiska symboler.
+        </p>
+      </div>
+
+      <div class="think-card">
+        <span>3️⃣</span>
+        <h3>Prata tillsammans</h3>
+        <p>
+          Jämför strategier och ställ frågor till varandra.
+        </p>
+      </div>
+
+      <div class="think-card">
+        <span>4️⃣</span>
+        <h3>Utveckla</h3>
+        <p>
+          Förbättra din lösning efter att du hört andras idéer.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Problemtyper
+    </h2>
+
+    <p class="section-intro">
+      Veckans problem kan se olika ut från vecka till vecka.
+    </p>
+
+    <div class="archive-grid">
+
+      <a href="veckans-tal.html" class="archive-card c1">
+        <span>🔢</span>
+        <h3>Talproblem</h3>
+        <p>
+          Tal, räknesätt, delbarhet, bråk, procent och talmönster.
+        </p>
+      </a>
+
+
+      <a href="veckans-geometri.html" class="archive-card c2">
+        <span>📐</span>
+        <h3>Geometriproblem</h3>
+        <p>
+          Former, vinklar, area, omkrets, volym, skala och konstruktion.
+        </p>
+      </a>
+
+
+      <a href="veckans-logik.html" class="archive-card c3">
+        <span>🔐</span>
+        <h3>Logikproblem</h3>
+        <p>
+          Ledtrådar, systematiskt prövande och matematiska mysterier.
+        </p>
+      </a>
+
+
+      <a href="veckans-monster.html" class="archive-card c4">
+        <span>🧩</span>
+        <h3>Mönsterproblem</h3>
+        <p>
+          Upptäck regler, fortsätt mönster och generalisera.
+        </p>
+      </a>
+
+
+      <a href="veckans-verklighet.html" class="archive-card c5">
+        <span>🌍</span>
+        <h3>Verklighetsproblem</h3>
+        <p>
+          Ekonomi, resor, statistik, mätning och matematiska beslut.
+        </p>
+      </a>
+
+
+      <a href="veckans-oppet.html" class="archive-card c6">
+        <span>🚀</span>
+        <h3>Öppna problem</h3>
+        <p>
+          Problem med flera möjliga svar, strategier eller lösningsvägar.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="share-box">
+
+      <h2 class="section-title">
+        🗣️ När ni delar lösningar
+      </h2>
+
+      <p class="section-intro">
+        Samtalet efter problemet är en viktig del av lärandet.
+      </p>
+
+      <div class="share-grid">
+
+        <div class="share-card">
+          <h3>🧠 Hur tänkte du?</h3>
+          <p>
+            Beskriv din strategi steg för steg.
+          </p>
+        </div>
+
+        <div class="share-card">
+          <h3>🔄 Finns ett annat sätt?</h3>
+          <p>
+            Jämför din lösning med någon som tänkte annorlunda.
+          </p>
+        </div>
+
+        <div class="share-card">
+          <h3>⚖️ Vilken strategi är effektiv?</h3>
+          <p>
+            Diskutera fördelar och nackdelar med olika lösningar.
+          </p>
+        </div>
+
+        <div class="share-card">
+          <h3>✅ Hur vet vi?</h3>
+          <p>
+            Kontrollera lösningen och förklara varför den fungerar.
+          </p>
+        </div>
+
+        <div class="share-card">
+          <h3>❓ Vad händer om...?</h3>
+          <p>
+            Ändra ett tal eller villkor och undersök hur problemet förändras.
+          </p>
+        </div>
+
+        <div class="share-card">
+          <h3>🚀 Kan vi generalisera?</h3>
+          <p>
+            Försök formulera en regel eller slutsats som gäller i fler fall.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  ⭐ Veckans problem – ett problem, många tankar, flera vägar
+
+</footer>
+
+</body>
+</html>
