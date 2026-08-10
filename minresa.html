@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Min matteresa | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green: #4f9f71;
+      --green-dark: #347451;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #2f6e50, #58a97a);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--green-dark);
+    }
+
+    .hero {
+      max-width: 850px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #effff5;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--green-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 780px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 30px 24px;
+      min-height: 245px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .stage-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    }
+
+    .f3 {
+      background: var(--green-light);
+    }
+
+    .m46 {
+      background: var(--blue-light);
+    }
+
+    .m79 {
+      background: var(--purple-light);
+    }
+
+    .stage-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card p {
+      color: var(--muted);
+      flex-grow: 1;
+    }
+
+    .stage-button {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 18px;
+      background: var(--dark);
+      color: white;
+      padding: 10px 17px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .journey-card {
+      border-radius: 20px;
+      padding: 22px 15px;
+      text-align: center;
+      min-height: 180px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .journey-card span {
+      display: block;
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+    }
+
+    .journey-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .journey-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .j1 { background: var(--yellow-light); }
+    .j2 { background: var(--green-light); }
+    .j3 { background: var(--blue-light); }
+    .j4 { background: var(--purple-light); }
+    .j5 { background: var(--orange-light); }
+
+    .reflection-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 35%),
+        linear-gradient(135deg, #17324d, #376b55);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .reflection-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .reflection-box > p {
+      color: #effff5;
+      max-width: 760px;
+    }
+
+    .reflection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 25px;
+    }
+
+    .reflection-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .reflection-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .reflection-card p {
+      color: #effff5;
+      font-size: 0.93rem;
+    }
+
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .area-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 190px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .area-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
+    }
+
+    .area-card span {
+      font-size: 2.4rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .area-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .area-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .c1 { background: var(--yellow-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--orange-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--pink-light); }
+
+    .goal-box {
+      background: var(--green-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 24px;
+    }
+
+    .goal-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 180px;
+      border: 1px solid #dfebe3;
+    }
+
+    .goal-card span {
+      font-size: 2.2rem;
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .goal-card h3 {
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+
+    .goal-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .portfolio-box {
+      background: white;
+      border-radius: 28px;
+      padding: 36px;
+      border: 1px solid #e6ebef;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .portfolio-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 175px;
+    }
+
+    .portfolio-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .portfolio-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 1000px) {
+      .journey-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .goal-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .area-grid,
+      .reflection-grid,
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 750px) {
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .journey-grid,
+      .goal-grid,
+      .area-grid,
+      .reflection-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .reflection-box,
+      .goal-box,
+      .portfolio-box {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        padding: 0;
+        max-width: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="index.html" class="back-link">
+      ← Startsidan
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🏆</div>
+
+    <h1>Min matteresa</h1>
+
+    <h2>Se vad du kan – upptäck ditt nästa steg</h2>
+
+    <p>
+      Här får du följa din matematiska utveckling,
+      reflektera över hur du tänker och upptäcka vad du vill lära dig härnäst.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>🌱 Matematik är en resa</h2>
+
+      <p>
+        Du utvecklas inte bara genom att kunna fler svar.
+        Du utvecklas när du förstår mer, hittar strategier,
+        använder matematiska begrepp, förklarar hur du tänker
+        och klarar att använda matematiken i nya situationer.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Välj din del av matteresan
+    </h2>
+
+    <p class="section-intro">
+      Följ din utveckling på den nivå där du arbetar just nu.
+    </p>
+
+    <div class="stage-grid">
+
+      <a href="minresa-f3.html" class="stage-card f3">
+
+        <div class="stage-icon">🌱</div>
+
+        <h3>Min matteresa F–3</h3>
+
+        <p>
+          Jag upptäcker, bygger, räknar, visar och berättar hur jag tänker.
+        </p>
+
+        <span class="stage-button">
+          Öppna F–3 →
+        </span>
+
+      </a>
+
+
+      <a href="minresa-46.html" class="stage-card m46">
+
+        <div class="stage-icon">🌿</div>
+
+        <h3>Min matteresa 4–6</h3>
+
+        <p>
+          Jag utvecklar strategier, ser samband och förklarar matematiska lösningar.
+        </p>
+
+        <span class="stage-button">
+          Öppna 4–6 →
+        </span>
+
+      </a>
+
+
+      <a href="minresa-79.html" class="stage-card m79">
+
+        <div class="stage-icon">🚀</div>
+
+        <h3>Min matteresa 7–9</h3>
+
+        <p>
+          Jag analyserar, generaliserar, modellerar och argumenterar matematiskt.
+        </p>
+
+        <span class="stage-button">
+          Öppna 7–9 →
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Så växer mitt matematiska tänkande
+    </h2>
+
+    <p class="section-intro">
+      Du kan befinna dig på olika steg inom olika områden.
+    </p>
+
+    <div class="journey-grid">
+
+      <div class="journey-card j1">
+        <span>🌱</span>
+        <h3>Jag börjar förstå</h3>
+        <p>
+          Jag känner igen idén och kan arbeta med stöd.
+        </p>
+      </div>
+
+      <div class="journey-card j2">
+        <span>🌿</span>
+        <h3>Jag tränar</h3>
+        <p>
+          Jag kan använda kunskapen i uppgifter jag känner igen.
+        </p>
+      </div>
+
+      <div class="journey-card j3">
+        <span>🌳</span>
+        <h3>Jag kan använda</h3>
+        <p>
+          Jag kan välja och använda kunskapen mer självständigt.
+        </p>
+      </div>
+
+      <div class="journey-card j4">
+        <span>⭐</span>
+        <h3>Jag kan förklara</h3>
+        <p>
+          Jag kan beskriva hur och varför min lösning fungerar.
+        </p>
+      </div>
+
+      <div class="journey-card j5">
+        <span>🚀</span>
+        <h3>Jag kan använda i nya problem</h3>
+        <p>
+          Jag kan överföra min kunskap till nya och mer komplexa situationer.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="reflection-box">
+
+      <h2>🧠 Reflektera över ditt lärande</h2>
+
+      <p>
+        När du funderar på hur du lär dig blir det lättare att se både det du redan kan
+        och vad som behöver bli nästa steg.
+      </p>
+
+      <div class="reflection-grid">
+
+        <div class="reflection-card">
+          <h3>💡 Det här har jag förstått</h3>
+          <p>
+            Vad kan du idag som var svårt tidigare?
+          </p>
+        </div>
+
+        <div class="reflection-card">
+          <h3>🧩 En strategi jag använder</h3>
+          <p>
+            Vilken strategi hjälper dig och när brukar du använda den?
+          </p>
+        </div>
+
+        <div class="reflection-card">
+          <h3>💬 Ett begrepp jag kan förklara</h3>
+          <p>
+            Välj ett matematiskt ord och förklara det med egna ord.
+          </p>
+        </div>
+
+        <div class="reflection-card">
+          <h3>❓ Något jag fortfarande undrar</h3>
+          <p>
+            Vilken matematisk idé vill du förstå bättre?
+          </p>
+        </div>
+
+        <div class="reflection-card">
+          <h3>⭐ Något jag är stolt över</h3>
+          <p>
+            Vilken uppgift, lösning eller förklaring visar din utveckling?
+          </p>
+        </div>
+
+        <div class="reflection-card">
+          <h3>🚀 Mitt nästa steg</h3>
+          <p>
+            Vad vill du kunna göra mer självständigt nästa gång?
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Följ din utveckling område för område
+    </h2>
+
+    <p class="section-intro">
+      Matematiska kunskaper utvecklas på olika sätt och i olika takt.
+    </p>
+
+    <div class="area-grid">
+
+      <a href="minresa-tal.html" class="area-card c1">
+        <span>🔢</span>
+        <h3>Taluppfattning</h3>
+        <p>
+          Hur utvecklas min förståelse för tal, storlek, platsvärde och samband?
+        </p>
+      </a>
+
+      <a href="minresa-raknesatt.html" class="area-card c2">
+        <span>➕➖✖️➗</span>
+        <h3>Räknesätt</h3>
+        <p>
+          Vilka strategier och metoder kan jag använda och förklara?
+        </p>
+      </a>
+
+      <a href="minresa-brak.html" class="area-card c3">
+        <span>🍕</span>
+        <h3>Bråk, decimal & procent</h3>
+        <p>
+          Kan jag se och förklara sambanden mellan olika representationer?
+        </p>
+      </a>
+
+      <a href="minresa-algebra.html" class="area-card c4">
+        <span>🔤</span>
+        <h3>Algebra & mönster</h3>
+        <p>
+          Kan jag upptäcka regler, använda symboler och generalisera?
+        </p>
+      </a>
+
+      <a href="minresa-geometri.html" class="area-card c5">
+        <span>📐</span>
+        <h3>Geometri</h3>
+        <p>
+          Kan jag använda geometriska begrepp, modeller och samband?
+        </p>
+      </a>
+
+      <a href="minresa-statistik.html" class="area-card c6">
+        <span>📊</span>
+        <h3>Statistik & sannolikhet</h3>
+        <p>
+          Kan jag samla, tolka, jämföra och värdera information?
+        </p>
+      </a>
+
+      <a href="minresa-samband.html" class="area-card c1">
+        <span>📈</span>
+        <h3>Samband & förändring</h3>
+        <p>
+          Kan jag beskriva hur storheter hänger ihop och förändras?
+        </p>
+      </a>
+
+      <a href="minresa-problem.html" class="area-card c2">
+        <span>🧠</span>
+        <h3>Problemlösning</h3>
+        <p>
+          Kan jag förstå, planera, prova, kontrollera och utveckla lösningar?
+        </p>
+      </a>
+
+      <a href="minresa-resonemang.html" class="area-card c3">
+        <span>🗣️</span>
+        <h3>Resonemang</h3>
+        <p>
+          Kan jag motivera, jämföra och förklara matematiska idéer?
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="goal-box">
+
+      <h2 class="section-title">
+        🎯 Mitt nästa mål
+      </h2>
+
+      <p class="section-intro">
+        Ett bra mål beskriver något du vill kunna göra – inte bara hur många uppgifter du ska göra.
+      </p>
+
+      <div class="goal-grid">
+
+        <div class="goal-card">
+          <span>🧠</span>
+          <h3>Förstå</h3>
+          <p>
+            Jag vill förstå varför...
+          </p>
+        </div>
+
+        <div class="goal-card">
+          <span>🧩</span>
+          <h3>Använda</h3>
+          <p>
+            Jag vill kunna använda strategin...
+          </p>
+        </div>
+
+        <div class="goal-card">
+          <span>🗣️</span>
+          <h3>Förklara</h3>
+          <p>
+            Jag vill kunna förklara...
+          </p>
+        </div>
+
+        <div class="goal-card">
+          <span>🚀</span>
+          <h3>Utveckla</h3>
+          <p>
+            Jag vill kunna använda min kunskap i...
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="portfolio-box">
+
+      <h2 class="section-title">
+        🗂️ Min matematikportfölj
+      </h2>
+
+      <p class="section-intro">
+        Spara exempel som visar hur ditt matematiska tänkande utvecklas.
+      </p>
+
+      <div class="portfolio-grid">
+
+        <div class="portfolio-card c1">
+          <h3>⭐ En lösning jag är stolt över</h3>
+          <p>
+            Spara en uppgift där du använde en bra strategi eller hittade en egen lösning.
+          </p>
+        </div>
+
+        <div class="portfolio-card c2">
+          <h3>🗣️ Ett bra resonemang</h3>
+          <p>
+            Spara en förklaring där du tydligt visar hur och varför.
+          </p>
+        </div>
+
+        <div class="portfolio-card c3">
+          <h3>🔄 Före och efter</h3>
+          <p>
+            Jämför en äldre lösning med en ny och upptäck hur ditt tänkande har förändrats.
+          </p>
+        </div>
+
+        <div class="portfolio-card c4">
+          <h3>❌ Ett fel jag lärde mig av</h3>
+          <p>
+            Visa vad som blev fel och vad du förstår bättre nu.
+          </p>
+        </div>
+
+        <div class="portfolio-card c5">
+          <h3>🔎 En matematisk upptäckt</h3>
+          <p>
+            Spara ett mönster, samband eller en regel som du själv upptäckte.
+          </p>
+        </div>
+
+        <div class="portfolio-card c6">
+          <h3>🚀 Min nästa utmaning</h3>
+          <p>
+            Skriv vad du vill undersöka eller bli bättre på härnäst.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🏆 Min matteresa – se vad du kan och upptäck ditt nästa steg
+
+</footer>
+
+</body>
+</html>
