@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Elevblad Decimaltal F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --teal-light: #eaf7f5;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
+        linear-gradient(135deg, #315b75, #5b9cbc);
+      color: white;
+      padding: 22px 20px 55px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 45px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.1rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 4.2rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 820px;
+      margin: auto;
+      color: #eef9ff;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 42px 20px;
+    }
+
+    section {
+      margin-bottom: 55px;
+    }
+
+    .intro {
+      background: var(--blue-light);
+      border-radius: 26px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      max-width: 850px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .print-button {
+      display: inline-block;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 18px;
+    }
+
+    .stage {
+      border-radius: 28px;
+      padding: 34px;
+      margin-bottom: 34px;
+    }
+
+    .stage-f3 {
+      background: var(--green-light);
+    }
+
+    .stage-46 {
+      background: var(--blue-light);
+    }
+
+    .stage-79 {
+      background: var(--purple-light);
+    }
+
+    .stage-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .stage-header span {
+      font-size: 2.8rem;
+    }
+
+    .stage-header h2 {
+      color: var(--dark);
+      font-size: 1.9rem;
+    }
+
+    .stage-header p {
+      color: var(--muted);
+    }
+
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .sheet {
+      background: white;
+      border-radius: 22px;
+      padding: 26px;
+      border: 1px solid rgba(0,0,0,0.06);
+      min-height: 500px;
+    }
+
+    .sheet h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
+      font-size: 1.35rem;
+    }
+
+    .sheet-sub {
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: 0.93rem;
+    }
+
+    .task {
+      margin-bottom: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed #ccd4db;
+    }
+
+    .task:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .task strong {
+      color: var(--dark);
+    }
+
+    .answer-line {
+      display: block;
+      height: 30px;
+      border-bottom: 1px solid #6f7a84;
+      margin-top: 8px;
+    }
+
+    .answer-box {
+      height: 76px;
+      border: 1.5px solid #9ba7b1;
+      border-radius: 10px;
+      margin-top: 10px;
+      background: white;
+    }
+
+    .answer-box.large {
+      height: 115px;
+    }
+
+    .place-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+
+    .place-table th,
+    .place-table td {
+      border: 1px solid #9aa6af;
+      padding: 9px;
+      text-align: center;
+    }
+
+    .place-table th {
+      background: #f0f4f7;
+    }
+
+    .numberline {
+      position: relative;
+      height: 72px;
+      margin-top: 18px;
+    }
+
+    .numberline .line {
+      height: 3px;
+      background: #344a5f;
+      position: absolute;
+      left: 4%;
+      right: 4%;
+      top: 32px;
+    }
+
+    .tick {
+      position: absolute;
+      top: 23px;
+      width: 2px;
+      height: 20px;
+      background: #344a5f;
+    }
+
+    .tick-label {
+      position: absolute;
+      top: 46px;
+      transform: translateX(-50%);
+      font-size: 0.85rem;
+    }
+
+    .p0 { left: 4%; }
+    .p25 { left: 27%; }
+    .p50 { left: 50%; }
+    .p75 { left: 73%; }
+    .p100 { left: 96%; }
+
+    .choice-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .choice {
+      border: 1.5px solid #9aa6af;
+      border-radius: 10px;
+      padding: 8px 14px;
+      min-width: 75px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .challenge {
+      background: var(--yellow-light);
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .reflection {
+      background: var(--orange-light);
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .challenge h4,
+    .reflection h4 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .teacher-note {
+      background: var(--teal-light);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .teacher-note h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .teacher-note ul {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .teacher-note li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      text-align: center;
+      padding: 34px 20px;
+    }
+
+    @media (max-width: 850px) {
+      .sheet-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .stage,
+      .intro,
+      .teacher-note {
+        padding: 23px 16px;
+      }
+
+      .sheet {
+        padding: 20px 16px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 12mm;
+    }
+
+    @media print {
+      body {
+        background: white;
+        font-size: 10.5pt;
+      }
+
+      header,
+      footer,
+      .intro,
+      .teacher-note,
+      .print-button,
+      .back-link {
+        display: none !important;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      section {
+        margin: 0;
+      }
+
+      .stage {
+        background: white !important;
+        padding: 0;
+        margin: 0;
+      }
+
+      .stage-header {
+        margin: 0 0 7mm 0;
+      }
+
+      .stage-header span {
+        display: none;
+      }
+
+      .stage-header h2 {
+        font-size: 17pt;
+      }
+
+      .stage-header p {
+        font-size: 9pt;
+      }
+
+      .sheet-grid {
+        display: block;
+      }
+
+      .sheet {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        min-height: 0;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .sheet:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .task,
+      .challenge,
+      .reflection {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .stage:not(:first-of-type) {
+        page-break-before: always;
+        break-before: page;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">HOLOS MATTERESAN</div>
+
+    <a href="material-elevblad.html" class="back-link">
+      ← Elevblad
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🔟</div>
+
+    <h1>Decimaltal F–9</h1>
+
+    <h2>Platsvärde • Storlek • Tallinje • Beräkna • Koppla</h2>
+
+    <p>
+      Utskriftsklara elevblad för att utveckla förståelse för decimaltal,
+      platsvärde och samband mellan bråk, decimalform och procent.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro">
+
+      <h2>📄 Sex utskriftsklara elevblad</h2>
+
+      <p>
+        Två blad för varje stadium. Varje elevblad placeras på en egen A4-sida vid utskrift.
+      </p>
+
+      <button class="print-button" onclick="window.print()">
+        🖨️ Skriv ut elevbladen
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- F–3 -->
+
+  <section class="stage stage-f3">
+
+    <div class="stage-header">
+
+      <span>🌱</span>
+
+      <div>
+        <h2>F–3 – Förberedande decimalförståelse</h2>
+        <p>Helhet • tiondelar • pengar • mätning</p>
+      </div>
+
+    </div>
+
+    <div class="sheet-grid">
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 1 – Hel och del</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Dela en hel i 10 lika stora delar.</strong>
+
+          <p>
+            Rita en rektangel och dela den i 10 lika stora delar.
+          </p>
+
+          <div class="answer-box large"></div>
+
+          <p>
+            En av delarna kallas en __________________.
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Hur många tiondelar?</strong>
+
+          <p>
+            1 hel = ______ tiondelar
+          </p>
+
+          <p>
+            5 tiondelar = ______ av en hel
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Pengar.</strong>
+
+          <p>
+            1 krona delas i 10 lika stora delar.
+          </p>
+
+          <p>
+            Hur många tiondelar av en krona är 50 öre?
+          </p>
+
+          <p>
+            Svar: ______ tiondelar
+          </p>
+
+        </div>
+
+
+        <div class="reflection">
+
+          <h4>💬 Förklara</h4>
+
+          <p>
+            Vad betyder det att något är en tiondel av en helhet?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+      </article>
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 2 – Mäta med delar</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Meter och decimeter.</strong>
+
+          <p>
+            1 meter = ______ decimeter
+          </p>
+
+          <p>
+            5 decimeter är ______ tiondelar av en meter.
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Vilket är längst?</strong>
+
+          <div class="choice-row">
+            <div class="choice">4 dm</div>
+            <div class="choice">7 dm</div>
+            <div class="choice">5 dm</div>
+          </div>
+
+          <p style="margin-top:10px;">
+            Det längsta måttet är __________.
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Rita.</strong>
+
+          <p>
+            Rita en sträcka som visar ungefär 7 tiondelar av en hel meter.
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="challenge">
+
+          <h4>🚀 Utmaning</h4>
+
+          <p>
+            Ett band är 1 meter långt.
+            Du klipper bort 3 tiondelar.
+            Hur många tiondelar är kvar?
+          </p>
+
+          <p>
+            Svar: ______ tiondelar
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- 4–6 -->
+
+  <section class="stage stage-46">
+
+    <div class="stage-header">
+
+      <span>🌿</span>
+
+      <div>
+        <h2>4–6 – Platsvärde & storlek</h2>
+        <p>Tiondelar • hundradelar • tallinje • jämförelse • beräkningar</p>
+      </div>
+
+    </div>
+
+    <div class="sheet-grid">
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 3 – Bygg decimaltalet</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Placera siffrorna.</strong>
+
+          <table class="place-table">
+            <tr>
+              <th>Tiotal</th>
+              <th>Ental</th>
+              <th>,</th>
+              <th>Tiondelar</th>
+              <th>Hundradelar</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td>4</td>
+              <td>,</td>
+              <td>7</td>
+              <td>2</td>
+            </tr>
+          </table>
+
+          <p style="margin-top:10px;">
+            Talet är __________.
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Vad betyder siffran?</strong>
+
+          <p>
+            I talet 5,38:
+          </p>
+
+          <p>
+            3 betyder __________________
+          </p>
+
+          <p>
+            8 betyder __________________
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Skriv som summa.</strong>
+
+          <p>
+            7,46 = 7 + ______ + ______
+          </p>
+
+          <p>
+            2,09 = 2 + ______
+          </p>
+
+        </div>
+
+
+        <div class="reflection">
+
+          <h4>💬 Förklara</h4>
+
+          <p>
+            Varför är 4,7 samma värde som 4,70?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+      </article>
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 4 – Jämför och placera</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Vilket är störst?</strong>
+
+          <p>0,8 eller 0,75? __________</p>
+
+          <p>1,09 eller 1,1? __________</p>
+
+          <p>2,45 eller 2,405? __________</p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Placera på tallinjen.</strong>
+
+          <p>
+            Markera ungefär 0,2, 0,55 och 0,9.
+          </p>
+
+          <div class="numberline">
+
+            <div class="line"></div>
+
+            <div class="tick p0"></div>
+            <div class="tick p25"></div>
+            <div class="tick p50"></div>
+            <div class="tick p75"></div>
+            <div class="tick p100"></div>
+
+            <div class="tick-label p0">0</div>
+            <div class="tick-label p25">0,25</div>
+            <div class="tick-label p50">0,5</div>
+            <div class="tick-label p75">0,75</div>
+            <div class="tick-label p100">1</div>
+
+          </div>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Beräkna.</strong>
+
+          <p>2,4 + 1,7 = __________</p>
+          <p>5,8 − 2,35 = __________</p>
+          <p>0,6 × 10 = __________</p>
+          <p>4,7 ÷ 10 = __________</p>
+
+        </div>
+
+
+        <div class="challenge">
+
+          <h4>🚀 Utmaning</h4>
+
+          <p>
+            Skriv tre olika tal mellan 2,4 och 2,5.
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 -->
+
+  <section class="stage stage-79">
+
+    <div class="stage-header">
+
+      <span>🚀</span>
+
+      <div>
+        <h2>7–9 – Representationer & generalisering</h2>
+        <p>Decimal • bråk • procent • potenser • beräkningar • resonemang</p>
+      </div>
+
+    </div>
+
+    <div class="sheet-grid">
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 5 – Samma tal, olika former</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Fyll i tabellen.</strong>
+
+          <table class="place-table">
+            <tr>
+              <th>Bråk</th>
+              <th>Decimal</th>
+              <th>Procent</th>
+            </tr>
+            <tr>
+              <td>1/2</td>
+              <td>________</td>
+              <td>________</td>
+            </tr>
+            <tr>
+              <td>1/4</td>
+              <td>________</td>
+              <td>________</td>
+            </tr>
+            <tr>
+              <td>3/4</td>
+              <td>________</td>
+              <td>________</td>
+            </tr>
+            <tr>
+              <td>________</td>
+              <td>0,2</td>
+              <td>________</td>
+            </tr>
+          </table>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Jämför.</strong>
+
+          <p>
+            Vilket är störst?
+          </p>
+
+          <div class="choice-row">
+            <div class="choice">0,62</div>
+            <div class="choice">5/8</div>
+            <div class="choice">61 %</div>
+          </div>
+
+          <p style="margin-top:10px;">
+            Förklara hur du jämförde.
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Närmevärde.</strong>
+
+          <p>
+            Avrunda 7,846 till:
+          </p>
+
+          <p>
+            en decimal: __________
+          </p>
+
+          <p>
+            två decimaler: __________
+          </p>
+
+        </div>
+
+
+        <div class="reflection">
+
+          <h4>💬 Resonera</h4>
+
+          <p>
+            Vad är fördelen med att kunna växla mellan bråkform,
+            decimalform och procentform?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+      </article>
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 6 – Decimaler och struktur</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Multiplicera och dividera med potenser av 10.</strong>
+
+          <p>3,48 × 10 = __________</p>
+          <p>3,48 × 100 = __________</p>
+          <p>3,48 ÷ 10 = __________</p>
+          <p>3,48 ÷ 100 = __________</p>
+
+          <p style="margin-top:10px;">
+            Beskriv vad som händer med siffrornas platsvärde.
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Hitta felet.</strong>
+
+          <p>
+            En elev skriver:
+          </p>
+
+          <p style="font-size:1.15rem;font-weight:bold;margin:8px 0;">
+            2,7 + 0,45 = 2,115
+          </p>
+
+          <p>
+            Vad kan eleven ha gjort fel?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Sant, falskt eller ibland?</strong>
+
+          <p>
+            ”Ett tal med fler decimaler är alltid större.”
+          </p>
+
+          <div class="choice-row">
+            <div class="choice">Sant</div>
+            <div class="choice">Falskt</div>
+            <div class="choice">Ibland</div>
+          </div>
+
+          <p style="margin-top:10px;">
+            Ge exempel som stöd för ditt svar.
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="challenge">
+
+          <h4>🚀 Generalisera</h4>
+
+          <p>
+            Hitta fyra olika tal som alla ligger mellan 0,3 och 0,4.
+            Minst ett ska ha två decimaler och minst ett tre decimaler.
+          </p>
+
+          <div class="answer-box large"></div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="teacher-note">
+
+      <h2>👩‍🏫 Lärarnotering</h2>
+
+      <ul>
+        <li>
+          F–3 arbetar förberedande med tiondelar genom helhet, mätning och pengar.
+        </li>
+
+        <li>
+          4–6 fokuserar på platsvärde, storlek, tallinje och grundläggande beräkningar med decimaltal.
+        </li>
+
+        <li>
+          7–9 kopplar samman decimalform med bråk, procent, potenser och mer generella resonemang.
+        </li>
+
+        <li>
+          Var särskilt uppmärksam på missuppfattningen att fler decimaler betyder större tal.
+        </li>
+
+        <li>
+          Låt eleverna använda tallinje och positionsschema även när de arbetar symboliskt.
+        </li>
+      </ul>
+
+      <button class="print-button" onclick="window.print()">
+        🖨️ Skriv ut
+      </button>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🔟 Decimaltal – platsvärde, storlek, tallinje och samband
+
+</footer>
+
+</body>
+</html>
