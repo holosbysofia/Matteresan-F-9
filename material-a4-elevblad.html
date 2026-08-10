@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A4 Elevblad F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --teal-light: #eaf7f5;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
+        linear-gradient(135deg, #23644f, #4e9278);
+      color: white;
+      padding: 22px 20px 55px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero {
+      max-width: 920px;
+      margin: 45px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.2rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 4.3rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: auto;
+      color: #f2fff8;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 42px 20px;
+    }
+
+    section {
+      margin-bottom: 58px;
+    }
+
+    .intro {
+      background: var(--green-light);
+      border-radius: 26px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      max-width: 880px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--dark);
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      color: var(--muted);
+      max-width: 850px;
+      margin: 0 auto 28px;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stage-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 215px;
+    }
+
+    .stage-card span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .stage-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .f3 {
+      background: var(--green-light);
+    }
+
+    .m46 {
+      background: var(--blue-light);
+    }
+
+    .m79 {
+      background: var(--purple-light);
+    }
+
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .area-card {
+      background: white;
+      border-radius: 22px;
+      padding: 24px;
+      border: 1px solid rgba(0,0,0,0.07);
+      min-height: 240px;
+      transition: 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .area-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(30,50,60,0.08);
+    }
+
+    .area-icon {
+      font-size: 2.7rem;
+      margin-bottom: 8px;
+    }
+
+    .area-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .area-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 16px;
+    }
+
+    .open-button {
+      display: inline-block;
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 15px;
+      font-weight: bold;
+      font-size: 0.88rem;
+      align-self: flex-start;
+    }
+
+    .a1 { border-top: 6px solid #4a9a68; }
+    .a2 { border-top: 6px solid #607fb2; }
+    .a3 { border-top: 6px solid #d79c3a; }
+    .a4 { border-top: 6px solid #4b9d96; }
+    .a5 { border-top: 6px solid #cc7651; }
+    .a6 { border-top: 6px solid #9268ad; }
+    .a7 { border-top: 6px solid #58889e; }
+    .a8 { border-top: 6px solid #cb7893; }
+    .a9 { border-top: 6px solid #8d6cb3; }
+    .a10 { border-top: 6px solid #52677e; }
+    .a11 { border-top: 6px solid #bf8f45; }
+    .a12 { border-top: 6px solid #4c8a74; }
+
+    .work-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .work-card {
+      background: white;
+      border-radius: 18px;
+      padding: 21px;
+      border: 1px solid #eadfbb;
+      min-height: 175px;
+      transition: 0.2s;
+    }
+
+    .work-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .work-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .work-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .work-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .print-guide {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 35%),
+        linear-gradient(135deg, #17324d, #376b59);
+      color: white;
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .print-guide h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .print-guide > p {
+      max-width: 850px;
+      color: #f2fff8;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 24px;
+    }
+
+    .guide-card {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 170px;
+    }
+
+    .guide-card span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .guide-card h3 {
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .guide-card p {
+      font-size: 0.89rem;
+      color: #f5fff9;
+    }
+
+    .other-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .other-card {
+      border-radius: 20px;
+      padding: 23px;
+      min-height: 185px;
+      transition: 0.2s;
+    }
+
+    .other-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .other-card span {
+      display: block;
+      font-size: 2.3rem;
+      margin-bottom: 7px;
+    }
+
+    .other-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .other-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .o1 { background: var(--blue-light); }
+    .o2 { background: var(--purple-light); }
+    .o3 { background: var(--orange-light); }
+    .o4 { background: var(--pink-light); }
+    .o5 { background: var(--teal-light); }
+    .o6 { background: var(--green-light); }
+
+    .note {
+      background: var(--orange-light);
+      border-left: 6px solid #c77f43;
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 24px;
+      color: #654c37;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      text-align: center;
+      padding: 34px 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 1000px) {
+      .stage-grid,
+      .area-grid,
+      .work-grid,
+      .other-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .guide-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .stage-grid,
+      .area-grid,
+      .work-grid,
+      .other-grid,
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro,
+      .work-box,
+      .print-guide {
+        padding: 24px 17px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 12mm;
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+
+      header,
+      footer {
+        display: none !important;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      .area-card,
+      .work-card,
+      .other-card,
+      .stage-card,
+      .guide-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">HOLOS MATTERESAN</div>
+
+    <a href="larare-utskrift.html" class="back-link">
+      ← Utskriftscentralen
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">✏️🖨️</div>
+
+    <h1>A4 Elevblad F–9</h1>
+
+    <h2>Välj område • Öppna • Skriv ut • Använd</h2>
+
+    <p>
+      Här samlas Matteresans utskriftsklara elevblad.
+      Välj matematikområde och öppna den färdiga elevbladssidan.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro">
+
+      <h2>📄 Snabb väg till rätt elevmaterial</h2>
+
+      <p>
+        Elevbladen är framtagna för att fungera på A4 och innehåller uppgifter
+        för F–3, 4–6 och 7–9. De kombinerar träning med förklaring,
+        representation, resonemang och kontroll.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🌱 🌿 🚀 Tre stadium</h2>
+
+    <p class="section-intro">
+      Elevbladen följer en pedagogisk progression genom F–9.
+    </p>
+
+    <div class="stage-grid">
+
+      <div class="stage-card f3">
+
+        <span>🌱</span>
+
+        <h3>F–3</h3>
+
+        <p>
+          Konkret och visuellt med enkla instruktioner, bilder,
+          talrelationer och plats för att rita och förklara.
+        </p>
+
+      </div>
+
+
+      <div class="stage-card m46">
+
+        <span>🌿</span>
+
+        <h3>4–6</h3>
+
+        <p>
+          Strategier, modeller, begrepp, problemlösning och större krav på att visa hur man tänker.
+        </p>
+
+      </div>
+
+
+      <div class="stage-card m79">
+
+        <span>🚀</span>
+
+        <h3>7–9</h3>
+
+        <p>
+          Abstraktion, algebraiska representationer, generalisering,
+          argumentation och analys.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">📚 Matematikområden</h2>
+
+    <p class="section-intro">
+      Klicka på ett område för att öppna de färdiga A4-elevbladen.
+    </p>
+
+    <div class="area-grid">
+
+
+      <a href="elevblad-tal.html" class="area-card a1">
+
+        <div>
+          <div class="area-icon">🔢</div>
+
+          <h3>Taluppfattning</h3>
+
+          <p>
+            Platsvärde, tallinje, jämförelse, negativa tal, rationella tal och rimlighet.
+          </p>
+        </div>
+
+        <span class="open-button">Öppna elevblad →</span>
+
+      </a>
+
+
+      <a href="elevblad-raknesatt.html" class="area-card a2">
+
+        <div>
+          <div class="area-icon">➕➖✖️➗</div>
+
+          <h3>De fyra räknesätten</h3>
+
+          <p>
+            Addition, subtraktion, multiplikation, division och flexibla beräkningsstrategier.
+          </p>
+        </div>
+
+        <span class="open-button">Öppna elevblad →</span>
+
+      </a>
+
+
+      <a href="elevblad-brak.html" class="area-card a3">
+
+        <div>
+          <div class="area-icon">🍕</div>
+
+          <h3>Bråk</h3>
+
+          <p>
+            Helhet och delar, jämförelse, likvärdiga bråk, tallinje och beräkningar.
+          </p>
+        </div>
+
+        <span class="open-button">Öppna elevblad →</span>
+
+      </a>
+
+
+      <a href="elevblad-decimal.html" class="area-card a4">
+
+        <div>
+          <div class="area-icon">🔟</div>
+
+          <h3>Decimaltal</h3>
+
+          <p>
+            Tiondelar, hundradelar, platsvärde, jämförelse och samband med bråk och procent.
+          </p>
+        </div>
+
+        <span class="open-button">Öppna elevblad →</span>
+
+      </a>
+
+
+      <a href="elevblad-procent.html" class="area-card a5">
+
+        <div>
+          <div class="area-icon">💯</div>
+
+          <h3>Procent</h3>
+
+          <p>
+            Andel, helhet, procentberäkningar, förändring och förändringsfaktor.
+          </p>
+        </div>
+
+        <span class="open-button">Öppna elevblad →</span>
+
+      </a>
+
+
+      <a href="elevblad-algebra.html" class="area-card a6">
+
+        <div>
+          <div class="area-icon">🔤</div>
+
+          <h3>Algebra</h3>
+
+          <p>
+            Likhet, okända tal, variabler, uttryck, ekvationer och generalisering.
+          </p>
+        </div>
+
+        <span class="open-button">Öppna elevblad →</span>
+
+      </a>
+
+
+      <a href="elevblad-geometri.html" class="area-card a7">
+
+        <div>
+          <div class="area-icon">📐</div>
+
+          <h3>Geometri</h3>
+
+          <p>
+            Former, vinklar, omkrets, area, volym, koordinater, skala och geometriska samband.
+          </p>
+        </div>
+
+        <span class="open-button">Öppna elevblad →</span>
+
+      </a>
+
+
+      <a href="elevblad-statistik.html" class="area-card a8">
+
+        <div>
+          <div class="area-icon">📊</div>
+
+          <h3>Statistik</h3>
+
+          <p>
+            Tabeller, diagram, medelvärde, median, typvärde, spridning och kritisk granskning.
+          </p>
+        </div>
+
+        <span class="open-button">Öppna elevblad →</span>
+
+      </a>
+
+
+      <a href="elevblad-sannolikhet.html" class="area-card a9">
+
+        <div>
+          <div class="area-icon">🎲</div>
+
+          <h3>Sannolikhet</h3>
+
+          <p>
+            Slump, utfall, experiment, teoretisk sannolikhet och oberoende händelser.
+          </p>
+        </div>
+
+        <span class="open-button">Öppna elevblad →</span>
+
+      </a>
+
+
+      <a href="elevblad-problemlosning.html" class="area-card a10">
+
+        <div>
+          <div class="area-icon">🧠🧩</div>
+
+          <h3>Problemlösning</h3>
+
+          <p>
+            Rita, göra tabell, pröva systematiskt, arbeta baklänges och modellera.
+          </p>
+        </div>
+
+        <span class="open-button">Öppna elevblad →</span>
+
+      </a>
+
+
+      <a href="elevblad-monster.html" class="area-card a11">
+
+        <div>
+          <div class="area-icon">🔁</div>
+
+          <h3>Mönster</h3>
+
+          <p>
+            Upprepade och växande mönster, talföljder, tabeller, regler och generalisering.
+          </p>
+        </div>
+
+        <span class="open-button">Öppna elevblad →</span>
+
+      </a>
+
+
+      <a href="elevblad-samband.html" class="area-card a12">
+
+        <div>
+          <div class="area-icon">📈🔗</div>
+
+          <h3>Samband & förändring</h3>
+
+          <p>
+            Förhållanden, proportionalitet, skala, jämförpris, hastighet,
+            tabeller, grafer och linjära samband.
+          </p>
+        </div>
+
+        <span class="open-button">Öppna elevblad →</span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="work-box">
+
+      <h2 class="section-title">🧠 Elevblad efter arbetssätt</h2>
+
+      <p class="section-intro">
+        Här kommer också elevblad som tränar själva sättet att tänka matematiskt,
+        oberoende av vilket område klassen arbetar med.
+      </p>
+
+      <div class="work-grid">
+
+        <a href="elevblad-rita.html" class="work-card">
+          <span>🎨</span>
+          <h3>Rita matematiken</h3>
+          <p>
+            Träna på att göra en bild eller modell av ett matematiskt problem.
+          </p>
+        </a>
+
+        <a href="elevblad-forklara.html" class="work-card">
+          <span>💬</span>
+          <h3>Förklara hur du tänker</h3>
+          <p>
+            Sätt ord på strategi, samband och lösning.
+          </p>
+        </a>
+
+        <a href="elevblad-jamfor.html" class="work-card">
+          <span>⚖️</span>
+          <h3>Jämför strategier</h3>
+          <p>
+            Undersök likheter, skillnader och effektivitet.
+          </p>
+        </a>
+
+        <a href="elevblad-felfinnaren.html" class="work-card">
+          <span>🕵️</span>
+          <h3>Felfinnaren</h3>
+          <p>
+            Hitta, förklara och rätta matematiska fel.
+          </p>
+        </a>
+
+        <a href="elevblad-santfalskt.html" class="work-card">
+          <span>✅❌</span>
+          <h3>Sant, falskt eller ibland?</h3>
+          <p>
+            Ta ställning till matematiska påståenden och argumentera.
+          </p>
+        </a>
+
+        <a href="elevblad-hittaalla.html" class="work-card">
+          <span>🔍</span>
+          <h3>Hitta alla</h3>
+          <p>
+            Arbeta systematiskt och visa att alla möjligheter är funna.
+          </p>
+        </a>
+
+        <a href="elevblad-utmana.html" class="work-card">
+          <span>🚀</span>
+          <h3>Utmaning</h3>
+          <p>
+            Ändra villkor, generalisera och hitta fler lösningar.
+          </p>
+        </a>
+
+        <a href="elevblad-verkligheten.html" class="work-card">
+          <span>🌍</span>
+          <h3>Matematik i verkligheten</h3>
+          <p>
+            Modellera vardagliga och autentiska situationer.
+          </p>
+        </a>
+
+        <a href="elevblad-undersok.html" class="work-card">
+          <span>🔬</span>
+          <h3>Undersök</h3>
+          <p>
+            Gör antaganden, pröva, samla resultat och formulera slutsatser.
+          </p>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="print-guide">
+
+      <h2>🖨️ Så använder du A4-elevbladen</h2>
+
+      <p>
+        Materialet är gjort för att kunna skrivas ut direkt från webbläsaren.
+      </p>
+
+      <div class="guide-grid">
+
+        <div class="guide-card">
+          <span>1️⃣</span>
+          <h3>Välj område</h3>
+          <p>
+            Öppna det matematikområde som passar undervisningen.
+          </p>
+        </div>
+
+        <div class="guide-card">
+          <span>2️⃣</span>
+          <h3>Välj stadium</h3>
+          <p>
+            På varje områdessida finns elevblad för F–3, 4–6 och 7–9.
+          </p>
+        </div>
+
+        <div class="guide-card">
+          <span>3️⃣</span>
+          <h3>Skriv ut</h3>
+          <p>
+            Använd sidans utskriftsknapp eller webbläsarens utskriftsfunktion.
+          </p>
+        </div>
+
+        <div class="guide-card">
+          <span>4️⃣</span>
+          <h3>Följ upp</h3>
+          <p>
+            Använd elevens lösning som underlag för frågor och fortsatt undervisning.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🗂️ Andra A4-material</h2>
+
+    <p class="section-intro">
+      Utskriftscentralen innehåller fler typer av material.
+    </p>
+
+    <div class="other-grid">
+
+      <a href="material-a4-kort.html" class="other-card o1">
+        <span>🃏</span>
+        <h3>A4-kort</h3>
+        <p>
+          Begreppskort, samtalskort, strategikort och sorteringskort.
+        </p>
+      </a>
+
+      <a href="material-a4-affischer.html" class="other-card o2">
+        <span>🖼️</span>
+        <h3>A4-affischer</h3>
+        <p>
+          Matematiskt språk, strategier, formler och visuellt stöd.
+        </p>
+      </a>
+
+      <a href="material-a4-larare.html" class="other-card o3">
+        <span>👩‍🏫</span>
+        <h3>A4 för lärare</h3>
+        <p>
+          Planering, observation, bedömning och lärarstöd.
+        </p>
+      </a>
+
+      <a href="material-exit.html" class="other-card o4">
+        <span>🎟️</span>
+        <h3>Exit tickets</h3>
+        <p>
+          Kort formativ uppföljning efter lektionen.
+        </p>
+      </a>
+
+      <a href="material-diagnos.html" class="other-card o5">
+        <span>🩺</span>
+        <h3>Diagnoser</h3>
+        <p>
+          Riktade uppgifter för att synliggöra elevens tänkande.
+        </p>
+      </a>
+
+      <a href="material-mallar.html" class="other-card o6">
+        <span>📝</span>
+        <h3>Matematikmallar</h3>
+        <p>
+          Problemlösning, resonemang, felanalys och representation.
+        </p>
+      </a>
+
+    </div>
+
+
+    <div class="note">
+      <strong>Tips:</strong>
+      skriv inte automatiskt ut alla sex sidor i ett område.
+      Välj det elevblad och det stadium som bäst passar den matematiska förståelse
+      du vill arbeta med just nu.
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  ✏️ A4 Elevblad – välj område, öppna och skriv ut
+
+</footer>
+
+</body>
+</html>
