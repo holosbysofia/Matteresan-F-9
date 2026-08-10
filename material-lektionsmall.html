@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lektionsmall F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --blue-light: #eaf5ff;
+      --green-light: #edf9f1;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --teal-light: #eaf7f5;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
+        linear-gradient(135deg, #294d67, #5d7f98);
+      color: white;
+      padding: 22px 20px 50px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 42px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      max-width: 820px;
+      margin: auto;
+      color: #f3f8fb;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .intro {
+      background: var(--blue-light);
+      border-radius: 24px;
+      padding: 30px;
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: var(--muted);
+      max-width: 820px;
+      margin: auto;
+    }
+
+    .print-button {
+      display: inline-block;
+      margin-top: 16px;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .sheet {
+      background: white;
+      border-radius: 22px;
+      padding: 30px;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .sheet-title {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .sheet-title h2 {
+      color: var(--dark);
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+
+    .sheet-title p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .top-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .field {
+      border: 1.5px solid #9aa6af;
+      border-radius: 10px;
+      min-height: 58px;
+      padding: 9px;
+    }
+
+    .field strong {
+      display: block;
+      color: var(--dark);
+      font-size: 0.88rem;
+      margin-bottom: 3px;
+    }
+
+    .section-box {
+      border: 1.5px solid #9aa6af;
+      border-radius: 12px;
+      padding: 13px;
+      margin-bottom: 14px;
+      break-inside: avoid;
+    }
+
+    .section-box h3 {
+      color: var(--dark);
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .section-box p {
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin-bottom: 8px;
+    }
+
+    .writing-space {
+      min-height: 72px;
+      border-top: 1px dashed #c2cbd1;
+      margin-top: 8px;
+    }
+
+    .writing-space.medium {
+      min-height: 100px;
+    }
+
+    .writing-space.large {
+      min-height: 135px;
+    }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .lesson-card {
+      border-radius: 12px;
+      padding: 14px;
+      min-height: 160px;
+      break-inside: avoid;
+    }
+
+    .lesson-card h3 {
+      color: var(--dark);
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .lesson-card p {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .lesson-card .writing-space {
+      background: white;
+      border: 1px dashed #a8b2b9;
+      border-radius: 8px;
+      margin-top: 10px;
+      min-height: 92px;
+    }
+
+    .start {
+      background: var(--green-light);
+    }
+
+    .explore {
+      background: var(--blue-light);
+    }
+
+    .talk {
+      background: var(--purple-light);
+    }
+
+    .finish {
+      background: var(--yellow-light);
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .support-card {
+      border-radius: 12px;
+      padding: 14px;
+      min-height: 155px;
+    }
+
+    .support-card h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+
+    .support-card p {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .support {
+      background: var(--teal-light);
+    }
+
+    .challenge {
+      background: var(--orange-light);
+    }
+
+    .check-list {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .check-list li {
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .check-list li::before {
+      content: "☐ ";
+      color: var(--dark);
+      font-weight: bold;
+    }
+
+    .reflection {
+      margin-top: 14px;
+      border: 2px solid var(--dark);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .reflection h3 {
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .reflection p {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 750px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .top-info,
+      .lesson-grid,
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sheet {
+        padding: 20px 14px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 9mm;
+    }
+
+    @media print {
+      header,
+      footer,
+      .intro,
+      .print-button {
+        display: none !important;
+      }
+
+      html,
+      body {
+        width: 210mm;
+        background: white;
+        color: black;
+      }
+
+      body {
+        font-size: 9.5pt;
+      }
+
+      main {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .sheet {
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+      }
+
+      .sheet-title {
+        margin-bottom: 5mm;
+      }
+
+      .sheet-title h2 {
+        font-size: 17pt;
+      }
+
+      .top-info {
+        gap: 3mm;
+        margin-bottom: 3mm;
+      }
+
+      .field {
+        min-height: 13mm;
+        padding: 2.5mm;
+      }
+
+      .section-box {
+        padding: 3mm;
+        margin-bottom: 3mm;
+      }
+
+      .writing-space {
+        min-height: 15mm;
+      }
+
+      .writing-space.medium {
+        min-height: 20mm;
+      }
+
+      .writing-space.large {
+        min-height: 25mm;
+      }
+
+      .lesson-grid,
+      .support-grid {
+        gap: 3mm;
+      }
+
+      .lesson-card,
+      .support-card {
+        padding: 3mm;
+        min-height: 34mm;
+      }
+
+      .lesson-card .writing-space {
+        min-height: 19mm;
+      }
+
+      .reflection {
+        padding: 3mm;
+        margin-top: 3mm;
+      }
+
+      .section-box,
+      .lesson-card,
+      .support-card,
+      .reflection {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">HOLOS MATTERESAN</div>
+
+    <a href="material-a4-larare.html" class="back-link">
+      ← A4 för lärare
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">📝⏱️</div>
+
+    <h1>Lektionsmall F–9</h1>
+
+    <h2>Planera • Genomför • Synliggör • Anpassa • Reflektera</h2>
+
+    <p>
+      En sammanhållen lektionsmall för matematikundervisning där den matematiska
+      kärnan, elevernas tänkande och nästa undervisningssteg står i centrum.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <div class="intro">
+
+    <h2>🖨️ Anpassad för en A4-sida</h2>
+
+    <p>
+      Mallen är gjord för att kunna skrivas ut och fyllas i för hand före,
+      under och efter lektionen.
+    </p>
+
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut lektionsmallen
+    </button>
+
+  </div>
+
+
+  <section class="sheet">
+
+    <div class="sheet-title">
+
+      <h2>MATEMATIK – LEKTIONSPLANERING</h2>
+
+      <p>HOLOS Matteresan F–9</p>
+
+    </div>
+
+
+    <div class="top-info">
+
+      <div class="field">
+        <strong>Årskurs</strong>
+      </div>
+
+      <div class="field">
+        <strong>Datum</strong>
+      </div>
+
+      <div class="field">
+        <strong>Område</strong>
+      </div>
+
+    </div>
+
+
+    <div class="section-box">
+
+      <h3>🎯 Matematisk kärna</h3>
+
+      <p>
+        Vad är det viktigaste matematiska innehållet som eleverna ska förstå?
+      </p>
+
+      <div class="writing-space medium"></div>
+
+    </div>
+
+
+    <div class="section-box">
+
+      <h3>🌱 Förkunskaper</h3>
+
+      <p>
+        Vad behöver eleverna redan förstå eller kunna använda för att lyckas?
+      </p>
+
+      <div class="writing-space"></div>
+
+    </div>
+
+
+    <div class="section-box">
+
+      <h3>📚 Begrepp & representationer</h3>
+
+      <p>
+        Vilka matematiska ord och representationer ska användas?
+      </p>
+
+      <ul class="check-list">
+        <li>Konkret material</li>
+        <li>Bild / modell</li>
+        <li>Tallinje</li>
+        <li>Tabell</li>
+        <li>Graf</li>
+        <li>Symboler / uttryck / formel</li>
+      </ul>
+
+      <div class="writing-space"></div>
+
+    </div>
+
+
+    <div class="lesson-grid">
+
+      <div class="lesson-card start">
+
+        <h3>1️⃣ Start – aktivera</h3>
+
+        <p>
+          Hur väcker jag förkunskaper och riktar uppmärksamheten mot dagens matematik?
+        </p>
+
+        <div class="writing-space"></div>
+
+      </div>
+
+
+      <div class="lesson-card explore">
+
+        <h3>2️⃣ Utforska</h3>
+
+        <p>
+          Vilken uppgift, aktivitet eller problem ska eleverna arbeta med?
+        </p>
+
+        <div class="writing-space"></div>
+
+      </div>
+
+
+      <div class="lesson-card talk">
+
+        <h3>3️⃣ Matteprat</h3>
+
+        <p>
+          Vilka strategier, representationer eller lösningar ska jämföras?
+        </p>
+
+        <div class="writing-space"></div>
+
+      </div>
+
+
+      <div class="lesson-card finish">
+
+        <h3>4️⃣ Sammanfatta</h3>
+
+        <p>
+          Hur gör jag den matematiska idén tydlig i slutet?
+        </p>
+
+        <div class="writing-space"></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="support-grid">
+
+      <div class="support-card support">
+
+        <h3>🧩 Stöd</h3>
+
+        <p>
+          Hur kan hinder minskas utan att den matematiska kärnan försvinner?
+        </p>
+
+        <ul class="check-list">
+          <li>Språkstöd</li>
+          <li>Visuellt stöd</li>
+          <li>Konkret material</li>
+          <li>Tydligare arbetsgång</li>
+          <li>Färre samtidiga steg</li>
+        </ul>
+
+        <div class="writing-space"></div>
+
+      </div>
+
+
+      <div class="support-card challenge">
+
+        <h3>🚀 Utmaning</h3>
+
+        <p>
+          Hur kan elever fördjupa samma matematiska innehåll?
+        </p>
+
+        <ul class="check-list">
+          <li>Flera strategier</li>
+          <li>Flera lösningar</li>
+          <li>Ändra villkor</li>
+          <li>Generalisera</li>
+          <li>Skapa eget exempel</li>
+        </ul>
+
+        <div class="writing-space"></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-box" style="margin-top:14px;">
+
+      <h3>👀 Vad ska jag observera?</h3>
+
+      <p>
+        Vilka strategier, begrepp eller handlingar visar att eleverna förstått?
+      </p>
+
+      <div class="writing-space"></div>
+
+    </div>
+
+
+    <div class="section-box">
+
+      <h3>🎟️ Exit ticket</h3>
+
+      <p>
+        Vilken kort fråga kan visa om lektionens matematiska kärna är förstådd?
+      </p>
+
+      <div class="writing-space"></div>
+
+    </div>
+
+
+    <div class="reflection">
+
+      <h3>🔄 Efter lektionen</h3>
+
+      <p>
+        Vad blev synligt? Vad behöver undervisas om igen? Vilket blir nästa steg?
+      </p>
+
+      <div class="writing-space large"></div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  📝 Lektionsmall – från matematisk kärna till nästa undervisningssteg
+
+</footer>
+
+</body>
+</html>
