@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SVA & flerspråkighet i matematik | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --teal: #3f8f89;
+      --teal-dark: #2c6964;
+      --teal-light: #eaf7f5;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
+        linear-gradient(135deg, #285f5a, #3f8f89);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--teal-dark);
+    }
+
+    .hero {
+      max-width: 920px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 7vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 840px;
+      margin: auto;
+      color: #effffa;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 840px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--teal-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 880px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .core-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .core-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 185px;
+      border: 1px solid #e6ebef;
+    }
+
+    .core-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .core-card h3 {
+      color: var(--teal-dark);
+      margin-bottom: 6px;
+    }
+
+    .core-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .principle-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
+        linear-gradient(135deg, #17324d, #2f6964);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .principle-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .principle-box > p {
+      color: #effffa;
+      max-width: 850px;
+    }
+
+    .principle-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .principle-card {
+      border-radius: 20px;
+      padding: 21px;
+      min-height: 200px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .principle-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .principle-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .principle-card p {
+      color: #f8fffd;
+      font-size: 0.91rem;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px;
+      border: 1px solid #e6ebef;
+      margin-bottom: 25px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .section-header span {
+      font-size: 2.7rem;
+    }
+
+    .section-header h2 {
+      color: var(--dark);
+      font-size: 1.75rem;
+    }
+
+    .section-header p {
+      color: var(--muted);
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .mini-card {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 190px;
+    }
+
+    .mini-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .mini-card p,
+    .mini-card ul {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .mini-card ul {
+      padding-left: 20px;
+    }
+
+    .mini-card li {
+      margin-bottom: 6px;
+    }
+
+    .m1 { background: var(--green-light); }
+    .m2 { background: var(--blue-light); }
+    .m3 { background: var(--yellow-light); }
+
+    .language-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 24px;
+    }
+
+    .language-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 185px;
+      border: 1px solid #dfe8ef;
+    }
+
+    .language-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .language-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .language-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .task-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 24px;
+    }
+
+    .task-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 190px;
+      border: 1px solid #eee3c6;
+    }
+
+    .task-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .task-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .task-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .sentence-box {
+      background: var(--purple-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .sentence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .sentence-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 185px;
+      border: 1px solid #e2dcf1;
+    }
+
+    .sentence-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .sentence-card ul {
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .sentence-card li {
+      margin-bottom: 7px;
+    }
+
+    .mis-box {
+      background: var(--pink-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .mis-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .mis-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 205px;
+      border: 1px solid #eee1e5;
+    }
+
+    .mis-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .mis-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .mis-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 26px;
+      min-height: 265px;
+    }
+
+    .stage-card span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .stage-card ul {
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .stage-card li {
+      margin-bottom: 7px;
+    }
+
+    .f3stage { background: var(--green-light); }
+    .m46stage { background: var(--blue-light); }
+    .m79stage { background: var(--purple-light); }
+
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .assessment-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 180px;
+      border: 1px solid #e6ebef;
+    }
+
+    .assessment-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .assessment-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .assessment-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .link-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 175px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .link-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
+    }
+
+    .link-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .link-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .link-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .c1 { background: var(--teal-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--yellow-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--orange-light); }
+
+    .note {
+      background: var(--yellow-light);
+      border-left: 6px solid #dba327;
+      border-radius: 14px;
+      padding: 20px;
+      color: #665528;
+      margin-top: 25px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 1100px) {
+      .principle-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .core-grid,
+      .language-grid,
+      .task-grid,
+      .assessment-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .three-grid,
+      .sentence-grid,
+      .mis-grid,
+      .stage-grid,
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .core-grid,
+      .principle-grid,
+      .language-grid,
+      .task-grid,
+      .assessment-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .principle-box,
+      .section-card,
+      .language-box,
+      .task-box,
+      .sentence-box,
+      .mis-box {
+        padding: 25px 18px;
+      }
+
+      .section-header {
+        align-items: flex-start;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      section,
+      .section-card,
+      .stage-card {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+    <div class="logo">HOLOS MATTERESAN</div>
+
+    <a href="larare.html" class="back-link">
+      ← Lärarvy
+    </a>
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🌍💬</div>
+
+    <h1>SVA & flerspråkighet i matematik</h1>
+
+    <h2>Förstå • Tala • Representera • Resonera</h2>
+
+    <p>
+      Matematiskt kunnande och språklig förmåga utvecklas tillsammans.
+      Elever ska få språkligt stöd för att kunna delta i matematiska aktiviteter
+      utan att den matematiska nivån sänks.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>💬 Språkstöd ska öka tillgängligheten – inte minska matematiken</h2>
+
+      <p>
+        En elev kan förstå den matematiska idén men sakna svenska ord för att uttrycka den.
+        En annan elev kan förstå orden men inte det matematiska begreppet.
+        Därför behöver läraren skilja mellan språkliga och matematiska hinder
+        och skapa flera vägar in i samma innehåll.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Fyra delar av matematikens språk
+    </h2>
+
+    <p class="section-intro">
+      Matematiskt språk består av mer än ämnesspecifika ord.
+    </p>
+
+    <div class="core-grid">
+
+      <div class="core-card">
+        <span>📚</span>
+        <h3>Begrepp</h3>
+        <p>
+          Exempelvis nämnare, omkrets, median, proportionalitet och variabel.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>🔗</span>
+        <h3>Relationsord</h3>
+        <p>
+          Fler än, mindre än, dubbelt, hälften, mellan, motsvarar och per.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>📖</span>
+        <h3>Uppgiftsspråk</h3>
+        <p>
+          Jämför, uppskatta, bestäm, motivera, undersök, förklara och visa.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>💬</span>
+        <h3>Resonemangsspråk</h3>
+        <p>
+          Eftersom, därför, om...så, jag vet att, däremot, alltid och ibland.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="principle-box">
+
+      <h2>🧭 Fem principer för språkstöd i matematik</h2>
+
+      <p>
+        Undervisningen behöver skapa både matematisk och språklig aktivitet.
+      </p>
+
+      <div class="principle-grid">
+
+        <div class="principle-card">
+          <span>1️⃣</span>
+          <h3>Förförstå</h3>
+          <p>
+            Introducera centrala begrepp, bilder och sammanhang innan uppgiften.
+          </p>
+        </div>
+
+        <div class="principle-card">
+          <span>2️⃣</span>
+          <h3>Visa</h3>
+          <p>
+            Koppla ord till konkreta material, bilder, tabeller och symboler.
+          </p>
+        </div>
+
+        <div class="principle-card">
+          <span>3️⃣</span>
+          <h3>Tala</h3>
+          <p>
+            Låt elever formulera tankar i par innan gemensamt samtal eller skrift.
+          </p>
+        </div>
+
+        <div class="principle-card">
+          <span>4️⃣</span>
+          <h3>Stötta</h3>
+          <p>
+            Ge meningsstarter, ordlistor och modeller för matematiska förklaringar.
+          </p>
+        </div>
+
+        <div class="principle-card">
+          <span>5️⃣</span>
+          <h3>Fasa ut</h3>
+          <p>
+            Minska språkstödet när eleven kan använda begreppen mer självständigt.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>📚</span>
+
+        <div>
+          <h2>Begreppsundervisning</h2>
+          <p>Ett ord blir matematiskt meningsfullt när det kopplas till idé, exempel och representation.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>1. Uppleva</h3>
+
+          <p>
+            Låt eleven möta begreppet i en konkret eller tydlig matematisk situation.
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>2. Sätta ord</h3>
+
+          <p>
+            Introducera det matematiska ordet och jämför med vardagligt språk.
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>3. Använda</h3>
+
+          <p>
+            Låt eleven använda begreppet i nya exempel, samtal och förklaringar.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🔄</span>
+
+        <div>
+          <h2>Vardagsspråk ↔ matematiskt språk</h2>
+          <p>Samma idé kan uttryckas på flera språkliga nivåer.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Vardagligt</h3>
+
+          <p>
+            ”Hur mycket är det runt hela figuren?”
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Matematiskt</h3>
+
+          <p>
+            ”Bestäm figurens omkrets.”
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Undervisning</h3>
+
+          <p>
+            Visa att uttrycken hör ihop och använd båda innan eleven förväntas behärska ämnesspråket självständigt.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🔢</span>
+
+        <div>
+          <h2>Ord med annan betydelse i matematiken</h2>
+          <p>Flera vanliga svenska ord får en mer specifik betydelse i matematik.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Exempel</h3>
+
+          <ul>
+            <li>volym</li>
+            <li>bråk</li>
+            <li>rot</li>
+            <li>produkt</li>
+            <li>skillnad</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Risk</h3>
+
+          <p>
+            Eleven känner igen ordet från vardagen men tolkar det med fel betydelse i matematikuppgiften.
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Gör så här</h3>
+
+          <p>
+            Jämför betydelserna explicit:
+            ”I vardagen betyder bråk konflikt. I matematiken betyder bråk ett tal som exempelvis 3/4.”
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="language-box">
+
+      <h2 class="section-title">
+        🗣️ Matematiska samtal
+      </h2>
+
+      <p class="section-intro">
+        Elever behöver få tala matematik innan allt ska formuleras skriftligt.
+      </p>
+
+      <div class="language-grid">
+
+        <div class="language-card">
+          <span>⏱️</span>
+          <h3>Tänketid</h3>
+          <p>
+            Ge alla elever tid att formulera en tanke innan någon svarar.
+          </p>
+        </div>
+
+        <div class="language-card">
+          <span>👥</span>
+          <h3>Parprat</h3>
+          <p>
+            Låt elever först pröva förklaringen med en kamrat.
+          </p>
+        </div>
+
+        <div class="language-card">
+          <span>💬</span>
+          <h3>Omformulera</h3>
+          <p>
+            Bekräfta elevens matematiska tanke och modellera samtidigt ett mer precist språk.
+          </p>
+        </div>
+
+        <div class="language-card">
+          <span>🔁</span>
+          <h3>Återberätta</h3>
+          <p>
+            Be elever återge en kamrats strategi med egna ord.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="task-box">
+
+      <h2 class="section-title">
+        📖 Textuppgifter – fyra språkliga hinder
+      </h2>
+
+      <p class="section-intro">
+        En textuppgift kan vara mathematiskt enkel men språkligt komplicerad.
+      </p>
+
+      <div class="task-grid">
+
+        <div class="task-card">
+          <span>📚</span>
+          <h3>Okända ord</h3>
+          <p>
+            Exempel: sammanlagt, återstår, fördelas, motsvarande, genomsnittlig.
+          </p>
+        </div>
+
+        <div class="task-card">
+          <span>↔️</span>
+          <h3>Relationsord</h3>
+          <p>
+            ”Tre fler än”, ”hälften så många” och ”dubbelt så långt” kan vara språkligt krävande.
+          </p>
+        </div>
+
+        <div class="task-card">
+          <span>🧠</span>
+          <h3>Informationsmängd</h3>
+          <p>
+            Långa meningar och flera villkor belastar arbetsminnet.
+          </p>
+        </div>
+
+        <div class="task-card">
+          <span>🌍</span>
+          <h3>Kontext</h3>
+          <p>
+            Situationen kan bygga på kulturella eller vardagliga erfarenheter som inte är självklara för alla elever.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>✂️</span>
+
+        <div>
+          <h2>Så bearbetas en textuppgift</h2>
+          <p>Bearbeta språket utan att göra matematiken åt eleven.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Före</h3>
+
+          <ul>
+            <li>förklara centrala ord</li>
+            <li>visa situationen med bild</li>
+            <li>aktivera relevant erfarenhet</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Under</h3>
+
+          <ul>
+            <li>läs en mening i taget</li>
+            <li>markera vad som är känt</li>
+            <li>markera vad som efterfrågas</li>
+            <li>rita relationerna</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Efter</h3>
+
+          <ul>
+            <li>återberätta problemet</li>
+            <li>förklara lösningen</li>
+            <li>koppla tillbaka till frågan</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="sentence-box">
+
+      <h2 class="section-title">
+        💬 Meningsstarter för matematiska resonemang
+      </h2>
+
+      <p class="section-intro">
+        Meningsstarter ger en språklig struktur utan att ge den matematiska lösningen.
+      </p>
+
+      <div class="sentence-grid">
+
+        <div class="sentence-card">
+
+          <h3>Beskriva</h3>
+
+          <ul>
+            <li>Jag ser att...</li>
+            <li>Först...</li>
+            <li>Sedan...</li>
+            <li>I tabellen ser jag...</li>
+            <li>Grafen visar...</li>
+          </ul>
+
+        </div>
+
+        <div class="sentence-card">
+
+          <h3>Motivera</h3>
+
+          <ul>
+            <li>Jag vet det eftersom...</li>
+            <li>Jag valde denna strategi eftersom...</li>
+            <li>Det måste vara så eftersom...</li>
+            <li>Mitt exempel visar att...</li>
+          </ul>
+
+        </div>
+
+        <div class="sentence-card">
+
+          <h3>Jämföra & värdera</h3>
+
+          <ul>
+            <li>Metoderna liknar varandra eftersom...</li>
+            <li>Skillnaden är att...</li>
+            <li>Den här metoden är effektivare när...</li>
+            <li>Svaret är rimligt eftersom...</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      🌍 Flerspråkighet som resurs
+    </h2>
+
+    <p class="section-intro">
+      Elevers samlade språk kan användas för att utveckla matematisk förståelse.
+    </p>
+
+    <div class="core-grid">
+
+      <div class="core-card">
+        <span>🗣️</span>
+        <h3>Tänka på starkaste språket</h3>
+        <p>
+          När det är möjligt kan eleven först bearbeta den matematiska idén på sitt starkaste språk.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>📚</span>
+        <h3>Jämför begrepp</h3>
+        <p>
+          Undersök hur ett matematiskt begrepp uttrycks på olika språk.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>👥</span>
+        <h3>Samarbeta</h3>
+        <p>
+          Elever som delar språk kan ibland resonera tillsammans innan de formulerar sig på svenska.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>🔄</span>
+        <h3>Översätt idé – inte bara ord</h3>
+        <p>
+          Kontrollera att det matematiska begreppet förstås, inte bara att ett ord har översatts.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="mis-box">
+
+      <h2 class="section-title">
+        ⚠️ Vanliga fallgropar
+      </h2>
+
+      <p class="section-intro">
+        Språkstöd kan bli kontraproduktivt om det sänker elevens möjlighet att tänka matematiskt.
+      </p>
+
+      <div class="mis-grid">
+
+        <div class="mis-card">
+          <span>⬇️</span>
+          <h3>Förenkla matematiken</h3>
+          <p>
+            En elev som håller på att utveckla svenska behöver inte automatiskt enklare matematiskt innehåll.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>🔑</span>
+          <h3>Lära ut nyckelord</h3>
+          <p>
+            ”Fler = plus” och liknande regler kan ge felaktiga strategier i textproblem.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>📚</span>
+          <h3>För många ord samtidigt</h3>
+          <p>
+            Långa begreppslistor utan användning ger liten hjälp. Prioritera ord som behövs för aktiviteten.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>🤐</span>
+          <h3>Bara läraren pratar</h3>
+          <p>
+            Elever utvecklar inte matematiskt språk utan egen muntlig aktivitet.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>✍️</span>
+          <h3>Kräva perfekt svenska först</h3>
+          <p>
+            Bedöm den matematiska tanken separat från språklig korrekthet när uppgiften tillåter det.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>🌍</span>
+          <h3>Förbjuda andra språk</h3>
+          <p>
+            Elevens andra språk kan vara ett verktyg för att förstå, resonera och bygga begrepp.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      🌱 🌿 🚀 Exempel genom F–9
+    </h2>
+
+    <p class="section-intro">
+      Språkstödet förändras när matematiken och elevens självständighet utvecklas.
+    </p>
+
+    <div class="stage-grid">
+
+      <div class="stage-card f3stage">
+
+        <span>🌱</span>
+
+        <h3>F–3</h3>
+
+        <ul>
+          <li>konkreta material och bilder</li>
+          <li>ord och handling samtidigt</li>
+          <li>jämförelseord: fler, färre, lika många</li>
+          <li>positionsord: över, under, mellan</li>
+          <li>meningsstarter för enkla förklaringar</li>
+          <li>mycket parprat</li>
+        </ul>
+
+      </div>
+
+
+      <div class="stage-card m46stage">
+
+        <span>🌿</span>
+
+        <h3>4–6</h3>
+
+        <ul>
+          <li>förförstå centrala ämnesbegrepp</li>
+          <li>bearbeta textuppgifter</li>
+          <li>koppla språk till tabell och diagram</li>
+          <li>resonemangsord som eftersom och därför</li>
+          <li>meningsstarter för strategijämförelse</li>
+          <li>övergång från vardagligt till ämnesspråk</li>
+        </ul>
+
+      </div>
+
+
+      <div class="stage-card m79stage">
+
+        <span>🚀</span>
+
+        <h3>7–9</h3>
+
+        <ul>
+          <li>abstrakta begrepp och symboler</li>
+          <li>tolka komplexa problemlösningstexter</li>
+          <li>förklara funktioner och samband</li>
+          <li>argumentera och generalisera</li>
+          <li>tolka matematiska modeller</li>
+          <li>utveckla precist ämnesspråk</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      📊 Bedömning – skilj språk från matematik
+    </h2>
+
+    <p class="section-intro">
+      Bedömningen behöver ge läraren information om vad eleven matematiskt förstår.
+    </p>
+
+    <div class="assessment-grid">
+
+      <div class="assessment-card">
+        <span>🧠</span>
+        <h3>Förståelse</h3>
+        <p>
+          Kan eleven visa den matematiska idén med material, bild, symbol eller handling?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>💬</span>
+        <h3>Muntligt språk</h3>
+        <p>
+          Kan eleven förklara med egna ord, även om språket ännu inte är helt korrekt?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>🔢</span>
+        <h3>Representation</h3>
+        <p>
+          Kan eleven använda tabell, graf, tallinje eller annan representation för att visa sin förståelse?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>📚</span>
+        <h3>Ämnesspråk</h3>
+        <p>
+          Vilka begrepp och språkliga strukturer behöver eleven fortfarande stöd för att använda?
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Relaterade lärarsidor
+    </h2>
+
+    <p class="section-intro">
+      Språkstöd behöver genomsyra både undervisning, problemlösning och bedömning.
+    </p>
+
+    <div class="links-grid">
+
+      <a href="larare-sprak.html" class="link-card c1">
+        <span>💬</span>
+        <h3>Språk & begrepp</h3>
+        <p>
+          Fördjupa arbetet med matematiskt språk och begreppsutveckling.
+        </p>
+      </a>
+
+      <a href="larare-stod.html" class="link-card c2">
+        <span>🛟</span>
+        <h3>Stöd & anpassningar</h3>
+        <p>
+          Kombinera språkstöd med visuella och strukturella stöd.
+        </p>
+      </a>
+
+      <a href="larare-problemlosning.html" class="link-card c3">
+        <span>🧠</span>
+        <h3>Problemlösning</h3>
+        <p>
+          Textproblem kräver både matematisk och språklig bearbetning.
+        </p>
+      </a>
+
+      <a href="larare-matteprat.html" class="link-card c4">
+        <span>🗣️</span>
+        <h3>Matteprat</h3>
+        <p>
+          Bygg strukturerade matematiska samtal där fler elever kan delta.
+        </p>
+      </a>
+
+      <a href="larare-bedomning.html" class="link-card c5">
+        <span>📊</span>
+        <h3>Bedömning</h3>
+        <p>
+          Samla flera typer av underlag för att synliggöra matematisk förståelse.
+        </p>
+      </a>
+
+      <a href="larare-konkret.html" class="link-card c6">
+        <span>🧱</span>
+        <h3>Konkret & visuellt</h3>
+        <p>
+          Representationer ger elever fler vägar in i matematiska begrepp.
+        </p>
+      </a>
+
+    </div>
+
+    <div class="note">
+      <strong>Grundprincip:</strong>
+      språkstöd ska ge eleven större möjlighet att delta i samma matematiska tänkande –
+      inte ersätta resonemang med enklare uppgifter.
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🌍💬 SVA & flerspråkighet – gör matematiken språkligt tillgänglig utan att sänka nivån
+
+</footer>
+
+</body>
+</html>
