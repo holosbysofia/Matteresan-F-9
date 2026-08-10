@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Problemlösning | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --blue: #3478c7;
+      --blue-light: #eaf5ff;
+      --green-light: #ecf8f0;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --white: #ffffff;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #17324d, #376f9d);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--dark);
+    }
+
+    .hero {
+      max-width: 850px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #edf6ff;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 760px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 30px 24px;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .stage-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    }
+
+    .f3 { background: var(--green-light); }
+    .m46 { background: var(--blue-light); }
+    .m79 { background: var(--purple-light); }
+
+    .stage-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card p {
+      color: var(--muted);
+      flex-grow: 1;
+    }
+
+    .stage-button {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 18px;
+      background: var(--dark);
+      color: white;
+      padding: 10px 17px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .process-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+      border: 1px solid #e6ebef;
+      min-height: 180px;
+    }
+
+    .process-card span {
+      display: block;
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+
+    .process-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .strategy-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid #e6ebef;
+      min-height: 170px;
+    }
+
+    .strategy-card span {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .strategy-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .strategy-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .problem-box {
+      background: linear-gradient(135deg, #fff5cc, #ffe49a);
+      border-radius: 28px;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .problem-box h2 {
+      color: var(--dark);
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .problem-card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(70,55,15,0.08);
+    }
+
+    .step {
+      margin-top: 10px;
+      background: #f5f7f8;
+      border-radius: 12px;
+      padding: 11px 14px;
+    }
+
+    .question-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .question-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 170px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .q1 { background: var(--yellow-light); }
+    .q2 { background: var(--green-light); }
+    .q3 { background: var(--orange-light); }
+    .q4 { background: var(--blue-light); }
+    .q5 { background: var(--purple-light); }
+    .q6 { background: #fcebf3; }
+
+    .question-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .question-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 950px) {
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .strategy-grid,
+      .question-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .problem-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .process-grid,
+      .strategy-grid,
+      .question-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .problem-box {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        padding: 0;
+        max-width: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="index.html" class="back-link">
+      ← Startsidan
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🧠</div>
+
+    <h1>Problemlösning</h1>
+
+    <h2>Förstå • Planera • Lösa • Kontrollera</h2>
+
+    <p>
+      Här tränar du på att förstå problem, välja strategier,
+      prova olika vägar och förklara varför din lösning fungerar.
+    </p>
+
+  </div>
+
+</header>
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>💡 Problemlösning är mer än att räkna</h2>
+
+      <p>
+        Ett matematiskt problem är en situation där lösningen inte alltid är given från början.
+        Du behöver fundera, välja strategi, pröva, ändra och ibland hitta flera möjliga lösningar.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Välj din nivå
+    </h2>
+
+    <p class="section-intro">
+      Problemen utvecklas från konkreta och visuella uppgifter till mer komplexa problem och modeller.
+    </p>
+
+    <div class="stage-grid">
+
+      <a href="f3-problemlosning.html" class="stage-card f3">
+        <div class="stage-icon">🌱</div>
+        <h3>Problemlösning F–3</h3>
+        <p>
+          Rita, bygg, prova, jämför och berätta hur du tänker.
+        </p>
+        <span class="stage-button">Öppna F–3 →</span>
+      </a>
+
+      <a href="46-problemlosning.html" class="stage-card m46">
+        <div class="stage-icon">🌿</div>
+        <h3>Problemlösning 4–6</h3>
+        <p>
+          Tolka problem, välja strategi, pröva lösningar och bedöma rimlighet.
+        </p>
+        <span class="stage-button">Öppna 4–6 →</span>
+      </a>
+
+      <a href="79-problemlosning.html" class="stage-card m79">
+        <div class="stage-icon">🚀</div>
+        <h3>Problemlösning 7–9</h3>
+        <p>
+          Modellera, generalisera, analysera och argumentera för dina lösningar.
+        </p>
+        <span class="stage-button">Öppna 7–9 →</span>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Fyra steg i problemlösning
+    </h2>
+
+    <p class="section-intro">
+      Samma arbetsgång kan användas från F till 9, men blir mer avancerad med tiden.
+    </p>
+
+    <div class="process-grid">
+
+      <div class="process-card">
+        <span>👀</span>
+        <h3>1. Förstå</h3>
+        <p>
+          Vad vet du? Vad ska du ta reda på? Vilken information är viktig?
+        </p>
+      </div>
+
+      <div class="process-card">
+        <span>🧩</span>
+        <h3>2. Planera</h3>
+        <p>
+          Välj en strategi. Ska du rita, göra en tabell, prova systematiskt eller använda en formel?
+        </p>
+      </div>
+
+      <div class="process-card">
+        <span>🧠</span>
+        <h3>3. Lös</h3>
+        <p>
+          Genomför din plan och ändra strategi om den inte fungerar.
+        </p>
+      </div>
+
+      <div class="process-card">
+        <span>✅</span>
+        <h3>4. Kontrollera</h3>
+        <p>
+          Är svaret rimligt? Kan du kontrollera med en annan metod?
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Strategibank för problemlösning
+    </h2>
+
+    <p class="section-intro">
+      Olika problem kräver olika strategier.
+    </p>
+
+    <div class="strategy-grid">
+
+      <div class="strategy-card">
+        <span>🖍️</span>
+        <h3>Rita en bild</h3>
+        <p>
+          Gör problemet synligt med en bild, modell eller skiss.
+        </p>
+      </div>
+
+      <div class="strategy-card">
+        <span>📋</span>
+        <h3>Gör en tabell</h3>
+        <p>
+          Organisera information och leta efter mönster.
+        </p>
+      </div>
+
+      <div class="strategy-card">
+        <span>🔎</span>
+        <h3>Prova systematiskt</h3>
+        <p>
+          Testa möjligheter i en tydlig ordning så att inget glöms bort.
+        </p>
+      </div>
+
+      <div class="strategy-card">
+        <span>↩️</span>
+        <h3>Arbeta baklänges</h3>
+        <p>
+          Börja vid målet och fundera på vilka steg som måste ha hänt innan.
+        </p>
+      </div>
+
+      <div class="strategy-card">
+        <span>🧩</span>
+        <h3>Förenkla problemet</h3>
+        <p>
+          Börja med mindre tal eller ett enklare fall för att förstå strukturen.
+        </p>
+      </div>
+
+      <div class="strategy-card">
+        <span>🔗</span>
+        <h3>Leta efter mönster</h3>
+        <p>
+          Undersök om något upprepas eller förändras på ett regelbundet sätt.
+        </p>
+      </div>
+
+      <div class="strategy-card">
+        <span>🎭</span>
+        <h3>Spela upp problemet</h3>
+        <p>
+          Använd föremål eller personer för att visa vad som händer.
+        </p>
+      </div>
+
+      <div class="strategy-card">
+        <span>🔢</span>
+        <h3>Skriv ett uttryck</h3>
+        <p>
+          Översätt problemet till tal, symboler, ekvation eller formel.
+        </p>
+      </div>
+
+      <div class="strategy-card">
+        <span>🌍</span>
+        <h3>Skapa en modell</h3>
+        <p>
+          Beskriv en verklig situation med matematik och undersök modellen.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="problem-box">
+
+      <div>
+
+        <h2>⭐ Exempel på ett öppet problem</h2>
+
+        <p>
+          Ett bra problem kan ha flera möjliga strategier och ibland flera möjliga svar.
+        </p>
+
+        <br>
+
+        <p>
+          Det viktiga blir därför inte bara svaret utan också hur du tänker och hur du kan övertyga någon annan.
+        </p>
+
+      </div>
+
+      <div class="problem-card">
+
+        <strong>Problemet</strong>
+
+        <h2 style="margin-top:12px;">
+          Två tal har summan 30.
+        </h2>
+
+        <div class="step">
+          🔎 Vilka två tal kan det vara?
+        </div>
+
+        <div class="step">
+          🧠 Hur många olika lösningar kan du hitta?
+        </div>
+
+        <div class="step">
+          📋 Hur kan du visa att du har hittat alla?
+        </div>
+
+        <div class="step">
+          🚀 Vad händer om talen måste vara positiva heltal?
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Frågor som hjälper dig vidare
+    </h2>
+
+    <p class="section-intro">
+      Fastnar du? Prova någon av de här frågorna.
+    </p>
+
+    <div class="question-grid">
+
+      <div class="question-card q1">
+        <h3>Vad vet jag?</h3>
+        <p>
+          Skriv eller markera den information som redan finns.
+        </p>
+      </div>
+
+      <div class="question-card q2">
+        <h3>Vad söker jag?</h3>
+        <p>
+          Formulera tydligt vad problemet faktiskt frågar efter.
+        </p>
+      </div>
+
+      <div class="question-card q3">
+        <h3>Kan jag rita?</h3>
+        <p>
+          En bild eller modell kan göra problemet mycket tydligare.
+        </p>
+      </div>
+
+      <div class="question-card q4">
+        <h3>Har jag löst något liknande?</h3>
+        <p>
+          Använd tidigare erfarenheter och strategier.
+        </p>
+      </div>
+
+      <div class="question-card q5">
+        <h3>Kan jag prova enklare tal?</h3>
+        <p>
+          Ett enklare exempel kan hjälpa dig att upptäcka strukturen.
+        </p>
+      </div>
+
+      <div class="question-card q6">
+        <h3>Kan det finnas fler lösningar?</h3>
+        <p>
+          Stanna inte automatiskt när du hittat ett svar.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+  <br>
+  🧠 Problemlösning – förstå, planera, lösa och kontrollera
+
+</footer>
+
+</body>
+</html>
