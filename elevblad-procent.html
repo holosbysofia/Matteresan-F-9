@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Elevblad Procent F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --teal-light: #eaf7f5;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
+        linear-gradient(135deg, #865119, #d18a32);
+      color: white;
+      padding: 22px 20px 55px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 45px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.1rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 4.2rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 820px;
+      margin: auto;
+      color: #fff7ef;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 42px 20px;
+    }
+
+    section {
+      margin-bottom: 55px;
+    }
+
+    .intro {
+      background: var(--orange-light);
+      border-radius: 26px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      max-width: 850px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .print-button {
+      display: inline-block;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 18px;
+    }
+
+    .stage {
+      border-radius: 28px;
+      padding: 34px;
+      margin-bottom: 34px;
+    }
+
+    .stage-f3 {
+      background: var(--green-light);
+    }
+
+    .stage-46 {
+      background: var(--blue-light);
+    }
+
+    .stage-79 {
+      background: var(--purple-light);
+    }
+
+    .stage-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .stage-header span {
+      font-size: 2.8rem;
+    }
+
+    .stage-header h2 {
+      color: var(--dark);
+      font-size: 1.9rem;
+    }
+
+    .stage-header p {
+      color: var(--muted);
+    }
+
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .sheet {
+      background: white;
+      border-radius: 22px;
+      padding: 26px;
+      border: 1px solid rgba(0,0,0,0.06);
+      min-height: 500px;
+    }
+
+    .sheet h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
+      font-size: 1.35rem;
+    }
+
+    .sheet-sub {
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: 0.93rem;
+    }
+
+    .task {
+      margin-bottom: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed #ccd4db;
+    }
+
+    .task:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .task strong {
+      color: var(--dark);
+    }
+
+    .answer-box {
+      height: 76px;
+      border: 1.5px solid #9ba7b1;
+      border-radius: 10px;
+      margin-top: 10px;
+      background: white;
+    }
+
+    .answer-box.large {
+      height: 115px;
+    }
+
+    .percent-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 2px;
+      margin-top: 12px;
+    }
+
+    .percent-grid div {
+      height: 24px;
+      border: 1px solid #687b8b;
+      background: white;
+    }
+
+    .choice-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .choice {
+      border: 1.5px solid #9aa6af;
+      border-radius: 10px;
+      padding: 8px 14px;
+      min-width: 78px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+
+    .table th,
+    .table td {
+      border: 1px solid #9aa6af;
+      padding: 9px;
+      text-align: center;
+    }
+
+    .table th {
+      background: #f0f4f7;
+    }
+
+    .challenge {
+      background: var(--yellow-light);
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .reflection {
+      background: var(--orange-light);
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .challenge h4,
+    .reflection h4 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .teacher-note {
+      background: var(--teal-light);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .teacher-note h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .teacher-note ul {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .teacher-note li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      text-align: center;
+      padding: 34px 20px;
+    }
+
+    @media (max-width: 850px) {
+      .sheet-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .stage,
+      .intro,
+      .teacher-note {
+        padding: 23px 16px;
+      }
+
+      .sheet {
+        padding: 20px 16px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 12mm;
+    }
+
+    @media print {
+      body {
+        background: white;
+        font-size: 10.5pt;
+      }
+
+      header,
+      footer,
+      .intro,
+      .teacher-note,
+      .print-button,
+      .back-link {
+        display: none !important;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      section {
+        margin: 0;
+      }
+
+      .stage {
+        background: white !important;
+        padding: 0;
+        margin: 0;
+      }
+
+      .stage-header {
+        margin: 0 0 7mm 0;
+      }
+
+      .stage-header span {
+        display: none;
+      }
+
+      .stage-header h2 {
+        font-size: 17pt;
+      }
+
+      .stage-header p {
+        font-size: 9pt;
+      }
+
+      .sheet-grid {
+        display: block;
+      }
+
+      .sheet {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        min-height: 0;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .sheet:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .task,
+      .challenge,
+      .reflection {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .stage:not(:first-of-type) {
+        page-break-before: always;
+        break-before: page;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">HOLOS MATTERESAN</div>
+
+    <a href="material-elevblad.html" class="back-link">
+      ← Elevblad
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">💯</div>
+
+    <h1>Procent F–9</h1>
+
+    <h2>Del • Helhet • Andel • Förändring • Förklara</h2>
+
+    <p>
+      Utskriftsklara elevblad som bygger förståelse för procent som hundradelar,
+      del av en helhet och som verktyg för att beskriva jämförelser och förändringar.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro">
+
+      <h2>📄 Sex elevblad – från hundradelar till förändringsfaktor</h2>
+
+      <p>
+        Två blad för varje stadium. Varje elevblad skrivs ut på en egen A4-sida.
+      </p>
+
+      <button class="print-button" onclick="window.print()">
+        🖨️ Skriv ut elevbladen
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- F–3 -->
+
+  <section class="stage stage-f3">
+
+    <div class="stage-header">
+
+      <span>🌱</span>
+
+      <div>
+        <h2>F–3 – Förberedande procentförståelse</h2>
+        <p>Helhet • hälften • fjärdedelen • hundradelar</p>
+      </div>
+
+    </div>
+
+    <div class="sheet-grid">
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 1 – Hälften och fjärdedelen</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Hälften av 20.</strong>
+
+          <p>
+            Rita 20 prickar och ringa in hälften.
+          </p>
+
+          <div class="answer-box large"></div>
+
+          <p>
+            Hälften av 20 är ______.
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. En fjärdedel av 20.</strong>
+
+          <p>
+            Hur många är en fjärdedel av 20?
+          </p>
+
+          <p>
+            Svar: ______
+          </p>
+
+          <p>
+            Visa hur du tänkte.
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="reflection">
+
+          <h4>💬 Jämför</h4>
+
+          <p>
+            Vad är störst – hälften av 20 eller en fjärdedel av 20?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+      </article>
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 2 – Av 100</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Ett hundra rutor.</strong>
+
+          <p>
+            Tänk dig 100 lika stora rutor.
+          </p>
+
+          <p>
+            Om 50 rutor markeras är det hälften.
+          </p>
+
+          <p>
+            Om 25 rutor markeras är det en __________________.
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Fyll i.</strong>
+
+          <p>
+            Hälften av 100 = ______
+          </p>
+
+          <p>
+            En fjärdedel av 100 = ______
+          </p>
+
+          <p>
+            En tiondel av 100 = ______
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Visa 30 av 100.</strong>
+
+          <div class="percent-grid">
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+          </div>
+
+        </div>
+
+
+        <div class="challenge">
+
+          <h4>🚀 Utmaning</h4>
+
+          <p>
+            Om 100 barn står på en skolgård och hälften går in:
+            hur många är kvar?
+          </p>
+
+          <p>
+            Svar: ______ barn
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- 4–6 -->
+
+  <section class="stage stage-46">
+
+    <div class="stage-header">
+
+      <span>🌿</span>
+
+      <div>
+        <h2>4–6 – Procent som andel</h2>
+        <p>10 % • 25 % • 50 % • procent av mängd • bråk–decimal–procent</p>
+      </div>
+
+    </div>
+
+    <div class="sheet-grid">
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 3 – Vanliga procenttal</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Beräkna.</strong>
+
+          <p>
+            50 % av 80 = ______
+          </p>
+
+          <p>
+            25 % av 80 = ______
+          </p>
+
+          <p>
+            10 % av 80 = ______
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Använd det du vet.</strong>
+
+          <p>
+            Om 10 % av 300 är 30:
+          </p>
+
+          <p>
+            20 % av 300 = ______
+          </p>
+
+          <p>
+            30 % av 300 = ______
+          </p>
+
+          <p>
+            5 % av 300 = ______
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Vilket samband ser du?</strong>
+
+          <table class="table">
+            <tr>
+              <th>Bråk</th>
+              <th>Decimal</th>
+              <th>Procent</th>
+            </tr>
+            <tr>
+              <td>1/2</td>
+              <td>0,5</td>
+              <td>______</td>
+            </tr>
+            <tr>
+              <td>1/4</td>
+              <td>0,25</td>
+              <td>______</td>
+            </tr>
+            <tr>
+              <td>1/10</td>
+              <td>0,1</td>
+              <td>______</td>
+            </tr>
+          </table>
+
+        </div>
+
+
+        <div class="reflection">
+
+          <h4>💬 Förklara</h4>
+
+          <p>
+            Hur kan du snabbt ta reda på 25 % av ett tal?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+      </article>
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 4 – Del, procent och helhet</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Procent av en grupp.</strong>
+
+          <p>
+            En klass har 30 elever.
+            20 % är frånvarande.
+          </p>
+
+          <p>
+            Hur många elever är frånvarande?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Vad är hela mängden?</strong>
+
+          <p>
+            12 elever är 50 % av en grupp.
+          </p>
+
+          <p>
+            Hur många elever finns i hela gruppen?
+          </p>
+
+          <p>
+            Svar: ______
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Hur många procent?</strong>
+
+          <p>
+            15 av 60 elever väljer fotboll.
+          </p>
+
+          <p>
+            Hur stor andel i procent är det?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="challenge">
+
+          <h4>🚀 Utmaning</h4>
+
+          <p>
+            Är 30 % av 80 samma antal som 80 % av 30?
+          </p>
+
+          <p>
+            Beräkna och försök sedan förklara varför.
+          </p>
+
+          <div class="answer-box large"></div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 -->
+
+  <section class="stage stage-79">
+
+    <div class="stage-header">
+
+      <span>🚀</span>
+
+      <div>
+        <h2>7–9 – Procentuell förändring</h2>
+        <p>Ökning • minskning • förändringsfaktor • procentenheter • upprepade förändringar</p>
+      </div>
+
+    </div>
+
+    <div class="sheet-grid">
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 5 – Ökning och minskning</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Prisökning.</strong>
+
+          <p>
+            En vara kostar 600 kr.
+            Priset ökar med 15 %.
+          </p>
+
+          <p>
+            Ökningen är: __________ kr
+          </p>
+
+          <p>
+            Det nya priset är: __________ kr
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Prissänkning.</strong>
+
+          <p>
+            En jacka kostar 1 200 kr.
+            Priset sänks med 25 %.
+          </p>
+
+          <p>
+            Nytt pris: __________ kr
+          </p>
+
+          <p>
+            Vilken förändringsfaktor kan användas? __________
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Fyll i.</strong>
+
+          <table class="table">
+            <tr>
+              <th>Förändring</th>
+              <th>Förändringsfaktor</th>
+            </tr>
+            <tr>
+              <td>+20 %</td>
+              <td>________</td>
+            </tr>
+            <tr>
+              <td>−20 %</td>
+              <td>________</td>
+            </tr>
+            <tr>
+              <td>+7 %</td>
+              <td>________</td>
+            </tr>
+            <tr>
+              <td>−35 %</td>
+              <td>________</td>
+            </tr>
+          </table>
+
+        </div>
+
+
+        <div class="reflection">
+
+          <h4>💬 Förklara</h4>
+
+          <p>
+            Varför motsvarar en minskning med 20 % förändringsfaktorn 0,80?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+      </article>
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 6 – Procentfällor & resonemang</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Öka och minska.</strong>
+
+          <p>
+            Ett pris är 1 000 kr.
+            Det ökar först med 20 % och minskar sedan med 20 %.
+          </p>
+
+          <p>
+            Pris efter ökningen: __________ kr
+          </p>
+
+          <p>
+            Pris efter minskningen: __________ kr
+          </p>
+
+          <p>
+            Är priset tillbaka på 1 000 kr? __________
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Procent eller procentenheter?</strong>
+
+          <p>
+            Andelen elever som cyklar till skolan ökar från 30 % till 40 %.
+          </p>
+
+          <p>
+            Ökningen är ______ procentenheter.
+          </p>
+
+          <p>
+            Hur stor är den procentuella ökningen?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Hitta felet.</strong>
+
+          <p>
+            En elev säger:
+          </p>
+
+          <p style="font-weight:bold;margin:8px 0;">
+            ”Om något först ökar 50 % och sedan minskar 50 %
+            blir det alltid samma som från början.”
+          </p>
+
+          <p>
+            Visa med ett exempel varför påståendet inte stämmer.
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="challenge">
+
+          <h4>🚀 Generalisera</h4>
+
+          <p>
+            Ett värde multipliceras först med 1,10 och därefter med 1,20.
+          </p>
+
+          <p>
+            Vilken sammanlagd förändringsfaktor får du?
+            Hur stor är den totala procentuella ökningen?
+          </p>
+
+          <div class="answer-box large"></div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="teacher-note">
+
+      <h2>👩‍🏫 Lärarnotering</h2>
+
+      <ul>
+        <li>
+          F–3 arbetar förberedande med delar av helheter och relationen till 100.
+        </li>
+
+        <li>
+          4–6 fokuserar på procent som andel och kopplingen bråk ↔ decimal ↔ procent.
+        </li>
+
+        <li>
+          7–9 utvecklar procentuell förändring, förändringsfaktor och procentenheter.
+        </li>
+
+        <li>
+          Var särskilt uppmärksam på skillnaden mellan procent och procentenheter.
+        </li>
+
+        <li>
+          Upprepade procentuella förändringar ska inte adderas mekaniskt när förändringarna sker på olika utgångsvärden.
+        </li>
+      </ul>
+
+      <button class="print-button" onclick="window.print()">
+        🖨️ Skriv ut
+      </button>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  💯 Procent – del, helhet, andel och förändring
+
+</footer>
+
+</body>
+</html>
