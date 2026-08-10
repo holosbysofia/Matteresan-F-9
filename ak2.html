@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Årskurs 2 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green: #4fa66f;
+      --green-dark: #32764c;
+      --green-light: #edf9f1;
+      --blue: #e5f3ff;
+      --yellow: #fff3bd;
+      --orange: #ffe3c4;
+      --purple: #eee8ff;
+      --pink: #ffe7f1;
+      --white: #ffffff;
+      --background: #f9fbfa;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.22), transparent 30%),
+        linear-gradient(135deg, #3d8458, #69b67f);
+      color: white;
+      padding: 22px 20px 52px;
+    }
+
+    .topbar {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--green-dark);
+    }
+
+    .hero {
+      max-width: 820px;
+      margin: 45px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 7vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #f2fff5;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 740px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--green-light);
+      border-radius: 26px;
+      padding: 34px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 760px;
+      margin: auto;
+      color: #536574;
+    }
+
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .area-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 180px;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+
+    .area-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    }
+
+    .area-icon {
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+
+    .area-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+      font-size: 1.12rem;
+    }
+
+    .area-card p {
+      color: #596978;
+      font-size: 0.94rem;
+    }
+
+    .c1 { background: var(--green-light); }
+    .c2 { background: var(--yellow); }
+    .c3 { background: var(--blue); }
+    .c4 { background: var(--pink); }
+    .c5 { background: var(--orange); }
+    .c6 { background: var(--purple); }
+
+    .talk-box {
+      background: linear-gradient(135deg, #fff5cc, #ffe79e);
+      border-radius: 28px;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .talk-box h2 {
+      color: var(--dark);
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .example {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(70,55,15,0.08);
+    }
+
+    .bubble {
+      margin-top: 10px;
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: #f5f7f8;
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .activity-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid #e6ece8;
+      min-height: 160px;
+    }
+
+    .activity-card span {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .activity-card h3 {
+      color: var(--green-dark);
+      margin-bottom: 7px;
+    }
+
+    .activity-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .adventure {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.15), transparent 35%),
+        linear-gradient(135deg, #254962, #3d7893);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .adventure h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .adventure p {
+      color: #edf8ff;
+      max-width: 760px;
+    }
+
+    .adventure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .adventure-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .support-card {
+      background: white;
+      border: 1px solid #e6ece8;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 150px;
+      transition: 0.2s;
+    }
+
+    .support-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(30,50,60,0.08);
+    }
+
+    .support-card div {
+      font-size: 2rem;
+    }
+
+    .support-card h3 {
+      margin: 7px 0;
+      color: var(--dark);
+    }
+
+    .support-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .progression {
+      background: var(--green-light);
+      border-radius: 28px;
+      padding: 38px;
+      text-align: center;
+    }
+
+    .progression h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .progression p {
+      max-width: 740px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .progression-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .progression-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .progression-card strong {
+      color: var(--green-dark);
+    }
+
+    .next-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 11px 19px;
+      border-radius: 999px;
+      background: var(--green-dark);
+      color: white;
+      font-weight: bold;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 900px) {
+      .area-grid,
+      .activity-grid,
+      .support-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .talk-box {
+        grid-template-columns: 1fr;
+      }
+
+      .adventure-grid,
+      .progression-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .area-grid,
+      .activity-grid,
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .talk-box,
+      .intro-box,
+      .adventure,
+      .progression {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        padding: 0;
+        max-width: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="f-3.html" class="back-link">
+      ← Till F–3
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🌻</div>
+
+    <h1>Årskurs 2</h1>
+
+    <h2>Jag utvecklar mina strategier</h2>
+
+    <p>
+      Här bygger du vidare på din talförståelse,
+      lär dig fler sätt att räkna, upptäcker samband
+      och tränar på att lösa och förklara problem.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>🌱 Jag bygger vidare</h2>
+
+      <p>
+        I årskurs 2 använder du det du redan kan för att lösa
+        nya problem. Du tränar på att välja strategier,
+        upptäcka samband och förklara hur du tänker.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Matematik i årskurs 2
+    </h2>
+
+    <p class="section-intro">
+      Välj ett område och börja utforska.
+    </p>
+
+    <div class="area-grid">
+
+      <a href="ak2-tal.html" class="area-card c1">
+        <div class="area-icon">🔢</div>
+        <h3>Taluppfattning</h3>
+        <p>
+          Arbeta med större tal, jämför tal och utveckla förståelsen för positionssystemet.
+        </p>
+      </a>
+
+
+      <a href="ak2-addition.html" class="area-card c2">
+        <div class="area-icon">➕</div>
+        <h3>Addition</h3>
+        <p>
+          Använd flera strategier och upptäck samband mellan olika tal.
+        </p>
+      </a>
+
+
+      <a href="ak2-subtraktion.html" class="area-card c3">
+        <div class="area-icon">➖</div>
+        <h3>Subtraktion</h3>
+        <p>
+          Räkna skillnader och undersök flera sätt att tänka.
+        </p>
+      </a>
+
+
+      <a href="ak2-multiplikation.html" class="area-card c4">
+        <div class="area-icon">✖️</div>
+        <h3>Multiplikation</h3>
+        <p>
+          Upptäck multiplikation som upprepad addition och lika stora grupper.
+        </p>
+      </a>
+
+
+      <a href="ak2-division.html" class="area-card c5">
+        <div class="area-icon">➗</div>
+        <h3>Division</h3>
+        <p>
+          Dela lika och undersök sambandet mellan multiplikation och division.
+        </p>
+      </a>
+
+
+      <a href="ak2-tallinje.html" class="area-card c6">
+        <div class="area-icon">↔️</div>
+        <h3>Tallinjen</h3>
+        <p>
+          Placera tal, jämför avstånd och använd tallinjen som strategi.
+        </p>
+      </a>
+
+
+      <a href="ak2-monster.html" class="area-card c1">
+        <div class="area-icon">🧩</div>
+        <h3>Mönster & samband</h3>
+        <p>
+          Fortsätt, beskriva och skapa mönster med tal och former.
+        </p>
+      </a>
+
+
+      <a href="ak2-geometri.html" class="area-card c2">
+        <div class="area-icon">🔷</div>
+        <h3>Geometri</h3>
+        <p>
+          Beskriv former, läge, symmetri och geometriska egenskaper.
+        </p>
+      </a>
+
+
+      <a href="ak2-matning.html" class="area-card c3">
+        <div class="area-icon">📏</div>
+        <h3>Mätning</h3>
+        <p>
+          Mät och jämför längd, massa, volym och tid.
+        </p>
+      </a>
+
+
+      <a href="ak2-statistik.html" class="area-card c4">
+        <div class="area-icon">📊</div>
+        <h3>Statistik</h3>
+        <p>
+          Samla information och visa den i tabeller och enkla diagram.
+        </p>
+      </a>
+
+
+      <a href="ak2-problem.html" class="area-card c5">
+        <div class="area-icon">🧠</div>
+        <h3>Problemlösning</h3>
+        <p>
+          Förstå problemet, välj strategi och förklara hur du tänker.
+        </p>
+      </a>
+
+
+      <a href="ak2-matteord.html" class="area-card c6">
+        <div class="area-icon">💬</div>
+        <h3>Matematikens språk</h3>
+        <p>
+          Träna ord och begrepp som hjälper dig att förklara matematik.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="talk-box">
+
+      <div>
+
+        <h2>🗣️ Matteprat</h2>
+
+        <p>
+          I Matteprat tränar du på att jämföra strategier
+          och förklara varför ett sätt fungerar.
+        </p>
+
+        <br>
+
+        <a href="matteprat-ak2.html" class="next-button">
+          Öppna Matteprat →
+        </a>
+
+      </div>
+
+      <div class="example">
+
+        <strong>Hur skulle du räkna?</strong>
+
+        <h2 style="margin-top:12px;">
+          28 + 17
+        </h2>
+
+        <div class="bubble">
+          🌻 Jag tänker 28 + 10 + 7.
+        </div>
+
+        <div class="bubble">
+          🐞 Jag tänker 30 + 17 − 2.
+        </div>
+
+        <div class="bubble">
+          💭 Vilken strategi tycker du är enklast?
+        </div>
+
+        <div class="bubble">
+          🗣️ Kan du hitta ett tredje sätt?
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Träna på olika sätt
+    </h2>
+
+    <p class="section-intro">
+      Olika representationer hjälper dig att förstå matematiken på djupet.
+    </p>
+
+    <div class="activity-grid">
+
+      <div class="activity-card">
+        <span>🧱</span>
+        <h3>Bygg talen</h3>
+        <p>
+          Använd konkret material för att visa tiotal och ental.
+        </p>
+      </div>
+
+      <div class="activity-card">
+        <span>↔️</span>
+        <h3>Använd tallinjen</h3>
+        <p>
+          Hoppa i steg och använd tallinjen som räknestrategi.
+        </p>
+      </div>
+
+      <div class="activity-card">
+        <span>🖍️</span>
+        <h3>Rita lösningen</h3>
+        <p>
+          Visa problem och lösningar med bilder och modeller.
+        </p>
+      </div>
+
+      <div class="activity-card">
+        <span>🎲</span>
+        <h3>Spela</h3>
+        <p>
+          Träna räknesätt, tal och strategier genom spel.
+        </p>
+      </div>
+
+      <div class="activity-card">
+        <span>👫</span>
+        <h3>Förklara för en kompis</h3>
+        <p>
+          Berätta hur du tänker och jämför olika lösningar.
+        </p>
+      </div>
+
+      <div class="activity-card">
+        <span>🔎</span>
+        <h3>Undersök</h3>
+        <p>
+          Leta efter mönster och undersök vad som händer när tal förändras.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="adventure">
+
+      <h2>🧭 Matematikäventyr i årskurs 2</h2>
+
+      <p>
+        Lös uppdrag där du behöver använda tal, räknesätt,
+        mönster och problemlösning för att komma vidare.
+      </p>
+
+      <div class="adventure-grid">
+
+        <a href="aventyr-2.html" class="adventure-card">
+          <h3>🏰 Det låsta slottet</h3>
+          <p>
+            Lös matematiska gåtor för att hitta nycklarna till slottets rum.
+          </p>
+        </a>
+
+        <a href="ak2-kodjakten.html" class="adventure-card">
+          <h3>🔐 Kodjakten</h3>
+          <p>
+            Använd tal och mönster för att lösa hemliga koder.
+          </p>
+        </a>
+
+        <a href="ak2-butiken.html" class="adventure-card">
+          <h3>🛒 Den magiska butiken</h3>
+          <p>
+            Räkna pengar och lös problem för att hjälpa butikens kunder.
+          </p>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Jag vill...
+    </h2>
+
+    <p class="section-intro">
+      Välj vad du behöver just nu.
+    </p>
+
+    <div class="support-grid">
+
+      <a href="spel-ak2.html" class="support-card">
+        <div>🎮</div>
+        <h3>Spela</h3>
+        <p>
+          Träna tal och räknesätt genom matematikspel.
+        </p>
+      </a>
+
+      <a href="strategier-ak2.html" class="support-card">
+        <div>🧩</div>
+        <h3>Lära en strategi</h3>
+        <p>
+          Upptäck flera sätt att räkna effektivt.
+        </p>
+      </a>
+
+      <a href="stod-ak2.html" class="support-card">
+        <div>🛟</div>
+        <h3>Få hjälp</h3>
+        <p>
+          Få tydliga bilder, exempel och hjälp steg för steg.
+        </p>
+      </a>
+
+      <a href="utmaning-ak2.html" class="support-card">
+        <div>🚀</div>
+        <h3>Få en utmaning</h3>
+        <p>
+          Lös kluringar och problem med flera möjliga lösningar.
+        </p>
+      </a>
+
+      <a href="verkligheten-ak2.html" class="support-card">
+        <div>🌍</div>
+        <h3>Matematik i vardagen</h3>
+        <p>
+          Använd matematik med pengar, tid, mätning och vardagsproblem.
+        </p>
+      </a>
+
+      <a href="veckansproblem-ak2.html" class="support-card">
+        <div>⭐</div>
+        <h3>Veckans problem</h3>
+        <p>
+          Lös ett problem och jämför din lösning med andras.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="progression">
+
+      <h2>🔗 Din röda tråd</h2>
+
+      <p>
+        I årskurs 2 går du från grundläggande strategier
+        till att kunna välja mellan flera olika sätt att räkna
+        och förklara varför de fungerar.
+      </p>
+
+      <div class="progression-row">
+
+        <div class="progression-card">
+          🐞<br>
+          <strong>Årskurs 1</strong>
+          <p>Bygga förståelse</p>
+        </div>
+
+        <div class="progression-card">
+          🌻<br>
+          <strong>Årskurs 2</strong>
+          <p>Utveckla strategier</p>
+        </div>
+
+        <div class="progression-card">
+          🌳<br>
+          <strong>Årskurs 3</strong>
+          <p>Fördjupa och förklara</p>
+        </div>
+
+      </div>
+
+      <a href="ak3.html" class="next-button">
+        Se nästa steg: Åk 3 →
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🌻 Årskurs 2 – Jag utvecklar mina strategier
+
+</footer>
+
+</body>
+</html>
