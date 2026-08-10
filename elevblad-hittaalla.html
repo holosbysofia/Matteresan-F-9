@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hitta alla lösningar F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green: #edf9f1;
+      --blue: #eaf5ff;
+      --purple: #f1edff;
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #415b70, #6a8092);
+      color: white;
+      padding: 22px 20px 50px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 42px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      max-width: 840px;
+      margin: auto;
+      color: #f5f9fc;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .intro {
+      background: var(--blue);
+      border-radius: 24px;
+      padding: 30px;
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: var(--muted);
+      max-width: 840px;
+      margin: auto;
+    }
+
+    .print-button {
+      margin-top: 16px;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .stage {
+      margin-bottom: 36px;
+    }
+
+    .stage-title {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .stage-title h2 {
+      color: var(--dark);
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+
+    .stage-title p {
+      color: var(--muted);
+    }
+
+    .sheet {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 22px;
+      padding: 28px;
+      margin-bottom: 24px;
+      break-inside: avoid;
+    }
+
+    .sheet.f3 {
+      border-top: 8px solid #5aa36e;
+    }
+
+    .sheet.m46 {
+      border-top: 8px solid #5b86b8;
+    }
+
+    .sheet.m79 {
+      border-top: 8px solid #8867ad;
+    }
+
+    .sheet-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .sheet-head h3 {
+      color: var(--dark);
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+
+    .sheet-head p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .level {
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-weight: bold;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      background: #edf1f4;
+    }
+
+    .name-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+    }
+
+    .line {
+      display: inline-block;
+      width: 70%;
+      border-bottom: 1px solid #777;
+      height: 18px;
+      vertical-align: bottom;
+    }
+
+    .task {
+      border-top: 1px dashed #bfc8ce;
+      padding-top: 16px;
+      margin-top: 16px;
+      break-inside: avoid;
+    }
+
+    .task:first-of-type {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .task h4 {
+      color: var(--dark);
+      margin-bottom: 7px;
+      font-size: 1.02rem;
+    }
+
+    .answer-box {
+      border: 1.5px solid #8d9aa4;
+      border-radius: 10px;
+      min-height: 86px;
+      margin-top: 8px;
+      background: white;
+    }
+
+    .answer-box.medium {
+      min-height: 120px;
+    }
+
+    .answer-box.large {
+      min-height: 160px;
+    }
+
+    .table-box {
+      margin-top: 10px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      border: 1px solid #83919b;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background: var(--dark);
+      color: white;
+    }
+
+    td {
+      height: 42px;
+    }
+
+    .strategy-box {
+      background: var(--yellow);
+      border-radius: 12px;
+      padding: 13px;
+      margin-top: 12px;
+    }
+
+    .strategy-box strong {
+      color: var(--dark);
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .mini-box {
+      border-radius: 11px;
+      padding: 12px;
+      min-height: 110px;
+    }
+
+    .m1 {
+      background: var(--green);
+    }
+
+    .m2 {
+      background: var(--teal);
+    }
+
+    .mini-box strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .check {
+      background: #eef5f8;
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 16px;
+    }
+
+    .check strong {
+      color: var(--dark);
+    }
+
+    .check ul {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .check li {
+      margin-bottom: 5px;
+    }
+
+    .check li::before {
+      content: "☐ ";
+      font-weight: bold;
+      color: var(--dark);
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 700px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .sheet-head,
+      .name-row,
+      .two-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .sheet {
+        padding: 20px 15px;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 11mm;
+    }
+
+    @media print {
+      header,
+      footer,
+      .intro {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+        color: black;
+        font-size: 10pt;
+      }
+
+      main {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .stage {
+        margin: 0;
+      }
+
+      .stage-title {
+        display: none;
+      }
+
+      .sheet {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        min-height: 274mm;
+        page-break-after: always;
+        break-after: page;
+        margin: 0;
+      }
+
+      .sheet:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .sheet.f3,
+      .sheet.m46,
+      .sheet.m79 {
+        border-top: none;
+      }
+
+      .task,
+      .answer-box,
+      .table-box,
+      .strategy-box,
+      .two-grid,
+      .check {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">HOLOS MATTERESAN</div>
+
+    <a href="material-a4-elevblad.html" class="back-link">
+      ← A4 Elevblad
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🔍🧩</div>
+
+    <h1>Hitta alla lösningar F–9</h1>
+
+    <h2>Pröva • Ordna • Hitta • Kontrollera • Bevisa att alla finns</h2>
+
+    <p>
+      Att hitta en lösning är inte alltid nog.
+      I de här uppgifterna behöver du arbeta systematiskt
+      och visa hur du vet att ingen möjlighet saknas.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <div class="intro">
+
+    <h2>🧠 Systematik är en matematisk strategi</h2>
+
+    <p>
+      Gör en lista, tabell, bild eller annan ordning.
+      Då blir det lättare att se vilka möjligheter du redan har prövat
+      och vilka som återstår.
+    </p>
+
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut alla elevblad
+    </button>
+
+  </div>
+
+
+  <!-- F–3 -->
+
+  <section class="stage">
+
+    <div class="stage-title">
+      <h2>🌱 F–3</h2>
+      <p>Hitta flera möjligheter och ordna dem tydligt.</p>
+    </div>
+
+
+    <article class="sheet f3">
+
+      <div class="sheet-head">
+
+        <div>
+          <h3>🌱 Hitta alla sätt</h3>
+          <p>Elevblad 1 – F–3</p>
+        </div>
+
+        <div class="level">F–3</div>
+
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Gör 10 🔢</h4>
+
+        <p>
+          Hitta alla par av hela tal från 0 till 10 som tillsammans blir 10.
+        </p>
+
+        <div class="table-box">
+
+          <table>
+
+            <tr>
+              <th>Tal 1</th>
+              <th>Tal 2</th>
+            </tr>
+
+            <tr><td></td><td></td></tr>
+            <tr><td></td><td></td></tr>
+            <tr><td></td><td></td></tr>
+            <tr><td></td><td></td></tr>
+            <tr><td></td><td></td></tr>
+            <tr><td></td><td></td></tr>
+
+          </table>
+
+        </div>
+
+        <div class="strategy-box">
+          💡 <strong>Tips:</strong>
+          Börja med 0 + 10 och ändra ett tal i taget.
+        </div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Två kulor 🔴🔵</h4>
+
+        <p>
+          Du har röda, blå och gröna kulor.
+          Du ska välja två kulor.
+        </p>
+
+        <p>
+          Vilka olika färgkombinationer kan du få om samma färg får användas två gånger?
+        </p>
+
+        <div class="answer-box large"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Hur vet du att du hittat alla?</h4>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="check">
+
+        <strong>✅ Jag arbetar systematiskt</strong>
+
+        <ul>
+          <li>Jag börjar på ett tydligt ställe.</li>
+          <li>Jag ändrar en sak i taget.</li>
+          <li>Jag undviker dubbletter.</li>
+          <li>Jag kan förklara varför inget saknas.</li>
+        </ul>
+
+      </div>
+
+    </article>
+
+
+    <article class="sheet f3">
+
+      <div class="sheet-head">
+
+        <div>
+          <h3>🌱 Alla möjliga tal</h3>
+          <p>Elevblad 2 – F–3</p>
+        </div>
+
+        <div class="level">F–3</div>
+
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Bygg tvåsiffriga tal</h4>
+
+        <p>
+          Använd siffrorna <strong>2, 5 och 8</strong>.
+        </p>
+
+        <p>
+          Bygg alla möjliga tvåsiffriga tal utan att använda samma siffra två gånger.
+        </p>
+
+        <div class="answer-box large"></div>
+
+        <p style="margin-top:10px;">
+          Hur många tal hittade du?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Mynten 🪙</h4>
+
+        <p>
+          Du ska betala exakt 10 kr med 2-kronor och 5-kronor.
+        </p>
+
+        <p>
+          Hitta alla möjliga sätt.
+        </p>
+
+        <div class="table-box">
+
+          <table>
+
+            <tr>
+              <th>Antal 5-kronor</th>
+              <th>Antal 2-kronor</th>
+              <th>Summa</th>
+            </tr>
+
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Förklara din ordning</h4>
+
+        <p>
+          Hur gjorde du för att inte missa något?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+    </article>
+
+  </section>
+
+
+  <!-- 4–6 -->
+
+  <section class="stage">
+
+    <div class="stage-title">
+      <h2>🌿 4–6</h2>
+      <p>Använd tabeller och systematisk prövning för att hitta alla lösningar.</p>
+    </div>
+
+
+    <article class="sheet m46">
+
+      <div class="sheet-head">
+
+        <div>
+          <h3>🌿 Systematisk prövning</h3>
+          <p>Elevblad 1 – 4–6</p>
+        </div>
+
+        <div class="level">4–6</div>
+
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Cyklar och trehjulingar 🚲</h4>
+
+        <p>
+          Det finns sammanlagt <strong>10 fordon</strong>.
+          Fordonen är cyklar med 2 hjul och trehjulingar med 3 hjul.
+        </p>
+
+        <p>
+          Hitta alla möjliga antal hjul som de 10 fordonen kan ha tillsammans.
+        </p>
+
+        <div class="table-box">
+
+          <table>
+
+            <tr>
+              <th>Cyklar</th>
+              <th>Trehjulingar</th>
+              <th>Totalt antal hjul</th>
+            </tr>
+
+            <tr><td>10</td><td>0</td><td></td></tr>
+            <tr><td>9</td><td>1</td><td></td></tr>
+            <tr><td>8</td><td>2</td><td></td></tr>
+            <tr><td>7</td><td>3</td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+
+          </table>
+
+        </div>
+
+        <p style="margin-top:10px;">
+          Vilket mönster ser du i antalet hjul?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Fyra siffror</h4>
+
+        <p>
+          Använd siffrorna <strong>1, 2, 3 och 4</strong>.
+        </p>
+
+        <p>
+          Hur många olika tvåsiffriga tal kan du skapa om en siffra inte får användas två gånger?
+        </p>
+
+        <div class="answer-box large"></div>
+
+        <p>
+          Hur vet du att du fått med alla?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="check">
+
+        <strong>✅ Systematisk prövning</strong>
+
+        <ul>
+          <li>Jag väljer en variabel att börja med.</li>
+          <li>Jag förändrar den stegvis.</li>
+          <li>Jag dokumenterar varje möjlighet.</li>
+          <li>Jag kontrollerar gränserna.</li>
+        </ul>
+
+      </div>
+
+    </article>
+
+
+    <article class="sheet m46">
+
+      <div class="sheet-head">
+
+        <div>
+          <h3>🌿 Kombinationer</h3>
+          <p>Elevblad 2 – 4–6</p>
+        </div>
+
+        <div class="level">4–6</div>
+
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Glassbaren 🍦</h4>
+
+        <p>
+          Det finns fyra smaker:
+          vanilj, choklad, jordgubb och citron.
+        </p>
+
+        <p>
+          Du väljer två <strong>olika</strong> smaker.
+          Hur många olika kombinationer finns?
+        </p>
+
+        <div class="answer-box large"></div>
+
+        <div class="strategy-box">
+          💡 Tänk på att vanilj + choklad är samma kombination som choklad + vanilj.
+        </div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Rektanglar med area 24</h4>
+
+        <p>
+          En rektangel har sidlängder i hela centimeter och area 24 cm².
+        </p>
+
+        <p>
+          Hitta alla olika rektanglar.
+        </p>
+
+        <div class="table-box">
+
+          <table>
+
+            <tr>
+              <th>Längd</th>
+              <th>Bredd</th>
+              <th>Area</th>
+              <th>Omkrets</th>
+            </tr>
+
+            <tr><td></td><td></td><td>24</td><td></td></tr>
+            <tr><td></td><td></td><td>24</td><td></td></tr>
+            <tr><td></td><td></td><td>24</td><td></td></tr>
+            <tr><td></td><td></td><td>24</td><td></td></tr>
+
+          </table>
+
+        </div>
+
+        <p style="margin-top:10px;">
+          Vilken rektangel har minst omkrets?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Ett eget problem</h4>
+
+        <p>
+          Skapa ett problem där uppgiften är att hitta alla möjliga lösningar.
+        </p>
+
+        <div class="answer-box large"></div>
+
+      </div>
+
+    </article>
+
+  </section>
+
+
+  <!-- 7–9 -->
+
+  <section class="stage">
+
+    <div class="stage-title">
+      <h2>🚀 7–9</h2>
+      <p>Analysera kombinationer och motivera fullständighet.</p>
+    </div>
+
+
+    <article class="sheet m79">
+
+      <div class="sheet-head">
+
+        <div>
+          <h3>🚀 Hitta alla fall</h3>
+          <p>Elevblad 1 – 7–9</p>
+        </div>
+
+        <div class="level">7–9</div>
+
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Två tärningar 🎲</h4>
+
+        <p>
+          Två vanliga sexsidiga tärningar kastas.
+        </p>
+
+        <p>
+          Hitta alla ordnade utfall där summan blir 8.
+        </p>
+
+        <div class="answer-box medium"></div>
+
+        <p>
+          Hur många sådana utfall finns?
+        </p>
+
+        <div class="answer-box"></div>
+
+        <p>
+          Använd resultatet för att bestämma sannolikheten att summan blir 8.
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Heltalslösningar</h4>
+
+        <p>
+          Hitta alla positiva heltalspar <strong>(x, y)</strong> som uppfyller:
+        </p>
+
+        <p style="text-align:center; font-size:1.2rem; margin:12px 0;">
+          <strong>x + y = 12</strong>
+        </p>
+
+        <div class="table-box">
+
+          <table>
+
+            <tr>
+              <th>x</th>
+              <th>y</th>
+            </tr>
+
+            <tr><td></td><td></td></tr>
+            <tr><td></td><td></td></tr>
+            <tr><td></td><td></td></tr>
+            <tr><td></td><td></td></tr>
+            <tr><td></td><td></td></tr>
+            <tr><td></td><td></td></tr>
+
+          </table>
+
+        </div>
+
+        <p style="margin-top:10px;">
+          Hur många ordnade par finns?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Vad ändras?</h4>
+
+        <p>
+          Hur skulle svaret förändras om x och y fick vara <strong>icke-negativa heltal</strong>, alltså även 0?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+    </article>
+
+
+    <article class="sheet m79">
+
+      <div class="sheet-head">
+
+        <div>
+          <h3>🚀 Kombinationer och generalisering</h3>
+          <p>Elevblad 2 – 7–9</p>
+        </div>
+
+        <div class="level">7–9</div>
+
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Tresiffriga tal</h4>
+
+        <p>
+          Använd siffrorna <strong>1, 2, 3 och 4</strong>.
+        </p>
+
+        <p>
+          Hur många olika tresiffriga tal kan du skapa om ingen siffra får upprepas?
+        </p>
+
+        <div class="two-grid">
+
+          <div class="mini-box m1">
+            <strong>🔍 Systematisk lista</strong>
+          </div>
+
+          <div class="mini-box m2">
+            <strong>🧠 Beräkning / regel</strong>
+          </div>
+
+        </div>
+
+        <p style="margin-top:10px;">
+          Förklara varför metoderna ger samma antal.
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Kodlåset 🔐</h4>
+
+        <p>
+          En kod består av tre siffror från 0 till 9.
+          Samma siffra får användas flera gånger.
+        </p>
+
+        <p>
+          Hur många olika koder finns?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+        <p>
+          Hur förändras antalet om ingen siffra får upprepas?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Generalisera</h4>
+
+        <p>
+          Om du har <strong>n</strong> olika alternativ och ska välja två olika alternativ utan ordning,
+          hur skulle du kunna tänka för att bestämma antalet kombinationer?
+        </p>
+
+        <div class="answer-box large"></div>
+
+      </div>
+
+
+      <div class="check">
+
+        <strong>✅ Så visar jag att alla lösningar finns med</strong>
+
+        <ul>
+          <li>Jag beskriver start och slut i min sökning.</li>
+          <li>Jag använder en tydlig ordning.</li>
+          <li>Jag förklarar varför varje fall bara räknas en gång.</li>
+          <li>Jag kan generalisera metoden när det är möjligt.</li>
+        </ul>
+
+      </div>
+
+    </article>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🔍 Hitta alla lösningar – systematik, kombinationer och matematiska argument
+
+</footer>
+
+</body>
+</html>
