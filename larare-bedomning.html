@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bedömning | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --blue: #4c82bb;
+      --blue-dark: #315f86;
+      --blue-light: #eaf5ff;
+      --green-light: #edf9f1;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
+        linear-gradient(135deg, #17324d, #4c82bb);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--dark);
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.7rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: auto;
+      color: #edf5fb;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 850px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .assessment-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 205px;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+
+    .assessment-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
+    }
+
+    .assessment-card span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .assessment-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .assessment-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .c1 { background: var(--yellow-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--orange-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--pink-light); }
+
+    .cycle-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
+        linear-gradient(135deg, #17324d, #315f86);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .cycle-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .cycle-box > p {
+      color: #edf5fb;
+      max-width: 820px;
+    }
+
+    .cycle-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .cycle-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 180px;
+    }
+
+    .cycle-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .cycle-card h3 {
+      margin-bottom: 6px;
+    }
+
+    .cycle-card p {
+      color: #edf5fb;
+      font-size: 0.9rem;
+    }
+
+    .evidence {
+      background: white;
+      border-radius: 28px;
+      padding: 32px;
+      border: 1px solid #e6ebef;
+      margin-bottom: 25px;
+    }
+
+    .evidence-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .evidence-header span {
+      font-size: 2.7rem;
+    }
+
+    .evidence-header h2 {
+      color: var(--dark);
+      font-size: 1.75rem;
+    }
+
+    .evidence-header p {
+      color: var(--muted);
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .evidence-card {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 185px;
+    }
+
+    .evidence-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .evidence-card p,
+    .evidence-card ul {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .evidence-card ul {
+      padding-left: 20px;
+    }
+
+    .evidence-card li {
+      margin-bottom: 6px;
+    }
+
+    .look { background: var(--green-light); }
+    .ask { background: var(--yellow-light); }
+    .use { background: var(--blue-light); }
+
+    .exit-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .exit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .exit-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 170px;
+      border: 1px solid #eee4c9;
+    }
+
+    .exit-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .exit-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .self-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .self-card {
+      border-radius: 20px;
+      padding: 22px 16px;
+      text-align: center;
+      min-height: 180px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .self-card span {
+      display: block;
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+
+    .self-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .self-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .s1 { background: var(--yellow-light); }
+    .s2 { background: var(--green-light); }
+    .s3 { background: var(--blue-light); }
+    .s4 { background: var(--purple-light); }
+    .s5 { background: var(--orange-light); }
+
+    .analysis-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 25px;
+    }
+
+    .analysis-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 175px;
+      border: 1px solid #dfe8ef;
+    }
+
+    .analysis-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .analysis-card h3 {
+      color: var(--blue-dark);
+      margin-bottom: 6px;
+    }
+
+    .analysis-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .next-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .next-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 185px;
+      border: 1px solid #e6ebef;
+    }
+
+    .next-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .next-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .next-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .note {
+      background: var(--yellow-light);
+      border-left: 6px solid #dba327;
+      border-radius: 14px;
+      padding: 20px;
+      color: #665528;
+      margin-top: 25px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 1050px) {
+      .cycle-grid,
+      .self-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 950px) {
+      .assessment-grid,
+      .evidence-grid,
+      .exit-grid,
+      .next-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .analysis-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .assessment-grid,
+      .cycle-grid,
+      .evidence-grid,
+      .exit-grid,
+      .self-grid,
+      .analysis-grid,
+      .next-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .cycle-box,
+      .evidence,
+      .exit-box,
+      .analysis-box {
+        padding: 25px 18px;
+      }
+
+      .evidence-header {
+        align-items: flex-start;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      section,
+      .evidence {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="larare.html" class="back-link">
+      ← Lärarvy
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">📊</div>
+
+    <h1>Bedömning</h1>
+
+    <h2>Se lärandet • Tolka • Agera</h2>
+
+    <p>
+      Bedömning i matematik handlar inte bara om rätt eller fel.
+      Läraren behöver få syn på elevens förståelse, strategier,
+      begrepp, resonemang och nästa möjliga steg.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>👀 Bedömning som stöd för undervisningen</h2>
+
+      <p>
+        Elevens svar är en del av underlaget, men lösningsvägen är ofta minst lika viktig.
+        Genom samtal, observationer, elevlösningar och korta diagnostiska uppgifter
+        kan läraren få information som påverkar nästa undervisningsbeslut.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Olika sätt att få syn på lärandet
+    </h2>
+
+    <p class="section-intro">
+      Variera underlagen så att elever får möjlighet att visa matematiskt kunnande på flera sätt.
+    </p>
+
+    <div class="assessment-grid">
+
+      <a href="larare-observation.html" class="assessment-card c1">
+        <span>👀</span>
+        <h3>Observation</h3>
+        <p>
+          Lyssna på strategier, språk, samarbete, representationer och problemlösning under arbetet.
+        </p>
+      </a>
+
+      <a href="larare-elevlosningar.html" class="assessment-card c2">
+        <span>✍️</span>
+        <h3>Elevlösningar</h3>
+        <p>
+          Analysera hur eleven strukturerar, representerar och förklarar sin matematik.
+        </p>
+      </a>
+
+      <a href="larare-exittickets.html" class="assessment-card c3">
+        <span>🎫</span>
+        <h3>Exit tickets</h3>
+        <p>
+          Få snabb information om förståelse, strategier och kvarvarande frågor.
+        </p>
+      </a>
+
+      <a href="larare-diagnoser.html" class="assessment-card c4">
+        <span>🔎</span>
+        <h3>Diagnostiska uppgifter</h3>
+        <p>
+          Använd noggrant valda uppgifter för att synliggöra specifika matematiska idéer.
+        </p>
+      </a>
+
+      <a href="larare-sjalvbedomning.html" class="assessment-card c5">
+        <span>🪞</span>
+        <h3>Självbedömning</h3>
+        <p>
+          Hjälp eleven att formulera vad hen förstår, använder och behöver utveckla.
+        </p>
+      </a>
+
+      <a href="larare-kamratbedomning.html" class="assessment-card c6">
+        <span>👥</span>
+        <h3>Kamratrespons</h3>
+        <p>
+          Låt elever jämföra matematiska lösningar och ge respons på tydlighet och resonemang.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="cycle-box">
+
+      <h2>🔄 Den formativa bedömningscykeln</h2>
+
+      <p>
+        Bedömning blir formativ när informationen faktiskt används för att påverka
+        undervisningen och elevens fortsatta arbete.
+      </p>
+
+      <div class="cycle-grid">
+
+        <div class="cycle-card">
+          <span>1️⃣</span>
+          <h3>Synliggör målet</h3>
+          <p>
+            Vad ska eleverna förstå eller kunna göra?
+          </p>
+        </div>
+
+        <div class="cycle-card">
+          <span>2️⃣</span>
+          <h3>Skapa underlag</h3>
+          <p>
+            Ge en uppgift, fråga eller aktivitet som gör tänkandet synligt.
+          </p>
+        </div>
+
+        <div class="cycle-card">
+          <span>3️⃣</span>
+          <h3>Tolka</h3>
+          <p>
+            Vad visar elevens strategi och förklaring om förståelsen?
+          </p>
+        </div>
+
+        <div class="cycle-card">
+          <span>4️⃣</span>
+          <h3>Ge respons</h3>
+          <p>
+            Hjälp eleven förstå vad som fungerar och vad nästa steg är.
+          </p>
+        </div>
+
+        <div class="cycle-card">
+          <span>5️⃣</span>
+          <h3>Anpassa undervisningen</h3>
+          <p>
+            Ändra nästa uppgift, representation eller undervisningsinsats.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="evidence">
+
+      <div class="evidence-header">
+        <span>👀</span>
+        <div>
+          <h2>Observation under matematiklektionen</h2>
+          <p>Det finns mycket att bedöma innan något lämnas in.</p>
+        </div>
+      </div>
+
+      <div class="evidence-grid">
+
+        <div class="evidence-card look">
+          <h3>Lyssna efter</h3>
+          <ul>
+            <li>matematiska begrepp</li>
+            <li>strategier</li>
+            <li>motiveringar</li>
+            <li>jämförelser</li>
+            <li>frågor eleven ställer</li>
+          </ul>
+        </div>
+
+        <div class="evidence-card ask">
+          <h3>Titta efter</h3>
+          <ul>
+            <li>val av representation</li>
+            <li>hur eleven börjar</li>
+            <li>om eleven byter strategi</li>
+            <li>om eleven kontrollerar</li>
+            <li>hur stöd används</li>
+          </ul>
+        </div>
+
+        <div class="evidence-card use">
+          <h3>Använd informationen till</h3>
+          <ul>
+            <li>nästa fråga</li>
+            <li>ny gruppering</li>
+            <li>annan representation</li>
+            <li>extra stöd</li>
+            <li>fördjupning</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="evidence">
+
+      <div class="evidence-header">
+        <span>✍️</span>
+        <div>
+          <h2>Analysera elevlösningar</h2>
+          <p>Titta bakom slutresultatet.</p>
+        </div>
+      </div>
+
+      <div class="evidence-grid">
+
+        <div class="evidence-card look">
+          <h3>Vad förstår eleven?</h3>
+          <ul>
+            <li>begrepp</li>
+            <li>relationer</li>
+            <li>talens storlek</li>
+            <li>problemets struktur</li>
+          </ul>
+        </div>
+
+        <div class="evidence-card ask">
+          <h3>Vilken strategi används?</h3>
+          <ul>
+            <li>effektiv eller omständlig?</li>
+            <li>flexibel eller mekanisk?</li>
+            <li>går den att förklara?</li>
+            <li>passar den uppgiften?</li>
+          </ul>
+        </div>
+
+        <div class="evidence-card use">
+          <h3>Vad blir nästa steg?</h3>
+          <ul>
+            <li>stärka förståelsen</li>
+            <li>introducera ny strategi</li>
+            <li>jämföra metoder</li>
+            <li>fördjupa resonemanget</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="exit-box">
+
+      <h2 class="section-title">
+        🎫 Exit tickets
+      </h2>
+
+      <p class="section-intro">
+        En exit ticket behöver inte vara lång. En genomtänkt fråga kan ge mycket information.
+      </p>
+
+      <div class="exit-grid">
+
+        <div class="exit-card">
+          <h3>🧠 Förståelse</h3>
+          <p>
+            Förklara med egna ord varför 0,4 är större än 0,35.
+          </p>
+        </div>
+
+        <div class="exit-card">
+          <h3>🧩 Strategi</h3>
+          <p>
+            Beräkna 198 + 47. Visa en strategi som du tycker är effektiv.
+          </p>
+        </div>
+
+        <div class="exit-card">
+          <h3>⚠️ Missuppfattning</h3>
+          <p>
+            En elev säger att 1/8 är större än 1/4. Vad skulle du säga till eleven?
+          </p>
+        </div>
+
+        <div class="exit-card">
+          <h3>🔗 Samband</h3>
+          <p>
+            Beskriv sambandet mellan 1/2, 0,5 och 50 %.
+          </p>
+        </div>
+
+        <div class="exit-card">
+          <h3>🗣️ Resonemang</h3>
+          <p>
+            Vilken av två lösningar tycker du är tydligast? Motivera.
+          </p>
+        </div>
+
+        <div class="exit-card">
+          <h3>❓ Nästa fråga</h3>
+          <p>
+            Vad är du fortfarande osäker på efter dagens lektion?
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Elevens egen matteresa
+    </h2>
+
+    <p class="section-intro">
+      Självbedömning kan fokusera på utveckling utan att bli en förenklad betygsskala.
+    </p>
+
+    <div class="self-grid">
+
+      <div class="self-card s1">
+        <span>🌱</span>
+        <h3>Jag börjar förstå</h3>
+        <p>
+          Jag kan arbeta med stöd och känner igen idén.
+        </p>
+      </div>
+
+      <div class="self-card s2">
+        <span>🌿</span>
+        <h3>Jag tränar</h3>
+        <p>
+          Jag kan använda kunskapen i uppgifter jag känner igen.
+        </p>
+      </div>
+
+      <div class="self-card s3">
+        <span>🌳</span>
+        <h3>Jag kan använda</h3>
+        <p>
+          Jag kan välja och använda kunskapen mer självständigt.
+        </p>
+      </div>
+
+      <div class="self-card s4">
+        <span>⭐</span>
+        <h3>Jag kan förklara</h3>
+        <p>
+          Jag kan visa hur och varför min lösning fungerar.
+        </p>
+      </div>
+
+      <div class="self-card s5">
+        <span>🚀</span>
+        <h3>Jag kan överföra</h3>
+        <p>
+          Jag kan använda förståelsen i nya problem och situationer.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="analysis-box">
+
+      <h2 class="section-title">
+        🔎 Analys efter bedömningen
+      </h2>
+
+      <p class="section-intro">
+        Resultat blir användbara först när de leder till frågor om undervisningen.
+      </p>
+
+      <div class="analysis-grid">
+
+        <div class="analysis-card">
+          <span>📊</span>
+          <h3>Vad kan många?</h3>
+          <p>
+            Vilka delar verkar vara stabila för större delen av gruppen?
+          </p>
+        </div>
+
+        <div class="analysis-card">
+          <span>⚠️</span>
+          <h3>Var uppstår svårigheter?</h3>
+          <p>
+            Finns samma felsvar eller missuppfattning hos flera elever?
+          </p>
+        </div>
+
+        <div class="analysis-card">
+          <span>🧠</span>
+          <h3>Vad visar strategierna?</h3>
+          <p>
+            Använder eleverna flexibla strategier eller följer de endast procedurer?
+          </p>
+        </div>
+
+        <div class="analysis-card">
+          <span>➡️</span>
+          <h3>Vad ska undervisningen göra nu?</h3>
+          <p>
+            Repetition, ny representation, fördjupning eller ny problemlösning?
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Från bedömning till nästa undervisningssteg
+    </h2>
+
+    <p class="section-intro">
+      Samma resultat behöver inte leda till samma undervisningsinsats för alla elever.
+    </p>
+
+    <div class="next-grid">
+
+      <div class="next-card">
+        <span>🛟</span>
+        <h3>Eleven behöver stöd</h3>
+        <p>
+          Gå tillbaka till den matematiska kärnan och använd konkret eller visuell representation.
+        </p>
+      </div>
+
+      <div class="next-card">
+        <span>🔄</span>
+        <h3>Eleven behöver befästa</h3>
+        <p>
+          Variera talen och sammanhangen men behåll samma centrala matematiska idé.
+        </p>
+      </div>
+
+      <div class="next-card">
+        <span>🚀</span>
+        <h3>Eleven behöver utmanas</h3>
+        <p>
+          Ändra villkor, be om fler lösningar eller låt eleven generalisera.
+        </p>
+      </div>
+
+      <div class="next-card">
+        <span>💬</span>
+        <h3>Eleven behöver språkstöd</h3>
+        <p>
+          Ge begrepp, meningsstarter och möjlighet att först visa med bild eller modell.
+        </p>
+      </div>
+
+      <div class="next-card">
+        <span>🧩</span>
+        <h3>Eleven har en missuppfattning</h3>
+        <p>
+          Använd exempel och motexempel som gör den felaktiga regeln synlig.
+        </p>
+      </div>
+
+      <div class="next-card">
+        <span>🗣️</span>
+        <h3>Eleven kan räkna men inte förklara</h3>
+        <p>
+          Flytta fokus från fler beräkningar till resonemang och jämförelse av strategier.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="note">
+      <strong>Viktigt:</strong>
+      en bedömningssituation visar bara en del av elevens kunnande.
+      Använd flera underlag över tid och skilj mellan tillfälliga fel, språkliga hinder och matematiska missuppfattningar.
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  📊 Bedömning – se lärandet, tolka och planera nästa steg
+
+</footer>
+
+</body>
+</html>
