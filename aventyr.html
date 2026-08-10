@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Matematikäventyr | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --blue-dark: #244f73;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --white: #ffffff;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #17324d, #396d95);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--dark);
+    }
+
+    .hero {
+      max-width: 850px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #edf6ff;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 760px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 30px 24px;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .stage-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    }
+
+    .f3 {
+      background: var(--green-light);
+    }
+
+    .m46 {
+      background: var(--blue-light);
+    }
+
+    .m79 {
+      background: var(--purple-light);
+    }
+
+    .stage-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card p {
+      color: var(--muted);
+      flex-grow: 1;
+    }
+
+    .stage-button {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 18px;
+      background: var(--dark);
+      color: white;
+      padding: 10px 17px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .how-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+      border: 1px solid #e6ebef;
+      min-height: 170px;
+    }
+
+    .how-card span {
+      display: block;
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+
+    .how-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .how-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .adventure-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .adventure-card {
+      background: white;
+      border-radius: 22px;
+      padding: 25px;
+      border: 1px solid #e4e9ed;
+      transition: 0.2s;
+    }
+
+    .adventure-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
+    }
+
+    .adventure-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .adventure-card p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      font-size: 0.82rem;
+      background: #f1f5f7;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #4b5b67;
+    }
+
+    .year-title {
+      margin-bottom: 18px;
+      color: var(--dark);
+      font-size: 1.5rem;
+    }
+
+    .year-section {
+      background: #ffffff;
+      border-radius: 26px;
+      padding: 30px;
+      border: 1px solid #e6ebef;
+      margin-bottom: 24px;
+    }
+
+    .year-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .year-card {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 150px;
+      transition: 0.2s;
+    }
+
+    .year-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(30,50,60,0.07);
+    }
+
+    .year-card h3 {
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+
+    .year-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .green {
+      background: var(--green-light);
+    }
+
+    .blue {
+      background: var(--blue-light);
+    }
+
+    .purple {
+      background: var(--purple-light);
+    }
+
+    .special-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 35%),
+        linear-gradient(135deg, #233d57, #426d91);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .special-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .special-box p {
+      max-width: 760px;
+      color: #edf6ff;
+    }
+
+    .special-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 25px;
+    }
+
+    .special-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .special-card h3 {
+      margin-bottom: 7px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 950px) {
+      .how-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .year-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .special-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .stage-grid,
+      .adventure-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .how-grid,
+      .year-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .special-box,
+      .year-section {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        padding: 0;
+        max-width: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="index.html" class="back-link">
+      ← Startsidan
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🧭</div>
+
+    <h1>Matematikäventyr</h1>
+
+    <h2>Matematiken behövs för att komma vidare</h2>
+
+    <p>
+      Här möter du berättelser, mysterier och uppdrag där du behöver
+      använda matematik för att lösa problem, fatta beslut och ta dig vidare.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>🌍 Matematik i ett sammanhang</h2>
+
+      <p>
+        I ett matematikäventyr tränar du inte bara ett område i taget.
+        Du kan behöva använda tal, geometri, mätning, statistik,
+        algebra, problemlösning och matematiska resonemang i samma uppdrag.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Välj din nivå
+    </h2>
+
+    <p class="section-intro">
+      Äventyren blir längre och mer komplexa ju längre du kommer i matteresan.
+    </p>
+
+    <div class="stage-grid">
+
+      <a href="aventyr-f3.html" class="stage-card f3">
+
+        <div class="stage-icon">🌱</div>
+
+        <h3>Äventyr F–3</h3>
+
+        <p>
+          Sagor, skattjakter, mönster, tal och problemlösning med konkreta och visuella uppdrag.
+        </p>
+
+        <span class="stage-button">
+          Utforska F–3 →
+        </span>
+
+      </a>
+
+
+      <a href="aventyr-46.html" class="stage-card m46">
+
+        <div class="stage-icon">🌿</div>
+
+        <h3>Äventyr 4–6</h3>
+
+        <p>
+          Expeditioner, resor och mysterier där flera matematiska områden kombineras.
+        </p>
+
+        <span class="stage-button">
+          Utforska 4–6 →
+        </span>
+
+      </a>
+
+
+      <a href="aventyr-79.html" class="stage-card m79">
+
+        <div class="stage-icon">🚀</div>
+
+        <h3>Äventyr 7–9</h3>
+
+        <p>
+          Större uppdrag med analys, modeller, algebra, statistik och matematiska beslut.
+        </p>
+
+        <span class="stage-button">
+          Utforska 7–9 →
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Så fungerar ett matematikäventyr
+    </h2>
+
+    <p class="section-intro">
+      Uppdragen är byggda för att få dig att använda matematiken aktivt.
+    </p>
+
+    <div class="how-grid">
+
+      <div class="how-card">
+        <span>📖</span>
+        <h3>1. Berättelsen</h3>
+        <p>
+          Du får ett problem eller uppdrag som behöver lösas.
+        </p>
+      </div>
+
+      <div class="how-card">
+        <span>🔎</span>
+        <h3>2. Ledtrådarna</h3>
+        <p>
+          Leta efter viktig information och matematiska samband.
+        </p>
+      </div>
+
+      <div class="how-card">
+        <span>🧠</span>
+        <h3>3. Lösningen</h3>
+        <p>
+          Välj strategier och använd matematiken för att komma vidare.
+        </p>
+      </div>
+
+      <div class="how-card">
+        <span>🗣️</span>
+        <h3>4. Förklara</h3>
+        <p>
+          Visa hur du tänkte och varför din lösning fungerar.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Äventyr årskurs för årskurs
+    </h2>
+
+    <p class="section-intro">
+      Välj ett uppdrag som passar din årskurs.
+    </p>
+
+
+    <div class="year-section">
+
+      <h2 class="year-title">
+        🌱 Förskoleklass–årskurs 3
+      </h2>
+
+      <div class="year-grid">
+
+        <a href="aventyr-f.html" class="year-card green">
+          <h3>🌼 F – Drakens försvunna former</h3>
+          <p>
+            Hjälp draken hitta former och lösa matematiska uppdrag.
+          </p>
+        </a>
+
+        <a href="aventyr-1.html" class="year-card green">
+          <h3>🏴‍☠️ Åk 1 – Piraternas talö</h3>
+          <p>
+            Räkna skatter, följ kartan och hitta den gömda kistan.
+          </p>
+        </a>
+
+        <a href="aventyr-2.html" class="year-card green">
+          <h3>🏰 Åk 2 – Det låsta slottet</h3>
+          <p>
+            Lös talproblem och hemliga koder för att öppna slottets dörrar.
+          </p>
+        </a>
+
+        <a href="aventyr-3.html" class="year-card green">
+          <h3>🔎 Åk 3 – Matematikdetektiverna</h3>
+          <p>
+            Analysera ledtrådar och lös ett matematiskt mysterium.
+          </p>
+        </a>
+
+        <a href="f-skattjakt.html" class="year-card green">
+          <h3>🗺️ Matematikskatten</h3>
+          <p>
+            Följ riktningar, räkna och lös problem på vägen.
+          </p>
+        </a>
+
+        <a href="ak3-tidsmaskinen.html" class="year-card green">
+          <h3>⏳ Den trasiga tidsmaskinen</h3>
+          <p>
+            Använd tid, mönster och tal för att reparera maskinen.
+          </p>
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="year-section">
+
+      <h2 class="year-title">
+        🌿 Årskurs 4–6
+      </h2>
+
+      <div class="year-grid">
+
+        <a href="aventyr-4.html" class="year-card blue">
+          <h3>🌍 Åk 4 – Expedition Matematik</h3>
+          <p>
+            Planera en expedition med kartor, tal, mätning och problemlösning.
+          </p>
+        </a>
+
+        <a href="aventyr-5.html" class="year-card blue">
+          <h3>🕵️ Åk 5 – Den hemliga organisationen</h3>
+          <p>
+            Lös koder, analysera information och klara hemliga uppdrag.
+          </p>
+        </a>
+
+        <a href="aventyr-6.html" class="year-card blue">
+          <h3>🚀 Åk 6 – Uppdrag Mars</h3>
+          <p>
+            Planera en rymdexpedition med tid, avstånd, procent och statistik.
+          </p>
+        </a>
+
+        <a href="ak4-staden.html" class="year-card blue">
+          <h3>🏙️ Bygg en stad</h3>
+          <p>
+            Planera med area, omkrets, skala och geometri.
+          </p>
+        </a>
+
+        <a href="ak5-resan.html" class="year-card blue">
+          <h3>✈️ Den stora resan</h3>
+          <p>
+            Planera en resa med pengar, tid, avstånd och skala.
+          </p>
+        </a>
+
+        <a href="ak6-foretaget.html" class="year-card blue">
+          <h3>💼 Starta ett företag</h3>
+          <p>
+            Arbeta med budget, procent, priser och statistik.
+          </p>
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="year-section">
+
+      <h2 class="year-title">
+        🚀 Årskurs 7–9
+      </h2>
+
+      <div class="year-grid">
+
+        <a href="aventyr-7.html" class="year-card purple">
+          <h3>🧪 Åk 7 – Laboratoriets hemliga kod</h3>
+          <p>
+            Lös algebraiska problem och använd logiskt tänkande.
+          </p>
+        </a>
+
+        <a href="aventyr-8.html" class="year-card purple">
+          <h3>🏙️ Åk 8 – Bygg framtidens stad</h3>
+          <p>
+            Använd funktioner, procent, skala och statistik i stadsplaneringen.
+          </p>
+        </a>
+
+        <a href="aventyr-9.html" class="year-card purple">
+          <h3>🕵️ Åk 9 – Det matematiska mysteriet</h3>
+          <p>
+            Kombinera algebra, geometri, statistik och problemlösning.
+          </p>
+        </a>
+
+        <a href="ak7-ekonomi.html" class="year-card purple">
+          <h3>💰 Ekonomiutmaningen</h3>
+          <p>
+            Fatta beslut med hjälp av procent, budget och modeller.
+          </p>
+        </a>
+
+        <a href="ak8-energin.html" class="year-card purple">
+          <h3>⚡ Energiutmaningen</h3>
+          <p>
+            Analysera energidata, grafer och förändringar.
+          </p>
+        </a>
+
+        <a href="ak9-samhallet.html" class="year-card purple">
+          <h3>🌍 Framtidens samhälle</h3>
+          <p>
+            Använd matematik för att planera och motivera samhällsbeslut.
+          </p>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="special-box">
+
+      <h2>🌍 Tematiska matematikäventyr</h2>
+
+      <p>
+        Här kopplas matematiken samman med andra ämnen och verkliga situationer.
+      </p>
+
+      <div class="special-grid">
+
+        <a href="aventyr-hallbarhet.html" class="special-card">
+          <h3>🌱 Hållbar framtid</h3>
+          <p>
+            Matematik + NO + geografi + hållbar utveckling.
+          </p>
+        </a>
+
+        <a href="aventyr-teknik.html" class="special-card">
+          <h3>🌉 Bygg & konstruera</h3>
+          <p>
+            Matematik + teknik + geometri + problemlösning.
+          </p>
+        </a>
+
+        <a href="aventyr-ekonomi.html" class="special-card">
+          <h3>💰 Ekonomimissionen</h3>
+          <p>
+            Matematik + privatekonomi + procent + statistik.
+          </p>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🧭 Matematikäventyr – använd matematiken för att komma vidare
+
+</footer>
+
+</body>
+</html>
