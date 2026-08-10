@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Språk & begrepp | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --teal: #3d8c8a;
+      --teal-dark: #2b6866;
+      --teal-light: #e9f7f6;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #295f67, #4b9995);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--teal-dark);
+    }
+
+    .hero {
+      max-width: 850px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #efffff;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--teal-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 770px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 30px 24px;
+      min-height: 245px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .stage-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    }
+
+    .f3 { background: var(--green-light); }
+    .m46 { background: var(--blue-light); }
+    .m79 { background: var(--purple-light); }
+
+    .stage-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card p {
+      color: var(--muted);
+      flex-grow: 1;
+    }
+
+    .stage-button {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 18px;
+      background: var(--dark);
+      color: white;
+      padding: 10px 17px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .concept-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 205px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .concept-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
+    }
+
+    .concept-card span {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .concept-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .concept-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .c1 { background: var(--yellow-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--orange-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--pink-light); }
+
+    .model-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 35%),
+        linear-gradient(135deg, #17324d, #3b7474);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .model-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .model-box > div:first-child p {
+      color: #edffff;
+    }
+
+    .model-card {
+      background: white;
+      color: var(--text);
+      border-radius: 20px;
+      padding: 25px;
+    }
+
+    .model-card h3 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .word {
+      background: #f5f7f8;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 10px;
+    }
+
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .language-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+      border: 1px solid #e6ebef;
+      min-height: 180px;
+    }
+
+    .language-card span {
+      font-size: 2.3rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .language-card h3 {
+      color: var(--teal-dark);
+      margin-bottom: 6px;
+    }
+
+    .language-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .support-box {
+      background: var(--teal-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .support-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid #dfeceb;
+      min-height: 180px;
+    }
+
+    .support-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .support-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 950px) {
+      .concept-grid,
+      .support-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .language-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .model-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .concept-grid,
+      .language-grid,
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .model-box,
+      .support-box {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        padding: 0;
+        max-width: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="index.html" class="back-link">
+      ← Startsidan
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">💬</div>
+
+    <h1>Språk & begrepp</h1>
+
+    <h2>Se • Säga • Visa • Förstå</h2>
+
+    <p>
+      Matematik har ett eget språk.
+      När du förstår orden, symbolerna och sambanden blir det lättare
+      att tänka, lösa problem och förklara dina idéer.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>🧠 Matematiska ord hjälper oss att tänka</h2>
+
+      <p>
+        Ord som summa, faktor, omkrets, proportionalitet och funktion
+        beskriver matematiska idéer. Här får du möta begreppen med ord,
+        bilder, exempel, symboler och förklaringar.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Välj din nivå
+    </h2>
+
+    <p class="section-intro">
+      Matematikens språk växer genom hela matteresan.
+    </p>
+
+    <div class="stage-grid">
+
+      <a href="begrepp-f3.html" class="stage-card f3">
+
+        <div class="stage-icon">🌱</div>
+
+        <h3>Språk & begrepp F–3</h3>
+
+        <p>
+          Fler, färre, lika många, summa, skillnad, form, längd, hälften och andra grundläggande ord.
+        </p>
+
+        <span class="stage-button">
+          Öppna F–3 →
+        </span>
+
+      </a>
+
+
+      <a href="begrepp-46.html" class="stage-card m46">
+
+        <div class="stage-icon">🌿</div>
+
+        <h3>Språk & begrepp 4–6</h3>
+
+        <p>
+          Bråk, procent, faktor, produkt, area, median, proportionalitet och fler matematiska begrepp.
+        </p>
+
+        <span class="stage-button">
+          Öppna 4–6 →
+        </span>
+
+      </a>
+
+
+      <a href="begrepp-79.html" class="stage-card m79">
+
+        <div class="stage-icon">🚀</div>
+
+        <h3>Språk & begrepp 7–9</h3>
+
+        <p>
+          Variabel, koefficient, funktion, förändringsfaktor, sannolikhet, modell och generalisering.
+        </p>
+
+        <span class="stage-button">
+          Öppna 7–9 →
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Välj begreppsområde
+    </h2>
+
+    <p class="section-intro">
+      Bygg upp ditt matematiska ordförråd område för område.
+    </p>
+
+    <div class="concept-grid">
+
+      <a href="begrepp-tal.html" class="concept-card c1">
+        <span>🔢</span>
+        <h3>Taluppfattning</h3>
+        <p>
+          Siffra, tal, heltal, decimaltal, negativt tal, platsvärde och tallinje.
+        </p>
+      </a>
+
+
+      <a href="begrepp-raknesatt.html" class="concept-card c2">
+        <span>➕➖✖️➗</span>
+        <h3>Räknesätt</h3>
+        <p>
+          Term, summa, differens, faktor, produkt, täljare, nämnare och kvot.
+        </p>
+      </a>
+
+
+      <a href="begrepp-brak.html" class="concept-card c3">
+        <span>🍕</span>
+        <h3>Bråk, decimal & procent</h3>
+        <p>
+          Täljare, nämnare, bråkform, decimalform, procent, andel och helhet.
+        </p>
+      </a>
+
+
+      <a href="begrepp-algebra.html" class="concept-card c4">
+        <span>🔤</span>
+        <h3>Algebra</h3>
+        <p>
+          Likhet, uttryck, variabel, ekvation, koefficient, formel och lösning.
+        </p>
+      </a>
+
+
+      <a href="begrepp-geometri.html" class="concept-card c5">
+        <span>📐</span>
+        <h3>Geometri</h3>
+        <p>
+          Sida, hörn, vinkel, omkrets, area, volym, symmetri, skala och likformighet.
+        </p>
+      </a>
+
+
+      <a href="begrepp-statistik.html" class="concept-card c6">
+        <span>📊</span>
+        <h3>Statistik</h3>
+        <p>
+          Data, tabell, diagram, medelvärde, median, typvärde och spridning.
+        </p>
+      </a>
+
+
+      <a href="begrepp-sannolikhet.html" class="concept-card c1">
+        <span>🎲</span>
+        <h3>Sannolikhet</h3>
+        <p>
+          Slump, utfall, händelse, sannolikhet, möjligt och omöjligt.
+        </p>
+      </a>
+
+
+      <a href="begrepp-samband.html" class="concept-card c2">
+        <span>📈</span>
+        <h3>Samband & förändring</h3>
+        <p>
+          Förhållande, proportionalitet, förändring, graf, funktion och koordinat.
+        </p>
+      </a>
+
+
+      <a href="begrepp-problem.html" class="concept-card c3">
+        <span>🧠</span>
+        <h3>Problemlösning & resonemang</h3>
+        <p>
+          Strategi, metod, rimlighet, motivering, hypotes, generalisering och modell.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="model-box">
+
+      <div>
+
+        <h2>🔗 Ett begrepp behöver flera kopplingar</h2>
+
+        <p>
+          Att bara kunna en definition räcker inte alltid.
+          Ett matematiskt begrepp blir starkare när du kan koppla
+          ihop ordet med bild, symbol, exempel och en egen förklaring.
+        </p>
+
+      </div>
+
+
+      <div class="model-card">
+
+        <h3>Exempel: produkt</h3>
+
+        <div class="word">
+          💬 <strong>Ord:</strong> produkt
+        </div>
+
+        <div class="word">
+          🔢 <strong>Symbol:</strong> 4 × 6 = 24
+        </div>
+
+        <div class="word">
+          🧱 <strong>Bild:</strong> 4 grupper med 6 i varje
+        </div>
+
+        <div class="word">
+          🧠 <strong>Betydelse:</strong> svaret i en multiplikation
+        </div>
+
+        <div class="word">
+          🗣️ <strong>Egen mening:</strong> Produkten av 4 och 6 är 24.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Så utvecklar du matematikens språk
+    </h2>
+
+    <p class="section-intro">
+      Använd begreppen aktivt när du tänker, pratar, skriver och löser problem.
+    </p>
+
+    <div class="language-grid">
+
+      <div class="language-card">
+        <span>👀</span>
+        <h3>Se</h3>
+        <p>
+          Koppla ordet till bild, modell, diagram eller konkret material.
+        </p>
+      </div>
+
+      <div class="language-card">
+        <span>👂</span>
+        <h3>Lyssna</h3>
+        <p>
+          Hör hur andra använder matematiska begrepp i sina förklaringar.
+        </p>
+      </div>
+
+      <div class="language-card">
+        <span>🗣️</span>
+        <h3>Säg</h3>
+        <p>
+          Använd begreppet när du förklarar hur du tänker.
+        </p>
+      </div>
+
+      <div class="language-card">
+        <span>✍️</span>
+        <h3>Skriv</h3>
+        <p>
+          Använd ord, symboler och matematiska meningar i dina lösningar.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="support-box">
+
+      <h2 class="section-title">
+        💬 Språkstöd i matematiken
+      </h2>
+
+      <p class="section-intro">
+        Använd meningarna när du vill förklara och resonera mer matematiskt.
+      </p>
+
+      <div class="support-grid">
+
+        <div class="support-card">
+          <h3>🧠 När jag förklarar</h3>
+          <p>
+            Jag började med att...<br>
+            Sedan...<br>
+            Jag valde den här strategin eftersom...
+          </p>
+        </div>
+
+        <div class="support-card">
+          <h3>🔗 När jag ser samband</h3>
+          <p>
+            Jag ser att...<br>
+            Det här liknar...<br>
+            Sambandet är...
+          </p>
+        </div>
+
+        <div class="support-card">
+          <h3>⚖️ När jag jämför</h3>
+          <p>
+            Båda metoderna...<br>
+            Skillnaden är...<br>
+            Jag tycker att den här metoden är effektivare eftersom...
+          </p>
+        </div>
+
+        <div class="support-card">
+          <h3>❓ När jag frågar</h3>
+          <p>
+            Hur menar du när...?<br>
+            Varför...?<br>
+            Kan du visa på ett annat sätt?
+          </p>
+        </div>
+
+        <div class="support-card">
+          <h3>✅ När jag kontrollerar</h3>
+          <p>
+            Mitt svar verkar rimligt eftersom...<br>
+            Jag kontrollerade genom att...
+          </p>
+        </div>
+
+        <div class="support-card">
+          <h3>🚀 När jag generaliserar</h3>
+          <p>
+            Jag tror att detta alltid gäller eftersom...<br>
+            Regeln verkar vara...<br>
+            Ett exempel som stödjer min idé är...
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  💬 Språk & begrepp – se, säga, visa och förstå
+
+</footer>
+
+</body>
+</html>
