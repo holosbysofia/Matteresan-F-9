@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Strategibanken | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --orange: #d98627;
+      --orange-dark: #9d5f18;
+      --orange-light: #fff1df;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #8d5317, #d78a34);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--orange-dark);
+    }
+
+    .hero {
+      max-width: 850px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #fff8ef;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--orange-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 770px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 30px 24px;
+      min-height: 245px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .stage-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    }
+
+    .f3 {
+      background: var(--green-light);
+    }
+
+    .m46 {
+      background: var(--blue-light);
+    }
+
+    .m79 {
+      background: var(--purple-light);
+    }
+
+    .stage-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card p {
+      color: var(--muted);
+      flex-grow: 1;
+    }
+
+    .stage-button {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 18px;
+      background: var(--dark);
+      color: white;
+      padding: 10px 17px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .strategy-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 205px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .strategy-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
+    }
+
+    .strategy-card span {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .strategy-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .strategy-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .c1 { background: var(--yellow-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--orange-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--pink-light); }
+
+    .example-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 35%),
+        linear-gradient(135deg, #553617, #9b6527);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .example-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .example-box > div:first-child p {
+      color: #fff8ef;
+    }
+
+    .example-card {
+      background: white;
+      color: var(--text);
+      border-radius: 20px;
+      padding: 25px;
+    }
+
+    .bubble {
+      margin-top: 10px;
+      background: #f5f7f8;
+      border-radius: 12px;
+      padding: 11px 14px;
+    }
+
+    .choose-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .choose-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+      border: 1px solid #e6ebef;
+      min-height: 180px;
+    }
+
+    .choose-card span {
+      font-size: 2.3rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .choose-card h3 {
+      color: var(--orange-dark);
+      margin-bottom: 6px;
+    }
+
+    .choose-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .compare-box {
+      background: var(--orange-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .compare-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid #eee4d7;
+      min-height: 185px;
+    }
+
+    .compare-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .compare-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 950px) {
+      .strategy-grid,
+      .compare-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .choose-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .example-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .strategy-grid,
+      .choose-grid,
+      .compare-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .example-box,
+      .compare-box {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        padding: 0;
+        max-width: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="index.html" class="back-link">
+      ← Startsidan
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🧩</div>
+
+    <h1>Strategibanken</h1>
+
+    <h2>Det finns fler än ett sätt att tänka</h2>
+
+    <p>
+      Här samlar vi strategier som hjälper dig att räkna,
+      lösa problem, se samband och välja en metod som passar situationen.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>🧠 En strategi är ett sätt att tänka</h2>
+
+      <p>
+        Målet är inte att använda samma metod till allt.
+        En skicklig matematiker kan flera strategier,
+        jämför dem och väljer den som passar bäst för just den uppgiften.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Välj din nivå
+    </h2>
+
+    <p class="section-intro">
+      Strategierna utvecklas och blir mer avancerade genom hela F–9.
+    </p>
+
+    <div class="stage-grid">
+
+      <a href="strategier-f3.html" class="stage-card f3">
+
+        <div class="stage-icon">🌱</div>
+
+        <h3>Strategier F–3</h3>
+
+        <p>
+          Bygga, rita, dela upp tal, använda tallinjen, tiokompisar och prova olika lösningar.
+        </p>
+
+        <span class="stage-button">
+          Öppna F–3 →
+        </span>
+
+      </a>
+
+
+      <a href="strategier-46.html" class="stage-card m46">
+
+        <div class="stage-icon">🌿</div>
+
+        <h3>Strategier 4–6</h3>
+
+        <p>
+          Huvudräkning, skriftliga metoder, överslag, modeller, tabeller och problemlösningsstrategier.
+        </p>
+
+        <span class="stage-button">
+          Öppna 4–6 →
+        </span>
+
+      </a>
+
+
+      <a href="strategier-79.html" class="stage-card m79">
+
+        <div class="stage-icon">🚀</div>
+
+        <h3>Strategier 7–9</h3>
+
+        <p>
+          Algebraiska metoder, modellering, generalisering, grafiska lösningar och matematiska argument.
+        </p>
+
+        <span class="stage-button">
+          Öppna 7–9 →
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Strategier att använda
+    </h2>
+
+    <p class="section-intro">
+      Välj strategi efter vad uppgiften kräver.
+    </p>
+
+    <div class="strategy-grid">
+
+      <a href="strategi-dela-upp.html" class="strategy-card c1">
+        <span>🧱</span>
+        <h3>Dela upp tal</h3>
+        <p>
+          Dela upp tal i delar som är enklare att arbeta med.
+        </p>
+      </a>
+
+
+      <a href="strategi-tallinje.html" class="strategy-card c2">
+        <span>↔️</span>
+        <h3>Använd tallinjen</h3>
+        <p>
+          Visa tal, skillnader, hopp och förändringar på en tallinje.
+        </p>
+      </a>
+
+
+      <a href="strategi-kompensera.html" class="strategy-card c3">
+        <span>⚖️</span>
+        <h3>Kompensera</h3>
+        <p>
+          Ändra ett tal till något enklare och kompensera efteråt.
+        </p>
+      </a>
+
+
+      <a href="strategi-overslag.html" class="strategy-card c4">
+        <span>🎯</span>
+        <h3>Gör överslag</h3>
+        <p>
+          Uppskatta ungefärligt svar för att kontrollera rimligheten.
+        </p>
+      </a>
+
+
+      <a href="strategi-rita.html" class="strategy-card c5">
+        <span>🖍️</span>
+        <h3>Rita en modell</h3>
+        <p>
+          Gör matematiken synlig med bild, skiss eller stapelmodell.
+        </p>
+      </a>
+
+
+      <a href="strategi-tabell.html" class="strategy-card c6">
+        <span>📋</span>
+        <h3>Gör en tabell</h3>
+        <p>
+          Strukturera information och leta efter samband och mönster.
+        </p>
+      </a>
+
+
+      <a href="strategi-systematiskt.html" class="strategy-card c1">
+        <span>🔎</span>
+        <h3>Prova systematiskt</h3>
+        <p>
+          Testa möjligheter i ordning och dokumentera dina försök.
+        </p>
+      </a>
+
+
+      <a href="strategi-baklanges.html" class="strategy-card c2">
+        <span>↩️</span>
+        <h3>Arbeta baklänges</h3>
+        <p>
+          Börja vid resultatet och ta reda på vilka steg som kan ha lett dit.
+        </p>
+      </a>
+
+
+      <a href="strategi-monster.html" class="strategy-card c3">
+        <span>🧩</span>
+        <h3>Leta efter mönster</h3>
+        <p>
+          Upptäck något som återkommer och använd det för att hitta en regel.
+        </p>
+      </a>
+
+
+      <a href="strategi-ekvation.html" class="strategy-card c4">
+        <span>🔤</span>
+        <h3>Ställ upp en ekvation</h3>
+        <p>
+          Översätt ett problem till algebra och lös det med en lämplig metod.
+        </p>
+      </a>
+
+
+      <a href="strategi-graf.html" class="strategy-card c5">
+        <span>📈</span>
+        <h3>Använd en graf</h3>
+        <p>
+          Visa samband och förändringar grafiskt för att analysera dem.
+        </p>
+      </a>
+
+
+      <a href="strategi-modell.html" class="strategy-card c6">
+        <span>🌍</span>
+        <h3>Skapa en matematisk modell</h3>
+        <p>
+          Beskriv en verklig situation med matematik och använd modellen för att dra slutsatser.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="example-box">
+
+      <div>
+
+        <h2>🧠 Samma uppgift – flera strategier</h2>
+
+        <p>
+          När du kan flera strategier kan du välja den som gör uppgiften enklare.
+          Två personer kan tänka helt olika och ändå få samma korrekta svar.
+        </p>
+
+      </div>
+
+
+      <div class="example-card">
+
+        <strong>Beräkna:</strong>
+
+        <h2 style="margin-top:12px;">
+          198 + 47
+        </h2>
+
+        <div class="bubble">
+          🧩 <strong>Strategi 1:</strong> 200 + 47 − 2
+        </div>
+
+        <div class="bubble">
+          🔢 <strong>Strategi 2:</strong> 198 + 40 + 7
+        </div>
+
+        <div class="bubble">
+          🧱 <strong>Strategi 3:</strong> 100 + 90 + 8 + 40 + 7
+        </div>
+
+        <div class="bubble">
+          🗣️ Vilken strategi tycker du är mest effektiv? Varför?
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Hur väljer jag strategi?
+    </h2>
+
+    <p class="section-intro">
+      Innan du börjar räkna kan du ställa fyra frågor.
+    </p>
+
+    <div class="choose-grid">
+
+      <div class="choose-card">
+        <span>👀</span>
+        <h3>Vad ser jag?</h3>
+        <p>
+          Finns något särskilt i talen, figuren eller problemet?
+        </p>
+      </div>
+
+      <div class="choose-card">
+        <span>🧠</span>
+        <h3>Vad kan jag redan?</h3>
+        <p>
+          Finns en regel, ett samband eller en tidigare strategi som passar?
+        </p>
+      </div>
+
+      <div class="choose-card">
+        <span>⚡</span>
+        <h3>Vad blir enklast?</h3>
+        <p>
+          Vilken metod gör matematiken tydlig och effektiv?
+        </p>
+      </div>
+
+      <div class="choose-card">
+        <span>✅</span>
+        <h3>Hur kan jag kontrollera?</h3>
+        <p>
+          Kan du använda en annan strategi för att kontrollera resultatet?
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="compare-box">
+
+      <h2 class="section-title">
+        ⚖️ Jämför strategier
+      </h2>
+
+      <p class="section-intro">
+        En viktig del av matematiken är att kunna värdera olika metoder.
+      </p>
+
+      <div class="compare-grid">
+
+        <div class="compare-card">
+          <h3>⚡ Effektiv</h3>
+          <p>
+            Kräver strategin få steg och passar den bra för just de här talen?
+          </p>
+        </div>
+
+        <div class="compare-card">
+          <h3>👀 Tydlig</h3>
+          <p>
+            Är det lätt att följa vad som händer i lösningen?
+          </p>
+        </div>
+
+        <div class="compare-card">
+          <h3>✅ Säker</h3>
+          <p>
+            Minskar strategin risken för fel och går resultatet att kontrollera?
+          </p>
+        </div>
+
+        <div class="compare-card">
+          <h3>🔄 Flexibel</h3>
+          <p>
+            Kan strategin användas i flera liknande situationer?
+          </p>
+        </div>
+
+        <div class="compare-card">
+          <h3>🧠 Begriplig</h3>
+          <p>
+            Förstår du varför metoden fungerar eller följer du bara steg?
+          </p>
+        </div>
+
+        <div class="compare-card">
+          <h3>🗣️ Förklarbar</h3>
+          <p>
+            Kan du beskriva för någon annan hur du tänkte och varför?
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🧩 Strategibanken – det finns fler än ett sätt att tänka
+
+</footer>
+
+</body>
+</html>
