@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jämför strategier F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green: #edf9f1;
+      --blue: #eaf5ff;
+      --purple: #f1edff;
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #58616f, #7a8796);
+      color: white;
+      padding: 22px 20px 50px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 42px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      max-width: 840px;
+      margin: auto;
+      color: #f7f9fb;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .intro {
+      background: var(--blue);
+      border-radius: 24px;
+      padding: 30px;
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: var(--muted);
+      max-width: 840px;
+      margin: auto;
+    }
+
+    .print-button {
+      margin-top: 16px;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .stage {
+      margin-bottom: 36px;
+    }
+
+    .stage-title {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .stage-title h2 {
+      color: var(--dark);
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+
+    .stage-title p {
+      color: var(--muted);
+    }
+
+    .sheet {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 22px;
+      padding: 28px;
+      margin-bottom: 24px;
+      break-inside: avoid;
+    }
+
+    .sheet.f3 {
+      border-top: 8px solid #5aa36e;
+    }
+
+    .sheet.m46 {
+      border-top: 8px solid #5b86b8;
+    }
+
+    .sheet.m79 {
+      border-top: 8px solid #8867ad;
+    }
+
+    .sheet-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .sheet-head h3 {
+      color: var(--dark);
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+
+    .sheet-head p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .level {
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-weight: bold;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      background: #edf1f4;
+    }
+
+    .name-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+    }
+
+    .line {
+      display: inline-block;
+      width: 70%;
+      border-bottom: 1px solid #777;
+      height: 18px;
+      vertical-align: bottom;
+    }
+
+    .task {
+      border-top: 1px dashed #bfc8ce;
+      padding-top: 16px;
+      margin-top: 16px;
+      break-inside: avoid;
+    }
+
+    .task:first-of-type {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .task h4 {
+      color: var(--dark);
+      margin-bottom: 7px;
+      font-size: 1.02rem;
+    }
+
+    .task p {
+      margin-bottom: 8px;
+    }
+
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 12px 0;
+    }
+
+    .strategy {
+      border: 1.5px solid #8d9aa4;
+      border-radius: 12px;
+      padding: 14px;
+      min-height: 130px;
+      background: #fff;
+    }
+
+    .strategy.a {
+      background: var(--green);
+    }
+
+    .strategy.b {
+      background: var(--blue);
+    }
+
+    .strategy strong {
+      color: var(--dark);
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .answer-box {
+      border: 1.5px solid #8d9aa4;
+      border-radius: 10px;
+      min-height: 84px;
+      margin-top: 8px;
+      background: white;
+    }
+
+    .answer-box.medium {
+      min-height: 115px;
+    }
+
+    .answer-box.large {
+      min-height: 150px;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .compare-box {
+      border-radius: 11px;
+      padding: 12px;
+      min-height: 95px;
+    }
+
+    .same {
+      background: var(--teal);
+    }
+
+    .different {
+      background: var(--yellow);
+    }
+
+    .compare-box strong {
+      color: var(--dark);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .starter {
+      background: var(--yellow);
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 10px;
+      color: #5c5337;
+      font-size: 0.9rem;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      margin-top: 10px;
+    }
+
+    .choice {
+      border: 1.5px solid #99a5ad;
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      min-height: 62px;
+      font-weight: bold;
+      color: var(--dark);
+    }
+
+    .check {
+      background: #eef5f8;
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 16px;
+    }
+
+    .check strong {
+      color: var(--dark);
+    }
+
+    .check ul {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .check li {
+      margin-bottom: 5px;
+    }
+
+    .check li::before {
+      content: "☐ ";
+      font-weight: bold;
+      color: var(--dark);
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 700px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .sheet-head,
+      .name-row,
+      .strategy-grid,
+      .compare-grid,
+      .choice-grid {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .sheet {
+        padding: 20px 15px;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 11mm;
+    }
+
+    @media print {
+      header,
+      footer,
+      .intro {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+        color: black;
+        font-size: 10pt;
+      }
+
+      main {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .stage {
+        margin: 0;
+      }
+
+      .stage-title {
+        display: none;
+      }
+
+      .sheet {
+        border-radius: 0;
+        border: none;
+        padding: 0;
+        min-height: 274mm;
+        page-break-after: always;
+        break-after: page;
+        margin: 0;
+      }
+
+      .sheet:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .sheet.f3,
+      .sheet.m46,
+      .sheet.m79 {
+        border-top: none;
+      }
+
+      .task,
+      .strategy-grid,
+      .strategy,
+      .answer-box,
+      .compare-grid,
+      .check {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+    <div class="logo">HOLOS MATTERESAN</div>
+
+    <a href="material-a4-elevblad.html" class="back-link">
+      ← A4 Elevblad
+    </a>
+  </div>
+
+  <div class="hero">
+    <div class="hero-icon">⚖️🧠</div>
+
+    <h1>Jämför strategier F–9</h1>
+
+    <h2>Se • Jämför • Förklara • Värdera • Välj</h2>
+
+    <p>
+      Samma matematiska problem kan lösas på flera sätt.
+      Genom att jämföra strategier lär du dig när olika metoder
+      är smarta, tydliga och effektiva.
+    </p>
+  </div>
+
+</header>
+
+
+<main>
+
+  <div class="intro">
+
+    <h2>💡 Rätt svar kan komma från olika tankar</h2>
+
+    <p>
+      När du jämför lösningar ska du inte bara fråga vilken som är snabbast.
+      Fundera också på vilken som är lättast att förstå, enklast att kontrollera
+      och bäst anpassad till just talen eller problemet.
+    </p>
+
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut alla elevblad
+    </button>
+
+  </div>
+
+
+  <!-- F–3 -->
+
+  <section class="stage">
+
+    <div class="stage-title">
+      <h2>🌱 F–3</h2>
+      <p>Upptäck att samma uppgift kan lösas på olika sätt.</p>
+    </div>
+
+
+    <article class="sheet f3">
+
+      <div class="sheet-head">
+        <div>
+          <h3>🌱 Två sätt att tänka</h3>
+          <p>Elevblad 1 – F–3</p>
+        </div>
+
+        <div class="level">F–3</div>
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Räkna 28 + 7</h4>
+
+        <div class="strategy-grid">
+
+          <div class="strategy a">
+            <strong>Strategi A</strong>
+            28 + 2 = 30<br>
+            30 + 5 = 35
+          </div>
+
+          <div class="strategy b">
+            <strong>Strategi B</strong>
+            28 + 7<br>
+            29, 30, 31, 32, 33, 34, 35
+          </div>
+
+        </div>
+
+        <p>
+          Vad är lika mellan strategierna?
+        </p>
+
+        <div class="answer-box"></div>
+
+        <p style="margin-top:10px;">
+          Vad är olika?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Vilken skulle du välja?</h4>
+
+        <div class="choice-grid">
+          <div class="choice">☐ Strategi A</div>
+          <div class="choice">☐ Strategi B</div>
+          <div class="choice">☐ Båda fungerar lika bra</div>
+        </div>
+
+        <p style="margin-top:10px;">
+          Förklara ditt val.
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Prova själv</h4>
+
+        <p>
+          Lös <strong>39 + 8</strong> på två olika sätt.
+        </p>
+
+        <div class="strategy-grid">
+
+          <div class="strategy a">
+            <strong>Mitt sätt 1</strong>
+          </div>
+
+          <div class="strategy b">
+            <strong>Mitt sätt 2</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="check">
+        <strong>✅ När jag jämför</strong>
+        <ul>
+          <li>Jag ser vad som är lika.</li>
+          <li>Jag ser vad som är olika.</li>
+          <li>Jag kan förklara vilket sätt jag föredrar.</li>
+        </ul>
+      </div>
+
+    </article>
+
+
+    <article class="sheet f3">
+
+      <div class="sheet-head">
+        <div>
+          <h3>🌱 Olika bilder – samma matematik</h3>
+          <p>Elevblad 2 – F–3</p>
+        </div>
+
+        <div class="level">F–3</div>
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Multiplikation</h4>
+
+        <p>
+          Två elever visar <strong>3 × 4</strong>.
+        </p>
+
+        <div class="strategy-grid">
+
+          <div class="strategy a">
+            <strong>Elev A</strong>
+            ● ● ● ●<br>
+            ● ● ● ●<br>
+            ● ● ● ●
+          </div>
+
+          <div class="strategy b">
+            <strong>Elev B</strong>
+            4 + 4 + 4 = 12
+          </div>
+
+        </div>
+
+        <p>
+          Hur visar båda eleverna samma matematik?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Subtraktion</h4>
+
+        <p>
+          Lös <strong>52 − 19</strong>.
+        </p>
+
+        <div class="strategy-grid">
+
+          <div class="strategy a">
+            <strong>Strategi A</strong>
+            52 − 20 = 32<br>
+            32 + 1 = 33
+          </div>
+
+          <div class="strategy b">
+            <strong>Strategi B</strong>
+            52 − 10 = 42<br>
+            42 − 9 = 33
+          </div>
+
+        </div>
+
+        <p>
+          Varför fungerar båda?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Min favoritstrategi</h4>
+
+        <p>
+          Vilken strategi använder du ofta när du räknar i huvudet?
+        </p>
+
+        <div class="answer-box"></div>
+
+        <p style="margin-top:10px;">
+          Ge ett exempel.
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+    </article>
+
+  </section>
+
+
+  <!-- 4–6 -->
+
+  <section class="stage">
+
+    <div class="stage-title">
+      <h2>🌿 4–6</h2>
+      <p>Jämför strategiers tydlighet och effektivitet.</p>
+    </div>
+
+
+    <article class="sheet m46">
+
+      <div class="sheet-head">
+        <div>
+          <h3>🌿 Vilken strategi passar?</h3>
+          <p>Elevblad 1 – 4–6</p>
+        </div>
+
+        <div class="level">4–6</div>
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Multiplikation 25 × 16</h4>
+
+        <div class="strategy-grid">
+
+          <div class="strategy a">
+            <strong>Strategi A</strong>
+            25 × 16<br>
+            = 25 × 8 × 2<br>
+            = 200 × 2<br>
+            = 400
+          </div>
+
+          <div class="strategy b">
+            <strong>Strategi B</strong>
+            25 × 16<br>
+            = 25 × (10 + 6)<br>
+            = 250 + 150<br>
+            = 400
+          </div>
+
+        </div>
+
+        <div class="compare-grid">
+
+          <div class="compare-box same">
+            <strong>Vad är lika?</strong>
+          </div>
+
+          <div class="compare-box different">
+            <strong>Vad är olika?</strong>
+          </div>
+
+        </div>
+
+        <p style="margin-top:12px;">
+          Vilken strategi tycker du är mest effektiv för just <strong>25 × 16</strong>?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Bråk</h4>
+
+        <p>
+          Vilket är störst: <strong>3/4</strong> eller <strong>5/8</strong>?
+        </p>
+
+        <div class="strategy-grid">
+
+          <div class="strategy a">
+            <strong>Strategi A – gemensam nämnare</strong>
+            3/4 = 6/8<br>
+            6/8 &gt; 5/8
+          </div>
+
+          <div class="strategy b">
+            <strong>Strategi B – decimalform</strong>
+            3/4 = 0,75<br>
+            5/8 = 0,625<br>
+            0,75 &gt; 0,625
+          </div>
+
+        </div>
+
+        <p>
+          Vilken strategi hjälper dig bäst att förstå jämförelsen? Varför?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="check">
+
+        <strong>✅ En bra strategi</strong>
+
+        <ul>
+          <li>Passar talen eller problemet.</li>
+          <li>Är begriplig för mig.</li>
+          <li>Går att kontrollera.</li>
+          <li>Kan förklaras för någon annan.</li>
+        </ul>
+
+      </div>
+
+    </article>
+
+
+    <article class="sheet m46">
+
+      <div class="sheet-head">
+        <div>
+          <h3>🌿 Jämför problemlösningar</h3>
+          <p>Elevblad 2 – 4–6</p>
+        </div>
+
+        <div class="level">4–6</div>
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Bussarna 🚌</h4>
+
+        <p>
+          137 elever och 11 vuxna ska åka buss.
+          Varje buss har 48 platser.
+        </p>
+
+        <div class="strategy-grid">
+
+          <div class="strategy a">
+            <strong>Elev A</strong>
+            137 + 11 = 148<br>
+            148 ÷ 48 ≈ 3,08<br>
+            Svar: 4 bussar
+          </div>
+
+          <div class="strategy b">
+            <strong>Elev B</strong>
+            48 + 48 + 48 = 144<br>
+            Det räcker inte till 148 personer.<br>
+            Därför behövs en buss till.<br>
+            Svar: 4 bussar
+          </div>
+
+        </div>
+
+        <p>
+          Vilken lösning tycker du tydligast visar varför 4 bussar behövs?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Procent</h4>
+
+        <p>
+          Beräkna 15 % av 200.
+        </p>
+
+        <div class="strategy-grid">
+
+          <div class="strategy a">
+            <strong>Strategi A</strong>
+            10 % = 20<br>
+            5 % = 10<br>
+            15 % = 30
+          </div>
+
+          <div class="strategy b">
+            <strong>Strategi B</strong>
+            0,15 × 200 = 30
+          </div>
+
+        </div>
+
+        <p>
+          När tycker du att strategi A kan vara bra?
+        </p>
+
+        <div class="answer-box"></div>
+
+        <p style="margin-top:10px;">
+          När kan strategi B vara bra?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Skapa en tredje strategi</h4>
+
+        <p>
+          Hitta ett annat sätt att beräkna <strong>15 % av 200</strong>.
+        </p>
+
+        <div class="answer-box large"></div>
+
+      </div>
+
+    </article>
+
+  </section>
+
+
+  <!-- 7–9 -->
+
+  <section class="stage">
+
+    <div class="stage-title">
+      <h2>🚀 7–9</h2>
+      <p>Värdera metoder och diskutera när olika representationer är lämpliga.</p>
+    </div>
+
+
+    <article class="sheet m79">
+
+      <div class="sheet-head">
+        <div>
+          <h3>🚀 Jämför algebraiska strategier</h3>
+          <p>Elevblad 1 – 7–9</p>
+        </div>
+
+        <div class="level">7–9</div>
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Ekvationen</h4>
+
+        <p>
+          Lös:
+          <strong>3x + 6 = 24</strong>
+        </p>
+
+        <div class="strategy-grid">
+
+          <div class="strategy a">
+            <strong>Strategi A – stegvis</strong>
+            3x + 6 = 24<br>
+            3x = 18<br>
+            x = 6
+          </div>
+
+          <div class="strategy b">
+            <strong>Strategi B – tänk baklänges</strong>
+            24 − 6 = 18<br>
+            18 ÷ 3 = 6<br>
+            x = 6
+          </div>
+
+        </div>
+
+        <p>
+          Vad visar strategi A tydligare än strategi B?
+        </p>
+
+        <div class="answer-box"></div>
+
+        <p style="margin-top:10px;">
+          När kan strategi B vara effektiv?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Samband 📈</h4>
+
+        <p>
+          Ett abonnemang kostar 80 kr i fast avgift och 3 kr per minut.
+        </p>
+
+        <div class="strategy-grid">
+
+          <div class="strategy a">
+            <strong>Representation A – formel</strong>
+            y = 3x + 80
+          </div>
+
+          <div class="strategy b">
+            <strong>Representation B – tabell</strong>
+            x: 0, 10, 20, 30<br>
+            y: 80, 110, 140, 170
+          </div>
+
+        </div>
+
+        <p>
+          Vilken representation är bäst om du vill beräkna kostnaden för 73 minuter? Varför?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+        <p style="margin-top:10px;">
+          Vilken skulle vara bäst för att snabbt se hur kostnaden förändras?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="check">
+
+        <strong>✅ När jag värderar en metod frågar jag</strong>
+
+        <ul>
+          <li>Är metoden korrekt?</li>
+          <li>Är den effektiv i den här situationen?</li>
+          <li>Är den tydlig att kommunicera?</li>
+          <li>Kan den användas i liknande problem?</li>
+        </ul>
+
+      </div>
+
+    </article>
+
+
+    <article class="sheet m79">
+
+      <div class="sheet-head">
+        <div>
+          <h3>🚀 Samma problem – olika modeller</h3>
+          <p>Elevblad 2 – 7–9</p>
+        </div>
+
+        <div class="level">7–9</div>
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Procentuell förändring</h4>
+
+        <p>
+          Ett pris på 600 kr höjs med 15 %.
+        </p>
+
+        <div class="strategy-grid">
+
+          <div class="strategy a">
+            <strong>Strategi A</strong>
+            10 % = 60 kr<br>
+            5 % = 30 kr<br>
+            15 % = 90 kr<br>
+            600 + 90 = 690 kr
+          </div>
+
+          <div class="strategy b">
+            <strong>Strategi B</strong>
+            600 × 1,15 = 690 kr
+          </div>
+
+        </div>
+
+        <p>
+          Vilken metod gör procentens betydelse tydligast?
+        </p>
+
+        <div class="answer-box"></div>
+
+        <p style="margin-top:10px;">
+          Vilken metod är lättast att generalisera till många procentförändringar?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Statistik 📊</h4>
+
+        <p>
+          Datamängden är:
+          <strong>20, 21, 22, 23, 24, 100</strong>
+        </p>
+
+        <p>
+          Två elever beskriver gruppen på olika sätt:
+        </p>
+
+        <div class="strategy-grid">
+
+          <div class="strategy a">
+            <strong>Elev A</strong>
+            ”Jag använder medelvärdet.”
+          </div>
+
+          <div class="strategy b">
+            <strong>Elev B</strong>
+            ”Jag använder medianen.”
+          </div>
+
+        </div>
+
+        <p>
+          Vem tycker du gör det bästa valet för att beskriva ett typiskt värde? Motivera.
+        </p>
+
+        <div class="answer-box large"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Generalisera</h4>
+
+        <p>
+          Skriv ett exempel på en situation där:
+        </p>
+
+        <p>
+          <strong>a)</strong> en graf är bättre än en tabell.
+        </p>
+
+        <div class="answer-box"></div>
+
+        <p style="margin-top:10px;">
+          <strong>b)</strong> en formel är bättre än en graf.
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="starter">
+        💬 Avsluta meningen:
+        <strong>En strategi är inte alltid bäst bara för att...</strong>
+      </div>
+
+      <div class="answer-box medium"></div>
+
+    </article>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  ⚖️ Jämför strategier – se flera vägar till matematisk förståelse
+
+</footer>
+
+</body>
+</html>
