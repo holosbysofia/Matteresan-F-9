@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Matteprat F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --teal: #3d8d89;
+      --teal-dark: #2a6662;
+      --teal-light: #eaf7f5;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
+        linear-gradient(135deg, #285f5a, #3d8d89);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--teal-dark);
+    }
+
+    .hero {
+      max-width: 920px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 4.6rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 840px;
+      margin: auto;
+      color: #effffa;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 840px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--teal-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 880px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .core-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .core-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 185px;
+      border: 1px solid #e6ebef;
+    }
+
+    .core-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .core-card h3 {
+      color: var(--teal-dark);
+      margin-bottom: 6px;
+    }
+
+    .core-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .structure-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
+        linear-gradient(135deg, #17324d, #2f6964);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .structure-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .structure-box > p {
+      color: #effffa;
+      max-width: 850px;
+    }
+
+    .structure-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .structure-card {
+      border-radius: 20px;
+      padding: 21px;
+      min-height: 205px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .structure-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .structure-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .structure-card p {
+      color: #f8fffd;
+      font-size: 0.91rem;
+    }
+
+    .moves-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .moves-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 24px;
+    }
+
+    .move-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 190px;
+      border: 1px solid #dfe8ef;
+    }
+
+    .move-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .move-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .move-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px;
+      border: 1px solid #e6ebef;
+      margin-bottom: 25px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .section-header span {
+      font-size: 2.7rem;
+    }
+
+    .section-header h2 {
+      color: var(--dark);
+      font-size: 1.75rem;
+    }
+
+    .section-header p {
+      color: var(--muted);
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .mini-card {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 190px;
+    }
+
+    .mini-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .mini-card p,
+    .mini-card ul {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .mini-card ul {
+      padding-left: 20px;
+    }
+
+    .mini-card li {
+      margin-bottom: 6px;
+    }
+
+    .m1 { background: var(--green-light); }
+    .m2 { background: var(--blue-light); }
+    .m3 { background: var(--yellow-light); }
+
+    .sentence-box {
+      background: var(--purple-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .sentence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .sentence-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 210px;
+      border: 1px solid #e2dcf1;
+    }
+
+    .sentence-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .sentence-card ul {
+      color: var(--muted);
+      padding-left: 20px;
+      font-size: 0.93rem;
+    }
+
+    .sentence-card li {
+      margin-bottom: 7px;
+    }
+
+    .example-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .example-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 260px;
+      border: 1px solid #eee3c6;
+    }
+
+    .example-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .example-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .example-card p,
+    .example-card ul {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .example-card ul {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
+    .example-card li {
+      margin-bottom: 6px;
+    }
+
+    .mis-box {
+      background: var(--pink-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .mis-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .mis-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 205px;
+      border: 1px solid #eee1e5;
+    }
+
+    .mis-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .mis-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .mis-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 26px;
+      min-height: 280px;
+    }
+
+    .stage-card span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .stage-card ul {
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .stage-card li {
+      margin-bottom: 7px;
+    }
+
+    .f3stage { background: var(--green-light); }
+    .m46stage { background: var(--blue-light); }
+    .m79stage { background: var(--purple-light); }
+
+    .observation-box {
+      background: var(--orange-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .observation-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 24px;
+    }
+
+    .observation-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 180px;
+      border: 1px solid #eadfd3;
+    }
+
+    .observation-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .observation-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .observation-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .link-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 175px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .link-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
+    }
+
+    .link-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .link-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .link-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .c1 { background: var(--teal-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--yellow-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--orange-light); }
+
+    .note {
+      background: var(--yellow-light);
+      border-left: 6px solid #dba327;
+      border-radius: 14px;
+      padding: 20px;
+      color: #665528;
+      margin-top: 25px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 1100px) {
+      .structure-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .core-grid,
+      .moves-grid,
+      .observation-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .three-grid,
+      .sentence-grid,
+      .example-grid,
+      .mis-grid,
+      .stage-grid,
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .core-grid,
+      .structure-grid,
+      .moves-grid,
+      .observation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .structure-box,
+      .moves-box,
+      .section-card,
+      .sentence-box,
+      .example-box,
+      .mis-box,
+      .observation-box {
+        padding: 25px 18px;
+      }
+
+      .section-header {
+        align-items: flex-start;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      section,
+      .section-card,
+      .stage-card,
+      .example-card {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="larare.html" class="back-link">
+      ← Lärarvy
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">💬🧠</div>
+
+    <h1>Matteprat F–9</h1>
+
+    <h2>Tänk • Dela • Lyssna • Jämför • Resonera</h2>
+
+    <p>
+      Matematiska samtal gör elevernas tänkande synligt.
+      När flera strategier lyfts fram kan elever utveckla begrepp,
+      språk, resonemang och förståelse för att matematik kan lösas och representeras på flera sätt.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>💬 Matteprat är inte bara att elever får svara högt</h2>
+
+      <p>
+        Ett matematiskt samtal behöver planeras så att eleverna får tid att tänka,
+        förklara, lyssna, bygga vidare på andras idéer och jämföra strategier.
+        Lärarens uppgift är att styra samtalet mot den matematiska idé som ska synliggöras –
+        utan att själv göra allt tänkande.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Fyra mål med matteprat
+    </h2>
+
+    <p class="section-intro">
+      Samtalet ska utveckla både matematiken och elevernas förmåga att kommunicera den.
+    </p>
+
+    <div class="core-grid">
+
+      <div class="core-card">
+        <span>🧠</span>
+        <h3>Synliggöra tänkande</h3>
+        <p>
+          Läraren får syn på vilka relationer, strategier och missuppfattningar eleverna använder.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>💬</span>
+        <h3>Utveckla språk</h3>
+        <p>
+          Elever tränar på att använda matematiska begrepp i meningsfulla sammanhang.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>🔄</span>
+        <h3>Jämföra strategier</h3>
+        <p>
+          Flera lösningsvägar kan kopplas ihop och värderas utifrån effektivitet och generaliserbarhet.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>🤝</span>
+        <h3>Bygga gemensamt</h3>
+        <p>
+          Elever lär sig att matematiska idéer kan utvecklas tillsammans.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="structure-box">
+
+      <h2>🧭 Struktur för ett matteprat</h2>
+
+      <p>
+        En återkommande struktur gör samtalen trygga och ger fler elever möjlighet att delta.
+      </p>
+
+      <div class="structure-grid">
+
+        <div class="structure-card">
+          <span>1️⃣</span>
+          <h3>Presentera</h3>
+          <p>
+            Visa en bild, ett uttryck, ett problem eller ett påstående utan att direkt visa metod.
+          </p>
+        </div>
+
+        <div class="structure-card">
+          <span>2️⃣</span>
+          <h3>Tänketid</h3>
+          <p>
+            Alla tänker först själva. Undvik att låta snabbaste handen bestämma tempot.
+          </p>
+        </div>
+
+        <div class="structure-card">
+          <span>3️⃣</span>
+          <h3>Parprat</h3>
+          <p>
+            Elever prövar sin idé med en kamrat och får formulera den muntligt.
+          </p>
+        </div>
+
+        <div class="structure-card">
+          <span>4️⃣</span>
+          <h3>Gemensamt</h3>
+          <p>
+            Några strategier lyfts, representeras och jämförs.
+          </p>
+        </div>
+
+        <div class="structure-card">
+          <span>5️⃣</span>
+          <h3>Sammanfatta</h3>
+          <p>
+            Läraren knyter ihop elevstrategierna med den matematiska kärnan.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="moves-box">
+
+      <h2 class="section-title">
+        🗣️ Samtalsdrag för läraren
+      </h2>
+
+      <p class="section-intro">
+        Frågorna hjälper eleverna att förklara och lyssna istället för att bara leverera svar.
+      </p>
+
+      <div class="moves-grid">
+
+        <div class="move-card">
+          <span>🔁</span>
+          <h3>Omformulera</h3>
+          <p>
+            ”Så du menar att... Har jag förstått dig rätt?”
+          </p>
+        </div>
+
+        <div class="move-card">
+          <span>👂</span>
+          <h3>Återberätta</h3>
+          <p>
+            ”Vem kan säga med egna ord hur Ella tänkte?”
+          </p>
+        </div>
+
+        <div class="move-card">
+          <span>➕</span>
+          <h3>Bygga vidare</h3>
+          <p>
+            ”Vem kan bygga vidare på den idén?”
+          </p>
+        </div>
+
+        <div class="move-card">
+          <span>⚖️</span>
+          <h3>Jämföra</h3>
+          <p>
+            ”Vad är lika och vad är olika mellan de två strategierna?”
+          </p>
+        </div>
+
+        <div class="move-card">
+          <span>❓</span>
+          <h3>Motivera</h3>
+          <p>
+            ”Varför fungerar det?” eller ”Hur vet du?”
+          </p>
+        </div>
+
+        <div class="move-card">
+          <span>🧩</span>
+          <h3>Koppla</h3>
+          <p>
+            ”Hur hänger den här bilden ihop med uttrycket?”
+          </p>
+        </div>
+
+        <div class="move-card">
+          <span>🔎</span>
+          <h3>Pressa resonemanget</h3>
+          <p>
+            ”Gäller det alltid?” eller ”Kan du hitta ett motexempel?”
+          </p>
+        </div>
+
+        <div class="move-card">
+          <span>⏱️</span>
+          <h3>Vänta</h3>
+          <p>
+            Ge flera sekunders tänketid även efter att en elev har börjat formulera svaret.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>⏱️</span>
+
+        <div>
+          <h2>Tänketid</h2>
+          <p>Alla elever behöver få möjlighet att börja tänka innan någon annan tar ordet.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Gör</h3>
+
+          <p>
+            Visa uppgiften och säg:
+            ”Tänk själv först. Ingen behöver räcka upp handen ännu.”
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Varför?</h3>
+
+          <p>
+            Tänketid minskar dominansen från snabba svar och gör att fler elever kommer in i matematiken.
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Synliggör tänkandet</h3>
+
+          <p>
+            Elever kan visa ”jag har en idé” med tumme mot bröstet istället för att ropa eller vifta med handen.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>👥</span>
+
+        <div>
+          <h2>Parprat</h2>
+          <p>Att först tala med en kamrat sänker tröskeln till helklassamtalet.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Ge tydlig fråga</h3>
+
+          <p>
+            ”Förklara för din partner vilken strategi du använde och varför.”
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Ge roller vid behov</h3>
+
+          <ul>
+            <li>person A förklarar</li>
+            <li>person B återberättar</li>
+            <li>byt roller</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Lyssna aktivt</h3>
+
+          <p>
+            Under parpratet kan läraren identifiera strategier som senare ska lyftas i helklass.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🧠</span>
+
+        <div>
+          <h2>Välj vilka strategier som lyfts</h2>
+          <p>Ordningen i samtalet kan hjälpa eleverna se en progression i tänkandet.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Börja tillgängligt</h3>
+
+          <p>
+            Lyft en strategi som många elever kan förstå och relatera till.
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Bygg vidare</h3>
+
+          <p>
+            Gå mot mer effektiva, flexibla eller generaliserbara strategier.
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Koppla ihop</h3>
+
+          <p>
+            Fråga vad strategierna har gemensamt och vilken matematisk idé de visar.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>📝</span>
+
+        <div>
+          <h2>Dokumentera elevstrategier</h2>
+          <p>Tavlan ska hjälpa klassen att se matematiken – inte bara visa rätt svar.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Skriv elevens idé</h3>
+
+          <p>
+            Behåll så långt möjligt elevens tänkande och struktur i representationen.
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Använd flera former</h3>
+
+          <ul>
+            <li>bild</li>
+            <li>tallinje</li>
+            <li>tabell</li>
+            <li>uttryck</li>
+            <li>ord</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Markera kopplingar</h3>
+
+          <p>
+            Visa med pilar, färgmarkering eller inramning vilka delar i olika representationer som motsvarar varandra.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="sentence-box">
+
+      <h2 class="section-title">
+        💬 Meningsstarter för elever
+      </h2>
+
+      <p class="section-intro">
+        Meningsstarter hjälper fler elever att delta utan att ge dem den matematiska lösningen.
+      </p>
+
+      <div class="sentence-grid">
+
+        <div class="sentence-card">
+
+          <h3>Förklara</h3>
+
+          <ul>
+            <li>Jag började med att...</li>
+            <li>Jag såg att...</li>
+            <li>Min strategi var...</li>
+            <li>Jag gjorde så här eftersom...</li>
+            <li>På bilden ser man...</li>
+          </ul>
+
+        </div>
+
+        <div class="sentence-card">
+
+          <h3>Bygga vidare</h3>
+
+          <ul>
+            <li>Jag håller med eftersom...</li>
+            <li>Jag vill lägga till att...</li>
+            <li>Jag tänkte nästan likadant, men...</li>
+            <li>Det hänger ihop med...</li>
+            <li>Ett annat sätt är...</li>
+          </ul>
+
+        </div>
+
+        <div class="sentence-card">
+
+          <h3>Jämföra & utmana</h3>
+
+          <ul>
+            <li>Skillnaden mellan metoderna är...</li>
+            <li>De liknar varandra eftersom...</li>
+            <li>Jag undrar om...</li>
+            <li>Gäller det även om...?</li>
+            <li>Jag tror inte det alltid gäller eftersom...</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="example-box">
+
+      <h2 class="section-title">
+        🎯 Färdiga matteprat
+      </h2>
+
+      <p class="section-intro">
+        Korta aktiviteter som kan användas direkt eller anpassas efter årskurs.
+      </p>
+
+      <div class="example-grid">
+
+        <div class="example-card">
+
+          <span>🔢</span>
+
+          <h3>Vilket tal passar inte in?</h3>
+
+          <p>
+            Visa:
+          </p>
+
+          <p style="font-size:1.35rem;font-weight:bold;margin:10px 0;">
+            12 &nbsp; 18 &nbsp; 24 &nbsp; 25
+          </p>
+
+          <ul>
+            <li>Vilket tal passar inte in?</li>
+            <li>Kan flera svar vara möjliga?</li>
+            <li>Vilken egenskap använder du?</li>
+          </ul>
+
+        </div>
+
+
+        <div class="example-card">
+
+          <span>➕</span>
+
+          <h3>Hur räknar du?</h3>
+
+          <p style="font-size:1.35rem;font-weight:bold;margin:10px 0;">
+            48 + 27
+          </p>
+
+          <ul>
+            <li>Visa minst två strategier.</li>
+            <li>Vilken är effektivast för dig?</li>
+            <li>Hur hänger strategierna ihop?</li>
+          </ul>
+
+        </div>
+
+
+        <div class="example-card">
+
+          <span>🍕</span>
+
+          <h3>Vilket bråk är störst?</h3>
+
+          <p style="font-size:1.35rem;font-weight:bold;margin:10px 0;">
+            3/5 eller 5/8?
+          </p>
+
+          <ul>
+            <li>Försök utan decimaler först.</li>
+            <li>Kan du använda referensen 1/2?</li>
+            <li>Kan en bild visa samma tanke?</li>
+          </ul>
+
+        </div>
+
+
+        <div class="example-card">
+
+          <span>%</span>
+
+          <h3>Sant eller falskt?</h3>
+
+          <p>
+            ”25 % av ett tal är alltid mindre än talet.”
+          </p>
+
+          <ul>
+            <li>När är påståendet sant?</li>
+            <li>Finns något undantag?</li>
+            <li>Vad händer om talet är negativt?</li>
+          </ul>
+
+        </div>
+
+
+        <div class="example-card">
+
+          <span>📐</span>
+
+          <h3>Samma area</h3>
+
+          <p>
+            Rita två olika rektanglar med samma area.
+          </p>
+
+          <ul>
+            <li>Har de samma omkrets?</li>
+            <li>Hur många olika kan ni hitta?</li>
+            <li>Vad förändras och vad är samma?</li>
+          </ul>
+
+        </div>
+
+
+        <div class="example-card">
+
+          <span>🔤</span>
+
+          <h3>Alltid, ibland eller aldrig?</h3>
+
+          <p>
+            ”Om två tal adderas blir summan större än båda talen.”
+          </p>
+
+          <ul>
+            <li>Testa olika tal.</li>
+            <li>Vad händer med negativa tal?</li>
+            <li>Kan ni formulera ett bättre påstående?</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="mis-box">
+
+      <h2 class="section-title">
+        ⚠️ Vanliga fallgropar
+      </h2>
+
+      <p class="section-intro">
+        Ett matematiskt samtal kan snabbt bli ett lärarförhör om strukturen inte är genomtänkt.
+      </p>
+
+      <div class="mis-grid">
+
+        <div class="mis-card">
+          <span>🙋</span>
+          <h3>Samma elever svarar</h3>
+          <p>
+            Snabb handuppräckning gör lätt att en liten grupp elever styr hela samtalet.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>✅</span>
+          <h3>Fokus på rätt svar</h3>
+          <p>
+            När läraren direkt bekräftar rätt eller fel kan resonemanget avstanna.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>👩‍🏫</span>
+          <h3>Läraren förklarar elevens idé</h3>
+          <p>
+            Om läraren alltid ”översätter” direkt får eleven mindre möjlighet att utveckla sin egen förklaring.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>⚡</span>
+          <h3>För snabb takt</h3>
+          <p>
+            Elever behöver tid både för att förstå frågan och för att formulera matematiskt språk.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>1️⃣</span>
+          <h3>Bara en strategi lyfts</h3>
+          <p>
+            Då försvinner möjligheten att jämföra representationer och olika sätt att tänka.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>💬</span>
+          <h3>Prat utan matematisk riktning</h3>
+          <p>
+            Samtalet behöver avslutas med att den matematiska kärnan görs tydlig.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      🌱 🌿 🚀 Matteprat genom F–9
+    </h2>
+
+    <p class="section-intro">
+      Samtalsformen kan vara densamma medan språk och matematisk komplexitet utvecklas.
+    </p>
+
+    <div class="stage-grid">
+
+      <div class="stage-card f3stage">
+
+        <span>🌱</span>
+
+        <h3>F–3</h3>
+
+        <ul>
+          <li>många bilder och konkreta material</li>
+          <li>”Hur såg du?”</li>
+          <li>talbilder och tiostruktur</li>
+          <li>enkla strategijämförelser</li>
+          <li>parprat före helklass</li>
+          <li>meningsstarter</li>
+          <li>rita elevens tanke på tavlan</li>
+        </ul>
+
+      </div>
+
+
+      <div class="stage-card m46stage">
+
+        <span>🌿</span>
+
+        <h3>4–6</h3>
+
+        <ul>
+          <li>flera beräkningsstrategier</li>
+          <li>bråk, decimal och procent</li>
+          <li>problemlösning</li>
+          <li>förklara varför</li>
+          <li>jämföra metoders effektivitet</li>
+          <li>koppla mellan representationer</li>
+          <li>börja generalisera</li>
+        </ul>
+
+      </div>
+
+
+      <div class="stage-card m79stage">
+
+        <span>🚀</span>
+
+        <h3>7–9</h3>
+
+        <ul>
+          <li>algebraiska resonemang</li>
+          <li>funktioner och grafer</li>
+          <li>alltid–ibland–aldrig</li>
+          <li>argument och motexempel</li>
+          <li>värdera modeller</li>
+          <li>jämföra generaliserbara strategier</li>
+          <li>bygga matematiska bevisidéer</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="observation-box">
+
+      <h2 class="section-title">
+        👀 Vad kan läraren observera?
+      </h2>
+
+      <p class="section-intro">
+        Matteprat är också ett starkt formativt bedömningsverktyg.
+      </p>
+
+      <div class="observation-grid">
+
+        <div class="observation-card">
+          <span>🧠</span>
+          <h3>Strategi</h3>
+          <p>
+            Vilka strategier väljer eleven och kan eleven byta strategi?
+          </p>
+        </div>
+
+        <div class="observation-card">
+          <span>🔗</span>
+          <h3>Samband</h3>
+          <p>
+            Kan eleven koppla sin egen lösning till en annan elevs representation?
+          </p>
+        </div>
+
+        <div class="observation-card">
+          <span>💬</span>
+          <h3>Resonemang</h3>
+          <p>
+            Kan eleven förklara varför en metod fungerar och motivera sitt svar?
+          </p>
+        </div>
+
+        <div class="observation-card">
+          <span>👂</span>
+          <h3>Lyssnande</h3>
+          <p>
+            Kan eleven återberätta, kommentera eller bygga vidare på en kamrats idé?
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Relaterade lärarsidor
+    </h2>
+
+    <p class="section-intro">
+      Matematiska samtal knyter samman språk, undervisning, problemlösning och bedömning.
+    </p>
+
+    <div class="links-grid">
+
+      <a href="larare-sprak.html" class="link-card c1">
+        <span>💬</span>
+        <h3>Språk & begrepp</h3>
+        <p>
+          Utveckla matematiskt språk genom strukturerade samtal.
+        </p>
+      </a>
+
+      <a href="larare-sva.html" class="link-card c2">
+        <span>🌍</span>
+        <h3>SVA & flerspråkighet</h3>
+        <p>
+          Tänketid, parprat och meningsstarter ökar möjligheten att delta.
+        </p>
+      </a>
+
+      <a href="larare-problemlosning.html" class="link-card c3">
+        <span>🧠</span>
+        <h3>Problemlösning</h3>
+        <p>
+          Jämför olika lösningsvägar och gör strategierna synliga.
+        </p>
+      </a>
+
+      <a href="larare-undervisning.html" class="link-card c4">
+        <span>👩‍🏫</span>
+        <h3>Undervisning</h3>
+        <p>
+          Matteprat kan användas som start, undersökning eller sammanfattning.
+        </p>
+      </a>
+
+      <a href="larare-bedomning.html" class="link-card c5">
+        <span>📊</span>
+        <h3>Bedömning</h3>
+        <p>
+          Samtal ger formativ information som ofta inte syns i enbart skriftliga svar.
+        </p>
+      </a>
+
+      <a href="larare-observation.html" class="link-card c6">
+        <span>👀</span>
+        <h3>Observation</h3>
+        <p>
+          Dokumentera strategier, begrepp, resonemang och självständighet.
+        </p>
+      </a>
+
+    </div>
+
+    <div class="note">
+      <strong>Grundprincip:</strong>
+      mattepratets viktigaste fråga är sällan
+      <strong>”Vad blev svaret?”</strong>
+      utan snarare
+      <strong>”Hur tänkte du – och varför fungerar det?”</strong>
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  💬🧠 Matteprat – tänk, dela, lyssna, jämför och resonera
+
+</footer>
+
+</body>
+</html>
