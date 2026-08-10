@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Elevblad Statistik F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --teal-light: #eaf7f5;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
+        linear-gradient(135deg, #315c78, #4f8fae);
+      color: white;
+      padding: 22px 20px 55px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 45px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.1rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 4.2rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 820px;
+      margin: auto;
+      color: #eef9ff;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 42px 20px;
+    }
+
+    section {
+      margin-bottom: 55px;
+    }
+
+    .intro {
+      background: var(--blue-light);
+      border-radius: 26px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      max-width: 850px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .print-button {
+      display: inline-block;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 18px;
+    }
+
+    .stage {
+      border-radius: 28px;
+      padding: 34px;
+      margin-bottom: 34px;
+    }
+
+    .stage-f3 {
+      background: var(--green-light);
+    }
+
+    .stage-46 {
+      background: var(--blue-light);
+    }
+
+    .stage-79 {
+      background: var(--purple-light);
+    }
+
+    .stage-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .stage-header span {
+      font-size: 2.8rem;
+    }
+
+    .stage-header h2 {
+      color: var(--dark);
+      font-size: 1.9rem;
+    }
+
+    .stage-header p {
+      color: var(--muted);
+    }
+
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .sheet {
+      background: white;
+      border-radius: 22px;
+      padding: 26px;
+      border: 1px solid rgba(0,0,0,0.06);
+      min-height: 500px;
+    }
+
+    .sheet h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
+      font-size: 1.35rem;
+    }
+
+    .sheet-sub {
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: 0.93rem;
+    }
+
+    .task {
+      margin-bottom: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed #ccd4db;
+    }
+
+    .task:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .task strong {
+      color: var(--dark);
+    }
+
+    .answer-box {
+      height: 76px;
+      border: 1.5px solid #9ba7b1;
+      border-radius: 10px;
+      margin-top: 10px;
+      background: white;
+    }
+
+    .answer-box.large {
+      height: 115px;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+
+    .table th,
+    .table td {
+      border: 1px solid #9aa6af;
+      padding: 9px;
+      text-align: center;
+    }
+
+    .table th {
+      background: #f0f4f7;
+    }
+
+    .bar-chart {
+      margin-top: 15px;
+      border-left: 2px solid #4b5d6c;
+      border-bottom: 2px solid #4b5d6c;
+      height: 170px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      padding: 0 10px;
+      gap: 10px;
+    }
+
+    .bar-wrap {
+      flex: 1;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    .bar {
+      width: 60%;
+      margin: auto;
+      border: 1.5px solid #4b5d6c;
+      background: #dfeef5;
+    }
+
+    .h30 { height: 45px; }
+    .h50 { height: 75px; }
+    .h70 { height: 105px; }
+    .h90 { height: 135px; }
+
+    .dotplot {
+      border-bottom: 2px solid #4b5d6c;
+      margin-top: 20px;
+      padding-bottom: 8px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      gap: 8px;
+    }
+
+    .dotcol {
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 1px solid #4b5d6c;
+      background: #dfeef5;
+      margin: 2px;
+    }
+
+    .choice-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .choice {
+      border: 1.5px solid #9aa6af;
+      border-radius: 10px;
+      padding: 8px 14px;
+      min-width: 80px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .challenge {
+      background: var(--yellow-light);
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .reflection {
+      background: var(--orange-light);
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .challenge h4,
+    .reflection h4 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .teacher-note {
+      background: var(--teal-light);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .teacher-note h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .teacher-note ul {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .teacher-note li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      text-align: center;
+      padding: 34px 20px;
+    }
+
+    @media (max-width: 850px) {
+      .sheet-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .stage,
+      .intro,
+      .teacher-note {
+        padding: 23px 16px;
+      }
+
+      .sheet {
+        padding: 20px 16px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 12mm;
+    }
+
+    @media print {
+      body {
+        background: white;
+        font-size: 10.5pt;
+      }
+
+      header,
+      footer,
+      .intro,
+      .teacher-note,
+      .print-button,
+      .back-link {
+        display: none !important;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      section {
+        margin: 0;
+      }
+
+      .stage {
+        background: white !important;
+        padding: 0;
+        margin: 0;
+      }
+
+      .stage-header {
+        margin: 0 0 7mm 0;
+      }
+
+      .stage-header span {
+        display: none;
+      }
+
+      .stage-header h2 {
+        font-size: 17pt;
+      }
+
+      .stage-header p {
+        font-size: 9pt;
+      }
+
+      .sheet-grid {
+        display: block;
+      }
+
+      .sheet {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        min-height: 0;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .sheet:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .task,
+      .challenge,
+      .reflection,
+      .bar-chart,
+      .dotplot {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .stage:not(:first-of-type) {
+        page-break-before: always;
+        break-before: page;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+    <div class="logo">HOLOS MATTERESAN</div>
+
+    <a href="material-elevblad.html" class="back-link">
+      ← Elevblad
+    </a>
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">📊</div>
+
+    <h1>Statistik F–9</h1>
+
+    <h2>Samla • Ordna • Visa • Tolka • Granska</h2>
+
+    <p>
+      Utskriftsklara elevblad för tabeller, diagram, lägesmått,
+      spridning och kritisk tolkning av statistisk information.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro">
+
+      <h2>📄 Sex utskriftsklara elevblad</h2>
+
+      <p>
+        Två blad för varje stadium. Varje elevblad placeras på en egen A4-sida vid utskrift.
+      </p>
+
+      <button class="print-button" onclick="window.print()">
+        🖨️ Skriv ut elevbladen
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- F–3 -->
+
+  <section class="stage stage-f3">
+
+    <div class="stage-header">
+
+      <span>🌱</span>
+
+      <div>
+        <h2>F–3 – Samla & visa data</h2>
+        <p>Sortera • räkna • tabell • enkelt diagram</p>
+      </div>
+
+    </div>
+
+    <div class="sheet-grid">
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 1 – Klassens frukt</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Läs tabellen.</strong>
+
+          <table class="table">
+            <tr>
+              <th>Frukt</th>
+              <th>Antal elever</th>
+            </tr>
+            <tr>
+              <td>Äpple</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>Banan</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>Päron</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Apelsin</td>
+              <td>5</td>
+            </tr>
+          </table>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Svara.</strong>
+
+          <p>
+            Vilken frukt valde flest elever? __________________
+          </p>
+
+          <p>
+            Vilken frukt valde färst elever? __________________
+          </p>
+
+          <p>
+            Hur många elever svarade totalt? ______
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Jämför.</strong>
+
+          <p>
+            Hur många fler valde äpple än päron?
+          </p>
+
+          <p>
+            Svar: ______
+          </p>
+
+        </div>
+
+
+        <div class="reflection">
+
+          <h4>💬 Förklara</h4>
+
+          <p>
+            Vad hjälper en tabell oss att se?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+      </article>
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 2 – Läs stapeldiagrammet</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Diagrammet visar antal böcker som fyra elever läst.</strong>
+
+          <div class="bar-chart">
+
+            <div class="bar-wrap">
+              <div class="bar h50"></div>
+              Ali
+            </div>
+
+            <div class="bar-wrap">
+              <div class="bar h90"></div>
+              Mira
+            </div>
+
+            <div class="bar-wrap">
+              <div class="bar h30"></div>
+              Leo
+            </div>
+
+            <div class="bar-wrap">
+              <div class="bar h70"></div>
+              Sara
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Titta på diagrammet.</strong>
+
+          <p>
+            Vem har läst flest böcker? __________________
+          </p>
+
+          <p>
+            Vem har läst färst? __________________
+          </p>
+
+          <p>
+            Vem har läst fler än Ali men färre än Mira? __________________
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Gör en egen undersökning.</strong>
+
+          <p>
+            Fråga fem personer vilken färg de tycker bäst om.
+          </p>
+
+          <p>
+            Skriv resultatet:
+          </p>
+
+          <div class="answer-box large"></div>
+
+        </div>
+
+
+        <div class="challenge">
+
+          <h4>🚀 Utmaning</h4>
+
+          <p>
+            Hur skulle du kunna visa din undersökning i ett diagram?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- 4–6 -->
+
+  <section class="stage stage-46">
+
+    <div class="stage-header">
+
+      <span>🌿</span>
+
+      <div>
+        <h2>4–6 – Lägesmått & diagram</h2>
+        <p>Medelvärde • median • typvärde • tabeller • diagram</p>
+      </div>
+
+    </div>
+
+    <div class="sheet-grid">
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 3 – Medelvärde, median & typvärde</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Följande resultat noterades:</strong>
+
+          <p style="font-weight:bold;margin-top:8px;">
+            5, 8, 7, 9, 6
+          </p>
+
+          <p>
+            Medelvärde: __________
+          </p>
+
+          <p>
+            Median: __________
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Följande data:</strong>
+
+          <p style="font-weight:bold;margin-top:8px;">
+            2, 4, 4, 5, 7, 4, 8
+          </p>
+
+          <p>
+            Typvärde: __________
+          </p>
+
+          <p>
+            Median: __________
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Glöm inte ordningen.</strong>
+
+          <p>
+            Bestäm medianen:
+          </p>
+
+          <p style="font-weight:bold;">
+            12, 3, 8, 5, 20
+          </p>
+
+          <p>
+            Median: __________
+          </p>
+
+          <p>
+            Vad måste du göra först?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="reflection">
+
+          <h4>💬 Förklara</h4>
+
+          <p>
+            Vad är skillnaden mellan medelvärde och median?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+      </article>
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 4 – Tolka data</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Elevernas antal träningspass under en vecka:</strong>
+
+          <table class="table">
+            <tr>
+              <th>Elev</th>
+              <th>Pass</th>
+            </tr>
+            <tr>
+              <td>A</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>B</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>C</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>D</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>E</td>
+              <td>1</td>
+            </tr>
+          </table>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Beräkna.</strong>
+
+          <p>
+            Medelvärde: __________
+          </p>
+
+          <p>
+            Median: __________
+          </p>
+
+          <p>
+            Variationsbredd: __________
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Vad händer om?</strong>
+
+          <p>
+            Elev E ändras från 1 träningspass till 10 träningspass.
+          </p>
+
+          <p>
+            Vad händer med medelvärdet?
+          </p>
+
+          <div class="answer-box"></div>
+
+          <p>
+            Vad händer med medianen?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="challenge">
+
+          <h4>🚀 Utmaning</h4>
+
+          <p>
+            Skapa fem tal som har medianen 10 men medelvärdet 12.
+          </p>
+
+          <div class="answer-box large"></div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 -->
+
+  <section class="stage stage-79">
+
+    <div class="stage-header">
+
+      <span>🚀</span>
+
+      <div>
+        <h2>7–9 – Statistik & kritisk granskning</h2>
+        <p>Lägesmått • spridning • urval • diagram • kritisk tolkning</p>
+      </div>
+
+    </div>
+
+    <div class="sheet-grid">
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 5 – Lägesmått & spridning</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Följande löner anges i tusentals kronor:</strong>
+
+          <p style="font-weight:bold;margin-top:8px;">
+            28, 29, 30, 31, 32, 80
+          </p>
+
+          <p>
+            Medelvärde: __________
+          </p>
+
+          <p>
+            Median: __________
+          </p>
+
+          <p>
+            Variationsbredd: __________
+          </p>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Vilket lägesmått beskriver gruppen bäst?</strong>
+
+          <div class="choice-row">
+            <div class="choice">Medelvärde</div>
+            <div class="choice">Median</div>
+          </div>
+
+          <p style="margin-top:10px;">
+            Motivera ditt val.
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Punktdiagram.</strong>
+
+          <p>
+            Diagrammet visar ett antal observationer.
+          </p>
+
+          <div class="dotplot">
+
+            <div class="dotcol">
+              <div class="dot"></div>
+              <span>1</span>
+            </div>
+
+            <div class="dotcol">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <span>2</span>
+            </div>
+
+            <div class="dotcol">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <span>3</span>
+            </div>
+
+            <div class="dotcol">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <span>4</span>
+            </div>
+
+            <div class="dotcol">
+              <div class="dot"></div>
+              <span>5</span>
+            </div>
+
+            <div class="dotcol">
+              <span>6</span>
+            </div>
+
+            <div class="dotcol">
+              <div class="dot"></div>
+              <span>7</span>
+            </div>
+
+          </div>
+
+          <p style="margin-top:10px;">
+            Vilket är typvärdet? __________
+          </p>
+
+        </div>
+
+
+        <div class="reflection">
+
+          <h4>💬 Resonera</h4>
+
+          <p>
+            Hur kan ett extremvärde påverka medelvärdet?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+      </article>
+
+
+      <article class="sheet">
+
+        <h3>Elevblad 6 – Kan statistiken lura oss?</h3>
+
+        <p class="sheet-sub">
+          Namn: __________________________ Datum: ______________
+        </p>
+
+        <div class="task">
+
+          <strong>1. Ett företag skriver:</strong>
+
+          <p style="font-weight:bold;margin:8px 0;">
+            ”9 av 10 rekommenderar vår produkt.”
+          </p>
+
+          <p>
+            Skriv tre frågor du behöver få svar på innan du kan bedöma påståendet.
+          </p>
+
+          <div class="answer-box large"></div>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>2. Urval.</strong>
+
+          <p>
+            En skola vill veta vad alla elever tycker om skolmaten.
+          </p>
+
+          <p>
+            De frågar bara elever som står i kön till hamburgare.
+          </p>
+
+          <p>
+            Är urvalet bra? Förklara.
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="task">
+
+          <strong>3. Diagramaxeln.</strong>
+
+          <p>
+            Två staplar visar värdena 95 och 100.
+            Diagrammets y-axel börjar på 94 istället för 0.
+          </p>
+
+          <p>
+            Hur kan det påverka hur skillnaden ser ut?
+          </p>
+
+          <div class="answer-box"></div>
+
+        </div>
+
+
+        <div class="challenge">
+
+          <h4>🚀 Skapa en undersökning</h4>
+
+          <p>
+            Formulera en statistisk fråga som skulle kunna undersökas i din klass.
+          </p>
+
+          <p>
+            Beskriv:
+          </p>
+
+          <p>
+            • vilken data du behöver<br>
+            • hur du samlar in den<br>
+            • hur du kan presentera resultatet
+          </p>
+
+          <div class="answer-box large"></div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="teacher-note">
+
+      <h2>👩‍🏫 Lärarnotering</h2>
+
+      <ul>
+        <li>
+          F–3 fokuserar på att samla, sortera och representera enkel data.
+        </li>
+
+        <li>
+          4–6 utvecklar lägesmåtten medelvärde, median och typvärde samt enkel spridning.
+        </li>
+
+        <li>
+          7–9 fördjupar analysen med extremvärden, urval, spridning och kritisk statistikgranskning.
+        </li>
+
+        <li>
+          Var särskilt uppmärksam på att elever sorterar data innan median bestäms.
+        </li>
+
+        <li>
+          Låt eleverna jämföra när medelvärde respektive median ger den mest användbara bilden av data.
+        </li>
+      </ul>
+
+      <button class="print-button" onclick="window.print()">
+        🖨️ Skriv ut
+      </button>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  📊 Statistik – samla, ordna, visa, tolka och granska
+
+</footer>
+
+</body>
+</html>
