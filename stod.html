@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jag behöver hjälp | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --blue: #4d8fd6;
+      --blue-dark: #2d659c;
+      --blue-light: #eaf5ff;
+      --green-light: #edf9f1;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #275b86, #4e91c9);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--blue-dark);
+    }
+
+    .hero {
+      max-width: 850px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #eef8ff;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 780px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 30px 24px;
+      min-height: 245px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .stage-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    }
+
+    .f3 { background: var(--green-light); }
+    .m46 { background: var(--blue-light); }
+    .m79 { background: var(--purple-light); }
+
+    .stage-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card p {
+      color: var(--muted);
+      flex-grow: 1;
+    }
+
+    .stage-button {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 18px;
+      background: var(--dark);
+      color: white;
+      padding: 10px 17px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .help-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 200px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .help-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
+    }
+
+    .help-card span {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .help-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .help-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .c1 { background: var(--yellow-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--orange-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--pink-light); }
+
+    .steps-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 35%),
+        linear-gradient(135deg, #17324d, #3a6e98);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .steps-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .steps-box > p {
+      max-width: 760px;
+      color: #edf7ff;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 25px;
+    }
+
+    .step-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .step-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .step-card h3 {
+      margin-bottom: 6px;
+    }
+
+    .step-card p {
+      color: #edf7ff;
+      font-size: 0.92rem;
+    }
+
+    .example-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .example-box h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .example-card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+    }
+
+    .example-step {
+      margin-top: 10px;
+      padding: 11px 14px;
+      background: #f5f7f8;
+      border-radius: 12px;
+    }
+
+    .sentence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .sentence-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid #e6ebef;
+      min-height: 170px;
+    }
+
+    .sentence-card h3 {
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+    }
+
+    .sentence-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .remember-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .remember-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 25px;
+    }
+
+    .remember-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 165px;
+    }
+
+    .remember-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .remember-card h3 {
+      color: var(--blue-dark);
+      margin-bottom: 6px;
+    }
+
+    .remember-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 950px) {
+      .help-grid,
+      .sentence-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps-grid,
+      .remember-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .example-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .help-grid,
+      .sentence-grid,
+      .steps-grid,
+      .remember-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .steps-box,
+      .example-box,
+      .remember-box {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        padding: 0;
+        max-width: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="index.html" class="back-link">
+      ← Startsidan
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🛟</div>
+
+    <h1>Jag behöver hjälp</h1>
+
+    <h2>Stanna inte – ta ett nytt steg</h2>
+
+    <p>
+      När matematiken känns svår finns det flera sätt att komma vidare.
+      Här får du stöd med bilder, frågor, modeller, begrepp och strategier.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>💡 Att behöva hjälp är en del av lärandet</h2>
+
+      <p>
+        Du behöver inte förstå allt direkt.
+        Matematik utvecklas när du får tänka, prova, använda stöd,
+        ställa frågor och upptäcka nya sätt att lösa en uppgift.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Välj din nivå
+    </h2>
+
+    <p class="section-intro">
+      Hjälpen anpassas efter var du befinner dig i matteresan.
+    </p>
+
+    <div class="stage-grid">
+
+      <a href="stod-f3.html" class="stage-card f3">
+
+        <div class="stage-icon">🌱</div>
+
+        <h3>Hjälp F–3</h3>
+
+        <p>
+          Bilder, konkret material, tallinjer, enkla exempel och tydliga steg.
+        </p>
+
+        <span class="stage-button">
+          Få hjälp F–3 →
+        </span>
+
+      </a>
+
+
+      <a href="stod-46.html" class="stage-card m46">
+
+        <div class="stage-icon">🌿</div>
+
+        <h3>Hjälp 4–6</h3>
+
+        <p>
+          Modeller, exempel, begrepp, strategier och stöd för problemlösning.
+        </p>
+
+        <span class="stage-button">
+          Få hjälp 4–6 →
+        </span>
+
+      </a>
+
+
+      <a href="stod-79.html" class="stage-card m79">
+
+        <div class="stage-icon">🚀</div>
+
+        <h3>Hjälp 7–9</h3>
+
+        <p>
+          Steg-för-steg-stöd, algebraiska modeller, grafer, begrepp och resonemang.
+        </p>
+
+        <span class="stage-button">
+          Få hjälp 7–9 →
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Vad behöver du hjälp med?
+    </h2>
+
+    <p class="section-intro">
+      Välj det som bäst beskriver var du har fastnat.
+    </p>
+
+    <div class="help-grid">
+
+      <a href="stod-forsta.html" class="help-card c1">
+        <span>👀</span>
+        <h3>Jag förstår inte frågan</h3>
+        <p>
+          Hjälp att hitta viktig information och förstå vad uppgiften frågar efter.
+        </p>
+      </a>
+
+
+      <a href="stod-begrepp.html" class="help-card c2">
+        <span>💬</span>
+        <h3>Jag förstår inte orden</h3>
+        <p>
+          Få hjälp med matematiska begrepp, symboler och förklaringar.
+        </p>
+      </a>
+
+
+      <a href="stod-strategi.html" class="help-card c3">
+        <span>🧩</span>
+        <h3>Jag vet inte hur jag ska börja</h3>
+        <p>
+          Få förslag på strategier som kan hjälpa dig att komma igång.
+        </p>
+      </a>
+
+
+      <a href="stod-bild.html" class="help-card c4">
+        <span>🖼️</span>
+        <h3>Visa mig med en bild</h3>
+        <p>
+          Se modeller, tallinjer, bilder, tabeller och visuella förklaringar.
+        </p>
+      </a>
+
+
+      <a href="stod-exempel.html" class="help-card c5">
+        <span>🔢</span>
+        <h3>Visa ett exempel</h3>
+        <p>
+          Se ett liknande exempel steg för steg innan du försöker själv.
+        </p>
+      </a>
+
+
+      <a href="stod-kontroll.html" class="help-card c6">
+        <span>✅</span>
+        <h3>Jag vet inte om svaret är rätt</h3>
+        <p>
+          Lär dig kontrollera resultatet med överslag eller en annan metod.
+        </p>
+      </a>
+
+
+      <a href="stod-raknefel.html" class="help-card c1">
+        <span>🔍</span>
+        <h3>Jag hittar inte mitt fel</h3>
+        <p>
+          Gå tillbaka steg för steg och undersök var lösningen förändrades.
+        </p>
+      </a>
+
+
+      <a href="stod-problem.html" class="help-card c2">
+        <span>🧠</span>
+        <h3>Jag fastnar i problemlösning</h3>
+        <p>
+          Använd frågor och strategier som hjälper dig att strukturera problemet.
+        </p>
+      </a>
+
+
+      <a href="stod-forklara.html" class="help-card c3">
+        <span>🗣️</span>
+        <h3>Jag kan svaret men inte förklara</h3>
+        <p>
+          Få språkstöd för att beskriva strategi, samband och slutsats.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="steps-box">
+
+      <h2>🛟 När du fastnar – prova detta</h2>
+
+      <p>
+        Börja med första steget. Om det inte räcker går du vidare till nästa.
+      </p>
+
+      <div class="steps-grid">
+
+        <div class="step-card">
+          <span>1️⃣</span>
+          <h3>Läs igen</h3>
+          <p>
+            Läs långsamt och markera viktig information.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <span>2️⃣</span>
+          <h3>Visa problemet</h3>
+          <p>
+            Rita, bygg, gör en tabell eller använd en tallinje.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <span>3️⃣</span>
+          <h3>Prova en strategi</h3>
+          <p>
+            Välj ett sätt att börja. Det behöver inte vara perfekt direkt.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <span>4️⃣</span>
+          <h3>Be om hjälp</h3>
+          <p>
+            Berätta vad du redan förstått och exakt var du fastnade.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="example-box">
+
+      <div>
+
+        <h2>🧠 Exempel: ett steg i taget</h2>
+
+        <p>
+          Du behöver inte lösa hela problemet i huvudet.
+          Dela upp det och gör en sak i taget.
+        </p>
+
+      </div>
+
+      <div class="example-card">
+
+        <strong>Problem:</strong>
+
+        <h2 style="margin-top:12px;">
+          5 pennor kostar 40 kr.<br>
+          Vad kostar 8 pennor?
+        </h2>
+
+        <div class="example-step">
+          👀 <strong>Vad vet jag?</strong><br>
+          5 pennor kostar 40 kr.
+        </div>
+
+        <div class="example-step">
+          ❓ <strong>Vad söker jag?</strong><br>
+          Kostnaden för 8 pennor.
+        </div>
+
+        <div class="example-step">
+          🧩 <strong>Första steget:</strong><br>
+          Vad kostar 1 penna?
+        </div>
+
+        <div class="example-step">
+          🔢 40 ÷ 5 = 8 kr
+        </div>
+
+        <div class="example-step">
+          🚀 <strong>Nu kan du fortsätta:</strong><br>
+          Vad kostar 8 pennor?
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Så kan du be om matematikhjälp
+    </h2>
+
+    <p class="section-intro">
+      Ju tydligare du kan beskriva vad du behöver hjälp med, desto bättre hjälp kan du få.
+    </p>
+
+    <div class="sentence-grid">
+
+      <div class="sentence-card">
+        <h3>💬 Jag förstår...</h3>
+        <p>
+          Jag förstår att jag ska..., men jag vet inte hur jag ska...
+        </p>
+      </div>
+
+      <div class="sentence-card">
+        <h3>❓ Vad betyder...?</h3>
+        <p>
+          Vad betyder ordet eller symbolen ... i den här uppgiften?
+        </p>
+      </div>
+
+      <div class="sentence-card">
+        <h3>🧩 Hur börjar jag?</h3>
+        <p>
+          Kan du ge mig en första ledtråd utan att ge hela svaret?
+        </p>
+      </div>
+
+      <div class="sentence-card">
+        <h3>🔎 Här fastnade jag</h3>
+        <p>
+          Jag gjorde så här..., men sedan vet jag inte vad nästa steg är.
+        </p>
+      </div>
+
+      <div class="sentence-card">
+        <h3>🖼️ Kan du visa?</h3>
+        <p>
+          Kan du visa samma matematik med en bild eller modell?
+        </p>
+      </div>
+
+      <div class="sentence-card">
+        <h3>🔄 Finns ett annat sätt?</h3>
+        <p>
+          Jag förstår inte den här metoden. Finns det en annan strategi?
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="remember-box">
+
+      <h2 class="section-title">
+        🌱 Kom ihåg
+      </h2>
+
+      <p class="section-intro">
+        När något känns svårt betyder det ofta att du befinner dig mitt i lärandet.
+      </p>
+
+      <div class="remember-grid">
+
+        <div class="remember-card">
+          <span>🧠</span>
+          <h3>Tänk</h3>
+          <p>
+            Vad förstår du redan?
+          </p>
+        </div>
+
+        <div class="remember-card">
+          <span>🔄</span>
+          <h3>Prova</h3>
+          <p>
+            En första strategi behöver inte vara den bästa.
+          </p>
+        </div>
+
+        <div class="remember-card">
+          <span>❌</span>
+          <h3>Lär av fel</h3>
+          <p>
+            Ett fel kan visa exakt vad du behöver förstå bättre.
+          </p>
+        </div>
+
+        <div class="remember-card">
+          <span>🚀</span>
+          <h3>Ta nästa steg</h3>
+          <p>
+            Målet är att förstå lite mer än innan.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🛟 Jag behöver hjälp – stanna inte, ta nästa steg
+
+</footer>
+
+</body>
+</html>
