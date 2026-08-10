@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Diagnosbank F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --red-light: #ffeaea;
+      --teal-light: #eaf7f5;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
+        linear-gradient(135deg, #7e3232, #b85454);
+      color: white;
+      padding: 22px 20px 55px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero {
+      max-width: 920px;
+      margin: 45px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.2rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 4.3rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: auto;
+      color: #fff3f3;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 42px 20px;
+    }
+
+    section {
+      margin-bottom: 58px;
+    }
+
+    .intro {
+      background: var(--red-light);
+      border-radius: 26px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      max-width: 880px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .print-button {
+      display: inline-block;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 18px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--dark);
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      color: var(--muted);
+      max-width: 850px;
+      margin: 0 auto 28px;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 26px;
+      min-height: 245px;
+    }
+
+    .stage-card span {
+      display: block;
+      font-size: 2.6rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .stage-card p,
+    .stage-card li {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .stage-card ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .stage-card li {
+      margin-bottom: 6px;
+    }
+
+    .f3 {
+      background: var(--green-light);
+    }
+
+    .m46 {
+      background: var(--blue-light);
+    }
+
+    .m79 {
+      background: var(--purple-light);
+    }
+
+    .diagnosis-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .diagnosis {
+      background: white;
+      border-radius: 22px;
+      padding: 25px;
+      border: 1px solid rgba(0,0,0,0.07);
+      break-inside: avoid;
+    }
+
+    .diagnosis-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .diagnosis-icon {
+      font-size: 2.4rem;
+      margin-bottom: 5px;
+    }
+
+    .diagnosis h3 {
+      color: var(--dark);
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+    }
+
+    .level {
+      background: #edf1f4;
+      color: var(--dark);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: bold;
+      padding: 5px 10px;
+      white-space: nowrap;
+    }
+
+    .focus {
+      background: var(--teal-light);
+      border-radius: 12px;
+      padding: 13px;
+      color: var(--muted);
+      margin-bottom: 15px;
+      font-size: 0.91rem;
+    }
+
+    .focus strong {
+      color: var(--dark);
+    }
+
+    .question {
+      border-top: 1px dashed #c9d1d7;
+      padding-top: 14px;
+      margin-top: 14px;
+    }
+
+    .question:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .question strong {
+      color: var(--dark);
+    }
+
+    .answer-line {
+      min-height: 32px;
+      border-bottom: 1px solid #8f9ba4;
+      margin-top: 8px;
+    }
+
+    .answer-box {
+      height: 72px;
+      border: 1.5px solid #9ba7b1;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .answer-box.large {
+      height: 110px;
+    }
+
+    .interpret {
+      background: var(--yellow-light);
+      border-radius: 14px;
+      padding: 15px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .interpret strong {
+      color: var(--dark);
+    }
+
+    .error-box {
+      background: var(--orange-light);
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    .error-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .error-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid #ead2bc;
+    }
+
+    .error-card span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .error-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .error-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .cycle {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 35%),
+        linear-gradient(135deg, #17324d, #783e3e);
+      color: white;
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .cycle h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .cycle > p {
+      max-width: 860px;
+      color: #fff5f5;
+    }
+
+    .cycle-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .cycle-card {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 18px;
+      padding: 19px;
+      min-height: 175px;
+    }
+
+    .cycle-card span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .cycle-card h3 {
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .cycle-card p {
+      color: #fff8f8;
+      font-size: 0.89rem;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .tool-card {
+      border-radius: 20px;
+      padding: 23px;
+      min-height: 190px;
+      transition: 0.2s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .tool-card span {
+      display: block;
+      font-size: 2.3rem;
+      margin-bottom: 7px;
+    }
+
+    .tool-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .tool-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .t1 { background: var(--green-light); }
+    .t2 { background: var(--blue-light); }
+    .t3 { background: var(--purple-light); }
+    .t4 { background: var(--orange-light); }
+    .t5 { background: var(--red-light); }
+    .t6 { background: var(--teal-light); }
+
+    .note {
+      background: var(--red-light);
+      border-left: 6px solid #b85454;
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 24px;
+      color: #654646;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      text-align: center;
+      padding: 34px 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 1000px) {
+      .stage-grid,
+      .error-grid,
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cycle-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .diagnosis-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .cycle-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro,
+      .error-box,
+      .cycle {
+        padding: 24px 17px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 12mm;
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link,
+      .intro,
+      .stage-grid,
+      .error-box,
+      .cycle,
+      .tool-grid,
+      .note,
+      .print-button,
+      .section-title,
+      .section-intro {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+        color: black;
+        font-size: 10pt;
+      }
+
+      main {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      section {
+        margin: 0;
+      }
+
+      .diagnosis-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8mm;
+      }
+
+      .diagnosis {
+        border: 1px solid #777;
+        border-radius: 0;
+        padding: 7mm;
+        min-height: 125mm;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .focus,
+      .interpret {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">HOLOS MATTERESAN</div>
+
+    <a href="larare-material.html" class="back-link">
+      ← Materialbanken
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🩺🧠</div>
+
+    <h1>Diagnosbank F–9</h1>
+
+    <h2>Upptäck • Fråga • Tolka • Undervisa • Följ upp</h2>
+
+    <p>
+      Korta diagnostiska uppgifter som hjälper läraren att upptäcka
+      hur eleven tänker, vilka strategier som används och vilka
+      missuppfattningar som behöver mötas i undervisningen.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro">
+
+      <h2>🔎 Diagnostik handlar om att förstå elevens tänkande</h2>
+
+      <p>
+        Ett felsvar är inte bara något som ska markeras som fel.
+        Det kan visa en regel eleven övergeneraliserat, ett begrepp som ännu inte
+        är stabilt eller en representation som behöver kopplas tydligare till matematiken.
+      </p>
+
+      <button class="print-button" onclick="window.print()">
+        🖨️ Skriv ut diagnoser
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🌱 🌿 🚀 Diagnostik genom F–9</h2>
+
+    <p class="section-intro">
+      Diagnoserna ska vara korta och riktade. De behöver inte testa allt på en gång.
+    </p>
+
+    <div class="stage-grid">
+
+      <div class="stage-card f3">
+
+        <span>🌱</span>
+
+        <h3>F–3</h3>
+
+        <p>
+          Synliggör grundläggande talrelationer och strategier.
+        </p>
+
+        <ul>
+          <li>taluppfattning</li>
+          <li>platsvärde</li>
+          <li>likhet</li>
+          <li>räknesätt</li>
+          <li>enkla representationer</li>
+        </ul>
+
+      </div>
+
+
+      <div class="stage-card m46">
+
+        <span>🌿</span>
+
+        <h3>4–6</h3>
+
+        <p>
+          Undersök begrepp, strategi och samband mellan representationer.
+        </p>
+
+        <ul>
+          <li>bråk</li>
+          <li>decimal</li>
+          <li>procent</li>
+          <li>geometri</li>
+          <li>problemlösning</li>
+        </ul>
+
+      </div>
+
+
+      <div class="stage-card m79">
+
+        <span>🚀</span>
+
+        <h3>7–9</h3>
+
+        <p>
+          Synliggör strukturer, generalisering och algebraiska samband.
+        </p>
+
+        <ul>
+          <li>negativa tal</li>
+          <li>algebra</li>
+          <li>funktioner</li>
+          <li>statistik</li>
+          <li>modellering</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🔢 Taluppfattning</h2>
+
+    <div class="diagnosis-grid">
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">🌱</div>
+            <h3>Platsvärde</h3>
+          </div>
+          <div class="level">F–3</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> om eleven skiljer mellan siffra och värde.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Hur mycket är siffran 6 värd i talet 364?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Skriv ett tal där siffran 6 är värd 600.
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Vad händer med värdet av 6 om den flyttas ett steg åt vänster?
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Vanligt felsvar:</strong> eleven svarar 6 på första frågan.
+          Pröva vidare med tiobasmaterial eller platsvärdestabell.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">🌿</div>
+            <h3>Decimalernas storlek</h3>
+          </div>
+          <div class="level">4–6</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> platsvärde och jämförelse av decimaler.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Vilket är störst: 0,7 eller 0,65?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Placera ett tal mellan 0,7 och 0,8.
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Förklara hur du vet att talet verkligen ligger mellan.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Vanligt felsvar:</strong> 0,65 bedöms större än 0,7 eftersom 65 är större än 7.
+          Arbeta vidare med tallinje och platsvärdesrepresentationer.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">🚀</div>
+            <h3>Negativa tal</h3>
+          </div>
+          <div class="level">7–9</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> storleksrelationer och tallinje.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Vilket är störst: −4 eller −9?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Vilket tal ligger mitt emellan −6 och 2?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Förklara varför −10 är mindre än −2.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Vanligt felsvar:</strong> eleven jämför bara absolutvärdena.
+          Använd tallinje, temperatur och riktning från noll.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">🔍</div>
+            <h3>Rimlighet</h3>
+          </div>
+          <div class="level">F–9</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> om eleven använder storleksuppfattning vid kontroll.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> En elev säger att 398 + 205 = 5 903. Kan svaret vara rimligt?
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Hur skulle du uppskatta svaret innan du räknar exakt?
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Tolka:</strong> elever som räknar procedurmässigt men inte reagerar på orimliga svar behöver mer arbete med uppskattning och referenstal.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">➕➖✖️➗ Räknesätt</h2>
+
+    <div class="diagnosis-grid">
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">➕</div>
+            <h3>Strategier</h3>
+          </div>
+          <div class="level">F–6</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> flexibilitet i beräkningsstrategier.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Beräkna 49 + 38.
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Visa ett annat sätt att beräkna samma uppgift.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Vilken metod tycker du är effektivast här? Varför?
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Tolka:</strong> notera om eleven är låst till en procedur eller kan använda exempelvis kompensation och uppdelning.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">➗</div>
+            <h3>Divisionens innebörd</h3>
+          </div>
+          <div class="level">3–6</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> delnings- och innehållsdivision.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> 24 kakor delas lika mellan 6 barn. Hur många får varje?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> 24 kakor läggs i påsar med 6 i varje. Hur många påsar behövs?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Hur är problemen lika och hur skiljer de sig?
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Tolka:</strong> samma division 24 ÷ 6 förekommer, men situationerna representerar olika divisionstolkningar.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">✖️</div>
+            <h3>Multiplikation med tal under 1</h3>
+          </div>
+          <div class="level">6–9</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> missuppfattningen att multiplikation alltid gör större.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Vilket är störst: 12 eller 12 × 0,5?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Beräkna 20 × 0,25.
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> När kan multiplikation göra ett positivt tal mindre?
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Vanligt felsvar:</strong> eleven generaliserar från heltalsmultiplikation.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">🚀</div>
+            <h3>Prioriteringsregler</h3>
+          </div>
+          <div class="level">7–9</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> struktur i numeriska uttryck.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Beräkna 8 + 3 × 4.
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Sätt parenteser så att svaret blir 44.
+          <br>8 + 3 × 4
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Förklara varför parenteserna förändrar resultatet.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Tolka:</strong> undersök om eleven ser uttryckets struktur eller arbetar strikt från vänster till höger.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🍕 Bråk, decimal & procent</h2>
+
+    <div class="diagnosis-grid">
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">🍕</div>
+            <h3>Bråkstorlek</h3>
+          </div>
+          <div class="level">3–6</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> om eleven ser bråket som ett tal.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Vilket är störst: 1/3 eller 1/5?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Förklara med bild eller ord.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Skriv ett bråk mellan 1/2 och 1.
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Vanligt felsvar:</strong> större nämnare tolkas som större bråk.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">🔁</div>
+            <h3>Likvärdiga bråk</h3>
+          </div>
+          <div class="level">4–6</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> multiplikativ relation mellan täljare och nämnare.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Fyll i: 2/3 = __ /12
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Förklara vad du gjorde med täljaren och nämnaren.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Vanligt felsvar:</strong> eleven adderar samma tal till täljare och nämnare.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">💯</div>
+            <h3>Procent som andel</h3>
+          </div>
+          <div class="level">4–7</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> samband mellan procent, bråk och decimal.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Skriv 25 % som bråk.
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Skriv 25 % som decimaltal.
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Beräkna 25 % av 80 och visa en strategi.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Tolka:</strong> se om eleven kan röra sig mellan representationerna eller bara memorerar en procedur.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">📈</div>
+            <h3>Procentuell förändring</h3>
+          </div>
+          <div class="level">7–9</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> referensvärde och förändringsfaktor.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Ett pris på 500 kr ökar med 20 %. Nytt pris?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Vilken förändringsfaktor används?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Om det nya priset sedan minskar med 20 %, blir priset 500 kr igen? Förklara.
+          <div class="answer-box large"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Vanligt felsvar:</strong> +20 % och −20 % uppfattas som motsatta operationer oberoende av referensvärde.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🔤 Algebra & samband</h2>
+
+    <div class="diagnosis-grid">
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">⚖️</div>
+            <h3>Likhetstecknet</h3>
+          </div>
+          <div class="level">F–4</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> om likhet förstås som relation.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Fyll i: 8 + 4 = __ + 5
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Är 12 = 7 + 5 sant?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Vad betyder = ?
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Vanligt felsvar:</strong> eleven tror att = betyder ”skriv svaret”.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">🔤</div>
+            <h3>Variabel & uttryck</h3>
+          </div>
+          <div class="level">4–7</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> bokstav som tal och 3x som multiplikation.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Om x = 5, beräkna 3x + 2.
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Vad betyder 3x?
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Vanligt felsvar:</strong> 3x tolkas som 3 + x eller som det tvåsiffriga talet 35 när x = 5.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">🧮</div>
+            <h3>Ekvation</h3>
+          </div>
+          <div class="level">6–9</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> balansprincip och kontroll.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Lös 3x + 4 = 19.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Kontrollera ditt svar genom insättning.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Tolka:</strong> notera om eleven använder balans eller flyttar termer mekaniskt utan förståelse.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">📈</div>
+            <h3>Proportionellt eller linjärt?</h3>
+          </div>
+          <div class="level">7–9</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> skillnaden mellan proportionalitet och generellt linjärt samband.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Är y = 4x proportionellt?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Är y = 4x + 3 proportionellt?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Förklara skillnaden.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Tolka:</strong> proportionella samband har konstant kvot och går genom origo.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">📐 Geometri</h2>
+
+    <div class="diagnosis-grid">
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">⬜</div>
+            <h3>Klassificera former</h3>
+          </div>
+          <div class="level">F–6</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> geometriska egenskaper och hierarkisk klassificering.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Är en kvadrat en rektangel?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Motivera med egenskaper.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Vanligt felsvar:</strong> former betraktas bara utifrån prototypiskt utseende.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">📏</div>
+            <h3>Omkrets & area</h3>
+          </div>
+          <div class="level">4–6</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> skillnaden mellan längd runt och yta.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> En rektangel är 8 cm × 3 cm. Beräkna omkrets.
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Beräkna area.
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Förklara varför svaren har olika enheter.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Vanligt felsvar:</strong> samma formel används för både area och omkrets.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">📐</div>
+            <h3>Vinklar</h3>
+          </div>
+          <div class="level">4–7</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> vinkel som rotation/öppning och triangelns vinkelsumma.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Två vinklar i en triangel är 55° och 65°. Bestäm den tredje.
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Förklara hur du vet.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Tolka:</strong> skilj mellan memorerad regel och förståelse för vinkelsumman.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">📦</div>
+            <h3>Volym & skalfaktor</h3>
+          </div>
+          <div class="level">7–9</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> hur längdskala påverkar area och volym.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> En kub har sidan 3 cm. Volym?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Sidan fördubblas. Ny volym?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Hur många gånger större blev volymen?
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Vanligt felsvar:</strong> volymen sägs bli dubbelt så stor när alla längder fördubblas.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">📊 Statistik & sannolikhet</h2>
+
+    <div class="diagnosis-grid">
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">📊</div>
+            <h3>Lägesmått</h3>
+          </div>
+          <div class="level">4–7</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> medelvärde, median och typvärde.
+        </div>
+
+        <div class="question">
+          <strong>Data:</strong> 2, 4, 4, 5, 10
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Medelvärde:
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Median:
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Typvärde:
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Tolka:</strong> kontrollera särskilt om eleven sorterar före median och skiljer mellan de tre begreppen.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">🎲</div>
+            <h3>Enkel sannolikhet</h3>
+          </div>
+          <div class="level">4–6</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> gynnsamma och möjliga utfall.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Vad är sannolikheten att slå 5 med en vanlig tärning?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Vad är sannolikheten att slå ett tal större än 4?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>3.</strong> Förklara ditt andra svar.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Tolka:</strong> eleven behöver se hela utfallsrummet och vilka utfall som uppfyller villkoret.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">📈</div>
+            <h3>Extremvärde</h3>
+          </div>
+          <div class="level">7–9</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> känslighet hos medelvärde och median.
+        </div>
+
+        <div class="question">
+          <strong>Data:</strong> 28, 29, 30, 31, 32, 100
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Vilket lägesmått beskriver de flesta värden bäst?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Motivera.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Tolka:</strong> undersök om eleven ser extremvärdets påverkan på medelvärdet.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">🪙</div>
+            <h3>Oberoende händelser</h3>
+          </div>
+          <div class="level">7–9</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> gambler's fallacy och oberoende försök.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Ett mynt har gett krona sex gånger i rad. Vad är sannolikheten för krona nästa kast?
+          <div class="answer-line"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Förklara varför.
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Vanligt felsvar:</strong> eleven tror att klave ”måste komma snart”.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🧠 Problemlösning</h2>
+
+    <div class="diagnosis-grid">
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">🧭</div>
+            <h3>Strategival</h3>
+          </div>
+          <div class="level">F–9</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> om eleven kan välja och beskriva strategi.
+        </div>
+
+        <div class="question">
+          <strong>Problem:</strong>
+          Det finns 15 fordon. Några har 2 hjul och några har 3 hjul.
+          Totalt finns 39 hjul. Hur många finns av varje?
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Lös problemet.
+          <div class="answer-box large"></div>
+        </div>
+
+        <div class="question">
+          <strong>2.</strong> Vilken strategi använde du?
+          <div class="answer-box"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Tolka:</strong> observera systematik, representation och kontroll – inte bara rätt svar.
+        </div>
+
+      </div>
+
+
+      <div class="diagnosis">
+
+        <div class="diagnosis-head">
+          <div>
+            <div class="diagnosis-icon">🔍</div>
+            <h3>Kontrollera lösning</h3>
+          </div>
+          <div class="level">F–9</div>
+        </div>
+
+        <div class="focus">
+          <strong>Fokus:</strong> metakognition och kontrollstrategi.
+        </div>
+
+        <div class="question">
+          <strong>1.</strong> Beskriv två olika sätt att kontrollera att ett matematiskt svar är rimligt eller korrekt.
+          <div class="answer-box large"></div>
+        </div>
+
+        <div class="interpret">
+          <strong>Tolka:</strong> exempel kan vara omvänd operation, uppskattning, insättning, annan strategi eller kontroll mot villkor.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="error-box">
+
+      <h2 class="section-title">🧠 Vanliga diagnostiska signaler</h2>
+
+      <p class="section-intro">
+        Ett felsvar behöver följas av en fråga: ”Hur tänkte du?”
+      </p>
+
+      <div class="error-grid">
+
+        <div class="error-card">
+          <span>🔢</span>
+          <h3>Heltalstänkande överallt</h3>
+          <p>
+            Exempel: 0,45 bedöms större än 0,6 eftersom 45 &gt; 6.
+          </p>
+        </div>
+
+        <div class="error-card">
+          <span>🍕</span>
+          <h3>Större nämnare = större bråk</h3>
+          <p>
+            Eleven använder heltalslogik på bråk utan att tänka på delarnas storlek.
+          </p>
+        </div>
+
+        <div class="error-card">
+          <span>⚖️</span>
+          <h3>= betyder ”svaret kommer”</h3>
+          <p>
+            Eleven ser inte likhetstecknet som en relation mellan två lika stora värden.
+          </p>
+        </div>
+
+        <div class="error-card">
+          <span>📏</span>
+          <h3>Area och omkrets blandas</h3>
+          <p>
+            Formler används utan koppling till vad som faktiskt mäts.
+          </p>
+        </div>
+
+        <div class="error-card">
+          <span>💯</span>
+          <h3>Procent utan referens</h3>
+          <p>
+            Eleven behandlar procent som ett fristående antal i stället för en andel av något.
+          </p>
+        </div>
+
+        <div class="error-card">
+          <span>🎲</span>
+          <h3>Slump ”minns”</h3>
+          <p>
+            Tidigare oberoende utfall antas förändra sannolikheten i nästa försök.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="cycle">
+
+      <h2>🔄 Diagnostisk arbetsgång</h2>
+
+      <p>
+        En diagnos är början på ett undervisningsbeslut – inte slutet på ett arbetsområde.
+      </p>
+
+      <div class="cycle-grid">
+
+        <div class="cycle-card">
+          <span>1️⃣</span>
+          <h3>Välj område</h3>
+          <p>
+            Avgränsa exakt vilken förståelse som behöver undersökas.
+          </p>
+        </div>
+
+        <div class="cycle-card">
+          <span>2️⃣</span>
+          <h3>Ge riktade uppgifter</h3>
+          <p>
+            Använd få uppgifter som skiljer mellan olika möjliga sätt att tänka.
+          </p>
+        </div>
+
+        <div class="cycle-card">
+          <span>3️⃣</span>
+          <h3>Fråga vidare</h3>
+          <p>
+            Be eleven förklara även när svaret är rätt.
+          </p>
+        </div>
+
+        <div class="cycle-card">
+          <span>4️⃣</span>
+          <h3>Tolka</h3>
+          <p>
+            Leta efter mönster i strategier och missuppfattningar.
+          </p>
+        </div>
+
+        <div class="cycle-card">
+          <span>5️⃣</span>
+          <h3>Undervisa & följ upp</h3>
+          <p>
+            Anpassa undervisningen och kontrollera senare om förståelsen förändrats.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🗂️ Relaterat material</h2>
+
+    <div class="tool-grid">
+
+      <a href="larare-diagnoser.html" class="tool-card t1">
+        <span>👩‍🏫</span>
+        <h3>Lärarstöd diagnostik</h3>
+        <p>
+          Fördjupning om diagnostiska frågor, tolkning och undervisningsrespons.
+        </p>
+      </a>
+
+      <a href="larare-missuppfattningar.html" class="tool-card t2">
+        <span>🧠</span>
+        <h3>Missuppfattningar</h3>
+        <p>
+          Vanliga matematiska missuppfattningar genom F–9.
+        </p>
+      </a>
+
+      <a href="material-exit.html" class="tool-card t3">
+        <span>🎟️</span>
+        <h3>Exit tickets</h3>
+        <p>
+          Kortare frågor för löpande formativ uppföljning.
+        </p>
+      </a>
+
+      <a href="larare-observation.html" class="tool-card t4">
+        <span>👀</span>
+        <h3>Observation</h3>
+        <p>
+          Kombinera diagnosen med observation av strategier och samtal.
+        </p>
+      </a>
+
+      <a href="larare-bedomning.html" class="tool-card t5">
+        <span>📋</span>
+        <h3>Bedömning</h3>
+        <p>
+          Placera diagnostik i en bredare formativ bedömningsprocess.
+        </p>
+      </a>
+
+      <a href="material-elevblad.html" class="tool-card t6">
+        <span>✏️</span>
+        <h3>Elevblad</h3>
+        <p>
+          Välj riktad fortsatt träning utifrån det diagnosen visar.
+        </p>
+      </a>
+
+    </div>
+
+    <div class="note">
+      <strong>Viktigt:</strong>
+      använd inte en diagnostisk uppgift som etikett på vad eleven ”kan eller inte kan”.
+      Diagnosen ska hjälpa dig att förstå nuläget och välja nästa undervisningssteg.
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🩺 Diagnosbank – upptäck, fråga, tolka, undervisa och följ upp
+
+</footer>
+
+</body>
+</html>
