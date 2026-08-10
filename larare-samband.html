@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Samband & förändring F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --teal: #3f8d86;
+      --teal-dark: #2b665f;
+      --teal-light: #eaf7f5;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
+        linear-gradient(135deg, #285f5a, #3f8d86);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--teal-dark);
+    }
+
+    .hero {
+      max-width: 920px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 7vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 840px;
+      margin: auto;
+      color: #effffa;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 840px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--teal-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 880px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .core-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .core-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 180px;
+      border: 1px solid #e6ebef;
+    }
+
+    .core-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .core-card h3 {
+      color: var(--teal-dark);
+      margin-bottom: 6px;
+    }
+
+    .core-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .progression-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
+        linear-gradient(135deg, #17324d, #2f6964);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .progression-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .progression-box > p {
+      color: #effffa;
+      max-width: 850px;
+    }
+
+    .progression-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .progression-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 295px;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .f3 { background: rgba(118,211,149,0.15); }
+    .m46 { background: rgba(110,177,238,0.15); }
+    .m79 { background: rgba(177,147,245,0.15); }
+
+    .progression-card span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 7px;
+    }
+
+    .progression-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .progression-card ul {
+      padding-left: 20px;
+      color: #fbfffd;
+      font-size: 0.93rem;
+    }
+
+    .progression-card li {
+      margin-bottom: 6px;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px;
+      border: 1px solid #e6ebef;
+      margin-bottom: 25px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .section-header span {
+      font-size: 2.7rem;
+    }
+
+    .section-header h2 {
+      color: var(--dark);
+      font-size: 1.75rem;
+    }
+
+    .section-header p {
+      color: var(--muted);
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .mini-card {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 190px;
+    }
+
+    .mini-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .mini-card p,
+    .mini-card ul {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .mini-card ul {
+      padding-left: 20px;
+    }
+
+    .mini-card li {
+      margin-bottom: 6px;
+    }
+
+    .m1 { background: var(--green-light); }
+    .m2 { background: var(--blue-light); }
+    .m3 { background: var(--yellow-light); }
+
+    .rep-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .rep-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      margin-top: 24px;
+    }
+
+    .rep-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      min-height: 175px;
+      border: 1px solid #dfe8ef;
+    }
+
+    .rep-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .rep-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .rep-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .mis-box {
+      background: var(--pink-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .mis-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .mis-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 200px;
+      border: 1px solid #eee1e5;
+    }
+
+    .mis-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .mis-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .mis-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .question-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .question-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .question-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 175px;
+      border: 1px solid #eee3c6;
+    }
+
+    .question-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .question-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .support-grid,
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .support-card,
+    .assessment-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 180px;
+      border: 1px solid #e6ebef;
+    }
+
+    .support-card span,
+    .assessment-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .support-card h3,
+    .assessment-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .support-card p,
+    .assessment-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .challenge-box {
+      background: var(--purple-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 24px;
+    }
+
+    .challenge-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 180px;
+      border: 1px solid #e2dcf1;
+    }
+
+    .challenge-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .challenge-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .challenge-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .link-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 175px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .link-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
+    }
+
+    .link-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .link-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .link-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .c1 { background: var(--teal-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--orange-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--pink-light); }
+
+    .note {
+      background: var(--yellow-light);
+      border-left: 6px solid #dba327;
+      border-radius: 14px;
+      padding: 20px;
+      color: #665528;
+      margin-top: 25px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 1050px) {
+      .rep-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .core-grid,
+      .support-grid,
+      .assessment-grid,
+      .challenge-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .progression-grid,
+      .three-grid,
+      .mis-grid,
+      .question-grid,
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .core-grid,
+      .rep-grid,
+      .support-grid,
+      .assessment-grid,
+      .challenge-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .progression-box,
+      .section-card,
+      .rep-box,
+      .mis-box,
+      .question-box,
+      .challenge-box {
+        padding: 25px 18px;
+      }
+
+      .section-header {
+        align-items: flex-start;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      section,
+      .section-card {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="larare.html" class="back-link">
+      ← Lärarvy
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">📈</div>
+
+    <h1>Samband & förändring F–9</h1>
+
+    <h2>Jämföra • Relatera • Representera • Generalisera</h2>
+
+    <p>
+      Samband och förändring utvecklas från tidiga jämförelser och mönster
+      till proportionalitet, förhållanden, skala, hastighet,
+      procentuell förändring, grafer och funktioner.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>📈 När en storhet förändras – vad händer med den andra?</h2>
+
+      <p>
+        Kärnan i området är att förstå relationer mellan storheter.
+        Elever behöver kunna beskriva samband med ord, tabeller,
+        bilder, grafer och symboler och förstå vad varje representation
+        berättar om situationen.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Fyra kärnor i sambandstänkande
+    </h2>
+
+    <p class="section-intro">
+      Dessa idéer utvecklas successivt genom hela F–9.
+    </p>
+
+    <div class="core-grid">
+
+      <div class="core-card">
+        <span>⚖️</span>
+        <h3>Jämföra</h3>
+        <p>
+          Se hur två eller flera storheter förhåller sig till varandra.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>🔗</span>
+        <h3>Relatera</h3>
+        <p>
+          Förstå multiplikativa relationer, kvoter och proportionella samband.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>📊</span>
+        <h3>Representera</h3>
+        <p>
+          Växla mellan situation, tabell, graf, dubbel tallinje och formel.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>🚀</span>
+        <h3>Generalisera</h3>
+        <p>
+          Formulera en regel som beskriver hur en storhet beror på en annan.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="progression-box">
+
+      <h2>🌱 → 🌿 → 🚀 Progression F–9</h2>
+
+      <p>
+        Området växer fram ur talrelationer, mönster, mätning och multiplikativt tänkande.
+      </p>
+
+      <div class="progression-grid">
+
+        <div class="progression-card f3">
+
+          <span>🌱</span>
+
+          <h3>F–3 – bygg grunden</h3>
+
+          <ul>
+            <li>jämföra storheter</li>
+            <li>dubbelt och hälften</li>
+            <li>lika många grupper</li>
+            <li>enkla tabeller</li>
+            <li>växande mönster</li>
+            <li>mätning</li>
+            <li>enkla förändringar över tid</li>
+            <li>beskriva relationer med ord</li>
+          </ul>
+
+        </div>
+
+
+        <div class="progression-card m46">
+
+          <span>🌿</span>
+
+          <h3>4–6 – utveckla proportionalitet</h3>
+
+          <ul>
+            <li>förhållanden</li>
+            <li>proportionalitet</li>
+            <li>jämförpris</li>
+            <li>skala</li>
+            <li>hastighet–tid–sträcka</li>
+            <li>tabeller och grafer</li>
+            <li>procentuell förändring</li>
+            <li>enkla regler för samband</li>
+          </ul>
+
+        </div>
+
+
+        <div class="progression-card m79">
+
+          <span>🚀</span>
+
+          <h3>7–9 – funktionellt tänkande</h3>
+
+          <ul>
+            <li>linjära samband</li>
+            <li>funktioner</li>
+            <li>formler</li>
+            <li>förändringshastighet</li>
+            <li>procentuell förändring</li>
+            <li>förändringsfaktor</li>
+            <li>upprepade förändringar</li>
+            <li>modellering och tolkning</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>⚖️</span>
+
+        <div>
+          <h2>Proportionalitet</h2>
+          <p>Två storheter är proportionella när de förändras med samma faktor.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Exempel</h3>
+
+          <p>
+            3 pennor kostar 24 kr.
+            Om priset per penna är konstant kostar 6 pennor 48 kr.
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Kärnan</h3>
+
+          <p>
+            När den ena storheten multipliceras med en faktor
+            multipliceras den andra med samma faktor.
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fråga</h3>
+
+          <ul>
+            <li>Vad händer om mängden fördubblas?</li>
+            <li>Är kvoten konstant?</li>
+            <li>Går sambandet genom origo?</li>
+            <li>Är detta verkligen proportionellt?</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🔗</span>
+
+        <div>
+          <h2>Förhållanden</h2>
+          <p>Förhållanden beskriver hur två mängder eller storheter jämförs multiplikativt.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Exempel</h3>
+
+          <p>
+            Förhållandet 6:3 kan förenklas till:
+          </p>
+
+          <p style="font-size:1.4rem;font-weight:bold;margin-top:10px;">
+            2:1
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Representationer</h3>
+
+          <ul>
+            <li>konkret material</li>
+            <li>bild</li>
+            <li>tabell</li>
+            <li>dubbel tallinje</li>
+            <li>symbolisk notation</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fråga</h3>
+
+          <ul>
+            <li>Vad jämförs med vad?</li>
+            <li>Kan förhållandet förenklas?</li>
+            <li>Vad händer om båda mängderna fördubblas?</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🛒</span>
+
+        <div>
+          <h2>Jämförpris</h2>
+          <p>Jämförpris bygger på kvoten pris per enhet.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Exempel</h3>
+
+          <p>
+            750 g kostar 45 kr.
+          </p>
+
+          <p style="margin-top:10px;">
+            Jämför exempelvis pris per 100 g eller per kilogram.
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Viktigt</h3>
+
+          <p>
+            Två priser kan bara jämföras rättvist när de relateras till samma mängd.
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fråga</h3>
+
+          <ul>
+            <li>Vad kostar en enhet?</li>
+            <li>Vilken enhet gör jämförelsen tydlig?</li>
+            <li>Är det billigaste paketet också billigast per kilogram?</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🗺️</span>
+
+        <div>
+          <h2>Skala</h2>
+          <p>Skala är ett proportionellt samband mellan modell och verklighet.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Exempel</h3>
+
+          <p>
+            Skala 1:100 innebär att:
+          </p>
+
+          <p style="margin-top:10px;font-weight:bold;">
+            1 cm på bilden = 100 cm i verkligheten.
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Använd</h3>
+
+          <ul>
+            <li>kartor</li>
+            <li>ritningar</li>
+            <li>modeller</li>
+            <li>förstoring</li>
+            <li>förminskning</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fördjupa</h3>
+
+          <p>
+            För en längdskala påverkas area och volym med andra faktorer.
+            Detta blir viktigt i senare geometri.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🚗</span>
+
+        <div>
+          <h2>Hastighet • Tid • Sträcka</h2>
+          <p>Hastighet beskriver hur mycket sträcka som tillryggaläggs per tidsenhet.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Grundrelation</h3>
+
+          <p style="font-size:1.25rem;font-weight:bold;">
+            sträcka = hastighet × tid
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Men förstå först</h3>
+
+          <p>
+            60 km/h betyder 60 kilometer per timme.
+            Enheten berättar själva relationen mellan sträcka och tid.
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fråga</h3>
+
+          <ul>
+            <li>Vad betyder km/h?</li>
+            <li>Vad händer med sträckan om tiden fördubblas?</li>
+            <li>Är hastigheten konstant?</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>📈</span>
+
+        <div>
+          <h2>Procentuell förändring</h2>
+          <p>Förändringen relateras till ett ursprungsvärde.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Ökning</h3>
+
+          <p>
+            Från 200 till 250 är ökningen 50.
+          </p>
+
+          <p style="margin-top:10px;">
+            50/200 = 0,25 = 25 %.
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Minskning</h3>
+
+          <p>
+            Från 200 till 150 är minskningen 50.
+          </p>
+
+          <p style="margin-top:10px;">
+            50/200 = 25 %.
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fråga</h3>
+
+          <ul>
+            <li>Vilket är ursprungsvärdet?</li>
+            <li>Hur stor är förändringen?</li>
+            <li>Vad ska förändringen jämföras med?</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>✖️</span>
+
+        <div>
+          <h2>Förändringsfaktor</h2>
+          <p>Förändringsfaktor sammanfattar en procentuell förändring i en multiplikation.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Ökning</h3>
+
+          <ul>
+            <li>+10 % → 1,10</li>
+            <li>+25 % → 1,25</li>
+            <li>+50 % → 1,50</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Minskning</h3>
+
+          <ul>
+            <li>−10 % → 0,90</li>
+            <li>−25 % → 0,75</li>
+            <li>−50 % → 0,50</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fråga</h3>
+
+          <ul>
+            <li>Hur många procent återstår?</li>
+            <li>Hur många procent finns efter ökningen?</li>
+            <li>Vad betyder faktorn i situationen?</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>📊</span>
+
+        <div>
+          <h2>Tabeller</h2>
+          <p>Tabellen gör relationen mellan två varierande storheter tydlig.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Exempel</h3>
+
+          <p>
+            Antal → Pris<br>
+            1 → 12 kr<br>
+            2 → 24 kr<br>
+            3 → 36 kr<br>
+            4 → 48 kr
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Analysera</h3>
+
+          <ul>
+            <li>Vad händer när x ökar?</li>
+            <li>Är skillnaden konstant?</li>
+            <li>Är kvoten konstant?</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fortsätt till</h3>
+
+          <ul>
+            <li>graf</li>
+            <li>regel med ord</li>
+            <li>algebraisk formel</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>📉</span>
+
+        <div>
+          <h2>Grafer</h2>
+          <p>En graf visar hur två storheter samvarierar.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Läs grafen</h3>
+
+          <ul>
+            <li>vad betyder x-axeln?</li>
+            <li>vad betyder y-axeln?</li>
+            <li>vilka enheter används?</li>
+            <li>vilket intervall visas?</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Tolka</h3>
+
+          <ul>
+            <li>ökning</li>
+            <li>minskning</li>
+            <li>konstant värde</li>
+            <li>förändringshastighet</li>
+            <li>startvärde</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Viktigt</h3>
+
+          <p>
+            Grafen är inte en bild av den verkliga situationen.
+            Den representerar relationen mellan storheter.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🔤</span>
+
+        <div>
+          <h2>Linjära samband & funktioner</h2>
+          <p>I 7–9 utvecklas samband till allt tydligare funktionellt tänkande.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Exempel</h3>
+
+          <p>
+            En taxiresa kostar 50 kr i startavgift och 12 kr per kilometer.
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Formel</h3>
+
+          <p style="font-size:1.4rem;font-weight:bold;">
+            y = 12x + 50
+          </p>
+
+          <p style="margin-top:10px;">
+            12 beskriver förändringen per kilometer och 50 är startvärdet.
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Koppla</h3>
+
+          <ul>
+            <li>situation</li>
+            <li>tabell</li>
+            <li>graf</li>
+            <li>regel</li>
+            <li>formel</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="rep-box">
+
+      <h2 class="section-title">
+        🖼️ Representationer för samband
+      </h2>
+
+      <p class="section-intro">
+        Förståelsen fördjupas när elever kan röra sig mellan representationerna.
+      </p>
+
+      <div class="rep-grid">
+
+        <div class="rep-card">
+          <span>🌍</span>
+          <h3>Situation</h3>
+          <p>
+            Det verkliga eller matematiska sammanhang där två storheter relateras.
+          </p>
+        </div>
+
+        <div class="rep-card">
+          <span>↔️</span>
+          <h3>Dubbel tallinje</h3>
+          <p>
+            Synliggör proportionalitet, procent och motsvarande värden.
+          </p>
+        </div>
+
+        <div class="rep-card">
+          <span>📊</span>
+          <h3>Tabell</h3>
+          <p>
+            Gör par av värden tydliga och hjälper eleven upptäcka regelbundenhet.
+          </p>
+        </div>
+
+        <div class="rep-card">
+          <span>📈</span>
+          <h3>Graf</h3>
+          <p>
+            Visar sambandet visuellt och gör förändringshastigheten synlig.
+          </p>
+        </div>
+
+        <div class="rep-card">
+          <span>🔤</span>
+          <h3>Formel</h3>
+          <p>
+            Beskriver relationen generellt och gör beräkning av nya värden möjlig.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="mis-box">
+
+      <h2 class="section-title">
+        ⚠️ Vanliga missuppfattningar
+      </h2>
+
+      <p class="section-intro">
+        Många svårigheter uppstår när elever använder additivt tänkande i multiplikativa situationer.
+      </p>
+
+      <div class="mis-grid">
+
+        <div class="mis-card">
+          <span>➕</span>
+          <h3>All jämförelse görs med skillnad</h3>
+          <p>
+            Eleven ser att 10 är 5 mer än 5 men missar relationen ”dubbelt så mycket”.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>⚖️</span>
+          <h3>Alla tabeller är proportionella</h3>
+          <p>
+            Ett samband kan vara linjärt utan att vara proportionellt om det finns ett startvärde som inte är 0.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>🗺️</span>
+          <h3>Skala 1:100 betyder plus 100</h3>
+          <p>
+            Skala beskriver en multiplikativ relation, inte en additiv skillnad.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>📉</span>
+          <h3>Grafen är en bild av vägen</h3>
+          <p>
+            En stigande linje i en sträcka–tid-graf betyder inte att personen går uppför.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>⬆️⬇️</span>
+          <h3>+20 % och −20 % tar ut varandra</h3>
+          <p>
+            Förändringarna sker från olika basvärden och ger därför inte ursprungsvärdet tillbaka.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>🔤</span>
+          <h3>y = 3x + 2 är bara en uträkning</h3>
+          <p>
+            Formeln beskriver en generell relation mellan två varierande storheter.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="question-box">
+
+      <h2 class="section-title">
+        💬 Diagnostiska frågor
+      </h2>
+
+      <p class="section-intro">
+        Frågorna hjälper läraren att avgöra om eleven ser relationen eller bara räknar.
+      </p>
+
+      <div class="question-grid">
+
+        <div class="question-card">
+          <h3>Vad händer med den andra storheten om den första fördubblas?</h3>
+          <p>
+            Synliggör om sambandet förstås multiplikativt.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Är sambandet proportionellt?</h3>
+          <p>
+            Be eleven motivera med kvot, tabell, graf eller situation.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Vad betyder punkten i grafen?</h3>
+          <p>
+            Testar om eleven kan tolka koordinaterna i sitt sammanhang.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Vad betyder lutningen?</h3>
+          <p>
+            I linjära samband beskriver den hur mycket y förändras när x förändras med en enhet.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Vad betyder startvärdet?</h3>
+          <p>
+            Kopplar formel och graf till den ursprungliga situationen.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Vilken representation hjälper mest här?</h3>
+          <p>
+            Uppmuntrar strategiskt val mellan tabell, graf, dubbel tallinje och formel.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      🛟 Stöd när samband blir svårt
+    </h2>
+
+    <p class="section-intro">
+      Gå tillbaka till konkreta par av värden och gör förändringen synlig.
+    </p>
+
+    <div class="support-grid">
+
+      <div class="support-card">
+        <span>🧱</span>
+        <h3>Bygg relationen</h3>
+        <p>
+          Använd konkreta grupper, priser eller mätningar för att visa hur storheterna hör ihop.
+        </p>
+      </div>
+
+      <div class="support-card">
+        <span>↔️</span>
+        <h3>Dubbel tallinje</h3>
+        <p>
+          Gör motsvarande värden och multiplikativa förändringar synliga.
+        </p>
+      </div>
+
+      <div class="support-card">
+        <span>📊</span>
+        <h3>Tabell före formel</h3>
+        <p>
+          Låt eleven se flera värdepar innan en generell regel skrivs.
+        </p>
+      </div>
+
+      <div class="support-card">
+        <span>💬</span>
+        <h3>Sätt ord på relationen</h3>
+        <p>
+          Exempel: ”för varje”, ”dubbelt”, ”per”, ”ökar med” och ”startar på”.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="challenge-box">
+
+      <h2 class="section-title">
+        🚀 Fördjupa samband
+      </h2>
+
+      <p class="section-intro">
+        Utmana genom jämförelse av modeller, generalisering och förändrade villkor.
+      </p>
+
+      <div class="challenge-grid">
+
+        <div class="challenge-card">
+          <span>⚖️</span>
+          <h3>Proportionellt eller inte?</h3>
+          <p>
+            Skapa flera tabeller och avgör vilka som beskriver proportionella samband.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <span>📈</span>
+          <h3>Skapa grafen</h3>
+          <p>
+            Konstruera en verklig situation som passar en given graf.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <span>🔤</span>
+          <h3>Samma lutning</h3>
+          <p>
+            Skapa flera linjära samband med samma förändringshastighet men olika startvärden.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <span>🔄</span>
+          <h3>Ändra villkoret</h3>
+          <p>
+            Undersök hur modellen förändras om pris, hastighet, skala eller startvärde ändras.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      📊 Bedömning – vad ska läraren få syn på?
+    </h2>
+
+    <p class="section-intro">
+      Bedöm förståelsen för relationen mellan storheterna, inte bara korrekt beräkning.
+    </p>
+
+    <div class="assessment-grid">
+
+      <div class="assessment-card">
+        <span>🔗</span>
+        <h3>Relation</h3>
+        <p>
+          Kan eleven beskriva hur två storheter hänger ihop?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>⚖️</span>
+        <h3>Proportionalitet</h3>
+        <p>
+          Kan eleven avgöra om ett samband är proportionellt och motivera varför?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>📊</span>
+        <h3>Representationer</h3>
+        <p>
+          Kan eleven växla mellan situation, tabell, graf och formel?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>🚀</span>
+        <h3>Generalisering</h3>
+        <p>
+          Kan eleven formulera en regel och använda den för nya värden och situationer?
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Relaterade lärarsidor
+    </h2>
+
+    <p class="section-intro">
+      Samband och förändring knyter samman flera stora matematiska områden.
+    </p>
+
+    <div class="links-grid">
+
+      <a href="larare-algebra.html" class="link-card c1">
+        <span>🔤</span>
+        <h3>Algebra</h3>
+        <p>
+          Algebra används för att uttrycka generella samband och funktioner.
+        </p>
+      </a>
+
+      <a href="larare-procent.html" class="link-card c2">
+        <span>%</span>
+        <h3>Procent</h3>
+        <p>
+          Procentuell förändring och förändringsfaktor är multiplikativa samband.
+        </p>
+      </a>
+
+      <a href="larare-monster.html" class="link-card c3">
+        <span>🧩</span>
+        <h3>Mönster</h3>
+        <p>
+          Mönstertänkande leder vidare mot tabeller, regler och funktioner.
+        </p>
+      </a>
+
+      <a href="larare-geometri.html" class="link-card c4">
+        <span>📐</span>
+        <h3>Geometri</h3>
+        <p>
+          Skala och likformighet bygger på proportionella relationer.
+        </p>
+      </a>
+
+      <a href="larare-problemlosning.html" class="link-card c5">
+        <span>🧠</span>
+        <h3>Problemlösning</h3>
+        <p>
+          Verkliga samband behöver ofta modelleras och tolkas i flera steg.
+        </p>
+      </a>
+
+      <a href="larare-statistik.html" class="link-card c6">
+        <span>📊</span>
+        <h3>Statistik</h3>
+        <p>
+          Tabeller och grafer används både för statistiska data och funktionella samband.
+        </p>
+      </a>
+
+    </div>
+
+    <div class="note">
+      <strong>Kom ihåg:</strong>
+      Matteresans progression är en pedagogisk struktur inom Lgr22:s bredare stadieinnehåll.
+      Den ska användas tillsammans med aktuella styrdokument och lärarens professionella planering,
+      inte som en officiell årskurs-för-årskurs-fördelning.
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  📈 Samband & förändring F–9 – jämföra, relatera, representera och generalisera
+
+</footer>
+
+</body>
+</html>
