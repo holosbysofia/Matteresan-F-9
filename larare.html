@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lärarvy | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --navy: #244766;
+      --navy-light: #edf3f8;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
+        linear-gradient(135deg, #17324d, #315f86);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--dark);
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: auto;
+      color: #edf5fb;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--navy-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 820px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .main-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 205px;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+
+    .main-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
+    }
+
+    .main-card span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .main-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .main-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .c1 { background: var(--yellow-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--orange-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--pink-light); }
+
+    .progression-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
+        linear-gradient(135deg, #17324d, #315f86);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .progression-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .progression-box > p {
+      max-width: 800px;
+      color: #edf5fb;
+    }
+
+    .progression-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 25px;
+    }
+
+    .progression-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .progression-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .progression-card p {
+      color: #edf5fb;
+      font-size: 0.93rem;
+    }
+
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .area-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid #e6ebef;
+      min-height: 175px;
+      transition: 0.2s;
+    }
+
+    .area-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(30,50,60,0.08);
+    }
+
+    .area-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .area-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .area-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .support-box {
+      background: var(--navy-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 25px;
+    }
+
+    .support-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 170px;
+      border: 1px solid #e0e8ee;
+    }
+
+    .support-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .support-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .support-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .teacher-tools {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .tool-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 185px;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(30,50,60,0.08);
+    }
+
+    .tool-card span {
+      display: block;
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+
+    .tool-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .tool-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 950px) {
+      .main-grid,
+      .area-grid,
+      .teacher-tools {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .support-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .progression-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .main-grid,
+      .area-grid,
+      .teacher-tools,
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .progression-box,
+      .support-box {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        padding: 0;
+        max-width: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="index.html" class="back-link">
+      ← Startsidan
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">👩‍🏫</div>
+
+    <h1>Lärarvy</h1>
+
+    <h2>Planera • Undervisa • Följa upp • Utveckla</h2>
+
+    <p>
+      Här samlas lärarstöd för den röda tråden i matematik F–9:
+      progression, Lgr22, språk, missuppfattningar, undervisningsidéer,
+      stöd, utmaning, bedömning och material.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>🔗 Se hela progressionen</h2>
+
+      <p>
+        Lärarvyn hjälper dig att se vad eleverna bygger vidare på,
+        vilka representationer och begrepp som behöver utvecklas
+        och hur undervisningen kan skapa en sammanhängande matematikresa från F till 9.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Lärarens huvudområden
+    </h2>
+
+    <p class="section-intro">
+      Välj den del du behöver i planering, undervisning eller uppföljning.
+    </p>
+
+    <div class="main-grid">
+
+      <a href="larare-lgr22.html" class="main-card c1">
+        <span>📘</span>
+        <h3>Lgr22</h3>
+        <p>
+          Kopplingar till syfte, centralt innehåll och progression genom grundskolan.
+        </p>
+      </a>
+
+
+      <a href="larare-progression.html" class="main-card c2">
+        <span>🔗</span>
+        <h3>Progression F–9</h3>
+        <p>
+          Se hur matematiska idéer utvecklas från konkret förståelse till abstraktion.
+        </p>
+      </a>
+
+
+      <a href="larare-missuppfattningar.html" class="main-card c3">
+        <span>⚠️</span>
+        <h3>Vanliga missuppfattningar</h3>
+        <p>
+          Identifiera vanliga felsvar, bakomliggande tankar och lämpliga undervisningsinsatser.
+        </p>
+      </a>
+
+
+      <a href="larare-undervisning.html" class="main-card c4">
+        <span>🧠</span>
+        <h3>Undervisningsidéer</h3>
+        <p>
+          Matematiska samtal, representationer, laborativt arbete och undersökande undervisning.
+        </p>
+      </a>
+
+
+      <a href="larare-bedomning.html" class="main-card c5">
+        <span>📊</span>
+        <h3>Bedömning</h3>
+        <p>
+          Formativ bedömning, observationer, exit tickets, diagnoser och analys.
+        </p>
+      </a>
+
+
+      <a href="larare-material.html" class="main-card c6">
+        <span>🗂️</span>
+        <h3>Materialbank</h3>
+        <p>
+          Utskriftsmaterial, lektionsunderlag, stödmallar, spel och problemlösning.
+        </p>
+      </a>
+
+
+      <a href="larare-sprak.html" class="main-card c1">
+        <span>💬</span>
+        <h3>Språk & begrepp</h3>
+        <p>
+          Begreppsutveckling, samtalsstrukturer, språkstöd och matematiska meningar.
+        </p>
+      </a>
+
+
+      <a href="larare-stod.html" class="main-card c2">
+        <span>🛟</span>
+        <h3>Stöd & anpassningar</h3>
+        <p>
+          Visuellt stöd, struktur, konkreta modeller och vägar in i matematiken.
+        </p>
+      </a>
+
+
+      <a href="larare-utmaning.html" class="main-card c3">
+        <span>🚀</span>
+        <h3>Fördjupning & utmaning</h3>
+        <p>
+          Öppna problem, generaliseringar och fördjupning utan att bara gå snabbare fram.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="progression-box">
+
+      <h2>🌱 → 🌿 → 🚀 Den röda tråden</h2>
+
+      <p>
+        Samma matematiska idé återkommer och fördjupas genom skolåren.
+        Lärarens uppgift blir att synliggöra sambanden mellan tidigare förståelse,
+        aktuellt innehåll och nästa steg.
+      </p>
+
+      <div class="progression-grid">
+
+        <a href="larare-f3.html" class="progression-card">
+          <h3>🌱 F–3</h3>
+          <p>
+            Konkret material, språk, bilder, antal, relationer, mönster och grundläggande strategier.
+          </p>
+        </a>
+
+        <a href="larare-46.html" class="progression-card">
+          <h3>🌿 4–6</h3>
+          <p>
+            Fler representationer, tydligare samband, strategival, begreppsutveckling och resonemang.
+          </p>
+        </a>
+
+        <a href="larare-79.html" class="progression-card">
+          <h3>🚀 7–9</h3>
+          <p>
+            Abstraktion, algebra, funktioner, generalisering, modellering och argumentation.
+          </p>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Matematiska kunskapsområden
+    </h2>
+
+    <p class="section-intro">
+      Varje område ska kunna följas som en sammanhängande progression genom F–9.
+    </p>
+
+    <div class="area-grid">
+
+      <a href="larare-tal.html" class="area-card">
+        <span>🔢</span>
+        <h3>Taluppfattning</h3>
+        <p>
+          Tal, platsvärde, tallinje, talens egenskaper och talområden.
+        </p>
+      </a>
+
+      <a href="larare-raknesatt.html" class="area-card">
+        <span>➕➖✖️➗</span>
+        <h3>De fyra räknesätten</h3>
+        <p>
+          Innebörder, samband, strategier, huvudräkning och skriftliga metoder.
+        </p>
+      </a>
+
+      <a href="larare-brak.html" class="area-card">
+        <span>🍕</span>
+        <h3>Bråk</h3>
+        <p>
+          Del av helhet, del av antal, tallinje, ekvivalens och beräkningar.
+        </p>
+      </a>
+
+      <a href="larare-decimal.html" class="area-card">
+        <span>🔟</span>
+        <h3>Decimaltal</h3>
+        <p>
+          Positionssystem, storleksrelationer och samband med bråk och procent.
+        </p>
+      </a>
+
+      <a href="larare-procent.html" class="area-card">
+        <span>%</span>
+        <h3>Procent</h3>
+        <p>
+          Andel, helhet, procentuell förändring och förändringsfaktor.
+        </p>
+      </a>
+
+      <a href="larare-algebra.html" class="area-card">
+        <span>🔤</span>
+        <h3>Algebra</h3>
+        <p>
+          Likhet, mönster, obekanta tal, variabler, uttryck och ekvationer.
+        </p>
+      </a>
+
+      <a href="larare-geometri.html" class="area-card">
+        <span>📐</span>
+        <h3>Geometri</h3>
+        <p>
+          Former, vinklar, mätning, area, volym, skala och geometriska samband.
+        </p>
+      </a>
+
+      <a href="larare-statistik.html" class="area-card">
+        <span>📊</span>
+        <h3>Statistik</h3>
+        <p>
+          Data, tabeller, diagram, lägesmått, spridning och kritisk tolkning.
+        </p>
+      </a>
+
+      <a href="larare-sannolikhet.html" class="area-card">
+        <span>🎲</span>
+        <h3>Sannolikhet</h3>
+        <p>
+          Slump, utfall, sannolikhetsbegrepp och mer komplexa sannolikhetssituationer.
+        </p>
+      </a>
+
+      <a href="larare-problemlosning.html" class="area-card">
+        <span>🧠</span>
+        <h3>Problemlösning</h3>
+        <p>
+          Förstå, planera, lösa, kontrollera, modellera och värdera.
+        </p>
+      </a>
+
+      <a href="larare-monster.html" class="area-card">
+        <span>🧩</span>
+        <h3>Mönster</h3>
+        <p>
+          Upprepningar, växande mönster, regler och algebraiska generaliseringar.
+        </p>
+      </a>
+
+      <a href="larare-samband.html" class="area-card">
+        <span>📈</span>
+        <h3>Samband & förändring</h3>
+        <p>
+          Proportionalitet, skala, hastighet, tabeller, grafer och funktioner.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="support-box">
+
+      <h2 class="section-title">
+        Undervisning för fler elever
+      </h2>
+
+      <p class="section-intro">
+        Planera undervisningen så att elever får flera vägar in i samma matematiska idé.
+      </p>
+
+      <div class="support-grid">
+
+        <a href="larare-sva.html" class="support-card">
+          <span>💬</span>
+          <h3>SVA & språkstöd</h3>
+          <p>
+            Förförståelse, begrepp, visuellt stöd och strukturerade samtal.
+          </p>
+        </a>
+
+        <a href="larare-npf.html" class="support-card">
+          <span>🧩</span>
+          <h3>NPF-stöd</h3>
+          <p>
+            Tydlighet, förutsägbarhet, visuella instruktioner och minskad belastning.
+          </p>
+        </a>
+
+        <a href="larare-konkret.html" class="support-card">
+          <span>🧱</span>
+          <h3>Konkret & visuellt</h3>
+          <p>
+            Manipulativt material, bilder, modeller och representationer.
+          </p>
+        </a>
+
+        <a href="larare-utmaning.html" class="support-card">
+          <span>🚀</span>
+          <h3>Utmaning</h3>
+          <p>
+            Fördjupa genom varför-frågor, flera lösningar och generalisering.
+          </p>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Lärarverktyg
+    </h2>
+
+    <p class="section-intro">
+      Praktiska delar för planering, undervisning och analys.
+    </p>
+
+    <div class="teacher-tools">
+
+      <a href="larare-matteprat.html" class="tool-card c1">
+        <span>🗣️</span>
+        <h3>Matteprat</h3>
+        <p>
+          Frågor, samtalsstrukturer och exempel för matematiska diskussioner.
+        </p>
+      </a>
+
+      <a href="larare-exittickets.html" class="tool-card c2">
+        <span>🎫</span>
+        <h3>Exit tickets</h3>
+        <p>
+          Snabba underlag för att få syn på förståelse och nästa steg.
+        </p>
+      </a>
+
+      <a href="larare-diagnoser.html" class="tool-card c3">
+        <span>🔎</span>
+        <h3>Diagnostiska uppgifter</h3>
+        <p>
+          Uppgifter som synliggör strategier, begrepp och missuppfattningar.
+        </p>
+      </a>
+
+      <a href="larare-observation.html" class="tool-card c4">
+        <span>👀</span>
+        <h3>Observation</h3>
+        <p>
+          Vad kan läraren lyssna och titta efter under elevens arbete?
+        </p>
+      </a>
+
+      <a href="larare-planering.html" class="tool-card c5">
+        <span>🗓️</span>
+        <h3>Lektionsplanering</h3>
+        <p>
+          Struktur för mål, aktivitet, språk, frågor, stöd och uppföljning.
+        </p>
+      </a>
+
+      <a href="larare-utskrift.html" class="tool-card c6">
+        <span>🖨️</span>
+        <h3>Utskriftsmaterial</h3>
+        <p>
+          Elevblad, samtalskort, problemlösning och stödmallar anpassade för A4.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  👩‍🏫 Lärarvy – planera, undervisa, följa upp och utveckla
+
+</footer>
+
+</body>
+</html>
