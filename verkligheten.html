@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Matematik i verkligheten | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #1f536d, #3b8a9f);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: #1f536d;
+    }
+
+    .hero {
+      max-width: 850px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #eefcff;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 760px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 30px 24px;
+      min-height: 245px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .stage-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    }
+
+    .f3 {
+      background: var(--green-light);
+    }
+
+    .m46 {
+      background: var(--blue-light);
+    }
+
+    .m79 {
+      background: var(--purple-light);
+    }
+
+    .stage-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card p {
+      color: var(--muted);
+      flex-grow: 1;
+    }
+
+    .stage-button {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 18px;
+      background: var(--dark);
+      color: white;
+      padding: 10px 17px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .real-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .real-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 205px;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+
+    .real-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
+    }
+
+    .real-card span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .real-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .real-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .c1 { background: var(--yellow-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--orange-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--pink-light); }
+
+    .mission-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 35%),
+        linear-gradient(135deg, #17324d, #346e7d);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .mission-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .mission-box > div:first-child p {
+      color: #edfaff;
+    }
+
+    .mission-card {
+      background: white;
+      color: var(--text);
+      border-radius: 20px;
+      padding: 25px;
+    }
+
+    .step {
+      margin-top: 10px;
+      background: #f5f7f8;
+      border-radius: 12px;
+      padding: 11px 14px;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .skill-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+      border: 1px solid #e6ebef;
+      min-height: 175px;
+    }
+
+    .skill-card span {
+      display: block;
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+
+    .skill-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .challenge-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .challenge-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid #eee5cc;
+      min-height: 180px;
+    }
+
+    .challenge-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .challenge-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 950px) {
+      .real-grid,
+      .challenge-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skill-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .mission-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .real-grid,
+      .skill-grid,
+      .challenge-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .mission-box,
+      .challenge-box {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        padding: 0;
+        max-width: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="index.html" class="back-link">
+      ← Startsidan
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🌍</div>
+
+    <h1>Matematik i verkligheten</h1>
+
+    <h2>Upptäck matematiken runt omkring dig</h2>
+
+    <p>
+      Matematik finns i pengar, resor, byggnader, sport, mat,
+      teknik, natur, klimat och nästan allt vi gör.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>💡 När behöver vi matematik?</h2>
+
+      <p>
+        Matematik hjälper oss att förstå världen, planera,
+        jämföra, mäta, fatta beslut och lösa problem.
+        Här använder du matematiken i situationer som kan finnas utanför matteboken.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Välj din nivå
+    </h2>
+
+    <p class="section-intro">
+      Samma vardagliga situationer kan undersökas på olika nivåer genom hela F–9.
+    </p>
+
+    <div class="stage-grid">
+
+      <a href="verkligheten-f3.html" class="stage-card f3">
+
+        <div class="stage-icon">🌱</div>
+
+        <h3>Verkligheten F–3</h3>
+
+        <p>
+          Pengar, tid, längd, former, antal, recept och matematik i närmiljön.
+        </p>
+
+        <span class="stage-button">
+          Utforska F–3 →
+        </span>
+
+      </a>
+
+
+      <a href="verkligheten-46.html" class="stage-card m46">
+
+        <div class="stage-icon">🌿</div>
+
+        <h3>Verkligheten 4–6</h3>
+
+        <p>
+          Budget, resor, skala, statistik, priser, procent och mätningar.
+        </p>
+
+        <span class="stage-button">
+          Utforska 4–6 →
+        </span>
+
+      </a>
+
+
+      <a href="verkligheten-79.html" class="stage-card m79">
+
+        <div class="stage-icon">🚀</div>
+
+        <h3>Verkligheten 7–9</h3>
+
+        <p>
+          Ekonomi, funktioner, förändringar, data, modeller, samhälle och teknik.
+        </p>
+
+        <span class="stage-button">
+          Utforska 7–9 →
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Var finns matematiken?
+    </h2>
+
+    <p class="section-intro">
+      Välj en verklig situation och upptäck matematiken som gömmer sig där.
+    </p>
+
+    <div class="real-grid">
+
+      <a href="verkligheten-pengar.html" class="real-card c1">
+        <span>💰</span>
+        <h3>Pengar & ekonomi</h3>
+        <p>
+          Priser, växel, budget, rabatter, procent, ränta och ekonomiska beslut.
+        </p>
+      </a>
+
+
+      <a href="verkligheten-mat.html" class="real-card c2">
+        <span>🍲</span>
+        <h3>Mat & recept</h3>
+        <p>
+          Mått, volym, vikt, proportioner, bråk och förändring av recept.
+        </p>
+      </a>
+
+
+      <a href="verkligheten-resor.html" class="real-card c3">
+        <span>✈️</span>
+        <h3>Resor</h3>
+        <p>
+          Tid, avstånd, hastighet, kartor, skala, kostnader och planering.
+        </p>
+      </a>
+
+
+      <a href="verkligheten-bygg.html" class="real-card c4">
+        <span>🏠</span>
+        <h3>Bygg & design</h3>
+        <p>
+          Längd, vinklar, area, omkrets, volym, skala och geometriska modeller.
+        </p>
+      </a>
+
+
+      <a href="verkligheten-sport.html" class="real-card c5">
+        <span>⚽</span>
+        <h3>Sport</h3>
+        <p>
+          Resultat, statistik, medelvärden, hastighet, vinklar och sannolikhet.
+        </p>
+      </a>
+
+
+      <a href="verkligheten-natur.html" class="real-card c6">
+        <span>🌿</span>
+        <h3>Natur & miljö</h3>
+        <p>
+          Mätningar, förändringar, data, klimat, diagram och matematiska modeller.
+        </p>
+      </a>
+
+
+      <a href="verkligheten-teknik.html" class="real-card c1">
+        <span>💻</span>
+        <h3>Teknik & digital värld</h3>
+        <p>
+          Kodning, logik, koordinater, mönster, data och algoritmiskt tänkande.
+        </p>
+      </a>
+
+
+      <a href="verkligheten-samhalle.html" class="real-card c2">
+        <span>🏙️</span>
+        <h3>Samhälle</h3>
+        <p>
+          Befolkning, statistik, ekonomi, val, diagram och kritisk granskning av data.
+        </p>
+      </a>
+
+
+      <a href="verkligheten-konst.html" class="real-card c3">
+        <span>🎨</span>
+        <h3>Konst & design</h3>
+        <p>
+          Symmetri, proportioner, geometriska former, mönster och skala.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="mission-box">
+
+      <div>
+
+        <h2>🌍 Verklighetsuppdrag</h2>
+
+        <p>
+          I ett verklighetsuppdrag får du använda matematik för att fatta ett beslut.
+          Det finns inte alltid bara ett rätt sätt att lösa problemet.
+        </p>
+
+      </div>
+
+      <div class="mission-card">
+
+        <strong>Uppdrag:</strong>
+
+        <h2 style="margin-top:12px;">
+          Planera en klassutflykt
+        </h2>
+
+        <div class="step">
+          💰 Ni har en budget på 4 000 kr.
+        </div>
+
+        <div class="step">
+          🚌 Transporten kostar 1 850 kr.
+        </div>
+
+        <div class="step">
+          👥 Klassen består av 24 elever och 3 vuxna.
+        </div>
+
+        <div class="step">
+          🍎 Hur mycket kan ni använda till mat och aktiviteter?
+        </div>
+
+        <div class="step">
+          🧠 Kan ni göra flera olika planer?
+        </div>
+
+        <div class="step">
+          🗣️ Vilken plan tycker ni är bäst och varför?
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Matematik hjälper oss att...
+    </h2>
+
+    <p class="section-intro">
+      Samma matematiska kunskap kan användas i många olika situationer.
+    </p>
+
+    <div class="skill-grid">
+
+      <div class="skill-card">
+        <span>📏</span>
+        <h3>Mäta</h3>
+        <p>
+          Längd, tid, massa, volym, area och andra storheter.
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <span>⚖️</span>
+        <h3>Jämföra</h3>
+        <p>
+          Priser, mängder, resultat och olika alternativ.
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <span>📊</span>
+        <h3>Analysera</h3>
+        <p>
+          Data, tabeller, diagram och information.
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <span>🧠</span>
+        <h3>Fatta beslut</h3>
+        <p>
+          Använd matematik för att motivera vilket alternativ som är bäst.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="challenge-box">
+
+      <h2 class="section-title">
+        🔎 Hitta matematiken omkring dig
+      </h2>
+
+      <p class="section-intro">
+        Du kan hitta matematik nästan överallt.
+      </p>
+
+      <div class="challenge-grid">
+
+        <div class="challenge-card">
+          <h3>🏠 Hemma</h3>
+          <p>
+            Hitta fem saker hemma där du använder eller skulle kunna använda matematik.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <h3>🏫 I skolan</h3>
+          <p>
+            Leta efter former, mått, tider, statistik och tal i skolmiljön.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <h3>🚶 På väg</h3>
+          <p>
+            Undersök avstånd, tid, hastighet, skyltar och geometriska former.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <h3>🛒 I butiken</h3>
+          <p>
+            Jämför priser, erbjudanden, mängder och jämförpris.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <h3>📱 Digitalt</h3>
+          <p>
+            Fundera på var du möter data, procent, statistik och algoritmer.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <h3>🌍 I nyheterna</h3>
+          <p>
+            Leta efter diagram, procenttal och statistik och fundera på hur de används.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🌍 Matematik i verkligheten – upptäck matematiken runt omkring dig
+
+</footer>
+
+</body>
+</html>
