@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lgr22 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --blue: #416f98;
+      --blue-light: #edf4fa;
+      --green-light: #edf9f1;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
+        linear-gradient(135deg, #17324d, #416f98);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--dark);
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.7rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: auto;
+      color: #edf5fb;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 850px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .purpose-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .purpose-card {
+      background: white;
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 200px;
+      border: 1px solid #e5eaee;
+    }
+
+    .purpose-card span {
+      display: block;
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+    }
+
+    .purpose-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .purpose-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .ability-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
+        linear-gradient(135deg, #17324d, #345f82);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .ability-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .ability-box > p {
+      color: #edf5fb;
+      max-width: 800px;
+    }
+
+    .ability-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .ability-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 180px;
+    }
+
+    .ability-card span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 7px;
+    }
+
+    .ability-card h3 {
+      margin-bottom: 6px;
+    }
+
+    .ability-card p {
+      color: #edf5fb;
+      font-size: 0.9rem;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 28px 24px;
+      min-height: 265px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .f3 {
+      background: var(--green-light);
+    }
+
+    .m46 {
+      background: var(--blue-light);
+    }
+
+    .m79 {
+      background: var(--purple-light);
+    }
+
+    .stage-card span {
+      display: block;
+      font-size: 2.7rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      margin-bottom: 9px;
+      font-size: 1.4rem;
+    }
+
+    .stage-card p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .stage-card ul {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .stage-card li {
+      margin-bottom: 7px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .content-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 205px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .content-card span {
+      display: block;
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+    }
+
+    .content-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .content-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .c1 { background: var(--yellow-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--orange-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--pink-light); }
+
+    .planning-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .planning-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 25px;
+    }
+
+    .planning-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 175px;
+      border: 1px solid #dfe8ef;
+    }
+
+    .planning-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .planning-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .planning-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .thread-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .thread-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px 16px;
+      text-align: center;
+      border: 1px solid #e6ebef;
+      min-height: 180px;
+    }
+
+    .thread-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .thread-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .thread-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .note {
+      background: #fff8e5;
+      border-left: 6px solid #e1a631;
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 28px;
+      color: #665528;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 1000px) {
+      .purpose-grid,
+      .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ability-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .planning-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .thread-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 750px) {
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .purpose-grid,
+      .content-grid,
+      .ability-grid,
+      .planning-grid,
+      .thread-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .ability-box,
+      .planning-box {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        padding: 0;
+        max-width: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="larare.html" class="back-link">
+      ← Lärarvy
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">📘</div>
+
+    <h1>Lgr22</h1>
+
+    <h2>Från styrdokument till undervisning</h2>
+
+    <p>
+      Här kopplas Matteresans röda tråd till matematikämnets långsiktiga utveckling,
+      centrala innehåll och de matematiska förmågor som eleverna behöver få möjlighet att utveckla.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>🔗 Lgr22 som grund – progression som väg</h2>
+
+      <p>
+        Matteresan organiserar matematiken så att läraren kan se hur innehåll,
+        begrepp, representationer och matematiska förmågor kan utvecklas över tid.
+        Årskurssidorna i plattformen är en pedagogiskt planerad progression,
+        medan styrdokumentets centrala innehåll huvudsakligen är organiserat i större årskursintervall.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Matematikundervisningen ska ge eleverna möjlighet att...
+    </h2>
+
+    <p class="section-intro">
+      Matteresan bygger undervisningen kring flera delar av matematiskt kunnande samtidigt.
+    </p>
+
+    <div class="purpose-grid">
+
+      <div class="purpose-card">
+        <span>🧠</span>
+        <h3>Förstå matematik</h3>
+        <p>
+          Utveckla förståelse för matematiska idéer, begrepp, metoder och samband.
+        </p>
+      </div>
+
+      <div class="purpose-card">
+        <span>🌍</span>
+        <h3>Använda matematik</h3>
+        <p>
+          Använda matematik i vardagliga, samhälleliga och andra relevanta sammanhang.
+        </p>
+      </div>
+
+      <div class="purpose-card">
+        <span>🔎</span>
+        <h3>Undersöka</h3>
+        <p>
+          Pröva idéer, upptäcka mönster och undersöka matematiska samband.
+        </p>
+      </div>
+
+      <div class="purpose-card">
+        <span>🧩</span>
+        <h3>Lösa problem</h3>
+        <p>
+          Tolka situationer, välja strategier, genomföra lösningar och värdera resultat.
+        </p>
+      </div>
+
+      <div class="purpose-card">
+        <span>🗣️</span>
+        <h3>Kommunicera</h3>
+        <p>
+          Använda matematiska begrepp, symboler, bilder, tabeller och andra uttrycksformer.
+        </p>
+      </div>
+
+      <div class="purpose-card">
+        <span>⚖️</span>
+        <h3>Resonera</h3>
+        <p>
+          Föra, följa och utveckla matematiska resonemang och kunna motivera slutsatser.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="ability-box">
+
+      <h2>🧠 Matematiska förmågor i undervisningen</h2>
+
+      <p>
+        Förmågorna utvecklas bäst när de vävs ihop med innehållet.
+        En lektion om exempelvis bråk kan samtidigt innehålla begrepp,
+        problemlösning, metodval, resonemang och kommunikation.
+      </p>
+
+      <div class="ability-grid">
+
+        <div class="ability-card">
+          <span>🧩</span>
+          <h3>Problemlösning</h3>
+          <p>
+            Formulera och lösa problem samt värdera valda strategier och resultat.
+          </p>
+        </div>
+
+        <div class="ability-card">
+          <span>💬</span>
+          <h3>Begrepp</h3>
+          <p>
+            Förstå och använda matematiska begrepp och se samband mellan dem.
+          </p>
+        </div>
+
+        <div class="ability-card">
+          <span>🛠️</span>
+          <h3>Metoder</h3>
+          <p>
+            Välja och använda ändamålsenliga metoder för beräkningar och problemlösning.
+          </p>
+        </div>
+
+        <div class="ability-card">
+          <span>🗣️</span>
+          <h3>Resonemang</h3>
+          <p>
+            Föra matematiska resonemang och kunna pröva och motivera idéer.
+          </p>
+        </div>
+
+        <div class="ability-card">
+          <span>🔗</span>
+          <h3>Kommunikation</h3>
+          <p>
+            Uttrycka matematik med ord, symboler, bilder, tabeller, grafer och modeller.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Progression genom F–9
+    </h2>
+
+    <p class="section-intro">
+      Innehållet fördjupas samtidigt som elevernas självständighet och abstraktionsnivå ökar.
+    </p>
+
+    <div class="stage-grid">
+
+      <div class="stage-card f3">
+
+        <span>🌱</span>
+
+        <h3>F–3 – bygga grunden</h3>
+
+        <p>
+          Undervisningen ger eleverna många konkreta, visuella och språkliga erfarenheter.
+        </p>
+
+        <ul>
+          <li>Tal och antal</li>
+          <li>Grundläggande räknesätt</li>
+          <li>Enkla mönster och likheter</li>
+          <li>Former, läge och mätning</li>
+          <li>Enkla tabeller och diagram</li>
+          <li>Slump och enkla sannolikhetssituationer</li>
+          <li>Problemlösning i elevnära situationer</li>
+        </ul>
+
+      </div>
+
+
+      <div class="stage-card m46">
+
+        <span>🌿</span>
+
+        <h3>4–6 – utveckla samband</h3>
+
+        <p>
+          Eleverna möter fler representationer och behöver välja, jämföra och förklara strategier.
+        </p>
+
+        <ul>
+          <li>Utvidgade talområden</li>
+          <li>Bråk och decimaltal</li>
+          <li>Procent och proportionalitet</li>
+          <li>Algebraiska uttryck och mönster</li>
+          <li>Geometriska beräkningar</li>
+          <li>Statistik och sannolikhet</li>
+          <li>Problemlösning med flera steg</li>
+        </ul>
+
+      </div>
+
+
+      <div class="stage-card m79">
+
+        <span>🚀</span>
+
+        <h3>7–9 – fördjupa och generalisera</h3>
+
+        <p>
+          Matematiska idéer blir mer abstrakta och eleverna använder modeller, algebra och generalisering.
+        </p>
+
+        <ul>
+          <li>Tal och beräkningar i utvidgade sammanhang</li>
+          <li>Algebra och ekvationer</li>
+          <li>Procentuell förändring</li>
+          <li>Funktioner och grafer</li>
+          <li>Geometriska samband</li>
+          <li>Statistik och sannolikhetsmodeller</li>
+          <li>Modellering och komplex problemlösning</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Innehållsområden i Matteresan
+    </h2>
+
+    <p class="section-intro">
+      Plattformens områden gör det möjligt att följa samma matematiska idé genom flera skolår.
+    </p>
+
+    <div class="content-grid">
+
+      <a href="larare-tal.html" class="content-card c1">
+        <span>🔢</span>
+        <h3>Taluppfattning</h3>
+        <p>
+          Tal, platsvärde, tallinje, talrelationer, negativa tal och talens egenskaper.
+        </p>
+      </a>
+
+      <a href="larare-raknesatt.html" class="content-card c2">
+        <span>➕➖✖️➗</span>
+        <h3>Räknesätt</h3>
+        <p>
+          Innebörd, samband, strategier, metoder, rimlighet och beräkningar.
+        </p>
+      </a>
+
+      <a href="larare-brak.html" class="content-card c3">
+        <span>🍕</span>
+        <h3>Bråk, decimal & procent</h3>
+        <p>
+          Representationer, jämförelser, proportioner, andelar och förändring.
+        </p>
+      </a>
+
+      <a href="larare-algebra.html" class="content-card c4">
+        <span>🔤</span>
+        <h3>Algebra & mönster</h3>
+        <p>
+          Likhet, obekanta tal, variabler, uttryck, ekvationer och generalisering.
+        </p>
+      </a>
+
+      <a href="larare-geometri.html" class="content-card c5">
+        <span>📐</span>
+        <h3>Geometri</h3>
+        <p>
+          Former, läge, vinklar, skala, area, omkrets, volym och geometriska samband.
+        </p>
+      </a>
+
+      <a href="larare-statistik.html" class="content-card c6">
+        <span>📊</span>
+        <h3>Statistik</h3>
+        <p>
+          Datainsamling, tabeller, diagram, lägesmått, spridning och kritisk tolkning.
+        </p>
+      </a>
+
+      <a href="larare-sannolikhet.html" class="content-card c1">
+        <span>🎲</span>
+        <h3>Sannolikhet</h3>
+        <p>
+          Slump, utfall, jämförelser, experiment och sannolikhetsmodeller.
+        </p>
+      </a>
+
+      <a href="larare-problemlosning.html" class="content-card c2">
+        <span>🧠</span>
+        <h3>Problemlösning</h3>
+        <p>
+          Strategier, modeller, rimlighetsbedömning, problemlösningsprocess och reflektion.
+        </p>
+      </a>
+
+      <a href="larare-samband.html" class="content-card c3">
+        <span>📈</span>
+        <h3>Samband & förändring</h3>
+        <p>
+          Proportionalitet, förhållanden, skala, hastighet, tabeller, grafer och funktioner.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Den röda tråden i varje område
+    </h2>
+
+    <p class="section-intro">
+      Samma arbetsprincip kan användas när vi planerar progression inom varje matematiskt område.
+    </p>
+
+    <div class="thread-grid">
+
+      <div class="thread-card">
+        <span>🧱</span>
+        <h3>Konkret</h3>
+        <p>
+          Eleven får uppleva matematiken med material, handling och situationer.
+        </p>
+      </div>
+
+      <div class="thread-card">
+        <span>🖼️</span>
+        <h3>Visuellt</h3>
+        <p>
+          Bilder och modeller synliggör matematiska relationer.
+        </p>
+      </div>
+
+      <div class="thread-card">
+        <span>💬</span>
+        <h3>Språk</h3>
+        <p>
+          Begrepp och matematiska meningar utvecklar förståelsen.
+        </p>
+      </div>
+
+      <div class="thread-card">
+        <span>🔢</span>
+        <h3>Symboliskt</h3>
+        <p>
+          Matematiska symboler och notation kopplas till tidigare representationer.
+        </p>
+      </div>
+
+      <div class="thread-card">
+        <span>🚀</span>
+        <h3>Generalisering</h3>
+        <p>
+          Eleven använder kunskapen för att upptäcka och beskriva större samband.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="planning-box">
+
+      <h2 class="section-title">
+        🗓️ Från Lgr22 till lektionsplanering
+      </h2>
+
+      <p class="section-intro">
+        Styrdokumentet anger riktning och innehåll. Läraren behöver sedan omvandla det till undervisning.
+      </p>
+
+      <div class="planning-grid">
+
+        <div class="planning-card">
+          <span>1️⃣</span>
+          <h3>Vad ska utvecklas?</h3>
+          <p>
+            Identifiera matematisk idé, begrepp och förmåga som står i centrum.
+          </p>
+        </div>
+
+        <div class="planning-card">
+          <span>2️⃣</span>
+          <h3>Vad kan eleverna redan?</h3>
+          <p>
+            Ta reda på förkunskaper, strategier och möjliga missuppfattningar.
+          </p>
+        </div>
+
+        <div class="planning-card">
+          <span>3️⃣</span>
+          <h3>Hur ska matematiken synliggöras?</h3>
+          <p>
+            Planera material, bilder, modeller, symboler och språk.
+          </p>
+        </div>
+
+        <div class="planning-card">
+          <span>4️⃣</span>
+          <h3>Vilka frågor ska ställas?</h3>
+          <p>
+            Förbered frågor som får eleverna att förklara, jämföra och resonera.
+          </p>
+        </div>
+
+        <div class="planning-card">
+          <span>5️⃣</span>
+          <h3>Vilket stöd behövs?</h3>
+          <p>
+            Planera visuellt stöd, språkstöd, struktur och alternativa representationer.
+          </p>
+        </div>
+
+        <div class="planning-card">
+          <span>6️⃣</span>
+          <h3>Hur fördjupas innehållet?</h3>
+          <p>
+            Förbered öppna frågor, förändrade villkor och generaliseringar.
+          </p>
+        </div>
+
+        <div class="planning-card">
+          <span>7️⃣</span>
+          <h3>Hur synliggörs lärandet?</h3>
+          <p>
+            Använd observation, elevlösningar, samtal eller exit ticket.
+          </p>
+        </div>
+
+        <div class="planning-card">
+          <span>8️⃣</span>
+          <h3>Vad blir nästa steg?</h3>
+          <p>
+            Använd det du sett för att planera nästa undervisningsinsats.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="note">
+        <strong>Viktigt:</strong>
+        Matteresans årskurssidor ska ses som en genomtänkt undervisningsprogression.
+        De ersätter inte lärarens arbete med aktuella styrdokument, lokal planering och bedömning.
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  📘 Lgr22 – från styrdokument till undervisning
+
+</footer>
+
+</body>
+</html>
