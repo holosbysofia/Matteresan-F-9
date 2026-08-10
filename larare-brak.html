@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bråk F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --orange: #d98a3f;
+      --orange-dark: #9b5d24;
+      --orange-light: #fff1df;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
+        linear-gradient(135deg, #7f4b1f, #d98a3f);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--orange-dark);
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.7rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: auto;
+      color: #fff8f0;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--orange-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 860px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .core-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .core-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 180px;
+      border: 1px solid #e6ebef;
+    }
+
+    .core-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .core-card h3 {
+      color: var(--orange-dark);
+      margin-bottom: 6px;
+    }
+
+    .core-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .progression-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
+        linear-gradient(135deg, #17324d, #7c5938);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .progression-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .progression-box > p {
+      color: #fff8f0;
+      max-width: 830px;
+    }
+
+    .progression-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .progression-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 280px;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .f3 { background: rgba(118,211,149,0.15); }
+    .m46 { background: rgba(110,177,238,0.15); }
+    .m79 { background: rgba(177,147,245,0.15); }
+
+    .progression-card span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 7px;
+    }
+
+    .progression-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .progression-card ul {
+      padding-left: 20px;
+      color: #fffafa;
+      font-size: 0.93rem;
+    }
+
+    .progression-card li {
+      margin-bottom: 6px;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px;
+      border: 1px solid #e6ebef;
+      margin-bottom: 25px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .section-header span {
+      font-size: 2.7rem;
+    }
+
+    .section-header h2 {
+      color: var(--dark);
+      font-size: 1.75rem;
+    }
+
+    .section-header p {
+      color: var(--muted);
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .mini-card {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 190px;
+    }
+
+    .mini-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .mini-card p,
+    .mini-card ul {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .mini-card ul {
+      padding-left: 20px;
+    }
+
+    .mini-card li {
+      margin-bottom: 6px;
+    }
+
+    .m1 { background: var(--green-light); }
+    .m2 { background: var(--blue-light); }
+    .m3 { background: var(--yellow-light); }
+
+    .representation-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .representation-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      margin-top: 24px;
+    }
+
+    .rep-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      min-height: 175px;
+      border: 1px solid #dfe8ef;
+    }
+
+    .rep-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .rep-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .rep-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .mis-box {
+      background: var(--pink-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .mis-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .mis-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 200px;
+      border: 1px solid #eee1e5;
+    }
+
+    .mis-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .mis-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .mis-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .question-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .question-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .question-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 170px;
+      border: 1px solid #eee3c6;
+    }
+
+    .question-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .question-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .support-grid,
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .support-card,
+    .assessment-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 180px;
+      border: 1px solid #e6ebef;
+    }
+
+    .support-card span,
+    .assessment-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .support-card h3,
+    .assessment-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .support-card p,
+    .assessment-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .challenge-box {
+      background: var(--purple-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 24px;
+    }
+
+    .challenge-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 180px;
+      border: 1px solid #e2dcf1;
+    }
+
+    .challenge-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .challenge-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .challenge-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .link-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 175px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .link-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
+    }
+
+    .link-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .link-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .link-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .c1 { background: var(--orange-light); }
+    .c2 { background: var(--green-light); }
+    .c3 { background: var(--blue-light); }
+    .c4 { background: var(--yellow-light); }
+    .c5 { background: var(--purple-light); }
+    .c6 { background: var(--pink-light); }
+
+    .note {
+      background: var(--yellow-light);
+      border-left: 6px solid #dba327;
+      border-radius: 14px;
+      padding: 20px;
+      color: #665528;
+      margin-top: 25px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 1050px) {
+      .representation-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .core-grid,
+      .support-grid,
+      .assessment-grid,
+      .challenge-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .progression-grid,
+      .three-grid,
+      .mis-grid,
+      .question-grid,
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .core-grid,
+      .representation-grid,
+      .support-grid,
+      .assessment-grid,
+      .challenge-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .progression-box,
+      .section-card,
+      .representation-box,
+      .mis-box,
+      .question-box,
+      .challenge-box {
+        padding: 25px 18px;
+      }
+
+      .section-header {
+        align-items: flex-start;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      section,
+      .section-card {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="larare.html" class="back-link">
+      ← Lärarvy
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">🍕</div>
+
+    <h1>Bråk F–9</h1>
+
+    <h2>Del • Helhet • Tal • Relation</h2>
+
+    <p>
+      Bråk är ett av de viktigaste områdena i den matematiska progressionen.
+      Elever behöver förstå bråk som tal, relationer och operatorer
+      och kunna koppla bråk till decimal, procent och proportionalitet.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>🍕 Bråk är tal – inte två heltal ovanpå varandra</h2>
+
+      <p>
+        En stabil bråkförståelse innebär att eleven ser hela bråket som ett tal,
+        kan placera det på tallinjen, jämföra dess storlek och förstå hur täljare
+        och nämnare tillsammans beskriver en relation.
+        Bråk behöver därför mötas i flera betydelser och representationer.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Fyra viktiga betydelser av bråk
+    </h2>
+
+    <p class="section-intro">
+      Om undervisningen bara använder pizzor och tårtbitar blir bråkbegreppet för smalt.
+    </p>
+
+    <div class="core-grid">
+
+      <div class="core-card">
+        <span>🍕</span>
+        <h3>Del av helhet</h3>
+        <p>
+          En helhet delas i lika stora delar, till exempel tre fjärdedelar av en figur.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>👥</span>
+        <h3>Del av antal</h3>
+        <p>
+          Exempelvis 1/4 av 20 eller 3/5 av en grupp.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>↔️</span>
+        <h3>Bråk som tal</h3>
+        <p>
+          Varje bråk har en bestämd position på tallinjen och kan jämföras med andra tal.
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>➗</span>
+        <h3>Bråk som division</h3>
+        <p>
+          3/4 kan förstås som 3 ÷ 4 och kopplas till decimalform.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="progression-box">
+
+      <h2>🌱 → 🌿 → 🚀 Progression F–9</h2>
+
+      <p>
+        Bråkförståelsen utvecklas från konkreta delningar till generella räknestrategier och algebraiska samband.
+      </p>
+
+      <div class="progression-grid">
+
+        <div class="progression-card f3">
+
+          <span>🌱</span>
+
+          <h3>F–3</h3>
+
+          <ul>
+            <li>hel och del</li>
+            <li>dela lika</li>
+            <li>hälften</li>
+            <li>fjärdedelar</li>
+            <li>enkla bråk i vardagliga situationer</li>
+            <li>jämföra enkla bråk</li>
+            <li>förstå att delarna måste vara lika stora</li>
+          </ul>
+
+        </div>
+
+
+        <div class="progression-card m46">
+
+          <span>🌿</span>
+
+          <h3>4–6</h3>
+
+          <ul>
+            <li>bråk som tal</li>
+            <li>bråk på tallinjen</li>
+            <li>likvärdiga bråk</li>
+            <li>förlängning och förkortning</li>
+            <li>jämföra bråk</li>
+            <li>bråk av antal</li>
+            <li>koppling till decimal och procent</li>
+            <li>enkla beräkningar med bråk</li>
+          </ul>
+
+        </div>
+
+
+        <div class="progression-card m79">
+
+          <span>🚀</span>
+
+          <h3>7–9</h3>
+
+          <ul>
+            <li>räknesätt med rationella tal</li>
+            <li>negativa bråk</li>
+            <li>bråk i algebraiska uttryck</li>
+            <li>proportionella samband</li>
+            <li>förhållanden</li>
+            <li>bråk som division</li>
+            <li>strategiskt val mellan bråk och decimalform</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🍕</span>
+        <div>
+          <h2>Del av helhet</h2>
+          <p>Helheten och delarnas storlek måste alltid vara tydliga.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+          <h3>Bygg förståelse</h3>
+          <ul>
+            <li>dela verkliga föremål</li>
+            <li>vika papper</li>
+            <li>bråkstavar</li>
+            <li>areamodeller</li>
+            <li>jämföra lika och olika delningar</li>
+          </ul>
+        </div>
+
+        <div class="mini-card m2">
+          <h3>Viktigt språk</h3>
+          <ul>
+            <li>helhet</li>
+            <li>del</li>
+            <li>täljare</li>
+            <li>nämnare</li>
+            <li>lika stora delar</li>
+          </ul>
+        </div>
+
+        <div class="mini-card m3">
+          <h3>Fråga</h3>
+          <ul>
+            <li>Vad är helheten?</li>
+            <li>Hur många lika delar finns?</li>
+            <li>Hur många delar har vi?</li>
+            <li>Är delarna lika stora?</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>↔️</span>
+        <div>
+          <h2>Bråk som tal</h2>
+          <p>Tallinjen är central för att utveckla en mogen bråkförståelse.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+          <h3>Undervisa</h3>
+          <ul>
+            <li>placera 1/2</li>
+            <li>placera bråk mellan 0 och 1</li>
+            <li>bråk större än 1</li>
+            <li>blandad form</li>
+            <li>jämföra avstånd</li>
+          </ul>
+        </div>
+
+        <div class="mini-card m2">
+          <h3>Referensbråk</h3>
+          <ul>
+            <li>0</li>
+            <li>1/4</li>
+            <li>1/2</li>
+            <li>3/4</li>
+            <li>1</li>
+          </ul>
+        </div>
+
+        <div class="mini-card m3">
+          <h3>Fråga</h3>
+          <ul>
+            <li>Är bråket mindre eller större än 1/2?</li>
+            <li>Var ligger det mellan 0 och 1?</li>
+            <li>Vilket bråk ligger närmast 1?</li>
+            <li>Hur vet du?</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🔄</span>
+        <div>
+          <h2>Likvärdiga bråk</h2>
+          <p>Förlängning och förkortning ska växa fram ur förståelse av samma värde.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+          <h3>Exempel</h3>
+          <p>
+            1/2 = 2/4 = 3/6 = 4/8
+          </p>
+        </div>
+
+        <div class="mini-card m2">
+          <h3>Visa med</h3>
+          <ul>
+            <li>bråkstavar</li>
+            <li>vikta remsor</li>
+            <li>areamodeller</li>
+            <li>tallinje</li>
+          </ul>
+        </div>
+
+        <div class="mini-card m3">
+          <h3>Fråga</h3>
+          <ul>
+            <li>Vad förändras?</li>
+            <li>Vad är fortfarande samma?</li>
+            <li>Varför har bråken samma värde?</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>➕➖</span>
+        <div>
+          <h2>Addition & subtraktion med bråk</h2>
+          <p>Nämnaren beskriver delarnas storlek och kan inte behandlas som ett vanligt antal.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+          <h3>Samma nämnare</h3>
+          <p>
+            2/7 + 3/7 betyder två sjundedelar plus tre sjundedelar:
+            tillsammans fem sjundedelar.
+          </p>
+        </div>
+
+        <div class="mini-card m2">
+          <h3>Olika nämnare</h3>
+          <p>
+            Gör först delarnas storlek jämförbar genom likvärdiga bråk.
+          </p>
+        </div>
+
+        <div class="mini-card m3">
+          <h3>Fråga</h3>
+          <ul>
+            <li>Vilken sorts delar har vi?</li>
+            <li>Är delarna lika stora?</li>
+            <li>Hur kan vi skriva bråken med samma slags delar?</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>✖️➗</span>
+        <div>
+          <h2>Multiplikation & division med bråk</h2>
+          <p>Bygg betydelsen innan procedurer som ”vänd och multiplicera” automatiseras.</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+          <h3>Multiplikation</h3>
+          <p>
+            Exempel: 1/2 × 8 kan förstås som hälften av 8.
+            1/2 × 1/3 kan visas med areamodell.
+          </p>
+        </div>
+
+        <div class="mini-card m2">
+          <h3>Division</h3>
+          <p>
+            Exempel: 3 ÷ 1/2 betyder:
+            hur många halvor ryms i 3?
+          </p>
+        </div>
+
+        <div class="mini-card m3">
+          <h3>Fråga</h3>
+          <ul>
+            <li>Blir svaret större eller mindre?</li>
+            <li>Hur många sådana delar ryms?</li>
+            <li>Kan du visa med en modell?</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="representation-box">
+
+      <h2 class="section-title">
+        🖼️ Representationer för bråk
+      </h2>
+
+      <p class="section-intro">
+        Ingen representation räcker ensam. Varje modell synliggör olika delar av begreppet.
+      </p>
+
+      <div class="representation-grid">
+
+        <div class="rep-card">
+          <span>🍕</span>
+          <h3>Areamodell</h3>
+          <p>
+            Bra för del av helhet och multiplikation.
+          </p>
+        </div>
+
+        <div class="rep-card">
+          <span>📏</span>
+          <h3>Längdmodell</h3>
+          <p>
+            Bråkstavar och remsor synliggör storlek och ekvivalens.
+          </p>
+        </div>
+
+        <div class="rep-card">
+          <span>↔️</span>
+          <h3>Tallinje</h3>
+          <p>
+            Visar tydligt att bråk är tal med bestämda positioner.
+          </p>
+        </div>
+
+        <div class="rep-card">
+          <span>👥</span>
+          <h3>Mängdmodell</h3>
+          <p>
+            Bra för bråk av antal, exempelvis 3/4 av 20.
+          </p>
+        </div>
+
+        <div class="rep-card">
+          <span>🔢</span>
+          <h3>Symbol</h3>
+          <p>
+            Koppla alltid täljare och nämnare till modellens betydelse.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="mis-box">
+
+      <h2 class="section-title">
+        ⚠️ Vanliga missuppfattningar
+      </h2>
+
+      <p class="section-intro">
+        Många bråkfel är logiska utifrån elevens tidigare erfarenheter av heltal.
+      </p>
+
+      <div class="mis-grid">
+
+        <div class="mis-card">
+          <span>8️⃣</span>
+          <h3>Större nämnare = större bråk</h3>
+          <p>
+            Eleven bedömer 1/8 som större än 1/4 eftersom 8 är större än 4.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>➕</span>
+          <h3>1/3 + 1/3 = 2/6</h3>
+          <p>
+            Täljare och nämnare adderas som separata heltal istället för att delarnas storlek bevaras.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>🍕</span>
+          <h3>Olika helheter jämförs direkt</h3>
+          <p>
+            En halv av en liten helhet är inte samma mängd som en halv av en stor helhet.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>↔️</span>
+          <h3>Bråk finns bara mellan 0 och 1</h3>
+          <p>
+            Elever behöver tidigt möta bråk större än 1 och placera dem på tallinjen.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>🔄</span>
+          <h3>Förlängning förändrar värdet</h3>
+          <p>
+            Om bara proceduren tränas kan eleven tro att 1/2 och 2/4 är olika stora tal.
+          </p>
+        </div>
+
+        <div class="mis-card">
+          <span>➗</span>
+          <h3>Division med bråk måste göra mindre</h3>
+          <p>
+            Division med ett tal mindre än 1 kan ge ett större resultat.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="question-box">
+
+      <h2 class="section-title">
+        💬 Frågor som synliggör bråkförståelse
+      </h2>
+
+      <p class="section-intro">
+        Använd frågorna före procedurträning.
+      </p>
+
+      <div class="question-grid">
+
+        <div class="question-card">
+          <h3>Vad är helheten?</h3>
+          <p>
+            En avgörande fråga i nästan alla uppgifter om bråk och procent.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Vad betyder nämnaren?</h3>
+          <p>
+            Synliggör om eleven förstår hur stora delarna är.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Var ligger bråket på tallinjen?</h3>
+          <p>
+            Avslöjar om eleven ser bråket som ett tal.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Är bråket större eller mindre än 1/2?</h3>
+          <p>
+            Referensbråk utvecklar flexibla jämförelsestrategier.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Kan du skriva ett likvärdigt bråk?</h3>
+          <p>
+            Synliggör förståelsen för att samma värde kan representeras på olika sätt.
+          </p>
+        </div>
+
+        <div class="question-card">
+          <h3>Hur vet du att svaret är rimligt?</h3>
+          <p>
+            Motverkar mekanisk användning av procedurer.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      🛟 Stöd när bråk blir svårt
+    </h2>
+
+    <p class="section-intro">
+      Gå tillbaka till bråkets storlek och betydelse istället för fler regler.
+    </p>
+
+    <div class="support-grid">
+
+      <div class="support-card">
+        <span>📏</span>
+        <h3>Bråkstavar</h3>
+        <p>
+          Jämför storlek och bygg likvärdiga bråk visuellt.
+        </p>
+      </div>
+
+      <div class="support-card">
+        <span>↔️</span>
+        <h3>Tallinje</h3>
+        <p>
+          Placera bråk och jämför dem med 0, 1/2 och 1.
+        </p>
+      </div>
+
+      <div class="support-card">
+        <span>🖼️</span>
+        <h3>Rita modellen</h3>
+        <p>
+          Låt eleven rita innan symbolisk beräkning.
+        </p>
+      </div>
+
+      <div class="support-card">
+        <span>🔗</span>
+        <h3>Koppla talformer</h3>
+        <p>
+          Använd välkända samband som 1/2 = 0,5 = 50 % som ankare.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="challenge-box">
+
+      <h2 class="section-title">
+        🚀 Fördjupa bråkförståelsen
+      </h2>
+
+      <p class="section-intro">
+        Utmana genom relationer, systematik och argumentation.
+      </p>
+
+      <div class="challenge-grid">
+
+        <div class="challenge-card">
+          <span>🔎</span>
+          <h3>Mellan två bråk</h3>
+          <p>
+            Hitta flera bråk mellan 1/3 och 1/2. Finns det alltid fler?
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <span>⚖️</span>
+          <h3>Jämför utan decimaler</h3>
+          <p>
+            Avgör vilket av två bråk som är störst och förklara flera strategier.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <span>🧩</span>
+          <h3>Skapa bråket</h3>
+          <p>
+            Skapa ett bråk större än 1/2 men mindre än 3/4 och motivera.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <span>🚀</span>
+          <h3>Generalisera</h3>
+          <p>
+            Vad händer med värdet när samma tal adderas till både täljare och nämnare?
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      📊 Bedömning – vad ska läraren få syn på?
+    </h2>
+
+    <p class="section-intro">
+      Bedöm bråkförståelse i flera representationer och situationer.
+    </p>
+
+    <div class="assessment-grid">
+
+      <div class="assessment-card">
+        <span>🍕</span>
+        <h3>Helhet & delar</h3>
+        <p>
+          Förstår eleven vilken helhet bråket relaterar till och att delarna måste vara lika stora?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>↔️</span>
+        <h3>Storlek</h3>
+        <p>
+          Kan eleven placera, ordna och jämföra bråk som tal?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>🔗</span>
+        <h3>Samband</h3>
+        <p>
+          Kan eleven se likvärdiga bråk och koppla till decimal och procent?
+        </p>
+      </div>
+
+      <div class="assessment-card">
+        <span>🧠</span>
+        <h3>Strategi & resonemang</h3>
+        <p>
+          Kan eleven välja metod och förklara varför den fungerar?
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Relaterade lärarsidor
+    </h2>
+
+    <p class="section-intro">
+      Bråk är en central bro mellan taluppfattning, decimal, procent och proportionalitet.
+    </p>
+
+    <div class="links-grid">
+
+      <a href="larare-tal.html" class="link-card c1">
+        <span>🔢</span>
+        <h3>Taluppfattning</h3>
+        <p>
+          Bråk behöver förstås som tal med storlek och position.
+        </p>
+      </a>
+
+      <a href="larare-decimal.html" class="link-card c2">
+        <span>🔟</span>
+        <h3>Decimaltal</h3>
+        <p>
+          Koppla bråk till decimalform genom division och platsvärde.
+        </p>
+      </a>
+
+      <a href="larare-procent.html" class="link-card c3">
+        <span>%</span>
+        <h3>Procent</h3>
+        <p>
+          Procent är ytterligare ett sätt att uttrycka andelar och relationer.
+        </p>
+      </a>
+
+      <a href="larare-raknesatt.html" class="link-card c4">
+        <span>➕➖✖️➗</span>
+        <h3>Räknesätten</h3>
+        <p>
+          Räknesättens innebörd förändras och fördjupas när talområdet utvidgas.
+        </p>
+      </a>
+
+      <a href="larare-samband.html" class="link-card c5">
+        <span>🔗</span>
+        <h3>Samband & förändring</h3>
+        <p>
+          Bråkförståelse är viktig för förhållanden och proportionalitet.
+        </p>
+      </a>
+
+      <a href="larare-missuppfattningar.html" class="link-card c6">
+        <span>⚠️</span>
+        <h3>Missuppfattningar</h3>
+        <p>
+          Fördjupa analysen av vanliga tankemönster kring bråk.
+        </p>
+      </a>
+
+    </div>
+
+    <div class="note">
+      <strong>Kom ihåg:</strong>
+      procedurer för bråkräkning blir betydligt lättare att förstå när eleven först har en stabil bild av bråkets storlek och betydelse.
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🍕 Bråk F–9 – del, helhet, tal och relation
+
+</footer>
+
+</body>
+</html>
