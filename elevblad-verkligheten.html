@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Matematik i verkligheten F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green: #edf9f1;
+      --blue: #eaf5ff;
+      --purple: #f1edff;
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #2f665d, #5a9184);
+      color: white;
+      padding: 22px 20px 50px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 42px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: auto;
+      color: #f4fff9;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .intro {
+      background: var(--teal);
+      border-radius: 24px;
+      padding: 30px;
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: var(--muted);
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .print-button {
+      margin-top: 16px;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .stage {
+      margin-bottom: 36px;
+    }
+
+    .stage-title {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .stage-title h2 {
+      color: var(--dark);
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+
+    .stage-title p {
+      color: var(--muted);
+    }
+
+    .sheet {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 22px;
+      padding: 28px;
+      margin-bottom: 24px;
+      break-inside: avoid;
+    }
+
+    .sheet.f3 {
+      border-top: 8px solid #5aa36e;
+    }
+
+    .sheet.m46 {
+      border-top: 8px solid #5b86b8;
+    }
+
+    .sheet.m79 {
+      border-top: 8px solid #8867ad;
+    }
+
+    .sheet-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .sheet-head h3 {
+      color: var(--dark);
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+
+    .sheet-head p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .level {
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-weight: bold;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      background: #edf1f4;
+    }
+
+    .name-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+    }
+
+    .line {
+      display: inline-block;
+      width: 70%;
+      border-bottom: 1px solid #777;
+      height: 18px;
+      vertical-align: bottom;
+    }
+
+    .task {
+      border-top: 1px dashed #bfc8ce;
+      padding-top: 16px;
+      margin-top: 16px;
+      break-inside: avoid;
+    }
+
+    .task:first-of-type {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .task h4 {
+      color: var(--dark);
+      margin-bottom: 7px;
+      font-size: 1.02rem;
+    }
+
+    .scenario {
+      background: var(--yellow);
+      border-left: 5px solid #c9a548;
+      border-radius: 12px;
+      padding: 14px;
+      margin: 10px 0;
+    }
+
+    .scenario strong {
+      color: var(--dark);
+    }
+
+    .answer-box {
+      border: 1.5px solid #8d9aa4;
+      border-radius: 10px;
+      min-height: 84px;
+      margin-top: 8px;
+      background: white;
+    }
+
+    .answer-box.medium {
+      min-height: 120px;
+    }
+
+    .answer-box.large {
+      min-height: 160px;
+    }
+
+    .answer-box.xlarge {
+      min-height: 210px;
+    }
+
+    .calculation-box {
+      border: 1.5px solid #8d9aa4;
+      border-radius: 10px;
+      min-height: 100px;
+      margin-top: 8px;
+      background:
+        linear-gradient(#f4f6f7 1px, transparent 1px);
+      background-size: 100% 26px;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .mini-box {
+      border-radius: 11px;
+      padding: 12px;
+      min-height: 105px;
+    }
+
+    .m1 {
+      background: var(--green);
+    }
+
+    .m2 {
+      background: var(--blue);
+    }
+
+    .mini-box strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .table-box {
+      margin-top: 10px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      border: 1px solid #83919b;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background: var(--dark);
+      color: white;
+    }
+
+    td {
+      height: 42px;
+    }
+
+    .tip {
+      background: var(--blue);
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 12px;
+      color: var(--dark);
+      font-size: 0.9rem;
+    }
+
+    .check {
+      background: #eef5f8;
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 16px;
+    }
+
+    .check strong {
+      color: var(--dark);
+    }
+
+    .check ul {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .check li {
+      margin-bottom: 5px;
+    }
+
+    .check li::before {
+      content: "☐ ";
+      font-weight: bold;
+      color: var(--dark);
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 700px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .sheet-head,
+      .name-row,
+      .two-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .sheet {
+        padding: 20px 15px;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 11mm;
+    }
+
+    @media print {
+      header,
+      footer,
+      .intro {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+        color: black;
+        font-size: 10pt;
+      }
+
+      main {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .stage {
+        margin: 0;
+      }
+
+      .stage-title {
+        display: none;
+      }
+
+      .sheet {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        min-height: 274mm;
+        page-break-after: always;
+        break-after: page;
+        margin: 0;
+      }
+
+      .sheet:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .sheet.f3,
+      .sheet.m46,
+      .sheet.m79 {
+        border-top: none;
+      }
+
+      .task,
+      .scenario,
+      .answer-box,
+      .calculation-box,
+      .two-grid,
+      .table-box,
+      .tip,
+      .check {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+    <div class="logo">HOLOS MATTERESAN</div>
+
+    <a href="material-a4-elevblad.html" class="back-link">
+      ← A4 Elevblad
+    </a>
+  </div>
+
+  <div class="hero">
+    <div class="hero-icon">🌍🧠</div>
+
+    <h1>Matematik i verkligheten F–9</h1>
+
+    <h2>Förstå situationen • Modellera • Beräkna • Tolka • Bedöm rimlighet</h2>
+
+    <p>
+      Matematik används när vi handlar, lagar mat, reser,
+      mäter, planerar och tolkar information.
+      Här tränar du på att välja den matematik som passar situationen.
+    </p>
+  </div>
+
+</header>
+
+
+<main>
+
+  <div class="intro">
+
+    <h2>🌍 Från verklighet till matematik – och tillbaka</h2>
+
+    <p>
+      Läs situationen noggrant. Bestäm vad som är viktigt,
+      skapa en matematisk modell, lös problemet och kontrollera
+      om svaret faktiskt fungerar i verkligheten.
+    </p>
+
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut alla elevblad
+    </button>
+
+  </div>
+
+
+  <!-- F–3 -->
+
+  <section class="stage">
+
+    <div class="stage-title">
+      <h2>🌱 F–3</h2>
+      <p>Pengar, tid, antal och vardagliga situationer.</p>
+    </div>
+
+
+    <article class="sheet f3">
+
+      <div class="sheet-head">
+        <div>
+          <h3>🌱 Matematik i affären</h3>
+          <p>Elevblad 1 – F–3</p>
+        </div>
+
+        <div class="level">F–3</div>
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Handla frukt 🍎🍌</h4>
+
+        <div class="scenario">
+          Ett äpple kostar 6 kr.
+          En banan kostar 5 kr.
+          Du köper 2 äpplen och 1 banan.
+        </div>
+
+        <p>
+          Hur mycket kostar allt?
+        </p>
+
+        <div class="calculation-box"></div>
+
+        <p>
+          Svar:
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Växel 💰</h4>
+
+        <div class="scenario">
+          Du betalar 20 kr för något som kostar 14 kr.
+        </div>
+
+        <p>
+          Hur mycket får du tillbaka?
+        </p>
+
+        <div class="calculation-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Vad kan du köpa?</h4>
+
+        <p>
+          Du har 25 kr.
+        </p>
+
+        <div class="two-grid">
+
+          <div class="mini-box m1">
+            <strong>Juice</strong>
+            9 kr
+          </div>
+
+          <div class="mini-box m2">
+            <strong>Smörgås</strong>
+            14 kr
+          </div>
+
+        </div>
+
+        <p style="margin-top:10px;">
+          Kan du köpa båda? Hur mycket blir kvar?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>4. Skapa ett eget köp</h4>
+
+        <p>
+          Hitta på två saker och priser.
+          Skriv en fråga som någon annan kan lösa.
+        </p>
+
+        <div class="answer-box large"></div>
+
+      </div>
+
+    </article>
+
+
+    <article class="sheet f3">
+
+      <div class="sheet-head">
+        <div>
+          <h3>🌱 Tid och vardag</h3>
+          <p>Elevblad 2 – F–3</p>
+        </div>
+
+        <div class="level">F–3</div>
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Skoldagen ⏰</h4>
+
+        <div class="scenario">
+          Lektionen börjar klockan 09.10 och slutar klockan 09.50.
+        </div>
+
+        <p>
+          Hur lång är lektionen?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Bussen 🚌</h4>
+
+        <div class="scenario">
+          Bussen går 14.25.
+          Det tar 10 minuter att gå till hållplatsen.
+        </div>
+
+        <p>
+          Senast vilken tid behöver du börja gå om du vill vara framme precis när bussen går?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Receptet 🥞</h4>
+
+        <div class="scenario">
+          Till 4 personer behövs 8 pannkakor.
+        </div>
+
+        <p>
+          Hur många pannkakor behövs till 2 personer om alla får lika många?
+        </p>
+
+        <div class="answer-box"></div>
+
+        <p style="margin-top:10px;">
+          Hur många behövs till 6 personer?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="check">
+        <strong>✅ Mitt svar passar verkligheten</strong>
+        <ul>
+          <li>Jag läser enheten.</li>
+          <li>Jag kontrollerar om svaret är rimligt.</li>
+          <li>Jag skriver vad svaret betyder.</li>
+        </ul>
+      </div>
+
+    </article>
+
+  </section>
+
+
+  <!-- 4–6 -->
+
+  <section class="stage">
+
+    <div class="stage-title">
+      <h2>🌿 4–6</h2>
+      <p>Jämförpris, recept, skala, tid och resor.</p>
+    </div>
+
+
+    <article class="sheet m46">
+
+      <div class="sheet-head">
+        <div>
+          <h3>🌿 Handla smart</h3>
+          <p>Elevblad 1 – 4–6</p>
+        </div>
+
+        <div class="level">4–6</div>
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Jämförpris 🛒</h4>
+
+        <div class="scenario">
+          Ris A: 2 kg kostar 56 kr.<br>
+          Ris B: 3 kg kostar 78 kr.
+        </div>
+
+        <p>
+          Beräkna priset per kilogram för båda.
+        </p>
+
+        <div class="table-box">
+
+          <table>
+            <tr>
+              <th>Produkt</th>
+              <th>Pris</th>
+              <th>Vikt</th>
+              <th>Pris/kg</th>
+            </tr>
+
+            <tr>
+              <td>A</td>
+              <td>56 kr</td>
+              <td>2 kg</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>B</td>
+              <td>78 kr</td>
+              <td>3 kg</td>
+              <td></td>
+            </tr>
+          </table>
+
+        </div>
+
+        <p style="margin-top:10px;">
+          Vilket köp är billigast per kilogram?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Rabatt 💯</h4>
+
+        <div class="scenario">
+          En tröja kostar 400 kr.
+          Den säljs med 25 % rabatt.
+        </div>
+
+        <p>
+          Hur mycket är rabatten?
+        </p>
+
+        <div class="calculation-box"></div>
+
+        <p>
+          Vad blir det nya priset?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Två erbjudanden</h4>
+
+        <div class="scenario">
+          Butik A: 20 % rabatt på en vara som kostar 500 kr.<br>
+          Butik B: samma vara kostar 425 kr utan rabatt.
+        </div>
+
+        <p>
+          Vilken butik är billigast?
+        </p>
+
+        <div class="answer-box medium"></div>
+
+        <p>
+          Hur stor är prisskillnaden?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="tip">
+        💡 Ett stort rabatt-tal betyder inte automatiskt att varan blir billigast.
+        Jämför slutpriserna.
+      </div>
+
+    </article>
+
+
+    <article class="sheet m46">
+
+      <div class="sheet-head">
+        <div>
+          <h3>🌿 Recept, skala och resa</h3>
+          <p>Elevblad 2 – 4–6</p>
+        </div>
+
+        <div class="level">4–6</div>
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Receptet 🍲</h4>
+
+        <div class="scenario">
+          Ett recept för 4 personer använder:
+          <br><br>
+          300 g pasta<br>
+          200 g tomatsås<br>
+          100 g grönsaker
+        </div>
+
+        <p>
+          Hur mycket behövs till 6 personer?
+        </p>
+
+        <div class="table-box">
+
+          <table>
+            <tr>
+              <th>Ingrediens</th>
+              <th>4 personer</th>
+              <th>6 personer</th>
+            </tr>
+
+            <tr>
+              <td>Pasta</td>
+              <td>300 g</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Tomatsås</td>
+              <td>200 g</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Grönsaker</td>
+              <td>100 g</td>
+              <td></td>
+            </tr>
+          </table>
+
+        </div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Skala 🗺️</h4>
+
+        <div class="scenario">
+          En ritning har skalan 1:100.
+          Ett bord är 1,8 cm långt på ritningen.
+        </div>
+
+        <p>
+          Hur långt är bordet i verkligheten?
+        </p>
+
+        <div class="calculation-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Cykelturen 🚲</h4>
+
+        <div class="scenario">
+          Du cyklar 12 km på 40 minuter.
+        </div>
+
+        <p>
+          Om du håller samma tempo, hur långt cyklar du på 20 minuter?
+        </p>
+
+        <div class="answer-box"></div>
+
+        <p style="margin-top:10px;">
+          Hur långt på 60 minuter?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>4. Rimlighet</h4>
+
+        <p>
+          En elev säger att 12 km på 40 minuter betyder 36 km på 60 minuter.
+          Är det rimligt? Förklara.
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+    </article>
+
+  </section>
+
+
+  <!-- 7–9 -->
+
+  <section class="stage">
+
+    <div class="stage-title">
+      <h2>🚀 7–9</h2>
+      <p>Modellera priser, resor, statistik och förändring.</p>
+    </div>
+
+
+    <article class="sheet m79">
+
+      <div class="sheet-head">
+        <div>
+          <h3>🚀 Välj mellan alternativ</h3>
+          <p>Elevblad 1 – 7–9</p>
+        </div>
+
+        <div class="level">7–9</div>
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Mobilabonnemang 📱</h4>
+
+        <div class="scenario">
+          Abonnemang A kostar 99 kr per månad + 2 kr per minut.<br>
+          Abonnemang B kostar 159 kr per månad + 1 kr per minut.
+        </div>
+
+        <p>
+          Skriv en funktion för kostnaden för varje abonnemang.
+        </p>
+
+        <div class="two-grid">
+
+          <div class="mini-box m1">
+            <strong>Abonnemang A</strong>
+          </div>
+
+          <div class="mini-box m2">
+            <strong>Abonnemang B</strong>
+          </div>
+
+        </div>
+
+        <p style="margin-top:10px;">
+          När kostar abonnemangen lika mycket?
+        </p>
+
+        <div class="calculation-box"></div>
+
+        <p>
+          Vilket abonnemang passar bäst för någon som använder 20 minuter?
+        </p>
+
+        <div class="answer-box"></div>
+
+        <p>
+          Vilket passar bäst för 150 minuter?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Procentuell förändring</h4>
+
+        <div class="scenario">
+          En cykel kostar 8 000 kr.
+          Priset höjs med 12 %.
+        </div>
+
+        <p>
+          Beräkna det nya priset med förändringsfaktor.
+        </p>
+
+        <div class="calculation-box"></div>
+
+        <p>
+          Om det nya priset senare sänks med 12 %, hamnar priset på 8 000 kr igen?
+          Motivera.
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="check">
+        <strong>✅ Modellering</strong>
+        <ul>
+          <li>Jag bestämmer vilka storheter som är viktiga.</li>
+          <li>Jag väljer lämplig matematisk modell.</li>
+          <li>Jag beräknar.</li>
+          <li>Jag tolkar svaret i situationen.</li>
+        </ul>
+      </div>
+
+    </article>
+
+
+    <article class="sheet m79">
+
+      <div class="sheet-head">
+        <div>
+          <h3>🚀 Data, resa och beslut</h3>
+          <p>Elevblad 2 – 7–9</p>
+        </div>
+
+        <div class="level">7–9</div>
+      </div>
+
+      <div class="name-row">
+        <div>Namn: <span class="line"></span></div>
+        <div>Datum: <span class="line"></span></div>
+      </div>
+
+
+      <div class="task">
+
+        <h4>1. Restid 🚆</h4>
+
+        <div class="scenario">
+          Tåg A kör 240 km på 2 timmar och 30 minuter.<br>
+          Tåg B kör 180 km på 1 timme och 45 minuter.
+        </div>
+
+        <p>
+          Beräkna medelhastigheten för båda tågen.
+        </p>
+
+        <div class="table-box">
+
+          <table>
+            <tr>
+              <th>Tåg</th>
+              <th>Sträcka</th>
+              <th>Tid</th>
+              <th>Medelhastighet</th>
+            </tr>
+
+            <tr>
+              <td>A</td>
+              <td>240 km</td>
+              <td>2 h 30 min</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>B</td>
+              <td>180 km</td>
+              <td>1 h 45 min</td>
+              <td></td>
+            </tr>
+          </table>
+
+        </div>
+
+        <p style="margin-top:10px;">
+          Vilket tåg har högst medelhastighet?
+        </p>
+
+        <div class="answer-box"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>2. Lönestatistik 📊</h4>
+
+        <div class="scenario">
+          Månadslöner i en liten grupp:
+          <br><br>
+          29 000, 30 000, 30 500, 31 000, 32 000, 95 000 kr
+        </div>
+
+        <p>
+          Beräkna median och medelvärde.
+        </p>
+
+        <div class="calculation-box"></div>
+
+        <p>
+          Vilket mått tycker du bäst beskriver en typisk lön i gruppen? Motivera.
+        </p>
+
+        <div class="answer-box large"></div>
+
+      </div>
+
+
+      <div class="task">
+
+        <h4>3. Skapa en verklig modell</h4>
+
+        <p>
+          Välj en verklig situation som kan beskrivas med en linjär funktion.
+          Exempel: taxi, abonnemang, hyra eller medlemsavgift.
+        </p>
+
+        <p>
+          Beskriv situationen.
+        </p>
+
+        <div class="answer-box medium"></div>
+
+        <p>
+          Skriv en funktion.
+        </p>
+
+        <div class="answer-box"></div>
+
+        <p>
+          Förklara vad förändringstakten och startvärdet betyder i din situation.
+        </p>
+
+        <div class="answer-box medium"></div>
+
+      </div>
+
+
+      <div class="tip">
+        🚀 <strong>Extra:</strong>
+        Alla verkliga situationer kan inte beskrivas perfekt med en enkel matematisk modell.
+        Vilka antaganden gjorde du i din modell?
+      </div>
+
+    </article>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  🌍 Matematik i verkligheten – modellera, beräkna, tolka och bedöm rimlighet
+
+</footer>
+
+</body>
+</html>
