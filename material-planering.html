@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Planeringsbank F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --teal-light: #eaf7f5;
+      --pink-light: #ffe9f1;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
+        linear-gradient(135deg, #254a67, #5f7e99);
+      color: white;
+      padding: 22px 20px 55px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero {
+      max-width: 920px;
+      margin: 45px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.2rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 4.3rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 860px;
+      margin: auto;
+      color: #f4f8fb;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 42px 20px;
+    }
+
+    section {
+      margin-bottom: 58px;
+    }
+
+    .intro {
+      background: var(--blue-light);
+      border-radius: 26px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      max-width: 880px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .print-button {
+      display: inline-block;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 18px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--dark);
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      color: var(--muted);
+      max-width: 850px;
+      margin: 0 auto 28px;
+    }
+
+    .planning-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .planning-sheet {
+      background: white;
+      border-radius: 22px;
+      padding: 26px;
+      border: 1px solid rgba(0,0,0,0.07);
+      break-inside: avoid;
+    }
+
+    .planning-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .planning-head span {
+      font-size: 2.6rem;
+    }
+
+    .planning-head h3 {
+      color: var(--dark);
+      font-size: 1.35rem;
+    }
+
+    .planning-head p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .label {
+      font-weight: bold;
+      color: var(--dark);
+      margin-top: 14px;
+      margin-bottom: 5px;
+    }
+
+    .box {
+      min-height: 78px;
+      border: 1.5px solid #98a5af;
+      border-radius: 10px;
+      padding: 10px;
+      background: white;
+    }
+
+    .box.small {
+      min-height: 54px;
+    }
+
+    .box.large {
+      min-height: 120px;
+    }
+
+    .box.xlarge {
+      min-height: 165px;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .mini-box {
+      border: 1.5px solid #98a5af;
+      border-radius: 10px;
+      min-height: 105px;
+      padding: 10px;
+    }
+
+    .mini-box strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .checklist {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .checklist li {
+      margin-bottom: 7px;
+      color: var(--muted);
+    }
+
+    .checklist li::before {
+      content: "☐ ";
+      color: var(--dark);
+      font-weight: bold;
+    }
+
+    .flow-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 35%),
+        linear-gradient(135deg, #17324d, #4f708b);
+      color: white;
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .flow-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .flow-box > p {
+      max-width: 860px;
+      color: #f5f8fb;
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .flow-card {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 18px;
+      padding: 19px;
+      min-height: 175px;
+    }
+
+    .flow-card span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .flow-card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .flow-card p {
+      color: #f7f9fb;
+      font-size: 0.89rem;
+    }
+
+    .support-box {
+      background: var(--teal-light);
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .support-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid #d7ebe7;
+    }
+
+    .support-card span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .support-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .support-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .example-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .example-card {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      border: 1px solid #eadfbb;
+    }
+
+    .example-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .example-card p,
+    .example-card li {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .example-card ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .example-card li {
+      margin-bottom: 7px;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .tool-card {
+      border-radius: 20px;
+      padding: 23px;
+      min-height: 185px;
+      transition: 0.2s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .tool-card span {
+      display: block;
+      font-size: 2.3rem;
+      margin-bottom: 7px;
+    }
+
+    .tool-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .tool-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .t1 { background: var(--green-light); }
+    .t2 { background: var(--blue-light); }
+    .t3 { background: var(--purple-light); }
+    .t4 { background: var(--orange-light); }
+    .t5 { background: var(--pink-light); }
+    .t6 { background: var(--teal-light); }
+
+    .note {
+      background: var(--orange-light);
+      border-left: 6px solid #c77f43;
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 24px;
+      color: #654c37;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      text-align: center;
+      padding: 34px 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 1000px) {
+      .support-grid,
+      .tool-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flow-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .planning-grid,
+      .example-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .two-grid,
+      .three-grid,
+      .flow-grid,
+      .support-grid,
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro,
+      .flow-box,
+      .support-box,
+      .example-box {
+        padding: 24px 17px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 12mm;
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link,
+      .intro,
+      .flow-box,
+      .support-box,
+      .example-box,
+      .tool-grid,
+      .note,
+      .print-button,
+      .section-title,
+      .section-intro {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+        color: black;
+        font-size: 10pt;
+      }
+
+      main {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      section {
+        margin: 0;
+      }
+
+      .planning-grid {
+        display: block;
+      }
+
+      .planning-sheet {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        min-height: 265mm;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .planning-sheet:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .box,
+      .mini-box,
+      .two-grid,
+      .three-grid {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">HOLOS MATTERESAN</div>
+
+    <a href="larare-material.html" class="back-link">
+      ← Materialbanken
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">📋🧠</div>
+
+    <h1>Planeringsbank F–9</h1>
+
+    <h2>Kärna • Förkunskaper • Undervisning • Bedömning • Anpassning</h2>
+
+    <p>
+      Färdiga planeringsmallar för enskilda lektioner,
+      arbetsområden, progression och efterreflektion.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro">
+
+      <h2>🎯 Börja med matematiken – inte aktiviteten</h2>
+
+      <p>
+        En stark planering börjar med frågan:
+        <strong>Vilken matematisk idé ska eleverna förstå?</strong>
+        Därefter väljs representationer, aktiviteter, samtal, stöd,
+        utmaning och bedömning som gör just den förståelsen synlig.
+      </p>
+
+      <button class="print-button" onclick="window.print()">
+        🖨️ Skriv ut planeringsmallarna
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">📝 Utskriftsklara planeringsmallar</h2>
+
+    <p class="section-intro">
+      Varje planeringsmall placeras på en egen A4-sida vid utskrift.
+    </p>
+
+    <div class="planning-grid">
+
+
+      <!-- LEKTIONSPLANERING -->
+
+      <article class="planning-sheet">
+
+        <div class="planning-head">
+          <span>⏱️</span>
+
+          <div>
+            <h3>Lektionsplanering</h3>
+            <p>En lektion – tydlig matematisk kärna</p>
+          </div>
+        </div>
+
+        <div class="two-grid">
+
+          <div>
+            <div class="label">Årskurs</div>
+            <div class="box small"></div>
+          </div>
+
+          <div>
+            <div class="label">Datum</div>
+            <div class="box small"></div>
+          </div>
+
+        </div>
+
+        <div class="label">Matematiskt område</div>
+        <div class="box small"></div>
+
+        <div class="label">Matematisk kärna – vad ska eleverna förstå?</div>
+        <div class="box large"></div>
+
+        <div class="label">Förkunskaper som behövs</div>
+        <div class="box"></div>
+
+        <div class="label">Så aktiverar jag förkunskaper</div>
+        <div class="box"></div>
+
+        <div class="label">Representationer jag använder</div>
+
+        <ul class="checklist">
+          <li>Konkret material</li>
+          <li>Bild / modell</li>
+          <li>Tallinje</li>
+          <li>Tabell</li>
+          <li>Graf</li>
+          <li>Symboler / uttryck / formel</li>
+        </ul>
+
+        <div class="label">Lektionsgång</div>
+
+        <div class="three-grid">
+
+          <div class="mini-box">
+            <strong>Start</strong>
+            Aktivera och rikta uppmärksamheten.
+          </div>
+
+          <div class="mini-box">
+            <strong>Utforska</strong>
+            Uppgift, aktivitet eller problem.
+          </div>
+
+          <div class="mini-box">
+            <strong>Sammanfatta</strong>
+            Synliggör den matematiska idén.
+          </div>
+
+        </div>
+
+        <div class="label">Hur synliggör jag elevens förståelse?</div>
+        <div class="box"></div>
+
+      </article>
+
+
+      <!-- ARBETSOMRÅDE -->
+
+      <article class="planning-sheet">
+
+        <div class="planning-head">
+          <span>📚</span>
+
+          <div>
+            <h3>Arbetsområdesplanering</h3>
+            <p>Flera lektioner – progression över tid</p>
+          </div>
+        </div>
+
+        <div class="two-grid">
+
+          <div>
+            <div class="label">Område</div>
+            <div class="box small"></div>
+          </div>
+
+          <div>
+            <div class="label">Årskurs / stadium</div>
+            <div class="box small"></div>
+          </div>
+
+        </div>
+
+        <div class="label">Övergripande matematisk idé</div>
+        <div class="box large"></div>
+
+        <div class="label">Centrala begrepp</div>
+        <div class="box"></div>
+
+        <div class="label">Förkunskaper</div>
+        <div class="box"></div>
+
+        <div class="label">Progression inom området</div>
+
+        <div class="three-grid">
+
+          <div class="mini-box">
+            <strong>Steg 1</strong>
+            Grundläggande förståelse
+          </div>
+
+          <div class="mini-box">
+            <strong>Steg 2</strong>
+            Strategier och representationer
+          </div>
+
+          <div class="mini-box">
+            <strong>Steg 3</strong>
+            Resonemang och generalisering
+          </div>
+
+        </div>
+
+        <div class="label">Vanliga missuppfattningar att vara uppmärksam på</div>
+        <div class="box large"></div>
+
+        <div class="label">Hur följer jag lärandet under området?</div>
+        <div class="box"></div>
+
+        <div class="label">Hur avslutas området?</div>
+        <div class="box"></div>
+
+      </article>
+
+
+      <!-- MATEMATISK PROGRESSION -->
+
+      <article class="planning-sheet">
+
+        <div class="planning-head">
+          <span>📈</span>
+
+          <div>
+            <h3>Progressionsplanering</h3>
+            <p>Från konkret förståelse till generalisering</p>
+          </div>
+        </div>
+
+        <div class="label">Matematisk idé</div>
+        <div class="box"></div>
+
+        <div class="label">1. Vad ska eleven kunna uppleva / göra?</div>
+        <div class="box"></div>
+
+        <div class="label">2. Hur kan idén representeras visuellt?</div>
+        <div class="box"></div>
+
+        <div class="label">3. Vilka matematiska ord behöver eleven?</div>
+        <div class="box"></div>
+
+        <div class="label">4. Hur uttrycks idén symboliskt?</div>
+        <div class="box"></div>
+
+        <div class="label">5. Vilka samband ska eleven kunna se?</div>
+        <div class="box"></div>
+
+        <div class="label">6. Hur kan eleven generalisera?</div>
+        <div class="box large"></div>
+
+        <div class="label">Nästa matematiska steg</div>
+        <div class="box"></div>
+
+      </article>
+
+
+      <!-- STÖD OCH UTMANING -->
+
+      <article class="planning-sheet">
+
+        <div class="planning-head">
+          <span>🧩🚀</span>
+
+          <div>
+            <h3>Stöd & utmaning</h3>
+            <p>Behåll samma matematiska kärna</p>
+          </div>
+        </div>
+
+        <div class="label">Matematisk kärna</div>
+        <div class="box"></div>
+
+        <div class="two-grid">
+
+          <div>
+
+            <div class="label">🧩 Möjliga hinder</div>
+
+            <ul class="checklist">
+              <li>Språk</li>
+              <li>Arbetsminne</li>
+              <li>Begrepp</li>
+              <li>Taluppfattning</li>
+              <li>Representation</li>
+              <li>Uthållighet</li>
+            </ul>
+
+          </div>
+
+          <div>
+
+            <div class="label">🚀 Möjlig fördjupning</div>
+
+            <ul class="checklist">
+              <li>Flera strategier</li>
+              <li>Flera lösningar</li>
+              <li>Ändra villkor</li>
+              <li>Generalisera</li>
+              <li>Argumentera</li>
+              <li>Skapa eget problem</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="label">Stöd i representation</div>
+        <div class="box"></div>
+
+        <div class="label">Stöd i språk</div>
+        <div class="box"></div>
+
+        <div class="label">Stöd i struktur</div>
+        <div class="box"></div>
+
+        <div class="label">Fördjupningsfråga</div>
+        <div class="box large"></div>
+
+        <div class="label">Hur säkerställer jag att stödet inte sänker den matematiska nivån?</div>
+        <div class="box large"></div>
+
+      </article>
+
+
+      <!-- BEDÖMNINGSPLANERING -->
+
+      <article class="planning-sheet">
+
+        <div class="planning-head">
+          <span>👀📋</span>
+
+          <div>
+            <h3>Bedömningsplanering</h3>
+            <p>Vad behöver bli synligt?</p>
+          </div>
+        </div>
+
+        <div class="label">Vad vill jag få syn på?</div>
+        <div class="box large"></div>
+
+        <div class="label">Vilket underlag passar bäst?</div>
+
+        <ul class="checklist">
+          <li>Observation</li>
+          <li>Matteprat</li>
+          <li>Elevblad</li>
+          <li>Problemlösning</li>
+          <li>Exit ticket</li>
+          <li>Diagnostisk uppgift</li>
+          <li>Skriftlig redovisning</li>
+        </ul>
+
+        <div class="label">Vilka strategier ska jag lyssna efter?</div>
+        <div class="box"></div>
+
+        <div class="label">Vilka begrepp ska eleven kunna använda?</div>
+        <div class="box"></div>
+
+        <div class="label">Vilka missuppfattningar kan bli synliga?</div>
+        <div class="box"></div>
+
+        <div class="label">Vad visar grundläggande förståelse?</div>
+        <div class="box"></div>
+
+        <div class="label">Vad visar fördjupad förståelse?</div>
+        <div class="box"></div>
+
+      </article>
+
+
+      <!-- EFTERREFLEKTION -->
+
+      <article class="planning-sheet">
+
+        <div class="planning-head">
+          <span>🔄</span>
+
+          <div>
+            <h3>Efterreflektion</h3>
+            <p>Planera nästa steg utifrån det som faktiskt hände</p>
+          </div>
+        </div>
+
+        <div class="label">Vad verkade eleverna förstå?</div>
+        <div class="box large"></div>
+
+        <div class="label">Vilka strategier såg eller hörde jag?</div>
+        <div class="box"></div>
+
+        <div class="label">Vilka missuppfattningar blev synliga?</div>
+        <div class="box large"></div>
+
+        <div class="label">Vilka elever behöver annan representation eller mer stöd?</div>
+        <div class="box"></div>
+
+        <div class="label">Vilka elever behöver fördjupning?</div>
+        <div class="box"></div>
+
+        <div class="label">Vad behöver jag undervisa om igen?</div>
+        <div class="box"></div>
+
+        <div class="label">Nästa undervisningssteg</div>
+        <div class="box xlarge"></div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="flow-box">
+
+      <h2>🧭 Matteresans planeringsgång</h2>
+
+      <p>
+        En planering behöver hålla ihop matematisk kärna, undervisning och uppföljning.
+      </p>
+
+      <div class="flow-grid">
+
+        <div class="flow-card">
+          <span>1️⃣</span>
+          <h3>Matematisk kärna</h3>
+          <p>
+            Bestäm vilken idé, relation eller struktur eleverna ska förstå.
+          </p>
+        </div>
+
+        <div class="flow-card">
+          <span>2️⃣</span>
+          <h3>Förkunskaper</h3>
+          <p>
+            Identifiera vad eleverna behöver ha tillgång till för att kunna ta nästa steg.
+          </p>
+        </div>
+
+        <div class="flow-card">
+          <span>3️⃣</span>
+          <h3>Undervisning</h3>
+          <p>
+            Välj exempel, representationer, aktiviteter och frågor.
+          </p>
+        </div>
+
+        <div class="flow-card">
+          <span>4️⃣</span>
+          <h3>Synliggör lärandet</h3>
+          <p>
+            Planera hur du ska få syn på elevens strategi och förståelse.
+          </p>
+        </div>
+
+        <div class="flow-card">
+          <span>5️⃣</span>
+          <h3>Anpassa</h3>
+          <p>
+            Bestäm nästa steg utifrån det eleverna faktiskt visar.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="support-box">
+
+      <h2 class="section-title">🧩 Planera variation från början</h2>
+
+      <p class="section-intro">
+        Stöd och utmaning fungerar bäst när de finns med i planeringen innan lektionen börjar.
+      </p>
+
+      <div class="support-grid">
+
+        <div class="support-card">
+          <span>🎨</span>
+          <h3>Representation</h3>
+          <p>
+            Hur kan samma matematiska idé visas med konkret material, bild, språk och symboler?
+          </p>
+        </div>
+
+        <div class="support-card">
+          <span>🗣️</span>
+          <h3>Språk</h3>
+          <p>
+            Vilka ord, meningsstarter och frågor behöver vara tillgängliga?
+          </p>
+        </div>
+
+        <div class="support-card">
+          <span>🧠</span>
+          <h3>Kognitiv avlastning</h3>
+          <p>
+            Kan arbetsgång, layout eller mängden information göras tydligare utan att förenkla matematiken?
+          </p>
+        </div>
+
+        <div class="support-card">
+          <span>💬</span>
+          <h3>Samtal</h3>
+          <p>
+            När behöver elever tänka själva, prata i par och jämföra gemensamt?
+          </p>
+        </div>
+
+        <div class="support-card">
+          <span>👀</span>
+          <h3>Observation</h3>
+          <p>
+            Vilken elevhandling eller förklaring skulle visa att den matematiska idén är förstådd?
+          </p>
+        </div>
+
+        <div class="support-card">
+          <span>🚀</span>
+          <h3>Fördjupning</h3>
+          <p>
+            Hur kan uppgiften öppnas genom fler strategier, nya villkor eller generalisering?
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="example-box">
+
+      <h2 class="section-title">💡 Exempel: planera en lektion om bråk</h2>
+
+      <p class="section-intro">
+        Exemplet visar hur planeringens delar kan kopplas ihop.
+      </p>
+
+      <div class="example-grid">
+
+        <div class="example-card">
+
+          <h3>🎯 Matematisk kärna</h3>
+
+          <p>
+            Eleverna ska förstå att bråk med olika täljare och nämnare kan ha samma värde.
+          </p>
+
+          <ul>
+            <li>1/2 = 2/4 = 4/8</li>
+            <li>helheten måste vara lika stor</li>
+            <li>likvärdighet synliggörs med flera representationer</li>
+          </ul>
+
+        </div>
+
+
+        <div class="example-card">
+
+          <h3>🧱 Undervisning</h3>
+
+          <p>
+            Använd bråkremsor eller vikta pappersremsor.
+          </p>
+
+          <ul>
+            <li>bygg 1/2</li>
+            <li>hitta andra sätt att täcka samma längd</li>
+            <li>rita modellerna</li>
+            <li>skriv motsvarande bråk</li>
+          </ul>
+
+        </div>
+
+
+        <div class="example-card">
+
+          <h3>💬 Frågor</h3>
+
+          <ul>
+            <li>Vad är lika mellan modellerna?</li>
+            <li>Vad förändras?</li>
+            <li>Hur kan 2/4 vara lika mycket som 1/2?</li>
+            <li>Kan du hitta ännu ett bråk med samma värde?</li>
+          </ul>
+
+        </div>
+
+
+        <div class="example-card">
+
+          <h3>👀 Synliggör lärandet</h3>
+
+          <p>
+            Exit ticket:
+          </p>
+
+          <p style="margin-top:10px;">
+            <strong>
+              Skriv ett bråk som är lika mycket som 3/4 och förklara varför.
+            </strong>
+          </p>
+
+          <p style="margin-top:10px;">
+            Sortera svaren efter om eleven visar visuell, procedurmässig eller relationell förståelse.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🗂️ Relaterat material</h2>
+
+    <div class="tool-grid">
+
+      <a href="larare-planering.html" class="tool-card t1">
+        <span>👩‍🏫</span>
+        <h3>Lärarstöd planering</h3>
+        <p>
+          Fördjupning kring matematisk kärna, progression och undervisningsval.
+        </p>
+      </a>
+
+      <a href="larare-lgr22.html" class="tool-card t2">
+        <span>📘</span>
+        <h3>Lgr22</h3>
+        <p>
+          Koppla planeringen till syfte och centralt innehåll inom de bredare stadiebanden.
+        </p>
+      </a>
+
+      <a href="larare-progression.html" class="tool-card t3">
+        <span>📈</span>
+        <h3>Progression F–9</h3>
+        <p>
+          Se hur förståelse kan utvecklas från erfarenhet till generalisering.
+        </p>
+      </a>
+
+      <a href="material-exit.html" class="tool-card t4">
+        <span>🎟️</span>
+        <h3>Exit tickets</h3>
+        <p>
+          Planera redan från början hur lektionens kärna ska följas upp.
+        </p>
+      </a>
+
+      <a href="material-diagnos.html" class="tool-card t5">
+        <span>🩺</span>
+        <h3>Diagnosbank</h3>
+        <p>
+          Kartlägg förkunskaper och vanliga missuppfattningar före eller under ett område.
+        </p>
+      </a>
+
+      <a href="material-mallar.html" class="tool-card t6">
+        <span>📝</span>
+        <h3>Elevmallar</h3>
+        <p>
+          Planera vilka strukturer som kan hjälpa eleverna att synliggöra sitt matematiska tänkande.
+        </p>
+      </a>
+
+    </div>
+
+    <div class="note">
+      <strong>Obs:</strong>
+      Matteresans årskursvisa progression är en pedagogisk planering.
+      Lgr22:s centrala innehåll är formulerat i bredare stadieband och ska inte beskrivas
+      som en officiell exakt år-för-år-fördelning.
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  📋 Planeringsbank – kärna, förkunskaper, undervisning, bedömning och anpassning
+
+</footer>
+
+</body>
+</html>
