@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Matematikobservationer F–9 | HOLOS Matteresan</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --green: #4e9270;
+      --green-dark: #32684f;
+      --green-light: #edf9f1;
+      --blue-light: #eaf5ff;
+      --purple-light: #f1edff;
+      --yellow-light: #fff6d7;
+      --orange-light: #ffe7cf;
+      --pink-light: #ffe9f1;
+      --teal-light: #eaf7f5;
+      --background: #f8fafc;
+      --text: #263747;
+      --muted: #667788;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
+        linear-gradient(135deg, #2f684e, #4e9270);
+      color: white;
+      padding: 22px 20px 58px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: var(--green-dark);
+    }
+
+    .hero {
+      max-width: 920px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 4.6rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 840px;
+      margin: auto;
+      color: #f1fff7;
+      font-size: 1.03rem;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 62px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 840px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--green-light);
+      border-radius: 28px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      max-width: 880px;
+      margin: auto;
+      color: #5c6872;
+    }
+
+    .core-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .core-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 185px;
+      border: 1px solid #e6ebef;
+    }
+
+    .core-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .core-card h3 {
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+
+    .core-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .cycle-box {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
+        linear-gradient(135deg, #17324d, #3d7258);
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+    }
+
+    .cycle-box h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .cycle-box > p {
+      color: #f1fff7;
+      max-width: 850px;
+    }
+
+    .cycle-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .cycle-card {
+      border-radius: 20px;
+      padding: 21px;
+      min-height: 200px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .cycle-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .cycle-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .cycle-card p {
+      color: #f8fff9;
+      font-size: 0.91rem;
+    }
+
+    .observe-box {
+      background: var(--blue-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .observe-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 24px;
+    }
+
+    .observe-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 195px;
+      border: 1px solid #dfe8ef;
+    }
+
+    .observe-card span {
+      display: block;
+      font-size: 2.1rem;
+      margin-bottom: 7px;
+    }
+
+    .observe-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .observe-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px;
+      border: 1px solid #e6ebef;
+      margin-bottom: 25px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .section-header span {
+      font-size: 2.7rem;
+    }
+
+    .section-header h2 {
+      color: var(--dark);
+      font-size: 1.75rem;
+    }
+
+    .section-header p {
+      color: var(--muted);
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .mini-card {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 190px;
+    }
+
+    .mini-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .mini-card p,
+    .mini-card ul {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .mini-card ul {
+      padding-left: 20px;
+    }
+
+    .mini-card li {
+      margin-bottom: 6px;
+    }
+
+    .m1 { background: var(--green-light); }
+    .m2 { background: var(--blue-light); }
+    .m3 { background: var(--yellow-light); }
+
+    .form-box {
+      background: var(--yellow-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      min-width: 850px;
+    }
+
+    th,
+    td {
+      border: 1px solid #d9dee3;
+      padding: 13px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: var(--dark);
+      color: white;
+    }
+
+    td {
+      min-height: 50px;
+      color: #495866;
+      font-size: 0.92rem;
+    }
+
+    .prompt-box {
+      background: var(--purple-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .prompt-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 200px;
+      border: 1px solid #e2dcf1;
+    }
+
+    .prompt-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .prompt-card ul {
+      color: var(--muted);
+      padding-left: 20px;
+      font-size: 0.92rem;
+    }
+
+    .prompt-card li {
+      margin-bottom: 7px;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stage-card {
+      border-radius: 24px;
+      padding: 26px;
+      min-height: 275px;
+    }
+
+    .stage-card span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .stage-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .stage-card ul {
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .stage-card li {
+      margin-bottom: 7px;
+    }
+
+    .f3stage { background: var(--green-light); }
+    .m46stage { background: var(--blue-light); }
+    .m79stage { background: var(--purple-light); }
+
+    .pitfall-box {
+      background: var(--pink-light);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .pitfall-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .pitfall-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 195px;
+      border: 1px solid #eee1e5;
+    }
+
+    .pitfall-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .pitfall-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .link-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 175px;
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .link-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
+    }
+
+    .link-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+    }
+
+    .link-card h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .link-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .c1 { background: var(--green-light); }
+    .c2 { background: var(--blue-light); }
+    .c3 { background: var(--yellow-light); }
+    .c4 { background: var(--purple-light); }
+    .c5 { background: var(--teal-light); }
+    .c6 { background: var(--orange-light); }
+
+    .note {
+      background: var(--yellow-light);
+      border-left: 6px solid #dba327;
+      border-radius: 14px;
+      padding: 20px;
+      color: #665528;
+      margin-top: 25px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #edf3f7;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 1100px) {
+      .cycle-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .core-grid,
+      .observe-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .three-grid,
+      .prompt-grid,
+      .stage-grid,
+      .pitfall-grid,
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .core-grid,
+      .cycle-grid,
+      .observe-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-box,
+      .cycle-box,
+      .observe-box,
+      .section-card,
+      .form-box,
+      .prompt-box,
+      .pitfall-box {
+        padding: 25px 18px;
+      }
+
+      .section-header {
+        align-items: flex-start;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .back-link,
+      .links-grid {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      section,
+      .section-card,
+      .stage-card {
+        break-inside: avoid;
+      }
+
+      table {
+        min-width: 0;
+        font-size: 10pt;
+      }
+
+      th,
+      td {
+        padding: 7px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="topbar">
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
+
+    <a href="larare.html" class="back-link">
+      ← Lärarvy
+    </a>
+
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-icon">👀🧠</div>
+
+    <h1>Matematikobservationer F–9</h1>
+
+    <h2>Se • Lyssna • Tolka • Dokumentera • Agera</h2>
+
+    <p>
+      Mycket matematiskt kunnande syns medan eleven arbetar:
+      i valet av strategi, användningen av representationer,
+      frågor eleven ställer, hur eleven förklarar och hur självständigt arbetet genomförs.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="intro-box">
+
+      <h2>👀 Observera tänkandet – inte bara arbetsron</h2>
+
+      <p>
+        Matematikobservationer ska ge information om elevens matematiska förståelse.
+        Fokus behöver därför ligga på vad eleven gör med matematiken:
+        vilka samband eleven ser, vilka strategier som väljs,
+        hur eleven använder begrepp och vad som händer när eleven möter motstånd.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Fyra områden att observera
+    </h2>
+
+    <p class="section-intro">
+      Observationen behöver kopplas till det kunnande som undervisningen ska utveckla.
+    </p>
+
+    <div class="core-grid">
+
+      <div class="core-card">
+        <span>🧩</span>
+        <h3>Strategier</h3>
+        <p>
+          Hur börjar eleven? Vilken metod väljs? Kan eleven byta strategi när något inte fungerar?
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>🔗</span>
+        <h3>Begrepp & samband</h3>
+        <p>
+          Vilka matematiska relationer verkar eleven förstå och använda?
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>💬</span>
+        <h3>Resonemang</h3>
+        <p>
+          Kan eleven förklara, motivera, jämföra och värdera sina matematiska val?
+        </p>
+      </div>
+
+      <div class="core-card">
+        <span>🙋</span>
+        <h3>Självständighet</h3>
+        <p>
+          Vilket stöd behöver eleven för att starta, genomföra och kontrollera arbetet?
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="cycle-box">
+
+      <h2>🔄 Observationscykeln</h2>
+
+      <p>
+        Observera selektivt. Det är bättre att följa några tydliga aspekter än att försöka registrera allt.
+      </p>
+
+      <div class="cycle-grid">
+
+        <div class="cycle-card">
+          <span>1️⃣</span>
+          <h3>Bestäm fokus</h3>
+          <p>
+            Exempel: strategival vid addition eller begreppet likvärdiga bråk.
+          </p>
+        </div>
+
+        <div class="cycle-card">
+          <span>2️⃣</span>
+          <h3>Observera</h3>
+          <p>
+            Se vad eleven gör och lyssna på vad eleven säger under arbetet.
+          </p>
+        </div>
+
+        <div class="cycle-card">
+          <span>3️⃣</span>
+          <h3>Fråga</h3>
+          <p>
+            Ställ korta frågor som ”Hur tänkte du?” eller ”Varför valde du det?”
+          </p>
+        </div>
+
+        <div class="cycle-card">
+          <span>4️⃣</span>
+          <h3>Dokumentera</h3>
+          <p>
+            Skriv korta noteringar om observerat beteende – inte allmänna omdömen.
+          </p>
+        </div>
+
+        <div class="cycle-card">
+          <span>5️⃣</span>
+          <h3>Agera</h3>
+          <p>
+            Använd observationen för återkoppling, gruppering eller nästa undervisningssteg.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="observe-box">
+
+      <h2 class="section-title">
+        🔍 Vad kan läraren titta efter?
+      </h2>
+
+      <p class="section-intro">
+        Fokusera på synliga indikatorer på matematiskt tänkande.
+      </p>
+
+      <div class="observe-grid">
+
+        <div class="observe-card">
+          <span>🚦</span>
+          <h3>Hur börjar eleven?</h3>
+          <p>
+            Läser eleven hela problemet, börjar räkna direkt, ritar, frågar eller använder material?
+          </p>
+        </div>
+
+        <div class="observe-card">
+          <span>🧠</span>
+          <h3>Vilken strategi används?</h3>
+          <p>
+            Är strategin ändamålsenlig, flexibel, säker eller mekaniskt använd?
+          </p>
+        </div>
+
+        <div class="observe-card">
+          <span>🖼️</span>
+          <h3>Vilka representationer används?</h3>
+          <p>
+            Material, bild, tallinje, tabell, graf, symbol eller flera tillsammans?
+          </p>
+        </div>
+
+        <div class="observe-card">
+          <span>🔄</span>
+          <h3>Vad händer när eleven fastnar?</h3>
+          <p>
+            Prövar eleven något annat, söker stöd, gissar eller avslutar arbetet?
+          </p>
+        </div>
+
+        <div class="observe-card">
+          <span>💬</span>
+          <h3>Hur förklarar eleven?</h3>
+          <p>
+            Används matematiska begrepp och samband eller enbart procedurbeskrivningar?
+          </p>
+        </div>
+
+        <div class="observe-card">
+          <span>⚖️</span>
+          <h3>Kan eleven jämföra?</h3>
+          <p>
+            Ser eleven likheter och skillnader mellan två metoder eller representationer?
+          </p>
+        </div>
+
+        <div class="observe-card">
+          <span>✅</span>
+          <h3>Kontrollerar eleven?</h3>
+          <p>
+            Gör eleven rimlighetsbedömning, överslagsräkning eller annan kontroll?
+          </p>
+        </div>
+
+        <div class="observe-card">
+          <span>🤝</span>
+          <h3>Hur deltar eleven i samtal?</h3>
+          <p>
+            Förklarar, frågar, lyssnar, återberättar och bygger eleven vidare på andras idéer?
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🧩</span>
+
+        <div>
+          <h2>Observera strategier</h2>
+          <p>Strategin berättar ofta mer om elevens förståelse än själva svaret.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Notera</h3>
+
+          <ul>
+            <li>vilken strategi eleven väljer</li>
+            <li>om strategin passar talen</li>
+            <li>om eleven kan förklara den</li>
+            <li>om eleven kan byta metod</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Exempel</h3>
+
+          <p>
+            Vid 199 + 36 kan en elev använda standardalgoritm,
+            medan en annan tänker 200 + 35.
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fråga</h3>
+
+          <ul>
+            <li>Varför valde du den metoden?</li>
+            <li>Finns ett annat sätt?</li>
+            <li>Vilket sätt är effektivast här?</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🔗</span>
+
+        <div>
+          <h2>Observera begreppsförståelse</h2>
+          <p>Begrepp syns i hur eleven använder och kopplar representationer.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Se efter</h3>
+
+          <ul>
+            <li>sortering efter egenskaper</li>
+            <li>jämförelser</li>
+            <li>val av exempel</li>
+            <li>koppling till tidigare kunskap</li>
+          </ul>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Exempel</h3>
+
+          <p>
+            Kan eleven visa att 1/2 och 2/4 är lika stora
+            med både bråkstav och tallinje?
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Fråga</h3>
+
+          <ul>
+            <li>Hur vet du?</li>
+            <li>Kan du visa på ett annat sätt?</li>
+            <li>Vad är lika i de här representationerna?</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>💬</span>
+
+        <div>
+          <h2>Observera resonemang</h2>
+          <p>Resonemang handlar om att skapa och motivera matematiska samband.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Beskriver</h3>
+
+          <p>
+            Eleven berättar vad den gjorde:
+            ”Först multiplicerade jag...”
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Motiverar</h3>
+
+          <p>
+            Eleven förklarar varför:
+            ”Jag gjorde så eftersom...”
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Generaliserar</h3>
+
+          <p>
+            Eleven går från exempel till regel:
+            ”Det här fungerar alltid när...”
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-card">
+
+      <div class="section-header">
+        <span>🙋</span>
+
+        <div>
+          <h2>Observera självständighet</h2>
+          <p>Självständighet handlar inte om att aldrig få stöd, utan om hur stödet används.</p>
+        </div>
+
+      </div>
+
+      <div class="three-grid">
+
+        <div class="mini-card m1">
+
+          <h3>Start</h3>
+
+          <p>
+            Kan eleven identifiera första steget eller behöver eleven alltid en vuxen för att börja?
+          </p>
+
+        </div>
+
+        <div class="mini-card m2">
+
+          <h3>Under arbete</h3>
+
+          <p>
+            Använder eleven själv tallinje, strategikort, formelblad eller annat tillgängligt stöd?
+          </p>
+
+        </div>
+
+        <div class="mini-card m3">
+
+          <h3>Kontroll</h3>
+
+          <p>
+            Kan eleven upptäcka att något verkar fel och göra en ny kontroll utan direkt lärarstöd?
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="form-box">
+
+      <h2 class="section-title">
+        📝 Snabbt observationsunderlag
+      </h2>
+
+      <p class="section-intro">
+        Använd ett enkelt underlag. Skriv korta konkreta noteringar under lektionen.
+      </p>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Elev</th>
+              <th>Strategi</th>
+              <th>Begrepp / samband</th>
+              <th>Resonemang</th>
+              <th>Självständighet</th>
+              <th>Nästa steg</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Elev 1</td>
+              <td>Vilken metod använder eleven?</td>
+              <td>Vad verkar eleven förstå?</td>
+              <td>Hur motiverar eleven?</td>
+              <td>Vilket stöd används?</td>
+              <td>Vad behöver undervisningen göra?</td>
+            </tr>
+
+            <tr>
+              <td>Elev 2</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Elev 3</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Elev 4</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Elev 5</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="prompt-box">
+
+      <h2 class="section-title">
+        ✍️ Skriv observationer konkret
+      </h2>
+
+      <p class="section-intro">
+        Beskriv vad du såg och hörde – undvik vaga etiketter.
+      </p>
+
+      <div class="prompt-grid">
+
+        <div class="prompt-card">
+
+          <h3>Undvik</h3>
+
+          <ul>
+            <li>”Kan inte bråk.”</li>
+            <li>”Svag i matte.”</li>
+            <li>”Har svårt att koncentrera sig.”</li>
+            <li>”Duktig på problemlösning.”</li>
+          </ul>
+
+        </div>
+
+        <div class="prompt-card">
+
+          <h3>Skriv hellre</h3>
+
+          <ul>
+            <li>”Jämför bråk genom att jämföra nämnarnas storlek.”</li>
+            <li>”Använder tallinje självständigt.”</li>
+            <li>”Behöver instruktionen i två steg för att starta.”</li>
+            <li>”Ritar tabell och söker systematiskt efter alla lösningar.”</li>
+          </ul>
+
+        </div>
+
+        <div class="prompt-card">
+
+          <h3>Koppla till nästa steg</h3>
+
+          <ul>
+            <li>behöver annan representation</li>
+            <li>behöver kontrasterande exempel</li>
+            <li>behöver muntlig förklaring</li>
+            <li>redo för fördjupning</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      🌱 🌿 🚀 Observation genom F–9
+    </h2>
+
+    <p class="section-intro">
+      Det observerbara matematiska tänkandet utvecklas med elevernas abstraktionsnivå.
+    </p>
+
+    <div class="stage-grid">
+
+      <div class="stage-card f3stage">
+
+        <span>🌱</span>
+
+        <h3>F–3</h3>
+
+        <ul>
+          <li>hur eleven räknar antal</li>
+          <li>subitisering och talbilder</li>
+          <li>strategier med konkret material</li>
+          <li>hur eleven delar och grupperar</li>
+          <li>matematiska ord i samtal</li>
+          <li>om eleven kan visa sin tanke</li>
+        </ul>
+
+      </div>
+
+
+      <div class="stage-card m46stage">
+
+        <span>🌿</span>
+
+        <h3>4–6</h3>
+
+        <ul>
+          <li>val av beräkningsstrategi</li>
+          <li>bråk–decimal–procent</li>
+          <li>problemlösningsstrategier</li>
+          <li>användning av tabell och modell</li>
+          <li>resonemang och rimlighet</li>
+          <li>självständig användning av stöd</li>
+        </ul>
+
+      </div>
+
+
+      <div class="stage-card m79stage">
+
+        <span>🚀</span>
+
+        <h3>7–9</h3>
+
+        <ul>
+          <li>algebraiska strategier</li>
+          <li>tolkning av grafer och funktioner</li>
+          <li>val mellan representationer</li>
+          <li>generalisering</li>
+          <li>argumentation</li>
+          <li>värdering av modeller och resultat</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="pitfall-box">
+
+      <h2 class="section-title">
+        ⚠️ Vanliga fallgropar
+      </h2>
+
+      <p class="section-intro">
+        Observation ska ge bättre kunskap om elevens matematik – inte bli en allmän beteendebedömning.
+      </p>
+
+      <div class="pitfall-grid">
+
+        <div class="pitfall-card">
+          <h3>Observera allt samtidigt</h3>
+          <p>
+            Välj ett eller några tydliga fokusområden för varje observationstillfälle.
+          </p>
+        </div>
+
+        <div class="pitfall-card">
+          <h3>Fokus på arbetsro</h3>
+          <p>
+            Att eleven sitter still berättar inte automatiskt något om den matematiska förståelsen.
+          </p>
+        </div>
+
+        <div class="pitfall-card">
+          <h3>Vaga omdömen</h3>
+          <p>
+            ”Bra”, ”svag” och ”osäker” är mindre användbara än konkreta beskrivningar av vad eleven gör.
+          </p>
+        </div>
+
+        <div class="pitfall-card">
+          <h3>Bara observera elever i svårigheter</h3>
+          <p>
+            Observation behövs också för att identifiera elever som behöver större utmaning och fördjupning.
+          </p>
+        </div>
+
+        <div class="pitfall-card">
+          <h3>Observation blir en engångsbild</h3>
+          <p>
+            Matematiskt kunnande behöver följas över flera aktiviteter och situationer.
+          </p>
+        </div>
+
+        <div class="pitfall-card">
+          <h3>Ingen undervisningskoppling</h3>
+          <p>
+            Dokumentation har liten funktion om den inte används för nästa återkoppling eller undervisningsbeslut.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      Relaterade lärarverktyg
+    </h2>
+
+    <p class="section-intro">
+      Observation bör kombineras med elevlösningar, samtal och diagnostiska uppgifter.
+    </p>
+
+    <div class="links-grid">
+
+      <a href="larare-bedomning.html" class="link-card c1">
+        <span>📊</span>
+        <h3>Bedömning</h3>
+        <p>
+          Observation är en del av ett bredare formativt underlag.
+        </p>
+      </a>
+
+      <a href="larare-diagnoser.html" class="link-card c2">
+        <span>🩺</span>
+        <h3>Diagnoser</h3>
+        <p>
+          Undersök specifika elevtankar vidare med riktade uppgifter.
+        </p>
+      </a>
+
+      <a href="larare-exittickets.html" class="link-card c3">
+        <span>🎟️</span>
+        <h3>Exit tickets</h3>
+        <p>
+          Komplettera det du observerar med korta individuella elevsvar.
+        </p>
+      </a>
+
+      <a href="larare-matteprat.html" class="link-card c4">
+        <span>💬</span>
+        <h3>Matteprat</h3>
+        <p>
+          Samtal gör strategier och resonemang särskilt synliga.
+        </p>
+      </a>
+
+      <a href="larare-stod.html" class="link-card c5">
+        <span>🛟</span>
+        <h3>Stöd & anpassningar</h3>
+        <p>
+          Använd observationen för att identifiera vilket hinder som behöver stöd.
+        </p>
+      </a>
+
+      <a href="larare-utmaning.html" class="link-card c6">
+        <span>🚀</span>
+        <h3>Fördjupning</h3>
+        <p>
+          Observera också vilka elever som visar behov av större matematisk komplexitet.
+        </p>
+      </a>
+
+    </div>
+
+    <div class="note">
+      <strong>Grundprincip:</strong>
+      skriv inte bara att en elev ”har svårt”.
+      Dokumentera istället
+      <strong>vad eleven gör, hur eleven tänker och vilket nästa undervisningssteg observationen pekar mot.</strong>
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong>
+
+  <br>
+
+  👀🧠 Matematikobservationer – se, lyssna, tolka, dokumentera och agera
+
+</footer>
+
+</body>
+</html>
