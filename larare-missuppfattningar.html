@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Vanliga missuppfattningar | HOLOS Matteresan</title>
+  <title>Missuppfattningar | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,26 +15,32 @@
 
     :root {
       --dark: #17324d;
-      --red: #b95f5f;
-      --red-dark: #864242;
-      --red-light: #fff0f0;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --pink-light: #ffe9f1;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -44,8 +50,8 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
-        linear-gradient(135deg, #6f3434, #b95f5f);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
       padding: 22px 20px 58px;
     }
@@ -65,351 +71,367 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--red-dark);
-    }
-
     .hero {
-      max-width: 900px;
-      margin: 50px auto 0;
+      max-width: 930px;
+      margin: 44px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.4rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      font-size: clamp(2.4rem, 7vw, 4.4rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 780px;
+      max-width: 850px;
       margin: auto;
-      color: #fff3f3;
-      font-size: 1.03rem;
+      color: #f6f9fb;
     }
 
     main {
       max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      margin-bottom: 36px;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
+    .intro h2 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 30px;
+    .intro p {
+      color: var(--muted);
+      max-width: 950px;
+    }
+
+    .important {
+      margin-top: 17px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 17px;
+      color: #665831;
+    }
+
+    .section-title {
+      margin: 42px 0 18px;
+    }
+
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
       color: var(--muted);
     }
 
-    .intro-box {
-      background: var(--red-light);
-      border-radius: 28px;
-      padding: 36px;
-      text-align: center;
+    .process {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
     }
 
-    .intro-box h2 {
+    .step {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 10px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+      min-height: 150px;
+    }
+
+    .step:nth-child(1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .step:nth-child(2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .step:nth-child(3) {
+      border-top-color: #c39b44;
+    }
+
+    .step:nth-child(4) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .step:nth-child(5) {
+      border-top-color: #5d9c92;
+    }
+
+    .step span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .step strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 250px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+    }
+
+    .card:nth-child(3n+1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .card ul {
+      margin-left: 19px;
+      margin-top: 8px;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+
+    .wrong {
+      margin-top: 12px;
+      background: var(--pink);
+      border-radius: 12px;
+      padding: 11px;
+      font-size: 0.84rem;
+      color: #714d5c;
+    }
+
+    .teach {
+      margin-top: 9px;
+      background: var(--teal);
+      border-radius: 12px;
+      padding: 11px;
+      font-size: 0.84rem;
+      color: #446864;
+    }
+
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stage {
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .stage h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .stage p,
+    .stage li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .stage ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .stage li {
+      margin-bottom: 6px;
+    }
+
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .analysis {
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .analysis h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .analysis p,
+    .analysis li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .analysis ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .analysis li {
+      margin-bottom: 6px;
+    }
+
+    .teacher-box {
+      margin-top: 36px;
+      background: var(--teal);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box ul {
+      margin-left: 22px;
+      color: var(--muted);
+    }
+
+    .teacher-box li {
+      margin-bottom: 7px;
+    }
+
+    .warning {
+      margin-top: 22px;
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 16px;
+      padding: 20px;
+      color: #654c37;
+    }
+
+    .links {
+      margin-top: 36px;
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+    }
+
+    .links h2 {
       color: var(--dark);
       margin-bottom: 12px;
     }
 
-    .intro-box p {
-      max-width: 850px;
-      margin: auto;
-      color: #5c6872;
-    }
-
-    .principle-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .principle-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      text-align: center;
-      border: 1px solid #e6ebef;
-      min-height: 180px;
-    }
-
-    .principle-card span {
-      display: block;
-      font-size: 2.3rem;
-      margin-bottom: 8px;
-    }
-
-    .principle-card h3 {
-      color: var(--red-dark);
-      margin-bottom: 6px;
-    }
-
-    .principle-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .area-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .area-card {
-      border-radius: 22px;
-      padding: 24px;
-      min-height: 205px;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .area-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
-    }
-
-    .area-card span {
-      display: block;
-      font-size: 2.4rem;
-      margin-bottom: 8px;
-    }
-
-    .area-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .area-card p {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .c1 { background: var(--yellow-light); }
-    .c2 { background: var(--green-light); }
-    .c3 { background: var(--blue-light); }
-    .c4 { background: var(--orange-light); }
-    .c5 { background: var(--purple-light); }
-    .c6 { background: var(--pink-light); }
-
-    .misconception {
-      background: white;
-      border-radius: 28px;
-      padding: 32px;
-      border: 1px solid #e7eaed;
-      margin-bottom: 25px;
-    }
-
-    .misconception-title {
+    .link-row {
       display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 22px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .misconception-title span {
-      font-size: 2.5rem;
-    }
-
-    .misconception-title h2 {
-      color: var(--dark);
-      font-size: 1.7rem;
-    }
-
-    .misconception-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .mis-box {
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 190px;
-    }
-
-    .mis-box h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .mis-box p,
-    .mis-box ul {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .mis-box ul {
-      padding-left: 20px;
-    }
-
-    .mis-box li {
-      margin-bottom: 6px;
-    }
-
-    .wrong {
-      background: var(--red-light);
-    }
-
-    .thinking {
-      background: var(--yellow-light);
-    }
-
-    .response {
-      background: var(--green-light);
-    }
-
-    .teacher-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
-        linear-gradient(135deg, #17324d, #4c5f70);
+    .link-row a {
+      background: var(--dark);
       color: white;
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .teacher-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .teacher-box > p {
-      color: #edf5fb;
-      max-width: 820px;
-    }
-
-    .teacher-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 25px;
-    }
-
-    .teacher-card {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.20);
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 175px;
-    }
-
-    .teacher-card h3 {
-      margin-bottom: 7px;
-    }
-
-    .teacher-card p {
-      color: #edf5fb;
-      font-size: 0.92rem;
-    }
-
-    .question-box {
-      background: var(--red-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .question-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .question-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      border: 1px solid #eee0e0;
-      min-height: 170px;
-    }
-
-    .question-card h3 {
-      color: var(--red-dark);
-      margin-bottom: 7px;
-    }
-
-    .question-card p {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .note {
-      background: var(--yellow-light);
-      border-left: 6px solid #dba327;
-      border-radius: 14px;
-      padding: 20px;
-      color: #665528;
-      margin-top: 25px;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.83rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 950px) {
-      .principle-grid {
-        grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 980px) {
+      .process {
+        grid-template-columns: repeat(3, 1fr);
       }
 
-      .area-grid,
-      .misconception-grid,
-      .teacher-grid,
-      .question-grid {
+      .grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .principle-grid,
-      .area-grid,
-      .misconception-grid,
-      .teacher-grid,
-      .question-grid {
+      .process,
+      .grid,
+      .stage-grid,
+      .analysis-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .teacher-box,
-      .question-box,
-      .misconception {
-        padding: 25px 18px;
       }
 
       main {
@@ -418,15 +440,29 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+      }
+
+      header,
+      footer {
+        display: none !important;
       }
 
       main {
@@ -434,9 +470,58 @@
         padding: 0;
       }
 
-      section,
-      .misconception {
+      .intro,
+      .step,
+      .card,
+      .stage,
+      .analysis,
+      .teacher-box,
+      .warning,
+      .links {
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .green {
+        background: var(--green) !important;
+      }
+
+      .blue {
+        background: var(--blue) !important;
+      }
+
+      .purple {
+        background: var(--purple) !important;
+      }
+
+      .yellow,
+      .important {
+        background: var(--yellow) !important;
+      }
+
+      .orange,
+      .warning {
+        background: var(--orange) !important;
+      }
+
+      .teal,
+      .teacher-box,
+      .teach {
+        background: var(--teal) !important;
+      }
+
+      .pink,
+      .wrong {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .link-row a {
+        background: var(--dark) !important;
+        color: white !important;
       }
     }
   </style>
@@ -448,27 +533,26 @@
 
   <div class="topbar">
 
-    <div class="logo">
-      HOLOS MATTERESAN
-    </div>
+    <div class="logo">HOLOS MATTERESAN</div>
 
     <a href="larare.html" class="back-link">
-      ← Lärarvy
+      ← Lärarportalen
     </a>
 
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">⚠️</div>
+    <div class="hero-icon">🩺🧠</div>
 
-    <h1>Vanliga missuppfattningar</h1>
+    <h1>Missuppfattningar</h1>
 
-    <h2>Se elevens tanke bakom felet</h2>
+    <h2>Upptäck • Förstå • Utmana • Bygg om • Följ upp</h2>
 
     <p>
-      Ett felsvar kan ge viktig information om hur eleven tänker.
-      Här samlas vanliga matematiska missuppfattningar och förslag på hur undervisningen kan föra förståelsen vidare.
+      Vanliga matematiska missuppfattningar kan ge viktig information
+      om hur eleven tänker och vilket nästa undervisningssteg behöver vara.
     </p>
 
   </div>
@@ -478,896 +562,576 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>🧠 Ett fel kan vara logiskt utifrån elevens förståelse</h2>
 
-      <h2>🧠 Felsvaret är information</h2>
-
-      <p>
-        Målet är inte bara att rätta ett fel utan att förstå vilken idé som ligger bakom.
-        En elev kan använda en logisk strategi utifrån en felaktig eller ofullständig förståelse.
-        När läraren identifierar den bakomliggande tanken blir det lättare att välja rätt representation, fråga eller aktivitet.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Fyra steg när ett felsvar uppstår
-    </h2>
-
-    <p class="section-intro">
-      Undvik att börja med att visa den korrekta metoden. Försök först förstå elevens tänkande.
+    <p>
+      När samma typ av fel återkommer är det ofta mer användbart att fråga
+      <strong>”Vilken idé verkar eleven använda?”</strong>
+      än att bara rätta svaret.
+      Målet är att förstå det bakomliggande tänkandet och skapa en situation
+      där eleven själv kan upptäcka att den nuvarande modellen inte alltid fungerar.
     </p>
 
-    <div class="principle-grid">
+    <div class="important">
 
-      <div class="principle-card">
-        <span>👀</span>
-        <h3>Observera</h3>
-        <p>
-          Vad gjorde eleven faktiskt?
-        </p>
-      </div>
-
-      <div class="principle-card">
-        <span>💬</span>
-        <h3>Fråga</h3>
-        <p>
-          Hur tänkte du här? Kan du visa?
-        </p>
-      </div>
-
-      <div class="principle-card">
-        <span>🧠</span>
-        <h3>Tolka</h3>
-        <p>
-          Vilken matematisk idé verkar eleven utgå från?
-        </p>
-      </div>
-
-      <div class="principle-card">
-        <span>🛠️</span>
-        <h3>Bemöt</h3>
-        <p>
-          Välj en aktivitet eller representation som utmanar just den missuppfattningen.
-        </p>
-      </div>
+      <strong>Skillnad mellan slarv och missuppfattning:</strong><br>
+      Ett enstaka räknefel behöver inte visa en missuppfattning.
+      Leta efter <strong>mönster över flera uppgifter, representationer och samtal</strong>
+      innan du drar slutsatser om elevens förståelse.
 
     </div>
 
   </section>
 
 
-  <section>
+  <div class="section-title">
 
-    <h2 class="section-title">
-      Välj matematiskt område
-    </h2>
+    <h2>🔎 Arbetsgång när ett fel återkommer</h2>
 
-    <p class="section-intro">
-      Missuppfattningar återkommer ofta genom flera årskurser och kan påverka senare matematik.
+    <p>Gå från elevens svar till elevens tänkande – och tillbaka till undervisningen.</p>
+
+  </div>
+
+
+  <div class="process">
+
+    <div class="step">
+      <span>👀</span>
+      <strong>1. Observera</strong>
+      <p>Vad gör eleven faktiskt?</p>
+    </div>
+
+    <div class="step">
+      <span>💬</span>
+      <strong>2. Fråga</strong>
+      <p>Hur tänkte du?</p>
+    </div>
+
+    <div class="step">
+      <span>🧠</span>
+      <strong>3. Tolka</strong>
+      <p>Vilken underliggande idé syns?</p>
+    </div>
+
+    <div class="step">
+      <span>🧩</span>
+      <strong>4. Utmana</strong>
+      <p>Skapa ett exempel där modellen inte räcker.</p>
+    </div>
+
+    <div class="step">
+      <span>🔁</span>
+      <strong>5. Följ upp</strong>
+      <p>Kan eleven använda den nya förståelsen?</p>
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🔢 Vanliga missuppfattningar</h2>
+
+    <p>
+      Exemplen är inte diagnoser i sig. De är signaler att undersöka vidare.
     </p>
 
-    <div class="area-grid">
+  </div>
 
-      <a href="#tal" class="area-card c1">
-        <span>🔢</span>
-        <h3>Taluppfattning</h3>
-        <p>
-          Platsvärde, tallinje, negativa tal och storleksjämförelser.
-        </p>
-      </a>
 
-      <a href="#raknesatt" class="area-card c2">
-        <span>➕➖✖️➗</span>
-        <h3>Räknesätt</h3>
-        <p>
-          Räknesättens innebörd, algoritmer och metodfel.
-        </p>
-      </a>
+  <div class="grid">
 
-      <a href="#brak" class="area-card c3">
-        <span>🍕</span>
-        <h3>Bråk, decimal & procent</h3>
-        <p>
-          Storlek, representationer, nämnare och procent.
-        </p>
-      </a>
+    <article class="card">
 
-      <a href="#algebra" class="area-card c4">
-        <span>🔤</span>
-        <h3>Algebra</h3>
-        <p>
-          Likhetstecken, variabler, uttryck och ekvationer.
-        </p>
-      </a>
+      <div class="icon">🔟</div>
 
-      <a href="#geometri" class="area-card c5">
-        <span>📐</span>
-        <h3>Geometri</h3>
-        <p>
-          Area, omkrets, vinklar, skala och geometriska egenskaper.
-        </p>
-      </a>
-
-      <a href="#statistik" class="area-card c6">
-        <span>📊</span>
-        <h3>Statistik & sannolikhet</h3>
-        <p>
-          Medelvärde, diagram, slump och sannolikhet.
-        </p>
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <section id="tal">
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>🔢</span>
-        <h2>Taluppfattning: fler siffror betyder större tal</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Eleven säger att <strong>0,125 är större än 0,8</strong> eftersom 125 är större än 8.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Eleven använder förståelsen för heltal även när talet är skrivet i decimalform.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>tallinje</li>
-            <li>positionsschema</li>
-            <li>pengar eller mått</li>
-            <li>jämförelse med 0,5 och 1</li>
-            <li>olika representationer av samma tal</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>↔️</span>
-        <h2>Taluppfattning: tallinjen är en rad markeringar</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Eleven räknar strecken på tallinjen i stället för mellanrummen.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Varje markering uppfattas som ett objekt som ska räknas, inte som en position som representerar ett tal.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>tom tallinje</li>
-            <li>placera tal själva</li>
-            <li>mäta avstånd mellan tal</li>
-            <li>jämföra med linjal</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>➖</span>
-        <h2>Negativa tal: −8 är större än −3</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Eleven säger att −8 är större eftersom 8 är större än 3.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Minustecknet behandlas som en symbol framför talet utan att påverka talets position och storlek.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>tallinje</li>
-            <li>temperatur</li>
-            <li>höjd över och under havsnivå</li>
-            <li>skuld och tillgång</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section id="raknesatt">
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>➖</span>
-        <h2>Subtraktion: alltid det mindre talet från det större</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            I 52 − 38 räknar eleven 8 − 2 och 5 − 3 och får 26.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Regeln har blivit: ”ta alltid den mindre siffran från den större” i varje kolumn.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>positionsmaterial</li>
-            <li>öppen tallinje</li>
-            <li>subtraktion som skillnad</li>
-            <li>uppskatta svaret före beräkning</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>✖️</span>
-        <h2>Multiplikation gör alltid talet större</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Eleven tror att 12 × 0,5 måste vara större än 12 eftersom multiplikation ”gör större”.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Tidigare erfarenheter har nästan bara handlat om multiplikation med positiva heltal större än 1.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>hälften av ett antal</li>
-            <li>skalning</li>
-            <li>multiplikation på tallinje</li>
-            <li>jämför ×2, ×1 och ×0,5</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>➗</span>
-        <h2>Division gör alltid talet mindre</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Eleven tror att 8 ÷ 0,5 måste bli mindre än 8.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Division har främst mötts som att dela ett antal i flera grupper.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>frågan ”hur många halvor ryms i 8?”</li>
-            <li>konkreta längdmodeller</li>
-            <li>jämföra olika divisorer</li>
-            <li>koppla division till multiplikation</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section id="brak">
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>🍕</span>
-        <h2>Bråk: större nämnare betyder större bråk</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Eleven säger att 1/8 är större än 1/4 eftersom 8 är större än 4.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Täljare och nämnare behandlas som två separata heltal i stället för som ett enda tal.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>samma helhet</li>
-            <li>bråkstavar</li>
-            <li>bråk på tallinje</li>
-            <li>jämföra 1/2, 1/4, 1/8</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>➕</span>
-        <h2>Bråk: täljare och nämnare adderas var för sig</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            1/3 + 1/3 = 2/6.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Eleven överför mönstret från addition av heltal direkt till båda delarna av bråket.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>bilder av lika stora delar</li>
-            <li>bråkstavar</li>
-            <li>koppla nämnaren till delarnas storlek</li>
-            <li>fråga vad 2/6 faktiskt betyder</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>%</span>
-        <h2>Procent: procenttal kan jämföras utan helheten</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Eleven tror att 50 % alltid är större mängd än 25 %, oavsett vilken helhet procenten gäller.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Procenten uppfattas som ett fristående antal i stället för en andel av en bestämd helhet.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>olika stora helheter</li>
-            <li>dubbel tallinje</li>
-            <li>100-rutor</li>
-            <li>fråga alltid ”procent av vad?”</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section id="algebra">
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>=</span>
-        <h2>Likhetstecknet betyder ”här kommer svaret”</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Eleven har svårt med 8 + 4 = □ + 5 och skriver 12 i rutan.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Likhetstecknet har främst mötts som en signal att genomföra en beräkning.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>balansvåg</li>
-            <li>öppna likheter</li>
-            <li>sant eller falskt-uppgifter</li>
-            <li>likheter i båda riktningar</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>🔤</span>
-        <h2>Variabeln är alltid ett bestämt okänt tal</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Eleven tror att x alltid står för ett enda hemligt tal.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Variabler har främst introducerats genom ekvationer där ett värde ska hittas.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>variabler som varierande storheter</li>
-            <li>tabeller</li>
-            <li>formler</li>
-            <li>funktioner</li>
-            <li>mönster där n kan anta flera värden</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>🧮</span>
-        <h2>(x + 2)² = x² + 4</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Eleven kvadrerar varje term men missar den blandade termen.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Potensen uppfattas som något som kan fördelas över addition på samma sätt som multiplikation.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>skriv (x + 2)(x + 2)</li>
-            <li>areamodell</li>
-            <li>prova med konkreta värden</li>
-            <li>jämför båda uttrycken numeriskt</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section id="geometri">
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>📐</span>
-        <h2>Area och omkrets är nästan samma sak</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Eleven använder längd × bredd när frågan gäller omkrets.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Eleven minns en formel men har inte tillräckligt stark förståelse för vilken storhet som mäts.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>snöre runt figuren</li>
-            <li>rutor som täcker ytan</li>
-            <li>bygg figurer med samma area men olika omkrets</li>
-            <li>bygg figurer med samma omkrets men olika area</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>📏</span>
-        <h2>En större figur har alltid större area och omkrets</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Eleven avgör storlek genom hur figuren ser ut snarare än genom mätning.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Visuell storlek och matematisk storhet blandas ihop.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>mätning</li>
-            <li>rutnät</li>
-            <li>figurer med oväntade proportioner</li>
-            <li>jämförelser utan att använda standardfigurer</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section id="statistik">
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>📊</span>
-        <h2>Medelvärdet måste finnas i datamängden</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Eleven tycker att medelvärdet 4,5 är omöjligt när observationerna är heltal.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Medelvärde uppfattas som ”det vanligaste” eller ”ett av talen i mitten”.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>fördela lika</li>
-            <li>balansmodell</li>
-            <li>jämför med median och typvärde</li>
-            <li>skapa datamängder med samma medelvärde</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="misconception">
-
-      <div class="misconception-title">
-        <span>🎲</span>
-        <h2>Efter många sexor måste något annat komma</h2>
-      </div>
-
-      <div class="misconception-grid">
-
-        <div class="mis-box wrong">
-          <h3>⚠️ Exempel</h3>
-          <p>
-            Efter tre sexor i rad tror eleven att sannolikheten för en sexa på nästa kast har minskat.
-          </p>
-        </div>
-
-        <div class="mis-box thinking">
-          <h3>🧠 Eleven kan tänka</h3>
-          <p>
-            Eleven tror att slumpen ”jämnar ut sig” direkt mellan enskilda försök.
-          </p>
-        </div>
-
-        <div class="mis-box response">
-          <h3>🛠️ Bemöt med</h3>
-          <ul>
-            <li>många slumpförsök</li>
-            <li>diskutera oberoende händelser</li>
-            <li>simuleringar</li>
-            <li>jämför enskilda försök med långa försöksserier</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="teacher-box">
-
-      <h2>👩‍🏫 Undervisa genom missuppfattningen</h2>
+      <h3>Platsvärde</h3>
 
       <p>
-        En missuppfattning kan användas som utgångspunkt för ett matematiskt samtal.
-        Eleverna får då jämföra idéer och själva upptäcka varför en viss tanke inte fungerar i alla situationer.
+        Eleven behandlar siffror som separata symboler istället för att se
+        värdet som beror på positionen.
       </p>
 
-      <div class="teacher-grid">
-
-        <div class="teacher-card">
-          <h3>❌ Visa ett medvetet felsvar</h3>
-          <p>
-            Be eleverna analysera vad personen kan ha tänkt och var resonemanget förändras.
-          </p>
-        </div>
-
-        <div class="teacher-card">
-          <h3>🔎 Sök motexempel</h3>
-          <p>
-            Om eleven formulerar en regel, be klassen hitta ett exempel där regeln inte fungerar.
-          </p>
-        </div>
-
-        <div class="teacher-card">
-          <h3>🖼️ Byt representation</h3>
-          <p>
-            Gå från symboler till bild, konkret material, tallinje, graf eller tabell.
-          </p>
-        </div>
-
-        <div class="teacher-card">
-          <h3>⚖️ Jämför två lösningar</h3>
-          <p>
-            Låt eleverna diskutera vad som är lika och olika och vilken lösning som kan vara korrekt.
-          </p>
-        </div>
-
-        <div class="teacher-card">
-          <h3>💬 Kräv förklaring</h3>
-          <p>
-            Ett korrekt svar visar inte alltid korrekt förståelse. Fråga hur eleven vet.
-          </p>
-        </div>
-
-        <div class="teacher-card">
-          <h3>🔄 Följ upp senare</h3>
-          <p>
-            Kontrollera om förståelsen håller när eleven möter samma idé i ett nytt sammanhang.
-          </p>
-        </div>
-
+      <div class="wrong">
+        <strong>Exempel:</strong><br>
+        Eleven menar att 405 är mindre än 45 eftersom ”0 gör talet mindre”.
       </div>
 
-    </div>
+      <div class="teach">
+        <strong>Undervisa vidare:</strong><br>
+        Bygg talen med tiobasmaterial, använd positionsschema och jämför
+        samma siffror i olika positioner.
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">➖</div>
+
+      <h3>Subtraktion</h3>
+
+      <p>
+        Eleven använder regeln ”störst minus minst” siffra för siffra.
+      </p>
+
+      <div class="wrong">
+        <strong>Exempel:</strong><br>
+        52 − 38 blir 26 eftersom 8 − 2 = 6 och 5 − 3 = 2.
+      </div>
+
+      <div class="teach">
+        <strong>Undervisa vidare:</strong><br>
+        Koppla subtraktion till tallinje, skillnad och konkret växling.
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">✖️</div>
+
+      <h3>Multiplikation</h3>
+
+      <p>
+        Eleven ser multiplikation endast som upprepad addition
+        och får svårt när situationen förändras.
+      </p>
+
+      <div class="wrong">
+        <strong>Signal:</strong><br>
+        Problem med decimaler, area, proportionalitet eller negativa tal.
+      </div>
+
+      <div class="teach">
+        <strong>Undervisa vidare:</strong><br>
+        Använd grupper, area, skalning och jämförelse mellan olika modeller.
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">➗</div>
+
+      <h3>Division</h3>
+
+      <p>
+        Eleven tolkar alltid division som ”dela lika”
+        och missar innehållsdivision.
+      </p>
+
+      <div class="wrong">
+        <strong>Exempel:</strong><br>
+        12 ÷ 3 förstås bara som ”12 delas på tre personer”.
+      </div>
+
+      <div class="teach">
+        <strong>Undervisa vidare:</strong><br>
+        Jämför ”12 delas i 3 grupper” med ”hur många 3:or ryms i 12?”.
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🍕</div>
+
+      <h3>Bråk – större nämnare</h3>
+
+      <p>
+        Eleven överför heltalstänkande till bråk och tror att större nämnare
+        alltid betyder större tal.
+      </p>
+
+      <div class="wrong">
+        <strong>Exempel:</strong><br>
+        1/8 är större än 1/4 eftersom 8 är större än 4.
+      </div>
+
+      <div class="teach">
+        <strong>Undervisa vidare:</strong><br>
+        Använd samma helhet, bråkstavar och tallinje.
+        Låt eleven jämföra hur stora delarna faktiskt blir.
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🍰</div>
+
+      <h3>Bråk – täljare och nämnare</h3>
+
+      <p>
+        Täljare och nämnare behandlas som två oberoende heltal.
+      </p>
+
+      <div class="wrong">
+        <strong>Exempel:</strong><br>
+        2/3 + 1/4 = 3/7.
+      </div>
+
+      <div class="teach">
+        <strong>Undervisa vidare:</strong><br>
+        Återgå till betydelsen av delarnas storlek och gemensam enhet.
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔹</div>
+
+      <h3>Decimaltal</h3>
+
+      <p>
+        Eleven använder heltalsregler för decimaler.
+      </p>
+
+      <div class="wrong">
+        <strong>Exempel:</strong><br>
+        0,35 bedöms som större än 0,8 eftersom 35 &gt; 8.
+      </div>
+
+      <div class="teach">
+        <strong>Undervisa vidare:</strong><br>
+        Placera talen på tallinje och jämför tiondelar och hundradelar
+        med platsvärdesmodeller.
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">💯</div>
+
+      <h3>Procent</h3>
+
+      <p>
+        Eleven ser procent som ett fristående antal istället för en andel
+        relaterad till en helhet.
+      </p>
+
+      <div class="wrong">
+        <strong>Exempel:</strong><br>
+        ”20 % är alltid 20.”
+      </div>
+
+      <div class="teach">
+        <strong>Undervisa vidare:</strong><br>
+        Variera helheten och koppla procent till bråk, decimal och hundraruta.
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">=</div>
+
+      <h3>Likhetstecknet</h3>
+
+      <p>
+        Eleven tolkar = som ”nu kommer svaret”
+        istället för att båda sidor har samma värde.
+      </p>
+
+      <div class="wrong">
+        <strong>Exempel:</strong><br>
+        8 + 4 = □ + 5 ger svaret 12 i rutan.
+      </div>
+
+      <div class="teach">
+        <strong>Undervisa vidare:</strong><br>
+        Använd öppna likheter, balansmodell och sant/falskt-uppgifter.
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔤</div>
+
+      <h3>Variabel</h3>
+
+      <p>
+        Eleven tror att en bokstav alltid har ett bestämt värde
+        eller att olika bokstäver måste representera olika tal.
+      </p>
+
+      <div class="wrong">
+        <strong>Signal:</strong><br>
+        Svårigheter att tolka uttryck som 3n eller samband mellan variabler.
+      </div>
+
+      <div class="teach">
+        <strong>Undervisa vidare:</strong><br>
+        Variera hur bokstäver används: obekant, varierande storhet
+        och generell representation.
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📐</div>
+
+      <h3>Area och omkrets</h3>
+
+      <p>
+        Eleven blandar ihop längden runt en figur med storleken på ytan.
+      </p>
+
+      <div class="wrong">
+        <strong>Exempel:</strong><br>
+        Eleven tror att större omkrets automatiskt ger större area.
+      </div>
+
+      <div class="teach">
+        <strong>Undervisa vidare:</strong><br>
+        Bygg flera figurer med samma omkrets och jämför areorna.
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📊</div>
+
+      <h3>Medelvärde</h3>
+
+      <p>
+        Eleven utför algoritmen utan att förstå att medelvärdet
+        kan ses som en utjämning av datamängden.
+      </p>
+
+      <div class="wrong">
+        <strong>Signal:</strong><br>
+        Eleven accepterar orimliga medelvärden utan att reagera.
+      </div>
+
+      <div class="teach">
+        <strong>Undervisa vidare:</strong><br>
+        Använd konkreta fördelningssituationer och jämför med median.
+      </div>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🌱 Vad förändras genom F–9?</h2>
+
+  </div>
+
+
+  <div class="stage-grid">
+
+    <section class="stage green">
+
+      <h3>🌱 F–3</h3>
+
+      <p>
+        Många missuppfattningar uppstår när elever bygger sina första
+        modeller för tal, operationer och geometriska idéer.
+      </p>
+
+      <ul>
+        <li>Tal och platsvärde.</li>
+        <li>Räknesättens innebörd.</li>
+        <li>Likhetstecknets betydelse.</li>
+        <li>Del–helhet.</li>
+        <li>Form, längd och mätning.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage blue">
+
+      <h3>🔵 4–6</h3>
+
+      <p>
+        Tidigare regler kan bli problem när matematiken utvidgas till
+        bråk, decimaler, procent och mer komplexa samband.
+      </p>
+
+      <ul>
+        <li>Heltalsregler överförs till rationella tal.</li>
+        <li>Bråkens storlek.</li>
+        <li>Procent och helhet.</li>
+        <li>Area kontra omkrets.</li>
+        <li>Tidigt algebraiskt tänkande.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage purple">
+
+      <h3>🟣 7–9</h3>
+
+      <p>
+        Missuppfattningar blir ofta tydliga när elever behöver
+        generalisera och arbeta mer symboliskt.
+      </p>
+
+      <ul>
+        <li>Variabler och algebraiska uttryck.</li>
+        <li>Ekvationer och likhet.</li>
+        <li>Proportionalitet och funktioner.</li>
+        <li>Negativa tal.</li>
+        <li>Statistik och sannolikhet.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧪 Så kan förståelsen undersökas</h2>
+
+    <p>
+      Använd flera typer av uppgifter innan du bestämmer vad eleven behöver.
+    </p>
+
+  </div>
+
+
+  <div class="analysis-grid">
+
+    <section class="analysis green">
+
+      <h3>💬 Be eleven förklara</h3>
+
+      <ul>
+        <li>Hur tänkte du?</li>
+        <li>Vad betyder den här siffran?</li>
+        <li>Varför gjorde du så?</li>
+        <li>Gäller din regel alltid?</li>
+      </ul>
+
+    </section>
+
+
+    <section class="analysis blue">
+
+      <h3>🎨 Byt representation</h3>
+
+      <ul>
+        <li>Kan du rita det?</li>
+        <li>Kan du visa på tallinje?</li>
+        <li>Kan du bygga det?</li>
+        <li>Kan du göra en tabell?</li>
+      </ul>
+
+    </section>
+
+
+    <section class="analysis yellow">
+
+      <h3>✅❌ Använd sant/falskt</h3>
+
+      <ul>
+        <li>1/5 är större än 1/3.</li>
+        <li>0,7 är mindre än 0,65.</li>
+        <li>Större omkrets betyder större area.</li>
+        <li>20 % rabatt två gånger är 40 % rabatt.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="analysis purple">
+
+      <h3>🕵️ Låt eleven analysera ett fel</h3>
+
+      <ul>
+        <li>Var började lösningen bli fel?</li>
+        <li>Vad tror du personen tänkte?</li>
+        <li>Hur skulle du ändra förklaringen?</li>
+        <li>Vilket exempel skulle visa problemet?</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 När du planerar om undervisningen</h2>
+
+    <ul>
+      <li>Utgå från den bakomliggande matematiska idén – inte bara den felaktiga proceduren.</li>
+      <li>Välj ett konkret eller visuellt exempel som gör konflikten synlig.</li>
+      <li>Jämför exempel där elevens regel fungerar med exempel där den inte fungerar.</li>
+      <li>Låt eleven själv beskriva vad som behöver förändras i den gamla modellen.</li>
+      <li>Knyt den nya förståelsen till matematiskt språk och symboler.</li>
+      <li>Variera talen och sammanhanget så att eleven inte bara lär sig ett nytt knep.</li>
+      <li>Följ upp efter några dagar eller veckor i en ny situation.</li>
+    </ul>
 
   </section>
 
 
-  <section>
+  <div class="warning">
 
-    <div class="question-box">
+    <strong>⚠️ Undvik att ersätta en felregel med en ny minnesregel.</strong><br>
+    Om eleven exempelvis lär sig <strong>”större nämnare betyder mindre bråk”</strong>
+    utan att förstå varför, fungerar regeln bara i vissa situationer.
+    Målet behöver vara en modell som eleven kan resonera med,
+    inte bara ytterligare ett knep att memorera.
 
-      <h2 class="section-title">
-        💬 Frågor som synliggör elevens tänkande
-      </h2>
+  </div>
 
-      <p class="section-intro">
-        Frågorna hjälper läraren att komma bakom svaret.
-      </p>
 
-      <div class="question-grid">
+  <section class="links">
 
-        <div class="question-card">
-          <h3>Hur tänkte du?</h3>
-          <p>
-            Be eleven beskriva varje steg utan att direkt värdera svaret.
-          </p>
-        </div>
+    <h2>➡️ Fortsätt</h2>
 
-        <div class="question-card">
-          <h3>Kan du visa med en bild?</h3>
-          <p>
-            Se om elevens symboliska lösning stämmer med en konkret eller visuell representation.
-          </p>
-        </div>
+    <div class="link-row">
 
-        <div class="question-card">
-          <h3>Gäller det alltid?</h3>
-          <p>
-            Hjälper eleven att skilja mellan en regel och något som bara råkar fungera i ett exempel.
-          </p>
-        </div>
+      <a href="material-a4-larare.html">
+        📝 Analys av missuppfattning
+      </a>
 
-        <div class="question-card">
-          <h3>Kan du prova med andra tal?</h3>
-          <p>
-            Variation kan göra en missuppfattning tydligare för eleven själv.
-          </p>
-        </div>
+      <a href="elevblad-felfinnaren.html">
+        🕵️ Felfinnaren
+      </a>
 
-        <div class="question-card">
-          <h3>Vilket svar verkar rimligt?</h3>
-          <p>
-            Uppmuntrar eleven att tänka på storlek och sammanhang före algoritm.
-          </p>
-        </div>
+      <a href="elevblad-santfalskt.html">
+        ✅❌ Sant eller falskt
+      </a>
 
-        <div class="question-card">
-          <h3>Vad skulle övertyga dig?</h3>
-          <p>
-            Flyttar fokus från lärarens facit till matematisk argumentation.
-          </p>
-        </div>
+      <a href="larare-diagnoser.html">
+        🩺 Diagnoser
+      </a>
 
-      </div>
+      <a href="larare-observation.html">
+        👀 Observation
+      </a>
 
-      <div class="note">
-        <strong>Viktigt:</strong>
-        Enstaka felsvar behöver inte betyda att eleven har en stabil missuppfattning.
-        Titta efter mönster över flera uppgifter och be eleven förklara sitt tänkande innan du drar slutsatser.
-      </div>
+      <a href="larare-undervisning.html">
+        🧠 Undervisning
+      </a>
 
     </div>
 
@@ -1378,11 +1142,8 @@
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  ⚠️ Vanliga missuppfattningar – se elevens tanke bakom felet
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🩺 Upptäck • Förstå • Utmana • Bygg om • Följ upp
 
 </footer>
 
