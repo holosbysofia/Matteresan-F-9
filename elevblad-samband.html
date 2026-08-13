@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Elevblad Samband och förändring F–9 | HOLOS Matteresan</title>
+  <title>Samband & förändring F–9 | HOLOS Matteresan</title>
 
   <style>
     * {
@@ -15,12 +15,22 @@
 
     :root {
       --dark: #17324d;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --teal-light: #eaf7f5;
+
+      --f3: #e8f7ed;
+      --f3-strong: #5f9470;
+
+      --46: #e8f3ff;
+      --46-strong: #5d86ad;
+
+      --79: #f0eaff;
+      --79-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -30,7 +40,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     a {
@@ -40,10 +50,10 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
-        linear-gradient(135deg, #2f5c7b, #5d7fc4);
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #4f677c, #7e96ac);
       color: white;
-      padding: 22px 20px 55px;
+      padding: 22px 20px 50px;
     }
 
     .topbar {
@@ -64,58 +74,54 @@
       padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
       font-weight: bold;
     }
 
     .hero {
       max-width: 920px;
-      margin: 45px auto 0;
+      margin: 42px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.1rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4.2rem);
+      font-size: clamp(2.2rem, 7vw, 4rem);
       line-height: 1.05;
       margin-bottom: 10px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 15px;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
       max-width: 850px;
       margin: auto;
-      color: #f3f7ff;
+      color: #f7fbff;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1040px;
       margin: auto;
-      padding: 42px 20px;
-    }
-
-    section {
-      margin-bottom: 55px;
+      padding: 40px 20px;
     }
 
     .intro {
-      background: var(--blue-light);
-      border-radius: 26px;
-      padding: 32px;
+      background: var(--blue);
+      border-radius: 24px;
+      padding: 30px;
       text-align: center;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
       color: var(--dark);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .intro p {
@@ -125,7 +131,7 @@
     }
 
     .print-button {
-      display: inline-block;
+      margin-top: 16px;
       background: var(--dark);
       color: white;
       border: none;
@@ -133,227 +139,250 @@
       padding: 12px 20px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 18px;
-    }
-
-    .stage {
-      border-radius: 28px;
-      padding: 34px;
-      margin-bottom: 34px;
-    }
-
-    .stage-f3 {
-      background: var(--green-light);
-    }
-
-    .stage-46 {
-      background: var(--blue-light);
-    }
-
-    .stage-79 {
-      background: var(--purple-light);
-    }
-
-    .stage-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-
-    .stage-header span {
-      font-size: 2.8rem;
-    }
-
-    .stage-header h2 {
-      color: var(--dark);
-      font-size: 1.9rem;
-    }
-
-    .stage-header p {
-      color: var(--muted);
-    }
-
-    .sheet-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
     }
 
     .sheet {
       background: white;
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 22px;
-      padding: 26px;
-      border: 1px solid rgba(0,0,0,0.06);
-      min-height: 520px;
+      padding: 24px;
+      margin-bottom: 28px;
+      min-height: 270mm;
     }
 
-    .sheet h3 {
-      color: var(--dark);
-      margin-bottom: 5px;
-      font-size: 1.35rem;
+    .sheet.f3 {
+      border-top: 9px solid var(--f3-strong);
     }
 
-    .sheet-sub {
-      color: var(--muted);
+    .sheet.stage46 {
+      border-top: 9px solid var(--46-strong);
+    }
+
+    .sheet.stage79 {
+      border-top: 9px solid var(--79-strong);
+    }
+
+    .sheet-head {
+      text-align: center;
       margin-bottom: 18px;
-      font-size: 0.93rem;
+    }
+
+    .stage-label {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .f3-label {
+      background: var(--f3);
+      color: #356345;
+    }
+
+    .stage46-label {
+      background: var(--46);
+      color: #345e86;
+    }
+
+    .stage79-label {
+      background: var(--79);
+      color: #634a83;
+    }
+
+    .sheet-head h2 {
+      color: var(--dark);
+      font-size: 1.7rem;
+      margin-bottom: 4px;
+    }
+
+    .sheet-head p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .field {
+      background: white;
+      border: 1.5px solid #9aa6ae;
+      border-radius: 10px;
+      min-height: 50px;
+      padding: 9px;
+    }
+
+    .field strong {
+      display: block;
+      color: var(--dark);
+      font-size: 0.86rem;
     }
 
     .task {
-      margin-bottom: 20px;
-      padding-bottom: 18px;
-      border-bottom: 1px dashed #ccd4db;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+      break-inside: avoid;
     }
 
-    .task:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
-    .task strong {
+    .task h3 {
       color: var(--dark);
+      font-size: 1rem;
+      margin-bottom: 6px;
     }
 
-    .answer-box {
-      height: 76px;
-      border: 1.5px solid #9ba7b1;
-      border-radius: 10px;
-      margin-top: 10px;
+    .task p,
+    .task li {
+      color: #4e5d68;
+      font-size: 0.88rem;
+    }
+
+    .task ul {
+      margin: 8px 0 0 22px;
+    }
+
+    .task li {
+      margin-bottom: 5px;
+    }
+
+    .green { background: var(--f3); }
+    .blue { background: var(--46); }
+    .purple { background: var(--79); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .write-area {
       background: white;
+      border: 1.2px solid #98a4ad;
+      border-radius: 8px;
+      margin-top: 8px;
+      min-height: 70px;
     }
 
-    .answer-box.large {
-      height: 115px;
+    .write-area.medium {
+      min-height: 100px;
     }
 
-    .answer-box.xlarge {
-      height: 155px;
+    .write-area.large {
+      min-height: 145px;
     }
 
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-    }
-
-    .table th,
-    .table td {
-      border: 1px solid #9aa6af;
-      padding: 9px;
-      text-align: center;
-    }
-
-    .table th {
-      background: #f0f4f7;
-    }
-
-    .graph {
-      width: 100%;
-      height: 220px;
-      border-left: 2px solid #41596d;
-      border-bottom: 2px solid #41596d;
-      margin-top: 16px;
-      position: relative;
-      background-image:
-        linear-gradient(to right, #dfe6eb 1px, transparent 1px),
-        linear-gradient(to bottom, #dfe6eb 1px, transparent 1px);
-      background-size: 25px 25px;
-    }
-
-    .graph-line {
-      position: absolute;
-      left: 30px;
-      bottom: 25px;
-      width: 75%;
-      height: 3px;
-      background: #526b7e;
-      transform: rotate(-28deg);
-      transform-origin: left center;
-    }
-
-    .choice-row {
-      display: flex;
-      flex-wrap: wrap;
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
-      margin-top: 10px;
     }
 
-    .choice {
-      border: 1.5px solid #9aa6af;
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .four-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
+    }
+
+    .number-box,
+    .relation-box {
+      background: white;
+      border: 1.2px solid #89969f;
       border-radius: 10px;
-      padding: 8px 14px;
-      min-width: 82px;
+      min-height: 72px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      color: var(--dark);
       font-weight: bold;
     }
 
-    .challenge {
-      background: var(--yellow-light);
-      border-radius: 18px;
-      padding: 20px;
-      margin-top: 20px;
+    .table-wrap {
+      margin-top: 10px;
+      overflow-x: auto;
     }
 
-    .reflection {
-      background: var(--orange-light);
-      border-radius: 18px;
-      padding: 20px;
-      margin-top: 20px;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
     }
 
-    .challenge h4,
-    .reflection h4 {
-      color: var(--dark);
-      margin-bottom: 7px;
+    th,
+    td {
+      border: 1px solid #86939c;
+      padding: 8px;
+      text-align: center;
     }
 
-    .teacher-note {
-      background: var(--teal-light);
-      border-radius: 24px;
-      padding: 28px;
+    th {
+      background: var(--dark);
+      color: white;
+      font-size: 0.84rem;
     }
 
-    .teacher-note h2 {
-      color: var(--dark);
-      margin-bottom: 10px;
+    td {
+      background: white;
+      height: 45px;
     }
 
-    .teacher-note ul {
-      padding-left: 20px;
+    .graph-area {
+      background:
+        linear-gradient(to right, #d8dee3 1px, transparent 1px),
+        linear-gradient(to bottom, #d8dee3 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-color: white;
+      border: 1.2px solid #89969f;
+      border-radius: 8px;
+      min-height: 180px;
+      margin-top: 8px;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 14px;
       color: var(--muted);
+      font-size: 0.8rem;
     }
 
-    .teacher-note li {
-      margin-bottom: 8px;
+    .screen-note {
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 24px;
+      color: #654c37;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
+      color: white;
       text-align: center;
-      padding: 34px 20px;
+      padding: 30px 20px;
+      margin-top: 30px;
     }
 
-    @media (max-width: 850px) {
-      .sheet-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .stage,
-      .intro,
-      .teacher-note {
-        padding: 23px 16px;
-      }
-
-      .sheet {
-        padding: 20px 16px;
+      .meta-grid,
+      .two-grid,
+      .three-grid,
+      .four-grid {
+        grid-template-columns: 1fr;
       }
 
       main {
@@ -362,87 +391,160 @@
       }
     }
 
+    /* ===========================
+       A4 + FÄRGUTSKRIFT
+       =========================== */
+
     @page {
       size: A4 portrait;
-      margin: 12mm;
+      margin: 10mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
       body {
-        background: white;
-        font-size: 10.5pt;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
       header,
       footer,
       .intro,
-      .teacher-note,
-      .print-button,
-      .back-link {
+      .screen-note {
         display: none !important;
       }
 
       main {
+        width: 100%;
         max-width: none;
+        margin: 0;
         padding: 0;
-        margin: 0;
-      }
-
-      section {
-        margin: 0;
-      }
-
-      .stage {
-        background: white !important;
-        padding: 0;
-        margin: 0;
-      }
-
-      .stage-header {
-        margin: 0 0 7mm 0;
-      }
-
-      .stage-header span {
-        display: none;
-      }
-
-      .stage-header h2 {
-        font-size: 17pt;
-      }
-
-      .stage-header p {
-        font-size: 9pt;
-      }
-
-      .sheet-grid {
-        display: block;
       }
 
       .sheet {
-        border: none;
-        border-radius: 0;
+        width: 100%;
+        min-height: 277mm;
+        margin: 0;
         padding: 0;
-        min-height: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
         page-break-after: always;
         break-after: page;
       }
 
-      .sheet:last-child {
+      .sheet:last-of-type {
         page-break-after: auto;
         break-after: auto;
       }
 
+      .sheet.f3 {
+        border-top: 7px solid var(--f3-strong) !important;
+      }
+
+      .sheet.stage46 {
+        border-top: 7px solid var(--46-strong) !important;
+      }
+
+      .sheet.stage79 {
+        border-top: 7px solid var(--79-strong) !important;
+      }
+
+      .green,
+      .f3-label {
+        background: var(--f3) !important;
+      }
+
+      .blue,
+      .stage46-label {
+        background: var(--46) !important;
+      }
+
+      .purple,
+      .stage79-label {
+        background: var(--79) !important;
+      }
+
+      .yellow { background: var(--yellow) !important; }
+      .orange { background: var(--orange) !important; }
+      .teal { background: var(--teal) !important; }
+      .pink { background: var(--pink) !important; }
+      .gray { background: var(--gray) !important; }
+
+      .field,
+      .write-area,
+      .number-box,
+      .relation-box,
+      td {
+        background: white !important;
+      }
+
+      th {
+        background: var(--dark) !important;
+        color: white !important;
+      }
+
+      .graph-area {
+        background:
+          linear-gradient(to right, #d8dee3 1px, transparent 1px),
+          linear-gradient(to bottom, #d8dee3 1px, transparent 1px) !important;
+        background-size: 20px 20px !important;
+        background-color: white !important;
+      }
+
+      .two-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .three-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .four-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 2.5mm !important;
+      }
+
       .task,
-      .challenge,
-      .reflection,
-      .graph {
+      .field,
+      .number-box,
+      .relation-box,
+      .table-wrap,
+      .graph-area {
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      .stage:not(:first-of-type) {
-        page-break-before: always;
-        break-before: page;
+      .sheet-head h2,
+      .task h3,
+      .field strong,
+      .number-box,
+      .relation-box {
+        color: var(--dark) !important;
+      }
+
+      .sheet-head p,
+      .task p,
+      .task li,
+      .footer-note {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -453,13 +555,11 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
 
-    <a href="material-elevblad.html" class="back-link">
-      ← Elevblad
+    <a href="material-a4-elevblad.html" class="back-link">
+      ← A4 Elevblad
     </a>
-
   </div>
 
   <div class="hero">
@@ -471,9 +571,8 @@
     <h2>Jämför • Beskriv • Representera • Beräkna • Generalisera</h2>
 
     <p>
-      Utskriftsklara elevblad för proportionalitet, förhållanden,
-      jämförpris, skala, hastighet–tid–sträcka, förändring,
-      tabeller, grafer och linjära samband.
+      Sex utskriftsklara elevblad med progression från enkla samband
+      till proportionalitet, skala, hastighet, förändringsfaktor och linjära funktioner.
     </p>
 
   </div>
@@ -483,665 +582,608 @@
 
 <main>
 
-  <section>
+  <div class="intro">
 
-    <div class="intro">
+    <h2>📈 Matematik beskriver hur storheter hänger ihop</h2>
 
-      <h2>📄 Sex utskriftsklara elevblad</h2>
+    <p>
+      Elever behöver möta samband genom konkreta situationer,
+      tabeller, grafer, språk och symboler och kunna växla mellan representationerna.
+    </p>
+
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut alla sex elevblad
+    </button>
+
+  </div>
+
+
+  <!-- F–3 BLAD 1 -->
+
+  <section class="sheet f3">
+
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Samband – blad 1</h2>
+      <p>Dubbel • hälften • förändring</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task green">
+
+      <h3>1. Dubbelt</h3>
 
       <p>
-        Två blad för varje stadium. Varje elevblad placeras på en egen A4-sida vid utskrift.
+        Fyll i det dubbla.
       </p>
 
-      <button class="print-button" onclick="window.print()">
-        🖨️ Skriv ut elevbladen
-      </button>
+      <div class="four-grid">
+        <div class="number-box">4 → ___</div>
+        <div class="number-box">7 → ___</div>
+        <div class="number-box">10 → ___</div>
+        <div class="number-box">15 → ___</div>
+      </div>
 
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Hälften</h3>
+
+      <div class="four-grid">
+        <div class="number-box">12 → ___</div>
+        <div class="number-box">20 → ___</div>
+        <div class="number-box">18 → ___</div>
+        <div class="number-box">30 → ___</div>
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Vad händer?</h3>
+
+      <p>
+        Antalet ökar med 3 varje gång:
+      </p>
+
+      <div class="relation-box">
+        2 → 5 → 8 → 11 → ___ → ___
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>4. Förklara sambandet</h3>
+
+      <p>
+        Hur hänger talen 5 och 10 ihop?
+        Visa på flera sätt.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Samband F–3
     </div>
 
   </section>
 
 
-  <!-- F–3 -->
+  <!-- F–3 BLAD 2 -->
 
-  <section class="stage stage-f3">
+  <section class="sheet f3">
 
-    <div class="stage-header">
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Samband – blad 2</h2>
+      <p>Tabeller • antal • kostnad</p>
+    </div>
 
-      <span>🌱</span>
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
 
-      <div>
-        <h2>F–3 – Upptäck samband</h2>
-        <p>Dubbelt • hälften • fler–färre • enkla tabeller</p>
+
+    <div class="task green">
+
+      <h3>1. Äpplen</h3>
+
+      <p>
+        Ett äpple kostar 5 kr.
+        Fyll i tabellen.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>Antal äpplen</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+          </tr>
+          <tr>
+            <th>Kostnad</th>
+            <td>5 kr</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
       </div>
 
     </div>
 
-    <div class="sheet-grid">
+
+    <div class="task blue">
+
+      <h3>2. Förklara</h3>
+
+      <p>
+        Hur kan du snabbt veta vad 10 äpplen kostar?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
 
 
-      <article class="sheet">
+    <div class="task yellow">
 
-        <h3>Elevblad 1 – Dubbelt & hälften</h3>
+      <h3>3. Om priset ändras</h3>
 
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
+      <p>
+        Vad händer med tabellen om varje äpple istället kostar 7 kr?
+      </p>
 
-        <div class="task">
+      <div class="write-area large"></div>
 
-          <strong>1. Skriv det dubbla.</strong>
-
-          <p>
-            Dubbelt av 3 = ______
-          </p>
-
-          <p>
-            Dubbelt av 6 = ______
-          </p>
-
-          <p>
-            Dubbelt av 9 = ______
-          </p>
-
-        </div>
+    </div>
 
 
-        <div class="task">
+    <div class="task orange">
 
-          <strong>2. Skriv hälften.</strong>
+      <h3>4. Skapa ett samband</h3>
 
-          <p>
-            Hälften av 8 = ______
-          </p>
+      <p>
+        Hitta på en egen situation där kostnaden ökar lika mycket
+        varje gång antalet ökar med 1.
+      </p>
 
-          <p>
-            Hälften av 14 = ______
-          </p>
+      <div class="write-area large"></div>
 
-          <p>
-            Hälften av 20 = ______
-          </p>
+    </div>
 
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Vad händer?</strong>
-
-          <p>
-            Mira har 4 pärlor.
-            Leo har dubbelt så många.
-          </p>
-
-          <p>
-            Leo har ______ pärlor.
-          </p>
-
-          <p>
-            Rita:
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-
-        <div class="reflection">
-
-          <h4>💬 Förklara</h4>
-
-          <p>
-            Vad betyder ”dubbelt så många”?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 2 – Samband i tabell</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Varje hund har 4 ben.</strong>
-
-          <table class="table">
-            <tr>
-              <th>Hundar</th>
-              <th>Ben</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td></td>
-            </tr>
-          </table>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Vad är regeln?</strong>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Om det finns 24 ben...</strong>
-
-          <p>
-            Hur många hundar finns det?
-          </p>
-
-          <p>
-            Svar: ______ hundar
-          </p>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Utmaning</h4>
-
-          <p>
-            Gör en egen tabell där varje sak har samma antal delar.
-          </p>
-
-          <div class="answer-box xlarge"></div>
-
-        </div>
-
-      </article>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Samband F–3
     </div>
 
   </section>
 
 
-  <!-- 4–6 -->
+  <!-- 4–6 BLAD 1 -->
 
-  <section class="stage stage-46">
+  <section class="sheet stage46">
 
-    <div class="stage-header">
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Samband – blad 1</h2>
+      <p>Proportionalitet • jämförpris • förhållanden</p>
+    </div>
 
-      <span>🌿</span>
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
 
-      <div>
-        <h2>4–6 – Proportionalitet, förhållanden & skala</h2>
-        <p>Förhållanden • jämförpris • skala • tabeller • enkel hastighet</p>
+
+    <div class="task blue">
+
+      <h3>1. Proportionellt samband</h3>
+
+      <p>
+        3 kg äpplen kostar 72 kr.
+        Vad kostar:
+      </p>
+
+      <div class="three-grid">
+        <div class="number-box">1 kg</div>
+        <div class="number-box">5 kg</div>
+        <div class="number-box">10 kg</div>
+      </div>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task green">
+
+      <h3>2. Jämförpris</h3>
+
+      <p>
+        Förpackning A: 500 g för 30 kr.<br>
+        Förpackning B: 750 g för 42 kr.
+      </p>
+
+      <p>
+        Vilken är billigast per kilogram?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Förhållande</h3>
+
+      <p>
+        Saft blandas i förhållandet
+        <strong>1 del koncentrat : 4 delar vatten</strong>.
+      </p>
+
+      <p>
+        Hur mycket koncentrat behövs till 10 liter färdig dryck?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>4. Är sambandet proportionellt?</h3>
+
+      <p>
+        Förklara hur du kan känna igen ett proportionellt samband.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Samband 4–6
+    </div>
+
+  </section>
+
+
+  <!-- 4–6 BLAD 2 -->
+
+  <section class="sheet stage46">
+
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Samband – blad 2</h2>
+      <p>Skala • hastighet • tid • sträcka</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>1. Skala</h3>
+
+      <p>
+        På en karta i skala 1:10 000 är en sträcka 5 cm.
+        Hur lång är sträckan i verkligheten?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task green">
+
+      <h3>2. Hastighet</h3>
+
+      <p>
+        En cyklist färdas 36 km på 2 timmar.
+        Vilken är medelhastigheten?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Sträcka</h3>
+
+      <p>
+        En bil kör med 80 km/h i 3 timmar.
+        Hur långt kör bilen?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Tid</h3>
+
+      <p>
+        En buss kör 180 km med medelhastigheten 60 km/h.
+        Hur lång tid tar resan?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Förklara sambanden</h3>
+
+      <p>
+        Hur hänger hastighet, tid och sträcka ihop?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Samband 4–6
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 BLAD 1 -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Samband – blad 1</h2>
+      <p>Tabell • graf • linjärt samband • funktion</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>1. Formeln</h3>
+
+      <div class="relation-box">
+        y = 3x + 5
+      </div>
+
+      <p style="margin-top:8px;">
+        Vad betyder 3 och 5 i sambandet?
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Fyll i tabellen</h3>
+
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>x</th>
+            <th>−2</th>
+            <th>−1</th>
+            <th>0</th>
+            <th>1</th>
+            <th>2</th>
+          </tr>
+          <tr>
+            <th>y</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
       </div>
 
     </div>
 
-    <div class="sheet-grid">
+
+    <div class="task yellow">
+
+      <h3>3. Rita grafen</h3>
+
+      <div class="graph-area"></div>
+
+    </div>
 
 
-      <article class="sheet">
+    <div class="task orange">
 
-        <h3>Elevblad 3 – Förhållanden & jämförpris</h3>
+      <h3>4. Tolka</h3>
 
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
+      <p>
+        Var skär grafen y-axeln?
+        Hur syns det i formeln?
+      </p>
 
-        <div class="task">
+      <div class="write-area large"></div>
 
-          <strong>1. Förhållandet är 2 : 3.</strong>
+    </div>
 
-          <p>
-            Det finns 2 röda kulor för varje 3 blå kulor.
-          </p>
-
-          <p>
-            Om det finns 4 röda kulor, hur många blå finns då? ______
-          </p>
-
-          <p>
-            Om det finns 10 röda kulor, hur många blå finns då? ______
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Jämförpris.</strong>
-
-          <p>
-            Paket A: 500 g pasta kostar 18 kr.
-          </p>
-
-          <p>
-            Paket B: 1 kg pasta kostar 32 kr.
-          </p>
-
-          <p>
-            Vilket paket är billigast per kilogram?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Recept.</strong>
-
-          <p>
-            Ett recept för 4 personer behöver 6 dl mjölk.
-          </p>
-
-          <p>
-            Hur mycket mjölk behövs för 8 personer? ______ dl
-          </p>
-
-          <p>
-            Hur mycket behövs för 2 personer? ______ dl
-          </p>
-
-        </div>
-
-
-        <div class="reflection">
-
-          <h4>💬 Förklara</h4>
-
-          <p>
-            Hur kan du avgöra om två mängder förändras proportionellt?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 4 – Skala & hastighet</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Skala 1:100.</strong>
-
-          <p>
-            Ett bord är 1,4 cm långt på en ritning.
-          </p>
-
-          <p>
-            Hur långt är bordet i verkligheten?
-          </p>
-
-          <p>
-            Svar: __________
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Hastighet.</strong>
-
-          <p>
-            En cyklist färdas 36 km på 2 timmar.
-          </p>
-
-          <p>
-            Medelhastigheten är ______ km/h.
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Fyll i tabellen.</strong>
-
-          <p>
-            En bil kör med konstant hastighet 60 km/h.
-          </p>
-
-          <table class="table">
-            <tr>
-              <th>Tid</th>
-              <th>Sträcka</th>
-            </tr>
-            <tr>
-              <td>1 h</td>
-              <td>60 km</td>
-            </tr>
-            <tr>
-              <td>2 h</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>3,5 h</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>0,5 h</td>
-              <td></td>
-            </tr>
-          </table>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Utmaning</h4>
-
-          <p>
-            Två cyklister kör samma sträcka.
-            Den ena kör 12 km/h och den andra 18 km/h.
-          </p>
-
-          <p>
-            Vem behöver längst tid? Förklara sambandet mellan hastighet och tid.
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-      </article>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Samband 7–9
     </div>
 
   </section>
 
 
-  <!-- 7–9 -->
+  <!-- 7–9 BLAD 2 -->
 
-  <section class="stage stage-79">
+  <section class="sheet stage79">
 
-    <div class="stage-header">
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Samband – blad 2</h2>
+      <p>Förändringsfaktor • procentuell förändring • jämföra modeller</p>
+    </div>
 
-      <span>🚀</span>
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
 
-      <div>
-        <h2>7–9 – Linjära samband & förändring</h2>
-        <p>Funktioner • tabeller • grafer • proportionalitet • förändringsfaktor</p>
+
+    <div class="task purple">
+
+      <h3>1. Förändringsfaktor</h3>
+
+      <p>
+        Skriv förändringsfaktorn.
+      </p>
+
+      <div class="four-grid">
+        <div class="number-box">+10 %</div>
+        <div class="number-box">+25 %</div>
+        <div class="number-box">−20 %</div>
+        <div class="number-box">−40 %</div>
       </div>
 
+      <div class="write-area medium"></div>
+
     </div>
 
-    <div class="sheet-grid">
 
+    <div class="task blue">
 
-      <article class="sheet">
+      <h3>2. Upprepad förändring</h3>
 
-        <h3>Elevblad 5 – Från tabell till funktion</h3>
+      <p>
+        Ett värde är 10 000 och ökar med 4 % varje år.
+        Vad är värdet efter tre år?
+      </p>
 
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
+      <div class="write-area large"></div>
 
-        <div class="task">
+    </div>
 
-          <strong>1. Undersök sambandet.</strong>
 
-          <table class="table">
-            <tr>
-              <th>x</th>
-              <th>y</th>
-            </tr>
-            <tr>
-              <td>0</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>5</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>7</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>9</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td></td>
-            </tr>
-          </table>
+    <div class="task yellow">
 
-        </div>
+      <h3>3. Två abonnemang</h3>
 
+      <p>
+        A: 99 kr + 2 kr/minut.<br>
+        B: 159 kr + 1 kr/minut.
+      </p>
 
-        <div class="task">
+      <p>
+        Vid hur många minuter kostar de lika mycket?
+      </p>
 
-          <strong>2. Beskriv förändringen.</strong>
+      <div class="write-area large"></div>
 
-          <p>
-            När x ökar med 1 ökar y med ______.
-          </p>
+    </div>
 
-          <p>
-            När x = 0 är y = ______.
-          </p>
 
-        </div>
+    <div class="task orange">
 
+      <h3>4. Jämför modellerna</h3>
 
-        <div class="task">
+      <p>
+        När är A billigast?
+        När är B billigast?
+        Hur kan detta visas i en graf?
+      </p>
 
-          <strong>3. Skriv en formel.</strong>
+      <div class="write-area large"></div>
 
-          <p>
-            y = __________________
-          </p>
+    </div>
 
-          <p>
-            Använd formeln för att beräkna y när x = 20.
-          </p>
 
-          <p>
-            y = ______
-          </p>
+    <div class="task teal">
 
-        </div>
+      <h3>5. Generalisera</h3>
 
+      <p>
+        Ett linjärt samband skrivs:
+        <strong>y = kx + m</strong>.
+      </p>
 
-        <div class="reflection">
+      <p>
+        Förklara vad <strong>k</strong> och <strong>m</strong> berättar
+        om sambandet och grafen.
+      </p>
 
-          <h4>💬 Resonera</h4>
+      <div class="write-area large"></div>
 
-          <p>
-            Är sambandet proportionellt? Förklara hur du vet.
-          </p>
+    </div>
 
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 6 – Graf & förändring</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Studera grafen.</strong>
-
-          <div class="graph">
-            <div class="graph-line"></div>
-          </div>
-
-          <p style="margin-top:10px;">
-            Beskriv med ord vad det betyder att grafen stiger.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Två abonnemang.</strong>
-
-          <p>
-            Abonnemang A: 100 kr i fast avgift + 20 kr per använd timme.
-          </p>
-
-          <p>
-            Abonnemang B: 40 kr per använd timme och ingen fast avgift.
-          </p>
-
-          <p>
-            Skriv en funktion för varje abonnemang.
-          </p>
-
-          <p>
-            A: __________________________
-          </p>
-
-          <p>
-            B: __________________________
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. När kostar de lika mycket?</strong>
-
-          <p>
-            Sätt funktionerna lika och lös.
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Förändring</h4>
-
-          <p>
-            Ett värde ökar med 10 % varje år.
-          </p>
-
-          <p>
-            Startvärdet är 5 000.
-          </p>
-
-          <p>
-            a) Vilken förändringsfaktor används? ______
-          </p>
-
-          <p>
-            b) Vad är värdet efter två år?
-          </p>
-
-          <div class="answer-box"></div>
-
-          <p>
-            c) Förklara varför man inte bara kan lägga till 20 % av ursprungsvärdet.
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-      </article>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Samband 7–9
     </div>
 
   </section>
 
 
-  <section>
+  <div class="screen-note">
 
-    <div class="teacher-note">
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+    Varje elevblad ska hamna på ett eget A4.
 
-      <h2>👩‍🏫 Lärarnotering</h2>
-
-      <ul>
-        <li>
-          F–3 arbetar förberedande med dubbelt, hälften och enkla samband mellan två mängder.
-        </li>
-
-        <li>
-          4–6 utvecklar proportionalitet genom förhållanden, jämförpris, recept, skala och hastighet–tid–sträcka.
-        </li>
-
-        <li>
-          7–9 utvecklar tabeller, grafer, linjära funktioner, proportionalitet och förändringsfaktor.
-        </li>
-
-        <li>
-          Uppmärksamma skillnaden mellan ett proportionellt samband och ett allmänt linjärt samband.
-        </li>
-
-        <li>
-          Matteresans årskursvisa progression är en pedagogisk organisation inom Lgr22:s bredare stadieinnehåll – inte en officiell årskursfördelning.
-        </li>
-      </ul>
-
-      <button class="print-button" onclick="window.print()">
-        🖨️ Skriv ut
-      </button>
-
-    </div>
-
-  </section>
+  </div>
 
 </main>
 
 
 <footer>
-
   <strong>HOLOS Matteresan F–9</strong>
-
   <br>
-
-  📈 Samband & förändring – jämför, representera, beräkna och generalisera
-
+  📈🔗 Samband & förändring – jämför, beskriv, representera, beräkna och generalisera
 </footer>
 
 </body>
