@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Matematikaffischer F–9 | HOLOS Matteresan</title>
+  <title>Affischbank F–9 | HOLOS Matteresan</title>
 
   <style>
     * {
@@ -15,13 +15,14 @@
 
     :root {
       --dark: #17324d;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --teal-light: #eaf7f5;
-      --pink-light: #ffe9f1;
+      --green: #edf9f1;
+      --blue: #eaf5ff;
+      --purple: #f1edff;
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -31,7 +32,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     a {
@@ -41,10 +42,10 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
-        linear-gradient(135deg, #49506f, #767fa5);
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #69547a, #967bab);
       color: white;
-      padding: 22px 20px 55px;
+      padding: 22px 20px 52px;
     }
 
     .topbar {
@@ -65,13 +66,12 @@
       padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
       font-weight: bold;
     }
 
     .hero {
-      max-width: 920px;
-      margin: 45px auto 0;
+      max-width: 900px;
+      margin: 42px auto 0;
       text-align: center;
     }
 
@@ -81,52 +81,49 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4.3rem);
+      font-size: clamp(2.2rem, 7vw, 4.2rem);
       line-height: 1.05;
       margin-bottom: 10px;
     }
 
     .hero h2 {
       font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 15px;
+      margin-bottom: 14px;
     }
 
     .hero p {
       max-width: 850px;
       margin: auto;
-      color: #f6f7ff;
+      color: #fbf8ff;
     }
 
     main {
       max-width: 1180px;
       margin: auto;
-      padding: 42px 20px;
-    }
-
-    section {
-      margin-bottom: 58px;
+      padding: 40px 20px;
     }
 
     .intro {
-      background: var(--purple-light);
-      border-radius: 26px;
-      padding: 32px;
+      background: var(--purple);
+      border-radius: 24px;
+      padding: 30px;
       text-align: center;
+      margin-bottom: 36px;
     }
 
     .intro h2 {
       color: var(--dark);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .intro p {
-      max-width: 880px;
+      max-width: 850px;
       margin: auto;
       color: var(--muted);
     }
 
     .print-button {
-      display: inline-block;
+      margin-top: 16px;
       background: var(--dark);
       color: white;
       border: none;
@@ -134,7 +131,6 @@
       padding: 12px 20px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 18px;
     }
 
     .section-title {
@@ -148,293 +144,154 @@
       text-align: center;
       color: var(--muted);
       max-width: 850px;
-      margin: 0 auto 28px;
+      margin: 0 auto 25px;
     }
 
     .poster-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .poster {
-      background: white;
-      border-radius: 24px;
-      padding: 28px;
-      border: 1px solid rgba(0,0,0,0.07);
-      min-height: 520px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      break-inside: avoid;
-    }
-
-    .poster-top {
-      text-align: center;
-    }
-
-    .poster-icon {
-      font-size: 4rem;
-      margin-bottom: 8px;
-    }
-
-    .poster h3 {
-      color: var(--dark);
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-
-    .poster-sub {
-      color: var(--muted);
-      font-weight: bold;
-      margin-bottom: 22px;
-    }
-
-    .poster-list {
-      list-style: none;
-      margin-top: 15px;
-    }
-
-    .poster-list li {
-      background: #f5f7f9;
-      border-radius: 14px;
-      padding: 13px 15px;
-      margin-bottom: 10px;
-      font-weight: bold;
-      color: var(--dark);
-    }
-
-    .poster-list li span {
-      margin-right: 8px;
-    }
-
-    .big-equation {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--dark);
-      margin: 18px 0;
-      padding: 18px;
-      border-radius: 18px;
-      background: #f5f7f9;
-    }
-
-    .speech {
-      background: var(--yellow-light);
-      border-radius: 16px;
-      padding: 14px;
-      margin-bottom: 10px;
-      color: #4e4936;
-      font-weight: bold;
-    }
-
-    .three-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .mini {
-      border-radius: 14px;
-      padding: 16px 8px;
-      text-align: center;
-      background: #f5f7f9;
-    }
-
-    .mini strong {
-      display: block;
-      color: var(--dark);
-      font-size: 1.15rem;
-      margin-bottom: 4px;
-    }
-
-    .mini p {
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    .formula-box {
-      border: 2px solid #82929e;
-      border-radius: 16px;
-      padding: 15px;
-      margin-bottom: 12px;
-      text-align: center;
-      background: white;
-    }
-
-    .formula-box strong {
-      color: var(--dark);
-      font-size: 1.25rem;
-    }
-
-    .poster-footer {
-      text-align: center;
-      margin-top: 20px;
-      padding-top: 15px;
-      border-top: 1px dashed #bfc8ce;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .p1 {
-      background: linear-gradient(180deg, #ffffff, var(--green-light));
-    }
-
-    .p2 {
-      background: linear-gradient(180deg, #ffffff, var(--blue-light));
-    }
-
-    .p3 {
-      background: linear-gradient(180deg, #ffffff, var(--purple-light));
-    }
-
-    .p4 {
-      background: linear-gradient(180deg, #ffffff, var(--yellow-light));
-    }
-
-    .p5 {
-      background: linear-gradient(180deg, #ffffff, var(--orange-light));
-    }
-
-    .p6 {
-      background: linear-gradient(180deg, #ffffff, var(--teal-light));
-    }
-
-    .p7 {
-      background: linear-gradient(180deg, #ffffff, var(--pink-light));
-    }
-
-    .p8 {
-      background: linear-gradient(180deg, #ffffff, #eef2f4);
-    }
-
-    .p9 {
-      background: linear-gradient(180deg, #ffffff, #fff4e8);
-    }
-
-    .p10 {
-      background: linear-gradient(180deg, #ffffff, #edf6ff);
-    }
-
-    .p11 {
-      background: linear-gradient(180deg, #ffffff, #f4edff);
-    }
-
-    .p12 {
-      background: linear-gradient(180deg, #ffffff, #ecf8f4);
-    }
-
-    .stage-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 35%),
-        linear-gradient(135deg, #17324d, #626b8a);
-      color: white;
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .stage-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .stage-box > p {
-      max-width: 850px;
-      color: #f7f8ff;
-    }
-
-    .stage-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .stage-card {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 19px;
-      padding: 22px;
-    }
-
-    .stage-card span {
-      display: block;
-      font-size: 2.5rem;
-      margin-bottom: 7px;
-    }
-
-    .stage-card h3 {
-      margin-bottom: 7px;
-    }
-
-    .stage-card p {
-      color: #f7f8ff;
-      font-size: 0.91rem;
-    }
-
-    .tool-grid {
-      display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
+      margin-bottom: 48px;
     }
 
-    .tool-card {
-      border-radius: 20px;
-      padding: 23px;
-      min-height: 185px;
+    .poster-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 220px;
       transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
     }
 
-    .tool-card:hover {
-      transform: translateY(-3px);
+    .poster-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(30,50,60,0.08);
     }
 
-    .tool-card span {
+    .poster-card span {
       display: block;
-      font-size: 2.3rem;
-      margin-bottom: 7px;
+      font-size: 2.6rem;
+      margin-bottom: 8px;
     }
 
-    .tool-card h3 {
+    .poster-card h3 {
       color: var(--dark);
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
 
-    .tool-card p {
+    .poster-card p {
       color: var(--muted);
       font-size: 0.92rem;
     }
 
-    .t1 { background: var(--green-light); }
-    .t2 { background: var(--blue-light); }
-    .t3 { background: var(--purple-light); }
-    .t4 { background: var(--orange-light); }
-    .t5 { background: var(--pink-light); }
-    .t6 { background: var(--teal-light); }
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .poster-sheet {
+      width: 100%;
+      min-height: 270mm;
+      background: white;
+      border-radius: 24px;
+      margin-bottom: 28px;
+      padding: 24px;
+      border: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .poster {
+      min-height: 245mm;
+      border-radius: 24px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      border: 2px solid rgba(23,50,77,0.14);
+    }
+
+    .poster .icon {
+      font-size: 4.8rem;
+      margin-bottom: 15px;
+    }
+
+    .poster h2 {
+      font-size: 2.5rem;
+      color: var(--dark);
+      margin-bottom: 15px;
+      line-height: 1.08;
+    }
+
+    .poster .subtitle {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 21px;
+    }
+
+    .poster-list {
+      list-style: none;
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: left;
+    }
+
+    .poster-list li {
+      background: rgba(255,255,255,0.74);
+      border-radius: 14px;
+      padding: 13px 16px;
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .poster-list strong {
+      color: var(--dark);
+    }
+
+    .formula {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: var(--dark);
+      background: rgba(255,255,255,0.76);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 12px auto;
+      max-width: 720px;
+      width: 100%;
+    }
+
+    .footer-text {
+      margin-top: 20px;
+      font-weight: bold;
+      color: var(--dark);
+    }
 
     .note {
-      background: var(--yellow-light);
-      border-left: 6px solid #c49c3f;
+      background: var(--yellow);
+      border-left: 6px solid #caa64c;
       border-radius: 14px;
       padding: 20px;
-      margin-top: 24px;
-      color: #5e5334;
+      margin-top: 28px;
+      color: #62583b;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
+      color: white;
       text-align: center;
-      padding: 34px 20px;
-      margin-top: 30px;
+      padding: 30px 20px;
+      margin-top: 35px;
     }
 
     @media (max-width: 900px) {
-      .poster-grid,
-      .stage-grid,
-      .tool-grid {
-        grid-template-columns: 1fr;
+      .poster-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -443,24 +300,27 @@
         flex-direction: column;
       }
 
-      .three-grid {
+      .poster-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro,
-      .stage-box {
-        padding: 24px 17px;
-      }
-
-      .poster {
-        padding: 22px 16px;
       }
 
       main {
         padding-left: 14px;
         padding-right: 14px;
       }
+
+      .poster {
+        padding: 20px 15px;
+      }
+
+      .poster h2 {
+        font-size: 2rem;
+      }
     }
+
+    /* =====================================
+       UTSKRIFT – A4 + FÄRG
+       ===================================== */
 
     @page {
       size: A4 portrait;
@@ -468,68 +328,88 @@
     }
 
     @media print {
-      header,
-      footer,
-      .back-link,
-      .intro,
-      .stage-box,
-      .tool-grid,
-      .note,
-      .print-button,
-      .section-title,
-      .section-intro {
-        display: none !important;
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      header,
+      footer,
+      .intro,
+      .poster-grid,
+      .section-title,
+      .section-intro,
+      .note {
+        display: none !important;
       }
 
       main {
         max-width: none;
+        width: 100%;
         margin: 0;
         padding: 0;
       }
 
-      section {
+      .poster-sheet {
+        width: 100%;
+        min-height: 277mm;
         margin: 0;
-      }
-
-      .poster-grid {
-        display: block;
-      }
-
-      .poster {
+        padding: 0;
         border: none;
         border-radius: 0;
-        min-height: 277mm;
-        height: 277mm;
-        padding: 12mm;
         page-break-after: always;
         break-after: page;
-        overflow: hidden;
       }
 
-      .poster:last-child {
+      .poster-sheet:last-of-type {
         page-break-after: auto;
         break-after: auto;
       }
 
-      .poster h3 {
-        font-size: 24pt;
+      .poster {
+        min-height: 277mm;
+        border-radius: 0;
+        padding: 12mm;
+        border: none;
+        page-break-inside: avoid;
+        break-inside: avoid;
       }
 
-      .poster-icon {
-        font-size: 40pt;
-      }
+      .green { background: var(--green) !important; }
+      .blue { background: var(--blue) !important; }
+      .purple { background: var(--purple) !important; }
+      .yellow { background: var(--yellow) !important; }
+      .orange { background: var(--orange) !important; }
+      .teal { background: var(--teal) !important; }
+      .pink { background: var(--pink) !important; }
+      .gray { background: var(--gray) !important; }
 
       .poster-list li,
-      .speech,
-      .formula-box,
-      .big-equation,
-      .mini {
-        break-inside: avoid;
-        page-break-inside: avoid;
+      .formula {
+        background: rgba(255,255,255,0.78) !important;
+      }
+
+      .poster h2,
+      .poster-list strong,
+      .formula,
+      .footer-text {
+        color: var(--dark) !important;
+      }
+
+      .poster .subtitle {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -540,29 +420,24 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
 
-    <a href="larare-material.html" class="back-link">
-      ← Materialbanken
+    <a href="larare-utskrift.html" class="back-link">
+      ← Utskriftscentralen
     </a>
-
   </div>
 
   <div class="hero">
+    <div class="hero-icon">🖼️🧠</div>
 
-    <div class="hero-icon">🖼️📐</div>
+    <h1>Affischbank F–9</h1>
 
-    <h1>Matematikaffischer F–9</h1>
-
-    <h2>Se • Minnas • Använda • Resonera</h2>
+    <h2>Synliggör • Samtala • Förklara • Använd</h2>
 
     <p>
-      Visuella klassrumsaffischer för strategier, begrepp,
-      problemlösning och matematiskt språk.
-      Varje affisch är anpassad för utskrift på egen A4-sida.
+      Klassrumsaffischer som gör viktiga matematiska idéer,
+      strategier och språk synliga genom hela F–9.
     </p>
-
   </div>
 
 </header>
@@ -570,736 +445,479 @@
 
 <main>
 
-  <section>
+  <div class="intro">
 
-    <div class="intro">
+    <h2>🎨 Matematik som syns i klassrummet</h2>
 
-      <h2>🖨️ Tolv färdiga matematikaffischer</h2>
-
-      <p>
-        Affischerna kan användas på väggen, vid stationer,
-        i mindre format på elevens bord eller som samtalsstöd under genomgångar.
-      </p>
-
-      <button class="print-button" onclick="window.print()">
-        🖨️ Skriv ut alla affischer
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">🖼️ Affischbanken</h2>
-
-    <p class="section-intro">
-      Varje kort nedan blir en egen A4-affisch vid utskrift.
+    <p>
+      Affischerna är tänkta som aktiva undervisningsverktyg.
+      Hänvisa till dem, jämför med dem och låt eleverna använda
+      orden och strategierna i sina egna resonemang.
     </p>
 
-    <div class="poster-grid">
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut alla affischer
+    </button>
 
+  </div>
 
-      <!-- 1 -->
 
-      <article class="poster p1">
+  <h2 class="section-title">📚 Affischer i banken</h2>
 
-        <div class="poster-top">
+  <p class="section-intro">
+    Tolv centrala stöd för problemlösning, språk,
+    begrepp, strategier och matematiska samband.
+  </p>
 
-          <div class="poster-icon">🧠🧩</div>
 
-          <h3>Så löser jag problem</h3>
+  <div class="poster-grid">
 
-          <p class="poster-sub">
-            Förstå • Planera • Pröva • Förklara • Kontrollera
-          </p>
-
-          <ul class="poster-list">
-
-            <li>
-              <span>1️⃣</span>
-              Vad vet jag?
-            </li>
-
-            <li>
-              <span>2️⃣</span>
-              Vad ska jag ta reda på?
-            </li>
-
-            <li>
-              <span>3️⃣</span>
-              Vilken strategi kan passa?
-            </li>
-
-            <li>
-              <span>4️⃣</span>
-              Visa min lösning tydligt.
-            </li>
-
-            <li>
-              <span>5️⃣</span>
-              Kontrollera att svaret är rimligt.
-            </li>
-
-          </ul>
-
-        </div>
-
-        <div class="poster-footer">
-          HOLOS MATTERESAN • Problemlösning
-        </div>
-
-      </article>
-
-
-      <!-- 2 -->
-
-      <article class="poster p2">
-
-        <div class="poster-top">
-
-          <div class="poster-icon">🧭</div>
-
-          <h3>Problemlösningsstrategier</h3>
-
-          <p class="poster-sub">
-            Jag kan välja olika vägar
-          </p>
-
-          <ul class="poster-list">
-
-            <li>
-              🎨 Rita en bild eller modell
-            </li>
-
-            <li>
-              📋 Gör en tabell
-            </li>
-
-            <li>
-              🔍 Pröva systematiskt
-            </li>
-
-            <li>
-              ↩️ Arbeta baklänges
-            </li>
-
-            <li>
-              🧩 Leta efter ett mönster
-            </li>
-
-            <li>
-              🔢 Förenkla problemet
-            </li>
-
-          </ul>
-
-        </div>
-
-        <div class="poster-footer">
-          En strategi är ett verktyg – välj den som passar problemet.
-        </div>
-
-      </article>
-
-
-      <!-- 3 -->
-
-      <article class="poster p3">
-
-        <div class="poster-top">
-
-          <div class="poster-icon">💬🧠</div>
-
-          <h3>Matteprat</h3>
-
-          <p class="poster-sub">
-            Mitt tänkande är viktigt
-          </p>
-
-          <div class="speech">
-            💡 Jag tänkte så här...
-          </div>
-
-          <div class="speech">
-            🔍 Jag vet att det stämmer eftersom...
-          </div>
-
-          <div class="speech">
-            ⚖️ Min strategi skiljer sig genom att...
-          </div>
-
-          <div class="speech">
-            🤝 Jag håller med eftersom...
-          </div>
-
-          <div class="speech">
-            ❓ Kan du förklara hur du tänkte?
-          </div>
-
-          <div class="speech">
-            🚀 Jag vill lägga till...
-          </div>
-
-        </div>
-
-        <div class="poster-footer">
-          Tänk • Dela • Lyssna • Jämför • Resonera
-        </div>
-
-      </article>
-
-
-      <!-- 4 -->
-
-      <article class="poster p4">
-
-        <div class="poster-top">
-
-          <div class="poster-icon">🍕🔟💯</div>
-
-          <h3>Bråk • Decimal • Procent</h3>
-
-          <p class="poster-sub">
-            Tre sätt att visa samma värde
-          </p>
-
-          <div class="big-equation">
-            1/2 = 0,5 = 50 %
-          </div>
-
-          <div class="big-equation">
-            1/4 = 0,25 = 25 %
-          </div>
-
-          <div class="big-equation">
-            3/4 = 0,75 = 75 %
-          </div>
-
-          <div class="big-equation">
-            1/10 = 0,1 = 10 %
-          </div>
-
-        </div>
-
-        <div class="poster-footer">
-          Fråga alltid: Hur stor del av helheten?
-        </div>
-
-      </article>
-
-
-      <!-- 5 -->
-
-      <article class="poster p5">
-
-        <div class="poster-top">
-
-          <div class="poster-icon">➕➖✖️➗</div>
-
-          <h3>De fyra räknesätten</h3>
-
-          <p class="poster-sub">
-            Vad berättar operationen?
-          </p>
-
-          <div class="formula-box">
-            <strong>Addition ➕</strong><br>
-            lägga ihop • öka • tillsammans
-          </div>
-
-          <div class="formula-box">
-            <strong>Subtraktion ➖</strong><br>
-            ta bort • skillnad • minska
-          </div>
-
-          <div class="formula-box">
-            <strong>Multiplikation ✖️</strong><br>
-            lika stora grupper • gånger
-          </div>
-
-          <div class="formula-box">
-            <strong>Division ➗</strong><br>
-            dela lika • hur många grupper?
-          </div>
-
-        </div>
-
-        <div class="poster-footer">
-          Välj räknesätt efter situationen – inte bara efter nyckelord.
-        </div>
-
-      </article>
-
-
-      <!-- 6 -->
-
-      <article class="poster p6">
-
-        <div class="poster-top">
-
-          <div class="poster-icon">⚖️</div>
-
-          <h3>Likhetstecknet</h3>
-
-          <p class="poster-sub">
-            = betyder lika mycket
-          </p>
-
-          <div class="big-equation">
-            7 + 5 = 8 + 4
-          </div>
-
-          <div class="big-equation">
-            12 = 6 + 6
-          </div>
-
-          <div class="big-equation">
-            3 × 4 = 15 − 3
-          </div>
-
-          <ul class="poster-list">
-
-            <li>
-              Båda sidor måste ha samma värde.
-            </li>
-
-            <li>
-              = betyder inte ”nu kommer svaret”.
-            </li>
-
-            <li>
-              Tänk balans.
-            </li>
-
-          </ul>
-
-        </div>
-
-        <div class="poster-footer">
-          Samma värde på båda sidor.
-        </div>
-
-      </article>
-
-
-      <!-- 7 -->
-
-      <article class="poster p7">
-
-        <div class="poster-top">
-
-          <div class="poster-icon">📐</div>
-
-          <h3>Geometriska mått</h3>
-
-          <p class="poster-sub">
-            Vad är det jag mäter?
-          </p>
-
-          <div class="formula-box">
-            <strong>Omkrets</strong><br>
-            längden runt figuren
-          </div>
-
-          <div class="formula-box">
-            <strong>Area</strong><br>
-            ytan inuti figuren
-          </div>
-
-          <div class="formula-box">
-            <strong>Volym</strong><br>
-            utrymmet i en tredimensionell figur
-          </div>
-
-          <div class="three-grid">
-
-            <div class="mini">
-              <strong>cm</strong>
-              <p>längd</p>
-            </div>
-
-            <div class="mini">
-              <strong>cm²</strong>
-              <p>area</p>
-            </div>
-
-            <div class="mini">
-              <strong>cm³</strong>
-              <p>volym</p>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="poster-footer">
-          Läs alltid enheten – den berättar vad som mäts.
-        </div>
-
-      </article>
-
-
-      <!-- 8 -->
-
-      <article class="poster p8">
-
-        <div class="poster-top">
-
-          <div class="poster-icon">📊</div>
-
-          <h3>Medelvärde • Median • Typvärde</h3>
-
-          <p class="poster-sub">
-            Tre olika sätt att beskriva data
-          </p>
-
-          <div class="formula-box">
-            <strong>Medelvärde</strong><br>
-            summa ÷ antal värden
-          </div>
-
-          <div class="formula-box">
-            <strong>Median</strong><br>
-            mitten när värdena är sorterade
-          </div>
-
-          <div class="formula-box">
-            <strong>Typvärde</strong><br>
-            värdet som förekommer flest gånger
-          </div>
-
-          <div class="formula-box">
-            <strong>Variationsbredd</strong><br>
-            största värdet − minsta värdet
-          </div>
-
-        </div>
-
-        <div class="poster-footer">
-          Fråga: Vilket mått beskriver datan bäst?
-        </div>
-
-      </article>
-
-
-      <!-- 9 -->
-
-      <article class="poster p9">
-
-        <div class="poster-top">
-
-          <div class="poster-icon">🎲</div>
-
-          <h3>Sannolikhet</h3>
-
-          <p class="poster-sub">
-            Hur troligt är det?
-          </p>
-
-          <ul class="poster-list">
-
-            <li>
-              🎯 Gynnsamma utfall
-            </li>
-
-            <li>
-              🎲 Möjliga utfall
-            </li>
-
-          </ul>
-
-          <div class="big-equation">
-            Sannolikhet =
-            gynnsamma utfall / möjliga utfall
-          </div>
-
-          <div class="formula-box">
-            Vanlig tärning:<br>
-            P(6) = 1/6
-          </div>
-
-          <div class="formula-box">
-            Mynt:<br>
-            P(krona) = 1/2
-          </div>
-
-        </div>
-
-        <div class="poster-footer">
-          Tidigare oberoende utfall ändrar inte nästa chans.
-        </div>
-
-      </article>
-
-
-      <!-- 10 -->
-
-      <article class="poster p10">
-
-        <div class="poster-top">
-
-          <div class="poster-icon">💯📈</div>
-
-          <h3>Procentuell förändring</h3>
-
-          <p class="poster-sub">
-            Från procent till förändringsfaktor
-          </p>
-
-          <div class="formula-box">
-            <strong>Ökning 10 %</strong><br>
-            förändringsfaktor 1,10
-          </div>
-
-          <div class="formula-box">
-            <strong>Ökning 25 %</strong><br>
-            förändringsfaktor 1,25
-          </div>
-
-          <div class="formula-box">
-            <strong>Minskning 20 %</strong><br>
-            förändringsfaktor 0,80
-          </div>
-
-          <div class="formula-box">
-            <strong>Minskning 35 %</strong><br>
-            förändringsfaktor 0,65
-          </div>
-
-          <div class="big-equation">
-            nytt värde = gammalt värde × förändringsfaktor
-          </div>
-
-        </div>
-
-        <div class="poster-footer">
-          Varje procentuell förändring utgår från sitt aktuella värde.
-        </div>
-
-      </article>
-
-
-      <!-- 11 -->
-
-      <article class="poster p11">
-
-        <div class="poster-top">
-
-          <div class="poster-icon">📈🔗</div>
-
-          <h3>Linjära samband</h3>
-
-          <p class="poster-sub">
-            Tabell • graf • formel
-          </p>
-
-          <div class="big-equation">
-            y = kx + m
-          </div>
-
-          <div class="formula-box">
-            <strong>k</strong><br>
-            förändringstakt / lutning
-          </div>
-
-          <div class="formula-box">
-            <strong>m</strong><br>
-            startvärde
-          </div>
-
-          <ul class="poster-list">
-
-            <li>
-              📋 Visa sambandet i tabell.
-            </li>
-
-            <li>
-              📈 Visa sambandet i graf.
-            </li>
-
-            <li>
-              🔤 Beskriv sambandet med formel.
-            </li>
-
-          </ul>
-
-        </div>
-
-        <div class="poster-footer">
-          Proportionellt samband: y = kx och grafen går genom origo.
-        </div>
-
-      </article>
-
-
-      <!-- 12 -->
-
-      <article class="poster p12">
-
-        <div class="poster-top">
-
-          <div class="poster-icon">🌟🧠</div>
-
-          <h3>I vårt matteklassrum</h3>
-
-          <p class="poster-sub">
-            Vi tränar på att tänka matematiskt
-          </p>
-
-          <ul class="poster-list">
-
-            <li>
-              💡 Vi vågar pröva idéer.
-            </li>
-
-            <li>
-              💬 Vi förklarar hur vi tänker.
-            </li>
-
-            <li>
-              👂 Vi lyssnar på andras strategier.
-            </li>
-
-            <li>
-              🔍 Vi lär oss av fel.
-            </li>
-
-            <li>
-              ⚖️ Vi jämför olika lösningar.
-            </li>
-
-            <li>
-              ❓ Vi ställer frågor.
-            </li>
-
-            <li>
-              🚀 Vi utmanar vårt tänkande.
-            </li>
-
-          </ul>
-
-        </div>
-
-        <div class="poster-footer">
-          Ett fel kan vara början på ett nytt matematiskt samtal.
-        </div>
-
-      </article>
-
+    <div class="poster-card green">
+      <span>🧠</span>
+      <h3>Problemlösning</h3>
+      <p>En tydlig arbetsgång från förståelse till kontroll.</p>
     </div>
 
-  </section>
+    <div class="poster-card blue">
+      <span>💬</span>
+      <h3>Matteprat</h3>
+      <p>Meningsstarter för resonemang och matematiska samtal.</p>
+    </div>
+
+    <div class="poster-card purple">
+      <span>🎨</span>
+      <h3>Representationer</h3>
+      <p>Konkret, bild, ord och symboler.</p>
+    </div>
+
+    <div class="poster-card yellow">
+      <span>⚖️</span>
+      <h3>Likhetstecknet</h3>
+      <p>Samma värde på båda sidor.</p>
+    </div>
+
+    <div class="poster-card orange">
+      <span>🔢</span>
+      <h3>Platsvärde</h3>
+      <p>En siffras värde beror på dess plats.</p>
+    </div>
+
+    <div class="poster-card teal">
+      <span>🍕</span>
+      <h3>Bråk, decimal & procent</h3>
+      <p>Samma värde i olika former.</p>
+    </div>
+
+    <div class="poster-card pink">
+      <span>📐</span>
+      <h3>Area & omkrets</h3>
+      <p>Två olika mått som beskriver olika saker.</p>
+    </div>
+
+    <div class="poster-card gray">
+      <span>📊</span>
+      <h3>Statistik</h3>
+      <p>Medelvärde, median och typvärde.</p>
+    </div>
+
+    <div class="poster-card green">
+      <span>🎲</span>
+      <h3>Sannolikhet</h3>
+      <p>Omöjligt, möjligt och säkert.</p>
+    </div>
+
+    <div class="poster-card blue">
+      <span>📈</span>
+      <h3>Samband</h3>
+      <p>Tabell, graf och formel.</p>
+    </div>
+
+    <div class="poster-card purple">
+      <span>🔍</span>
+      <h3>Kontrollera</h3>
+      <p>Rimlighet, metod, enhet och svar.</p>
+    </div>
+
+    <div class="poster-card yellow">
+      <span>🤝</span>
+      <h3>Matematikkultur</h3>
+      <p>Pröva, fråga, lyssna och lära av misstag.</p>
+    </div>
+
+  </div>
 
 
-  <section>
+  <!-- AFFISCH 1 -->
 
-    <div class="stage-box">
+  <section class="poster-sheet">
+    <div class="poster green">
 
-      <h2>🌱 🌿 🚀 Använd affischerna genom F–9</h2>
+      <div class="icon">🧠🧩</div>
 
-      <p>
-        Affischer fungerar bäst när eleverna faktiskt använder dem under undervisningen,
-        inte bara när de sitter på väggen.
+      <h2>När du löser problem</h2>
+
+      <p class="subtitle">
+        Problemlösning är mer än att hitta ett svar.
       </p>
 
-      <div class="stage-grid">
+      <ul class="poster-list">
+        <li>1️⃣ <strong>Förstå</strong> – Vad vet jag? Vad ska jag ta reda på?</li>
+        <li>2️⃣ <strong>Planera</strong> – Vilken strategi kan passa?</li>
+        <li>3️⃣ <strong>Pröva</strong> – Rita, gör tabell, förenkla eller testa systematiskt.</li>
+        <li>4️⃣ <strong>Förklara</strong> – Visa hur du tänker.</li>
+        <li>5️⃣ <strong>Kontrollera</strong> – Är svaret rimligt?</li>
+      </ul>
 
-        <div class="stage-card">
-          <span>🌱</span>
-          <h3>F–3</h3>
-          <p>
-            Peka, läs tillsammans, visa med material och använd affischen som muntligt språkstöd.
-          </p>
-        </div>
-
-        <div class="stage-card">
-          <span>🌿</span>
-          <h3>4–6</h3>
-          <p>
-            Låt eleverna själva välja vilken affisch som kan hjälpa dem i en uppgift.
-          </p>
-        </div>
-
-        <div class="stage-card">
-          <span>🚀</span>
-          <h3>7–9</h3>
-          <p>
-            Använd affischer som minnesstöd men låt eleverna förklara varför regler och samband fungerar.
-          </p>
-        </div>
-
+      <div class="footer-text">
+        Förstå → Planera → Pröva → Förklara → Kontrollera
       </div>
 
     </div>
-
   </section>
 
 
-  <section>
+  <!-- AFFISCH 2 -->
 
-    <h2 class="section-title">🗂️ Relaterat material</h2>
+  <section class="poster-sheet">
+    <div class="poster blue">
 
-    <div class="tool-grid">
+      <div class="icon">💬🧠</div>
 
-      <a href="material-begrepp.html" class="tool-card t1">
-        <span>📚</span>
-        <h3>Begreppsbank</h3>
-        <p>
-          Fördjupa orden och begreppen som finns på affischerna.
-        </p>
-      </a>
+      <h2>Så pratar vi matematik</h2>
 
-      <a href="material-matteprat.html" class="tool-card t2">
-        <span>💬</span>
-        <h3>Matteprat</h3>
-        <p>
-          Använd affischerna som språkstöd under matematiska samtal.
-        </p>
-      </a>
+      <ul class="poster-list">
+        <li>💭 <strong>Jag tänkte...</strong></li>
+        <li>🔍 <strong>Jag såg att...</strong></li>
+        <li>🧠 <strong>Jag vet att det stämmer eftersom...</strong></li>
+        <li>⚖️ <strong>Min lösning liknar din eftersom...</strong></li>
+        <li>↔️ <strong>Skillnaden är...</strong></li>
+        <li>❓ <strong>Kan du förklara varför...?</strong></li>
+        <li>🚀 <strong>Jag tror att detta alltid gäller eftersom...</strong></li>
+      </ul>
 
-      <a href="material-mallar.html" class="tool-card t3">
-        <span>📝</span>
-        <h3>Mallar</h3>
-        <p>
-          Elevmallar som bygger vidare på samma strategier och språk.
-        </p>
-      </a>
-
-      <a href="material-problem.html" class="tool-card t4">
-        <span>🧠</span>
-        <h3>Problembank</h3>
-        <p>
-          Låt eleverna använda problemlösningsaffischerna i verkliga problem.
-        </p>
-      </a>
-
-      <a href="larare-sprak.html" class="tool-card t5">
-        <span>🗣️</span>
-        <h3>Språk & begrepp</h3>
-        <p>
-          Lärarstöd för att använda visuellt språkstöd i matematikundervisningen.
-        </p>
-      </a>
-
-      <a href="material-a4-affischer.html" class="tool-card t6">
-        <span>🖨️</span>
-        <h3>A4-affischer</h3>
-        <p>
-          Samlad utskriftscentral för affischer i färdigt A4-format.
-        </p>
-      </a>
+      <div class="footer-text">
+        Lyssna • Fråga • Förklara • Jämför • Motivera
+      </div>
 
     </div>
-
-    <div class="note">
-      <strong>Tips:</strong>
-      introducera inte alla affischer samtidigt. Sätt upp eller lyft fram den affisch som
-      hör ihop med det matematiska innehåll eleverna arbetar med just nu.
-    </div>
-
   </section>
+
+
+  <!-- AFFISCH 3 -->
+
+  <section class="poster-sheet">
+    <div class="poster purple">
+
+      <div class="icon">🧱🎨💬🔢</div>
+
+      <h2>Visa matematiken på flera sätt</h2>
+
+      <ul class="poster-list">
+        <li>🧱 <strong>Konkret</strong> – använd material eller en verklig situation.</li>
+        <li>🎨 <strong>Bild</strong> – rita en modell, tallinje eller figur.</li>
+        <li>💬 <strong>Ord</strong> – beskriv vad som händer.</li>
+        <li>🔢 <strong>Symboler</strong> – skriv beräkning, formel eller uttryck.</li>
+      </ul>
+
+      <div class="footer-text">
+        En stark matematisk förståelse kan röra sig mellan representationer.
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- AFFISCH 4 -->
+
+  <section class="poster-sheet">
+    <div class="poster yellow">
+
+      <div class="icon">⚖️</div>
+
+      <h2>Likhetstecknet</h2>
+
+      <p class="subtitle">
+        = betyder samma värde på båda sidor.
+      </p>
+
+      <div class="formula">
+        8 + 7 = 6 + 9
+      </div>
+
+      <div class="formula">
+        15 = 10 + 5
+      </div>
+
+      <div class="formula">
+        3x + 4 = 19
+      </div>
+
+      <ul class="poster-list">
+        <li>✅ Kontrollera båda sidor.</li>
+        <li>✅ Tänk balans.</li>
+        <li>✅ Likhetstecknet betyder inte bara "svaret kommer nu".</li>
+      </ul>
+
+    </div>
+  </section>
+
+
+  <!-- AFFISCH 5 -->
+
+  <section class="poster-sheet">
+    <div class="poster orange">
+
+      <div class="icon">🔢📍</div>
+
+      <h2>Platsvärde</h2>
+
+      <p class="subtitle">
+        En siffras värde bestäms av dess plats.
+      </p>
+
+      <div class="formula">
+        4 582
+      </div>
+
+      <ul class="poster-list">
+        <li>4 = <strong>4 000</strong></li>
+        <li>5 = <strong>500</strong></li>
+        <li>8 = <strong>80</strong></li>
+        <li>2 = <strong>2</strong></li>
+      </ul>
+
+      <div class="formula">
+        4 582 = 4 000 + 500 + 80 + 2
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- AFFISCH 6 -->
+
+  <section class="poster-sheet">
+    <div class="poster teal">
+
+      <div class="icon">🍕🔟💯</div>
+
+      <h2>Samma värde – olika former</h2>
+
+      <div class="formula">
+        1/2 = 0,5 = 50 %
+      </div>
+
+      <div class="formula">
+        1/4 = 0,25 = 25 %
+      </div>
+
+      <div class="formula">
+        3/4 = 0,75 = 75 %
+      </div>
+
+      <ul class="poster-list">
+        <li>🍕 <strong>Bråk</strong> – delar av en helhet eller en kvot.</li>
+        <li>🔟 <strong>Decimal</strong> – positionssystemets delar mindre än ett.</li>
+        <li>💯 <strong>Procent</strong> – hundradelar.</li>
+      </ul>
+
+    </div>
+  </section>
+
+
+  <!-- AFFISCH 7 -->
+
+  <section class="poster-sheet">
+    <div class="poster pink">
+
+      <div class="icon">📐</div>
+
+      <h2>Area och omkrets</h2>
+
+      <ul class="poster-list">
+        <li>
+          🟦 <strong>Area</strong> beskriver hur stor yta en figur täcker.
+        </li>
+
+        <li>
+          📏 <strong>Omkrets</strong> beskriver längden runt figuren.
+        </li>
+      </ul>
+
+      <div class="formula">
+        Rektangel: A = längd × bredd
+      </div>
+
+      <div class="formula">
+        O = 2 × längd + 2 × bredd
+      </div>
+
+      <p class="footer-text">
+        Samma area behöver inte betyda samma omkrets.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- AFFISCH 8 -->
+
+  <section class="poster-sheet">
+    <div class="poster gray">
+
+      <div class="icon">📊</div>
+
+      <h2>Tre lägesmått</h2>
+
+      <ul class="poster-list">
+        <li>
+          ➗ <strong>Medelvärde</strong><br>
+          Summan av alla värden delat med antal värden.
+        </li>
+
+        <li>
+          🎯 <strong>Median</strong><br>
+          Det mittersta värdet när talen står i storleksordning.
+        </li>
+
+        <li>
+          🔁 <strong>Typvärde</strong><br>
+          Det värde som förekommer flest gånger.
+        </li>
+      </ul>
+
+      <div class="formula">
+        3, 4, 4, 5, 19
+      </div>
+
+      <p class="footer-text">
+        Fråga alltid: vilket mått beskriver datan bäst?
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- AFFISCH 9 -->
+
+  <section class="poster-sheet">
+    <div class="poster green">
+
+      <div class="icon">🎲</div>
+
+      <h2>Sannolikhet</h2>
+
+      <div class="formula">
+        P(händelse) =
+        gynnsamma utfall / möjliga utfall
+      </div>
+
+      <ul class="poster-list">
+        <li>🚫 <strong>0</strong> = omöjligt</li>
+        <li>🤔 <strong>Mellan 0 och 1</strong> = möjligt</li>
+        <li>✅ <strong>1</strong> = säkert</li>
+      </ul>
+
+      <div class="formula">
+        P(jämnt tal på en tärning) = 3/6 = 1/2
+      </div>
+
+      <p class="footer-text">
+        Slump betyder inte att allt måste bli jämnt fördelat i ett litet antal försök.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- AFFISCH 10 -->
+
+  <section class="poster-sheet">
+    <div class="poster blue">
+
+      <div class="icon">📋📈🔤</div>
+
+      <h2>Samband kan visas på flera sätt</h2>
+
+      <ul class="poster-list">
+        <li>📋 <strong>Tabell</strong> – visar värdepar.</li>
+        <li>📈 <strong>Graf</strong> – visar hur värden förändras.</li>
+        <li>🔤 <strong>Formel</strong> – beskriver sambandet generellt.</li>
+      </ul>
+
+      <div class="formula">
+        y = 3x + 5
+      </div>
+
+      <ul class="poster-list">
+        <li><strong>3</strong> = förändringstakten</li>
+        <li><strong>5</strong> = startvärdet när x = 0</li>
+      </ul>
+
+    </div>
+  </section>
+
+
+  <!-- AFFISCH 11 -->
+
+  <section class="poster-sheet">
+    <div class="poster purple">
+
+      <div class="icon">🔍✅</div>
+
+      <h2>Kontrollera ditt svar</h2>
+
+      <ul class="poster-list">
+        <li>🎯 <strong>Svarade jag på frågan?</strong></li>
+        <li>📏 <strong>Har jag rätt enhet?</strong></li>
+        <li>🧠 <strong>Är svaret rimligt?</strong></li>
+        <li>🔄 <strong>Kan jag kontrollera med en annan strategi?</strong></li>
+        <li>✍️ <strong>Har jag visat hur jag tänkte?</strong></li>
+        <li>🌍 <strong>Vad betyder svaret i situationen?</strong></li>
+      </ul>
+
+      <div class="footer-text">
+        Matematik handlar både om svar och om varför svaret fungerar.
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- AFFISCH 12 -->
+
+  <section class="poster-sheet">
+    <div class="poster yellow">
+
+      <div class="icon">🤝🧠</div>
+
+      <h2>I vårt matematikklassrum...</h2>
+
+      <ul class="poster-list">
+        <li>💭 Vi vågar tänka högt.</li>
+        <li>🛣️ Vi prövar olika vägar.</li>
+        <li>❓ Vi ställer frågor.</li>
+        <li>👂 Vi lyssnar på andras resonemang.</li>
+        <li>❌ Vi använder misstag för att lära.</li>
+        <li>🔍 Vi undersöker innan vi bestämmer oss.</li>
+        <li>🚀 Vi försöker förstå varför – inte bara hur.</li>
+      </ul>
+
+      <div class="footer-text">
+        Upptäck • Tänk • Prata • Lös
+      </div>
+
+    </div>
+  </section>
+
+
+  <div class="note">
+
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+
+  </div>
 
 </main>
 
@@ -1310,7 +928,7 @@
 
   <br>
 
-  🖼️ Matematikaffischer – se, minnas, använda och resonera
+  🖼️ Affischbank – synliggör matematiken i klassrummet
 
 </footer>
 
