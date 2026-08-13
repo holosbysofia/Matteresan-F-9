@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>NPF-anpassad matematik | HOLOS Matteresan</title>
+  <title>NPF i matematik | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,26 +15,32 @@
 
     :root {
       --dark: #17324d;
-      --blue: #4b86b4;
-      --blue-dark: #315e82;
-      --blue-light: #eaf5ff;
-      --green-light: #edf9f1;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --pink-light: #ffe9f1;
-      --teal-light: #eaf7f5;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -44,8 +50,8 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
-        linear-gradient(135deg, #264c6d, #4b86b4);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
       padding: 22px 20px 58px;
     }
@@ -65,340 +71,232 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--blue-dark);
-    }
-
     .hero {
-      max-width: 920px;
-      margin: 50px auto 0;
+      max-width: 930px;
+      margin: 44px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.4rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.3rem, 7vw, 4.5rem);
+      font-size: clamp(2.4rem, 7vw, 4.4rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 840px;
+      max-width: 850px;
       margin: auto;
-      color: #eef8ff;
-      font-size: 1.03rem;
+      color: #f6f9fb;
     }
 
     main {
       max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      margin-bottom: 36px;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
+    .intro h2 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 840px;
-      margin: 0 auto 30px;
+    .intro p {
       color: var(--muted);
+      max-width: 950px;
     }
 
-    .intro-box {
-      background: var(--blue-light);
-      border-radius: 28px;
-      padding: 36px;
-      text-align: center;
+    .important {
+      margin-top: 17px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 17px;
+      color: #665831;
     }
 
-    .intro-box h2 {
+    .section-title {
+      margin: 42px 0 18px;
+    }
+
+    .section-title h2 {
       color: var(--dark);
-      margin-bottom: 12px;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
     }
 
-    .intro-box p {
-      max-width: 880px;
-      margin: auto;
-      color: #5c6872;
-    }
-
-    .core-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .core-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 185px;
-      border: 1px solid #e6ebef;
-    }
-
-    .core-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .core-card h3 {
-      color: var(--blue-dark);
-      margin-bottom: 6px;
-    }
-
-    .core-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .principle-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
-        linear-gradient(135deg, #17324d, #315e82);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .principle-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .principle-box > p {
-      color: #eef8ff;
-      max-width: 850px;
-    }
-
-    .principle-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-      margin-top: 25px;
-    }
-
-    .principle-card {
-      border-radius: 20px;
-      padding: 21px;
-      min-height: 200px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.08);
-    }
-
-    .principle-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .principle-card h3 {
-      margin-bottom: 7px;
-    }
-
-    .principle-card p {
-      color: #f8fbff;
-      font-size: 0.91rem;
-    }
-
-    .section-card {
-      background: white;
-      border-radius: 28px;
-      padding: 32px;
-      border: 1px solid #e6ebef;
-      margin-bottom: 25px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 22px;
-    }
-
-    .section-header span {
-      font-size: 2.7rem;
-    }
-
-    .section-header h2 {
-      color: var(--dark);
-      font-size: 1.75rem;
-    }
-
-    .section-header p {
+    .section-title p {
       color: var(--muted);
     }
 
-    .three-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .mini-card {
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 190px;
-    }
-
-    .mini-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .mini-card p,
-    .mini-card ul {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .mini-card ul {
-      padding-left: 20px;
-    }
-
-    .mini-card li {
-      margin-bottom: 6px;
-    }
-
-    .m1 { background: var(--green-light); }
-    .m2 { background: var(--blue-light); }
-    .m3 { background: var(--yellow-light); }
-
-    .support-box {
-      background: var(--teal-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .support-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
-    }
-
-    .support-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 185px;
-      border: 1px solid #dfe9e6;
-    }
-
-    .support-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .support-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .support-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .lesson-box {
-      background: var(--yellow-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .lesson-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-      margin-top: 24px;
-    }
-
-    .lesson-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 180px;
-      border: 1px solid #eee3c6;
-    }
-
-    .lesson-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .lesson-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .lesson-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .mis-box {
-      background: var(--pink-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .mis-grid {
+    .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 24px;
     }
 
-    .mis-card {
+    .card {
       background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 205px;
-      border: 1px solid #eee1e5;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 235px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
     }
 
-    .mis-card span {
+    .card:nth-child(3n+1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .card ul {
+      margin-left: 19px;
+      margin-top: 7px;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .structure {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .step {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 10px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
+      min-height: 155px;
+      border-top: 6px solid var(--blue-strong);
+    }
+
+    .step:nth-child(1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .step:nth-child(2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .step:nth-child(3) {
+      border-top-color: #c39b44;
+    }
+
+    .step:nth-child(4) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .step:nth-child(5) {
+      border-top-color: #5d9c92;
+    }
+
+    .step span {
       display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
+      font-size: 2rem;
+      margin-bottom: 6px;
     }
 
-    .mis-card h3 {
+    .step strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .adapt-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .adapt {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 200px;
+    }
+
+    .adapt h3 {
       color: var(--dark);
       margin-bottom: 7px;
     }
 
-    .mis-card p {
+    .adapt p,
+    .adapt li {
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
+    }
+
+    .adapt ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .adapt li {
+      margin-bottom: 6px;
     }
 
     .stage-grid {
@@ -407,174 +305,116 @@
       gap: 18px;
     }
 
-    .stage-card {
-      border-radius: 24px;
-      padding: 26px;
-      min-height: 265px;
+    .stage {
+      border-radius: 18px;
+      padding: 22px;
     }
 
-    .stage-card span {
-      display: block;
-      font-size: 2.5rem;
-      margin-bottom: 8px;
-    }
-
-    .stage-card h3 {
+    .stage h3 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .stage-card ul {
-      padding-left: 20px;
+    .stage p,
+    .stage li {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.9rem;
     }
 
-    .stage-card li {
+    .stage ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .stage li {
+      margin-bottom: 6px;
+    }
+
+    .teacher-box {
+      margin-top: 36px;
+      background: var(--teal);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box ul {
+      margin-left: 22px;
+      color: var(--muted);
+    }
+
+    .teacher-box li {
       margin-bottom: 7px;
     }
 
-    .f3stage { background: var(--green-light); }
-    .m46stage { background: var(--blue-light); }
-    .m79stage { background: var(--purple-light); }
-
-    .assessment-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
+    .warning {
+      margin-top: 22px;
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 16px;
+      padding: 20px;
+      color: #654c37;
     }
 
-    .assessment-card {
+    .links {
+      margin-top: 36px;
       background: white;
       border-radius: 20px;
-      padding: 22px;
-      min-height: 180px;
-      border: 1px solid #e6ebef;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
     }
 
-    .assessment-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .assessment-card h3 {
+    .links h2 {
       color: var(--dark);
-      margin-bottom: 6px;
+      margin-bottom: 12px;
     }
 
-    .assessment-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .link-card {
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 175px;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.04);
-    }
-
-    .link-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
-    }
-
-    .link-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .link-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .link-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .c1 { background: var(--blue-light); }
-    .c2 { background: var(--teal-light); }
-    .c3 { background: var(--green-light); }
-    .c4 { background: var(--yellow-light); }
-    .c5 { background: var(--purple-light); }
-    .c6 { background: var(--orange-light); }
-
-    .note {
-      background: var(--yellow-light);
-      border-left: 6px solid #dba327;
-      border-radius: 14px;
-      padding: 20px;
-      color: #665528;
-      margin-top: 25px;
+    .link-row a {
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.83rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 1100px) {
-      .principle-grid,
-      .lesson-grid {
+    @media (max-width: 980px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .structure {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 1000px) {
-      .core-grid,
-      .support-grid,
-      .assessment-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 900px) {
-      .three-grid,
-      .mis-grid,
-      .stage-grid,
-      .links-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .core-grid,
-      .principle-grid,
-      .support-grid,
-      .lesson-grid,
-      .assessment-grid {
+      .grid,
+      .structure,
+      .adapt-grid,
+      .stage-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .principle-box,
-      .section-card,
-      .support-box,
-      .lesson-box,
-      .mis-box {
-        padding: 25px 18px;
-      }
-
-      .section-header {
-        align-items: flex-start;
       }
 
       main {
@@ -583,15 +423,28 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+      }
+
+      header,
+      footer {
+        display: none !important;
       }
 
       main {
@@ -599,10 +452,56 @@
         padding: 0;
       }
 
-      section,
-      .section-card,
-      .stage-card {
+      .intro,
+      .card,
+      .step,
+      .adapt,
+      .stage,
+      .teacher-box,
+      .warning,
+      .links {
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .green {
+        background: var(--green) !important;
+      }
+
+      .blue {
+        background: var(--blue) !important;
+      }
+
+      .purple {
+        background: var(--purple) !important;
+      }
+
+      .yellow,
+      .important {
+        background: var(--yellow) !important;
+      }
+
+      .orange,
+      .warning {
+        background: var(--orange) !important;
+      }
+
+      .teal,
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .link-row a {
+        background: var(--dark) !important;
+        color: white !important;
       }
     }
   </style>
@@ -616,22 +515,22 @@
     <div class="logo">HOLOS MATTERESAN</div>
 
     <a href="larare.html" class="back-link">
-      ← Lärarvy
+      ← Lärarportalen
     </a>
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">🧠🛟</div>
+    <div class="hero-icon">🧩🧠</div>
 
-    <h1>NPF-anpassad matematik</h1>
+    <h1>NPF i matematik</h1>
 
-    <h2>Förutsägbarhet • Tydlighet • Avlastning • Självständighet</h2>
+    <h2>Tydlighet • Struktur • Avlastning • Delaktighet • Självständighet</h2>
 
     <p>
-      NPF-anpassningar ska minska onödig belastning och göra matematiken mer tillgänglig,
-      utan att automatiskt sänka den matematiska nivån.
-      Målet är att eleven ska kunna använda sin energi till själva matematiska tänkandet.
+      Stöd för att göra matematikundervisningen mer förutsägbar,
+      begriplig och tillgänglig utan att ta bort det matematiska tänkandet.
     </p>
 
   </div>
@@ -641,799 +540,392 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>🧩 Tillgänglig matematik från början</h2>
 
-      <h2>🛟 Anpassa hindret – inte elevens möjligheter</h2>
+    <p>
+      Många anpassningar som hjälper elever med neuropsykiatriska
+      funktionsnedsättningar kan också gynna hela gruppen:
+      tydliga mål, synlig arbetsgång, genomtänkt mängd information,
+      visuellt stöd och möjlighet att visa förståelse på flera sätt.
+    </p>
+
+    <div class="important">
+
+      <strong>Grundprincip:</strong><br>
+      Anpassa <strong>vägen in i uppgiften</strong> före du sänker
+      den matematiska nivån. En elev kan behöva färre störmoment,
+      tydligare steg eller konkret stöd men fortfarande kunna arbeta
+      med samma matematiska idé som resten av gruppen.
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+    <h2>🧠 Sex områden att tänka på</h2>
+    <p>Svårigheten kan ligga runt matematiken snarare än i själva matematiken.</p>
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">👀</div>
+
+      <h3>Överblick</h3>
 
       <p>
-        En elev kan förstå matematiken men ändå få svårt att visa det
-        om arbetsminne, instruktioner, tidsuppfattning, uppmärksamhet,
-        sensorisk belastning eller krav på organisering tar för mycket kraft.
-        Anpassningen behöver därför utgå från vilket hinder som finns i den aktuella situationen.
+        Eleven behöver snabbt kunna förstå vad som ska hända och vad som förväntas.
       </p>
 
-    </div>
+      <ul>
+        <li>Synligt mål</li>
+        <li>Tydlig lektionsordning</li>
+        <li>Start och avslut</li>
+        <li>Markera vad som är viktigast</li>
+      </ul>
 
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Fyra vanliga belastningar
-    </h2>
-
-    <p class="section-intro">
-      Samma elev kan behöva olika stöd i olika uppgifter och situationer.
-    </p>
-
-    <div class="core-grid">
-
-      <div class="core-card">
-        <span>🧠</span>
-        <h3>Arbetsminne</h3>
-        <p>
-          Flera instruktioner, delsteg och siffror behöver hållas aktiva samtidigt.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>🎯</span>
-        <h3>Uppmärksamhet</h3>
-        <p>
-          Relevant information behöver kunna skiljas från störande ljud, bilder och detaljer.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>🗂️</span>
-        <h3>Exekutiva funktioner</h3>
-        <p>
-          Starta, planera, organisera, byta strategi och avsluta kan kräva extra stöd.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>⏱️</span>
-        <h3>Tid & uthållighet</h3>
-        <p>
-          Långa arbetspass eller otydlig tidsram kan göra att energin tar slut innan matematiken blir synlig.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="principle-box">
+      <div class="icon">🪜</div>
 
-      <h2>🧭 Fem principer för NPF-anpassning</h2>
+      <h3>Stegvis arbetsgång</h3>
 
       <p>
-        Anpassningen ska vara tydlig, funktionell och så liten som möjligt men så stor som behövs.
+        Långa instruktioner kan delas upp utan att uppgiften behöver förenklas matematiskt.
       </p>
 
-      <div class="principle-grid">
+      <ul>
+        <li>Ett steg i taget</li>
+        <li>Numrerad arbetsgång</li>
+        <li>Exempel på start</li>
+        <li>Checklista</li>
+      </ul>
 
-        <div class="principle-card">
-          <span>1️⃣</span>
-          <h3>Identifiera hindret</h3>
-          <p>
-            Vad är det som gör just den här uppgiften svår att komma åt?
-          </p>
-        </div>
-
-        <div class="principle-card">
-          <span>2️⃣</span>
-          <h3>Bevara kärnan</h3>
-          <p>
-            Bestäm vilken matematisk idé eleven fortfarande ska tänka kring.
-          </p>
-        </div>
-
-        <div class="principle-card">
-          <span>3️⃣</span>
-          <h3>Gör synligt</h3>
-          <p>
-            Flytta information från arbetsminnet till papper, bild, mall eller konkret material.
-          </p>
-        </div>
-
-        <div class="principle-card">
-          <span>4️⃣</span>
-          <h3>Skapa förutsägbarhet</h3>
-          <p>
-            Visa vad som ska göras, i vilken ordning, hur länge och hur arbetet avslutas.
-          </p>
-        </div>
-
-        <div class="principle-card">
-          <span>5️⃣</span>
-          <h3>Öka självständigheten</h3>
-          <p>
-            Stödet ska gradvis kunna användas av eleven själv och vid behov fasas ut.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="lesson-box">
+      <div class="icon">🎨</div>
 
-      <h2 class="section-title">
-        🧭 Tydlig lektionsstruktur
-      </h2>
+      <h3>Visuellt stöd</h3>
 
-      <p class="section-intro">
-        Samma återkommande struktur minskar osäkerhet och frigör kognitiv kapacitet.
+      <p>
+        Gör matematiken synlig och minska behovet av att hålla allt i arbetsminnet.
       </p>
 
-      <div class="lesson-grid">
+      <ul>
+        <li>Tallinje</li>
+        <li>Begreppsbild</li>
+        <li>Modell</li>
+        <li>Färgkodad struktur</li>
+      </ul>
 
-        <div class="lesson-card">
-          <span>1️⃣</span>
-          <h3>Start</h3>
-          <p>
-            Visa dagens mål, material och vad eleven ska börja med direkt.
-          </p>
-        </div>
+    </article>
 
-        <div class="lesson-card">
-          <span>2️⃣</span>
-          <h3>Modell</h3>
-          <p>
-            Visa ett exempel och tänk högt kring strategin.
-          </p>
-        </div>
 
-        <div class="lesson-card">
-          <span>3️⃣</span>
-          <h3>Pröva</h3>
-          <p>
-            Gör en uppgift tillsammans eller låt eleven arbeta med tydligt stöd.
-          </p>
-        </div>
+    <article class="card">
 
-        <div class="lesson-card">
-          <span>4️⃣</span>
-          <h3>Självständigt</h3>
-          <p>
-            Eleven arbetar med avgränsad mängd och synlig arbetsgång.
-          </p>
-        </div>
+      <div class="icon">🧠</div>
 
-        <div class="lesson-card">
-          <span>5️⃣</span>
-          <h3>Avslut</h3>
-          <p>
-            Markera att arbetet är klart och låt eleven visa en central sak från lektionen.
-          </p>
-        </div>
+      <h3>Arbetsminne</h3>
 
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>👀</span>
-
-        <div>
-          <h2>Visuellt stöd</h2>
-          <p>Information som går att se behöver inte hållas lika hårt i arbetsminnet.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Visa arbetsgången</h3>
-
-          <ul>
-            <li>1. Läs</li>
-            <li>2. Markera</li>
-            <li>3. Välj strategi</li>
-            <li>4. Lös</li>
-            <li>5. Kontrollera</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Visa matematiken</h3>
-
-          <ul>
-            <li>tallinje</li>
-            <li>positionsschema</li>
-            <li>bråkstav</li>
-            <li>tabell</li>
-            <li>stapelmodell</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Undvik</h3>
-
-          <p>
-            För mycket dekor, många färger utan funktion,
-            täta sidor och flera konkurrerande informationsfält.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🧠</span>
-
-        <div>
-          <h2>Avlasta arbetsminnet</h2>
-          <p>Låt stödmaterial bära information som inte behöver memoreras i stunden.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Ha tillgängligt</h3>
-
-          <ul>
-            <li>multiplikationstabell vid behov</li>
-            <li>formelblad</li>
-            <li>begreppslista</li>
-            <li>strategikort</li>
-            <li>exempelmodell</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Dela instruktionen</h3>
-
-          <p>
-            Ge ett eller några få steg åt gången istället för en lång muntlig instruktion.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Kontrollera förståelsen</h3>
-
-          <p>
-            Be eleven visa eller återberätta vad första steget är,
-            istället för att fråga ”Har du förstått?”.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>📄</span>
-
-        <div>
-          <h2>Mängdanpassning</h2>
-          <p>Mindre mängd kan betyda mindre belastning – utan att matematisk kvalitet försvinner.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Välj representativa uppgifter</h3>
-
-          <p>
-            Hellre 6 genomtänkta uppgifter som visar förståelse
-            än 30 nästan identiska rutinuppgifter.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Behåll variation</h3>
-
-          <p>
-            Minska antalet men låt viktiga typer av exempel och strategier finnas kvar.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Markera klart</h3>
-
-          <p>
-            Eleven behöver kunna se hur mycket som återstår och när arbetsdelen är färdig.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>⏱️</span>
-
-        <div>
-          <h2>Tid, pauser & arbetsintervall</h2>
-          <p>Planerade pauser fungerar bättre än att vänta tills eleven redan tappat fokus.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Korta intervall</h3>
-
-          <p>
-            Arbeta i tydligt avgränsade perioder med ett konkret mål för varje period.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Synlig tid</h3>
-
-          <p>
-            Timer, nedräkning eller tydlig start- och sluttid kan minska osäkerhet.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Paus med syfte</h3>
-
-          <p>
-            Pausen ska hjälpa eleven att återfå reglering och fokus,
-            inte skapa en ny svår övergång tillbaka till arbetet.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🎯</span>
-
-        <div>
-          <h2>Starta uppgiften</h2>
-          <p>Att veta hur man börjar kan vara ett större hinder än själva matematiken.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Ge första steget</h3>
-
-          <p>
-            ”Börja med att markera vad frågan vill att du ska ta reda på.”
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Använd startkort</h3>
-
-          <ul>
-            <li>Vad vet jag?</li>
-            <li>Vad ska jag hitta?</li>
-            <li>Vilken bild kan hjälpa?</li>
-            <li>Vilken strategi passar?</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Undvik</h3>
-
-          <p>
-            ”Gör bara uppgifterna på sidan” när sidan innehåller flera olika krav,
-            informationsfält eller steg.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="support-box">
-
-      <h2 class="section-title">
-        🧰 Praktiska stöd i matematik
-      </h2>
-
-      <p class="section-intro">
-        Stödet ska användas som verktyg för tänkandet, inte som en separat aktivitet.
+      <p>
+        En elev kan förstå matematiken men tappa steg, tal eller instruktioner på vägen.
       </p>
 
-      <div class="support-grid">
+      <ul>
+        <li>Ha stöd synligt.</li>
+        <li>Tillåt mellananteckningar.</li>
+        <li>Minska onödigt kopierande.</li>
+        <li>Ge färdiga tabeller när tabellen inte är målet.</li>
+      </ul>
 
-        <div class="support-card">
-          <span>↔️</span>
-          <h3>Tallinje</h3>
-          <p>
-            Avlastar talrelationer, negativa tal, bråk och beräkningssteg.
-          </p>
-        </div>
-
-        <div class="support-card">
-          <span>🔟</span>
-          <h3>Positionsschema</h3>
-          <p>
-            Gör platsvärde och algoritmer visuellt organiserade.
-          </p>
-        </div>
-
-        <div class="support-card">
-          <span>🧩</span>
-          <h3>Strategikort</h3>
-          <p>
-            Påminner om möjliga angreppssätt utan att ge exakt lösning.
-          </p>
-        </div>
-
-        <div class="support-card">
-          <span>✅</span>
-          <h3>Checklista</h3>
-          <p>
-            Hjälper eleven att planera, kontrollera och avsluta arbetet själv.
-          </p>
-        </div>
-
-        <div class="support-card">
-          <span>🧱</span>
-          <h3>Konkret material</h3>
-          <p>
-            Kan minska abstraktionsbelastningen och synliggöra matematisk struktur.
-          </p>
-        </div>
-
-        <div class="support-card">
-          <span>🔊</span>
-          <h3>Uppläst text</h3>
-          <p>
-            Kan avlasta läsningen när uppgiften ska bedöma matematik och inte avkodning.
-          </p>
-        </div>
-
-        <div class="support-card">
-          <span>⌨️</span>
-          <h3>Digitalt stöd</h3>
-          <p>
-            Digitala verktyg kan underlätta skrivande, simulering, visualisering och struktur.
-          </p>
-        </div>
-
-        <div class="support-card">
-          <span>🪑</span>
-          <h3>Arbetsmiljö</h3>
-          <p>
-            Placering, ljudnivå och mängden visuella störningar kan påverka tillgången till matematiken.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="mis-box">
+      <div class="icon">⏱️</div>
 
-      <h2 class="section-title">
-        ⚠️ Vanliga fallgropar
-      </h2>
+      <h3>Tid och tempo</h3>
 
-      <p class="section-intro">
-        Anpassningar behöver följas upp så att de faktiskt hjälper eleven framåt.
+      <p>
+        Snabbhet är inte samma sak som matematisk förståelse.
       </p>
 
-      <div class="mis-grid">
+      <ul>
+        <li>Ge tänketid.</li>
+        <li>Undvik onödig tidspress.</li>
+        <li>Dela längre pass.</li>
+        <li>Planera korta återstarter.</li>
+      </ul>
 
-        <div class="mis-card">
-          <span>⬇️</span>
-          <h3>Alltid enklare uppgifter</h3>
-          <p>
-            Om hindret ligger i struktur eller arbetsminne behöver inte matematiken automatiskt förenklas.
-          </p>
-        </div>
+    </article>
 
-        <div class="mis-card">
-          <span>👩‍🏫</span>
-          <h3>Vuxen gör tänkandet</h3>
-          <p>
-            För mycket hjälp kan göra eleven beroende av en person istället för av fungerande strategier.
-          </p>
-        </div>
 
-        <div class="mis-card">
-          <span>📄</span>
-          <h3>Mer repetition löser allt</h3>
-          <p>
-            Många likadana uppgifter hjälper inte om eleven fortfarande saknar begreppsförståelse eller strategi.
-          </p>
-        </div>
+    <article class="card">
 
-        <div class="mis-card">
-          <span>🎨</span>
-          <h3>Mer visuellt är alltid bättre</h3>
-          <p>
-            För många symboler, färger och bilder kan öka belastningen istället för att minska den.
-          </p>
-        </div>
+      <div class="icon">💬</div>
 
-        <div class="mis-card">
-          <span>🧱</span>
-          <h3>Konkret material utan koppling</h3>
-          <p>
-            Materialet behöver kopplas till bild, språk och symbol för att stödja matematisk utveckling.
-          </p>
-        </div>
+      <h3>Kommunikation</h3>
 
-        <div class="mis-card">
-          <span>🔒</span>
-          <h3>Stödet blir permanent</h3>
-          <p>
-            Anpassningar ska regelbundet följas upp: hjälper de eleven att bli mer självständig?
-          </p>
-        </div>
+      <p>
+        Eleven kan behöva fler sätt att visa vad den kan.
+      </p>
 
-      </div>
+      <ul>
+        <li>Muntlig förklaring</li>
+        <li>Bild eller modell</li>
+        <li>Symboliskt svar</li>
+        <li>Korta skrivramar</li>
+      </ul>
 
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+    <h2>🧭 En tydlig lektionsstruktur</h2>
+    <p>Förutsägbar struktur kan frigöra energi till matematiken.</p>
+  </div>
+
+
+  <div class="structure">
+
+    <div class="step">
+      <span>🎯</span>
+      <strong>1. Vad?</strong>
+      <p>Visa dagens matematiska mål.</p>
     </div>
+
+    <div class="step">
+      <span>🧠</span>
+      <strong>2. Hur?</strong>
+      <p>Visa arbetsgång och exempel.</p>
+    </div>
+
+    <div class="step">
+      <span>✏️</span>
+      <strong>3. Arbeta</strong>
+      <p>Tydliga uppgifter och stöd nära till hands.</p>
+    </div>
+
+    <div class="step">
+      <span>🔁</span>
+      <strong>4. Stäm av</strong>
+      <p>Korta stopp för att kontrollera riktningen.</p>
+    </div>
+
+    <div class="step">
+      <span>✅</span>
+      <strong>5. Avsluta</strong>
+      <p>Vad lärde vi oss och vad händer nästa gång?</p>
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+    <h2>🛠️ Anpassa utan att ta bort tänkandet</h2>
+    <p>Exempel på skillnaden mellan stöttning och att göra uppgiften åt eleven.</p>
+  </div>
+
+
+  <div class="adapt-grid">
+
+    <section class="adapt green">
+
+      <h3>✅ Bra stöttning</h3>
+
+      <ul>
+        <li>Markera viktig information.</li>
+        <li>Ge eleven en tom tabell att fylla i.</li>
+        <li>Visa första steget.</li>
+        <li>Erbjud tallinje eller konkret material.</li>
+        <li>Ge meningstarter för resonemang.</li>
+        <li>Låt eleven välja mellan två representationer.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="adapt pink">
+
+      <h3>⚠️ Risk att stödet tar över</h3>
+
+      <ul>
+        <li>Berätta vilket räknesätt eleven ska välja när valet är själva målet.</li>
+        <li>Ge alla beräkningssteg färdiga.</li>
+        <li>Byta ut problemet mot rena rutinuppgifter.</li>
+        <li>Säga svaret och be eleven skriva av.</li>
+        <li>Ta bort all problemlösning för att eleven behöver struktur.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="adapt blue">
+
+      <h3>📄 Anpassa arbetsbladet</h3>
+
+      <ul>
+        <li>Färre uppgifter per sida.</li>
+        <li>Mer luft mellan uppgifter.</li>
+        <li>Tydliga rubriker.</li>
+        <li>En instruktion i taget.</li>
+        <li>Exempel separat från uppgiften.</li>
+        <li>Undvik dekor som konkurrerar om uppmärksamheten.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="adapt purple">
+
+      <h3>🧩 Anpassa problemlösning</h3>
+
+      <ul>
+        <li>Läs problemet tillsammans.</li>
+        <li>Dela upp informationen visuellt.</li>
+        <li>Låt eleven återberätta frågan.</li>
+        <li>Ge en strategimeny.</li>
+        <li>Behåll den matematiska utmaningen.</li>
+        <li>Ge extra tid för planering.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+    <h2>🌱 NPF-stöd genom F–9</h2>
+    <p>Behovet av struktur kan finnas kvar även när matematiken blir mer avancerad.</p>
+  </div>
+
+
+  <div class="stage-grid">
+
+    <section class="stage green">
+
+      <h3>🌱 F–3</h3>
+
+      <ul>
+        <li>Kort och synlig arbetsgång.</li>
+        <li>Mycket konkret material och bilder.</li>
+        <li>Få uppgifter åt gången.</li>
+        <li>Tydliga övergångar mellan aktiviteter.</li>
+        <li>Återkommande rutiner.</li>
+        <li>Muntligt stöd före skrift.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage blue">
+
+      <h3>🔵 4–6</h3>
+
+      <ul>
+        <li>Checklistor för längre uppgifter.</li>
+        <li>Strategikort och begreppsbank nära eleven.</li>
+        <li>Visuell uppdelning av problemtexter.</li>
+        <li>Stöd för planering och kontroll.</li>
+        <li>Tydliga delmål under längre arbetsområden.</li>
+        <li>Minska mängd utan att alltid minska komplexitet.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage purple">
+
+      <h3>🟣 7–9</h3>
+
+      <ul>
+        <li>Planeringsstöd för flerstegsproblem.</li>
+        <li>Struktur för algebraiska lösningar.</li>
+        <li>Stöd att tolka tabeller, grafer och text samtidigt.</li>
+        <li>Tydliga modeller för redovisning.</li>
+        <li>Extra tid för komplexa resonemang.</li>
+        <li>Stöd för självkontroll och prioritering.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Frågor när du planerar</h2>
+
+    <ul>
+      <li>Är det tydligt vad eleven ska göra först?</li>
+      <li>Vad måste eleven hålla i arbetsminnet?</li>
+      <li>Kan något av det göras synligt på papper eller tavla?</li>
+      <li>Är layouten lugn och lätt att följa?</li>
+      <li>Är problemet språkligt, visuellt eller organisatoriskt onödigt belastande?</li>
+      <li>Vilket stöd kan eleven använda självständigt?</li>
+      <li>Tar stödet bort en del av den matematik jag egentligen vill bedöma?</li>
+      <li>Finns möjlighet till rörelse eller kort återhämtning vid längre pass?</li>
+      <li>Vet eleven hur den ska kontrollera att uppgiften är klar?</li>
+    </ul>
 
   </section>
 
 
-  <section>
+  <div class="warning">
 
-    <h2 class="section-title">
-      🌱 🌿 🚀 NPF-stöd genom F–9
-    </h2>
+    <strong>⚠️ Samma diagnos betyder inte samma behov.</strong><br>
+    Två elever kan behöva helt olika stöd.
+    Utgå därför från <strong>hur eleven fungerar i den konkreta matematiska situationen</strong>:
+    vad som underlättar, vad som belastar och vilket stöd som ökar
+    självständigheten.
 
-    <p class="section-intro">
-      Grundprinciperna är desamma, men elevens självständighet och matematikens komplexitet förändras.
-    </p>
-
-    <div class="stage-grid">
-
-      <div class="stage-card f3stage">
-
-        <span>🌱</span>
-
-        <h3>F–3</h3>
-
-        <ul>
-          <li>mycket konkret material</li>
-          <li>kort muntlig instruktion</li>
-          <li>visuell arbetsordning</li>
-          <li>tydlig start och avslut</li>
-          <li>korta arbetsintervall</li>
-          <li>upprepade rutiner</li>
-          <li>rörelse som naturlig del</li>
-        </ul>
-
-      </div>
+  </div>
 
 
-      <div class="stage-card m46stage">
+  <section class="links">
 
-        <span>🌿</span>
+    <h2>➡️ Fortsätt</h2>
 
-        <h3>4–6</h3>
+    <div class="link-row">
 
-        <ul>
-          <li>strategikort</li>
-          <li>checklistor</li>
-          <li>mängdanpassning</li>
-          <li>textproblem i tydliga delar</li>
-          <li>visuell planering</li>
-          <li>stöd för att välja strategi</li>
-          <li>träna självständig kontroll</li>
-        </ul>
-
-      </div>
-
-
-      <div class="stage-card m79stage">
-
-        <span>🚀</span>
-
-        <h3>7–9</h3>
-
-        <ul>
-          <li>stöd för flerledade uppgifter</li>
-          <li>formel- och begreppsstöd</li>
-          <li>digitala representationsverktyg</li>
-          <li>planering inför längre uppgifter</li>
-          <li>prioriterade uppgifter</li>
-          <li>tydliga delmål</li>
-          <li>strategier för prov och repetition</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      📊 Följ upp stödet
-    </h2>
-
-    <p class="section-intro">
-      Ett stöd är funktionellt när det ökar elevens tillgång till matematiskt tänkande och självständighet.
-    </p>
-
-    <div class="assessment-grid">
-
-      <div class="assessment-card">
-        <span>🎯</span>
-        <h3>Hindret</h3>
-        <p>
-          Har det stöd vi valt faktiskt minskat det hinder vi identifierade?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>🧠</span>
-        <h3>Matematiken</h3>
-        <p>
-          Får eleven fortfarande arbeta med den centrala matematiska idén?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>🙋</span>
-        <h3>Självständighet</h3>
-        <p>
-          Kan eleven använda stödet utan att hela tiden behöva en vuxen bredvid sig?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>🔄</span>
-        <h3>Justering</h3>
-        <p>
-          Ska stödet fortsätta, förändras, minskas eller ersättas av ett annat?
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Relaterade lärarsidor
-    </h2>
-
-    <p class="section-intro">
-      NPF-anpassning fungerar bäst när den kombineras med tydliga representationer, språkstöd och genomtänkt undervisning.
-    </p>
-
-    <div class="links-grid">
-
-      <a href="larare-stod.html" class="link-card c1">
-        <span>🛟</span>
-        <h3>Stöd & anpassningar</h3>
-        <p>
-          Övergripande principer för att göra matematiken tillgänglig.
-        </p>
+      <a href="larare-stod.html">
+        🌱 Stöd
       </a>
 
-      <a href="larare-konkret.html" class="link-card c2">
-        <span>🧱</span>
-        <h3>Konkret & visuellt</h3>
-        <p>
-          Representationer kan avlasta och samtidigt fördjupa förståelsen.
-        </p>
+      <a href="larare-konkret.html">
+        🧱 Konkret & visuellt
       </a>
 
-      <a href="larare-sva.html" class="link-card c3">
-        <span>🌍💬</span>
-        <h3>SVA & flerspråkighet</h3>
-        <p>
-          Språkliga och kognitiva stöd kan kombineras utan att sänka nivån.
-        </p>
+      <a href="larare-sprak.html">
+        🔤 Språk
       </a>
 
-      <a href="larare-problemlosning.html" class="link-card c4">
-        <span>🧠</span>
-        <h3>Problemlösning</h3>
-        <p>
-          Stöd arbetsgången utan att ta över elevens problemlösande tänkande.
-        </p>
+      <a href="larare-sva.html">
+        🌍 SVA
       </a>
 
-      <a href="larare-planering.html" class="link-card c5">
-        <span>🗓️</span>
-        <h3>Planering</h3>
-        <p>
-          Planera tydliga mål, aktiviteter, stöd och uppföljning.
-        </p>
+      <a href="material-lektionsmall.html">
+        📋 Lektionsmall
       </a>
 
-      <a href="larare-bedomning.html" class="link-card c6">
-        <span>📊</span>
-        <h3>Bedömning</h3>
-        <p>
-          Skapa flera vägar för eleven att visa matematisk förståelse.
-        </p>
+      <a href="material-observation.html">
+        👀 Observation
       </a>
 
-    </div>
-
-    <div class="note">
-      <strong>Grundprincip:</strong>
-      den bästa anpassningen gör inte eleven mer beroende av hjälp.
-      Den gör det lättare för eleven att förstå vad som ska göras, använda en fungerande strategi och ta större ansvar för sitt eget matematiska arbete.
     </div>
 
   </section>
@@ -1443,11 +935,8 @@
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🧠🛟 NPF-anpassad matematik – tydlighet, avlastning och självständighet
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🧩 Tydlighet • Struktur • Delaktighet • Självständighet
 
 </footer>
 
