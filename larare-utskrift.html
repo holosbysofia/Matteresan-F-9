@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Utskriftscentral | HOLOS Matteresan</title>
+  <title>Utskriftsmaterial | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,27 +15,31 @@
 
     :root {
       --dark: #17324d;
-      --brown: #8a694f;
-      --brown-dark: #654a38;
-      --cream: #fff8ef;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --pink-light: #ffe9f1;
-      --teal-light: #eaf7f5;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+
+      --background: #f7f9fb;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     a {
@@ -45,8 +49,8 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
-        linear-gradient(135deg, #5f4737, #8a694f);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
       padding: 22px 20px 58px;
     }
@@ -66,337 +70,227 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--brown-dark);
-    }
-
     .hero {
-      max-width: 920px;
-      margin: 50px auto 0;
+      max-width: 900px;
+      margin: 42px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.4rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 7vw, 4.6rem);
+      font-size: clamp(2.3rem, 7vw, 4.2rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 850px;
+      max-width: 820px;
       margin: auto;
-      color: #fff9f4;
-      font-size: 1.03rem;
+      color: #f7f9fc;
     }
 
     main {
       max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 65px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      margin-bottom: 36px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: var(--muted);
+      max-width: 900px;
+    }
+
+    .stage-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .stage {
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    .f3 {
+      background: var(--green);
+      color: #356345;
+    }
+
+    .s46 {
+      background: var(--blue);
+      color: #345e86;
+    }
+
+    .s79 {
+      background: var(--purple);
+      color: #634a83;
     }
 
     .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
-      color: var(--dark);
-      margin-bottom: 8px;
+      margin: 38px 0 18px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 840px;
-      margin: 0 auto 30px;
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
       color: var(--muted);
     }
 
-    .intro-box {
-      background: var(--cream);
-      border-radius: 28px;
-      padding: 36px;
-      text-align: center;
-    }
-
-    .intro-box h2 {
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-
-    .intro-box p {
-      max-width: 880px;
-      margin: auto;
-      color: #5c6872;
-    }
-
-    .print-grid {
+    .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .print-card {
-      border-radius: 22px;
-      padding: 24px;
-      min-height: 220px;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .print-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(30,50,60,0.08);
-    }
-
-    .print-card span {
-      display: block;
-      font-size: 2.5rem;
-      margin-bottom: 8px;
-    }
-
-    .print-card h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .print-card p {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .p1 {
-      background: var(--green-light);
-    }
-
-    .p2 {
-      background: var(--blue-light);
-    }
-
-    .p3 {
-      background: var(--yellow-light);
-    }
-
-    .p4 {
-      background: var(--purple-light);
-    }
-
-    .p5 {
-      background: var(--orange-light);
-    }
-
-    .p6 {
-      background: var(--teal-light);
-    }
-
-    .p7 {
-      background: var(--pink-light);
-    }
-
-    .p8 {
-      background: var(--cream);
-    }
-
-    .p9 {
-      background: #f0f3f6;
-    }
-
-    .guide-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 35%),
-        linear-gradient(135deg, #17324d, #6c5544);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .guide-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .guide-box > p {
-      color: #fff9f4;
-      max-width: 850px;
-    }
-
-    .guide-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 25px;
-    }
-
-    .guide-card {
-      border-radius: 20px;
-      padding: 21px;
-      min-height: 190px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.08);
-    }
-
-    .guide-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .guide-card h3 {
-      margin-bottom: 7px;
-    }
-
-    .guide-card p {
-      color: #fffaf7;
-      font-size: 0.91rem;
-    }
-
-    .stage-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .stage-card {
-      border-radius: 24px;
-      padding: 26px;
-      min-height: 270px;
-    }
-
-    .stage-card span {
-      display: block;
-      font-size: 2.5rem;
-      margin-bottom: 8px;
-    }
-
-    .stage-card h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .stage-card ul {
-      padding-left: 20px;
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .stage-card li {
-      margin-bottom: 7px;
-    }
-
-    .f3stage {
-      background: var(--green-light);
-    }
-
-    .m46stage {
-      background: var(--blue-light);
-    }
-
-    .m79stage {
-      background: var(--purple-light);
-    }
-
-    .tips-box {
-      background: var(--yellow-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .tips-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
-    }
-
-    .tip-card {
+    .card {
       background: white;
       border-radius: 18px;
-      padding: 20px;
-      min-height: 180px;
-      border: 1px solid #eee3c6;
+      padding: 21px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
-    .tip-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(32,48,64,0.12);
     }
 
-    .tip-card h3 {
+    .card.green-card {
+      border-top-color: var(--green-strong);
+    }
+
+    .card.purple-card {
+      border-top-color: var(--purple-strong);
+    }
+
+    .card.orange-card {
+      border-top-color: #c98752;
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
       color: var(--dark);
-      margin-bottom: 6px;
+      margin-bottom: 7px;
+      font-size: 1.13rem;
     }
 
-    .tip-card p {
+    .card p {
       color: var(--muted);
-      font-size: 0.91rem;
+      font-size: 0.9rem;
+      flex: 1;
     }
 
-    .note {
-      background: var(--orange-light);
-      border-left: 6px solid #cc8445;
-      border-radius: 14px;
+    .open {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 0.84rem;
+      font-weight: bold;
+    }
+
+    .tip {
+      margin-top: 38px;
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 16px;
       padding: 20px;
       color: #654c37;
-      margin-top: 25px;
+    }
+
+    .tip strong {
+      color: #543a28;
+    }
+
+    .status {
+      margin-top: 24px;
+      background: var(--teal);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .status h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .status ul {
+      margin-left: 22px;
+      color: var(--muted);
+    }
+
+    .status li {
+      margin-bottom: 5px;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 1000px) {
-      .print-grid,
-      .guide-grid,
-      .tips-grid {
+    @media (max-width: 900px) {
+      .grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 900px) {
-      .stage-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 620px) {
       .topbar {
         flex-direction: column;
       }
 
-      .print-grid,
-      .guide-grid,
-      .tips-grid {
+      .grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .guide-box,
-      .tips-box {
-        padding: 25px 18px;
       }
 
       main {
@@ -405,22 +299,12 @@
       }
     }
 
-    /* ========================================
-       UTSKRIFT – A4 + FÄRG
-       ======================================== */
-
     @page {
       size: A4 portrait;
-      margin: 12mm;
+      margin: 10mm;
     }
 
     @media print {
-
-      /*
-        Viktigt för färgutskrift.
-        Försöker få Chrome/Edge/Safari att behålla
-        bakgrundsfärger och textfärger vid utskrift.
-      */
 
       *,
       *::before,
@@ -432,228 +316,61 @@
 
       html,
       body {
+        background: white !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
         forced-color-adjust: none !important;
       }
 
       header,
-      footer,
-      .back-link {
+      footer {
         display: none !important;
-      }
-
-      html,
-      body {
-        background: white !important;
-      }
-
-      body {
-        color: var(--text) !important;
       }
 
       main {
         max-width: none;
-        width: 100%;
         margin: 0;
         padding: 0;
       }
 
-      section {
-        margin-bottom: 10mm;
-      }
-
-      /*
-        BEHÅLL FÄRGER
-      */
-
-      .intro-box {
-        background: var(--cream) !important;
-      }
-
-      .p1 {
-        background: var(--green-light) !important;
-      }
-
-      .p2 {
-        background: var(--blue-light) !important;
-      }
-
-      .p3 {
-        background: var(--yellow-light) !important;
-      }
-
-      .p4 {
-        background: var(--purple-light) !important;
-      }
-
-      .p5 {
-        background: var(--orange-light) !important;
-      }
-
-      .p6 {
-        background: var(--teal-light) !important;
-      }
-
-      .p7 {
-        background: var(--pink-light) !important;
-      }
-
-      .p8 {
-        background: var(--cream) !important;
-      }
-
-      .p9 {
-        background: #f0f3f6 !important;
-      }
-
-      .f3stage {
-        background: var(--green-light) !important;
-      }
-
-      .m46stage {
-        background: var(--blue-light) !important;
-      }
-
-      .m79stage {
-        background: var(--purple-light) !important;
-      }
-
-      .tips-box {
-        background: var(--yellow-light) !important;
-      }
-
-      .tip-card {
-        background: white !important;
-      }
-
-      .note {
-        background: var(--orange-light) !important;
-        border-left-color: #cc8445 !important;
-      }
-
-      /*
-        Mörka guide-rutan behåller färg
-      */
-
-      .guide-box {
-        background: #29485d !important;
-        color: white !important;
-      }
-
-      .guide-box h2,
-      .guide-box p,
-      .guide-card h3,
-      .guide-card p {
-        color: white !important;
-      }
-
-      .guide-card {
-        background: #496579 !important;
-        border-color: #7890a1 !important;
-      }
-
-      /*
-        Textfärger
-      */
-
-      .section-title,
-      .print-card h3,
-      .stage-card h3,
-      .tip-card h3 {
-        color: var(--dark) !important;
-      }
-
-      .section-intro,
-      .print-card p,
-      .stage-card ul,
-      .tip-card p,
-      .intro-box p {
-        color: var(--muted) !important;
-      }
-
-      /*
-        Undvik att delar bryts mitt itu
-      */
-
-      section,
-      .print-card,
-      .stage-card,
-      .guide-card,
-      .tip-card,
-      .intro-box,
-      .tips-box,
-      .note {
+      .intro,
+      .card,
+      .tip,
+      .status {
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      /*
-        Behåll grid även i utskrift.
-        Då ser materialet mer ut som sidan
-        och färgkorten ligger snyggare på A4.
-      */
-
-      .print-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 5mm !important;
+      .card {
+        box-shadow: none;
+        border-left: 1px solid #ccd3d8;
+        border-right: 1px solid #ccd3d8;
+        border-bottom: 1px solid #ccd3d8;
       }
 
-      .stage-grid {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 4mm !important;
+      .open {
+        background: var(--dark) !important;
+        color: white !important;
       }
 
-      .guide-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 4mm !important;
+      .f3 {
+        background: var(--green) !important;
       }
 
-      .tips-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 4mm !important;
+      .s46 {
+        background: var(--blue) !important;
       }
 
-      .print-card,
-      .stage-card,
-      .guide-card,
-      .tip-card {
-        min-height: 0;
-        margin-bottom: 0;
+      .s79 {
+        background: var(--purple) !important;
       }
 
-      /*
-        Snyggare storlek på papper
-      */
-
-      .print-card {
-        padding: 5mm;
+      .tip {
+        background: var(--orange) !important;
       }
 
-      .stage-card {
-        padding: 5mm;
-      }
-
-      .guide-card {
-        padding: 5mm;
-      }
-
-      .tip-card {
-        padding: 5mm;
-      }
-
-      .intro-box,
-      .guide-box,
-      .tips-box {
-        padding: 7mm;
-      }
-
-      a {
-        color: inherit !important;
+      .status {
+        background: var(--teal) !important;
       }
     }
   </style>
@@ -670,23 +387,23 @@
     </div>
 
     <a href="larare.html" class="back-link">
-      ← Lärarvy
+      ← Lärarsidan
     </a>
 
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">🖨️📄</div>
+    <div class="hero-icon">🖨️📚</div>
 
-    <h1>Utskriftscentral</h1>
+    <h1>Utskriftsmaterial</h1>
 
-    <h2>Hitta • Skriv ut • Använd • Följ upp</h2>
+    <h2>Elevblad • kort • affischer • lärarmaterial • planering</h2>
 
     <p>
-      Här samlas Matteresans utskriftsvänliga lärar- och elevmaterial.
-      Materialet är organiserat så att läraren snabbt kan hitta underlag
-      för undervisning, formativ bedömning, samtal, stöd och dokumentation.
+      Matteresans samlade utskriftsmaterial för undervisning,
+      träning, samtal, bedömning och planering genom F–9.
     </p>
 
   </div>
@@ -696,459 +413,294 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>📚 Samlat på ett ställe</h2>
 
-      <h2>📄 Samla utskrifterna på ett ställe</h2>
+    <p>
+      Härifrån når du plattformens A4-material.
+      Materialet är byggt för tydlig utskrift och använder samma
+      färgkodning genom hela Matteresan.
+    </p>
 
+    <div class="stage-row">
+      <span class="stage f3">🌱 F–3</span>
+      <span class="stage s46">🔎 4–6</span>
+      <span class="stage s79">🚀 7–9</span>
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+    <h2>✏️ Elevmaterial</h2>
+    <p>Material som kan skrivas ut direkt till eleverna.</p>
+  </div>
+
+
+  <div class="grid">
+
+    <a href="material-a4-elevblad.html" class="card green-card">
+      <div class="icon">✏️</div>
+      <h3>A4 Elevblad F–9</h3>
       <p>
-        Utskriftscentralen fungerar som en vägvisare till materialbanken.
-        När fler A4-sidor skapas kan de länkas hit utan att läraren behöver leta
-        genom hela plattformen.
+        21 elevbladspaket med matematikområden och arbetssätt.
+        Totalt 126 elevblad.
       </p>
-
-    </div>
-
-  </section>
+      <span class="open">Öppna elevblad →</span>
+    </a>
 
 
-  <section>
-
-    <h2 class="section-title">
-      🖨️ Utskriftsmaterial
-    </h2>
-
-    <p class="section-intro">
-      Välj vilken typ av material du behöver.
-    </p>
-
-    <div class="print-grid">
-
-      <a href="material-a4-elevblad.html" class="print-card p1">
-        <span>👧📄</span>
-        <h3>Elevblad A4</h3>
-        <p>
-          Utskriftsvänliga elevuppgifter för individuellt arbete,
-          pararbete och matematiska undersökningar.
-        </p>
-      </a>
-
-      <a href="material-a4-kort.html" class="print-card p2">
-        <span>🃏</span>
-        <h3>Kort & småformat</h3>
-        <p>
-          Begreppskort, strategikort, samtalskort
-          och mindre material för stationer och grupparbete.
-        </p>
-      </a>
-
-      <a href="material-a4-affischer.html" class="print-card p3">
-        <span>🖼️</span>
-        <h3>Affischer</h3>
-        <p>
-          Visuellt stöd för klassrummet:
-          begrepp, strategier, problemlösning och matematiska samtal.
-        </p>
-      </a>
-
-      <a href="material-a4-larare.html" class="print-card p4">
-        <span>👩‍🏫📋</span>
-        <h3>Lärarunderlag</h3>
-        <p>
-          Planeringsmallar, observationsblad,
-          analysstöd och andra utskriftsvänliga lärarverktyg.
-        </p>
-      </a>
-
-      <a href="material-elevblad.html" class="print-card p5">
-        <span>✏️</span>
-        <h3>Elevblad</h3>
-        <p>
-          Samlad bank med arbetsblad och aktiviteter
-          inom Matteresans matematikområden.
-        </p>
-      </a>
-
-      <a href="material-problem.html" class="print-card p6">
-        <span>🧠</span>
-        <h3>Problemlösning</h3>
-        <p>
-          Problem som kan användas i undervisning,
-          grupparbete, stationer eller som veckans problem.
-        </p>
-      </a>
-
-      <a href="material-matteprat.html" class="print-card p7">
-        <span>💬</span>
-        <h3>Matteprat</h3>
-        <p>
-          Bilder, frågor och uppgifter för matematiska
-          samtal och strategijämförelser.
-        </p>
-      </a>
-
-      <a href="material-begrepp.html" class="print-card p8">
-        <span>📚</span>
-        <h3>Begreppsmaterial</h3>
-        <p>
-          Begreppskort, ordstöd och visuella modeller
-          för matematiskt språk.
-        </p>
-      </a>
-
-      <a href="material-laborativt.html" class="print-card p9">
-        <span>🧱</span>
-        <h3>Laborativt material</h3>
-        <p>
-          Mallar och aktiviteter för konkret
-          och visuellt arbete i matematik.
-        </p>
-      </a>
-
-
-      <a href="material-exit.html" class="print-card p1">
-        <span>🎟️</span>
-        <h3>Exit tickets</h3>
-        <p>
-          Färdiga små exit tickets och mallar som kan
-          användas för snabb formativ uppföljning.
-        </p>
-      </a>
-
-      <a href="material-diagnos.html" class="print-card p2">
-        <span>🩺</span>
-        <h3>Diagnoser</h3>
-        <p>
-          Korta diagnostiska uppgifter för att synliggöra
-          förståelse och vanliga missuppfattningar.
-        </p>
-      </a>
-
-      <a href="material-mallar.html" class="print-card p3">
-        <span>📋</span>
-        <h3>Mallar</h3>
-        <p>
-          Generella elev- och lärarmallar som kan
-          återanvändas i olika matematikområden.
-        </p>
-      </a>
-
-      <a href="material-affischer.html" class="print-card p4">
-        <span>📌</span>
-        <h3>Klassrumsaffischer</h3>
-        <p>
-          Matematiska strategier, begrepp och stödstrukturer
-          att använda i lärmiljön.
-        </p>
-      </a>
-
-      <a href="material-aventyr.html" class="print-card p5">
-        <span>🗺️</span>
-        <h3>Matematikäventyr</h3>
-        <p>
-          Uppdragskort, ledtrådar och utskriftsmaterial
-          till matematiska äventyr.
-        </p>
-      </a>
-
-      <a href="material-planering.html" class="print-card p6">
-        <span>🗓️</span>
-        <h3>Planeringsmaterial</h3>
-        <p>
-          Planeringsmallar för lektioner,
-          arbetsområden och matematiska progressioner.
-        </p>
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="guide-box">
-
-      <h2>🧭 Från behov till utskrift</h2>
-
+    <a href="material-a4-kort.html" class="card green-card">
+      <div class="icon">🃏</div>
+      <h3>A4-kort</h3>
       <p>
-        Börja med vad du vill uppnå – välj sedan material.
+        Utskrivbara kort för matteprat, problemlösning,
+        begrepp, stationer och pararbete.
       </p>
-
-      <div class="guide-grid">
-
-        <div class="guide-card">
-          <span>1️⃣</span>
-          <h3>Bestäm syftet</h3>
-          <p>
-            Ska materialet introducera, träna,
-            synliggöra förståelse, ge stöd eller utmana?
-          </p>
-        </div>
-
-        <div class="guide-card">
-          <span>2️⃣</span>
-          <h3>Välj material</h3>
-          <p>
-            Välj elevblad, begreppskort, problem,
-            exit ticket, diagnos eller lärarmall.
-          </p>
-        </div>
-
-        <div class="guide-card">
-          <span>3️⃣</span>
-          <h3>Anpassa</h3>
-          <p>
-            Minska mängd, lägg till visuellt stöd
-            eller ge större utmaning utan att förlora matematisk kärna.
-          </p>
-        </div>
-
-        <div class="guide-card">
-          <span>4️⃣</span>
-          <h3>Följ upp</h3>
-          <p>
-            Använd elevens arbete som information
-            för nästa undervisningssteg.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+      <span class="open">Öppna kort →</span>
+    </a>
 
 
-  <section>
-
-    <h2 class="section-title">
-      🌱 🌿 🚀 Material efter stadium
-    </h2>
-
-    <p class="section-intro">
-      Välj material som passar både matematiken
-      och elevens grad av självständighet.
-    </p>
-
-    <div class="stage-grid">
-
-      <div class="stage-card f3stage">
-
-        <span>🌱</span>
-
-        <h3>F–3</h3>
-
-        <ul>
-          <li>stora tydliga bilder</li>
-          <li>ett moment per elevblad</li>
-          <li>konkret material</li>
-          <li>talbilder och tallinjer</li>
-          <li>klippa, sortera och bygga</li>
-          <li>korta muntliga instruktioner</li>
-          <li>enkla exit tickets med bildstöd</li>
-        </ul>
-
-      </div>
-
-
-      <div class="stage-card m46stage">
-
-        <span>🌿</span>
-
-        <h3>4–6</h3>
-
-        <ul>
-          <li>problemlösningsmallar</li>
-          <li>strategikort</li>
-          <li>bråk–decimal–procent</li>
-          <li>begreppskort</li>
-          <li>matteprat</li>
-          <li>diagnoser och exit tickets</li>
-          <li>stöd för resonemang och förklaring</li>
-        </ul>
-
-      </div>
-
-
-      <div class="stage-card m79stage">
-
-        <span>🚀</span>
-
-        <h3>7–9</h3>
-
-        <ul>
-          <li>öppna problem</li>
-          <li>algebra- och funktionsmallar</li>
-          <li>graf- och tabellunderlag</li>
-          <li>argumentationsstöd</li>
-          <li>diagnostiska uppgifter</li>
-          <li>analys av felsvar</li>
-          <li>fördjupning och generalisering</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="tips-box">
-
-      <h2 class="section-title">
-        📄 A4-anpassning
-      </h2>
-
-      <p class="section-intro">
-        För att utskrifter ska fungera bra behöver materialet
-        vara tydligt även på vanligt A4-papper.
+    <a href="material-a4-affischer.html" class="card green-card">
+      <div class="icon">🖼️</div>
+      <h3>A4-affischer</h3>
+      <p>
+        Visuellt stöd för strategier, begrepp,
+        problemlösning och matematiska samtal.
       </p>
+      <span class="open">Öppna affischer →</span>
+    </a>
 
-      <div class="tips-grid">
-
-        <div class="tip-card">
-          <span>📏</span>
-          <h3>Rätt marginaler</h3>
-          <p>
-            Håll innehållet inom tydliga marginaler
-            så att text och rutor inte kapas vid utskrift.
-          </p>
-        </div>
-
-        <div class="tip-card">
-          <span>🔠</span>
-          <h3>Läsbar text</h3>
-          <p>
-            Använd tillräckligt stor text och undvik
-            att pressa in för mycket innehåll på samma sida.
-          </p>
-        </div>
-
-        <div class="tip-card">
-          <span>✂️</span>
-          <h3>Undvik sidbrytningar mitt i</h3>
-          <p>
-            Uppgifter, tabeller och kort ska så långt möjligt
-            hållas samman på samma sida.
-          </p>
-        </div>
-
-        <div class="tip-card">
-          <span>🎨</span>
-          <h3>Färg + gråskala</h3>
-          <p>
-            Materialet använder färg för struktur,
-            men viktig information ska fortfarande vara begriplig i gråskala.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
-
-    <h2 class="section-title">
-      Snabblänkar till lärarverktyg
-    </h2>
-
-    <p class="section-intro">
-      Dessa sidor innehåller material som också
-      kan användas som underlag för utskrift.
-    </p>
-
-    <div class="print-grid">
-
-      <a href="larare-exittickets.html" class="print-card p1">
-        <span>🎟️</span>
-        <h3>Exit tickets</h3>
-        <p>
-          Färdiga frågor inom flera matematikområden.
-        </p>
-      </a>
-
-      <a href="larare-diagnoser.html" class="print-card p2">
-        <span>🩺</span>
-        <h3>Diagnostiska uppgifter</h3>
-        <p>
-          Mini-diagnoser inom tal, bråk, procent,
-          algebra, geometri med mera.
-        </p>
-      </a>
-
-      <a href="larare-observation.html" class="print-card p3">
-        <span>👀</span>
-        <h3>Observationsunderlag</h3>
-        <p>
-          Färdig tabell för strategi, begrepp,
-          resonemang och självständighet.
-        </p>
-      </a>
-
-      <a href="larare-planering.html" class="print-card p4">
-        <span>🗓️</span>
-        <h3>Planeringsmall</h3>
-        <p>
-          Planera matematisk kärna, språk,
-          stöd, aktiviteter och bedömning.
-        </p>
-      </a>
-
-      <a href="larare-matteprat.html" class="print-card p5">
-        <span>💬</span>
-        <h3>Matteprat</h3>
-        <p>
-          Samtalsdrag, meningsstarter och färdiga
-          matematiska samtalsuppgifter.
-        </p>
-      </a>
-
-      <a href="larare-konkret.html" class="print-card p6">
-        <span>🧱</span>
-        <h3>Konkret & visuellt</h3>
-        <p>
-          Idéer för representationer
-          och stödmaterial genom F–9.
-        </p>
-      </a>
-
-    </div>
+  <div class="section-title">
+    <h2>👩‍🏫 Lärarmaterial</h2>
+    <p>Underlag för undervisning, observation, planering och bedömning.</p>
+  </div>
 
 
-    <div class="note">
+  <div class="grid">
 
-      <strong>🖨️ Viktigt vid färgutskrift:</strong><br><br>
+    <a href="material-a4-larare.html" class="card purple-card">
+      <div class="icon">👩‍🏫</div>
+      <h3>A4 Lärarmaterial</h3>
+      <p>
+        Samlade lärarunderlag som kan användas före,
+        under och efter undervisningen.
+      </p>
+      <span class="open">Öppna lärarmaterial →</span>
+    </a>
 
-      När du väljer <strong>Skriv ut</strong> i Chrome eller Edge:
-      öppna <strong>Fler inställningar</strong> och slå på
-      <strong>Bakgrundsgrafik</strong>.
-      <br><br>
 
-      Skrivaren ska dessutom vara inställd på <strong>Färg</strong>.
-      Då behålls de gröna, blå, lila, gula och övriga färgade
-      rutorna i materialet.
+    <a href="material-lektionsmall.html" class="card purple-card">
+      <div class="icon">🗂️</div>
+      <h3>Lektionsmall</h3>
+      <p>
+        Struktur för mål, startaktivitet, undervisning,
+        aktivitet, matteprat och avslut.
+      </p>
+      <span class="open">Öppna lektionsmall →</span>
+    </a>
 
-    </div>
 
-  </section>
+    <a href="material-planering.html" class="card purple-card">
+      <div class="icon">📅</div>
+      <h3>Planeringsunderlag</h3>
+      <p>
+        Planera matematikområden, progression,
+        stöd, utmaning och uppföljning.
+      </p>
+      <span class="open">Öppna planering →</span>
+    </a>
+
+
+    <a href="material-observation.html" class="card purple-card">
+      <div class="icon">👀</div>
+      <h3>Observationsunderlag</h3>
+      <p>
+        Dokumentera strategier, resonemang,
+        begreppsanvändning och stödbehov.
+      </p>
+      <span class="open">Öppna observation →</span>
+    </a>
+
+
+    <a href="material-exit.html" class="card purple-card">
+      <div class="icon">🚪</div>
+      <h3>Exit tickets</h3>
+      <p>
+        Snabb formativ återkoppling om förståelse,
+        strategier och nästa steg.
+      </p>
+      <span class="open">Öppna exit tickets →</span>
+    </a>
+
+
+    <a href="material-diagnos.html" class="card purple-card">
+      <div class="icon">🩺</div>
+      <h3>Diagnostiskt material</h3>
+      <p>
+        Underlag för att upptäcka förståelse,
+        missuppfattningar och behov av fortsatt undervisning.
+      </p>
+      <span class="open">Öppna diagnoser →</span>
+    </a>
+
+  </div>
+
+
+  <div class="section-title">
+    <h2>🧠 Undervisningsmaterial</h2>
+    <p>Material som stödjer olika arbetssätt i matematikundervisningen.</p>
+  </div>
+
+
+  <div class="grid">
+
+    <a href="material-matteprat.html" class="card">
+      <div class="icon">💬</div>
+      <h3>Matteprat</h3>
+      <p>
+        Samtalsstarter, frågor och strukturer
+        för matematiska diskussioner.
+      </p>
+      <span class="open">Öppna material →</span>
+    </a>
+
+
+    <a href="material-problem.html" class="card">
+      <div class="icon">🧩</div>
+      <h3>Problemlösning</h3>
+      <p>
+        Problem, strategier och underlag för
+        systematiskt och kreativt tänkande.
+      </p>
+      <span class="open">Öppna material →</span>
+    </a>
+
+
+    <a href="material-begrepp.html" class="card">
+      <div class="icon">🔤</div>
+      <h3>Begrepp</h3>
+      <p>
+        Språkstöd och aktiviteter för att utveckla
+        matematiska ord och begrepp.
+      </p>
+      <span class="open">Öppna material →</span>
+    </a>
+
+
+    <a href="material-laborativt.html" class="card">
+      <div class="icon">🧱</div>
+      <h3>Laborativ matematik</h3>
+      <p>
+        Material för konkret arbete,
+        modeller och representationer.
+      </p>
+      <span class="open">Öppna material →</span>
+    </a>
+
+
+    <a href="material-spel.html" class="card">
+      <div class="icon">🎲</div>
+      <h3>Matematikspel</h3>
+      <p>
+        Spelidéer och material för träning,
+        samarbete och matematiska samtal.
+      </p>
+      <span class="open">Öppna material →</span>
+    </a>
+
+
+    <a href="material-aventyr.html" class="card">
+      <div class="icon">🗺️</div>
+      <h3>Matematikäventyr</h3>
+      <p>
+        Uppdrag och problemlösning där matematik
+        vävs in i berättelser och utmaningar.
+      </p>
+      <span class="open">Öppna material →</span>
+    </a>
+
+  </div>
+
+
+  <div class="section-title">
+    <h2>📄 Mallar och samlingssidor</h2>
+  </div>
+
+
+  <div class="grid">
+
+    <a href="material-mallar.html" class="card orange-card">
+      <div class="icon">📄</div>
+      <h3>Mallar</h3>
+      <p>
+        Återanvändbara mallar för matematikarbete,
+        reflektion och dokumentation.
+      </p>
+      <span class="open">Öppna mallar →</span>
+    </a>
+
+
+    <a href="material-affischer.html" class="card orange-card">
+      <div class="icon">🎨</div>
+      <h3>Affischmaterial</h3>
+      <p>
+        Samlingssida för visuellt matematikstöd
+        och klassrumsaffischer.
+      </p>
+      <span class="open">Öppna affischer →</span>
+    </a>
+
+
+    <a href="material-elevblad.html" class="card orange-card">
+      <div class="icon">📚</div>
+      <h3>Elevmaterial</h3>
+      <p>
+        Samlingssida för elevuppgifter och
+        utskrivbara arbetsunderlag.
+      </p>
+      <span class="open">Öppna elevmaterial →</span>
+    </a>
+
+  </div>
+
+
+  <div class="status">
+
+    <h3>✅ Kontrollerad struktur</h3>
+
+    <ul>
+      <li>A4 Elevblad länkar till <strong>material-a4-elevblad.html</strong>.</li>
+      <li>A4-kort länkar till <strong>material-a4-kort.html</strong>.</li>
+      <li>A4-affischer länkar till <strong>material-a4-affischer.html</strong>.</li>
+      <li>A4 Lärarmaterial länkar till <strong>material-a4-larare.html</strong>.</li>
+      <li>Lektionsmall, planering, observation, exit tickets och diagnoser har egna tydliga länkar.</li>
+      <li>Matteprat, problem, begrepp, laborativt, spel och matematikäventyr ligger samlade under undervisningsmaterial.</li>
+    </ul>
+
+  </div>
+
+
+  <div class="tip">
+
+    <strong>🖨️ För färgutskrift:</strong><br>
+    Välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren är inställd på <strong>Färg</strong>.
+    De enskilda utskriftsfilerna är A4-anpassade.
+
+  </div>
 
 </main>
 
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🖨️📄 Utskriftscentral – hitta, skriv ut, använd och följ upp
+  <strong>HOLOS Matteresan F–9</strong><br>
+  Upptäck • Tänk • Prata • Lös
 
 </footer>
 
