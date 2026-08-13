@@ -185,13 +185,13 @@
     }
 
     .open-button {
-      display: inline-block;
+      display: inline-block !important;
       margin-top: 15px;
       background: var(--dark);
       color: white;
       border-radius: 999px;
       padding: 9px 15px;
-      font-size: 0.87rem;
+      font-size: 0.87rem !important;
       font-weight: bold;
     }
 
@@ -204,6 +204,8 @@
     .m7 { background: var(--pink-light); }
     .m8 { background: #eef2f4; }
     .m9 { background: #fff4e8; }
+    .m10 { background: #e9f6ff; }
+    .m11 { background: #eef8f5; }
 
     .workflow-box {
       background:
@@ -430,60 +432,109 @@
 
   <section>
 
-    <h2 class="section-title">🗂️ Lärarmaterial</h2>
+    <h2 class="section-title">🗂️ Utskriftsklara lärarunderlag</h2>
 
     <p class="section-intro">
-      Välj underlag utifrån vad du behöver göra i undervisningen.
+      Börja här när du vill ha ett konkret underlag att använda direkt.
     </p>
 
     <div class="material-grid">
 
 
-      <a href="material-planering.html" class="material-card m1">
-        <span>📋</span>
-        <h3>Planeringsmallar</h3>
+      <a href="material-lektionsmall.html" class="material-card m1">
+        <span>📝</span>
+        <h3>Lektionsmall</h3>
         <p>
-          Lektionsplanering, arbetsområden, progression,
-          stöd, utmaning och efterreflektion.
+          En sammanhållen A4-mall för matematisk kärna,
+          förkunskaper, aktivitet, matteprat, stöd,
+          utmaning, exit ticket och efterreflektion.
         </p>
-        <span class="open-button">Öppna planering →</span>
+        <span class="open-button">Öppna lektionsmallen →</span>
       </a>
 
 
-      <a href="larare-observation.html" class="material-card m2">
+      <a href="material-observation.html" class="material-card m2">
         <span>👀</span>
         <h3>Observationsunderlag</h3>
         <p>
-          Dokumentera strategier, begrepp, representationer,
-          samspel och matematiska resonemang.
+          A4 liggande med elevnamn, strategi, begrepp,
+          representation, resonemang och nästa steg.
         </p>
-        <span class="open-button">Öppna observation →</span>
+        <span class="open-button">Öppna observationsblad →</span>
       </a>
 
 
-      <a href="material-exit.html" class="material-card m3">
+      <a href="material-planering.html" class="material-card m3">
+        <span>📋</span>
+        <h3>Planeringsbank</h3>
+        <p>
+          Lektionsplanering, arbetsområden, progression,
+          stöd, utmaning, bedömning och efterreflektion.
+        </p>
+        <span class="open-button">Öppna planeringsbanken →</span>
+      </a>
+
+
+      <a href="material-exit.html" class="material-card m4">
         <span>🎟️</span>
         <h3>Exit tickets</h3>
         <p>
           Korta formativa frågor inom flera matematikområden
-          med stöd för grön–gul–röd tolkning.
+          med stöd för snabb tolkning och nästa steg.
         </p>
         <span class="open-button">Öppna exit tickets →</span>
       </a>
 
 
-      <a href="material-diagnos.html" class="material-card m4">
+      <a href="material-diagnos.html" class="material-card m5">
         <span>🩺</span>
-        <h3>Diagnoser</h3>
+        <h3>Diagnosbank</h3>
         <p>
-          Riktade uppgifter som hjälper dig upptäcka strategier,
-          begreppsförståelse och vanliga missuppfattningar.
+          Riktade uppgifter som hjälper dig upptäcka
+          strategier, begreppsförståelse och missuppfattningar.
         </p>
         <span class="open-button">Öppna diagnoser →</span>
       </a>
 
 
-      <a href="larare-bedomning.html" class="material-card m5">
+      <a href="material-mallar.html" class="material-card m6">
+        <span>📄</span>
+        <h3>Matematikmallar</h3>
+        <p>
+          Problemlösning, begrepp, resonemang,
+          felanalys, representationer och reflektion.
+        </p>
+        <span class="open-button">Öppna mallarna →</span>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">🧠 Analys & didaktiskt stöd</h2>
+
+    <p class="section-intro">
+      Använd dessa sidor när du behöver tolka det du ser och planera nästa undervisningssteg.
+    </p>
+
+    <div class="material-grid">
+
+
+      <a href="larare-observation.html" class="material-card m7">
+        <span>🔎</span>
+        <h3>Observation – lärarstöd</h3>
+        <p>
+          Vad ska observeras, hur frågor kan ställas
+          och hur observationerna kan användas i undervisningen.
+        </p>
+        <span class="open-button">Öppna lärarstödet →</span>
+      </a>
+
+
+      <a href="larare-bedomning.html" class="material-card m8">
         <span>📊</span>
         <h3>Bedömning</h3>
         <p>
@@ -494,40 +545,40 @@
       </a>
 
 
-      <a href="larare-missuppfattningar.html" class="material-card m6">
+      <a href="larare-missuppfattningar.html" class="material-card m9">
         <span>🧠</span>
         <h3>Missuppfattningar</h3>
         <p>
-          Stöd för att tolka felsvar och förstå
-          vilken matematisk idé eleven behöver utveckla.
+          Tolka felsvar och undersök vilken matematisk
+          idé eleven behöver utveckla.
         </p>
         <span class="open-button">Öppna missuppfattningar →</span>
       </a>
 
 
-      <a href="larare-progression.html" class="material-card m7">
+      <a href="larare-progression.html" class="material-card m10">
         <span>📈</span>
         <h3>Progression F–9</h3>
         <p>
-          Planera utvecklingen från erfarenhet och representation
-          till symbolisering och generalisering.
+          Följ utvecklingen från erfarenhet och representation
+          till symbolisering, resonemang och generalisering.
         </p>
         <span class="open-button">Öppna progression →</span>
       </a>
 
 
-      <a href="larare-sprak.html" class="material-card m8">
+      <a href="larare-sprak.html" class="material-card m11">
         <span>🗣️</span>
         <h3>Språk & begrepp</h3>
         <p>
           Planera ord, representationer, meningsstarter
           och matematiska samtal.
         </p>
-        <span class="open-button">Öppna språkstöd →</span>
+        <span class="open-button">Öppna språkstödet →</span>
       </a>
 
 
-      <a href="larare-stod.html" class="material-card m9">
+      <a href="larare-stod.html" class="material-card m1">
         <span>🧩</span>
         <h3>Stöd & anpassning</h3>
         <p>
@@ -549,7 +600,7 @@
       <h2>🔄 Från planering till uppföljning</h2>
 
       <p>
-        Lärarmaterialet kan användas som en sammanhängande arbetsgång.
+        Matteresans lärarmaterial kan användas som en sammanhängande arbetsgång.
       </p>
 
       <div class="workflow-grid">
@@ -567,8 +618,8 @@
           <span>2️⃣</span>
           <h3>Undervisa</h3>
           <p>
-            Skapa aktiviteter där eleverna får utforska,
-            samtala och använda matematiken.
+            Låt eleverna utforska, pröva,
+            representera och samtala om matematiken.
           </p>
         </div>
 
@@ -577,7 +628,7 @@
           <h3>Observera</h3>
           <p>
             Lyssna efter strategier,
-            begrepp och sätt att representera.
+            begrepp, representationer och resonemang.
           </p>
         </div>
 
@@ -585,8 +636,8 @@
           <span>4️⃣</span>
           <h3>Tolka</h3>
           <p>
-            Analysera svar, missuppfattningar och
-            det eleverna faktiskt visar.
+            Analysera svar, strategier,
+            osäkerheter och missuppfattningar.
           </p>
         </div>
 
@@ -594,7 +645,7 @@
           <span>5️⃣</span>
           <h3>Agera</h3>
           <p>
-            Anpassa nästa undervisningssteg,
+            Anpassa nästa lektion,
             stöd eller fördjupning.
           </p>
         </div>
@@ -603,8 +654,8 @@
           <span>6️⃣</span>
           <h3>Följ upp</h3>
           <p>
-            Kontrollera senare om elevens förståelse
-            har förändrats.
+            Kontrollera om elevens förståelse
+            har förändrats efter undervisningen.
           </p>
         </div>
 
@@ -619,77 +670,83 @@
 
     <div class="quick-box">
 
-      <h2 class="section-title">⚡ Vad behöver jag just nu?</h2>
+      <h2 class="section-title">⚡ Vilket underlag behöver jag?</h2>
 
       <p class="section-intro">
-        Snabbguide för val av underlag.
+        Välj minsta underlag som ger den information du behöver.
       </p>
 
       <div class="quick-grid">
 
 
         <div class="quick-card">
-          <span>🎯</span>
-          <h3>Jag ska planera en ny lektion</h3>
+          <span>📝</span>
+          <h3>Före lektionen</h3>
           <ul>
-            <li>Öppna planeringsbanken.</li>
-            <li>Bestäm matematisk kärna.</li>
-            <li>Planera hur förståelsen ska bli synlig.</li>
-          </ul>
-        </div>
-
-
-        <div class="quick-card">
-          <span>🤔</span>
-          <h3>Eleverna gör många liknande fel</h3>
-          <ul>
-            <li>Öppna missuppfattningar.</li>
-            <li>Ställ följdfrågan: ”Hur tänkte du?”</li>
-            <li>Pröva en annan representation.</li>
-          </ul>
-        </div>
-
-
-        <div class="quick-card">
-          <span>🎟️</span>
-          <h3>Jag behöver veta vad de förstått idag</h3>
-          <ul>
-            <li>Välj en exit ticket.</li>
-            <li>Sortera svaren snabbt.</li>
-            <li>Använd resultatet till nästa lektion.</li>
-          </ul>
-        </div>
-
-
-        <div class="quick-card">
-          <span>🩺</span>
-          <h3>Jag behöver undersöka ett område djupare</h3>
-          <ul>
-            <li>Välj en kort riktad diagnos.</li>
-            <li>Be eleven förklara sitt tänkande.</li>
-            <li>Undervisa och följ sedan upp igen.</li>
+            <li>Lektionsmall</li>
+            <li>Planeringsbank</li>
+            <li>Progression</li>
+            <li>Språk och begrepp</li>
           </ul>
         </div>
 
 
         <div class="quick-card">
           <span>👀</span>
-          <h3>Jag vill observera strategier</h3>
+          <h3>Under lektionen</h3>
           <ul>
-            <li>Bestäm observationsfokus före lektionen.</li>
-            <li>Dokumentera kort.</li>
-            <li>Undvik att försöka observera allt samtidigt.</li>
+            <li>Observationsunderlag</li>
+            <li>Matteprat</li>
+            <li>Följdfrågor</li>
+            <li>Korta anteckningar</li>
+          </ul>
+        </div>
+
+
+        <div class="quick-card">
+          <span>🎟️</span>
+          <h3>I slutet av lektionen</h3>
+          <ul>
+            <li>Exit ticket</li>
+            <li>Elevförklaring</li>
+            <li>Självvärdering</li>
+            <li>Snabb sortering av svar</li>
+          </ul>
+        </div>
+
+
+        <div class="quick-card">
+          <span>🩺</span>
+          <h3>När något behöver undersökas</h3>
+          <ul>
+            <li>Riktad diagnos</li>
+            <li>Följdfråga: Hur tänkte du?</li>
+            <li>Ny representation</li>
+            <li>Uppföljning efter undervisning</li>
+          </ul>
+        </div>
+
+
+        <div class="quick-card">
+          <span>🔴🟡🟢</span>
+          <h3>När svaren skiljer sig</h3>
+          <ul>
+            <li>Stabil förståelse</li>
+            <li>Delvis förståelse</li>
+            <li>Missuppfattning</li>
+            <li>Planera olika nästa steg</li>
           </ul>
         </div>
 
 
         <div class="quick-card">
           <span>🚀</span>
-          <h3>Några elever behöver större utmaning</h3>
+          <h3>När elever behöver mer djup</h3>
           <ul>
-            <li>Ge inte bara fler rutinuppgifter.</li>
-            <li>Ändra villkor.</li>
-            <li>Kräv flera lösningar eller generalisering.</li>
+            <li>Flera strategier</li>
+            <li>Ändra villkor</li>
+            <li>Hitta alla lösningar</li>
+            <li>Generalisera</li>
           </ul>
         </div>
 
@@ -711,7 +768,7 @@
         <span>✏️</span>
         <h3>A4 Elevblad</h3>
         <p>
-          Utskriftsklara elevuppgifter inom Matteresans matematikområden.
+          Utskriftsklara elevblad inom matematikområden och arbetssätt.
         </p>
       </a>
 
@@ -720,7 +777,7 @@
         <span>🃏</span>
         <h3>A4-kort</h3>
         <p>
-          Begrepps-, strategi-, samtals- och problemlösningskort.
+          Begrepps-, strategi-, samtals-, problem- och utmaningskort.
         </p>
       </a>
 
@@ -729,25 +786,25 @@
         <span>🖼️</span>
         <h3>A4-affischer</h3>
         <p>
-          Visuellt matematikstöd för klassrummet.
+          Visuellt matematikstöd för aktiv användning i klassrummet.
         </p>
       </a>
 
 
-      <a href="material-mallar.html" class="other-card o4">
-        <span>📝</span>
-        <h3>Matematikmallar</h3>
-        <p>
-          Problemlösning, resonemang, representation och elevreflektion.
-        </p>
-      </a>
-
-
-      <a href="material-matteprat.html" class="other-card o5">
+      <a href="material-matteprat.html" class="other-card o4">
         <span>💬</span>
         <h3>Matteprat</h3>
         <p>
           Färdiga frågor för matematiska samtal och gemensam analys.
+        </p>
+      </a>
+
+
+      <a href="material-problem.html" class="other-card o5">
+        <span>🧠</span>
+        <h3>Problembank</h3>
+        <p>
+          Problemlösning F–9 med flera möjliga strategier och resonemang.
         </p>
       </a>
 
@@ -764,9 +821,13 @@
 
 
     <div class="note">
-      <strong>Kom ihåg:</strong>
-      ett underlag ska hjälpa läraren att fatta bättre undervisningsbeslut.
-      Dokumentera det som är relevant för nästa steg – inte mer än vad undervisningen behöver.
+
+      <strong>Viktigt:</strong>
+      Ett enskilt svar eller en enskild uppgift ska inte användas
+      för att sätta en etikett på elevens matematiska förmåga.
+      Underlagen används för att förstå tänkandet och välja nästa
+      undervisningssteg.
+
     </div>
 
   </section>
