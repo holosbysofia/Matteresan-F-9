@@ -69,6 +69,11 @@
       font-weight: bold;
     }
 
+    .back-link:hover {
+      background: white;
+      color: var(--dark);
+    }
+
     .hero {
       max-width: 920px;
       margin: 45px auto 0;
@@ -346,33 +351,223 @@
       }
     }
 
+    /* =====================================
+       UTSKRIFT – A4 + FÄRG
+       ===================================== */
+
     @page {
       size: A4 portrait;
       margin: 12mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+        background: white !important;
+      }
+
       header,
       footer {
         display: none !important;
       }
 
       body {
-        background: white;
-        color: black;
+        color: var(--text) !important;
       }
 
       main {
         max-width: none;
+        width: 100%;
+        margin: 0;
         padding: 0;
+      }
+
+      section {
+        margin-bottom: 8mm;
+      }
+
+      .intro {
+        background: var(--blue-light) !important;
+      }
+
+      .m1 {
+        background: var(--green-light) !important;
+      }
+
+      .m2 {
+        background: var(--blue-light) !important;
+      }
+
+      .m3 {
+        background: var(--purple-light) !important;
+      }
+
+      .m4 {
+        background: var(--yellow-light) !important;
+      }
+
+      .m5 {
+        background: var(--orange-light) !important;
+      }
+
+      .m6 {
+        background: var(--teal-light) !important;
+      }
+
+      .m7 {
+        background: var(--pink-light) !important;
+      }
+
+      .m8 {
+        background: #eef2f4 !important;
+      }
+
+      .m9 {
+        background: #fff4e8 !important;
+      }
+
+      .m10 {
+        background: #e9f6ff !important;
+      }
+
+      .m11 {
+        background: #eef8f5 !important;
+      }
+
+      .o1 {
+        background: var(--green-light) !important;
+      }
+
+      .o2 {
+        background: var(--blue-light) !important;
+      }
+
+      .o3 {
+        background: var(--purple-light) !important;
+      }
+
+      .o4 {
+        background: var(--orange-light) !important;
+      }
+
+      .o5 {
+        background: var(--pink-light) !important;
+      }
+
+      .o6 {
+        background: var(--teal-light) !important;
+      }
+
+      .workflow-box {
+        background: #29485d !important;
+        color: white !important;
+      }
+
+      .workflow-box h2,
+      .workflow-box > p,
+      .workflow-card h3,
+      .workflow-card p {
+        color: white !important;
+      }
+
+      .workflow-card {
+        background: #496579 !important;
+        border-color: #7890a1 !important;
+      }
+
+      .quick-box {
+        background: var(--yellow-light) !important;
+      }
+
+      .quick-card {
+        background: white !important;
+        border-color: #eadfbb !important;
+      }
+
+      .note {
+        background: var(--orange-light) !important;
+        border-left-color: #c77f43 !important;
+        color: #654c37 !important;
+      }
+
+      .open-button {
+        background: var(--dark) !important;
+        color: white !important;
+      }
+
+      .section-title,
+      .material-card h3,
+      .other-card h3,
+      .quick-card h3,
+      .intro h2 {
+        color: var(--dark) !important;
+      }
+
+      .section-intro,
+      .material-card p,
+      .other-card p,
+      .quick-card p,
+      .quick-card li,
+      .intro p {
+        color: var(--muted) !important;
+      }
+
+      .material-grid,
+      .workflow-grid,
+      .other-grid,
+      .quick-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 5mm !important;
       }
 
       .material-card,
       .workflow-card,
       .quick-card,
-      .other-card {
+      .other-card,
+      .intro,
+      .workflow-box,
+      .quick-box,
+      .note {
         page-break-inside: avoid;
         break-inside: avoid;
+      }
+
+      .material-card,
+      .other-card {
+        min-height: 0 !important;
+        padding: 5mm !important;
+      }
+
+      .workflow-card {
+        min-height: 0 !important;
+        padding: 5mm !important;
+      }
+
+      .quick-card {
+        padding: 5mm !important;
+      }
+
+      .intro,
+      .workflow-box,
+      .quick-box {
+        padding: 7mm !important;
+      }
+
+      a {
+        color: inherit !important;
       }
     }
   </style>
@@ -517,7 +712,8 @@
     <h2 class="section-title">🧠 Analys & didaktiskt stöd</h2>
 
     <p class="section-intro">
-      Använd dessa sidor när du behöver tolka det du ser och planera nästa undervisningssteg.
+      Använd dessa sidor när du behöver tolka det du ser
+      och planera nästa undervisningssteg.
     </p>
 
     <div class="material-grid">
@@ -822,11 +1018,15 @@
 
     <div class="note">
 
-      <strong>Viktigt:</strong>
-      Ett enskilt svar eller en enskild uppgift ska inte användas
-      för att sätta en etikett på elevens matematiska förmåga.
-      Underlagen används för att förstå tänkandet och välja nästa
-      undervisningssteg.
+      <strong>🖨️ Färgutskrift:</strong><br><br>
+
+      När du trycker på <strong>Skriv ut</strong> i Chrome eller Edge:
+      välj <strong>Fler inställningar</strong> och slå på
+      <strong>Bakgrundsgrafik</strong>.
+      <br><br>
+
+      Kontrollera också att skrivaren står på <strong>Färg</strong>.
+      Då följer de gröna, blå, lila, gula och övriga färgfälten med.
 
     </div>
 
