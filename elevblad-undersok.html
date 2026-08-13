@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Undersök matematik F–9 | HOLOS Matteresan</title>
+  <title>Undersök matematiken F–9 | HOLOS Matteresan</title>
 
   <style>
     * {
@@ -15,13 +15,22 @@
 
     :root {
       --dark: #17324d;
-      --green: #edf9f1;
-      --blue: #eaf5ff;
-      --purple: #f1edff;
+
+      --f3: #e8f7ed;
+      --f3-strong: #5f9470;
+
+      --46: #e8f3ff;
+      --46-strong: #5d86ad;
+
+      --79: #f0eaff;
+      --79-strong: #8266a3;
+
       --yellow: #fff6d7;
       --orange: #ffe7cf;
       --teal: #eaf7f5;
       --pink: #ffe9f1;
+      --gray: #eef2f4;
+
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -42,7 +51,7 @@
     header {
       background:
         radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
-        linear-gradient(135deg, #315c6d, #5d8795);
+        linear-gradient(135deg, #4f6c70, #7e999d);
       color: white;
       padding: 22px 20px 50px;
     }
@@ -65,12 +74,11 @@
       padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
       font-weight: bold;
     }
 
     .hero {
-      max-width: 900px;
+      max-width: 920px;
       margin: 42px auto 0;
       text-align: center;
     }
@@ -94,11 +102,11 @@
     .hero p {
       max-width: 850px;
       margin: auto;
-      color: #f4fbff;
+      color: #f7fbfc;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1040px;
       margin: auto;
       padding: 40px 20px;
     }
@@ -108,7 +116,7 @@
       border-radius: 24px;
       padding: 30px;
       text-align: center;
-      margin-bottom: 38px;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
@@ -117,9 +125,9 @@
     }
 
     .intro p {
-      color: var(--muted);
       max-width: 850px;
       margin: auto;
+      color: var(--muted);
     }
 
     .print-button {
@@ -133,57 +141,59 @@
       cursor: pointer;
     }
 
-    .stage {
-      margin-bottom: 36px;
-    }
-
-    .stage-title {
-      text-align: center;
-      margin-bottom: 18px;
-    }
-
-    .stage-title h2 {
-      color: var(--dark);
-      font-size: 2rem;
-      margin-bottom: 4px;
-    }
-
-    .stage-title p {
-      color: var(--muted);
-    }
-
     .sheet {
       background: white;
       border: 1px solid rgba(0,0,0,0.08);
       border-radius: 22px;
-      padding: 28px;
-      margin-bottom: 24px;
-      break-inside: avoid;
+      padding: 24px;
+      margin-bottom: 28px;
+      min-height: 270mm;
     }
 
     .sheet.f3 {
-      border-top: 8px solid #5aa36e;
+      border-top: 9px solid var(--f3-strong);
     }
 
-    .sheet.m46 {
-      border-top: 8px solid #5b86b8;
+    .sheet.stage46 {
+      border-top: 9px solid var(--46-strong);
     }
 
-    .sheet.m79 {
-      border-top: 8px solid #8867ad;
+    .sheet.stage79 {
+      border-top: 9px solid var(--79-strong);
     }
 
     .sheet-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
+      text-align: center;
       margin-bottom: 18px;
     }
 
-    .sheet-head h3 {
+    .stage-label {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .f3-label {
+      background: var(--f3);
+      color: #356345;
+    }
+
+    .stage46-label {
+      background: var(--46);
+      color: #345e86;
+    }
+
+    .stage79-label {
+      background: var(--79);
+      color: #634a83;
+    }
+
+    .sheet-head h2 {
       color: var(--dark);
-      font-size: 1.45rem;
+      font-size: 1.7rem;
       margin-bottom: 4px;
     }
 
@@ -192,83 +202,111 @@
       font-size: 0.9rem;
     }
 
-    .level {
-      border-radius: 999px;
-      padding: 7px 12px;
-      font-weight: bold;
-      font-size: 0.82rem;
-      white-space: nowrap;
-      background: #edf1f4;
-    }
-
-    .name-row {
+    .meta-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 14px;
-      margin-bottom: 18px;
-      font-size: 0.9rem;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
-    .line {
-      display: inline-block;
-      width: 70%;
-      border-bottom: 1px solid #777;
-      height: 18px;
-      vertical-align: bottom;
+    .field {
+      background: white;
+      border: 1.5px solid #9aa6ae;
+      border-radius: 10px;
+      min-height: 50px;
+      padding: 9px;
+    }
+
+    .field strong {
+      display: block;
+      color: var(--dark);
+      font-size: 0.86rem;
     }
 
     .task {
-      border-top: 1px dashed #bfc8ce;
-      padding-top: 16px;
-      margin-top: 16px;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
       break-inside: avoid;
     }
 
-    .task:first-of-type {
-      border-top: none;
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    .task h4 {
+    .task h3 {
       color: var(--dark);
-      margin-bottom: 7px;
-      font-size: 1.02rem;
+      font-size: 1rem;
+      margin-bottom: 6px;
     }
 
-    .question-box {
-      background: var(--yellow);
-      border-left: 5px solid #c9a548;
-      border-radius: 12px;
-      padding: 14px;
-      margin: 10px 0;
+    .task p,
+    .task li {
+      color: #4e5d68;
+      font-size: 0.88rem;
     }
 
-    .question-box strong {
-      color: var(--dark);
+    .task ul {
+      margin: 8px 0 0 22px;
     }
 
-    .answer-box {
-      border: 1.5px solid #8d9aa4;
-      border-radius: 10px;
-      min-height: 84px;
-      margin-top: 8px;
+    .task li {
+      margin-bottom: 5px;
+    }
+
+    .green { background: var(--f3); }
+    .blue { background: var(--46); }
+    .purple { background: var(--79); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .write-area {
       background: white;
+      border: 1.2px solid #98a4ad;
+      border-radius: 8px;
+      margin-top: 8px;
+      min-height: 70px;
     }
 
-    .answer-box.medium {
-      min-height: 120px;
+    .write-area.medium {
+      min-height: 100px;
     }
 
-    .answer-box.large {
-      min-height: 160px;
+    .write-area.large {
+      min-height: 145px;
     }
 
-    .answer-box.xlarge {
-      min-height: 210px;
+    .investigation-box,
+    .number-box {
+      background: white;
+      border: 1.2px solid #89969f;
+      border-radius: 10px;
+      padding: 12px;
+      color: var(--dark);
+      font-weight: bold;
+      margin-top: 8px;
     }
 
-    .table-box {
+    .investigation-box {
+      text-align: left;
+    }
+
+    .number-box {
+      text-align: center;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .table-wrap {
       margin-top: 10px;
       overflow-x: auto;
     }
@@ -281,7 +319,7 @@
 
     th,
     td {
-      border: 1px solid #83919b;
+      border: 1px solid #86939c;
       padding: 8px;
       text-align: center;
     }
@@ -289,76 +327,58 @@
     th {
       background: var(--dark);
       color: white;
+      font-size: 0.84rem;
     }
 
     td {
-      height: 42px;
+      background: white;
+      height: 44px;
     }
 
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .research-box {
-      border-radius: 11px;
-      padding: 12px;
-      min-height: 100px;
-    }
-
-    .r1 {
-      background: var(--green);
-    }
-
-    .r2 {
-      background: var(--blue);
-    }
-
-    .r3 {
-      background: var(--purple);
-    }
-
-    .research-box strong {
-      color: var(--dark);
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .tip {
-      background: var(--orange);
-      border-radius: 12px;
-      padding: 12px;
-      margin-top: 12px;
-      color: #654c37;
-      font-size: 0.9rem;
-    }
-
-    .check {
-      background: #eef5f8;
-      border-radius: 12px;
-      padding: 14px;
-      margin-top: 16px;
-    }
-
-    .check strong {
-      color: var(--dark);
-    }
-
-    .check ul {
-      list-style: none;
+    .grid-area {
+      background:
+        linear-gradient(to right, #e1e6e9 1px, transparent 1px),
+        linear-gradient(to bottom, #e1e6e9 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-color: white;
+      border: 1.2px solid #98a4ad;
+      border-radius: 8px;
+      min-height: 170px;
       margin-top: 8px;
     }
 
-    .check li {
-      margin-bottom: 5px;
+    .process {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 10px;
     }
 
-    .check li::before {
-      content: "☐ ";
-      font-weight: bold;
+    .step {
+      background: white;
+      border: 1px solid #9aa6ae;
+      border-radius: 10px;
+      padding: 9px 5px;
+      text-align: center;
+      font-size: 0.78rem;
       color: var(--dark);
+      font-weight: bold;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .screen-note {
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 24px;
+      color: #654c37;
     }
 
     footer {
@@ -374,10 +394,10 @@
         flex-direction: column;
       }
 
-      .sheet-head,
-      .name-row,
-      .research-grid {
-        display: grid;
+      .meta-grid,
+      .two-grid,
+      .three-grid,
+      .process {
         grid-template-columns: 1fr;
       }
 
@@ -385,74 +405,165 @@
         padding-left: 14px;
         padding-right: 14px;
       }
-
-      .sheet {
-        padding: 20px 15px;
-      }
     }
+
+    /* ===========================
+       A4 + FÄRGUTSKRIFT
+       =========================== */
 
     @page {
       size: A4 portrait;
-      margin: 11mm;
+      margin: 10mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
+      body {
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
       header,
       footer,
-      .intro {
+      .intro,
+      .screen-note {
         display: none !important;
       }
 
-      body {
-        background: white;
-        color: black;
-        font-size: 10pt;
-      }
-
       main {
+        width: 100%;
         max-width: none;
         margin: 0;
         padding: 0;
       }
 
-      .stage {
-        margin: 0;
-      }
-
-      .stage-title {
-        display: none;
-      }
-
       .sheet {
-        border: none;
-        border-radius: 0;
+        width: 100%;
+        min-height: 277mm;
+        margin: 0;
         padding: 0;
-        min-height: 274mm;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
         page-break-after: always;
         break-after: page;
-        margin: 0;
       }
 
-      .sheet:last-child {
+      .sheet:last-of-type {
         page-break-after: auto;
         break-after: auto;
       }
 
-      .sheet.f3,
-      .sheet.m46,
-      .sheet.m79 {
-        border-top: none;
+      .sheet.f3 {
+        border-top: 7px solid var(--f3-strong) !important;
+      }
+
+      .sheet.stage46 {
+        border-top: 7px solid var(--46-strong) !important;
+      }
+
+      .sheet.stage79 {
+        border-top: 7px solid var(--79-strong) !important;
+      }
+
+      .green,
+      .f3-label {
+        background: var(--f3) !important;
+      }
+
+      .blue,
+      .stage46-label {
+        background: var(--46) !important;
+      }
+
+      .purple,
+      .stage79-label {
+        background: var(--79) !important;
+      }
+
+      .yellow { background: var(--yellow) !important; }
+      .orange { background: var(--orange) !important; }
+      .teal { background: var(--teal) !important; }
+      .pink { background: var(--pink) !important; }
+      .gray { background: var(--gray) !important; }
+
+      .field,
+      .write-area,
+      .investigation-box,
+      .number-box,
+      .step,
+      td {
+        background: white !important;
+      }
+
+      th {
+        background: var(--dark) !important;
+        color: white !important;
+      }
+
+      .grid-area {
+        background:
+          linear-gradient(to right, #e1e6e9 1px, transparent 1px),
+          linear-gradient(to bottom, #e1e6e9 1px, transparent 1px) !important;
+        background-size: 20px 20px !important;
+        background-color: white !important;
+      }
+
+      .two-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .three-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .process {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 2mm !important;
       }
 
       .task,
-      .question-box,
-      .answer-box,
-      .table-box,
-      .research-grid,
-      .tip,
-      .check {
-        page-break-inside: avoid;
+      .field,
+      .investigation-box,
+      .number-box,
+      .step,
+      .table-wrap,
+      .grid-area {
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .sheet-head h2,
+      .task h3,
+      .field strong,
+      .investigation-box,
+      .number-box,
+      .step {
+        color: var(--dark) !important;
+      }
+
+      .sheet-head p,
+      .task p,
+      .task li,
+      .footer-note {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -463,27 +574,21 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
-
-    <a href="material-a4-elevblad.html" class="back-link">
-      ← A4 Elevblad
-    </a>
-
+    <a href="material-a4-elevblad.html" class="back-link">← A4 Elevblad</a>
   </div>
 
   <div class="hero">
 
     <div class="hero-icon">🔬🧠</div>
 
-    <h1>Undersök matematik F–9</h1>
+    <h1>Undersök matematiken F–9</h1>
 
-    <h2>Fråga • Gissa • Pröva • Ordna • Upptäck • Förklara</h2>
+    <h2>Fråga • Pröva • Samla • Upptäck • Förklara</h2>
 
     <p>
-      Matematik handlar också om att undersöka.
-      Du kan ställa en fråga, göra en hypotes, pröva flera exempel,
-      leta efter mönster och formulera en slutsats.
+      Sex utskriftsklara elevblad där eleverna undersöker,
+      upptäcker samband och formulerar matematiska slutsatser.
     </p>
 
   </div>
@@ -495,780 +600,593 @@
 
   <div class="intro">
 
-    <h2>🔎 Arbeta som en matematisk forskare</h2>
+    <h2>🔬 Matematik kan undersökas</h2>
 
     <p>
-      Det är helt okej om din första gissning inte stämmer.
-      En hypotes är något du undersöker – inte något du redan måste veta.
+      Elever behöver ibland få möta matematiken som en fråga utan färdig metod.
+      De prövar exempel, organiserar resultat, söker mönster och formulerar slutsatser.
     </p>
 
     <button class="print-button" onclick="window.print()">
-      🖨️ Skriv ut alla elevblad
+      🖨️ Skriv ut alla sex elevblad
     </button>
 
   </div>
 
 
-  <!-- F–3 -->
+  <!-- F–3 BLAD 1 -->
 
-  <section class="stage">
+  <section class="sheet f3">
 
-    <div class="stage-title">
-      <h2>🌱 F–3</h2>
-      <p>Pröva exempel och upptäck enkla mönster.</p>
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Undersök – blad 1</h2>
+      <p>Tal • dubbelt • mönster</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
     </div>
 
 
-    <article class="sheet f3">
+    <div class="task green">
 
-      <div class="sheet-head">
+      <h3>1. Undersök dubbelt</h3>
 
-        <div>
-          <h3>🌱 Udda och jämnt</h3>
-          <p>Elevblad 1 – F–3</p>
-        </div>
-
-        <div class="level">F–3</div>
-
+      <div class="investigation-box">
+        Välj ett tal.<br>
+        Dubbla talet.<br>
+        Gör detta med flera olika tal.
       </div>
 
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>Mitt tal</th>
+            <th>Dubbelt</th>
+          </tr>
+          <tr><td></td><td></td></tr>
+          <tr><td></td><td></td></tr>
+          <tr><td></td><td></td></tr>
+          <tr><td></td><td></td></tr>
+          <tr><td></td><td></td></tr>
+        </table>
       </div>
 
+    </div>
 
-      <div class="task">
 
-        <h4>1. Undersökningsfrågan</h4>
+    <div class="task blue">
 
-        <div class="question-box">
-          <strong>Vad händer när man adderar två jämna tal?</strong>
-        </div>
+      <h3>2. Vad upptäcker du?</h3>
 
-      </div>
+      <p>
+        Vad händer med resultatet när starttalet ökar med 1?
+      </p>
 
+      <div class="write-area large"></div>
 
-      <div class="task">
+    </div>
 
-        <h4>2. Min gissning</h4>
 
-        <p>
-          Jag tror att svaret blir...
-        </p>
+    <div class="task yellow">
 
-        <div class="answer-box"></div>
+      <h3>3. Förutsäg</h3>
 
-      </div>
+      <p>
+        Utan att räkna alla steg:
+        vad är dubbelt av 50?
+        Hur vet du?
+      </p>
 
+      <div class="write-area medium"></div>
 
-      <div class="task">
+    </div>
 
-        <h4>3. Pröva</h4>
 
-        <div class="table-box">
+    <div class="task teal">
 
-          <table>
+      <h3>4. Formulera en regel</h3>
 
-            <tr>
-              <th>Jämnt tal</th>
-              <th>Jämnt tal</th>
-              <th>Summa</th>
-              <th>Jämn eller udda?</th>
-            </tr>
+      <p>
+        Vad betyder det att dubbla ett tal?
+      </p>
 
-            <tr><td>2</td><td>4</td><td></td><td></td></tr>
-            <tr><td>6</td><td>8</td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td></tr>
+      <div class="write-area large"></div>
 
-          </table>
+    </div>
 
-        </div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Vad upptäckte du?</h4>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>5. Ny fråga</h4>
-
-        <p>
-          Vad tror du händer om man adderar två udda tal?
-        </p>
-
-        <div class="answer-box"></div>
-
-      </div>
-
-
-      <div class="check">
-
-        <strong>✅ Jag undersöker</strong>
-
-        <ul>
-          <li>Jag gör en gissning.</li>
-          <li>Jag prövar flera exempel.</li>
-          <li>Jag letar efter ett mönster.</li>
-          <li>Jag skriver vad jag upptäckte.</li>
-        </ul>
-
-      </div>
-
-    </article>
-
-
-    <article class="sheet f3">
-
-      <div class="sheet-head">
-
-        <div>
-          <h3>🌱 Bygg rektanglar</h3>
-          <p>Elevblad 2 – F–3</p>
-        </div>
-
-        <div class="level">F–3</div>
-
-      </div>
-
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
-
-
-      <div class="task">
-
-        <h4>1. Frågan</h4>
-
-        <div class="question-box">
-          Du har 12 lika stora rutor.
-          Vilka olika rektanglar kan du bygga med alla rutorna?
-        </div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Rita dina rektanglar</h4>
-
-        <div class="answer-box xlarge"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Skriv måtten</h4>
-
-        <div class="table-box">
-
-          <table>
-            <tr>
-              <th>Längd</th>
-              <th>Bredd</th>
-              <th>Antal rutor</th>
-            </tr>
-
-            <tr><td></td><td></td><td>12</td></tr>
-            <tr><td></td><td></td><td>12</td></tr>
-            <tr><td></td><td></td><td>12</td></tr>
-            <tr><td></td><td></td><td>12</td></tr>
-          </table>
-
-        </div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Vad ser du?</h4>
-
-        <p>
-          Finns det något samband mellan sidlängderna och talet 12?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>5. Fortsätt undersöka</h4>
-
-        <p>
-          Vad skulle du vilja prova med 18 eller 24 rutor?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-    </article>
+    <div class="footer-note">
+      HOLOS Matteresan • Undersök F–3
+    </div>
 
   </section>
 
 
-  <!-- 4–6 -->
+  <!-- F–3 BLAD 2 -->
 
-  <section class="stage">
+  <section class="sheet f3">
 
-    <div class="stage-title">
-      <h2>🌿 4–6</h2>
-      <p>Samla data, jämför och formulera matematiska slutsatser.</p>
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Undersök – blad 2</h2>
+      <p>Former • omkrets • upptäck</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
     </div>
 
 
-    <article class="sheet m46">
+    <div class="task green">
 
-      <div class="sheet-head">
+      <h3>1. Rita rektanglar</h3>
 
-        <div>
-          <h3>🌿 Area och omkrets</h3>
-          <p>Elevblad 1 – 4–6</p>
-        </div>
+      <p>
+        Rita flera olika rektanglar på rutnätet.
+      </p>
 
-        <div class="level">4–6</div>
+      <div class="grid-area"></div>
 
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Mät sidorna</h3>
+
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>Rektangel</th>
+            <th>Längd</th>
+            <th>Bredd</th>
+            <th>Omkrets</th>
+          </tr>
+          <tr><td>1</td><td></td><td></td><td></td></tr>
+          <tr><td>2</td><td></td><td></td><td></td></tr>
+          <tr><td>3</td><td></td><td></td><td></td></tr>
+        </table>
       </div>
 
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
+    </div>
 
 
-      <div class="task">
+    <div class="task yellow">
 
-        <h4>1. Undersökningsfrågan</h4>
+      <h3>3. Vad upptäcker du?</h3>
 
-        <div class="question-box">
-          <strong>
-            Hur påverkas omkretsen när olika rektanglar har samma area?
-          </strong>
-        </div>
+      <p>
+        Hur kan man ta reda på en rektangels omkrets utan att räkna
+        varje ruta runt kanten?
+      </p>
 
-      </div>
+      <div class="write-area large"></div>
 
+    </div>
 
-      <div class="task">
 
-        <h4>2. Hypotes</h4>
+    <div class="task orange">
 
-        <p>
-          Vad tror du innan du börjar?
-        </p>
+      <h3>4. Testa din regel</h3>
 
-        <div class="answer-box medium"></div>
+      <p>
+        Rita en ny rektangel och kontrollera att regeln fungerar.
+      </p>
 
-      </div>
+      <div class="write-area large"></div>
 
+    </div>
 
-      <div class="task">
-
-        <h4>3. Undersök area 24 cm²</h4>
-
-        <div class="table-box">
-
-          <table>
-
-            <tr>
-              <th>Längd</th>
-              <th>Bredd</th>
-              <th>Area</th>
-              <th>Omkrets</th>
-            </tr>
-
-            <tr><td>1</td><td>24</td><td>24</td><td></td></tr>
-            <tr><td>2</td><td>12</td><td>24</td><td></td></tr>
-            <tr><td>3</td><td>8</td><td>24</td><td></td></tr>
-            <tr><td>4</td><td>6</td><td>24</td><td></td></tr>
-
-          </table>
-
-        </div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Analysera</h4>
-
-        <div class="research-grid">
-
-          <div class="research-box r1">
-            <strong>Minst omkrets</strong>
-          </div>
-
-          <div class="research-box r2">
-            <strong>Störst omkrets</strong>
-          </div>
-
-          <div class="research-box r3">
-            <strong>Mönster jag ser</strong>
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>5. Slutsats</h4>
-
-        <p>
-          Vad verkar gälla när rektangeln blir mer lik en kvadrat?
-        </p>
-
-        <div class="answer-box large"></div>
-
-      </div>
-
-
-      <div class="tip">
-        🔎 <strong>Fortsätt:</strong>
-        Undersök om samma idé verkar gälla för area 36 cm².
-      </div>
-
-    </article>
-
-
-    <article class="sheet m46">
-
-      <div class="sheet-head">
-
-        <div>
-          <h3>🌿 Tärningsundersökning</h3>
-          <p>Elevblad 2 – 4–6</p>
-        </div>
-
-        <div class="level">4–6</div>
-
-      </div>
-
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
-
-
-      <div class="task">
-
-        <h4>1. Frågan 🎲</h4>
-
-        <div class="question-box">
-          Om vi kastar en rättvis tärning många gånger,
-          kommer alla sex utfall att förekomma exakt lika ofta?
-        </div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Min hypotes</h4>
-
-        <div class="answer-box"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Kasta 30 gånger</h4>
-
-        <div class="table-box">
-
-          <table>
-
-            <tr>
-              <th>Utfall</th>
-              <th>1</th>
-              <th>2</th>
-              <th>3</th>
-              <th>4</th>
-              <th>5</th>
-              <th>6</th>
-            </tr>
-
-            <tr>
-              <th>Antal</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-
-          </table>
-
-        </div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Jämför med teorin</h4>
-
-        <p>
-          Om alla utfall vore exakt lika vanliga under 30 kast,
-          hur många gånger skulle varje sida visas?
-        </p>
-
-        <div class="answer-box"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>5. Slutsats</h4>
-
-        <p>
-          Var resultaten exakt lika? Betyder det i så fall att tärningen är orättvis?
-        </p>
-
-        <div class="answer-box large"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>6. Ny fråga</h4>
-
-        <p>
-          Vad tror du skulle hända om ni slog ihop resultaten från hela klassen?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-    </article>
+    <div class="footer-note">
+      HOLOS Matteresan • Undersök F–3
+    </div>
 
   </section>
 
 
-  <!-- 7–9 -->
+  <!-- 4–6 BLAD 1 -->
 
-  <section class="stage">
+  <section class="sheet stage46">
 
-    <div class="stage-title">
-      <h2>🚀 7–9</h2>
-      <p>Undersök samband, formulera generaliseringar och pröva modeller.</p>
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Undersök – blad 1</h2>
+      <p>Udda • jämna • summor • generalisering</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
     </div>
 
 
-    <article class="sheet m79">
+    <div class="task blue">
 
-      <div class="sheet-head">
+      <h3>1. Vad händer när du adderar?</h3>
 
-        <div>
-          <h3>🚀 Undersök linjära samband</h3>
-          <p>Elevblad 1 – 7–9</p>
-        </div>
+      <p>
+        Pröva flera exempel.
+      </p>
 
-        <div class="level">7–9</div>
-
+      <div class="three-grid">
+        <div class="number-box">jämnt + jämnt</div>
+        <div class="number-box">udda + udda</div>
+        <div class="number-box">jämnt + udda</div>
       </div>
 
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task green">
+
+      <h3>2. Samla resultat</h3>
+
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>Tal 1</th>
+            <th>Tal 2</th>
+            <th>Summa</th>
+            <th>Jämn/udda</th>
+          </tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+        </table>
       </div>
 
+    </div>
 
-      <div class="task">
 
-        <h4>1. Undersökningsfrågan</h4>
+    <div class="task yellow">
 
-        <div class="question-box">
-          Hur påverkas en linjär funktion när vi ändrar
-          <strong>k</strong> och <strong>m</strong> i
-          <strong>y = kx + m</strong>?
-        </div>
+      <h3>3. Formulera tre regler</h3>
 
-      </div>
+      <div class="write-area large"></div>
 
+    </div>
 
-      <div class="task">
 
-        <h4>2. Börja med tre funktioner</h4>
+    <div class="task purple">
 
-        <p>
-          Undersök:
-        </p>
+      <h3>4. Kan du förklara varför?</h3>
 
-        <p style="text-align:center; font-size:1.15rem;">
-          <strong>y = 2x</strong><br>
-          <strong>y = 2x + 3</strong><br>
-          <strong>y = 4x + 3</strong>
-        </p>
+      <p>
+        Använd till exempel par, bilder eller multiplar av 2.
+      </p>
 
-        <div class="table-box">
+      <div class="write-area large"></div>
 
-          <table>
+    </div>
 
-            <tr>
-              <th>x</th>
-              <th>y = 2x</th>
-              <th>y = 2x + 3</th>
-              <th>y = 4x + 3</th>
-            </tr>
-
-            <tr><td>0</td><td></td><td></td><td></td></tr>
-            <tr><td>1</td><td></td><td></td><td></td></tr>
-            <tr><td>2</td><td></td><td></td><td></td></tr>
-            <tr><td>3</td><td></td><td></td><td></td></tr>
-            <tr><td>4</td><td></td><td></td><td></td></tr>
-
-          </table>
-
-        </div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Vad gör m?</h4>
-
-        <p>
-          Jämför y = 2x och y = 2x + 3.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Vad gör k?</h4>
-
-        <p>
-          Jämför y = 2x + 3 och y = 4x + 3.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>5. Generalisera</h4>
-
-        <div class="research-grid">
-
-          <div class="research-box r1">
-            <strong>k beskriver...</strong>
-          </div>
-
-          <div class="research-box r2">
-            <strong>m beskriver...</strong>
-          </div>
-
-          <div class="research-box r3">
-            <strong>Proportionellt när...</strong>
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="check">
-        <strong>✅ Min slutsats bygger på</strong>
-        <ul>
-          <li>flera exempel,</li>
-          <li>tabell eller graf,</li>
-          <li>ett tydligt mönster,</li>
-          <li>en matematisk förklaring.</li>
-        </ul>
-      </div>
-
-    </article>
-
-
-    <article class="sheet m79">
-
-      <div class="sheet-head">
-
-        <div>
-          <h3>🚀 Procent över flera förändringar</h3>
-          <p>Elevblad 2 – 7–9</p>
-        </div>
-
-        <div class="level">7–9</div>
-
-      </div>
-
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
-
-
-      <div class="task">
-
-        <h4>1. Frågan</h4>
-
-        <div class="question-box">
-          Vad händer om ett värde ökar och sedan minskar med samma procenttal?
-        </div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Hypotes</h4>
-
-        <p>
-          Tror du att värdet kommer tillbaka till startvärdet?
-        </p>
-
-        <div class="answer-box"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Undersök startvärdet 100</h4>
-
-        <div class="table-box">
-
-          <table>
-
-            <tr>
-              <th>Förändring</th>
-              <th>Efter ökning</th>
-              <th>Efter lika stor minskning</th>
-              <th>Skillnad från 100</th>
-            </tr>
-
-            <tr>
-              <td>10 %</td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-
-            <tr>
-              <td>20 %</td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-
-            <tr>
-              <td>25 %</td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-
-            <tr>
-              <td>50 %</td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-
-          </table>
-
-        </div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Vad ser du?</h4>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>5. Förklara med förändringsfaktorer</h4>
-
-        <p>
-          För 20 % förändring används faktorerna 1,20 och 0,80.
-        </p>
-
-        <p>
-          Undersök produkten:
-        </p>
-
-        <p style="text-align:center; font-size:1.2rem;">
-          <strong>1,20 × 0,80 = ______</strong>
-        </p>
-
-        <p>
-          Vad säger produkten om slutvärdet?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>6. Ny forskningsfråga</h4>
-
-        <p>
-          Skriv en ny fråga om procentuell förändring som du skulle vilja undersöka.
-        </p>
-
-        <div class="answer-box large"></div>
-
-      </div>
-
-
-      <div class="tip">
-        🚀 <strong>Extra:</strong>
-        Kan du formulera en generell förklaring till varför lika stor procentuell ökning och minskning normalt inte tar ut varandra?
-      </div>
-
-    </article>
+    <div class="footer-note">
+      HOLOS Matteresan • Undersök 4–6
+    </div>
 
   </section>
+
+
+  <!-- 4–6 BLAD 2 -->
+
+  <section class="sheet stage46">
+
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Undersök – blad 2</h2>
+      <p>Area • omkrets • optimera</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>1. Samma omkrets</h3>
+
+      <div class="investigation-box">
+        Rita alla rektanglar med heltalssidor
+        och omkretsen 20 cm.
+      </div>
+
+      <div class="grid-area"></div>
+
+    </div>
+
+
+    <div class="task green">
+
+      <h3>2. Beräkna arean</h3>
+
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>Längd</th>
+            <th>Bredd</th>
+            <th>Omkrets</th>
+            <th>Area</th>
+          </tr>
+          <tr><td></td><td></td><td>20</td><td></td></tr>
+          <tr><td></td><td></td><td>20</td><td></td></tr>
+          <tr><td></td><td></td><td>20</td><td></td></tr>
+          <tr><td></td><td></td><td>20</td><td></td></tr>
+        </table>
+      </div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Vad upptäcker du?</h3>
+
+      <p>
+        Vilken rektangel får störst area?
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Formulera en hypotes</h3>
+
+      <p>
+        Vad tror du gäller för rektanglar med andra bestämda omkretsar?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Testa hypotesen</h3>
+
+      <p>
+        Välj en ny omkrets och undersök.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Undersök 4–6
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 BLAD 1 -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Undersök – blad 1</h2>
+      <p>Algebra • talmönster • bevisidé</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>1. Undersök följande</h3>
+
+      <div class="investigation-box">
+        Välj ett heltal.<br>
+        Ta talet gånger sig självt.<br>
+        Lägg till talet.<br><br>
+        Exempel: n² + n
+      </div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Pröva flera värden</h3>
+
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>n</th>
+            <th>n²</th>
+            <th>n² + n</th>
+            <th>Jämn/udda</th>
+          </tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+        </table>
+      </div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Vad verkar alltid hända?</h3>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Förklara algebraiskt</h3>
+
+      <p>
+        Faktorisera n² + n.
+        Kan det hjälpa dig att förklara varför resultatet alltid har en viss egenskap?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Från exempel till argument</h3>
+
+      <p>
+        Varför räcker inte fem exempel som bevis för att något gäller för alla heltal?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Undersök 7–9
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 BLAD 2 -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Undersök – blad 2</h2>
+      <p>Funktion • förändring • modell • generalisering</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>1. Undersök familjen av funktioner</h3>
+
+      <div class="investigation-box">
+        y = kx + 2
+      </div>
+
+      <p style="margin-top:8px;">
+        Testa olika värden på k, till exempel:
+        −2, −1, 0, 1, 2 och 3.
+      </p>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Rita flera grafer</h3>
+
+      <div class="grid-area"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Vad är alltid lika?</h3>
+
+      <p>
+        Vad har alla graferna gemensamt?
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Vad förändras?</h3>
+
+      <p>
+        Hur påverkar k grafens riktning och lutning?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Generalisera</h3>
+
+      <p>
+        Beskriv med egna ord vilken roll k och m har
+        i en linjär funktion:
+        <strong>y = kx + m</strong>.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Undersök 7–9
+    </div>
+
+  </section>
+
+
+  <div class="task gray">
+
+    <h3>🔬 Undersökandets arbetsgång</h3>
+
+    <div class="process">
+      <div class="step">1. Fråga</div>
+      <div class="step">2. Pröva</div>
+      <div class="step">3. Samla</div>
+      <div class="step">4. Upptäck</div>
+      <div class="step">5. Förklara</div>
+    </div>
+
+  </div>
+
+
+  <div class="screen-note">
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+    Varje elevblad ska hamna på ett eget A4.
+  </div>
 
 </main>
 
 
 <footer>
-
   <strong>HOLOS Matteresan F–9</strong>
-
   <br>
-
-  🔬 Undersök matematik – fråga, pröva, upptäck och generalisera
-
+  🔬🧠 Undersök matematiken – fråga, pröva, samla, upptäck och förklara
 </footer>
 
 </body>
