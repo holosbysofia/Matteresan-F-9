@@ -15,12 +15,22 @@
 
     :root {
       --dark: #17324d;
-      --green: #edf9f1;
-      --blue: #eaf5ff;
-      --purple: #f1edff;
+
+      --f3: #e8f7ed;
+      --f3-strong: #5f9470;
+
+      --46: #e8f3ff;
+      --46-strong: #5d86ad;
+
+      --79: #f0eaff;
+      --79-strong: #8266a3;
+
       --yellow: #fff6d7;
       --orange: #ffe7cf;
       --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -41,7 +51,7 @@
     header {
       background:
         radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
-        linear-gradient(135deg, #31577a, #6488a9);
+        linear-gradient(135deg, #5c6578, #8994a7);
       color: white;
       padding: 22px 20px 50px;
     }
@@ -65,11 +75,10 @@
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
       font-weight: bold;
-      color: white;
     }
 
     .hero {
-      max-width: 900px;
+      max-width: 920px;
       margin: 42px auto 0;
       text-align: center;
     }
@@ -91,23 +100,23 @@
     }
 
     .hero p {
-      max-width: 830px;
+      max-width: 850px;
       margin: auto;
-      color: #f4f9ff;
+      color: #f8f9fd;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1040px;
       margin: auto;
       padding: 40px 20px;
     }
 
     .intro {
-      background: var(--blue);
+      background: var(--yellow);
       border-radius: 24px;
       padding: 30px;
       text-align: center;
-      margin-bottom: 38px;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
@@ -116,9 +125,9 @@
     }
 
     .intro p {
-      color: var(--muted);
-      max-width: 840px;
+      max-width: 850px;
       margin: auto;
+      color: var(--muted);
     }
 
     .print-button {
@@ -132,57 +141,59 @@
       cursor: pointer;
     }
 
-    .stage {
-      margin-bottom: 36px;
-    }
-
-    .stage-title {
-      text-align: center;
-      margin-bottom: 18px;
-    }
-
-    .stage-title h2 {
-      color: var(--dark);
-      font-size: 2rem;
-      margin-bottom: 4px;
-    }
-
-    .stage-title p {
-      color: var(--muted);
-    }
-
     .sheet {
       background: white;
       border: 1px solid rgba(0,0,0,0.08);
       border-radius: 22px;
-      padding: 28px;
-      margin-bottom: 24px;
-      break-inside: avoid;
+      padding: 24px;
+      margin-bottom: 28px;
+      min-height: 270mm;
     }
 
     .sheet.f3 {
-      border-top: 8px solid #5aa36e;
+      border-top: 9px solid var(--f3-strong);
     }
 
-    .sheet.m46 {
-      border-top: 8px solid #5b86b8;
+    .sheet.stage46 {
+      border-top: 9px solid var(--46-strong);
     }
 
-    .sheet.m79 {
-      border-top: 8px solid #8867ad;
+    .sheet.stage79 {
+      border-top: 9px solid var(--79-strong);
     }
 
     .sheet-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
+      text-align: center;
       margin-bottom: 18px;
     }
 
-    .sheet-head h3 {
+    .stage-label {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .f3-label {
+      background: var(--f3);
+      color: #356345;
+    }
+
+    .stage46-label {
+      background: var(--46);
+      color: #345e86;
+    }
+
+    .stage79-label {
+      background: var(--79);
+      color: #634a83;
+    }
+
+    .sheet-head h2 {
       color: var(--dark);
-      font-size: 1.45rem;
+      font-size: 1.7rem;
       margin-bottom: 4px;
     }
 
@@ -191,148 +202,155 @@
       font-size: 0.9rem;
     }
 
-    .level {
-      border-radius: 999px;
-      padding: 7px 12px;
-      font-weight: bold;
-      font-size: 0.82rem;
-      white-space: nowrap;
-      background: #edf1f4;
-    }
-
-    .name-row {
+    .meta-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 14px;
-      margin-bottom: 18px;
-      font-size: 0.9rem;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
-    .line {
-      display: inline-block;
-      width: 70%;
-      border-bottom: 1px solid #777;
-      height: 18px;
-      vertical-align: bottom;
+    .field {
+      background: white;
+      border: 1.5px solid #9aa6ae;
+      border-radius: 10px;
+      min-height: 50px;
+      padding: 9px;
+    }
+
+    .field strong {
+      display: block;
+      color: var(--dark);
+      font-size: 0.86rem;
     }
 
     .task {
-      border-top: 1px dashed #bfc8ce;
-      padding-top: 16px;
-      margin-top: 16px;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
       break-inside: avoid;
     }
 
-    .task:first-of-type {
-      border-top: none;
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    .task h4 {
+    .task h3 {
       color: var(--dark);
-      margin-bottom: 7px;
-      font-size: 1.02rem;
+      font-size: 1rem;
+      margin-bottom: 6px;
     }
 
-    .task p {
-      margin-bottom: 8px;
-    }
-
-    .answer-box {
-      border: 1.5px solid #8d9aa4;
-      border-radius: 10px;
-      min-height: 84px;
-      margin-top: 8px;
-      padding: 10px;
-      background: white;
-    }
-
-    .answer-box.medium {
-      min-height: 120px;
-    }
-
-    .answer-box.large {
-      min-height: 155px;
-    }
-
-    .calculation-box {
-      border: 1.5px solid #8d9aa4;
-      border-radius: 10px;
-      min-height: 92px;
-      margin-top: 8px;
-      padding: 10px;
-      background:
-        linear-gradient(#f4f6f7 1px, transparent 1px);
-      background-size: 100% 26px;
-    }
-
-    .sentence {
-      background: var(--yellow);
-      border-radius: 12px;
-      padding: 12px;
-      margin-top: 10px;
-      color: #5e5538;
-      font-size: 0.9rem;
-    }
-
-    .starters {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 9px;
-      margin-top: 10px;
-    }
-
-    .starter {
-      background: #f3f6f8;
-      border-radius: 10px;
-      padding: 10px;
-      color: var(--dark);
-      font-weight: bold;
+    .task p,
+    .task li {
+      color: #4e5d68;
       font-size: 0.88rem;
     }
 
-    .choice-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 10px;
+    .task ul {
+      margin: 8px 0 0 22px;
     }
 
-    .choice {
-      border: 1.5px solid #9ba7af;
-      border-radius: 10px;
-      padding: 12px;
-      min-height: 70px;
-      text-align: center;
-      font-weight: bold;
-      color: var(--dark);
-    }
-
-    .check {
-      background: var(--teal);
-      border-radius: 12px;
-      padding: 14px;
-      margin-top: 16px;
-    }
-
-    .check strong {
-      color: var(--dark);
-    }
-
-    .check ul {
-      list-style: none;
-      margin-top: 8px;
-    }
-
-    .check li {
+    .task li {
       margin-bottom: 5px;
     }
 
-    .check li::before {
-      content: "☐ ";
-      font-weight: bold;
+    .green { background: var(--f3); }
+    .blue { background: var(--46); }
+    .purple { background: var(--79); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .write-area {
+      background: white;
+      border: 1.2px solid #98a4ad;
+      border-radius: 8px;
+      margin-top: 8px;
+      min-height: 70px;
+    }
+
+    .write-area.medium {
+      min-height: 100px;
+    }
+
+    .write-area.large {
+      min-height: 145px;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .statement-box {
+      background: white;
+      border: 1.2px solid #89969f;
+      border-radius: 10px;
+      min-height: 78px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       color: var(--dark);
+      font-weight: bold;
+    }
+
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .prompt {
+      background: white;
+      border: 1px solid #9aa6ae;
+      border-radius: 10px;
+      padding: 9px;
+      font-size: 0.8rem;
+      text-align: center;
+      color: var(--dark);
+      font-weight: bold;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .step {
+      background: white;
+      border: 1px solid #9aa6ae;
+      border-radius: 10px;
+      padding: 9px 5px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--dark);
+      font-weight: bold;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .screen-note {
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 24px;
+      color: #654c37;
     }
 
     footer {
@@ -348,84 +366,167 @@
         flex-direction: column;
       }
 
-      .sheet-head,
-      .name-row,
-      .starters,
-      .choice-grid {
+      .meta-grid,
+      .two-grid,
+      .three-grid,
+      .prompt-grid,
+      .process {
         grid-template-columns: 1fr;
-        display: grid;
       }
 
       main {
         padding-left: 14px;
         padding-right: 14px;
       }
-
-      .sheet {
-        padding: 20px 15px;
-      }
     }
+
+    /* ===========================
+       A4 + FÄRGUTSKRIFT
+       =========================== */
 
     @page {
       size: A4 portrait;
-      margin: 11mm;
+      margin: 10mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
+      body {
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
       header,
       footer,
-      .intro {
+      .intro,
+      .screen-note {
         display: none !important;
       }
 
-      body {
-        background: white;
-        color: black;
-        font-size: 10pt;
-      }
-
       main {
+        width: 100%;
         max-width: none;
         margin: 0;
         padding: 0;
       }
 
-      .stage {
-        margin: 0;
-      }
-
-      .stage-title {
-        display: none;
-      }
-
       .sheet {
-        border-radius: 0;
-        border: none;
+        width: 100%;
+        min-height: 277mm;
+        margin: 0;
         padding: 0;
-        min-height: 274mm;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
         page-break-after: always;
         break-after: page;
-        margin: 0;
       }
 
-      .sheet:last-child {
+      .sheet:last-of-type {
         page-break-after: auto;
         break-after: auto;
       }
 
-      .sheet.f3,
-      .sheet.m46,
-      .sheet.m79 {
-        border-top: none;
+      .sheet.f3 {
+        border-top: 7px solid var(--f3-strong) !important;
+      }
+
+      .sheet.stage46 {
+        border-top: 7px solid var(--46-strong) !important;
+      }
+
+      .sheet.stage79 {
+        border-top: 7px solid var(--79-strong) !important;
+      }
+
+      .green,
+      .f3-label {
+        background: var(--f3) !important;
+      }
+
+      .blue,
+      .stage46-label {
+        background: var(--46) !important;
+      }
+
+      .purple,
+      .stage79-label {
+        background: var(--79) !important;
+      }
+
+      .yellow { background: var(--yellow) !important; }
+      .orange { background: var(--orange) !important; }
+      .teal { background: var(--teal) !important; }
+      .pink { background: var(--pink) !important; }
+      .gray { background: var(--gray) !important; }
+
+      .field,
+      .write-area,
+      .statement-box,
+      .prompt,
+      .step {
+        background: white !important;
+      }
+
+      .two-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .three-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .prompt-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 2mm !important;
+      }
+
+      .process {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 2mm !important;
       }
 
       .task,
-      .answer-box,
-      .calculation-box,
-      .check,
-      .sentence {
-        page-break-inside: avoid;
+      .field,
+      .statement-box,
+      .prompt,
+      .step {
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .sheet-head h2,
+      .task h3,
+      .field strong,
+      .statement-box,
+      .prompt,
+      .step {
+        color: var(--dark) !important;
+      }
+
+      .sheet-head p,
+      .task p,
+      .task li,
+      .footer-note {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -436,13 +537,11 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
 
     <a href="material-a4-elevblad.html" class="back-link">
       ← A4 Elevblad
     </a>
-
   </div>
 
   <div class="hero">
@@ -454,9 +553,8 @@
     <h2>Tänk • Visa • Förklara • Motivera • Kontrollera</h2>
 
     <p>
-      I matematik räcker det inte alltid att hitta rätt svar.
-      När du förklarar hur du tänker visar du vilka matematiska idéer,
-      strategier och samband du använder.
+      Sex utskriftsklara elevblad som tränar eleverna i att
+      sätta ord på strategier, resonemang och matematiska samband.
     </p>
 
   </div>
@@ -468,698 +566,523 @@
 
   <div class="intro">
 
-    <h2>🗣️ Matematik är också språk</h2>
+    <h2>💬 Ett svar visar inte hela tänkandet</h2>
 
     <p>
-      Du kan förklara med ord, bild, beräkning, tabell eller symboler.
-      En bra matematisk förklaring hjälper någon annan att följa ditt tänkande.
+      När elever förklarar hur de tänker blir strategier,
+      missuppfattningar och matematiska samband synliga.
     </p>
 
     <button class="print-button" onclick="window.print()">
-      🖨️ Skriv ut alla elevblad
+      🖨️ Skriv ut alla sex elevblad
     </button>
 
   </div>
 
 
-  <!-- F–3 -->
+  <!-- F–3 BLAD 1 -->
 
-  <section class="stage">
+  <section class="sheet f3">
 
-    <div class="stage-title">
-      <h2>🌱 F–3</h2>
-      <p>Berätta steg för steg hur du tänkte.</p>
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Förklara – blad 1</h2>
+      <p>Visa • berätta • använda matematikord</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+    <div class="task green">
+
+      <h3>1. Lös</h3>
+
+      <div class="statement-box">
+        8 + 7 = ?
+      </div>
+
+      <div class="write-area medium"></div>
+
     </div>
 
 
-    <article class="sheet f3">
+    <div class="task blue">
 
-      <div class="sheet-head">
-        <div>
-          <h3>🌱 Så tänkte jag</h3>
-          <p>Elevblad 1 – F–3</p>
-        </div>
+      <h3>2. Hur tänkte du?</h3>
 
-        <div class="level">F–3</div>
-      </div>
+      <p>
+        Rita eller skriv hur du gjorde.
+      </p>
 
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
+      <div class="write-area large"></div>
 
+    </div>
 
-      <div class="task">
 
-        <h4>1. Addition ➕</h4>
+    <div class="task yellow">
 
-        <p>
-          Räkna:
-          <strong>27 + 16</strong>
-        </p>
+      <h3>3. Använd en mening</h3>
 
-        <div class="calculation-box"></div>
+      <p>
+        Börja till exempel:
+        <strong>Jag började med...</strong>
+      </p>
 
-        <p style="margin-top:10px;">
-          Förklara hur du räknade.
-        </p>
+      <div class="write-area large"></div>
 
-        <div class="answer-box"></div>
+    </div>
 
-        <div class="sentence">
-          💡 Du kan börja: <strong>Först tänkte jag...</strong>
-        </div>
 
-      </div>
+    <div class="task teal">
 
+      <h3>4. Kontrollera</h3>
 
-      <div class="task">
+      <p>
+        Hur kan du veta att svaret är rätt?
+      </p>
 
-        <h4>2. Vilket tal saknas?</h4>
+      <div class="write-area medium"></div>
 
-        <p style="font-size:1.2rem; text-align:center;">
-          <strong>18 + ___ = 25</strong>
-        </p>
+    </div>
 
-        <p>
-          Vilket tal ska stå i rutan?
-        </p>
-
-        <div class="calculation-box"></div>
-
-        <p>
-          Hur vet du?
-        </p>
-
-        <div class="answer-box"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Två sätt</h4>
-
-        <p>
-          Visa två olika sätt att räkna:
-          <strong>36 + 9</strong>
-        </p>
-
-        <div class="answer-box medium"></div>
-
-        <p style="margin-top:10px;">
-          Vilket sätt tycker du är enklast? Varför?
-        </p>
-
-        <div class="answer-box"></div>
-
-      </div>
-
-
-      <div class="check">
-
-        <strong>✅ Min förklaring</strong>
-
-        <ul>
-          <li>Jag visar hur jag började.</li>
-          <li>Jag visar vad jag gjorde sedan.</li>
-          <li>Jag använder matematiska ord.</li>
-          <li>Jag skriver ett tydligt svar.</li>
-        </ul>
-
-      </div>
-
-    </article>
-
-
-    <article class="sheet f3">
-
-      <div class="sheet-head">
-
-        <div>
-          <h3>🌱 Förklara med ord och bild</h3>
-          <p>Elevblad 2 – F–3</p>
-        </div>
-
-        <div class="level">F–3</div>
-
-      </div>
-
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
-
-
-      <div class="task">
-
-        <h4>1. Dubbelt</h4>
-
-        <p>
-          Ali har 6 kulor.
-          Tindra har dubbelt så många.
-        </p>
-
-        <p>
-          Hur många kulor har Tindra?
-        </p>
-
-        <div class="calculation-box"></div>
-
-        <p>
-          Förklara vad <strong>dubbelt</strong> betyder.
-        </p>
-
-        <div class="answer-box"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Likhetstecknet ⚖️</h4>
-
-        <p>
-          Är detta sant?
-        </p>
-
-        <p style="font-size:1.2rem; text-align:center;">
-          <strong>8 + 5 = 7 + 6</strong>
-        </p>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Ja</div>
-          <div class="choice">☐ Nej</div>
-          <div class="choice">☐ Jag är osäker</div>
-        </div>
-
-        <p style="margin-top:12px;">
-          Förklara hur du vet.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Hjälp en kompis</h4>
-
-        <p>
-          En kompis säger:
-        </p>
-
-        <div class="sentence">
-          ”Jag tror att 43 − 18 = 35.”
-        </div>
-
-        <p style="margin-top:10px;">
-          Vad skulle du säga till kompisen?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Idag lärde jag mig...</h4>
-
-        <div class="answer-box"></div>
-
-      </div>
-
-    </article>
+    <div class="footer-note">
+      HOLOS Matteresan • Förklara F–3
+    </div>
 
   </section>
 
 
-  <!-- 4–6 -->
+  <!-- F–3 BLAD 2 -->
 
-  <section class="stage">
+  <section class="sheet f3">
 
-    <div class="stage-title">
-      <h2>🌿 4–6</h2>
-      <p>Använd exempel, begrepp och strategier i din förklaring.</p>
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Förklara – blad 2</h2>
+      <p>Jämföra • motivera • lyssna på andra</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+    <div class="task green">
+
+      <h3>1. Vilket tal är störst?</h3>
+
+      <div class="two-grid">
+        <div class="statement-box">47</div>
+        <div class="statement-box">74</div>
+      </div>
+
     </div>
 
 
-    <article class="sheet m46">
+    <div class="task blue">
 
-      <div class="sheet-head">
+      <h3>2. Motivera</h3>
 
-        <div>
-          <h3>🌿 Motivera din lösning</h3>
-          <p>Elevblad 1 – 4–6</p>
-        </div>
+      <p>
+        Förklara varför.
+      </p>
 
-        <div class="level">4–6</div>
+      <div class="write-area large"></div>
 
-      </div>
+    </div>
 
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
 
+    <div class="task yellow">
 
-      <div class="task">
+      <h3>3. Visa på ett annat sätt</h3>
 
-        <h4>1. Bråk 🍕</h4>
+      <p>
+        Kan du använda en tallinje, tiobasmaterial eller en bild?
+      </p>
 
-        <p>
-          Vilket är störst:
-          <strong>3/4</strong> eller <strong>5/8</strong>?
-        </p>
+      <div class="write-area large"></div>
 
-        <div class="calculation-box"></div>
+    </div>
 
-        <p>
-          Förklara hur du vet.
-        </p>
 
-        <div class="answer-box medium"></div>
+    <div class="task orange">
 
-        <div class="sentence">
-          💡 Använd gärna gemensam nämnare, decimalform eller en bild.
-        </div>
+      <h3>4. En klasskamrat tänker annorlunda</h3>
 
-      </div>
+      <p>
+        Hur kan ni ta reda på vilken förklaring som stämmer?
+      </p>
 
+      <div class="write-area large"></div>
 
-      <div class="task">
+    </div>
 
-        <h4>2. Decimaler 🔟</h4>
-
-        <p>
-          En elev säger:
-          <strong>0,45 är större än 0,5 eftersom 45 är större än 5.</strong>
-        </p>
-
-        <p>
-          Förklara vad som är fel i resonemanget.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-        <p style="margin-top:10px;">
-          Skriv en förklaring som skulle kunna hjälpa eleven.
-        </p>
-
-        <div class="answer-box"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Procent 💯</h4>
-
-        <p>
-          Förklara varför 25 % av 200 är 50.
-        </p>
-
-        <div class="starters">
-          <div class="starter">Jag vet att 25 % betyder...</div>
-          <div class="starter">Jag kan också visa det genom...</div>
-        </div>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="check">
-
-        <strong>✅ En tydlig matematisk förklaring</strong>
-
-        <ul>
-          <li>Har en tydlig idé.</li>
-          <li>Använder relevanta matematiska begrepp.</li>
-          <li>Visar hur resultatet följer av min metod.</li>
-          <li>Kan innehålla exempel eller bild.</li>
-        </ul>
-
-      </div>
-
-    </article>
-
-
-    <article class="sheet m46">
-
-      <div class="sheet-head">
-
-        <div>
-          <h3>🌿 Förklara ett samband</h3>
-          <p>Elevblad 2 – 4–6</p>
-        </div>
-
-        <div class="level">4–6</div>
-
-      </div>
-
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
-
-
-      <div class="task">
-
-        <h4>1. Multiplikation</h4>
-
-        <p>
-          Utan att räkna båda uppgifterna från början:
-        </p>
-
-        <p style="font-size:1.15rem; text-align:center;">
-          <strong>25 × 8 = 200</strong>
-        </p>
-
-        <p style="font-size:1.15rem; text-align:center;">
-          Vad blir då <strong>25 × 16</strong>?
-        </p>
-
-        <div class="calculation-box"></div>
-
-        <p>
-          Förklara sambandet.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Omkrets och area 📐</h4>
-
-        <p>
-          Två rektanglar kan ha samma area men olika omkrets.
-        </p>
-
-        <p>
-          Ge ett exempel och förklara varför påståendet stämmer.
-        </p>
-
-        <div class="answer-box large"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Statistik 📊</h4>
-
-        <p>
-          Talen är:
-          <strong>3, 4, 4, 5, 19</strong>
-        </p>
-
-        <p>
-          Beräkna medelvärdet och medianen.
-        </p>
-
-        <div class="calculation-box"></div>
-
-        <p>
-          Vilket av måtten tycker du beskriver gruppen bäst? Motivera.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Min starkaste förklaring idag</h4>
-
-        <p>
-          Vilken uppgift tycker du att du förklarade bäst? Varför?
-        </p>
-
-        <div class="answer-box"></div>
-
-      </div>
-
-    </article>
+    <div class="footer-note">
+      HOLOS Matteresan • Förklara F–3
+    </div>
 
   </section>
 
 
-  <!-- 7–9 -->
+  <!-- 4–6 BLAD 1 -->
 
-  <section class="stage">
+  <section class="sheet stage46">
 
-    <div class="stage-title">
-      <h2>🚀 7–9</h2>
-      <p>Bygg matematiska argument och förklara varför samband gäller.</p>
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Förklara – blad 1</h2>
+      <p>Strategi • steg • matematiska begrepp</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+    <div class="task blue">
+
+      <h3>1. Beräkna</h3>
+
+      <div class="statement-box">
+        398 + 47
+      </div>
+
+      <div class="write-area medium"></div>
+
     </div>
 
 
-    <article class="sheet m79">
+    <div class="task green">
 
-      <div class="sheet-head">
+      <h3>2. Beskriv strategin</h3>
 
-        <div>
-          <h3>🚀 Argumentera matematiskt</h3>
-          <p>Elevblad 1 – 7–9</p>
-        </div>
+      <p>
+        Förklara exakt vilka steg du använde.
+      </p>
 
-        <div class="level">7–9</div>
+      <div class="write-area large"></div>
 
-      </div>
+    </div>
 
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
 
+    <div class="task yellow">
 
-      <div class="task">
+      <h3>3. Varför fungerar strategin?</h3>
 
-        <h4>1. Algebra 🔤</h4>
+      <div class="write-area large"></div>
 
-        <p>
-          Förklara varför:
-        </p>
+    </div>
 
-        <p style="font-size:1.2rem; text-align:center;">
-          <strong>3(x + 4) = 3x + 12</strong>
-        </p>
 
-        <p>
-          Använd ord, symboler eller en modell.
-        </p>
+    <div class="task purple">
 
-        <div class="answer-box large"></div>
+      <h3>4. Lös på ett annat sätt</h3>
 
-      </div>
+      <div class="write-area large"></div>
 
+    </div>
 
-      <div class="task">
 
-        <h4>2. Procentuell förändring 📈</h4>
+    <div class="task teal">
 
-        <p>
-          En vara ökar först med 20 % och minskar sedan med 20 %.
-        </p>
+      <h3>5. Jämför</h3>
 
-        <p>
-          En elev säger:
-          <strong>”Då är priset tillbaka där det började.”</strong>
-        </p>
+      <p>
+        Vilken strategi tycker du är mest effektiv här?
+        Motivera.
+      </p>
 
-        <p>
-          Visa med ett exempel om påståendet stämmer eller inte.
-        </p>
+      <div class="write-area medium"></div>
 
-        <div class="calculation-box"></div>
+    </div>
 
-        <p>
-          Förklara varför.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Sannolikhet 🎲</h4>
-
-        <p>
-          Ett rättvist mynt har visat krona sex gånger i rad.
-        </p>
-
-        <p>
-          En person säger:
-          <strong>”Nu måste klave vara mer sannolikt.”</strong>
-        </p>
-
-        <p>
-          Håller du med? Motivera.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="check">
-
-        <strong>✅ Mitt argument</strong>
-
-        <ul>
-          <li>Jag skriver vad jag påstår.</li>
-          <li>Jag visar varför.</li>
-          <li>Jag använder matematiska exempel eller samband.</li>
-          <li>Jag kontrollerar om det finns motexempel.</li>
-        </ul>
-
-      </div>
-
-    </article>
-
-
-    <article class="sheet m79">
-
-      <div class="sheet-head">
-
-        <div>
-          <h3>🚀 Förklara och generalisera</h3>
-          <p>Elevblad 2 – 7–9</p>
-        </div>
-
-        <div class="level">7–9</div>
-
-      </div>
-
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
-
-
-      <div class="task">
-
-        <h4>1. Talföljden 🧩</h4>
-
-        <p>
-          Studera talföljden:
-        </p>
-
-        <p style="font-size:1.2rem; text-align:center;">
-          <strong>7, 11, 15, 19, ...</strong>
-        </p>
-
-        <p>
-          Beskriv med ord hur talföljden förändras.
-        </p>
-
-        <div class="answer-box"></div>
-
-        <p style="margin-top:10px;">
-          Skriv en formel för det n:te talet.
-        </p>
-
-        <div class="calculation-box"></div>
-
-        <p>
-          Förklara varför din formel fungerar.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Linjärt eller proportionellt? 📈</h4>
-
-        <p>
-          Jämför:
-        </p>
-
-        <p style="text-align:center; font-size:1.15rem;">
-          <strong>y = 4x</strong>
-          &nbsp;&nbsp;&nbsp; och &nbsp;&nbsp;&nbsp;
-          <strong>y = 4x + 3</strong>
-        </p>
-
-        <p>
-          Båda är linjära samband, men bara ett är proportionellt.
-        </p>
-
-        <p>
-          Förklara vilket och varför.
-        </p>
-
-        <div class="answer-box large"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Ett bra motexempel</h4>
-
-        <p>
-          Påstående:
-          <strong>”När man multiplicerar två tal blir svaret alltid större än båda talen.”</strong>
-        </p>
-
-        <p>
-          Ge ett motexempel.
-        </p>
-
-        <div class="calculation-box"></div>
-
-        <p>
-          Förklara varför ditt exempel visar att påståendet inte alltid stämmer.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Självvärdering</h4>
-
-        <div class="starters">
-          <div class="starter">Jag är bra på att förklara...</div>
-          <div class="starter">Jag behöver utveckla...</div>
-          <div class="starter">Ett matematiskt ord jag använde...</div>
-          <div class="starter">Nästa gång ska jag...</div>
-        </div>
-
-        <div class="answer-box"></div>
-
-      </div>
-
-    </article>
+    <div class="footer-note">
+      HOLOS Matteresan • Förklara 4–6
+    </div>
 
   </section>
+
+
+  <!-- 4–6 BLAD 2 -->
+
+  <section class="sheet stage46">
+
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Förklara – blad 2</h2>
+      <p>Påstående • exempel • motexempel</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+    <div class="task blue">
+
+      <h3>1. Påstående</h3>
+
+      <div class="statement-box">
+        0,5 är större än 0,45.
+      </div>
+
+    </div>
+
+
+    <div class="task green">
+
+      <h3>2. Är påståendet sant?</h3>
+
+      <p>
+        Ta ställning och motivera.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Visa med en representation</h3>
+
+      <p>
+        Använd exempelvis tallinje, pengar, hundraruta eller platsvärde.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Förklara en vanlig missuppfattning</h3>
+
+      <p>
+        Varför kan någon tro att 0,45 är större eftersom 45 &gt; 5?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Formulera en regel</h3>
+
+      <p>
+        Hur jämför man decimaltal på ett säkert sätt?
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Förklara 4–6
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 BLAD 1 -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Förklara – blad 1</h2>
+      <p>Algebra • argument • kontroll</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+    <div class="task purple">
+
+      <h3>1. Lös ekvationen</h3>
+
+      <div class="statement-box">
+        3x + 6 = 24
+      </div>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Förklara varje steg</h3>
+
+      <p>
+        Skriv varför du får göra varje förändring i ekvationen.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Kontrollera lösningen</h3>
+
+      <p>
+        Visa med insättning att lösningen stämmer.
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Förklara för någon annan</h3>
+
+      <p>
+        Skriv en kort förklaring som skulle hjälpa en elev
+        som ännu inte förstår hur ekvationer löses.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Förklara 7–9
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 BLAD 2 -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Förklara – blad 2</h2>
+      <p>Generalisera • bevisa • värdera resonemang</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+    <div class="task purple">
+
+      <h3>1. Påstående</h3>
+
+      <div class="statement-box">
+        Summan av två udda heltal är alltid jämn.
+      </div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Undersök med exempel</h3>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Räcker exemplen?</h3>
+
+      <p>
+        Förklarar några exempel varför påståendet alltid måste gälla?
+        Resonera.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Generalisera</h3>
+
+      <p>
+        Ett udda heltal kan skrivas <strong>2n + 1</strong>.
+        Använd detta för att förklara påståendet generellt.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Värdera din förklaring</h3>
+
+      <div class="prompt-grid">
+        <div class="prompt">Har jag svarat på varför?</div>
+        <div class="prompt">Har jag använt matematik?</div>
+        <div class="prompt">Gäller argumentet alltid?</div>
+        <div class="prompt">Kan någon följa mitt tänkande?</div>
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Förklara 7–9
+    </div>
+
+  </section>
+
+
+  <div class="task gray">
+
+    <h3>💬 Arbetsgång för en matematisk förklaring</h3>
+
+    <div class="process">
+      <div class="step">1. Tänk</div>
+      <div class="step">2. Visa</div>
+      <div class="step">3. Förklara</div>
+      <div class="step">4. Motivera</div>
+      <div class="step">5. Kontrollera</div>
+    </div>
+
+  </div>
+
+
+  <div class="screen-note">
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+    Varje elevblad ska hamna på ett eget A4.
+  </div>
 
 </main>
 
 
 <footer>
-
   <strong>HOLOS Matteresan F–9</strong>
-
   <br>
-
-  💬 Förklara hur du tänker – gör matematiken synlig med språk och resonemang
-
+  💬🧠 Förklara hur du tänker – tänk, visa, förklara, motivera och kontrollera
 </footer>
 
 </body>
