@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Begreppsmaterial F–9 | HOLOS Matteresan</title>
+  <title>Begrepp | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,17 +15,25 @@
 
     :root {
       --dark: #17324d;
-      --green: #edf9f1;
-      --blue: #eaf5ff;
-      --purple: #f1edff;
+      --text: #263747;
+      --muted: #667788;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
       --yellow: #fff6d7;
       --orange: #ffe7cf;
       --teal: #eaf7f5;
       --pink: #ffe9f1;
       --gray: #eef2f4;
-      --background: #f8fafc;
-      --text: #263747;
-      --muted: #667788;
+
+      --background: #f7f9fb;
     }
 
     body {
@@ -42,10 +50,10 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
-        linear-gradient(135deg, #6a5c7b, #9585a5);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
-      padding: 22px 20px 50px;
+      padding: 22px 20px 55px;
     }
 
     .topbar {
@@ -63,9 +71,9 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
@@ -81,34 +89,34 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4rem);
+      font-size: clamp(2.3rem, 7vw, 4.2rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
       margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 850px;
+      max-width: 820px;
       margin: auto;
-      color: #fbf8ff;
+      color: #f7f9fc;
     }
 
     main {
-      max-width: 1120px;
+      max-width: 1180px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 42px 20px 65px;
     }
 
     .intro {
-      background: var(--purple);
-      border-radius: 24px;
-      padding: 30px;
-      text-align: center;
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
       margin-bottom: 34px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
     }
 
     .intro h2 {
@@ -118,82 +126,90 @@
 
     .intro p {
       color: var(--muted);
-      max-width: 850px;
-      margin: auto;
+      max-width: 900px;
     }
 
-    .print-button {
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 16px;
+    }
+
+    .button {
+      display: inline-flex;
       background: var(--dark);
       color: white;
-      border: none;
       border-radius: 999px;
-      padding: 12px 20px;
+      padding: 10px 16px;
       font-weight: bold;
-      cursor: pointer;
+      font-size: 0.88rem;
     }
 
-    .sheet {
-      background: white;
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 22px;
-      padding: 24px;
-      margin-bottom: 28px;
-      min-height: 270mm;
+    .section-title {
+      margin: 38px 0 18px;
     }
 
-    .sheet-head {
-      text-align: center;
-      margin-bottom: 18px;
-    }
-
-    .sheet-head h2 {
+    .section-title h2 {
       color: var(--dark);
-      font-size: 1.7rem;
-      margin-bottom: 4px;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
     }
 
-    .sheet-head p {
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 220px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+    }
+
+    .green-card {
+      border-top-color: var(--green-strong);
+    }
+
+    .blue-card {
+      border-top-color: var(--blue-strong);
+    }
+
+    .purple-card {
+      border-top-color: var(--purple-strong);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.12rem;
+    }
+
+    .card p,
+    .card li {
       color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+    .card ul {
+      margin-left: 19px;
     }
 
-    .concept-card {
-      border: 1.5px dashed #87939c;
-      border-radius: 16px;
-      padding: 16px;
-      min-height: 145px;
-      break-inside: avoid;
-    }
-
-    .concept-card span {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 7px;
-    }
-
-    .concept-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-      font-size: 1rem;
-    }
-
-    .concept-card p {
-      color: #4e5d68;
-      font-size: 0.88rem;
-    }
-
-    .concept-card small {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 0.78rem;
+    .card li {
+      margin-bottom: 6px;
     }
 
     .green { background: var(--green); }
@@ -205,121 +221,83 @@
     .pink { background: var(--pink); }
     .gray { background: var(--gray); }
 
-    .student-box {
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 14px;
-      break-inside: avoid;
-    }
-
-    .student-box h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .student-box p {
-      color: #4e5d68;
-      font-size: 0.88rem;
-    }
-
-    .write-area {
-      background: white;
-      border: 1.2px solid #98a4ad;
-      border-radius: 8px;
-      margin-top: 9px;
-      min-height: 80px;
-    }
-
-    .write-area.medium {
-      min-height: 110px;
-    }
-
-    .write-area.large {
-      min-height: 160px;
-    }
-
-    .two-grid {
+    .concept-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 12px;
     }
 
-    .four-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .quadrant {
+    .concept {
       border-radius: 14px;
-      padding: 14px;
-      min-height: 175px;
-      break-inside: avoid;
+      padding: 16px;
+      min-height: 120px;
     }
 
-    .quadrant h3 {
+    .concept strong {
+      display: block;
       color: var(--dark);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
+      font-size: 1rem;
     }
 
-    .quadrant p {
+    .concept span {
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
     }
 
-    .teacher-box {
-      background: var(--yellow);
-      border-radius: 22px;
-      padding: 28px;
-      margin-top: 34px;
+    .stage-box {
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 18px;
     }
 
-    .teacher-box h2 {
+    .stage-box h3 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .teacher-box > p {
+    .stage-box p,
+    .stage-box li {
       color: var(--muted);
+      font-size: 0.9rem;
     }
 
-    .teacher-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      margin-top: 18px;
+    .stage-box ul {
+      margin-left: 20px;
+      margin-top: 8px;
     }
 
-    .teacher-step {
-      background: white;
-      border-radius: 14px;
-      padding: 15px;
-      min-height: 150px;
+    .stage-box li {
+      margin-bottom: 6px;
     }
 
-    .teacher-step span {
-      display: block;
-      font-size: 1.8rem;
-      margin-bottom: 5px;
+    .language-box {
+      margin-top: 35px;
+      background: var(--teal);
+      border-radius: 18px;
+      padding: 22px;
     }
 
-    .teacher-step h3 {
+    .language-box h2 {
       color: var(--dark);
-      margin-bottom: 5px;
-      font-size: 0.93rem;
+      margin-bottom: 8px;
     }
 
-    .teacher-step p {
+    .language-box ul {
+      margin-left: 22px;
       color: var(--muted);
-      font-size: 0.81rem;
     }
 
-    .note {
+    .language-box li {
+      margin-bottom: 6px;
+    }
+
+    .print-note {
+      margin-top: 20px;
       background: var(--orange);
       border-left: 6px solid #c77f43;
-      border-radius: 14px;
+      border-radius: 15px;
       padding: 18px;
-      margin-top: 24px;
       color: #654c37;
     }
 
@@ -327,25 +305,26 @@
       background: var(--dark);
       color: white;
       text-align: center;
-      padding: 30px 20px;
-      margin-top: 30px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 900px) {
-      .teacher-grid {
+    @media (max-width: 950px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .concept-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 620px) {
       .topbar {
         flex-direction: column;
       }
 
-      .cards,
-      .two-grid,
-      .four-grid,
-      .teacher-grid {
+      .grid,
+      .concept-grid {
         grid-template-columns: 1fr;
       }
 
@@ -354,10 +333,6 @@
         padding-right: 14px;
       }
     }
-
-    /* =====================================
-       UTSKRIFT – A4 + FÄRG
-       ===================================== */
 
     @page {
       size: A4 portrait;
@@ -377,95 +352,65 @@
       html,
       body {
         background: white !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        forced-color-adjust: none !important;
       }
 
       header,
-      footer,
-      .intro,
-      .teacher-box,
-      .note {
+      footer {
         display: none !important;
       }
 
       main {
-        width: 100%;
         max-width: none;
-        margin: 0;
         padding: 0;
       }
 
-      .sheet {
-        width: 100%;
-        min-height: 277mm;
-        margin: 0;
-        padding: 0;
-        border: none;
-        border-radius: 0;
-        page-break-after: always;
-        break-after: page;
-      }
-
-      .sheet:last-of-type {
-        page-break-after: auto;
-        break-after: auto;
-      }
-
-      .cards {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 4mm !important;
-      }
-
-      .two-grid,
-      .four-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 4mm !important;
-      }
-
-      .concept-card {
-        min-height: 58mm;
-        padding: 4mm;
-        border: 1.2px dashed #87939c !important;
+      .intro,
+      .card,
+      .concept,
+      .stage-box,
+      .language-box,
+      .print-note {
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      .student-box,
-      .quadrant {
-        break-inside: avoid;
-        page-break-inside: avoid;
+      .green {
+        background: var(--green) !important;
       }
 
-      .green { background: var(--green) !important; }
-      .blue { background: var(--blue) !important; }
-      .purple { background: var(--purple) !important; }
-      .yellow { background: var(--yellow) !important; }
-      .orange { background: var(--orange) !important; }
-      .teal { background: var(--teal) !important; }
-      .pink { background: var(--pink) !important; }
-      .gray { background: var(--gray) !important; }
-
-      .write-area {
-        background: white !important;
+      .blue {
+        background: var(--blue) !important;
       }
 
-      .sheet-head h2,
-      .concept-card h3,
-      .student-box h3,
-      .quadrant h3 {
-        color: var(--dark) !important;
+      .purple {
+        background: var(--purple) !important;
       }
 
-      .sheet-head p,
-      .concept-card p,
-      .concept-card small,
-      .student-box p,
-      .quadrant p {
-        color: var(--muted) !important;
+      .yellow {
+        background: var(--yellow) !important;
+      }
+
+      .orange,
+      .print-note {
+        background: var(--orange) !important;
+      }
+
+      .teal,
+      .language-box {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .button {
+        background: var(--dark) !important;
+        color: white !important;
       }
     }
   </style>
@@ -476,26 +421,25 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
 
     <a href="larare-utskrift.html" class="back-link">
-      ← Utskriftscentralen
+      ← Utskriftsmaterial
     </a>
-
   </div>
+
 
   <div class="hero">
 
-    <div class="hero-icon">🗣️🔢</div>
+    <div class="hero-icon">🔤🧠</div>
 
-    <h1>Begreppsmaterial F–9</h1>
+    <h1>Matematiska begrepp</h1>
 
-    <h2>Uppleva • Sätta ord • Visa • Symbolisera • Använda</h2>
+    <h2>Se • Visa • Säg • Skriv • Använd</h2>
 
     <p>
-      Begreppskort och elevmallar som hjälper eleverna
-      att utveckla ett mer precist matematiskt språk.
+      Material som hjälper eleverna att bygga djupare begreppsförståelse
+      genom språk, bilder, exempel, icke-exempel och matematiska samband.
     </p>
 
   </div>
@@ -505,525 +449,312 @@
 
 <main>
 
-  <div class="intro">
+  <section class="intro">
 
-    <h2>💬 Matematiska ord behöver kopplas till idéer</h2>
+    <h2>🔤 Ett begrepp är mer än en definition</h2>
 
     <p>
-      Ett begrepp blir starkare när eleven kan förklara det,
-      visa det med flera representationer, ge exempel
-      och använda det i nya matematiska situationer.
+      Elever behöver möta ett matematiskt begrepp på flera sätt.
+      De behöver kunna känna igen det, visa det, använda det,
+      jämföra det med andra begrepp och förklara vad det betyder.
     </p>
 
-    <button class="print-button" onclick="window.print()">
-      🖨️ Skriv ut begreppsmaterial
-    </button>
+    <div class="button-row">
+
+      <a href="material-mallar.html" class="button">
+        📄 Begreppsmall
+      </a>
+
+      <a href="material-a4-kort.html" class="button">
+        🃏 Begreppskort
+      </a>
+
+      <a href="material-a4-affischer.html" class="button">
+        🖼️ Begreppsaffisch
+      </a>
+
+      <a href="begrepp.html" class="button">
+        📚 Begreppsbanken
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+    <h2>🧠 Så bygger vi begreppsförståelse</h2>
+    <p>Eleven behöver kunna röra sig mellan flera sätt att förstå samma idé.</p>
+  </div>
+
+
+  <div class="grid">
+
+    <div class="card green-card">
+
+      <div class="icon">🧱</div>
+
+      <h3>Konkret</h3>
+
+      <p>
+        Bygg, flytta, dela, mäta eller jämför med konkret material.
+      </p>
+
+      <ul>
+        <li>Vad kan du visa med föremål?</li>
+        <li>Vad förändras?</li>
+        <li>Vad är fortfarande samma?</li>
+      </ul>
+
+    </div>
+
+
+    <div class="card blue-card">
+
+      <div class="icon">🎨</div>
+
+      <h3>Bild och modell</h3>
+
+      <p>
+        Rita eller använd visuella representationer.
+      </p>
+
+      <ul>
+        <li>Tallinje</li>
+        <li>Bråkmodell</li>
+        <li>Areafigur</li>
+        <li>Tabell eller graf</li>
+      </ul>
+
+    </div>
+
+
+    <div class="card purple-card">
+
+      <div class="icon">💬</div>
+
+      <h3>Språk</h3>
+
+      <p>
+        Sätt ord på vad begreppet betyder och hur det används.
+      </p>
+
+      <ul>
+        <li>Förklara med egna ord.</li>
+        <li>Använd ordet i en matematisk mening.</li>
+        <li>Jämför med ett närliggande begrepp.</li>
+      </ul>
+
+    </div>
+
+
+    <div class="card green-card">
+
+      <div class="icon">🔢</div>
+
+      <h3>Symboler</h3>
+
+      <p>
+        Koppla begreppet till matematiska symboler och notation.
+      </p>
+
+      <ul>
+        <li>Vad betyder symbolen?</li>
+        <li>Vad representerar talen?</li>
+        <li>Hur hänger symbolen ihop med modellen?</li>
+      </ul>
+
+    </div>
+
+
+    <div class="card blue-card">
+
+      <div class="icon">✅❌</div>
+
+      <h3>Exempel och icke-exempel</h3>
+
+      <p>
+        Skillnader blir tydligare när elever får jämföra vad som passar
+        och vad som inte passar ett begrepp.
+      </p>
+
+      <ul>
+        <li>Ge ett exempel.</li>
+        <li>Ge ett icke-exempel.</li>
+        <li>Förklara skillnaden.</li>
+      </ul>
+
+    </div>
+
+
+    <div class="card purple-card">
+
+      <div class="icon">🔗</div>
+
+      <h3>Samband</h3>
+
+      <p>
+        Begrepp utvecklas när elever ser hur de hänger ihop med andra idéer.
+      </p>
+
+      <ul>
+        <li>Bråk ↔ decimal ↔ procent</li>
+        <li>Multiplikation ↔ division</li>
+        <li>Area ↔ längd</li>
+        <li>Tabell ↔ graf ↔ formel</li>
+      </ul>
+
+    </div>
 
   </div>
 
 
-  <!-- SIDA 1 -->
+  <div class="section-title">
+    <h2>📚 Exempel på centrala begrepp</h2>
+    <p>Begreppen ska alltid användas i matematiska sammanhang – inte bara memoreras.</p>
+  </div>
 
-  <section class="sheet">
 
-    <div class="sheet-head">
-      <h2>1. Tal & räknesätt</h2>
-      <p>Begreppskort att klippa ut</p>
+  <div class="concept-grid">
+
+    <div class="concept green">
+      <strong>Summa</strong>
+      <span>Resultatet av en addition.</span>
     </div>
 
-    <div class="cards">
-
-      <div class="concept-card green">
-        <span>🔢</span>
-        <h3>Platsvärde</h3>
-        <p>
-          En siffras värde beroende på vilken position den har i talet.
-        </p>
-        <small>Ge ett exempel.</small>
-      </div>
-
-      <div class="concept-card blue">
-        <span>📍</span>
-        <h3>Tallinje</h3>
-        <p>
-          En linje där tal placeras i ordning efter storlek.
-        </p>
-        <small>Visa två tal på en tänkt tallinje.</small>
-      </div>
-
-      <div class="concept-card purple">
-        <span>➕</span>
-        <h3>Summa</h3>
-        <p>
-          Resultatet av en addition.
-        </p>
-        <small>Vilka tal kallas termer?</small>
-      </div>
-
-      <div class="concept-card yellow">
-        <span>➖</span>
-        <h3>Differens</h3>
-        <p>
-          Resultatet av en subtraktion.
-        </p>
-        <small>Ge ett exempel med en verklig situation.</small>
-      </div>
-
-      <div class="concept-card orange">
-        <span>✖️</span>
-        <h3>Produkt</h3>
-        <p>
-          Resultatet av en multiplikation.
-        </p>
-        <small>Visa med lika stora grupper.</small>
-      </div>
-
-      <div class="concept-card teal">
-        <span>➗</span>
-        <h3>Kvot</h3>
-        <p>
-          Resultatet av en division.
-        </p>
-        <small>Visa både delningsdivision och innehållsdivision.</small>
-      </div>
-
-      <div class="concept-card pink">
-        <span>≈</span>
-        <h3>Avrundning</h3>
-        <p>
-          Att ersätta ett tal med ett närliggande enklare värde.
-        </p>
-        <small>När kan avrundning vara användbart?</small>
-      </div>
-
-      <div class="concept-card gray">
-        <span>🧠</span>
-        <h3>Rimlighet</h3>
-        <p>
-          Att bedöma om ett svar verkar möjligt och passar situationen.
-        </p>
-        <small>Hur kan du rimlighetsbedöma?</small>
-      </div>
-
+    <div class="concept blue">
+      <strong>Differens</strong>
+      <span>Resultatet av en subtraktion.</span>
     </div>
+
+    <div class="concept purple">
+      <strong>Produkt</strong>
+      <span>Resultatet av en multiplikation.</span>
+    </div>
+
+    <div class="concept yellow">
+      <strong>Kvot</strong>
+      <span>Resultatet av en division.</span>
+    </div>
+
+    <div class="concept teal">
+      <strong>Likhet</strong>
+      <span>Två uttryck har samma värde.</span>
+    </div>
+
+    <div class="concept pink">
+      <strong>Variabel</strong>
+      <span>En symbol som kan representera ett värde.</span>
+    </div>
+
+    <div class="concept orange">
+      <strong>Omkrets</strong>
+      <span>Längden runt en figur.</span>
+    </div>
+
+    <div class="concept green">
+      <strong>Area</strong>
+      <span>Storleken på en yta.</span>
+    </div>
+
+    <div class="concept blue">
+      <strong>Procent</strong>
+      <span>Ett sätt att beskriva hundradelar.</span>
+    </div>
+
+    <div class="concept purple">
+      <strong>Median</strong>
+      <span>Det mittersta värdet när data ordnas.</span>
+    </div>
+
+    <div class="concept yellow">
+      <strong>Sannolikhet</strong>
+      <span>Hur troligt något är.</span>
+    </div>
+
+    <div class="concept teal">
+      <strong>Proportionell</strong>
+      <span>Ett samband med konstant förhållande.</span>
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+    <h2>🌱 Progression F–9</h2>
+    <p>Begreppsspråket kan utvecklas från vardagligt språk mot allt mer precist matematiskt språk.</p>
+  </div>
+
+
+  <section class="stage-box green">
+
+    <h3>🌱 F–3 – Se, visa och namnge</h3>
+
+    <ul>
+      <li>Koppla nya ord till konkreta erfarenheter.</li>
+      <li>Visa begreppet med material och bilder.</li>
+      <li>Använd både vardagliga och matematiska ord.</li>
+      <li>Sortera exempel och icke-exempel.</li>
+      <li>Förklara enkelt med egna ord.</li>
+    </ul>
 
   </section>
 
 
-  <!-- SIDA 2 -->
+  <section class="stage-box blue">
 
-  <section class="sheet">
+    <h3>🔵 4–6 – Förklara, jämföra och koppla samman</h3>
 
-    <div class="sheet-head">
-      <h2>2. Bråk • decimal • procent</h2>
-      <p>Begrepp och samband</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="concept-card green">
-        <span>🍕</span>
-        <h3>Täljare</h3>
-        <p>
-          Talet ovanför bråkstrecket.
-          Visar hur många delar som avses.
-        </p>
-      </div>
-
-      <div class="concept-card blue">
-        <span>🍰</span>
-        <h3>Nämnare</h3>
-        <p>
-          Talet under bråkstrecket.
-          Visar hur många lika stora delar helheten delats i.
-        </p>
-      </div>
-
-      <div class="concept-card purple">
-        <span>🔗</span>
-        <h3>Likvärdiga bråk</h3>
-        <p>
-          Bråk som ser olika ut men har samma värde.
-        </p>
-        <small>Exempel: 1/2 och 2/4.</small>
-      </div>
-
-      <div class="concept-card yellow">
-        <span>🔟</span>
-        <h3>Decimaltal</h3>
-        <p>
-          Tal skrivna med decimaltecken och platsvärden mindre än ett.
-        </p>
-      </div>
-
-      <div class="concept-card orange">
-        <span>💯</span>
-        <h3>Procent</h3>
-        <p>
-          Betyder hundradelar.
-        </p>
-        <small>25 % = 25/100.</small>
-      </div>
-
-      <div class="concept-card teal">
-        <span>📈</span>
-        <h3>Förändringsfaktor</h3>
-        <p>
-          Talet man multiplicerar med vid procentuell förändring.
-        </p>
-        <small>Ökning med 20 % → 1,20.</small>
-      </div>
-
-      <div class="concept-card pink">
-        <span>⚖️</span>
-        <h3>Andel</h3>
-        <p>
-          Beskriver hur stor del något är av en helhet.
-        </p>
-      </div>
-
-      <div class="concept-card gray">
-        <span>🔄</span>
-        <h3>Del av helhet</h3>
-        <p>
-          En del jämförs med hela mängden eller hela enheten.
-        </p>
-      </div>
-
-    </div>
+    <ul>
+      <li>Använd matematiska begrepp i resonemang.</li>
+      <li>Koppla ord till symboler och representationer.</li>
+      <li>Jämför närliggande begrepp.</li>
+      <li>Beskriv samband mellan matematiska idéer.</li>
+      <li>Förklara med exempel.</li>
+    </ul>
 
   </section>
 
 
-  <!-- SIDA 3 -->
+  <section class="stage-box purple">
 
-  <section class="sheet">
+    <h3>🟣 7–9 – Precisera, generalisera och argumentera</h3>
 
-    <div class="sheet-head">
-      <h2>3. Algebra • mönster • samband</h2>
-      <p>Begrepp för generalisering</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="concept-card green">
-        <span>🔤</span>
-        <h3>Variabel</h3>
-        <p>
-          En bokstav eller symbol som representerar ett tal eller ett varierande värde.
-        </p>
-      </div>
-
-      <div class="concept-card blue">
-        <span>⚖️</span>
-        <h3>Ekvation</h3>
-        <p>
-          En matematisk utsaga där två uttryck har samma värde.
-        </p>
-      </div>
-
-      <div class="concept-card purple">
-        <span>🧩</span>
-        <h3>Mönster</h3>
-        <p>
-          Något som upprepas eller förändras enligt en regel.
-        </p>
-      </div>
-
-      <div class="concept-card yellow">
-        <span>🔢</span>
-        <h3>Uttryck</h3>
-        <p>
-          Tal, variabler och räkneoperationer utan likhetstecken.
-        </p>
-      </div>
-
-      <div class="concept-card orange">
-        <span>🔗</span>
-        <h3>Samband</h3>
-        <p>
-          Hur två eller flera storheter hör ihop.
-        </p>
-      </div>
-
-      <div class="concept-card teal">
-        <span>📈</span>
-        <h3>Proportionalitet</h3>
-        <p>
-          Ett samband där kvoten mellan motsvarande värden är konstant.
-        </p>
-      </div>
-
-      <div class="concept-card pink">
-        <span>📊</span>
-        <h3>Funktion</h3>
-        <p>
-          Ett samband där varje tillåtet x-värde ger exakt ett y-värde.
-        </p>
-      </div>
-
-      <div class="concept-card gray">
-        <span>🚀</span>
-        <h3>Generalisera</h3>
-        <p>
-          Att formulera en regel eller idé som gäller för fler än ett enskilt exempel.
-        </p>
-      </div>
-
-    </div>
+    <ul>
+      <li>Använd begrepp med större precision.</li>
+      <li>Växla mellan verbal, grafisk och algebraisk representation.</li>
+      <li>Formulera generella samband.</li>
+      <li>Analysera villkor och definitioner.</li>
+      <li>Använd matematiskt språk i argumentation.</li>
+    </ul>
 
   </section>
 
 
-  <!-- SIDA 4 -->
+  <section class="language-box">
 
-  <section class="sheet">
+    <h2>🌍 Språkstöd i matematik</h2>
 
-    <div class="sheet-head">
-      <h2>4. Geometri • statistik • sannolikhet</h2>
-      <p>Begrepp för att beskriva och analysera</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="concept-card green">
-        <span>📏</span>
-        <h3>Omkrets</h3>
-        <p>
-          Längden runt en figur.
-        </p>
-      </div>
-
-      <div class="concept-card blue">
-        <span>⬛</span>
-        <h3>Area</h3>
-        <p>
-          Storleken på en yta.
-        </p>
-      </div>
-
-      <div class="concept-card purple">
-        <span>📦</span>
-        <h3>Volym</h3>
-        <p>
-          Hur mycket utrymme en tredimensionell kropp tar.
-        </p>
-      </div>
-
-      <div class="concept-card yellow">
-        <span>📐</span>
-        <h3>Vinkel</h3>
-        <p>
-          Beskriver hur mycket två strålar eller linjer vrider sig från varandra.
-        </p>
-      </div>
-
-      <div class="concept-card orange">
-        <span>➗</span>
-        <h3>Medelvärde</h3>
-        <p>
-          Summan av alla värden dividerad med antalet värden.
-        </p>
-      </div>
-
-      <div class="concept-card teal">
-        <span>🎯</span>
-        <h3>Median</h3>
-        <p>
-          Det mittersta värdet när värdena ordnats efter storlek.
-        </p>
-      </div>
-
-      <div class="concept-card pink">
-        <span>🔁</span>
-        <h3>Typvärde</h3>
-        <p>
-          Det värde som förekommer flest gånger.
-        </p>
-      </div>
-
-      <div class="concept-card gray">
-        <span>🎲</span>
-        <h3>Sannolikhet</h3>
-        <p>
-          Ett mått på hur troligt det är att en händelse inträffar.
-        </p>
-      </div>
-
-    </div>
+    <ul>
+      <li>Visa ordet samtidigt som eleverna ser en bild eller modell.</li>
+      <li>Låt eleverna säga begreppet innan de skriver det.</li>
+      <li>Ge meningstarter: ”Jag ser att…”, ”Skillnaden är…”, ”Jag vet det eftersom…”.</li>
+      <li>Arbeta aktivt med ord som har både vardaglig och matematisk betydelse.</li>
+      <li>Låt elever jämföra två begrepp istället för att bara definiera ett.</li>
+      <li>Återanvänd centrala begrepp över flera lektioner och områden.</li>
+      <li>Acceptera elevens vardagliga förklaring som startpunkt och bygg vidare mot ett mer precist matematiskt språk.</li>
+    </ul>
 
   </section>
 
 
-  <!-- SIDA 5 -->
+  <div class="print-note">
 
-  <section class="sheet">
-
-    <div class="sheet-head">
-      <h2>5. Begreppsfyrfältare</h2>
-      <p>Förklara • exempel • representation • samband</p>
-    </div>
-
-    <div class="student-box gray">
-      <h3>Mitt matematiska begrepp:</h3>
-      <div class="write-area"></div>
-    </div>
-
-    <div class="four-grid">
-
-      <div class="quadrant green">
-        <h3>💬 Förklara med egna ord</h3>
-        <p>Vad betyder begreppet?</p>
-        <div class="write-area large"></div>
-      </div>
-
-      <div class="quadrant blue">
-        <h3>🔢 Ge ett matematiskt exempel</h3>
-        <p>Visa begreppet med tal eller symboler.</p>
-        <div class="write-area large"></div>
-      </div>
-
-      <div class="quadrant yellow">
-        <h3>🎨 Rita eller visa</h3>
-        <p>Gör en bild, modell eller annan representation.</p>
-        <div class="write-area large"></div>
-      </div>
-
-      <div class="quadrant purple">
-        <h3>🔗 Vad hör det ihop med?</h3>
-        <p>Skriv närliggande begrepp eller samband.</p>
-        <div class="write-area large"></div>
-      </div>
-
-    </div>
-
-    <div class="student-box teal" style="margin-top:12px;">
-      <h3>✍️ Använd begreppet i en matematisk mening</h3>
-      <div class="write-area medium"></div>
-    </div>
-
-  </section>
-
-
-  <!-- SIDA 6 -->
-
-  <section class="sheet">
-
-    <div class="sheet-head">
-      <h2>6. Begreppsjämförelse</h2>
-      <p>Likheter • skillnader • samband</p>
-    </div>
-
-    <div class="two-grid">
-
-      <div class="student-box green">
-        <h3>Begrepp A</h3>
-        <div class="write-area"></div>
-      </div>
-
-      <div class="student-box blue">
-        <h3>Begrepp B</h3>
-        <div class="write-area"></div>
-      </div>
-
-    </div>
-
-    <div class="student-box yellow">
-
-      <h3>⚖️ Vad är lika?</h3>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-    <div class="student-box purple">
-
-      <h3>↔️ Vad är olika?</h3>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-    <div class="student-box orange">
-
-      <h3>🔗 Hur hänger begreppen ihop?</h3>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-    <div class="student-box teal">
-
-      <h3>🌍 Ge ett exempel där båda begreppen behövs</h3>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-  </section>
-
-
-  <section class="teacher-box">
-
-    <h2>👩‍🏫 Begreppsundervisning i fem steg</h2>
-
-    <p>
-      Låt begreppen växa fram genom erfarenhet, språk,
-      representationer och användning – inte enbart genom definitioner.
-    </p>
-
-    <div class="teacher-grid">
-
-      <div class="teacher-step">
-        <span>1️⃣</span>
-        <h3>Uppleva</h3>
-        <p>
-          Börja i en situation, aktivitet eller konkret erfarenhet.
-        </p>
-      </div>
-
-      <div class="teacher-step">
-        <span>2️⃣</span>
-        <h3>Sätta ord</h3>
-        <p>
-          Eleverna beskriver vad de ser och gör.
-        </p>
-      </div>
-
-      <div class="teacher-step">
-        <span>3️⃣</span>
-        <h3>Visa</h3>
-        <p>
-          Använd bilder, modeller och andra representationer.
-        </p>
-      </div>
-
-      <div class="teacher-step">
-        <span>4️⃣</span>
-        <h3>Symbolisera</h3>
-        <p>
-          Koppla förståelsen till matematiska symboler och notation.
-        </p>
-      </div>
-
-      <div class="teacher-step">
-        <span>5️⃣</span>
-        <h3>Använda</h3>
-        <p>
-          Låt eleven använda begreppet i nya sammanhang och resonemang.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <div class="note">
-
-    <strong>🖨️ Färgutskrift:</strong>
-    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
-    och kontrollera att skrivaren står på <strong>Färg</strong>.
+    <strong>🖨️ Utskriftsmaterial:</strong><br>
+    Begreppskort finns i <strong>A4-kort</strong>, begreppsaffisch i
+    <strong>A4-affischer</strong> och den återanvändbara begreppsmallen finns
+    under <strong>Mallar</strong>. Vid färgutskrift kan du behöva välja
+    <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>.
 
   </div>
 
@@ -1032,11 +763,8 @@
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🗣️ Begreppsmaterial – uppleva, sätta ord, visa, symbolisera och använda
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🔤 Se • Visa • Säg • Skriv • Använd
 
 </footer>
 
