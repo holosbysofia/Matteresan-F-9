@@ -15,13 +15,22 @@
 
     :root {
       --dark: #17324d;
-      --green: #edf9f1;
-      --blue: #eaf5ff;
-      --purple: #f1edff;
+
+      --f3: #e8f7ed;
+      --f3-strong: #5f9470;
+
+      --46: #e8f3ff;
+      --46-strong: #5d86ad;
+
+      --79: #f0eaff;
+      --79-strong: #8266a3;
+
       --yellow: #fff6d7;
       --orange: #ffe7cf;
       --teal: #eaf7f5;
       --pink: #ffe9f1;
+      --gray: #eef2f4;
+
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -42,7 +51,7 @@
     header {
       background:
         radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
-        linear-gradient(135deg, #496657, #718f7f);
+        linear-gradient(135deg, #516c61, #83978f);
       color: white;
       padding: 22px 20px 50px;
     }
@@ -65,12 +74,11 @@
       padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
       font-weight: bold;
     }
 
     .hero {
-      max-width: 900px;
+      max-width: 920px;
       margin: 42px auto 0;
       text-align: center;
     }
@@ -92,23 +100,23 @@
     }
 
     .hero p {
-      max-width: 840px;
+      max-width: 850px;
       margin: auto;
-      color: #f6fff9;
+      color: #f7fbf9;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1040px;
       margin: auto;
       padding: 40px 20px;
     }
 
     .intro {
-      background: var(--green);
+      background: var(--yellow);
       border-radius: 24px;
       padding: 30px;
       text-align: center;
-      margin-bottom: 38px;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
@@ -117,9 +125,9 @@
     }
 
     .intro p {
-      color: var(--muted);
-      max-width: 840px;
+      max-width: 850px;
       margin: auto;
+      color: var(--muted);
     }
 
     .print-button {
@@ -133,57 +141,59 @@
       cursor: pointer;
     }
 
-    .stage {
-      margin-bottom: 36px;
-    }
-
-    .stage-title {
-      text-align: center;
-      margin-bottom: 18px;
-    }
-
-    .stage-title h2 {
-      color: var(--dark);
-      font-size: 2rem;
-      margin-bottom: 4px;
-    }
-
-    .stage-title p {
-      color: var(--muted);
-    }
-
     .sheet {
       background: white;
       border: 1px solid rgba(0,0,0,0.08);
       border-radius: 22px;
-      padding: 28px;
-      margin-bottom: 24px;
-      break-inside: avoid;
+      padding: 24px;
+      margin-bottom: 28px;
+      min-height: 270mm;
     }
 
     .sheet.f3 {
-      border-top: 8px solid #5aa36e;
+      border-top: 9px solid var(--f3-strong);
     }
 
-    .sheet.m46 {
-      border-top: 8px solid #5b86b8;
+    .sheet.stage46 {
+      border-top: 9px solid var(--46-strong);
     }
 
-    .sheet.m79 {
-      border-top: 8px solid #8867ad;
+    .sheet.stage79 {
+      border-top: 9px solid var(--79-strong);
     }
 
     .sheet-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
+      text-align: center;
       margin-bottom: 18px;
     }
 
-    .sheet-head h3 {
+    .stage-label {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .f3-label {
+      background: var(--f3);
+      color: #356345;
+    }
+
+    .stage46-label {
+      background: var(--46);
+      color: #345e86;
+    }
+
+    .stage79-label {
+      background: var(--79);
+      color: #634a83;
+    }
+
+    .sheet-head h2 {
       color: var(--dark);
-      font-size: 1.45rem;
+      font-size: 1.7rem;
       margin-bottom: 4px;
     }
 
@@ -192,61 +202,92 @@
       font-size: 0.9rem;
     }
 
-    .level {
-      border-radius: 999px;
-      padding: 7px 12px;
-      font-weight: bold;
-      font-size: 0.82rem;
-      white-space: nowrap;
-      background: #edf1f4;
-    }
-
-    .name-row {
+    .meta-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 14px;
-      margin-bottom: 18px;
-      font-size: 0.9rem;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
-    .line {
-      display: inline-block;
-      width: 70%;
-      border-bottom: 1px solid #777;
-      height: 18px;
-      vertical-align: bottom;
+    .field {
+      background: white;
+      border: 1.5px solid #9aa6ae;
+      border-radius: 10px;
+      min-height: 50px;
+      padding: 9px;
+    }
+
+    .field strong {
+      display: block;
+      color: var(--dark);
+      font-size: 0.86rem;
     }
 
     .task {
-      border-top: 1px dashed #bfc8ce;
-      padding-top: 16px;
-      margin-top: 16px;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
       break-inside: avoid;
     }
 
-    .task:first-of-type {
-      border-top: none;
-      margin-top: 0;
-      padding-top: 0;
+    .task h3 {
+      color: var(--dark);
+      font-size: 1rem;
+      margin-bottom: 6px;
     }
 
-    .task h4 {
-      color: var(--dark);
-      margin-bottom: 7px;
-      font-size: 1.02rem;
+    .task p,
+    .task li {
+      color: #4e5d68;
+      font-size: 0.88rem;
+    }
+
+    .task ul {
+      margin: 8px 0 0 22px;
+    }
+
+    .task li {
+      margin-bottom: 5px;
+    }
+
+    .green { background: var(--f3); }
+    .blue { background: var(--46); }
+    .purple { background: var(--79); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .write-area {
+      background: white;
+      border: 1.2px solid #98a4ad;
+      border-radius: 8px;
+      margin-top: 8px;
+      min-height: 70px;
+    }
+
+    .write-area.medium {
+      min-height: 100px;
+    }
+
+    .write-area.large {
+      min-height: 145px;
     }
 
     .statement {
-      background: var(--yellow);
-      border-left: 5px solid #c9a548;
+      background: white;
+      border: 1.2px solid #89969f;
       border-radius: 12px;
-      padding: 15px;
-      margin: 10px 0;
-      font-size: 1.05rem;
+      padding: 14px;
+      margin-top: 8px;
+      text-align: center;
       color: var(--dark);
+      font-weight: bold;
+      font-size: 1.08rem;
     }
 
-    .choice-grid {
+    .choice-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
@@ -254,91 +295,61 @@
     }
 
     .choice {
-      border: 1.5px solid #95a2aa;
-      border-radius: 10px;
-      padding: 12px;
-      min-height: 62px;
-      text-align: center;
-      font-weight: bold;
-      color: var(--dark);
-    }
-
-    .answer-box {
-      border: 1.5px solid #8d9aa4;
-      border-radius: 10px;
-      min-height: 82px;
-      margin-top: 8px;
       background: white;
-    }
-
-    .answer-box.medium {
-      min-height: 115px;
-    }
-
-    .answer-box.large {
-      min-height: 150px;
+      border: 1.2px solid #89969f;
+      border-radius: 10px;
+      min-height: 56px;
+      padding: 10px;
+      text-align: center;
+      color: var(--dark);
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .two-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 12px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
     }
 
-    .example-box {
-      border-radius: 11px;
-      padding: 12px;
-      min-height: 105px;
+    .four-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 10px;
     }
 
-    .example {
-      background: var(--teal);
-    }
-
-    .counter {
-      background: var(--pink);
-    }
-
-    .example-box strong {
-      display: block;
+    .check-box {
+      background: white;
+      border: 1px solid #9aa6ae;
+      border-radius: 9px;
+      padding: 8px;
+      text-align: center;
+      font-size: 0.8rem;
       color: var(--dark);
-      margin-bottom: 5px;
-    }
-
-    .tip {
-      background: var(--blue);
-      border-radius: 12px;
-      padding: 12px;
-      margin-top: 12px;
-      color: var(--dark);
-      font-size: 0.9rem;
-    }
-
-    .check {
-      background: #eef5f8;
-      border-radius: 12px;
-      padding: 14px;
-      margin-top: 16px;
-    }
-
-    .check strong {
-      color: var(--dark);
-    }
-
-    .check ul {
-      list-style: none;
-      margin-top: 8px;
-    }
-
-    .check li {
-      margin-bottom: 5px;
-    }
-
-    .check li::before {
-      content: "☐ ";
       font-weight: bold;
-      color: var(--dark);
+      min-height: 58px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .screen-note {
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 24px;
+      color: #654c37;
     }
 
     footer {
@@ -354,11 +365,10 @@
         flex-direction: column;
       }
 
-      .sheet-head,
-      .name-row,
-      .choice-grid,
-      .two-grid {
-        display: grid;
+      .meta-grid,
+      .choice-row,
+      .two-grid,
+      .four-grid {
         grid-template-columns: 1fr;
       }
 
@@ -366,74 +376,145 @@
         padding-left: 14px;
         padding-right: 14px;
       }
-
-      .sheet {
-        padding: 20px 15px;
-      }
     }
 
     @page {
       size: A4 portrait;
-      margin: 11mm;
+      margin: 10mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
+      body {
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
       header,
       footer,
-      .intro {
+      .intro,
+      .screen-note {
         display: none !important;
       }
 
-      body {
-        background: white;
-        color: black;
-        font-size: 10pt;
-      }
-
       main {
+        width: 100%;
         max-width: none;
         margin: 0;
         padding: 0;
       }
 
-      .stage {
-        margin: 0;
-      }
-
-      .stage-title {
-        display: none;
-      }
-
       .sheet {
-        border: none;
-        border-radius: 0;
+        width: 100%;
+        min-height: 277mm;
+        margin: 0;
         padding: 0;
-        min-height: 274mm;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
         page-break-after: always;
         break-after: page;
-        margin: 0;
       }
 
-      .sheet:last-child {
+      .sheet:last-of-type {
         page-break-after: auto;
         break-after: auto;
       }
 
-      .sheet.f3,
-      .sheet.m46,
-      .sheet.m79 {
-        border-top: none;
+      .sheet.f3 {
+        border-top: 7px solid var(--f3-strong) !important;
+      }
+
+      .sheet.stage46 {
+        border-top: 7px solid var(--46-strong) !important;
+      }
+
+      .sheet.stage79 {
+        border-top: 7px solid var(--79-strong) !important;
+      }
+
+      .green,
+      .f3-label {
+        background: var(--f3) !important;
+      }
+
+      .blue,
+      .stage46-label {
+        background: var(--46) !important;
+      }
+
+      .purple,
+      .stage79-label {
+        background: var(--79) !important;
+      }
+
+      .yellow { background: var(--yellow) !important; }
+      .orange { background: var(--orange) !important; }
+      .teal { background: var(--teal) !important; }
+      .pink { background: var(--pink) !important; }
+      .gray { background: var(--gray) !important; }
+
+      .field,
+      .write-area,
+      .statement,
+      .choice,
+      .check-box {
+        background: white !important;
+      }
+
+      .choice-row {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .two-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .four-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 2mm !important;
       }
 
       .task,
+      .field,
       .statement,
-      .choice-grid,
-      .two-grid,
-      .answer-box,
-      .tip,
-      .check {
-        page-break-inside: avoid;
+      .choice,
+      .check-box {
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .sheet-head h2,
+      .task h3,
+      .field strong,
+      .statement,
+      .choice,
+      .check-box {
+        color: var(--dark) !important;
+      }
+
+      .sheet-head p,
+      .task p,
+      .task li,
+      .footer-note {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -444,28 +525,19 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
-
-    <a href="material-a4-elevblad.html" class="back-link">
-      ← A4 Elevblad
-    </a>
-
+    <a href="material-a4-elevblad.html" class="back-link">← A4 Elevblad</a>
   </div>
 
   <div class="hero">
-
     <div class="hero-icon">✅❌🤔</div>
-
     <h1>Sant, falskt eller ibland? F–9</h1>
-
     <h2>Ta ställning • Pröva • Motivera • Ge exempel • Hitta motexempel</h2>
 
     <p>
-      Matematiska påståenden är inte alltid bara sanna eller falska.
-      Ibland beror svaret på vilka tal, former eller situationer vi undersöker.
+      Sex utskriftsklara elevblad där eleverna behöver resonera,
+      inte bara svara ja eller nej.
     </p>
-
   </div>
 
 </header>
@@ -475,729 +547,619 @@
 
   <div class="intro">
 
-    <h2>🧠 Det viktiga är varför</h2>
+    <h2>🤔 Det viktiga är inte bara svaret</h2>
 
     <p>
-      Markera inte bara sant eller falskt.
-      Försök visa varför med exempel, bild, beräkning eller ett motexempel.
+      Påståenden som kan vara sanna, falska eller bara gälla ibland
+      öppnar för resonemang, exempel, motexempel och generalisering.
     </p>
 
     <button class="print-button" onclick="window.print()">
-      🖨️ Skriv ut alla elevblad
+      🖨️ Skriv ut alla sex elevblad
     </button>
 
   </div>
 
 
-  <!-- F–3 -->
+  <!-- F–3 BLAD 1 -->
 
-  <section class="stage">
+  <section class="sheet f3">
 
-    <div class="stage-title">
-      <h2>🌱 F–3</h2>
-      <p>Pröva påståenden med tal och bilder.</p>
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Sant, falskt eller ibland? – blad 1</h2>
+      <p>Tal • addition • jämförelse</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
     </div>
 
 
-    <article class="sheet f3">
+    <div class="task green">
 
-      <div class="sheet-head">
-        <div>
-          <h3>🌱 Sant eller falskt?</h3>
-          <p>Elevblad 1 – F–3</p>
-        </div>
+      <h3>1. Påstående</h3>
 
-        <div class="level">F–3</div>
+      <div class="statement">
+        Om man lägger till 1 blir talet alltid större.
       </div>
 
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
       </div>
 
+      <div class="write-area medium"></div>
 
-      <div class="task">
+    </div>
 
-        <h4>1. Addition</h4>
 
-        <div class="statement">
-          När man adderar två positiva heltal blir svaret större än båda talen.
-        </div>
+    <div class="task blue">
 
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
+      <h3>2. Påstående</h3>
 
-        <p style="margin-top:10px;">
-          Ge ett exempel som visar hur du tänker.
-        </p>
-
-        <div class="answer-box"></div>
-
+      <div class="statement">
+        8 + 7 är lika mycket som 7 + 8.
       </div>
 
-
-      <div class="task">
-
-        <h4>2. Dubbelt</h4>
-
-        <div class="statement">
-          Dubbelt av ett tal betyder att man lägger ihop talet med sig självt.
-        </div>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
-
-        <p style="margin-top:10px;">
-          Visa med ett exempel.
-        </p>
-
-        <div class="answer-box"></div>
-
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
       </div>
 
+      <div class="write-area medium"></div>
 
-      <div class="task">
+    </div>
 
-        <h4>3. Former</h4>
 
-        <div class="statement">
-          En kvadrat har fyra lika långa sidor.
-        </div>
+    <div class="task yellow">
 
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
+      <h3>3. Påstående</h3>
 
-        <p style="margin-top:10px;">
-          Rita eller förklara.
-        </p>
-
-        <div class="answer-box"></div>
-
+      <div class="statement">
+        Ett tvåsiffrigt tal är alltid större än ett ensiffrigt tal.
       </div>
 
-
-      <div class="task">
-
-        <h4>4. Likhetstecknet</h4>
-
-        <div class="statement">
-          Om 7 + 5 = 12 så är också 12 = 7 + 5.
-        </div>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
-
-        <p style="margin-top:10px;">
-          Förklara vad = betyder.
-        </p>
-
-        <div class="answer-box"></div>
-
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
       </div>
 
+      <div class="write-area large"></div>
 
-      <div class="check">
-        <strong>✅ Jag visar varför</strong>
-        <ul>
-          <li>Jag tar ställning.</li>
-          <li>Jag ger ett exempel.</li>
-          <li>Jag förklarar med matematiska ord.</li>
-        </ul>
-      </div>
-
-    </article>
+    </div>
 
 
-    <article class="sheet f3">
+    <div class="task teal">
 
-      <div class="sheet-head">
-        <div>
-          <h3>🌱 Kan det vara ibland?</h3>
-          <p>Elevblad 2 – F–3</p>
-        </div>
+      <h3>4. Gör ett eget påstående</h3>
 
-        <div class="level">F–3</div>
-      </div>
+      <div class="write-area large"></div>
 
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
+    </div>
 
-
-      <div class="task">
-
-        <h4>1. Subtraktion</h4>
-
-        <div class="statement">
-          När man subtraherar blir svaret alltid mindre än det första talet.
-        </div>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
-
-        <p>
-          Pröva med olika exempel.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Udda och jämnt</h4>
-
-        <div class="statement">
-          Summan av två jämna tal är jämn.
-        </div>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
-
-        <div class="two-grid">
-
-          <div class="example-box example">
-            <strong>✅ Exempel</strong>
-          </div>
-
-          <div class="example-box counter">
-            <strong>🔍 Kan du hitta motexempel?</strong>
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Rektanglar</h4>
-
-        <div class="statement">
-          Alla rektanglar är kvadrater.
-        </div>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
-
-        <p>
-          Rita två figurer som hjälper dig att förklara.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Skapa ett eget påstående</h4>
-
-        <p>
-          Skriv ett matematiskt påstående som en kompis ska undersöka.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-    </article>
+    <div class="footer-note">
+      HOLOS Matteresan • Sant, falskt eller ibland? F–3
+    </div>
 
   </section>
 
 
-  <!-- 4–6 -->
+  <!-- F–3 BLAD 2 -->
 
-  <section class="stage">
+  <section class="sheet f3">
 
-    <div class="stage-title">
-      <h2>🌿 4–6</h2>
-      <p>Undersök påståenden med exempel, modeller och motexempel.</p>
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Sant, falskt eller ibland? – blad 2</h2>
+      <p>Former • mönster • räknesätt</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
     </div>
 
 
-    <article class="sheet m46">
+    <div class="task green">
 
-      <div class="sheet-head">
-        <div>
-          <h3>🌿 Undersök påståendet</h3>
-          <p>Elevblad 1 – 4–6</p>
-        </div>
+      <h3>1. Påstående</h3>
 
-        <div class="level">4–6</div>
+      <div class="statement">
+        En triangel har alltid tre hörn.
       </div>
 
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
       </div>
 
+      <div class="write-area medium"></div>
 
-      <div class="task">
+    </div>
 
-        <h4>1. Multiplikation</h4>
 
-        <div class="statement">
-          När man multiplicerar två tal blir svaret alltid större än båda talen.
-        </div>
+    <div class="task blue">
 
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
+      <h3>2. Påstående</h3>
 
-        <div class="two-grid">
-
-          <div class="example-box example">
-            <strong>✅ Exempel där resultatet blir större</strong>
-          </div>
-
-          <div class="example-box counter">
-            <strong>❌ Motexempel</strong>
-          </div>
-
-        </div>
-
-        <p style="margin-top:10px;">
-          Skriv din slutsats.
-        </p>
-
-        <div class="answer-box"></div>
-
+      <div class="statement">
+        När man multiplicerar blir svaret alltid större.
       </div>
 
-
-      <div class="task">
-
-        <h4>2. Bråk</h4>
-
-        <div class="statement">
-          Ju större nämnare ett enhetsbråk har, desto större är bråket.
-        </div>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
-
-        <p>
-          Använd till exempel 1/2, 1/4 och 1/8 när du förklarar.
-        </p>
-
-        <div class="answer-box medium"></div>
-
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
       </div>
 
+      <p style="margin-top:8px;">
+        Pröva med olika tal.
+      </p>
 
-      <div class="task">
+      <div class="write-area large"></div>
 
-        <h4>3. Area och omkrets</h4>
+    </div>
 
-        <div class="statement">
-          Två rektanglar med samma area måste ha samma omkrets.
-        </div>
 
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
+    <div class="task yellow">
 
-        <p>
-          Ge två rektanglar som stödjer din slutsats.
-        </p>
+      <h3>3. Påstående</h3>
 
-        <div class="answer-box large"></div>
-
+      <div class="statement">
+        Ett mönster måste alltid upprepas på exakt samma sätt.
       </div>
 
-
-      <div class="check">
-        <strong>✅ Ett motexempel</strong>
-        <ul>
-          <li>Behöver bara ett enda fall som visar att ett påstående inte alltid gäller.</li>
-          <li>Måste följa villkoren i påståendet.</li>
-          <li>Ska förklaras tydligt.</li>
-        </ul>
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
       </div>
 
-    </article>
+      <div class="write-area large"></div>
+
+    </div>
 
 
-    <article class="sheet m46">
+    <div class="task orange">
 
-      <div class="sheet-head">
-        <div>
-          <h3>🌿 Sant, falskt eller beroende på?</h3>
-          <p>Elevblad 2 – 4–6</p>
-        </div>
+      <h3>4. Motexempel</h3>
 
-        <div class="level">4–6</div>
-      </div>
+      <p>
+        Om du tycker att ett påstående är falskt,
+        försök visa det med ett enda tydligt motexempel.
+      </p>
 
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
+      <div class="write-area large"></div>
 
+    </div>
 
-      <div class="task">
-
-        <h4>1. Decimaler</h4>
-
-        <div class="statement">
-          Ett tal med fler decimalsiffror är alltid större än ett tal med färre decimalsiffror.
-        </div>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
-
-        <p>
-          Jämför till exempel 0,58 och 0,6.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Procent</h4>
-
-        <div class="statement">
-          50 % av ett tal är alltid hälften av talet.
-        </div>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
-
-        <p>
-          Visa med minst två exempel.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Statistik</h4>
-
-        <div class="statement">
-          Medelvärde och median är alltid lika stora.
-        </div>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
-
-        <p>
-          Skapa en datamängd som hjälper dig att visa svaret.
-        </p>
-
-        <div class="answer-box large"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. När blir svaret ”ibland”?</h4>
-
-        <p>
-          Förklara vad det betyder när ett matematiskt påstående är sant i vissa fall men inte i alla.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-    </article>
+    <div class="footer-note">
+      HOLOS Matteresan • Sant, falskt eller ibland? F–3
+    </div>
 
   </section>
 
 
-  <!-- 7–9 -->
+  <!-- 4–6 BLAD 1 -->
 
-  <section class="stage">
+  <section class="sheet stage46">
 
-    <div class="stage-title">
-      <h2>🚀 7–9</h2>
-      <p>Pröva generella påståenden och bygg matematiska argument.</p>
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Sant, falskt eller ibland? – blad 1</h2>
+      <p>Bråk • decimal • procent</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
     </div>
 
 
-    <article class="sheet m79">
+    <div class="task blue">
 
-      <div class="sheet-head">
-        <div>
-          <h3>🚀 Bevisa eller motbevisa?</h3>
-          <p>Elevblad 1 – 7–9</p>
-        </div>
+      <h3>1. Påstående</h3>
 
-        <div class="level">7–9</div>
+      <div class="statement">
+        1/8 är större än 1/4 eftersom 8 är större än 4.
       </div>
 
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
       </div>
 
+      <div class="write-area large"></div>
 
-      <div class="task">
+    </div>
 
-        <h4>1. Negativa tal</h4>
 
-        <div class="statement">
-          Produkten av två negativa tal är positiv.
-        </div>
+    <div class="task green">
 
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
+      <h3>2. Påstående</h3>
 
-        <p>
-          Visa med flera exempel och formulera en slutsats.
-        </p>
-
-        <div class="answer-box medium"></div>
-
+      <div class="statement">
+        0,5 och 0,50 är lika stora.
       </div>
 
-
-      <div class="task">
-
-        <h4>2. Procentuell förändring</h4>
-
-        <div class="statement">
-          Om ett värde ökar med 20 % och sedan minskar med 20 % blir slutvärdet lika med startvärdet.
-        </div>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
-
-        <p>
-          Pröva med ett startvärde på 100 eller ett annat lämpligt tal.
-        </p>
-
-        <div class="answer-box large"></div>
-
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
       </div>
 
+      <div class="write-area medium"></div>
 
-      <div class="task">
+    </div>
 
-        <h4>3. Linjära samband</h4>
 
-        <div class="statement">
-          Alla linjära samband är proportionella.
-        </div>
+    <div class="task yellow">
 
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
+      <h3>3. Påstående</h3>
 
-        <p>
-          Använd gärna <strong>y = 3x</strong> och <strong>y = 3x + 4</strong>.
-        </p>
-
-        <div class="answer-box medium"></div>
-
+      <div class="statement">
+        50 % betyder alltid 50.
       </div>
 
-
-      <div class="check">
-        <strong>✅ När jag undersöker ett generellt påstående</strong>
-        <ul>
-          <li>Jag testar flera fall.</li>
-          <li>Jag letar efter motexempel.</li>
-          <li>Jag skiljer mellan exempel och bevis.</li>
-          <li>Jag formulerar vad som faktiskt gäller.</li>
-        </ul>
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
       </div>
 
-    </article>
+      <div class="write-area large"></div>
+
+    </div>
 
 
-    <article class="sheet m79">
+    <div class="task orange">
 
-      <div class="sheet-head">
-        <div>
-          <h3>🚀 Förfina påståendet</h3>
-          <p>Elevblad 2 – 7–9</p>
-        </div>
+      <h3>4. Skapa ett motexempel</h3>
 
-        <div class="level">7–9</div>
-      </div>
+      <p>
+        Använd ett exempel som tydligt visar varför ett av de falska
+        påståendena inte kan stämma.
+      </p>
 
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
+      <div class="write-area large"></div>
 
+    </div>
 
-      <div class="task">
-
-        <h4>1. Kvadrattal</h4>
-
-        <div class="statement">
-          Summan av två kvadrattal är alltid ett kvadrattal.
-        </div>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
-
-        <div class="two-grid">
-
-          <div class="example-box example">
-            <strong>✅ Exempel</strong>
-          </div>
-
-          <div class="example-box counter">
-            <strong>❌ Motexempel</strong>
-          </div>
-
-        </div>
-
-        <p style="margin-top:10px;">
-          Skriv en mer exakt version av påståendet.
-        </p>
-
-        <div class="answer-box"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Sannolikhet</h4>
-
-        <div class="statement">
-          Om en händelse inte har inträffat på länge blir den mer sannolik nästa gång.
-        </div>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
-
-        <p>
-          Diskutera skillnaden mellan oberoende och beroende händelser.
-        </p>
-
-        <div class="answer-box large"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Funktioner</h4>
-
-        <div class="statement">
-          Om x ökar så ökar alltid y.
-        </div>
-
-        <div class="choice-grid">
-          <div class="choice">☐ Sant</div>
-          <div class="choice">☐ Falskt</div>
-          <div class="choice">☐ Ibland</div>
-        </div>
-
-        <p>
-          Ge exempel på en funktion där y ökar och en där y minskar när x ökar.
-        </p>
-
-        <div class="answer-box large"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Skapa och utmana</h4>
-
-        <p>
-          Skriv ett eget matematiskt påstående som kan vara sant, falskt eller ibland sant.
-        </p>
-
-        <div class="answer-box"></div>
-
-        <p style="margin-top:10px;">
-          Skriv sedan vad någon behöver undersöka för att avgöra det.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="tip">
-        💡 <strong>Utmaning:</strong>
-        Om ett påstående är falskt – kan du ändra villkoren så att det blir sant?
-      </div>
-
-    </article>
+    <div class="footer-note">
+      HOLOS Matteresan • Sant, falskt eller ibland? 4–6
+    </div>
 
   </section>
+
+
+  <!-- 4–6 BLAD 2 -->
+
+  <section class="sheet stage46">
+
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Sant, falskt eller ibland? – blad 2</h2>
+      <p>Geometri • statistik • sannolikhet</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>1. Påstående</h3>
+
+      <div class="statement">
+        Två rektanglar med samma area har alltid samma omkrets.
+      </div>
+
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
+      </div>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task green">
+
+      <h3>2. Påstående</h3>
+
+      <div class="statement">
+        Medianen är alltid ett tal som finns i datamängden.
+      </div>
+
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
+      </div>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Påstående</h3>
+
+      <div class="statement">
+        Om ett rättvist mynt visar krona fem gånger i rad
+        är klave mer sannolikt nästa gång.
+      </div>
+
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
+      </div>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>4. Vad krävs för att övertyga?</h3>
+
+      <p>
+        När räcker ett exempel?
+        När behöver du flera exempel eller ett generellt resonemang?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Sant, falskt eller ibland? 4–6
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 BLAD 1 -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Sant, falskt eller ibland? – blad 1</h2>
+      <p>Algebra • tal • generalisering</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>1. Påstående</h3>
+
+      <div class="statement">
+        Summan av två udda heltal är alltid jämn.
+      </div>
+
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
+      </div>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Påstående</h3>
+
+      <div class="statement">
+        Om x² = 25 så är x = 5.
+      </div>
+
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
+      </div>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Påstående</h3>
+
+      <div class="statement">
+        Om a &gt; b så gäller alltid a² &gt; b².
+      </div>
+
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
+      </div>
+
+      <p style="margin-top:8px;">
+        Testa både positiva och negativa tal.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Motexempel</h3>
+
+      <p>
+        Hitta ett enda motexempel som räcker för att visa
+        att ett generellt påstående är falskt.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Sant, falskt eller ibland? 7–9
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 BLAD 2 -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Sant, falskt eller ibland? – blad 2</h2>
+      <p>Procent • funktioner • matematiskt argument</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>1. Påstående</h3>
+
+      <div class="statement">
+        En ökning med 20 % följd av en minskning med 20 %
+        ger alltid tillbaka startvärdet.
+      </div>
+
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
+      </div>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Påstående</h3>
+
+      <div class="statement">
+        Alla linjer som beskrivs av y = kx är proportionella samband.
+      </div>
+
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
+      </div>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Påstående</h3>
+
+      <div class="statement">
+        Två olika linjära funktioner kan aldrig ha samma y-värde.
+      </div>
+
+      <div class="choice-row">
+        <div class="choice">✅ Sant</div>
+        <div class="choice">❌ Falskt</div>
+        <div class="choice">🤔 Ibland</div>
+      </div>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Skapa ett eget svårt påstående</h3>
+
+      <p>
+        Skriv ett matematiskt påstående som inte är helt lätt att avgöra.
+        Låt en klasskamrat undersöka det.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Kvalitetskontrollera argumentet</h3>
+
+      <div class="four-grid">
+        <div class="check-box">Har jag tagit ställning?</div>
+        <div class="check-box">Har jag motiverat?</div>
+        <div class="check-box">Har jag exempel eller motexempel?</div>
+        <div class="check-box">Gäller argumentet alltid?</div>
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Sant, falskt eller ibland? 7–9
+    </div>
+
+  </section>
+
+
+  <div class="screen-note">
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+    Varje elevblad ska hamna på ett eget A4.
+  </div>
 
 </main>
 
 
 <footer>
-
   <strong>HOLOS Matteresan F–9</strong>
-
   <br>
-
-  ✅❌ Sant, falskt eller ibland? – pröva, motivera och generalisera
-
+  ✅❌🤔 Sant, falskt eller ibland? – ta ställning, pröva och motivera
 </footer>
 
 </body>
