@@ -15,13 +15,14 @@
 
     :root {
       --dark: #17324d;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --teal-light: #eaf7f5;
-      --pink-light: #ffe9f1;
+      --green: #edf9f1;
+      --blue: #eaf5ff;
+      --purple: #f1edff;
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -31,7 +32,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     a {
@@ -41,10 +42,10 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
-        linear-gradient(135deg, #244e63, #3f7e83);
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #5f5a73, #8e87a0);
       color: white;
-      padding: 22px 20px 55px;
+      padding: 22px 20px 50px;
     }
 
     .topbar {
@@ -65,341 +66,224 @@
       padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
       font-weight: bold;
     }
 
     .hero {
       max-width: 920px;
-      margin: 45px auto 0;
+      margin: 42px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.2rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4.3rem);
+      font-size: clamp(2.2rem, 7vw, 4rem);
       line-height: 1.05;
       margin-bottom: 10px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 15px;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
       max-width: 850px;
       margin: auto;
-      color: #efffff;
+      color: #faf9fc;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1120px;
       margin: auto;
-      padding: 42px 20px;
-    }
-
-    section {
-      margin-bottom: 58px;
+      padding: 40px 20px;
     }
 
     .intro {
-      background: var(--teal-light);
-      border-radius: 26px;
-      padding: 32px;
+      background: var(--purple);
+      border-radius: 24px;
+      padding: 30px;
       text-align: center;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
       color: var(--dark);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .intro p {
+      color: var(--muted);
       max-width: 860px;
       margin: auto;
-      color: var(--muted);
     }
 
-    .section-title {
+    .print-button {
+      margin-top: 16px;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .sheet {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 22px;
+      padding: 24px;
+      margin-bottom: 28px;
+      min-height: 270mm;
+    }
+
+    .sheet-head {
       text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .sheet-head h2 {
       color: var(--dark);
-      font-size: clamp(1.7rem, 4vw, 2.35rem);
-      margin-bottom: 8px;
+      font-size: 1.7rem;
+      margin-bottom: 4px;
     }
 
-    .section-intro {
-      text-align: center;
+    .sheet-head p {
       color: var(--muted);
-      max-width: 840px;
-      margin: 0 auto 28px;
+      font-size: 0.9rem;
     }
-
-    .stage-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .stage-card {
-      border-radius: 24px;
-      padding: 26px;
-      min-height: 250px;
-    }
-
-    .stage-card span {
-      display: block;
-      font-size: 2.6rem;
-      margin-bottom: 8px;
-    }
-
-    .stage-card h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .stage-card p {
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .stage-card ul {
-      padding-left: 20px;
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .stage-card li {
-      margin-bottom: 6px;
-    }
-
-    .f3 { background: var(--green-light); }
-    .m46 { background: var(--blue-light); }
-    .m79 { background: var(--purple-light); }
 
     .problem-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 12px;
     }
 
     .problem-card {
-      background: white;
-      border-radius: 22px;
-      padding: 25px;
-      border: 1px solid rgba(0,0,0,0.06);
-      transition: 0.2s;
+      border-radius: 16px;
+      padding: 16px;
+      min-height: 215px;
+      border: 1px solid rgba(23,50,77,0.14);
+      break-inside: avoid;
     }
 
-    .problem-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 22px rgba(30,50,60,0.08);
-    }
-
-    .problem-card .icon {
-      font-size: 2.5rem;
-      margin-bottom: 8px;
+    .problem-card span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 7px;
     }
 
     .problem-card h3 {
       color: var(--dark);
       margin-bottom: 8px;
-    }
-
-    .problem-text {
-      background: #f4f7f9;
-      border-left: 5px solid #4f7b8a;
-      border-radius: 12px;
-      padding: 16px;
-      margin: 14px 0;
+      font-size: 1rem;
     }
 
     .problem-card p {
-      color: var(--muted);
+      color: #4e5d68;
+      font-size: 0.89rem;
+      margin-bottom: 8px;
     }
 
-    .questions {
-      margin-top: 12px;
-      padding-left: 20px;
+    .problem-card small {
+      display: block;
       color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 8px;
     }
 
-    .questions li {
-      margin-bottom: 7px;
-    }
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
 
     .strategy-box {
-      background: var(--yellow-light);
-      border-radius: 18px;
-      padding: 22px;
+      background: var(--blue);
+      border-radius: 22px;
+      padding: 28px;
+      margin-top: 34px;
+    }
+
+    .strategy-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .strategy-box > p {
+      color: var(--muted);
     }
 
     .strategy-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-      margin-top: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
     }
 
     .strategy-card {
       background: white;
-      border-radius: 16px;
-      text-align: center;
-      padding: 17px 12px;
-      border: 1px solid #e9dfbf;
+      border-radius: 14px;
+      padding: 16px;
+      min-height: 145px;
     }
 
     .strategy-card span {
-      font-size: 2rem;
       display: block;
+      font-size: 1.8rem;
       margin-bottom: 5px;
     }
 
-    .strategy-card strong {
+    .strategy-card h3 {
       color: var(--dark);
+      margin-bottom: 5px;
       font-size: 0.92rem;
     }
 
-    .weekly {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 35%),
-        linear-gradient(135deg, #17324d, #465c81);
-      color: white;
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .weekly h2 {
-      font-size: 2rem;
-      margin-bottom: 9px;
-    }
-
-    .weekly > p {
-      color: #eef5ff;
-      max-width: 850px;
-    }
-
-    .weekly-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 25px;
-    }
-
-    .weekly-card {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 19px;
-      padding: 21px;
-    }
-
-    .weekly-card span {
-      font-size: 2.2rem;
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .weekly-card h3 {
-      margin-bottom: 8px;
-    }
-
-    .weekly-card p {
-      color: #f5f8ff;
-      font-size: 0.92rem;
-    }
-
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .tool-card {
-      border-radius: 20px;
-      padding: 23px;
-      min-height: 190px;
-      transition: 0.2s;
-    }
-
-    .tool-card:hover {
-      transform: translateY(-3px);
-    }
-
-    .tool-card span {
-      font-size: 2.3rem;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .tool-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .tool-card p {
+    .strategy-card p {
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.82rem;
     }
-
-    .t1 { background: var(--green-light); }
-    .t2 { background: var(--blue-light); }
-    .t3 { background: var(--purple-light); }
-    .t4 { background: var(--orange-light); }
-    .t5 { background: var(--pink-light); }
-    .t6 { background: var(--teal-light); }
 
     .note {
-      background: var(--orange-light);
-      border-left: 6px solid #c98143;
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
       border-radius: 14px;
-      padding: 20px;
+      padding: 18px;
       margin-top: 24px;
       color: #654c37;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
+      color: white;
       text-align: center;
-      padding: 34px 20px;
+      padding: 30px 20px;
       margin-top: 30px;
     }
 
-    @media (max-width: 950px) {
-      .stage-grid,
-      .weekly-grid,
-      .tool-grid {
-        grid-template-columns: 1fr;
-      }
-
+    @media (max-width: 900px) {
       .strategy-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 800px) {
-      .problem-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
+      .problem-grid,
       .strategy-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro,
-      .weekly,
-      .strategy-box {
-        padding: 24px 17px;
       }
 
       main {
@@ -408,54 +292,95 @@
       }
     }
 
+    /* =====================================
+       UTSKRIFT – A4 + FÄRG
+       ===================================== */
+
     @page {
       size: A4 portrait;
-      margin: 12mm;
+      margin: 10mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
+      body {
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
       header,
       footer,
-      .back-link {
+      .intro,
+      .strategy-box,
+      .note {
         display: none !important;
       }
 
-      body {
-        background: white;
-        color: black;
-        font-size: 10.5pt;
-      }
-
       main {
+        width: 100%;
         max-width: none;
         margin: 0;
         padding: 0;
       }
 
-      section,
-      .problem-card,
-      .stage-card,
-      .strategy-card,
-      .weekly-card,
-      .tool-card {
+      .sheet {
+        width: 100%;
+        min-height: 277mm;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .sheet:last-of-type {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .problem-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 4mm !important;
+      }
+
+      .problem-card {
+        min-height: 61mm;
+        padding: 4mm;
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      .problem-grid,
-      .stage-grid,
-      .strategy-grid,
-      .weekly-grid,
-      .tool-grid {
-        display: block;
+      .green { background: var(--green) !important; }
+      .blue { background: var(--blue) !important; }
+      .purple { background: var(--purple) !important; }
+      .yellow { background: var(--yellow) !important; }
+      .orange { background: var(--orange) !important; }
+      .teal { background: var(--teal) !important; }
+      .pink { background: var(--pink) !important; }
+      .gray { background: var(--gray) !important; }
+
+      .sheet-head h2,
+      .problem-card h3 {
+        color: var(--dark) !important;
       }
 
-      .problem-card,
-      .stage-card,
-      .strategy-card,
-      .weekly-card,
-      .tool-card {
-        margin-bottom: 12px;
+      .sheet-head p,
+      .problem-card p,
+      .problem-card small {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -466,26 +391,24 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
 
-    <a href="larare-material.html" class="back-link">
-      ← Materialbanken
+    <a href="larare-utskrift.html" class="back-link">
+      ← Utskriftscentralen
     </a>
-
   </div>
 
   <div class="hero">
 
-    <div class="hero-icon">🧠🗝️</div>
+    <div class="hero-icon">🧠🧩</div>
 
     <h1>Problembank F–9</h1>
 
-    <h2>Förstå • Utforska • Pröva • Resonera • Förklara</h2>
+    <h2>Förstå • Planera • Pröva • Förklara • Kontrollera</h2>
 
     <p>
-      En samlad problembank för matematiska samtal, individuellt arbete,
-      pararbete, veckans problem och fördjupning genom hela F–9.
+      Problemlösningsuppgifter med flera möjliga strategier,
+      öppna frågor och möjlighet till fördjupade resonemang.
     </p>
 
   </div>
@@ -495,190 +418,126 @@
 
 <main>
 
-  <section>
+  <div class="intro">
 
-    <div class="intro">
+    <h2>🧩 Problem som kräver tänkande</h2>
 
-      <h2>🧠 Problem ska skapa tänkande</h2>
-
-      <p>
-        Ett bra matematiskt problem ska inte bara fråga efter ett svar.
-        Det ska ge elever möjlighet att välja strategi, göra antaganden,
-        upptäcka samband, jämföra lösningar och motivera sitt resonemang.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">🌱 🌿 🚀 Problemlösning genom F–9</h2>
-
-    <p class="section-intro">
-      Problemens komplexitet ökar, men kärnan är densamma:
-      förstå situationen, välja verktyg och kunna förklara sitt tänkande.
+    <p>
+      Använd problemen för enskilt arbete, pararbete,
+      matteprat eller gemensam problemlösning.
+      Fokusera på strategi, representation och resonemang – inte bara slutsvaret.
     </p>
 
-    <div class="stage-grid">
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut problembanken
+    </button>
 
-      <div class="stage-card f3">
-
-        <span>🌱</span>
-
-        <h3>F–3</h3>
-
-        <p>
-          Konkret, visuellt och nära elevernas erfarenheter.
-        </p>
-
-        <ul>
-          <li>rita problemet</li>
-          <li>använd konkret material</li>
-          <li>pröva olika möjligheter</li>
-          <li>enkla fler-stegsproblem</li>
-          <li>berätta hur du tänkte</li>
-        </ul>
-
-      </div>
+  </div>
 
 
-      <div class="stage-card m46">
+  <!-- SIDA 1 -->
 
-        <span>🌿</span>
+  <section class="sheet">
 
-        <h3>4–6</h3>
-
-        <p>
-          Strategier, modeller och systematiskt problemlösningsarbete.
-        </p>
-
-        <ul>
-          <li>gör tabell</li>
-          <li>rita modell</li>
-          <li>pröva systematiskt</li>
-          <li>arbeta baklänges</li>
-          <li>bedöm rimlighet</li>
-        </ul>
-
-      </div>
-
-
-      <div class="stage-card m79">
-
-        <span>🚀</span>
-
-        <h3>7–9</h3>
-
-        <p>
-          Modellering, generalisering och argumenterande problemlösning.
-        </p>
-
-        <ul>
-          <li>algebraiska modeller</li>
-          <li>flera villkor</li>
-          <li>optimera</li>
-          <li>generalisera</li>
-          <li>argumentera för lösningen</li>
-        </ul>
-
-      </div>
-
+    <div class="sheet-head">
+      <h2>1. Tal & logiskt tänkande</h2>
+      <p>Hitta • ordna • jämför • resonera</p>
     </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">🌱 Problem F–3</h2>
-
-    <p class="section-intro">
-      Problem där eleverna kan rita, bygga, pröva och samtala.
-    </p>
 
     <div class="problem-grid">
 
-
-      <div class="problem-card">
-
-        <div class="icon">🍎</div>
-
-        <h3>Äpplena</h3>
-
-        <div class="problem-text">
-          Mira har 12 äpplen. Hon vill lägga dem i lika stora grupper.
-          På vilka olika sätt kan hon göra?
-        </div>
-
-        <ul class="questions">
-          <li>Rita dina lösningar.</li>
-          <li>Hur många olika möjligheter hittar du?</li>
-          <li>Hur vet du att du har hittat alla?</li>
-        </ul>
-
+      <div class="problem-card green">
+        <span>🔢</span>
+        <h3>Gör talet 20</h3>
+        <p>
+          Använd talen 2, 3, 4 och 5 exakt en gång.
+          Du får använda de fyra räknesätten.
+        </p>
+        <p>
+          Kan du få svaret 20 på flera olika sätt?
+        </p>
+        <small>Utmaning: hitta minst tre lösningar.</small>
       </div>
 
-
-      <div class="problem-card">
-
-        <div class="icon">🐾</div>
-
-        <h3>Djuren</h3>
-
-        <div class="problem-text">
-          I ett rum finns katter och barn.
-          Tillsammans har de 22 ben.
-          Hur många barn och hur många katter kan det finnas?
-        </div>
-
-        <ul class="questions">
-          <li>Hitta minst två lösningar.</li>
-          <li>Rita eller gör en tabell.</li>
-          <li>Finns fler möjligheter?</li>
-        </ul>
-
+      <div class="problem-card blue">
+        <span>🔍</span>
+        <h3>Vilket tal tänker jag på?</h3>
+        <p>
+          Talet är större än 30 men mindre än 60.
+          Det är jämnt.
+          Siffersumman är 9.
+        </p>
+        <p>
+          Vilka tal kan det vara?
+        </p>
+        <small>Hur vet du att du hittat alla?</small>
       </div>
 
-
-      <div class="problem-card">
-
-        <div class="icon">🪙</div>
-
+      <div class="problem-card purple">
+        <span>🪙</span>
         <h3>20 kronor</h3>
-
-        <div class="problem-text">
-          Du har exakt 20 kronor i mynt.
-          Vilka olika kombinationer kan du ha?
-        </div>
-
-        <ul class="questions">
-          <li>Hitta flera lösningar.</li>
-          <li>Kan du använda exakt fyra mynt?</li>
-          <li>Vad händer om du måste använda fem mynt?</li>
-        </ul>
-
+        <p>
+          Du har bara 2-kronor och 5-kronor.
+          På hur många olika sätt kan du göra exakt 20 kr?
+        </p>
+        <small>Ordna lösningarna systematiskt.</small>
       </div>
 
+      <div class="problem-card yellow">
+        <span>🧩</span>
+        <h3>Tre tal</h3>
+        <p>
+          Välj tre olika heltal.
+          Summan ska vara 18.
+        </p>
+        <p>
+          Hur många olika lösningar kan du hitta?
+        </p>
+        <small>Vad händer om talen måste vara positiva?</small>
+      </div>
 
-      <div class="problem-card">
+      <div class="problem-card orange">
+        <span>🔄</span>
+        <h3>Tal som byter plats</h3>
+        <p>
+          Ett tvåsiffrigt tal är 27 större än talet som bildas
+          när siffrorna byter plats.
+        </p>
+        <p>
+          Vilka tal kan det vara?
+        </p>
+      </div>
 
-        <div class="icon">🧱</div>
+      <div class="problem-card teal">
+        <span>🎯</span>
+        <h3>Mitt emellan</h3>
+        <p>
+          Hitta två tal som har 35 mitt emellan sig.
+        </p>
+        <p>
+          Hitta sedan så många olika par som möjligt.
+        </p>
+        <small>Vad är alltid sant om summan?</small>
+      </div>
 
-        <h3>Bygg rektanglar</h3>
+      <div class="problem-card pink">
+        <span>✅❌</span>
+        <h3>Sant eller falskt?</h3>
+        <p>
+          Summan av två udda tal är alltid jämn.
+        </p>
+        <p>
+          Undersök och motivera.
+        </p>
+      </div>
 
-        <div class="problem-text">
-          Du har 24 lika stora klossar.
-          Bygg så många olika rektanglar som möjligt.
-        </div>
-
-        <ul class="questions">
-          <li>Vilka sidlängder får rektanglarna?</li>
-          <li>Finns ett mönster?</li>
-          <li>Vilken rektangel ser mest ut som en kvadrat?</li>
-        </ul>
-
+      <div class="problem-card gray">
+        <span>🚀</span>
+        <h3>Skapa ett talproblem</h3>
+        <p>
+          Skapa ett problem där svaret är 48 men där det
+          inte direkt framgår vilket räknesätt som ska användas.
+        </p>
       </div>
 
     </div>
@@ -686,97 +545,108 @@
   </section>
 
 
-  <section>
+  <!-- SIDA 2 -->
 
-    <h2 class="section-title">🌿 Problem 4–6</h2>
+  <section class="sheet">
 
-    <p class="section-intro">
-      Problem som tränar strategival, systematik, modeller och resonemang.
-    </p>
+    <div class="sheet-head">
+      <h2>2. De fyra räknesätten</h2>
+      <p>Välj strategi och tolka situationen</p>
+    </div>
 
     <div class="problem-grid">
 
+      <div class="problem-card green">
+        <span>🚌</span>
+        <h3>Bussarna</h3>
+        <p>
+          148 elever ska åka på utflykt.
+          Varje buss har 48 platser.
+        </p>
+        <p>
+          Hur många bussar måste skolan beställa?
+        </p>
+        <small>Vad betyder resten i divisionen?</small>
+      </div>
 
-      <div class="problem-card">
-
-        <div class="icon">🚲</div>
-
+      <div class="problem-card blue">
+        <span>🚲</span>
         <h3>Cyklar och trehjulingar</h3>
-
-        <div class="problem-text">
-          Det finns 20 fordon på en gård.
-          Några är cyklar med 2 hjul och resten trehjulingar med 3 hjul.
-          Tillsammans har fordonen 49 hjul.
+        <p>
+          Det finns 20 fordon.
+          Några är cyklar och några är trehjulingar.
+          Tillsammans har de 49 hjul.
+        </p>
+        <p>
           Hur många finns av varje sort?
-        </div>
-
-        <ul class="questions">
-          <li>Gör en tabell eller pröva systematiskt.</li>
-          <li>Visa hur du vet att din lösning stämmer.</li>
-        </ul>
-
+        </p>
       </div>
 
-
-      <div class="problem-card">
-
-        <div class="icon">🍕</div>
-
-        <h3>Pizzorna</h3>
-
-        <div class="problem-text">
-          Fyra elever delar på 3 lika stora pizzor.
-          Alla ska få lika mycket.
-          Hur stor del av en pizza får varje elev?
-        </div>
-
-        <ul class="questions">
-          <li>Rita en modell.</li>
-          <li>Skriv svaret som bråk.</li>
-          <li>Hur förändras svaret om de är 6 elever?</li>
-        </ul>
-
+      <div class="problem-card purple">
+        <span>🍎</span>
+        <h3>Fruktlådorna</h3>
+        <p>
+          8 lådor innehåller lika många äpplen.
+          Tillsammans finns 216 äpplen.
+        </p>
+        <p>
+          Hur många äpplen finns i 13 sådana lådor?
+        </p>
       </div>
 
-
-      <div class="problem-card">
-
-        <div class="icon">🚌</div>
-
-        <h3>Skolresan</h3>
-
-        <div class="problem-text">
-          137 elever och 11 vuxna ska åka på utflykt.
-          En buss har 48 platser.
-          Hur många bussar behövs?
-        </div>
-
-        <ul class="questions">
-          <li>Beräkna.</li>
-          <li>Förklara varför svaret inte kan avrundas nedåt.</li>
-          <li>Hur många tomma platser blir det?</li>
-        </ul>
-
+      <div class="problem-card yellow">
+        <span>🏃</span>
+        <h3>Varven</h3>
+        <p>
+          En löpare springer 7 varv.
+          Varje varv är 400 meter.
+        </p>
+        <p>
+          Hur mycket återstår till 5 km?
+        </p>
       </div>
 
+      <div class="problem-card orange">
+        <span>🧃</span>
+        <h3>Saften</h3>
+        <p>
+          Saft blandas med 1 del koncentrat och 4 delar vatten.
+        </p>
+        <p>
+          Hur mycket koncentrat behövs till 10 liter färdig dryck?
+        </p>
+      </div>
 
-      <div class="problem-card">
+      <div class="problem-card teal">
+        <span>💰</span>
+        <h3>Klasskassan</h3>
+        <p>
+          Klassen har 2 400 kr.
+          En aktivitet kostar 175 kr per elev.
+        </p>
+        <p>
+          Hur många elever kan delta om hela kostnaden betalas ur kassan?
+        </p>
+      </div>
 
-        <div class="icon">🧃</div>
+      <div class="problem-card pink">
+        <span>⚖️</span>
+        <h3>Samma svar</h3>
+        <p>
+          Skapa två olika beräkningar med olika räknesätt
+          som båda ger svaret 36.
+        </p>
+        <small>Kan du skapa fyra?</small>
+      </div>
 
-        <h3>Saftblandningen</h3>
-
-        <div class="problem-text">
-          Saft blandas i förhållandet 1 del koncentrat till 4 delar vatten.
-          Du vill göra 2,5 liter färdig saft.
-          Hur mycket koncentrat och hur mycket vatten behövs?
-        </div>
-
-        <ul class="questions">
-          <li>Visa sambandet i en tabell.</li>
-          <li>Kan du lösa problemet på ett annat sätt?</li>
-        </ul>
-
+      <div class="problem-card gray">
+        <span>🔄</span>
+        <h3>Ändra villkoret</h3>
+        <p>
+          Välj ett av problemen på sidan och ändra ett tal
+          så att problemet blir betydligt svårare.
+        </p>
+        <small>Förklara varför.</small>
       </div>
 
     </div>
@@ -784,138 +654,106 @@
   </section>
 
 
-  <section>
+  <!-- SIDA 3 -->
 
-    <h2 class="section-title">🚀 Problem 7–9</h2>
+  <section class="sheet">
 
-    <p class="section-intro">
-      Problem med flera representationer, algebraiska modeller och generalisering.
-    </p>
+    <div class="sheet-head">
+      <h2>3. Bråk • decimal • procent</h2>
+      <p>Representera • jämför • resonera</p>
+    </div>
 
     <div class="problem-grid">
 
-
-      <div class="problem-card">
-
-        <div class="icon">🎟️</div>
-
-        <h3>Konsertbiljetterna</h3>
-
-        <div class="problem-text">
-          En vuxenbiljett kostar 200 kr och en ungdomsbiljett 140 kr.
-          Totalt säljs 320 biljetter för 54 400 kr.
-          Hur många biljetter av varje sort säljs?
-        </div>
-
-        <ul class="questions">
-          <li>Definiera variabler.</li>
-          <li>Skriv två ekvationer.</li>
-          <li>Kontrollera båda villkoren.</li>
-        </ul>
-
+      <div class="problem-card green">
+        <span>🍕</span>
+        <h3>Tre pizzor</h3>
+        <p>
+          Fyra elever delar tre lika stora pizzor lika.
+        </p>
+        <p>
+          Hur mycket pizza får varje elev?
+        </p>
+        <small>Visa på minst två sätt.</small>
       </div>
 
-
-      <div class="problem-card">
-
-        <div class="icon">📱</div>
-
-        <h3>Mobilabonnemang</h3>
-
-        <div class="problem-text">
-          Abonnemang A kostar 149 kr per månad plus 2 kr per GB.
-          Abonnemang B kostar 249 kr per månad men har inget pris per GB.
-        </div>
-
-        <ul class="questions">
-          <li>Skriv en funktion för varje abonnemang.</li>
-          <li>När kostar de lika mycket?</li>
-          <li>Vilket är bäst vid 20 GB? 80 GB?</li>
-        </ul>
-
+      <div class="problem-card blue">
+        <span>🥤</span>
+        <h3>Drycken</h3>
+        <p>
+          En flaska innehåller 1,5 liter.
+          Sex personer ska dela lika.
+        </p>
+        <p>
+          Hur mycket får varje person?
+        </p>
       </div>
 
-
-      <div class="problem-card">
-
-        <div class="icon">📦</div>
-
-        <h3>Lådan</h3>
-
-        <div class="problem-text">
-          En öppen låda ska tillverkas genom att klippa lika stora kvadrater
-          ur hörnen på ett rektangulärt kartongark och vika upp kanterna.
-        </div>
-
-        <ul class="questions">
-          <li>Hur påverkar kvadraternas storlek lådans volym?</li>
-          <li>Skapa en tabell.</li>
-          <li>Vilken storlek verkar ge störst volym?</li>
-        </ul>
-
+      <div class="problem-card purple">
+        <span>💯</span>
+        <h3>Rean</h3>
+        <p>
+          En jacka kostar 800 kr.
+          Priset sänks först med 25 %.
+        </p>
+        <p>
+          Därefter sänks det nya priset med ytterligare 10 %.
+          Vad blir slutpriset?
+        </p>
       </div>
 
-
-      <div class="problem-card">
-
-        <div class="icon">📈</div>
-
-        <h3>Växande värde</h3>
-
-        <div class="problem-text">
-          Ett värde är från början 10 000 kr och ökar med 6 % per år.
-        </div>
-
-        <ul class="questions">
-          <li>Vad är värdet efter 1, 2 och 5 år?</li>
-          <li>Skriv en generell modell.</li>
-          <li>Efter ungefär hur många år har värdet fördubblats?</li>
-        </ul>
-
+      <div class="problem-card yellow">
+        <span>⚖️</span>
+        <h3>Vilket är störst?</h3>
+        <p>
+          Jämför 5/8 och 0,6.
+        </p>
+        <p>
+          Vilket är störst?
+          Hur kan du visa det utan miniräknare?
+        </p>
       </div>
 
-    </div>
+      <div class="problem-card orange">
+        <span>📈</span>
+        <h3>Ökning och minskning</h3>
+        <p>
+          Ett pris ökar med 20 % och minskar sedan med 20 %.
+        </p>
+        <p>
+          Kommer priset tillbaka till startvärdet?
+        </p>
+        <small>Visa med ett valfritt startpris.</small>
+      </div>
 
-  </section>
+      <div class="problem-card teal">
+        <span>🔍</span>
+        <h3>Hitta talet</h3>
+        <p>
+          15 % av ett tal är 45.
+        </p>
+        <p>
+          Vilket är talet?
+        </p>
+        <small>Visa två olika strategier.</small>
+      </div>
 
+      <div class="problem-card pink">
+        <span>🔗</span>
+        <h3>Samma värde</h3>
+        <p>
+          Hitta så många sätt du kan att skriva samma värde som 0,75.
+        </p>
+        <small>Använd bråk, procent och andra uttryck.</small>
+      </div>
 
-  <section>
-
-    <div class="strategy-box">
-
-      <h2 class="section-title">🧰 Strategibank</h2>
-
-      <p class="section-intro">
-        Eleverna behöver möta strategierna återkommande – inte som en checklista som alltid används på samma sätt.
-      </p>
-
-      <div class="strategy-grid">
-
-        <div class="strategy-card">
-          <span>🎨</span>
-          <strong>Rita modell</strong>
-        </div>
-
-        <div class="strategy-card">
-          <span>📋</span>
-          <strong>Gör tabell</strong>
-        </div>
-
-        <div class="strategy-card">
-          <span>🔍</span>
-          <strong>Pröva systematiskt</strong>
-        </div>
-
-        <div class="strategy-card">
-          <span>↩️</span>
-          <strong>Arbeta baklänges</strong>
-        </div>
-
-        <div class="strategy-card">
-          <span>🧩</span>
-          <strong>Hitta mönster</strong>
-        </div>
-
+      <div class="problem-card gray">
+        <span>🚀</span>
+        <h3>Skapa en procentuppgift</h3>
+        <p>
+          Skapa en verklig situation där svaret blir 30 %.
+        </p>
+        <small>Låt någon annan lösa den.</small>
       </div>
 
     </div>
@@ -923,43 +761,102 @@
   </section>
 
 
-  <section>
+  <!-- SIDA 4 -->
 
-    <div class="weekly">
+  <section class="sheet">
 
-      <h2>⭐ Veckans problem</h2>
+    <div class="sheet-head">
+      <h2>4. Geometri</h2>
+      <p>Undersök • bygg • jämför • generalisera</p>
+    </div>
 
-      <p>
-        Ett problem kan återkomma under flera lektioner:
-        först individuellt tänkande, sedan parprat och till sist gemensam jämförelse av strategier.
-      </p>
+    <div class="problem-grid">
 
-      <div class="weekly-grid">
+      <div class="problem-card green">
+        <span>📐</span>
+        <h3>Area 24</h3>
+        <p>
+          Hitta alla rektanglar med heltalssidor och area 24 cm².
+        </p>
+        <p>
+          Beräkna omkretsen för varje rektangel.
+        </p>
+      </div>
 
-        <div class="weekly-card">
-          <span>1️⃣</span>
-          <h3>Tänk själv</h3>
-          <p>
-            Ge eleverna tid att förstå problemet och börja på egen hand utan att en lösningsmetod visas först.
-          </p>
-        </div>
+      <div class="problem-card blue">
+        <span>⬛</span>
+        <h3>Samma omkrets</h3>
+        <p>
+          Rita flera rektanglar med omkrets 20 cm.
+        </p>
+        <p>
+          Vilken får störst area?
+        </p>
+      </div>
 
-        <div class="weekly-card">
-          <span>2️⃣</span>
-          <h3>Jämför i par</h3>
-          <p>
-            Eleverna jämför strategier, representationer och svar.
-          </p>
-        </div>
+      <div class="problem-card purple">
+        <span>🔺</span>
+        <h3>Triangeln</h3>
+        <p>
+          Två vinklar i en triangel är 48° och 67°.
+        </p>
+        <p>
+          Hur stor är den tredje vinkeln?
+          Förklara varför.
+        </p>
+      </div>
 
-        <div class="weekly-card">
-          <span>3️⃣</span>
-          <h3>Lyft strategier</h3>
-          <p>
-            Samla flera lösningar och diskutera varför de fungerar och hur de hänger samman.
-          </p>
-        </div>
+      <div class="problem-card yellow">
+        <span>🧩</span>
+        <h3>Fyra kvadrater</h3>
+        <p>
+          Fyra lika stora kvadrater ska sättas ihop kant mot kant.
+        </p>
+        <p>
+          Hur många olika former kan du skapa?
+        </p>
+      </div>
 
+      <div class="problem-card orange">
+        <span>📦</span>
+        <h3>Volym</h3>
+        <p>
+          En låda har volymen 120 cm³.
+        </p>
+        <p>
+          Vilka heltalsmått kan lådan ha?
+        </p>
+        <small>Hitta flera alternativ.</small>
+      </div>
+
+      <div class="problem-card teal">
+        <span>📏</span>
+        <h3>Skala</h3>
+        <p>
+          På en ritning i skala 1:100 är ett rum 4,5 cm långt.
+        </p>
+        <p>
+          Hur långt är rummet i verkligheten?
+        </p>
+      </div>
+
+      <div class="problem-card pink">
+        <span>⚖️</span>
+        <h3>Area eller omkrets?</h3>
+        <p>
+          Skapa två verkliga situationer:
+          en där area behövs och en där omkrets behövs.
+        </p>
+      </div>
+
+      <div class="problem-card gray">
+        <span>🚀</span>
+        <h3>Generalisera</h3>
+        <p>
+          Hur förändras arean av en rektangel
+          om både längd och bredd fördubblas?
+        </p>
+        <small>Försök formulera en regel.</small>
       </div>
 
     </div>
@@ -967,74 +864,265 @@
   </section>
 
 
-  <section>
+  <!-- SIDA 5 -->
 
-    <h2 class="section-title">🗂️ Fler problemlösningsverktyg</h2>
+  <section class="sheet">
 
-    <p class="section-intro">
-      Gå vidare till färdiga elevblad och lärarstöd.
+    <div class="sheet-head">
+      <h2>5. Statistik & sannolikhet</h2>
+      <p>Samla • tolka • jämför • granska</p>
+    </div>
+
+    <div class="problem-grid">
+
+      <div class="problem-card green">
+        <span>📊</span>
+        <h3>Vilket lägesmått?</h3>
+        <p>
+          Lönerna är:
+          28 000, 29 000, 30 000, 31 000 och 95 000 kr.
+        </p>
+        <p>
+          Vilket lägesmått beskriver bäst en typisk lön?
+        </p>
+      </div>
+
+      <div class="problem-card blue">
+        <span>🎲</span>
+        <h3>Två tärningar</h3>
+        <p>
+          Två vanliga tärningar kastas.
+        </p>
+        <p>
+          Vilken summa är vanligast?
+          Hur kan du visa det systematiskt?
+        </p>
+      </div>
+
+      <div class="problem-card purple">
+        <span>🪙</span>
+        <h3>Tre myntkast</h3>
+        <p>
+          Ett mynt kastas tre gånger.
+        </p>
+        <p>
+          Vilka olika utfallsföljder är möjliga?
+          Hur många innehåller exakt två kronor?
+        </p>
+      </div>
+
+      <div class="problem-card yellow">
+        <span>📈</span>
+        <h3>Diagrammet</h3>
+        <p>
+          Skapa ett stapeldiagram där samma data kan verka
+          mycket mer dramatisk genom att ändra axelns skala.
+        </p>
+        <small>Diskutera varför detta kan vara missvisande.</small>
+      </div>
+
+      <div class="problem-card orange">
+        <span>🔍</span>
+        <h3>Medelvärde 12</h3>
+        <p>
+          Fyra tal har medelvärdet 12.
+        </p>
+        <p>
+          Vilka tal kan det vara?
+          Hitta fem olika exempel.
+        </p>
+      </div>
+
+      <div class="problem-card teal">
+        <span>🎯</span>
+        <h3>Median</h3>
+        <p>
+          Skapa fem olika tal där medianen är 10
+          men medelvärdet är större än 20.
+        </p>
+      </div>
+
+      <div class="problem-card pink">
+        <span>🤔</span>
+        <h3>Slump?</h3>
+        <p>
+          Ett mynt har visat krona sex gånger i rad.
+        </p>
+        <p>
+          Är klave nu mer sannolikt?
+          Motivera.
+        </p>
+      </div>
+
+      <div class="problem-card gray">
+        <span>🚀</span>
+        <h3>Skapa en undersökning</h3>
+        <p>
+          Formulera en statistisk fråga som kan undersökas i klassen.
+        </p>
+        <small>Vilken typ av diagram passar?</small>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SIDA 6 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>6. Algebra • mönster • samband</h2>
+      <p>Beskriv • modellera • generalisera</p>
+    </div>
+
+    <div class="problem-grid">
+
+      <div class="problem-card green">
+        <span>🧩</span>
+        <h3>Talföljden</h3>
+        <p>
+          Talföljden börjar:
+          5, 9, 13, 17...
+        </p>
+        <p>
+          Beskriv regeln och skriv ett uttryck för det n:te talet.
+        </p>
+      </div>
+
+      <div class="problem-card blue">
+        <span>📱</span>
+        <h3>Två abonnemang</h3>
+        <p>
+          A kostar 99 kr + 2 kr/min.
+          B kostar 159 kr + 1 kr/min.
+        </p>
+        <p>
+          När kostar abonnemangen lika mycket?
+        </p>
+      </div>
+
+      <div class="problem-card purple">
+        <span>🔤</span>
+        <h3>Ekvationen</h3>
+        <p>
+          Skapa en verklig situation som kan beskrivas med:
+        </p>
+        <p><strong>3x + 20 = 95</strong></p>
+      </div>
+
+      <div class="problem-card yellow">
+        <span>🔗</span>
+        <h3>Proportionellt?</h3>
+        <p>
+          En taxi kostar 60 kr i startavgift och 15 kr per kilometer.
+        </p>
+        <p>
+          Är sambandet mellan kilometer och pris proportionellt?
+          Motivera.
+        </p>
+      </div>
+
+      <div class="problem-card orange">
+        <span>📈</span>
+        <h3>Skapa en formel</h3>
+        <p>
+          Ett mönster börjar med 7 och ökar med 4 varje steg.
+        </p>
+        <p>
+          Skriv en formel för steg n.
+        </p>
+      </div>
+
+      <div class="problem-card teal">
+        <span>🔍</span>
+        <h3>Hitta alla</h3>
+        <p>
+          Hitta alla positiva heltalslösningar till:
+        </p>
+        <p><strong>x + y = 12</strong></p>
+        <small>Hur vet du att ingen saknas?</small>
+      </div>
+
+      <div class="problem-card pink">
+        <span>🌍</span>
+        <h3>Verkligt samband</h3>
+        <p>
+          Skapa ett verkligt linjärt samband som inte är proportionellt.
+        </p>
+        <small>Förklara vad startvärdet betyder.</small>
+      </div>
+
+      <div class="problem-card gray">
+        <span>🚀</span>
+        <h3>Ändra problemet</h3>
+        <p>
+          Välj ett problem på sidan.
+          Ändra ett villkor så att det får flera möjliga lösningar.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="strategy-box">
+
+    <h2>🧭 Fyra strategier att synliggöra</h2>
+
+    <p>
+      Elever behöver möta flera problemlösningsstrategier
+      och lära sig när olika strategier kan vara användbara.
     </p>
 
-    <div class="tool-grid">
+    <div class="strategy-grid">
 
-      <a href="elevblad-problemlosning.html" class="tool-card t1">
-        <span>✏️</span>
-        <h3>Problemlösningsblad</h3>
+      <div class="strategy-card">
+        <span>🎨</span>
+        <h3>Rita</h3>
         <p>
-          Utskriftsklara problemlösningsblad för F–3, 4–6 och 7–9.
+          Skapa bild, modell, tallinje eller diagram.
         </p>
-      </a>
+      </div>
 
-      <a href="larare-problemlosning.html" class="tool-card t2">
-        <span>👩‍🏫</span>
-        <h3>Lärarstöd</h3>
+      <div class="strategy-card">
+        <span>📋</span>
+        <h3>Gör en tabell</h3>
         <p>
-          Progression, strategier, missuppfattningar, stöd och bedömning.
+          Ordna möjligheter och värden systematiskt.
         </p>
-      </a>
+      </div>
 
-      <a href="strategier.html" class="tool-card t3">
-        <span>🧭</span>
-        <h3>Strategier</h3>
+      <div class="strategy-card">
+        <span>🔍</span>
+        <h3>Pröva systematiskt</h3>
         <p>
-          Elevvänligt stöd för hur olika problemlösningsstrategier kan användas.
+          Ändra en sak i taget och dokumentera resultaten.
         </p>
-      </a>
+      </div>
 
-      <a href="veckansproblem.html" class="tool-card t4">
-        <span>⭐</span>
-        <h3>Veckans problem</h3>
+      <div class="strategy-card">
+        <span>↩️</span>
+        <h3>Arbeta baklänges</h3>
         <p>
-          Problem som kan användas återkommande för matematiska samtal.
+          Börja vid det du vet om slutresultatet.
         </p>
-      </a>
+      </div>
 
-      <a href="larare-matteprat.html" class="tool-card t5">
-        <span>💬</span>
-        <h3>Matteprat</h3>
-        <p>
-          Samtalsdrag och frågor för att jämföra olika problemlösningsstrategier.
-        </p>
-      </a>
-
-      <a href="larare-observation.html" class="tool-card t6">
-        <span>👀</span>
-        <h3>Observera problemlösning</h3>
-        <p>
-          Synliggör strategival, resonemang, begrepp och självständighet.
-        </p>
-      </a>
-
-    </div>
-
-    <div class="note">
-      <strong>Kom ihåg:</strong>
-      elever som blir klara snabbt behöver inte automatiskt ett nytt problem.
-      Be dem först hitta en annan strategi, skapa ett liknande problem, ändra ett villkor
-      eller formulera en generell regel.
     </div>
 
   </section>
+
+
+  <div class="note">
+
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+
+  </div>
 
 </main>
 
@@ -1045,7 +1133,7 @@
 
   <br>
 
-  🧠 Problembank – förstå, utforska, pröva, resonera och förklara
+  🧠 Problembank – förstå, planera, pröva, förklara och kontrollera
 
 </footer>
 
