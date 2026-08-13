@@ -15,13 +15,22 @@
 
     :root {
       --dark: #17324d;
-      --green: #edf9f1;
-      --blue: #eaf5ff;
-      --purple: #f1edff;
+
+      --f3: #e8f7ed;
+      --f3-strong: #5f9470;
+
+      --46: #e8f3ff;
+      --46-strong: #5d86ad;
+
+      --79: #f0eaff;
+      --79-strong: #8266a3;
+
       --yellow: #fff6d7;
       --orange: #ffe7cf;
       --teal: #eaf7f5;
       --pink: #ffe9f1;
+      --gray: #eef2f4;
+
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -42,7 +51,7 @@
     header {
       background:
         radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
-        linear-gradient(135deg, #604f7a, #8772a5);
+        linear-gradient(135deg, #6d5b7d, #9984aa);
       color: white;
       padding: 22px 20px 50px;
     }
@@ -65,12 +74,11 @@
       padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
       font-weight: bold;
     }
 
     .hero {
-      max-width: 900px;
+      max-width: 920px;
       margin: 42px auto 0;
       text-align: center;
     }
@@ -94,21 +102,21 @@
     .hero p {
       max-width: 850px;
       margin: auto;
-      color: #faf7ff;
+      color: #fbf8fd;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1040px;
       margin: auto;
       padding: 40px 20px;
     }
 
     .intro {
-      background: var(--purple);
+      background: var(--79);
       border-radius: 24px;
       padding: 30px;
       text-align: center;
-      margin-bottom: 38px;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
@@ -117,9 +125,9 @@
     }
 
     .intro p {
-      color: var(--muted);
       max-width: 850px;
       margin: auto;
+      color: var(--muted);
     }
 
     .print-button {
@@ -133,57 +141,59 @@
       cursor: pointer;
     }
 
-    .stage {
-      margin-bottom: 36px;
-    }
-
-    .stage-title {
-      text-align: center;
-      margin-bottom: 18px;
-    }
-
-    .stage-title h2 {
-      color: var(--dark);
-      font-size: 2rem;
-      margin-bottom: 4px;
-    }
-
-    .stage-title p {
-      color: var(--muted);
-    }
-
     .sheet {
       background: white;
       border: 1px solid rgba(0,0,0,0.08);
       border-radius: 22px;
-      padding: 28px;
-      margin-bottom: 24px;
-      break-inside: avoid;
+      padding: 24px;
+      margin-bottom: 28px;
+      min-height: 270mm;
     }
 
     .sheet.f3 {
-      border-top: 8px solid #5aa36e;
+      border-top: 9px solid var(--f3-strong);
     }
 
-    .sheet.m46 {
-      border-top: 8px solid #5b86b8;
+    .sheet.stage46 {
+      border-top: 9px solid var(--46-strong);
     }
 
-    .sheet.m79 {
-      border-top: 8px solid #8867ad;
+    .sheet.stage79 {
+      border-top: 9px solid var(--79-strong);
     }
 
     .sheet-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
+      text-align: center;
       margin-bottom: 18px;
     }
 
-    .sheet-head h3 {
+    .stage-label {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .f3-label {
+      background: var(--f3);
+      color: #356345;
+    }
+
+    .stage46-label {
+      background: var(--46);
+      color: #345e86;
+    }
+
+    .stage79-label {
+      background: var(--79);
+      color: #634a83;
+    }
+
+    .sheet-head h2 {
       color: var(--dark);
-      font-size: 1.45rem;
+      font-size: 1.7rem;
       margin-bottom: 4px;
     }
 
@@ -192,162 +202,140 @@
       font-size: 0.9rem;
     }
 
-    .level {
-      border-radius: 999px;
-      padding: 7px 12px;
-      font-weight: bold;
-      font-size: 0.82rem;
-      white-space: nowrap;
-      background: #edf1f4;
-    }
-
-    .name-row {
+    .meta-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 14px;
-      margin-bottom: 18px;
-      font-size: 0.9rem;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
-    .line {
-      display: inline-block;
-      width: 70%;
-      border-bottom: 1px solid #777;
-      height: 18px;
-      vertical-align: bottom;
+    .field {
+      background: white;
+      border: 1.5px solid #9aa6ae;
+      border-radius: 10px;
+      min-height: 50px;
+      padding: 9px;
+    }
+
+    .field strong {
+      display: block;
+      color: var(--dark);
+      font-size: 0.86rem;
     }
 
     .task {
-      border-top: 1px dashed #bfc8ce;
-      padding-top: 16px;
-      margin-top: 16px;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
       break-inside: avoid;
     }
 
-    .task:first-of-type {
-      border-top: none;
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    .task h4 {
+    .task h3 {
       color: var(--dark);
-      margin-bottom: 7px;
-      font-size: 1.02rem;
+      font-size: 1rem;
+      margin-bottom: 6px;
     }
 
-    .challenge-box {
-      background: var(--yellow);
-      border-left: 5px solid #c9a548;
-      border-radius: 12px;
-      padding: 14px;
-      margin: 10px 0;
+    .task p,
+    .task li {
+      color: #4e5d68;
+      font-size: 0.88rem;
     }
 
-    .challenge-box strong {
-      color: var(--dark);
+    .task ul {
+      margin: 8px 0 0 22px;
     }
 
-    .answer-box {
-      border: 1.5px solid #8d9aa4;
-      border-radius: 10px;
-      min-height: 84px;
-      margin-top: 8px;
+    .task li {
+      margin-bottom: 5px;
+    }
+
+    .green { background: var(--f3); }
+    .blue { background: var(--46); }
+    .purple { background: var(--79); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .write-area {
       background: white;
+      border: 1.2px solid #98a4ad;
+      border-radius: 8px;
+      margin-top: 8px;
+      min-height: 70px;
     }
 
-    .answer-box.medium {
-      min-height: 120px;
+    .write-area.medium {
+      min-height: 100px;
     }
 
-    .answer-box.large {
-      min-height: 160px;
-    }
-
-    .answer-box.xlarge {
-      min-height: 210px;
+    .write-area.large {
+      min-height: 145px;
     }
 
     .two-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .mini-box {
-      border-radius: 11px;
-      padding: 12px;
-      min-height: 105px;
-    }
-
-    .mini-box strong {
-      display: block;
-      color: var(--dark);
-      margin-bottom: 5px;
-    }
-
-    .m1 {
-      background: var(--green);
-    }
-
-    .m2 {
-      background: var(--blue);
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
     }
 
     .three-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
-      margin-top: 12px;
     }
 
-    .small-box {
-      border: 1.5px solid #96a2aa;
+    .challenge-box,
+    .number-box {
+      background: white;
+      border: 1.2px solid #89969f;
       border-radius: 10px;
-      padding: 11px;
-      min-height: 90px;
-    }
-
-    .small-box strong {
-      color: var(--dark);
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .tip {
-      background: var(--teal);
-      border-radius: 12px;
       padding: 12px;
-      margin-top: 12px;
+      text-align: center;
       color: var(--dark);
-      font-size: 0.9rem;
-    }
-
-    .check {
-      background: #eef5f8;
-      border-radius: 12px;
-      padding: 14px;
-      margin-top: 16px;
-    }
-
-    .check strong {
-      color: var(--dark);
-    }
-
-    .check ul {
-      list-style: none;
+      font-weight: bold;
       margin-top: 8px;
     }
 
-    .check li {
-      margin-bottom: 5px;
+    .challenge-box {
+      text-align: left;
+      font-size: 1rem;
     }
 
-    .check li::before {
-      content: "☐ ";
-      font-weight: bold;
+    .process {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .step {
+      background: white;
+      border: 1px solid #9aa6ae;
+      border-radius: 10px;
+      padding: 9px 5px;
+      text-align: center;
+      font-size: 0.78rem;
       color: var(--dark);
+      font-weight: bold;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .screen-note {
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 24px;
+      color: #654c37;
     }
 
     footer {
@@ -363,11 +351,10 @@
         flex-direction: column;
       }
 
-      .sheet-head,
-      .name-row,
+      .meta-grid,
       .two-grid,
-      .three-grid {
-        display: grid;
+      .three-grid,
+      .process {
         grid-template-columns: 1fr;
       }
 
@@ -375,74 +362,145 @@
         padding-left: 14px;
         padding-right: 14px;
       }
-
-      .sheet {
-        padding: 20px 15px;
-      }
     }
 
     @page {
       size: A4 portrait;
-      margin: 11mm;
+      margin: 10mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
+      body {
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
       header,
       footer,
-      .intro {
+      .intro,
+      .screen-note {
         display: none !important;
       }
 
-      body {
-        background: white;
-        color: black;
-        font-size: 10pt;
-      }
-
       main {
+        width: 100%;
         max-width: none;
         margin: 0;
         padding: 0;
       }
 
-      .stage {
-        margin: 0;
-      }
-
-      .stage-title {
-        display: none;
-      }
-
       .sheet {
-        border: none;
-        border-radius: 0;
+        width: 100%;
+        min-height: 277mm;
+        margin: 0;
         padding: 0;
-        min-height: 274mm;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
         page-break-after: always;
         break-after: page;
-        margin: 0;
       }
 
-      .sheet:last-child {
+      .sheet:last-of-type {
         page-break-after: auto;
         break-after: auto;
       }
 
-      .sheet.f3,
-      .sheet.m46,
-      .sheet.m79 {
-        border-top: none;
+      .sheet.f3 {
+        border-top: 7px solid var(--f3-strong) !important;
+      }
+
+      .sheet.stage46 {
+        border-top: 7px solid var(--46-strong) !important;
+      }
+
+      .sheet.stage79 {
+        border-top: 7px solid var(--79-strong) !important;
+      }
+
+      .green,
+      .f3-label {
+        background: var(--f3) !important;
+      }
+
+      .blue,
+      .stage46-label {
+        background: var(--46) !important;
+      }
+
+      .purple,
+      .stage79-label {
+        background: var(--79) !important;
+      }
+
+      .yellow { background: var(--yellow) !important; }
+      .orange { background: var(--orange) !important; }
+      .teal { background: var(--teal) !important; }
+      .pink { background: var(--pink) !important; }
+      .gray { background: var(--gray) !important; }
+
+      .field,
+      .write-area,
+      .challenge-box,
+      .number-box,
+      .step {
+        background: white !important;
+      }
+
+      .two-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .three-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .process {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 2mm !important;
       }
 
       .task,
+      .field,
       .challenge-box,
-      .answer-box,
-      .two-grid,
-      .three-grid,
-      .tip,
-      .check {
-        page-break-inside: avoid;
+      .number-box,
+      .step {
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .sheet-head h2,
+      .task h3,
+      .field strong,
+      .challenge-box,
+      .number-box,
+      .step {
+        color: var(--dark) !important;
+      }
+
+      .sheet-head p,
+      .task p,
+      .task li,
+      .footer-note {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -453,29 +511,19 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
-
-    <a href="material-a4-elevblad.html" class="back-link">
-      ← A4 Elevblad
-    </a>
-
+    <a href="material-a4-elevblad.html" class="back-link">← A4 Elevblad</a>
   </div>
 
   <div class="hero">
-
     <div class="hero-icon">🚀🧠</div>
-
     <h1>Utmaning F–9</h1>
-
     <h2>Utforska • Ändra • Hitta fler • Generalisera • Skapa</h2>
 
     <p>
-      En utmaning betyder inte bara större tal eller fler uppgifter.
-      Här ska du tänka djupare, undersöka vad som händer när villkor ändras
-      och försöka upptäcka matematiska regler.
+      Sex utskriftsklara elevblad där utmaningen ligger i djupare tänkande,
+      inte i fler likadana rutinuppgifter.
     </p>
-
   </div>
 
 </header>
@@ -485,588 +533,381 @@
 
   <div class="intro">
 
-    <h2>🌟 Djupare matematik</h2>
+    <h2>🚀 Utmaning betyder mer matematik – inte bara mer arbete</h2>
 
     <p>
-      Du behöver inte alltid bli klar snabbt.
-      Pröva idéer, hitta flera lösningar och ställ nya frågor till problemet.
+      Elever får ändra villkor, hitta flera lösningar,
+      upptäcka samband, formulera regler och skapa egna problem.
     </p>
 
     <button class="print-button" onclick="window.print()">
-      🖨️ Skriv ut alla elevblad
+      🖨️ Skriv ut alla sex elevblad
     </button>
 
   </div>
 
 
-  <!-- F–3 -->
+  <!-- F–3 BLAD 1 -->
 
-  <section class="stage">
+  <section class="sheet f3">
 
-    <div class="stage-title">
-      <h2>🌱 F–3</h2>
-      <p>Hitta fler sätt och upptäck enkla mönster.</p>
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Utmaning – blad 1</h2>
+      <p>Tal • hitta fler • ändra villkor</p>
     </div>
 
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
 
-    <article class="sheet f3">
-
-      <div class="sheet-head">
-        <div>
-          <h3>🌱 Kan du hitta fler?</h3>
-          <p>Elevblad 1 – F–3</p>
-        </div>
-
-        <div class="level">F–3</div>
+    <div class="task green">
+      <h3>1. Hitta flera</h3>
+      <div class="challenge-box">
+        Hitta så många sätt du kan att göra talet 12
+        med addition.
       </div>
+      <div class="write-area large"></div>
+    </div>
 
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
+    <div class="task blue">
+      <h3>2. Tre tal</h3>
+      <p>
+        Kan du göra 12 med exakt tre positiva heltal?
+        Hitta flera sätt.
+      </p>
+      <div class="write-area large"></div>
+    </div>
 
+    <div class="task yellow">
+      <h3>3. Ändra regeln</h3>
+      <p>
+        Gör 12 med både addition och subtraktion.
+      </p>
+      <div class="write-area large"></div>
+    </div>
 
-      <div class="task">
+    <div class="task teal">
+      <h3>4. Skapa en egen regel</h3>
+      <p>
+        Bestäm ett nytt villkor och utmana en klasskamrat.
+      </p>
+      <div class="write-area large"></div>
+    </div>
 
-        <h4>1. Gör talet 12</h4>
-
-        <div class="challenge-box">
-          <strong>Uppdrag:</strong>
-          Skriv så många olika additionsuttryck du kan som blir 12.
-        </div>
-
-        <div class="answer-box large"></div>
-
-        <p style="margin-top:10px;">
-          Hur vet du att du hittat alla par av icke-negativa heltal?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Tre tal</h4>
-
-        <p>
-          Kan du göra 12 med <strong>tre tal</strong>?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-        <p>
-          Hitta minst fem olika sätt.
-        </p>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Ändra måltalet</h4>
-
-        <p>
-          Om måltalet i stället är 15, vad blir lika och vad förändras?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="check">
-        <strong>✅ Jag utmanar mitt tänkande</strong>
-        <ul>
-          <li>Jag hittar mer än en lösning.</li>
-          <li>Jag försöker se ett mönster.</li>
-          <li>Jag kan förklara vad som förändras.</li>
-        </ul>
-      </div>
-
-    </article>
-
-
-    <article class="sheet f3">
-
-      <div class="sheet-head">
-        <div>
-          <h3>🌱 Bygg, ändra och upptäck</h3>
-          <p>Elevblad 2 – F–3</p>
-        </div>
-
-        <div class="level">F–3</div>
-      </div>
-
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
-
-
-      <div class="task">
-
-        <h4>1. Rektanglar med 12 rutor</h4>
-
-        <p>
-          Du har 12 lika stora kvadratiska rutor.
-        </p>
-
-        <p>
-          Bygg eller rita alla olika rektanglar som använder alla 12 rutor.
-        </p>
-
-        <div class="answer-box xlarge"></div>
-
-        <p>
-          Vilka sidlängder har rektanglarna?
-        </p>
-
-        <div class="answer-box"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Omkrets</h4>
-
-        <p>
-          Har rektanglarna samma omkrets?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Ny utmaning</h4>
-
-        <p>
-          Vad händer om du får 18 rutor i stället?
-        </p>
-
-        <div class="answer-box large"></div>
-
-      </div>
-
-    </article>
-
+    <div class="footer-note">HOLOS Matteresan • Utmaning F–3</div>
   </section>
 
 
-  <!-- 4–6 -->
+  <!-- F–3 BLAD 2 -->
 
-  <section class="stage">
+  <section class="sheet f3">
 
-    <div class="stage-title">
-      <h2>🌿 4–6</h2>
-      <p>Ändra villkor och undersök hur lösningar påverkas.</p>
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Utmaning – blad 2</h2>
+      <p>Mönster • förutsäga • skapa</p>
     </div>
 
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
 
-    <article class="sheet m46">
-
-      <div class="sheet-head">
-        <div>
-          <h3>🌿 Ändra villkoret</h3>
-          <p>Elevblad 1 – 4–6</p>
-        </div>
-
-        <div class="level">4–6</div>
+    <div class="task green">
+      <h3>1. Fortsätt mönstret</h3>
+      <div class="number-box">
+        2, 5, 8, 11, 14, ...
       </div>
-
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
-
-
-      <div class="task">
-
-        <h4>1. Fordonen 🚲</h4>
-
-        <div class="challenge-box">
-          Det finns 20 fordon.
-          De är cyklar med 2 hjul eller trehjulingar med 3 hjul.
-          Tillsammans har de 49 hjul.
-        </div>
-
-        <p>
-          Hur många är cyklar och hur många är trehjulingar?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Ändra ett villkor</h4>
-
-        <p>
-          Ändra antalet hjul så att problemet får en annan lösning.
-        </p>
-
-        <div class="two-grid">
-
-          <div class="mini-box m1">
-            <strong>Nytt antal hjul</strong>
-          </div>
-
-          <div class="mini-box m2">
-            <strong>Ny lösning</strong>
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. När finns ingen lösning?</h4>
-
-        <p>
-          Kan du välja ett antal hjul som gör problemet omöjligt?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-        <p>
-          Förklara varför.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Generalisera</h4>
-
-        <p>
-          Om alla 20 fordon är cyklar, hur många hjul finns minst?
-          Om alla är trehjulingar, hur många finns som mest?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="tip">
-        💡 Mellan minsta och största antalet hjul finns ett tydligt mönster.
-        Kan du beskriva det?
-      </div>
-
-    </article>
-
-
-    <article class="sheet m46">
-
-      <div class="sheet-head">
-        <div>
-          <h3>🌿 Flera lösningar</h3>
-          <p>Elevblad 2 – 4–6</p>
-        </div>
-
-        <div class="level">4–6</div>
-      </div>
-
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
-
-
-      <div class="task">
-
-        <h4>1. Area 36 cm²</h4>
-
-        <p>
-          Rita alla rektanglar med heltalssidor som har area 36 cm².
-        </p>
-
-        <div class="answer-box xlarge"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Jämför omkretsarna</h4>
-
-        <div class="three-grid">
-
-          <div class="small-box">
-            <strong>Minst omkrets</strong>
-          </div>
-
-          <div class="small-box">
-            <strong>Störst omkrets</strong>
-          </div>
-
-          <div class="small-box">
-            <strong>Skillnad</strong>
-          </div>
-
-        </div>
-
-        <p style="margin-top:10px;">
-          Vad verkar gälla för den rektangel som har minst omkrets?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Ny area</h4>
-
-        <p>
-          Välj en annan area och undersök om samma idé verkar gälla.
-        </p>
-
-        <div class="answer-box large"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Skapa din egen fråga</h4>
-
-        <p>
-          Skriv en ny matematisk fråga som går att undersöka med rektanglarna.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-    </article>
-
+      <div class="write-area medium"></div>
+    </div>
+
+    <div class="task blue">
+      <h3>2. Tal nummer 20</h3>
+      <p>
+        Hur kan du hitta tal nummer 20 utan att skriva alla tal?
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task yellow">
+      <h3>3. Ändra starttalet</h3>
+      <p>
+        Behåll samma regel men börja på 7.
+        Hur ser mönstret ut?
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task orange">
+      <h3>4. Skapa ett lurigt mönster</h3>
+      <p>
+        Skapa ett mönster som en klasskamrat måste lista ut.
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="footer-note">HOLOS Matteresan • Utmaning F–3</div>
   </section>
 
 
-  <!-- 7–9 -->
+  <!-- 4–6 BLAD 1 -->
 
-  <section class="stage">
+  <section class="sheet stage46">
 
-    <div class="stage-title">
-      <h2>🚀 7–9</h2>
-      <p>Generalisera samband, skapa modeller och analysera villkor.</p>
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Utmaning – blad 1</h2>
+      <p>Tal • villkor • flera lösningar</p>
     </div>
 
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
 
-    <article class="sheet m79">
-
-      <div class="sheet-head">
-        <div>
-          <h3>🚀 Från exempel till regel</h3>
-          <p>Elevblad 1 – 7–9</p>
-        </div>
-
-        <div class="level">7–9</div>
+    <div class="task blue">
+      <h3>1. Måltalet 100</h3>
+      <div class="challenge-box">
+        Använd talen 2, 4, 5 och 10.
+        Du får använda +, −, × och ÷.
+        Försök skapa 100.
       </div>
-
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
-
-
-      <div class="task">
-
-        <h4>1. Växande talföljd</h4>
-
-        <div class="challenge-box">
-          Talföljden är:
-          <br><br>
-          <strong>5, 9, 13, 17, 21, ...</strong>
-        </div>
-
-        <p>
-          Skriv de tre nästa talen.
-        </p>
-
-        <div class="answer-box"></div>
-
-        <p>
-          Beskriv förändringen med ord.
-        </p>
-
-        <div class="answer-box"></div>
-
-        <p>
-          Skriv en formel för det n:te talet.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Ändra startvärdet</h4>
-
-        <p>
-          Skapa en ny talföljd som ökar lika mycket mellan varje tal,
-          men som börjar på 12.
-        </p>
-
-        <div class="answer-box"></div>
-
-        <p>
-          Skriv formeln.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Ändra förändringstakten</h4>
-
-        <p>
-          Behåll startvärdet 5 men ändra ökningen från +4 till +7.
-        </p>
-
-        <div class="answer-box medium"></div>
-
-        <p>
-          Hur förändras formeln?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="check">
-        <strong>✅ När jag generaliserar</strong>
-        <ul>
-          <li>Jag undersöker flera exempel.</li>
-          <li>Jag beskriver vad som är konstant.</li>
-          <li>Jag skiljer på startvärde och förändring.</li>
-          <li>Jag kontrollerar regeln med flera värden.</li>
-        </ul>
-      </div>
-
-    </article>
-
-
-    <article class="sheet m79">
-
-      <div class="sheet-head">
-        <div>
-          <h3>🚀 Optimera och skapa</h3>
-          <p>Elevblad 2 – 7–9</p>
-        </div>
-
-        <div class="level">7–9</div>
-      </div>
-
-      <div class="name-row">
-        <div>Namn: <span class="line"></span></div>
-        <div>Datum: <span class="line"></span></div>
-      </div>
-
-
-      <div class="task">
-
-        <h4>1. Rektangel med omkrets 40 cm</h4>
-
-        <p>
-          En rektangel har omkrets 40 cm och heltalssidor.
-        </p>
-
-        <p>
-          Hitta flera möjliga rektanglar och beräkna deras area.
-        </p>
-
-        <div class="answer-box xlarge"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>2. Största möjliga area</h4>
-
-        <p>
-          Vilken rektangel ger störst area?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-        <p>
-          Vad verkar gälla när en rektangel med bestämd omkrets får så stor area som möjligt?
-        </p>
-
-        <div class="answer-box medium"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>3. Testa regeln</h4>
-
-        <p>
-          Pröva samma idé med omkrets 24 cm eller 60 cm.
-        </p>
-
-        <div class="answer-box large"></div>
-
-      </div>
-
-
-      <div class="task">
-
-        <h4>4. Skapa ett eget optimeringsproblem</h4>
-
-        <p>
-          Skriv ett problem där något ska bli så stort eller så litet som möjligt
-          under ett bestämt villkor.
-        </p>
-
-        <div class="answer-box large"></div>
-
-      </div>
-
-
-      <div class="tip">
-        🚀 <strong>Extra:</strong>
-        Kan du förklara varför resultatet verkar gälla generellt och inte bara i dina exempel?
-      </div>
-
-    </article>
-
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task green">
+      <h3>2. Hitta fler sätt</h3>
+      <p>
+        Finns det mer än en lösning?
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task yellow">
+      <h3>3. Nytt villkor</h3>
+      <p>
+        Försök nu skapa 100 utan att använda multiplikation.
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task purple">
+      <h3>4. Vilket villkor gör uppgiften svårast?</h3>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="footer-note">HOLOS Matteresan • Utmaning 4–6</div>
   </section>
+
+
+  <!-- 4–6 BLAD 2 -->
+
+  <section class="sheet stage46">
+
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Utmaning – blad 2</h2>
+      <p>Geometri • area • omkrets • optimera</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+    <div class="task blue">
+      <h3>1. Omkrets 24 cm</h3>
+      <div class="challenge-box">
+        Rita flera olika rektanglar med heltalssidor
+        och omkretsen 24 cm.
+      </div>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task green">
+      <h3>2. Beräkna areorna</h3>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task yellow">
+      <h3>3. Vilken ger störst area?</h3>
+      <p>
+        Vad verkar hända när sidlängderna blir mer lika?
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task orange">
+      <h3>4. Generalisera</h3>
+      <p>
+        Vilken sorts rektangel tror du ger störst area
+        när omkretsen är bestämd?
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="footer-note">HOLOS Matteresan • Utmaning 4–6</div>
+  </section>
+
+
+  <!-- 7–9 BLAD 1 -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Utmaning – blad 1</h2>
+      <p>Algebra • mönster • generalisering</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+    <div class="task purple">
+      <h3>1. Talföljden</h3>
+      <div class="number-box">
+        4, 9, 14, 19, 24, ...
+      </div>
+    </div>
+
+    <div class="task blue">
+      <h3>2. Skriv en formel</h3>
+      <p>
+        Skriv ett uttryck för det n:te talet.
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task yellow">
+      <h3>3. Baklänges</h3>
+      <p>
+        Är 504 med i talföljden?
+        Om ja, på vilken plats?
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task orange">
+      <h3>4. Ändra talföljden</h3>
+      <p>
+        Ändra startvärdet men behåll differensen.
+        Hur förändras formeln?
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task teal">
+      <h3>5. Skapa en talföljd</h3>
+      <p>
+        Skapa en talföljd där tal nummer 100 blir exakt 1 000.
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="footer-note">HOLOS Matteresan • Utmaning 7–9</div>
+  </section>
+
+
+  <!-- 7–9 BLAD 2 -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Utmaning – blad 2</h2>
+      <p>Öppet problem • modellera • skapa • värdera</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+    <div class="task purple">
+      <h3>1. Skapa ett linjärt samband</h3>
+      <div class="challenge-box">
+        Skapa ett verkligt exempel som kan beskrivas med
+        y = 4x + 30.
+      </div>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task blue">
+      <h3>2. Ändra lutningen</h3>
+      <p>
+        Vad skulle behöva förändras i din situation
+        för att sambandet istället skulle bli y = 7x + 30?
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task yellow">
+      <h3>3. Ändra startvärdet</h3>
+      <p>
+        Vad skulle behöva förändras för att sambandet blev y = 4x + 100?
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task orange">
+      <h3>4. Gör problemet svårare</h3>
+      <p>
+        Lägg till ett villkor som gör att eleven måste jämföra
+        två olika linjära modeller.
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="task teal">
+      <h3>5. Skapa din egen matematikutmaning</h3>
+      <p>
+        Den ska ha flera möjliga vägar till lösningen
+        och kräva en förklaring, inte bara ett svar.
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="footer-note">HOLOS Matteresan • Utmaning 7–9</div>
+  </section>
+
+
+  <div class="task gray">
+    <h3>🚀 Så fördjupar du matematiken</h3>
+
+    <div class="process">
+      <div class="step">1. Utforska</div>
+      <div class="step">2. Ändra</div>
+      <div class="step">3. Hitta fler</div>
+      <div class="step">4. Generalisera</div>
+      <div class="step">5. Skapa</div>
+    </div>
+  </div>
+
+
+  <div class="screen-note">
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+    Varje elevblad ska hamna på ett eget A4.
+  </div>
 
 </main>
 
 
 <footer>
-
   <strong>HOLOS Matteresan F–9</strong>
-
   <br>
-
-  🚀 Utmaning – utforska, förändra, generalisera och skapa matematik
-
+  🚀🧠 Utmaning – utforska, ändra, hitta fler, generalisera och skapa
 </footer>
 
 </body>
