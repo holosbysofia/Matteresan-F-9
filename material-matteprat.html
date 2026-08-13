@@ -15,13 +15,14 @@
 
     :root {
       --dark: #17324d;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --teal-light: #eaf7f5;
-      --pink-light: #ffe9f1;
+      --green: #edf9f1;
+      --blue: #eaf5ff;
+      --purple: #f1edff;
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -31,7 +32,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     a {
@@ -41,10 +42,10 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
-        linear-gradient(135deg, #24666a, #43958e);
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #356a76, #6e9ca5);
       color: white;
-      padding: 22px 20px 55px;
+      padding: 22px 20px 50px;
     }
 
     .topbar {
@@ -65,308 +66,64 @@
       padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
       font-weight: bold;
     }
 
     .hero {
-      max-width: 920px;
-      margin: 45px auto 0;
+      max-width: 900px;
+      margin: 42px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.2rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4.3rem);
+      font-size: clamp(2.2rem, 7vw, 4rem);
       line-height: 1.05;
       margin-bottom: 10px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 15px;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
       max-width: 850px;
       margin: auto;
-      color: #efffff;
+      color: #f3fbfc;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1120px;
       margin: auto;
-      padding: 42px 20px;
-    }
-
-    section {
-      margin-bottom: 58px;
+      padding: 40px 20px;
     }
 
     .intro {
-      background: var(--teal-light);
-      border-radius: 26px;
-      padding: 32px;
+      background: var(--teal);
+      border-radius: 24px;
+      padding: 30px;
       text-align: center;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
       color: var(--dark);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .intro p {
-      max-width: 860px;
-      margin: auto;
       color: var(--muted);
-    }
-
-    .section-title {
-      text-align: center;
-      color: var(--dark);
-      font-size: clamp(1.7rem, 4vw, 2.35rem);
-      margin-bottom: 8px;
-    }
-
-    .section-intro {
-      text-align: center;
-      color: var(--muted);
-      max-width: 840px;
-      margin: 0 auto 28px;
-    }
-
-    .stage-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .stage-card {
-      border-radius: 24px;
-      padding: 26px;
-      min-height: 250px;
-    }
-
-    .stage-card span {
-      display: block;
-      font-size: 2.6rem;
-      margin-bottom: 8px;
-    }
-
-    .stage-card h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .stage-card p {
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .stage-card ul {
-      padding-left: 20px;
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .stage-card li {
-      margin-bottom: 6px;
-    }
-
-    .f3 { background: var(--green-light); }
-    .m46 { background: var(--blue-light); }
-    .m79 { background: var(--purple-light); }
-
-    .talk-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .talk-card {
-      background: white;
-      border-radius: 22px;
-      padding: 25px;
-      border: 1px solid rgba(0,0,0,0.06);
-      min-height: 280px;
-      transition: 0.2s;
-    }
-
-    .talk-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 22px rgba(30,50,60,0.08);
-    }
-
-    .talk-card .icon {
-      font-size: 2.4rem;
-      margin-bottom: 8px;
-    }
-
-    .talk-card h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .talk-prompt {
-      background: #f4f7f9;
-      border-left: 5px solid #4b8b88;
-      border-radius: 12px;
-      padding: 16px;
-      margin: 14px 0;
-      font-weight: bold;
-      color: var(--dark);
-    }
-
-    .talk-card ul {
-      padding-left: 20px;
-      color: var(--muted);
-    }
-
-    .talk-card li {
-      margin-bottom: 7px;
-    }
-
-    .sentence-box {
-      background: var(--yellow-light);
-      border-radius: 26px;
-      padding: 30px;
-    }
-
-    .sentence-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 22px;
-    }
-
-    .sentence-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      border: 1px solid #eadfbb;
-    }
-
-    .sentence-card span {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 6px;
-    }
-
-    .sentence-card h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .sentence-card p {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .routine {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 35%),
-        linear-gradient(135deg, #17324d, #2f696e);
-      color: white;
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .routine h2 {
-      font-size: 2rem;
-      margin-bottom: 9px;
-    }
-
-    .routine > p {
       max-width: 850px;
-      color: #efffff;
-    }
-
-    .routine-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .routine-card {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 18px;
-      padding: 19px;
-      min-height: 165px;
-    }
-
-    .routine-card span {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 5px;
-    }
-
-    .routine-card h3 {
-      margin-bottom: 6px;
-      font-size: 1rem;
-    }
-
-    .routine-card p {
-      font-size: 0.89rem;
-      color: #f5ffff;
-    }
-
-    .print-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .print-card {
-      border-radius: 21px;
-      padding: 23px;
-      min-height: 190px;
-      transition: 0.2s;
-    }
-
-    .print-card:hover {
-      transform: translateY(-3px);
-    }
-
-    .print-card span {
-      display: block;
-      font-size: 2.3rem;
-      margin-bottom: 7px;
-    }
-
-    .print-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .print-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .p1 { background: var(--green-light); }
-    .p2 { background: var(--blue-light); }
-    .p3 { background: var(--purple-light); }
-    .p4 { background: var(--orange-light); }
-    .p5 { background: var(--pink-light); }
-    .p6 { background: var(--teal-light); }
-
-    .note {
-      background: var(--orange-light);
-      border-left: 6px solid #c77f43;
-      border-radius: 14px;
-      padding: 20px;
-      margin-top: 24px;
-      color: #654c37;
+      margin: auto;
     }
 
     .print-button {
-      display: inline-block;
+      margin-top: 16px;
       background: var(--dark);
       color: white;
       border: none;
@@ -374,48 +131,158 @@
       padding: 12px 20px;
       font-weight: bold;
       cursor: pointer;
+    }
+
+    .sheet {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 22px;
+      padding: 24px;
+      margin-bottom: 28px;
+      min-height: 270mm;
+    }
+
+    .sheet-head {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .sheet-head h2 {
+      color: var(--dark);
+      font-size: 1.7rem;
+      margin-bottom: 4px;
+    }
+
+    .sheet-head p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .talk-card {
+      border: 1.5px dashed #87939c;
+      border-radius: 16px;
+      padding: 16px;
+      min-height: 145px;
+      break-inside: avoid;
+    }
+
+    .talk-card span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 7px;
+    }
+
+    .talk-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+      font-size: 1rem;
+    }
+
+    .talk-card p {
+      color: #4e5d68;
+      font-size: 0.89rem;
+    }
+
+    .talk-card small {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .teacher-box {
+      background: var(--yellow);
+      border-radius: 22px;
+      padding: 28px;
+      margin-top: 34px;
+    }
+
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box > p {
+      color: var(--muted);
+    }
+
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
       margin-top: 18px;
+    }
+
+    .teacher-step {
+      background: white;
+      border-radius: 14px;
+      padding: 16px;
+      min-height: 145px;
+    }
+
+    .teacher-step span {
+      display: block;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .teacher-step h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
+      font-size: 0.93rem;
+    }
+
+    .teacher-step p {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .note {
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 24px;
+      color: #654c37;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
+      color: white;
       text-align: center;
-      padding: 34px 20px;
+      padding: 30px 20px;
       margin-top: 30px;
     }
 
-    @media (max-width: 1000px) {
-      .stage-grid,
-      .sentence-grid,
-      .print-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .routine-grid {
+    @media (max-width: 900px) {
+      .teacher-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 800px) {
-      .talk-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .routine-grid {
+      .cards,
+      .teacher-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro,
-      .sentence-box,
-      .routine {
-        padding: 24px 17px;
       }
 
       main {
@@ -424,47 +291,96 @@
       }
     }
 
+    /* =====================================
+       UTSKRIFT – A4 + FÄRG
+       ===================================== */
+
     @page {
       size: A4 portrait;
-      margin: 12mm;
+      margin: 10mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
+      body {
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
       header,
       footer,
-      .back-link,
-      .print-button {
+      .intro,
+      .teacher-box,
+      .note {
         display: none !important;
       }
 
-      body {
-        background: white;
-        color: black;
-        font-size: 10.5pt;
+      main {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+        margin: 0;
       }
 
-      main {
-        max-width: none;
+      .sheet {
+        width: 100%;
+        min-height: 277mm;
         margin: 0;
         padding: 0;
+        border: none;
+        border-radius: 0;
+        page-break-after: always;
+        break-after: page;
       }
 
-      .talk-card,
-      .stage-card,
-      .sentence-card,
-      .routine-card,
-      .print-card {
-        break-inside: avoid;
+      .sheet:last-of-type {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .cards {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 4mm !important;
+      }
+
+      .talk-card {
+        min-height: 58mm;
+        padding: 4mm;
+        border: 1.2px dashed #87939c !important;
         page-break-inside: avoid;
-        margin-bottom: 10px;
+        break-inside: avoid;
       }
 
-      .talk-grid,
-      .stage-grid,
-      .sentence-grid,
-      .routine-grid,
-      .print-grid {
-        display: block;
+      .green { background: var(--green) !important; }
+      .blue { background: var(--blue) !important; }
+      .purple { background: var(--purple) !important; }
+      .yellow { background: var(--yellow) !important; }
+      .orange { background: var(--orange) !important; }
+      .teal { background: var(--teal) !important; }
+      .pink { background: var(--pink) !important; }
+      .gray { background: var(--gray) !important; }
+
+      .sheet-head h2,
+      .talk-card h3 {
+        color: var(--dark) !important;
+      }
+
+      .sheet-head p,
+      .talk-card p,
+      .talk-card small {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -475,13 +391,11 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
 
-    <a href="larare-material.html" class="back-link">
-      ← Materialbanken
+    <a href="larare-utskrift.html" class="back-link">
+      ← Utskriftscentralen
     </a>
-
   </div>
 
   <div class="hero">
@@ -490,11 +404,11 @@
 
     <h1>Matteprat F–9</h1>
 
-    <h2>Tänk • Dela • Lyssna • Jämför • Resonera</h2>
+    <h2>Tänk • Lyssna • Förklara • Jämför • Motivera</h2>
 
     <p>
-      Färdiga matematiska samtalsstarter som hjälper eleverna
-      att sätta ord på strategier, jämföra idéer och utveckla matematiska resonemang.
+      Samtalsfrågor som hjälper eleverna att sätta ord på
+      matematiska idéer, strategier, samband och resonemang.
     </p>
 
   </div>
@@ -504,719 +418,573 @@
 
 <main>
 
-  <section>
+  <div class="intro">
 
-    <div class="intro">
+    <h2>💬 Matematik ska höras</h2>
 
-      <h2>💬 Matematik blir synlig när eleverna får prata om sitt tänkande</h2>
-
-      <p>
-        Matteprat handlar inte om att läraren förklarar mer.
-        Det handlar om att eleverna får tänka, formulera idéer, lyssna,
-        jämföra strategier och bygga vidare på varandras resonemang.
-      </p>
-
-      <button class="print-button" onclick="window.print()">
-        🖨️ Skriv ut mattepraten
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">🌱 🌿 🚀 Matteprat genom F–9</h2>
-
-    <p class="section-intro">
-      Samtalets matematiska djup utvecklas successivt.
+    <p>
+      Använd frågorna i helklass, par eller smågrupper.
+      Ge tänketid först och låt eleverna jämföra idéer innan läraren sammanfattar.
     </p>
 
-    <div class="stage-grid">
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut mattepratkort
+    </button>
 
-      <div class="stage-card f3">
+  </div>
 
-        <span>🌱</span>
 
-        <h3>F–3</h3>
+  <!-- SIDA 1 -->
 
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>1. Förklara ditt tänkande</h2>
+      <p>Meningsstarter för matematiska förklaringar</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="talk-card green">
+        <span>💭</span>
+        <h3>Jag tänkte...</h3>
         <p>
-          Se, beskriva och visa med konkreta och visuella representationer.
+          Börja med att beskriva vad du gjorde först och varför.
         </p>
-
-        <ul>
-          <li>Vad ser du?</li>
-          <li>Hur såg du antalet?</li>
-          <li>Kan du visa på ett annat sätt?</li>
-          <li>Vad är lika och olika?</li>
-          <li>Hur vet du?</li>
-        </ul>
-
       </div>
 
-
-      <div class="stage-card m46">
-
-        <span>🌿</span>
-
-        <h3>4–6</h3>
-
-        <p>
-          Jämföra strategier, samband och representationer.
-        </p>
-
-        <ul>
-          <li>Vilken strategi valde du?</li>
-          <li>Vilken är effektivast?</li>
-          <li>Hur hänger metoderna ihop?</li>
-          <li>Kan svaret vara rimligt?</li>
-          <li>Vad händer om vi ändrar villkoret?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="stage-card m79">
-
-        <span>🚀</span>
-
-        <h3>7–9</h3>
-
-        <p>
-          Argumentera, generalisera och värdera matematiska påståenden.
-        </p>
-
-        <ul>
-          <li>Gäller detta alltid?</li>
-          <li>Kan du hitta ett motexempel?</li>
-          <li>Hur kan sambandet generaliseras?</li>
-          <li>Vilken representation visar mest?</li>
-          <li>Vilka antaganden görs?</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">💭 Vilken hör inte ihop?</h2>
-
-    <p class="section-intro">
-      Det kan finnas flera rimliga svar. Det viktiga är argumentet.
-    </p>
-
-    <div class="talk-grid">
-
-
-      <div class="talk-card">
-
-        <div class="icon">🔢</div>
-
-        <h3>Tal</h3>
-
-        <div class="talk-prompt">
-          12 &nbsp;&nbsp; 18 &nbsp;&nbsp; 24 &nbsp;&nbsp; 25
-        </div>
-
-        <ul>
-          <li>Vilket tal hör inte ihop?</li>
-          <li>Kan någon välja ett annat?</li>
-          <li>Vilka egenskaper använder ni?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">🍕</div>
-
-        <h3>Bråk</h3>
-
-        <div class="talk-prompt">
-          1/2 &nbsp;&nbsp; 2/4 &nbsp;&nbsp; 3/6 &nbsp;&nbsp; 4/6
-        </div>
-
-        <ul>
-          <li>Vilket kan tas bort?</li>
-          <li>Vilka har samma värde?</li>
-          <li>Finns mer än ett möjligt svar?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">📐</div>
-
-        <h3>Geometri</h3>
-
-        <div class="talk-prompt">
-          Kvadrat &nbsp;&nbsp; Rektangel &nbsp;&nbsp; Triangel &nbsp;&nbsp; Parallellogram
-        </div>
-
-        <ul>
-          <li>Vilken hör inte ihop?</li>
-          <li>Vilka egenskaper delar formerna?</li>
-          <li>Kan kvadraten tillhöra flera grupper?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">📊</div>
-
-        <h3>Statistik</h3>
-
-        <div class="talk-prompt">
-          Medelvärde &nbsp;&nbsp; Median &nbsp;&nbsp; Typvärde &nbsp;&nbsp; Omkrets
-        </div>
-
-        <ul>
-          <li>Vilket begrepp skiljer sig?</li>
-          <li>Vad beskriver de tre andra?</li>
-          <li>När används de?</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">✅❌ Sant, falskt eller ibland?</h2>
-
-    <p class="section-intro">
-      Be alltid eleverna motivera och gärna skapa exempel eller motexempel.
-    </p>
-
-    <div class="talk-grid">
-
-
-      <div class="talk-card">
-
-        <div class="icon">➕</div>
-
-        <h3>Räknesätt</h3>
-
-        <div class="talk-prompt">
-          ”När man adderar blir svaret alltid större.”
-        </div>
-
-        <ul>
-          <li>Stämmer det alltid?</li>
-          <li>Kan du hitta ett exempel där det inte stämmer?</li>
-          <li>Vilka tal behöver vi tänka på?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">✖️</div>
-
-        <h3>Multiplikation</h3>
-
-        <div class="talk-prompt">
-          ”När man multiplicerar blir svaret alltid större.”
-        </div>
-
-        <ul>
-          <li>Vad händer om vi multiplicerar med 1?</li>
-          <li>Vad händer med 0,5?</li>
-          <li>Vad händer med 0?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">🍕</div>
-
-        <h3>Bråk</h3>
-
-        <div class="talk-prompt">
-          ”Ju större nämnare, desto större bråk.”
-        </div>
-
-        <ul>
-          <li>Testa med 1/2 och 1/8.</li>
-          <li>Kan påståendet någon gång stämma?</li>
-          <li>Hur kan en bild hjälpa?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">💯</div>
-
-        <h3>Procent</h3>
-
-        <div class="talk-prompt">
-          ”En ökning med 20 % följd av en minskning med 20 % ger samma värde som från början.”
-        </div>
-
-        <ul>
-          <li>Testa med 100.</li>
-          <li>Varför blir resultatet inte samma?</li>
-          <li>Vad händer med förändringsfaktorerna?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">📐</div>
-
-        <h3>Geometri</h3>
-
-        <div class="talk-prompt">
-          ”Alla kvadrater är rektanglar.”
-        </div>
-
-        <ul>
-          <li>Vilka egenskaper krävs för en rektangel?</li>
-          <li>Uppfyller kvadraten dem?</li>
-          <li>Är alla rektanglar kvadrater?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">🎲</div>
-
-        <h3>Sannolikhet</h3>
-
-        <div class="talk-prompt">
-          ”Efter fem klave i rad är krona mer sannolikt nästa gång.”
-        </div>
-
-        <ul>
-          <li>Påverkar tidigare kast nästa kast?</li>
-          <li>Vad betyder oberoende händelser?</li>
-          <li>Vad är sannolikheten vid nästa kast?</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">⚖️ Jämför strategier</h2>
-
-    <p class="section-intro">
-      Fokus ligger på varför strategierna fungerar och när de är användbara.
-    </p>
-
-    <div class="talk-grid">
-
-
-      <div class="talk-card">
-
-        <div class="icon">🧠</div>
-
-        <h3>48 + 29</h3>
-
-        <div class="talk-prompt">
-          Strategi A: 48 + 30 − 1<br><br>
-          Strategi B: 40 + 20 + 8 + 9
-        </div>
-
-        <ul>
-          <li>Hur fungerar båda strategierna?</li>
-          <li>Vilken tycker du är effektivast?</li>
-          <li>Skulle samma strategi passa 48 + 32?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">✖️</div>
-
-        <h3>25 × 16</h3>
-
-        <div class="talk-prompt">
-          Strategi A: 25 × 8 × 2<br><br>
-          Strategi B: 25 × 10 + 25 × 6
-        </div>
-
-        <ul>
-          <li>Varför får båda samma svar?</li>
-          <li>Vilka räknelagar syns?</li>
-          <li>Kan du hitta en tredje strategi?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">🍕</div>
-
-        <h3>3/4 av 20</h3>
-
-        <div class="talk-prompt">
-          Strategi A: 20 ÷ 4 × 3<br><br>
-          Strategi B: 1/4 av 20 är 5, alltså 3 × 5
-        </div>
-
-        <ul>
-          <li>Hur hänger strategierna ihop?</li>
-          <li>Vad betyder divisionen med 4?</li>
-          <li>Hur skulle du lösa 3/5 av 20?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">💯</div>
-
-        <h3>15 % av 200</h3>
-
-        <div class="talk-prompt">
-          Strategi A: 10 % + 5 %<br><br>
-          Strategi B: 0,15 × 200
-        </div>
-
-        <ul>
-          <li>Vad visar varje strategi?</li>
-          <li>Vilken är lättast i huvudet?</li>
-          <li>När är decimalmetoden mer praktisk?</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">🔍 Vad ser du?</h2>
-
-    <p class="section-intro">
-      Korta samtalsstarter som fungerar i början av en lektion.
-    </p>
-
-    <div class="talk-grid">
-
-
-      <div class="talk-card">
-
-        <div class="icon">👀</div>
-
-        <h3>Talrelation</h3>
-
-        <div class="talk-prompt">
-          49 + 51 = 100
-        </div>
-
-        <ul>
-          <li>Vad ser du?</li>
-          <li>Vilka andra talpar ger 100?</li>
-          <li>Hur kan du hitta dem systematiskt?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">🔗</div>
-
-        <h3>Samband</h3>
-
-        <div class="talk-prompt">
-          5 × 8 = 40<br>
-          10 × 8 = 80<br>
-          20 × 8 = 160
-        </div>
-
-        <ul>
-          <li>Vad förändras?</li>
-          <li>Vad händer med produkten?</li>
-          <li>Vilket samband kan du beskriva?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">🔤</div>
-
-        <h3>Algebra</h3>
-
-        <div class="talk-prompt">
-          3, 7, 11, 15, 19...
-        </div>
-
-        <ul>
-          <li>Vad ser du?</li>
-          <li>Vilket tal kommer på plats 10?</li>
-          <li>Kan du skriva en regel med n?</li>
-        </ul>
-
-      </div>
-
-
-      <div class="talk-card">
-
-        <div class="icon">📈</div>
-
-        <h3>Förändring</h3>
-
-        <div class="talk-prompt">
-          x: 0 &nbsp; 1 &nbsp; 2 &nbsp; 3<br>
-          y: 5 &nbsp; 8 &nbsp; 11 &nbsp; 14
-        </div>
-
-        <ul>
-          <li>Hur förändras y?</li>
-          <li>Vad är startvärdet?</li>
-          <li>Vilken formel beskriver sambandet?</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="sentence-box">
-
-      <h2 class="section-title">🗣️ Meningsstarter för elever</h2>
-
-      <p class="section-intro">
-        Språkstöd kan hjälpa eleverna att uttrycka matematiska idéer utan att sänka den matematiska nivån.
-      </p>
-
-      <div class="sentence-grid">
-
-        <div class="sentence-card">
-          <span>💡</span>
-          <h3>Beskriva</h3>
-          <p>
-            Jag ser att...<br>
-            Jag lade märke till...<br>
-            Mönstret verkar...
-          </p>
-        </div>
-
-        <div class="sentence-card">
-          <span>🧠</span>
-          <h3>Förklara</h3>
-          <p>
-            Jag tänkte så här...<br>
-            Först... sedan...<br>
-            Det fungerar eftersom...
-          </p>
-        </div>
-
-        <div class="sentence-card">
-          <span>⚖️</span>
-          <h3>Jämföra</h3>
-          <p>
-            Strategierna är lika eftersom...<br>
-            Skillnaden är...<br>
-            Jag tycker denna är effektivare eftersom...
-          </p>
-        </div>
-
-        <div class="sentence-card">
-          <span>🤝</span>
-          <h3>Bygga vidare</h3>
-          <p>
-            Jag håller med eftersom...<br>
-            Jag vill lägga till...<br>
-            Jag tänkte på ett annat sätt...
-          </p>
-        </div>
-
-        <div class="sentence-card">
-          <span>❓</span>
-          <h3>Fråga</h3>
-          <p>
-            Hur menar du när...?<br>
-            Varför valde du...?<br>
-            Kan du visa hur...?
-          </p>
-        </div>
-
-        <div class="sentence-card">
-          <span>🔎</span>
-          <h3>Argumentera</h3>
-          <p>
-            Jag vet att det stämmer eftersom...<br>
-            Ett exempel är...<br>
-            Ett motexempel är...
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="routine">
-
-      <h2>🔄 Enkel struktur för matteprat</h2>
-
-      <p>
-        En kort rutin gör att fler elever hinner tänka innan några få snabba elever tar över samtalet.
-      </p>
-
-      <div class="routine-grid">
-
-        <div class="routine-card">
-          <span>1️⃣</span>
-          <h3>Presentera</h3>
-          <p>
-            Visa en fråga, bild, lösning eller ett matematiskt påstående.
-          </p>
-        </div>
-
-        <div class="routine-card">
-          <span>2️⃣</span>
-          <h3>Tänketid</h3>
-          <p>
-            Ge tyst tid så att alla får möjlighet att formulera en idé.
-          </p>
-        </div>
-
-        <div class="routine-card">
-          <span>3️⃣</span>
-          <h3>Parprat</h3>
-          <p>
-            Eleverna provar sina tankar med en kamrat.
-          </p>
-        </div>
-
-        <div class="routine-card">
-          <span>4️⃣</span>
-          <h3>Gemensamt</h3>
-          <p>
-            Lyft flera strategier och låt eleverna jämföra dem.
-          </p>
-        </div>
-
-        <div class="routine-card">
-          <span>5️⃣</span>
-          <h3>Sammanfatta</h3>
-          <p>
-            Sätt ord på den matematiska idé som samtalet har synliggjort.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">🗂️ Fler verktyg</h2>
-
-    <p class="section-intro">
-      Gå vidare till lärarstöd och andra delar av materialbanken.
-    </p>
-
-    <div class="print-grid">
-
-      <a href="larare-matteprat.html" class="print-card p1">
-        <span>👩‍🏫</span>
-        <h3>Lärarstöd Matteprat</h3>
-        <p>
-          Samtalsdrag, lektionsstruktur, progression och observation.
-        </p>
-      </a>
-
-      <a href="material-begrepp.html" class="print-card p2">
-        <span>📚</span>
-        <h3>Begreppskort</h3>
-        <p>
-          Språk- och begreppsstöd för matematiska samtal.
-        </p>
-      </a>
-
-      <a href="material-problem.html" class="print-card p3">
+      <div class="talk-card blue">
         <span>🧠</span>
-        <h3>Problembank</h3>
+        <h3>Jag valde den här strategin eftersom...</h3>
         <p>
-          Problem att använda som grund för matematiska samtal.
+          Förklara varför strategin passade just den här uppgiften.
         </p>
-      </a>
+      </div>
 
-      <a href="larare-observation.html" class="print-card p4">
-        <span>👀</span>
-        <h3>Observation</h3>
+      <div class="talk-card purple">
+        <span>🔍</span>
+        <h3>Jag såg att...</h3>
         <p>
-          Observera strategier, begrepp, resonemang och deltagande.
+          Vilket mönster, samband eller ledtråd lade du märke till?
         </p>
-      </a>
+      </div>
 
-      <a href="larare-sprak.html" class="print-card p5">
-        <span>🗣️</span>
-        <h3>Språk & begrepp</h3>
+      <div class="talk-card yellow">
+        <span>🎨</span>
+        <h3>Min bild visar...</h3>
         <p>
-          Språkmedveten matematik genom hela F–9.
+          Förklara hur bilden eller modellen hör ihop med matematiken.
         </p>
-      </a>
+      </div>
 
-      <a href="larare-sva.html" class="print-card p6">
+      <div class="talk-card orange">
+        <span>🔢</span>
+        <h3>Beräkningen betyder...</h3>
+        <p>
+          Sätt ord på vad talen och operationerna representerar.
+        </p>
+      </div>
+
+      <div class="talk-card teal">
+        <span>✅</span>
+        <h3>Jag vet att det stämmer eftersom...</h3>
+        <p>
+          Motivera varför lösningen fungerar.
+        </p>
+      </div>
+
+      <div class="talk-card pink">
         <span>🌍</span>
-        <h3>SVA & flerspråkighet</h3>
+        <h3>Svaret betyder...</h3>
         <p>
-          Stöd för att låta matematiskt tänkande bli synligt även när svenskan utvecklas.
+          Tolka svaret tillbaka i situationen.
         </p>
-      </a>
+      </div>
 
-    </div>
+      <div class="talk-card gray">
+        <span>🔄</span>
+        <h3>Jag kontrollerade genom att...</h3>
+        <p>
+          Beskriv hur du testade rimlighet eller använde en annan metod.
+        </p>
+      </div>
 
-
-    <div class="note">
-      <strong>Viktigt:</strong>
-      matteprat är inte ett muntligt facitförhör. Läraren behöver skapa utrymme för
-      flera idéer, be elever motivera och koppla ihop deras strategier med den matematiska kärnan.
     </div>
 
   </section>
+
+
+  <!-- SIDA 2 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>2. Jämför strategier</h2>
+      <p>Likheter • skillnader • effektivitet • tydlighet</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="talk-card green">
+        <span>⚖️</span>
+        <h3>Vad är lika?</h3>
+        <p>
+          Vilken matematisk idé finns i båda lösningarna?
+        </p>
+      </div>
+
+      <div class="talk-card blue">
+        <span>↔️</span>
+        <h3>Vad är olika?</h3>
+        <p>
+          Vilka steg, representationer eller strategier skiljer sig?
+        </p>
+      </div>
+
+      <div class="talk-card purple">
+        <span>🛣️</span>
+        <h3>Två olika vägar</h3>
+        <p>
+          Kan båda strategierna ge rätt svar? Varför?
+        </p>
+      </div>
+
+      <div class="talk-card yellow">
+        <span>🎯</span>
+        <h3>Vilken passar bäst här?</h3>
+        <p>
+          Välj en strategi och motivera valet.
+        </p>
+      </div>
+
+      <div class="talk-card orange">
+        <span>⚡</span>
+        <h3>Vilken är effektiv?</h3>
+        <p>
+          Finns en metod som kräver färre eller enklare steg?
+        </p>
+      </div>
+
+      <div class="talk-card teal">
+        <span>👀</span>
+        <h3>Vilken är tydligast?</h3>
+        <p>
+          Vilken lösning hjälper bäst någon annan att förstå?
+        </p>
+      </div>
+
+      <div class="talk-card pink">
+        <span>🔄</span>
+        <h3>När skulle du byta strategi?</h3>
+        <p>
+          Vilken förändring i uppgiften skulle göra en annan metod bättre?
+        </p>
+      </div>
+
+      <div class="talk-card gray">
+        <span>🚀</span>
+        <h3>Kan du skapa en tredje väg?</h3>
+        <p>
+          Hitta en ny representation eller strategi.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SIDA 3 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>3. Fråga vidare</h2>
+      <p>Följdfrågor som öppnar elevens tänkande</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="talk-card green">
+        <span>❓</span>
+        <h3>Hur menar du?</h3>
+        <p>
+          Berätta lite mer om just det steget.
+        </p>
+      </div>
+
+      <div class="talk-card blue">
+        <span>🔍</span>
+        <h3>Hur vet du?</h3>
+        <p>
+          Vilket stöd har du för din slutsats?
+        </p>
+      </div>
+
+      <div class="talk-card purple">
+        <span>🎨</span>
+        <h3>Kan du visa det på ett annat sätt?</h3>
+        <p>
+          Rita, använd material, tabell, graf eller symboler.
+        </p>
+      </div>
+
+      <div class="talk-card yellow">
+        <span>🧩</span>
+        <h3>Kan du ge ett exempel?</h3>
+        <p>
+          Visa ett konkret fall som stödjer ditt resonemang.
+        </p>
+      </div>
+
+      <div class="talk-card orange">
+        <span>❌</span>
+        <h3>Kan du hitta ett motexempel?</h3>
+        <p>
+          Finns ett exempel där påståendet inte fungerar?
+        </p>
+      </div>
+
+      <div class="talk-card teal">
+        <span>🔄</span>
+        <h3>Vad händer om...?</h3>
+        <p>
+          Ändra ett tal eller villkor och undersök effekten.
+        </p>
+      </div>
+
+      <div class="talk-card pink">
+        <span>🔗</span>
+        <h3>Vad hänger detta ihop med?</h3>
+        <p>
+          Koppla till något matematiskt du redan känner igen.
+        </p>
+      </div>
+
+      <div class="talk-card gray">
+        <span>🎯</span>
+        <h3>Vad är den viktiga idén?</h3>
+        <p>
+          Försök uttrycka matematiken bakom just den här uppgiften.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SIDA 4 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>4. Sant, falskt eller ibland?</h2>
+      <p>Pröva • argumentera • ge exempel • hitta motexempel</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="talk-card green">
+        <span>➕</span>
+        <h3>Addition</h3>
+        <p>
+          När man adderar två tal blir svaret alltid större än båda talen.
+        </p>
+        <small>Sant, falskt eller ibland? Motivera.</small>
+      </div>
+
+      <div class="talk-card blue">
+        <span>✖️</span>
+        <h3>Multiplikation</h3>
+        <p>
+          När man multiplicerar två tal blir svaret alltid större.
+        </p>
+        <small>Ge exempel och motexempel.</small>
+      </div>
+
+      <div class="talk-card purple">
+        <span>🍕</span>
+        <h3>Bråk</h3>
+        <p>
+          Ju större nämnaren är, desto större är bråket.
+        </p>
+        <small>När fungerar påståendet inte?</small>
+      </div>
+
+      <div class="talk-card yellow">
+        <span>📐</span>
+        <h3>Geometri</h3>
+        <p>
+          Alla kvadrater är rektanglar.
+        </p>
+        <small>Motivera med egenskaper.</small>
+      </div>
+
+      <div class="talk-card orange">
+        <span>💯</span>
+        <h3>Procent</h3>
+        <p>
+          En ökning med 20 % och en minskning med 20 % tar ut varandra.
+        </p>
+        <small>Pröva med ett startvärde.</small>
+      </div>
+
+      <div class="talk-card teal">
+        <span>📊</span>
+        <h3>Statistik</h3>
+        <p>
+          Medelvärdet är alltid ett bra mått på ett typiskt värde.
+        </p>
+        <small>Kan extrema värden påverka?</small>
+      </div>
+
+      <div class="talk-card pink">
+        <span>🎲</span>
+        <h3>Sannolikhet</h3>
+        <p>
+          Efter fem krona i rad är klave mer sannolikt nästa kast.
+        </p>
+        <small>Resonera om oberoende försök.</small>
+      </div>
+
+      <div class="talk-card gray">
+        <span>📈</span>
+        <h3>Samband</h3>
+        <p>
+          Alla linjära samband är proportionella.
+        </p>
+        <small>Vad måste gälla för proportionalitet?</small>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SIDA 5 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>5. Generalisera</h2>
+      <p>Från exempel till matematisk regel</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="talk-card green">
+        <span>🔍</span>
+        <h3>Vad förändras?</h3>
+        <p>
+          Vad varierar från ett exempel till nästa?
+        </p>
+      </div>
+
+      <div class="talk-card blue">
+        <span>🔒</span>
+        <h3>Vad är konstant?</h3>
+        <p>
+          Vad förblir samma?
+        </p>
+      </div>
+
+      <div class="talk-card purple">
+        <span>🧩</span>
+        <h3>Vilket mönster ser du?</h3>
+        <p>
+          Beskriv mönstret med ord.
+        </p>
+      </div>
+
+      <div class="talk-card yellow">
+        <span>🔢</span>
+        <h3>Kan du skriva en regel?</h3>
+        <p>
+          Försök uttrycka mönstret matematiskt.
+        </p>
+      </div>
+
+      <div class="talk-card orange">
+        <span>🚀</span>
+        <h3>Gäller det alltid?</h3>
+        <p>
+          Hur kan du undersöka om regeln gäller i fler fall?
+        </p>
+      </div>
+
+      <div class="talk-card teal">
+        <span>❌</span>
+        <h3>När fungerar regeln inte?</h3>
+        <p>
+          Leta efter gränsfall eller motexempel.
+        </p>
+      </div>
+
+      <div class="talk-card pink">
+        <span>🔤</span>
+        <h3>Kan du använda en variabel?</h3>
+        <p>
+          Skriv den generella idén med bokstäver.
+        </p>
+      </div>
+
+      <div class="talk-card gray">
+        <span>🌍</span>
+        <h3>Var kan detta användas?</h3>
+        <p>
+          Ge ett nytt matematiskt eller verkligt sammanhang.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SIDA 6 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>6. Reflektera över lärandet</h2>
+      <p>Synliggör strategier, förståelse och nästa steg</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="talk-card green">
+        <span>💡</span>
+        <h3>Vad blev tydligare idag?</h3>
+        <p>
+          Beskriv en matematisk idé du förstår bättre nu.
+        </p>
+      </div>
+
+      <div class="talk-card blue">
+        <span>🧠</span>
+        <h3>Vilken strategi använde du?</h3>
+        <p>
+          Varför fungerade den?
+        </p>
+      </div>
+
+      <div class="talk-card purple">
+        <span>🛣️</span>
+        <h3>Vilken annan strategi såg du?</h3>
+        <p>
+          Vad lärde du dig av någon annans lösning?
+        </p>
+      </div>
+
+      <div class="talk-card yellow">
+        <span>❓</span>
+        <h3>Vad funderar du fortfarande på?</h3>
+        <p>
+          Formulera en matematisk fråga.
+        </p>
+      </div>
+
+      <div class="talk-card orange">
+        <span>❌</span>
+        <h3>Vad lärde du dig av ett misstag?</h3>
+        <p>
+          Beskriv hur ditt tänkande förändrades.
+        </p>
+      </div>
+
+      <div class="talk-card teal">
+        <span>🔗</span>
+        <h3>Vad hänger detta ihop med?</h3>
+        <p>
+          Koppla dagens matematik till något tidigare.
+        </p>
+      </div>
+
+      <div class="talk-card pink">
+        <span>🚀</span>
+        <h3>Hur skulle du utmana uppgiften?</h3>
+        <p>
+          Ändra villkor, hitta fler lösningar eller generalisera.
+        </p>
+      </div>
+
+      <div class="talk-card gray">
+        <span>➡️</span>
+        <h3>Vad blir ditt nästa steg?</h3>
+        <p>
+          Vad behöver du undersöka eller träna vidare på?
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Samtalsstruktur</h2>
+
+    <p>
+      För att fler elever ska delta behöver matteprat innehålla tänketid
+      och möjlighet att först formulera sig tillsammans med en kamrat.
+    </p>
+
+    <div class="teacher-grid">
+
+      <div class="teacher-step">
+        <span>1️⃣</span>
+        <h3>Presentera</h3>
+        <p>
+          Ge en tydlig fråga, bild, lösning eller påstående.
+        </p>
+      </div>
+
+      <div class="teacher-step">
+        <span>2️⃣</span>
+        <h3>Tänketid</h3>
+        <p>
+          Ge alla elever tid att formulera en egen tanke.
+        </p>
+      </div>
+
+      <div class="teacher-step">
+        <span>3️⃣</span>
+        <h3>Parprat</h3>
+        <p>
+          Låt eleverna pröva sina ord med en kamrat.
+        </p>
+      </div>
+
+      <div class="teacher-step">
+        <span>4️⃣</span>
+        <h3>Gemensamt</h3>
+        <p>
+          Jämför strategier, representationer och resonemang.
+        </p>
+      </div>
+
+      <div class="teacher-step">
+        <span>5️⃣</span>
+        <h3>Sammanfatta</h3>
+        <p>
+          Lyft den matematiska kärnan som samtalet har synliggjort.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="note">
+
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+
+  </div>
 
 </main>
 
@@ -1227,7 +995,7 @@
 
   <br>
 
-  💬 Matteprat – tänk, dela, lyssna, jämför och resonera
+  💬 Matteprat – tänk, lyssna, förklara, jämför och motivera
 
 </footer>
 
