@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>A4 Elevblad F–9 | HOLOS Matteresan</title>
+  <title>A4-kort F–9 | HOLOS Matteresan</title>
 
   <style>
     * {
@@ -15,13 +15,14 @@
 
     :root {
       --dark: #17324d;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --teal-light: #eaf7f5;
-      --pink-light: #ffe9f1;
+      --green: #edf9f1;
+      --blue: #eaf5ff;
+      --purple: #f1edff;
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -31,7 +32,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     a {
@@ -42,9 +43,9 @@
     header {
       background:
         radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
-        linear-gradient(135deg, #356b52, #6a9a7f);
+        linear-gradient(135deg, #45586d, #74879a);
       color: white;
-      padding: 22px 20px 55px;
+      padding: 22px 20px 50px;
     }
 
     .topbar {
@@ -70,281 +71,278 @@
     }
 
     .hero {
-      max-width: 920px;
-      margin: 45px auto 0;
+      max-width: 900px;
+      margin: 42px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.2rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4.3rem);
+      font-size: clamp(2.2rem, 7vw, 4rem);
       line-height: 1.05;
       margin-bottom: 10px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 15px;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 860px;
+      max-width: 830px;
       margin: auto;
-      color: #f6fff9;
+      color: #f5f8fb;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1120px;
       margin: auto;
-      padding: 42px 20px;
-    }
-
-    section {
-      margin-bottom: 58px;
+      padding: 40px 20px;
     }
 
     .intro {
-      background: var(--green-light);
-      border-radius: 26px;
-      padding: 32px;
+      background: var(--blue);
+      border-radius: 24px;
+      padding: 30px;
       text-align: center;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
       color: var(--dark);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .intro p {
-      max-width: 880px;
+      max-width: 830px;
       margin: auto;
       color: var(--muted);
     }
 
-    .section-title {
-      text-align: center;
-      color: var(--dark);
-      font-size: clamp(1.7rem, 4vw, 2.35rem);
-      margin-bottom: 8px;
-    }
-
-    .section-intro {
-      text-align: center;
-      color: var(--muted);
-      max-width: 850px;
-      margin: 0 auto 28px;
-    }
-
-    .stage-grid,
-    .area-grid,
-    .method-grid,
-    .other-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .stage-card,
-    .area-card,
-    .method-card,
-    .other-card {
-      border-radius: 22px;
-      padding: 24px;
-      transition: 0.2s;
-    }
-
-    .stage-card:hover,
-    .area-card:hover,
-    .method-card:hover,
-    .other-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 22px rgba(30,50,60,0.08);
-    }
-
-    .stage-card span,
-    .area-card span,
-    .method-card span,
-    .other-card span {
-      display: block;
-      font-size: 2.4rem;
-      margin-bottom: 8px;
-    }
-
-    .stage-card h3,
-    .area-card h3,
-    .method-card h3,
-    .other-card h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .stage-card p,
-    .area-card p,
-    .method-card p,
-    .other-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .stage-card {
-      min-height: 190px;
-    }
-
-    .f3 {
-      background: var(--green-light);
-    }
-
-    .m46 {
-      background: var(--blue-light);
-    }
-
-    .m79 {
-      background: var(--purple-light);
-    }
-
-    .area-card,
-    .method-card {
-      min-height: 215px;
-    }
-
-    .a1 { background: var(--green-light); }
-    .a2 { background: var(--blue-light); }
-    .a3 { background: var(--purple-light); }
-    .a4 { background: var(--yellow-light); }
-    .a5 { background: var(--orange-light); }
-    .a6 { background: var(--teal-light); }
-    .a7 { background: var(--pink-light); }
-    .a8 { background: #eef2f4; }
-    .a9 { background: #fff4e8; }
-    .a10 { background: #ebf7ff; }
-    .a11 { background: #f2f7eb; }
-    .a12 { background: #f6efff; }
-
-    .m1 { background: #eef8f5; }
-    .m2 { background: #edf4ff; }
-    .m3 { background: #f4efff; }
-    .m4 { background: #fff0eb; }
-    .m5 { background: #f0f8e8; }
-    .m6 { background: #fff7dd; }
-    .m7 { background: #f4edff; }
-    .m8 { background: #eaf7f5; }
-    .m9 { background: #edf5f8; }
-
-    .open-button {
-      display: inline-block !important;
-      margin-top: 15px;
+    .print-button {
+      display: inline-block;
+      margin-top: 16px;
       background: var(--dark);
       color: white;
+      border: none;
       border-radius: 999px;
-      padding: 9px 15px;
-      font-size: 0.87rem !important;
+      padding: 12px 20px;
       font-weight: bold;
+      cursor: pointer;
     }
 
-    .how-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 35%),
-        linear-gradient(135deg, #17324d, #4c6f88);
-      color: white;
-      border-radius: 28px;
-      padding: 36px;
+    .sheet {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 22px;
+      padding: 24px;
+      margin-bottom: 28px;
+      min-height: 270mm;
     }
 
-    .how-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+    .sheet-head {
+      text-align: center;
+      margin-bottom: 18px;
     }
 
-    .how-box > p {
-      color: #f4f8fb;
-      max-width: 850px;
+    .sheet-head h2 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 4px;
     }
 
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .step {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 150px;
-    }
-
-    .step span {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-
-    .step h3 {
-      margin-bottom: 6px;
-    }
-
-    .step p {
-      color: #f3f7fa;
+    .sheet-head p {
+      color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .other-card {
-      min-height: 185px;
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
     }
 
-    .o1 { background: var(--blue-light); }
-    .o2 { background: var(--purple-light); }
-    .o3 { background: var(--orange-light); }
-    .o4 { background: var(--teal-light); }
-    .o5 { background: var(--yellow-light); }
-    .o6 { background: var(--pink-light); }
+    .card {
+      border: 1.5px dashed #87939c;
+      border-radius: 16px;
+      padding: 16px;
+      min-height: 145px;
+      position: relative;
+      break-inside: avoid;
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      font-size: 1rem;
+      margin-bottom: 7px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #4d5e6b;
+    }
+
+    .card small {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.79rem;
+    }
+
+    .green {
+      background: var(--green);
+    }
+
+    .blue {
+      background: var(--blue);
+    }
+
+    .purple {
+      background: var(--purple);
+    }
+
+    .yellow {
+      background: var(--yellow);
+    }
+
+    .orange {
+      background: var(--orange);
+    }
+
+    .teal {
+      background: var(--teal);
+    }
+
+    .pink {
+      background: var(--pink);
+    }
+
+    .gray {
+      background: var(--gray);
+    }
+
+    .teacher-box {
+      background: var(--yellow);
+      border-radius: 22px;
+      padding: 28px;
+      margin-top: 36px;
+    }
+
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .teacher-card {
+      background: white;
+      border-radius: 14px;
+      padding: 16px;
+      min-height: 130px;
+    }
+
+    .teacher-card span {
+      display: block;
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+    }
+
+    .teacher-card h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
+      font-size: 0.95rem;
+    }
+
+    .teacher-card p {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .links {
+      margin-top: 38px;
+    }
+
+    .links h2 {
+      text-align: center;
+      color: var(--dark);
+      margin-bottom: 18px;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .link-card {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 140px;
+    }
+
+    .link-card span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .link-card h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .link-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
 
     .note {
-      background: var(--yellow-light);
-      border-left: 6px solid #caa64c;
+      background: var(--orange);
+      border-left: 6px solid #c67c42;
       border-radius: 14px;
-      padding: 20px;
+      padding: 18px;
       margin-top: 24px;
-      color: #62583b;
+      color: #654c37;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
+      color: white;
       text-align: center;
-      padding: 34px 20px;
-      margin-top: 30px;
+      padding: 30px 20px;
+      margin-top: 32px;
     }
 
-    @media (max-width: 1000px) {
-      .stage-grid,
-      .area-grid,
-      .method-grid,
-      .other-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .steps {
+    @media (max-width: 850px) {
+      .teacher-grid,
+      .link-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 650px) {
       .topbar {
         flex-direction: column;
       }
 
-      .stage-grid,
-      .area-grid,
-      .method-grid,
-      .other-grid,
-      .steps {
+      .cards,
+      .teacher-grid,
+      .link-grid {
         grid-template-columns: 1fr;
       }
 
@@ -353,9 +351,8 @@
         padding-right: 14px;
       }
 
-      .intro,
-      .how-box {
-        padding: 24px 17px;
+      .sheet {
+        padding: 18px 12px;
       }
     }
 
@@ -365,7 +362,7 @@
 
     @page {
       size: A4 portrait;
-      margin: 12mm;
+      margin: 10mm;
     }
 
     @media print {
@@ -383,20 +380,16 @@
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
         forced-color-adjust: none !important;
-      }
-
-      header,
-      footer {
-        display: none !important;
-      }
-
-      html,
-      body {
         background: white !important;
       }
 
-      body {
-        color: var(--text) !important;
+      header,
+      footer,
+      .intro,
+      .teacher-box,
+      .links,
+      .note {
+        display: none !important;
       }
 
       main {
@@ -406,143 +399,91 @@
         padding: 0;
       }
 
-      section {
-        margin-bottom: 8mm;
+      .sheet {
+        width: 100%;
+        min-height: 277mm;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        page-break-after: always;
+        break-after: page;
       }
 
-      .intro {
-        background: var(--green-light) !important;
+      .sheet:last-of-type {
+        page-break-after: auto;
+        break-after: auto;
       }
 
-      .f3 {
-        background: var(--green-light) !important;
+      .sheet-head {
+        margin-bottom: 5mm;
       }
 
-      .m46 {
-        background: var(--blue-light) !important;
-      }
-
-      .m79 {
-        background: var(--purple-light) !important;
-      }
-
-      .a1 { background: var(--green-light) !important; }
-      .a2 { background: var(--blue-light) !important; }
-      .a3 { background: var(--purple-light) !important; }
-      .a4 { background: var(--yellow-light) !important; }
-      .a5 { background: var(--orange-light) !important; }
-      .a6 { background: var(--teal-light) !important; }
-      .a7 { background: var(--pink-light) !important; }
-      .a8 { background: #eef2f4 !important; }
-      .a9 { background: #fff4e8 !important; }
-      .a10 { background: #ebf7ff !important; }
-      .a11 { background: #f2f7eb !important; }
-      .a12 { background: #f6efff !important; }
-
-      .m1 { background: #eef8f5 !important; }
-      .m2 { background: #edf4ff !important; }
-      .m3 { background: #f4efff !important; }
-      .m4 { background: #fff0eb !important; }
-      .m5 { background: #f0f8e8 !important; }
-      .m6 { background: #fff7dd !important; }
-      .m7 { background: #f4edff !important; }
-      .m8 { background: #eaf7f5 !important; }
-      .m9 { background: #edf5f8 !important; }
-
-      .o1 { background: var(--blue-light) !important; }
-      .o2 { background: var(--purple-light) !important; }
-      .o3 { background: var(--orange-light) !important; }
-      .o4 { background: var(--teal-light) !important; }
-      .o5 { background: var(--yellow-light) !important; }
-      .o6 { background: var(--pink-light) !important; }
-
-      .how-box {
-        background: #29485d !important;
-        color: white !important;
-      }
-
-      .how-box h2,
-      .how-box p,
-      .step h3,
-      .step p {
-        color: white !important;
-      }
-
-      .step {
-        background: #496579 !important;
-        border-color: #7890a1 !important;
-      }
-
-      .note {
-        background: var(--yellow-light) !important;
-        border-left-color: #caa64c !important;
-        color: #62583b !important;
-      }
-
-      .open-button {
-        background: var(--dark) !important;
-        color: white !important;
-      }
-
-      .section-title,
-      .stage-card h3,
-      .area-card h3,
-      .method-card h3,
-      .other-card h3 {
+      .sheet-head h2 {
+        font-size: 15pt;
         color: var(--dark) !important;
       }
 
-      .section-intro,
-      .stage-card p,
-      .area-card p,
-      .method-card p,
-      .other-card p,
-      .intro p {
+      .sheet-head p {
         color: var(--muted) !important;
       }
 
-      .stage-grid,
-      .area-grid,
-      .method-grid,
-      .other-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 5mm !important;
-      }
-
-      .steps {
+      .cards {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 4mm !important;
       }
 
-      .stage-card,
-      .area-card,
-      .method-card,
-      .other-card,
-      .step,
-      .intro,
-      .how-box,
-      .note {
+      .card {
+        min-height: 58mm;
+        padding: 4mm;
+        border: 1.2px dashed #87939c !important;
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      .stage-card,
-      .area-card,
-      .method-card,
-      .other-card {
-        min-height: 0 !important;
-        padding: 5mm !important;
+      .green {
+        background: var(--green) !important;
       }
 
-      .intro,
-      .how-box {
-        padding: 7mm !important;
+      .blue {
+        background: var(--blue) !important;
       }
 
-      a {
-        color: inherit !important;
+      .purple {
+        background: var(--purple) !important;
+      }
+
+      .yellow {
+        background: var(--yellow) !important;
+      }
+
+      .orange {
+        background: var(--orange) !important;
+      }
+
+      .teal {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .card h3 {
+        color: var(--dark) !important;
+      }
+
+      .card p {
+        color: #4d5e6b !important;
+      }
+
+      .card small {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -564,16 +505,15 @@
 
   <div class="hero">
 
-    <div class="hero-icon">✏️🖨️</div>
+    <div class="hero-icon">🃏✂️</div>
 
-    <h1>A4 Elevblad F–9</h1>
+    <h1>A4-kort F–9</h1>
 
-    <h2>Välj område • Öppna • Skriv ut • Använd</h2>
+    <h2>Skriv ut • Klipp • Sortera • Samtala • Resonera</h2>
 
     <p>
-      Här finns Matteresans samlade utskriftsklara elevblad:
-      matematikområden, problemlösning, resonemang och undersökande arbetssätt
-      från F–3 till 7–9.
+      Färdiga matematiska kort för stationer, pararbete,
+      matteprat, problemlösning och utmaning.
     </p>
 
   </div>
@@ -583,354 +523,621 @@
 
 <main>
 
-  <section>
+  <div class="intro">
 
-    <div class="intro">
+    <h2>✂️ Färdiga för utskrift och klippning</h2>
 
-      <h2>📚 21 elevbladspaket</h2>
-
-      <p>
-        Du behöver inte skriva ut allt.
-        Välj det område eller arbetssätt som passar undervisningens matematiska kärna
-        och välj sedan rätt blad för elevgruppen.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">🌱🌿🚀 Progression F–9</h2>
-
-    <p class="section-intro">
-      De flesta elevbladspaketen innehåller material för alla tre stadier.
+    <p>
+      Varje A4-sida innehåller åtta kort.
+      Färgerna skiljer korttyperna åt och hjälper eleverna att orientera sig.
     </p>
 
-    <div class="stage-grid">
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut alla kort
+    </button>
 
-      <div class="stage-card f3">
-        <span>🌱</span>
-        <h3>F–3</h3>
-        <p>
-          Göra, rita, visa, jämföra, sätta ord på
-          och börja förklara matematiska idéer.
-        </p>
-      </div>
+  </div>
 
-      <div class="stage-card m46">
-        <span>🌿</span>
-        <h3>4–6</h3>
-        <p>
-          Använda strategier, representationer,
-          begrepp och tydligare matematiska resonemang.
-        </p>
-      </div>
 
-      <div class="stage-card m79">
-        <span>🚀</span>
-        <h3>7–9</h3>
-        <p>
-          Modellera, argumentera, generalisera,
-          analysera och använda mer formell matematik.
-        </p>
-      </div>
+  <!-- SIDA 1 -->
 
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>📚 Begreppskort</h2>
+      <p>HOLOS Matteresan F–9</p>
     </div>
 
-  </section>
+    <div class="cards">
 
-
-  <section>
-
-    <h2 class="section-title">🔢 Matematikområden</h2>
-
-    <p class="section-intro">
-      Tolv centrala områden i Matteresans röda tråd F–9.
-    </p>
-
-    <div class="area-grid">
-
-      <a href="elevblad-tal.html" class="area-card a1">
-        <span>🔢</span>
-        <h3>Taluppfattning</h3>
+      <div class="card green">
+        <div class="card-icon">🔢</div>
+        <h3>Platsvärde</h3>
         <p>
-          Tal, platsvärde, jämförelse, tallinje,
-          negativa tal och rimlighet.
+          Vad bestämmer värdet på en siffra i ett tal?
+          Ge ett exempel.
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+        <small>Begreppskort</small>
+      </div>
 
-      <a href="elevblad-raknesatt.html" class="area-card a2">
-        <span>➕➖✖️➗</span>
-        <h3>De fyra räknesätten</h3>
-        <p>
-          Addition, subtraktion, multiplikation,
-          division och samband mellan räknesätten.
-        </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
-
-      <a href="elevblad-brak.html" class="area-card a3">
-        <span>🍕</span>
+      <div class="card blue">
+        <div class="card-icon">🍕</div>
         <h3>Bråk</h3>
         <p>
-          Del av helhet, jämförelse, likvärdiga bråk
-          och operationer med bråk.
+          Förklara skillnaden mellan täljare och nämnare.
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+        <small>Begreppskort</small>
+      </div>
 
-      <a href="elevblad-decimal.html" class="area-card a4">
-        <span>🔟</span>
-        <h3>Decimaltal</h3>
-        <p>
-          Tiondelar, hundradelar, platsvärde,
-          jämförelse och beräkningar.
-        </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
-
-      <a href="elevblad-procent.html" class="area-card a5">
-        <span>💯</span>
+      <div class="card purple">
+        <div class="card-icon">💯</div>
         <h3>Procent</h3>
         <p>
-          Andel, procentform, decimalform,
-          procent av tal och procentuell förändring.
+          Vad betyder 25 %?
+          Visa på minst två olika sätt.
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+        <small>Begreppskort</small>
+      </div>
 
-      <a href="elevblad-algebra.html" class="area-card a6">
-        <span>🔤</span>
-        <h3>Algebra</h3>
+      <div class="card yellow">
+        <div class="card-icon">📐</div>
+        <h3>Omkrets</h3>
         <p>
-          Likhet, variabler, uttryck,
-          ekvationer och generalisering.
+          Vad är omkrets?
+          Hur skiljer det sig från area?
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+        <small>Begreppskort</small>
+      </div>
 
-      <a href="elevblad-geometri.html" class="area-card a7">
-        <span>📐</span>
-        <h3>Geometri</h3>
+      <div class="card orange">
+        <div class="card-icon">📊</div>
+        <h3>Median</h3>
         <p>
-          Former, vinklar, omkrets,
-          area, volym och geometriska resonemang.
+          Hur hittar man medianen i en datamängd?
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+        <small>Begreppskort</small>
+      </div>
 
-      <a href="elevblad-statistik.html" class="area-card a8">
-        <span>📊</span>
-        <h3>Statistik</h3>
+      <div class="card teal">
+        <div class="card-icon">🔤</div>
+        <h3>Variabel</h3>
         <p>
-          Samla, ordna, visa och tolka data,
-          medelvärde, median och typvärde.
+          Vad är en variabel?
+          Ge ett exempel där en bokstav representerar ett tal.
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+        <small>Begreppskort</small>
+      </div>
 
-      <a href="elevblad-sannolikhet.html" class="area-card a9">
-        <span>🎲</span>
+      <div class="card pink">
+        <div class="card-icon">🎲</div>
         <h3>Sannolikhet</h3>
         <p>
-          Utfall, chans, försök,
-          teoretisk sannolikhet och resonemang.
+          Vad betyder sannolikhet?
+          Ge ett vardagligt exempel.
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+        <small>Begreppskort</small>
+      </div>
 
-      <a href="elevblad-problemlosning.html" class="area-card a10">
-        <span>🧠🧩</span>
-        <h3>Problemlösning</h3>
+      <div class="card gray">
+        <div class="card-icon">📈</div>
+        <h3>Proportionalitet</h3>
         <p>
-          Förstå, planera, pröva,
-          förklara och kontrollera.
+          När är ett samband proportionellt?
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
-
-      <a href="elevblad-monster.html" class="area-card a11">
-        <span>🧩</span>
-        <h3>Mönster</h3>
-        <p>
-          Upprepning, växande mönster,
-          talföljder och generalisering.
-        </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
-
-      <a href="elevblad-samband.html" class="area-card a12">
-        <span>📈🔗</span>
-        <h3>Samband & förändring</h3>
-        <p>
-          Proportionalitet, förhållanden,
-          skala, hastighet, procent och funktioner.
-        </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+        <small>Begreppskort</small>
+      </div>
 
     </div>
 
   </section>
 
 
-  <section>
+  <!-- SIDA 2 -->
 
-    <h2 class="section-title">🧠 Matematiska arbetssätt</h2>
+  <section class="sheet">
 
-    <p class="section-intro">
-      Nio elevbladspaket som utvecklar strategier,
-      resonemang, kommunikation och undersökande matematik.
-    </p>
+    <div class="sheet-head">
+      <h2>💬 Samtalskort</h2>
+      <p>HOLOS Matteresan F–9</p>
+    </div>
 
-    <div class="method-grid">
+    <div class="cards">
 
-      <a href="elevblad-rita.html" class="method-card m1">
-        <span>🎨</span>
-        <h3>Rita matematiken</h3>
+      <div class="card blue">
+        <div class="card-icon">💭</div>
+        <h3>Förklara</h3>
         <p>
-          Översätt text och situationer till bilder,
-          modeller, tallinjer och grafer.
+          Förklara hur du tänkte.
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+        <small>Matteprat</small>
+      </div>
 
-      <a href="elevblad-forklara.html" class="method-card m2">
+      <div class="card green">
+        <div class="card-icon">🧠</div>
+        <h3>Motivera</h3>
+        <p>
+          Hur vet du att din lösning stämmer?
+        </p>
+        <small>Matteprat</small>
+      </div>
+
+      <div class="card purple">
+        <div class="card-icon">⚖️</div>
+        <h3>Jämför</h3>
+        <p>
+          Vad är lika och vad är olika mellan lösningarna?
+        </p>
+        <small>Matteprat</small>
+      </div>
+
+      <div class="card yellow">
+        <div class="card-icon">🛣️</div>
+        <h3>Annan väg</h3>
+        <p>
+          Kan problemet lösas på ett annat sätt?
+        </p>
+        <small>Matteprat</small>
+      </div>
+
+      <div class="card orange">
+        <div class="card-icon">❓</div>
+        <h3>Fråga vidare</h3>
+        <p>
+          Vilken fråga skulle du vilja ställa till någon annans lösning?
+        </p>
+        <small>Matteprat</small>
+      </div>
+
+      <div class="card teal">
+        <div class="card-icon">🔗</div>
+        <h3>Samband</h3>
+        <p>
+          Vad i uppgiften hänger ihop med något du redan kan?
+        </p>
+        <small>Matteprat</small>
+      </div>
+
+      <div class="card pink">
+        <div class="card-icon">🚀</div>
+        <h3>Generalisera</h3>
+        <p>
+          Tror du att detta gäller alltid?
+          Varför eller varför inte?
+        </p>
+        <small>Matteprat</small>
+      </div>
+
+      <div class="card gray">
+        <div class="card-icon">🎯</div>
+        <h3>Kärnan</h3>
+        <p>
+          Vad är den viktigaste matematiska idén här?
+        </p>
+        <small>Matteprat</small>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SIDA 3 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>🧭 Strategikort</h2>
+      <p>HOLOS Matteresan F–9</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card green">
+        <div class="card-icon">🎨</div>
+        <h3>Rita en modell</h3>
+        <p>
+          Gör problemet synligt med en bild, modell eller skiss.
+        </p>
+        <small>Problemlösningsstrategi</small>
+      </div>
+
+      <div class="card blue">
+        <div class="card-icon">📋</div>
+        <h3>Gör en tabell</h3>
+        <p>
+          Ordna informationen systematiskt i en tabell.
+        </p>
+        <small>Problemlösningsstrategi</small>
+      </div>
+
+      <div class="card purple">
+        <div class="card-icon">🔍</div>
+        <h3>Pröva systematiskt</h3>
+        <p>
+          Ändra en sak i taget och dokumentera resultaten.
+        </p>
+        <small>Problemlösningsstrategi</small>
+      </div>
+
+      <div class="card yellow">
+        <div class="card-icon">↩️</div>
+        <h3>Arbeta baklänges</h3>
+        <p>
+          Börja vid målet och fundera på vad som måste ha hänt innan.
+        </p>
+        <small>Problemlösningsstrategi</small>
+      </div>
+
+      <div class="card orange">
+        <div class="card-icon">🧩</div>
+        <h3>Hitta ett mönster</h3>
+        <p>
+          Leta efter något som upprepas eller förändras regelbundet.
+        </p>
+        <small>Problemlösningsstrategi</small>
+      </div>
+
+      <div class="card teal">
+        <div class="card-icon">✂️</div>
+        <h3>Förenkla</h3>
+        <p>
+          Prova ett enklare fall först.
+        </p>
+        <small>Problemlösningsstrategi</small>
+      </div>
+
+      <div class="card pink">
+        <div class="card-icon">🔄</div>
+        <h3>Byt representation</h3>
+        <p>
+          Gå från text till bild, tabell, graf eller symboler.
+        </p>
+        <small>Problemlösningsstrategi</small>
+      </div>
+
+      <div class="card gray">
+        <div class="card-icon">✅</div>
+        <h3>Kontrollera</h3>
+        <p>
+          Testa svaret på ett annat sätt.
+          Är det rimligt?
+        </p>
+        <small>Problemlösningsstrategi</small>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SIDA 4 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>✅❌🤔 Sant, falskt eller ibland?</h2>
+      <p>HOLOS Matteresan F–9</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card green">
+        <div class="card-icon">➕</div>
+        <h3>Påstående 1</h3>
+        <p>
+          När man adderar två tal blir svaret alltid större än båda talen.
+        </p>
+        <small>Motivera med exempel eller motexempel.</small>
+      </div>
+
+      <div class="card blue">
+        <div class="card-icon">✖️</div>
+        <h3>Påstående 2</h3>
+        <p>
+          När man multiplicerar två tal blir svaret alltid större.
+        </p>
+        <small>Motivera med exempel eller motexempel.</small>
+      </div>
+
+      <div class="card purple">
+        <div class="card-icon">🍕</div>
+        <h3>Påstående 3</h3>
+        <p>
+          1/8 är större än 1/4 eftersom 8 är större än 4.
+        </p>
+        <small>Förklara.</small>
+      </div>
+
+      <div class="card yellow">
+        <div class="card-icon">📐</div>
+        <h3>Påstående 4</h3>
+        <p>
+          Alla kvadrater är rektanglar.
+        </p>
+        <small>Sant, falskt eller ibland?</small>
+      </div>
+
+      <div class="card orange">
+        <div class="card-icon">💯</div>
+        <h3>Påstående 5</h3>
+        <p>
+          +20 % och sedan −20 % ger alltid startvärdet tillbaka.
+        </p>
+        <small>Pröva med ett exempel.</small>
+      </div>
+
+      <div class="card teal">
+        <div class="card-icon">📊</div>
+        <h3>Påstående 6</h3>
+        <p>
+          Medianen är alltid lika med medelvärdet.
+        </p>
+        <small>Hitta exempel eller motexempel.</small>
+      </div>
+
+      <div class="card pink">
+        <div class="card-icon">📈</div>
+        <h3>Påstående 7</h3>
+        <p>
+          Alla linjära samband går genom origo.
+        </p>
+        <small>Förklara.</small>
+      </div>
+
+      <div class="card gray">
+        <div class="card-icon">🎲</div>
+        <h3>Påstående 8</h3>
+        <p>
+          Efter fem krona i rad är klave mer sannolikt nästa kast.
+        </p>
+        <small>Motivera.</small>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SIDA 5 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>🧠 Problemlösningskort</h2>
+      <p>HOLOS Matteresan F–9</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card green">
+        <div class="card-icon">🐱</div>
+        <h3>Katter och ben</h3>
+        <p>
+          Några barn och katter har tillsammans 22 ben.
+          Hur många barn och katter kan det vara?
+        </p>
+      </div>
+
+      <div class="card blue">
+        <div class="card-icon">🪙</div>
+        <h3>20 kronor</h3>
+        <p>
+          På hur många sätt kan du göra 20 kr med 2-kronor och 5-kronor?
+        </p>
+      </div>
+
+      <div class="card purple">
+        <div class="card-icon">🚲</div>
+        <h3>Fordon</h3>
+        <p>
+          Det finns 20 cyklar och trehjulingar tillsammans.
+          De har 49 hjul.
+          Hur många av varje?
+        </p>
+      </div>
+
+      <div class="card yellow">
+        <div class="card-icon">🍕</div>
+        <h3>Pizzorna</h3>
+        <p>
+          Fyra elever delar tre lika stora pizzor lika.
+          Hur mycket får varje elev?
+        </p>
+      </div>
+
+      <div class="card orange">
+        <div class="card-icon">🚌</div>
+        <h3>Bussresan</h3>
+        <p>
+          148 personer ska åka buss.
+          Varje buss har 48 platser.
+          Hur många bussar behövs?
+        </p>
+      </div>
+
+      <div class="card teal">
+        <div class="card-icon">🧃</div>
+        <h3>Saften</h3>
+        <p>
+          Saft blandas 1 del koncentrat och 4 delar vatten.
+          Hur mycket koncentrat behövs till 10 liter färdig dryck?
+        </p>
+      </div>
+
+      <div class="card pink">
+        <div class="card-icon">🎟️</div>
+        <h3>Biljetterna</h3>
+        <p>
+          Vuxenbiljett kostar 200 kr och ungdomsbiljett 140 kr.
+          Skapa ett problem med totalt antal biljetter och intäkt.
+        </p>
+      </div>
+
+      <div class="card gray">
+        <div class="card-icon">📱</div>
+        <h3>Abonnemangen</h3>
+        <p>
+          Två abonnemang har olika fast avgift och minutpris.
+          När kostar de lika mycket?
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SIDA 6 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>🚀 Utmaningskort</h2>
+      <p>HOLOS Matteresan F–9</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card green">
+        <div class="card-icon">🔄</div>
+        <h3>Ändra villkoret</h3>
+        <p>
+          Ändra ett tal eller villkor i uppgiften.
+          Hur påverkas lösningen?
+        </p>
+      </div>
+
+      <div class="card blue">
+        <div class="card-icon">🔍</div>
+        <h3>Hitta alla</h3>
+        <p>
+          Hitta alla möjliga lösningar.
+          Hur vet du att ingen saknas?
+        </p>
+      </div>
+
+      <div class="card purple">
+        <div class="card-icon">🛣️</div>
+        <h3>Två strategier</h3>
+        <p>
+          Lös problemet på två olika sätt och jämför metoderna.
+        </p>
+      </div>
+
+      <div class="card yellow">
+        <div class="card-icon">❌</div>
+        <h3>Motexempel</h3>
+        <p>
+          Skapa ett motexempel till ett matematiskt påstående.
+        </p>
+      </div>
+
+      <div class="card orange">
+        <div class="card-icon">📈</div>
+        <h3>Generalisera</h3>
+        <p>
+          Formulera en regel som beskriver det mönster du ser.
+        </p>
+      </div>
+
+      <div class="card teal">
+        <div class="card-icon">🎨</div>
+        <h3>Byt representation</h3>
+        <p>
+          Visa samma matematik på minst tre olika sätt.
+        </p>
+      </div>
+
+      <div class="card pink">
+        <div class="card-icon">✍️</div>
+        <h3>Skapa ett problem</h3>
+        <p>
+          Utgå från en given lösning och skapa ett problem som passar.
+        </p>
+      </div>
+
+      <div class="card gray">
+        <div class="card-icon">🎯</div>
+        <h3>Bästa strategin?</h3>
+        <p>
+          Jämför flera strategier.
+          Vilken passar bäst här och varför?
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Så kan korten användas</h2>
+
+    <div class="teacher-grid">
+
+      <div class="teacher-card">
+        <span>👥</span>
+        <h3>Pararbete</h3>
+        <p>
+          En elev drar kort och båda diskuterar.
+        </p>
+      </div>
+
+      <div class="teacher-card">
+        <span>🔄</span>
+        <h3>Stationer</h3>
+        <p>
+          Lägg olika korttyper vid olika stationer.
+        </p>
+      </div>
+
+      <div class="teacher-card">
         <span>💬</span>
-        <h3>Förklara hur du tänker</h3>
+        <h3>Matteprat</h3>
         <p>
-          Träna matematiskt språk,
-          motiveringar och tydliga lösningsförklaringar.
+          Använd kort som start för gemensamma samtal.
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+      </div>
 
-      <a href="elevblad-jamfor.html" class="method-card m3">
-        <span>⚖️</span>
-        <h3>Jämför strategier</h3>
+      <div class="teacher-card">
+        <span>🎟️</span>
+        <h3>Exit</h3>
         <p>
-          Jämför olika lösningar och värdera
-          när olika strategier är användbara.
+          Låt eleven avsluta med ett kort.
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+      </div>
 
-      <a href="elevblad-felfinnaren.html" class="method-card m4">
-        <span>🕵️</span>
-        <h3>Felfinnaren</h3>
+      <div class="teacher-card">
+        <span>🧩</span>
+        <h3>Stöd</h3>
         <p>
-          Analysera felsvar, förstå tänkandet
-          och formulera en bättre lösning.
+          Välj kort med tydliga frågor och representationer.
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+      </div>
 
-      <a href="elevblad-santfalskt.html" class="method-card m5">
-        <span>✅❌🤔</span>
-        <h3>Sant, falskt eller ibland?</h3>
-        <p>
-          Ta ställning, ge exempel,
-          hitta motexempel och motivera.
-        </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
-
-      <a href="elevblad-hittaalla.html" class="method-card m6">
-        <span>🔍</span>
-        <h3>Hitta alla lösningar</h3>
-        <p>
-          Arbeta systematiskt och visa
-          hur du vet att ingen lösning saknas.
-        </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
-
-      <a href="elevblad-utmana.html" class="method-card m7">
+      <div class="teacher-card">
         <span>🚀</span>
         <h3>Utmaning</h3>
         <p>
-          Ändra villkor, hitta flera lösningar,
-          generalisera och skapa nya frågor.
+          Låt elever ändra villkor eller generalisera.
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+      </div>
 
-      <a href="elevblad-verkligheten.html" class="method-card m8">
-        <span>🌍</span>
-        <h3>Matematik i verkligheten</h3>
+      <div class="teacher-card">
+        <span>👀</span>
+        <h3>Observation</h3>
         <p>
-          Pengar, tid, recept, resor,
-          jämförpris, statistik och modellering.
+          Lyssna efter strategier, begrepp och resonemang.
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
+      </div>
 
-      <a href="elevblad-undersok.html" class="method-card m9">
-        <span>🔬</span>
-        <h3>Undersök matematik</h3>
+      <div class="teacher-card">
+        <span>🗂️</span>
+        <h3>Sortering</h3>
         <p>
-          Formulera hypoteser, pröva,
-          samla data, upptäck mönster och dra slutsatser.
+          Sortera kort efter område, strategi eller svårighetsgrad.
         </p>
-        <span class="open-button">Öppna elevblad →</span>
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="how-box">
-
-      <h2>🧭 Så kan elevbladen användas</h2>
-
-      <p>
-        Elevbladet är ett verktyg i undervisningen – inte undervisningen i sig.
-      </p>
-
-      <div class="steps">
-
-        <div class="step">
-          <span>1️⃣</span>
-          <h3>Förstå</h3>
-          <p>
-            Introducera den matematiska idén
-            och aktivera elevernas förkunskaper.
-          </p>
-        </div>
-
-        <div class="step">
-          <span>2️⃣</span>
-          <h3>Visa</h3>
-          <p>
-            Använd konkreta material,
-            bilder, modeller och symboler.
-          </p>
-        </div>
-
-        <div class="step">
-          <span>3️⃣</span>
-          <h3>Förklara</h3>
-          <p>
-            Låt eleverna prata om strategier,
-            jämföra och motivera.
-          </p>
-        </div>
-
-        <div class="step">
-          <span>4️⃣</span>
-          <h3>Kontrollera</h3>
-          <p>
-            Följ upp vad eleven förstått
-            och välj nästa undervisningssteg.
-          </p>
-        </div>
-
       </div>
 
     </div>
@@ -938,62 +1145,46 @@
   </section>
 
 
-  <section>
+  <section class="links">
 
-    <h2 class="section-title">🖨️ Fler utskriftsmaterial</h2>
+    <h2>🖨️ Fler A4-material</h2>
 
-    <div class="other-grid">
+    <div class="link-grid">
 
-      <a href="material-a4-kort.html" class="other-card o1">
-        <span>🃏</span>
-        <h3>A4-kort</h3>
-        <p>
-          Begrepp, strategier, matteprat,
-          problem och utmaningar.
-        </p>
+      <a href="material-a4-elevblad.html" class="link-card green">
+        <span>✏️</span>
+        <h3>A4 Elevblad</h3>
+        <p>21 elevbladspaket F–9.</p>
       </a>
 
-      <a href="material-a4-affischer.html" class="other-card o2">
+      <a href="material-a4-affischer.html" class="link-card purple">
         <span>🖼️</span>
         <h3>A4-affischer</h3>
-        <p>
-          Visuellt stöd för matematikklassrummet.
-        </p>
+        <p>Visuella matematikaffischer.</p>
       </a>
 
-      <a href="material-a4-larare.html" class="other-card o3">
+      <a href="material-a4-larare.html" class="link-card blue">
         <span>👩‍🏫</span>
         <h3>A4 för lärare</h3>
-        <p>
-          Planering, observation,
-          diagnoser och bedömningsunderlag.
-        </p>
+        <p>Planering, observation och analys.</p>
       </a>
 
-      <a href="material-exit.html" class="other-card o4">
-        <span>🎟️</span>
-        <h3>Exit tickets</h3>
-        <p>
-          Snabba formativa frågor
-          för slutet av lektionen.
-        </p>
+      <a href="material-matteprat.html" class="link-card teal">
+        <span>💬</span>
+        <h3>Matteprat</h3>
+        <p>Fler frågor för matematiska samtal.</p>
       </a>
 
-      <a href="material-diagnos.html" class="other-card o5">
-        <span>🩺</span>
-        <h3>Diagnoser</h3>
-        <p>
-          Riktade uppgifter för att synliggöra
-          tänkande och missuppfattningar.
-        </p>
+      <a href="material-problem.html" class="link-card orange">
+        <span>🧠</span>
+        <h3>Problembank</h3>
+        <p>Fler problemlösningsuppgifter.</p>
       </a>
 
-      <a href="larare-utskrift.html" class="other-card o6">
-        <span>🖨️</span>
-        <h3>Utskriftscentralen</h3>
-        <p>
-          Tillbaka till allt utskriftsmaterial.
-        </p>
+      <a href="material-spel.html" class="link-card yellow">
+        <span>🎲</span>
+        <h3>Matematikspel</h3>
+        <p>Spel och aktiviteter F–9.</p>
       </a>
 
     </div>
@@ -1001,11 +1192,9 @@
 
     <div class="note">
 
-      <strong>🖨️ Färgutskrift:</strong>
-      när du väljer Skriv ut i Chrome eller Edge,
-      öppna <strong>Fler inställningar</strong> och slå på
-      <strong>Bakgrundsgrafik</strong>.
-      Kontrollera också att skrivaren står på <strong>Färg</strong>.
+      <strong>🖨️ Viktigt vid utskrift i färg:</strong>
+      välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+      och kontrollera att skrivaren står på <strong>Färg</strong>.
 
     </div>
 
@@ -1020,7 +1209,7 @@
 
   <br>
 
-  ✏️ A4 Elevblad – matematikområden, strategier och resonemang F–9
+  🃏 A4-kort – skriv ut, klipp, sortera och resonera
 
 </footer>
 
