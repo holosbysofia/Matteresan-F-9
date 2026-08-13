@@ -15,13 +15,14 @@
 
     :root {
       --dark: #17324d;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --teal-light: #eaf7f5;
-      --pink-light: #ffe9f1;
+      --green: #edf9f1;
+      --blue: #eaf5ff;
+      --purple: #f1edff;
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -31,20 +32,20 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
-        linear-gradient(135deg, #553783, #7a5bb1);
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #536478, #8494a5);
       color: white;
-      padding: 22px 20px 55px;
+      padding: 22px 20px 50px;
     }
 
     .topbar {
@@ -65,287 +66,256 @@
       padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
       font-weight: bold;
     }
 
     .hero {
       max-width: 920px;
-      margin: 45px auto 0;
+      margin: 42px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.2rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4.3rem);
+      font-size: clamp(2.2rem, 7vw, 4rem);
       line-height: 1.05;
       margin-bottom: 10px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 15px;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
       max-width: 850px;
       margin: auto;
-      color: #f8f4ff;
+      color: #f5f8fb;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1120px;
       margin: auto;
-      padding: 42px 20px;
-    }
-
-    section {
-      margin-bottom: 58px;
+      padding: 40px 20px;
     }
 
     .intro {
-      background: var(--purple-light);
-      border-radius: 26px;
-      padding: 32px;
+      background: var(--blue);
+      border-radius: 24px;
+      padding: 30px;
       text-align: center;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
       color: var(--dark);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .intro p {
-      max-width: 880px;
-      margin: auto;
-      color: var(--muted);
-    }
-
-    .section-title {
-      text-align: center;
-      color: var(--dark);
-      font-size: clamp(1.7rem, 4vw, 2.35rem);
-      margin-bottom: 8px;
-    }
-
-    .section-intro {
-      text-align: center;
       color: var(--muted);
       max-width: 850px;
-      margin: 0 auto 28px;
+      margin: auto;
     }
 
-    .stage-grid,
-    .game-grid,
-    .station-grid,
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+    .print-button {
+      margin-top: 16px;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
     }
 
-    .stage-card,
-    .game-card,
-    .station-card,
-    .tool-card {
+    .sheet {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 22px;
       padding: 24px;
-      min-height: 220px;
-      transition: 0.2s;
+      margin-bottom: 28px;
+      min-height: 270mm;
     }
 
-    .stage-card:hover,
-    .game-card:hover,
-    .station-card:hover,
-    .tool-card:hover {
-      transform: translateY(-3px);
+    .sheet-head {
+      text-align: center;
+      margin-bottom: 18px;
     }
 
-    .stage-card span,
-    .game-card span,
-    .station-card span,
-    .tool-card span {
-      display: block;
-      font-size: 2.4rem;
-      margin-bottom: 8px;
-    }
-
-    .stage-card h3,
-    .game-card h3,
-    .station-card h3,
-    .tool-card h3 {
+    .sheet-head h2 {
       color: var(--dark);
-      margin-bottom: 8px;
+      font-size: 1.7rem;
+      margin-bottom: 4px;
     }
 
-    .stage-card p,
-    .game-card p,
-    .station-card p,
-    .tool-card p {
+    .sheet-head p {
       color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .stage-card ul,
-    .game-card ul,
-    .station-card ul {
-      padding-left: 20px;
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin-top: 10px;
-    }
-
-    .stage-card li,
-    .game-card li,
-    .station-card li {
-      margin-bottom: 6px;
-    }
-
-    .f3 {
-      background: var(--green-light);
-    }
-
-    .m46 {
-      background: var(--blue-light);
-    }
-
-    .m79 {
-      background: var(--purple-light);
-    }
-
-    .g1 { background: var(--yellow-light); }
-    .g2 { background: var(--teal-light); }
-    .g3 { background: var(--blue-light); }
-    .g4 { background: var(--orange-light); }
-    .g5 { background: var(--pink-light); }
-    .g6 { background: var(--green-light); }
-
-    .rules-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 35%),
-        linear-gradient(135deg, #17324d, #5e477f);
-      color: white;
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .rules-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .rules-box > p {
-      max-width: 860px;
-      color: #f8f4ff;
-    }
-
-    .rules-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .rule-card {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 18px;
-      padding: 19px;
-      min-height: 170px;
-    }
-
-    .rule-card span {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 5px;
-    }
-
-    .rule-card h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-
-    .rule-card p {
-      color: #f7f3ff;
-      font-size: 0.89rem;
-    }
-
-    .activity {
-      background: white;
-      border-radius: 22px;
-      padding: 25px;
-      border: 1px solid rgba(0,0,0,0.06);
-      margin-top: 18px;
-    }
-
-    .activity h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .activity p,
-    .activity li {
-      color: var(--muted);
-    }
-
-    .activity ul {
-      padding-left: 20px;
-      margin-top: 9px;
-    }
-
-    .activity li {
-      margin-bottom: 7px;
+      font-size: 0.9rem;
     }
 
     .game-box {
-      background: #f4f7f9;
-      border-left: 5px solid #69518b;
-      border-radius: 13px;
+      border-radius: 16px;
       padding: 16px;
-      margin-top: 13px;
+      margin-bottom: 14px;
+      break-inside: avoid;
     }
 
-    .game-box strong {
+    .game-box h3 {
       color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .game-box p,
+    .game-box li {
+      color: #4e5d68;
+      font-size: 0.88rem;
+    }
+
+    .game-box ul,
+    .game-box ol {
+      margin: 8px 0 0 20px;
+    }
+
+    .game-box li {
+      margin-bottom: 5px;
+    }
+
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .game-card {
+      border: 1.5px dashed #87939c;
+      border-radius: 12px;
+      min-height: 92px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: bold;
+      color: var(--dark);
+      break-inside: avoid;
+    }
+
+    .large-card {
+      min-height: 115px;
+      font-size: 1.05rem;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .board-square {
+      min-height: 76px;
+      border-radius: 10px;
+      border: 1px solid #87939c;
+      padding: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--dark);
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .teacher-box {
+      background: var(--yellow);
+      border-radius: 22px;
+      padding: 28px;
+      margin-top: 34px;
+    }
+
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box p {
+      color: var(--muted);
+    }
+
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .teacher-card {
+      background: white;
+      border-radius: 14px;
+      padding: 16px;
+      min-height: 145px;
+    }
+
+    .teacher-card span {
+      display: block;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .teacher-card h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
+      font-size: 0.92rem;
+    }
+
+    .teacher-card p {
+      font-size: 0.82rem;
     }
 
     .note {
-      background: var(--orange-light);
+      background: var(--orange);
       border-left: 6px solid #c77f43;
       border-radius: 14px;
-      padding: 20px;
-      margin-top: 24px;
+      padding: 18px;
       color: #654c37;
+      margin-top: 24px;
     }
-
-    .t1 { background: var(--green-light); }
-    .t2 { background: var(--blue-light); }
-    .t3 { background: var(--purple-light); }
-    .t4 { background: var(--orange-light); }
-    .t5 { background: var(--pink-light); }
-    .t6 { background: var(--teal-light); }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
+      color: white;
       text-align: center;
-      padding: 34px 20px;
+      padding: 30px 20px;
       margin-top: 30px;
     }
 
-    @media (max-width: 1000px) {
-      .stage-grid,
-      .game-grid,
-      .station-grid,
-      .tool-grid {
+    @media (max-width: 850px) {
+      .cards {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .rules-grid {
+      .teacher-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -355,17 +325,14 @@
         flex-direction: column;
       }
 
-      .stage-grid,
-      .game-grid,
-      .station-grid,
-      .tool-grid,
-      .rules-grid {
+      .two-grid,
+      .cards,
+      .teacher-grid {
         grid-template-columns: 1fr;
       }
 
-      .intro,
-      .rules-box {
-        padding: 24px 17px;
+      .board {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       main {
@@ -374,47 +341,109 @@
       }
     }
 
+    /* =====================================
+       UTSKRIFT – A4 + FÄRG
+       ===================================== */
+
     @page {
       size: A4 portrait;
-      margin: 12mm;
+      margin: 10mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
+      body {
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
       header,
       footer,
-      .back-link {
+      .intro,
+      .teacher-box,
+      .note {
         display: none !important;
       }
 
-      body {
-        background: white;
-        color: black;
-        font-size: 10.5pt;
-      }
-
       main {
+        width: 100%;
         max-width: none;
         margin: 0;
         padding: 0;
       }
 
-      .stage-card,
-      .game-card,
-      .station-card,
-      .rule-card,
-      .activity,
-      .tool-card {
-        break-inside: avoid;
-        page-break-inside: avoid;
-        margin-bottom: 10px;
+      .sheet {
+        width: 100%;
+        min-height: 277mm;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        page-break-after: always;
+        break-after: page;
       }
 
-      .stage-grid,
-      .game-grid,
-      .station-grid,
-      .rules-grid,
-      .tool-grid {
-        display: block;
+      .sheet:last-of-type {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .two-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .cards {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .board {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 2mm !important;
+      }
+
+      .game-box,
+      .game-card,
+      .board-square {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .green { background: var(--green) !important; }
+      .blue { background: var(--blue) !important; }
+      .purple { background: var(--purple) !important; }
+      .yellow { background: var(--yellow) !important; }
+      .orange { background: var(--orange) !important; }
+      .teal { background: var(--teal) !important; }
+      .pink { background: var(--pink) !important; }
+      .gray { background: var(--gray) !important; }
+
+      .sheet-head h2,
+      .game-box h3,
+      .game-card,
+      .board-square {
+        color: var(--dark) !important;
+      }
+
+      .sheet-head p,
+      .game-box p,
+      .game-box li {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -425,26 +454,24 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
 
-    <a href="larare-material.html" class="back-link">
-      ← Materialbanken
+    <a href="larare-utskrift.html" class="back-link">
+      ← Utskriftscentralen
     </a>
-
   </div>
 
   <div class="hero">
 
-    <div class="hero-icon">🎲🎮</div>
+    <div class="hero-icon">🎲🧠</div>
 
     <h1>Matematikspel F–9</h1>
 
-    <h2>Pröva • Tänka • Välja • Förklara • Utmana</h2>
+    <h2>Spela • Resonera • Förklara • Utmana</h2>
 
     <p>
-      Matematikspel för repetition, strategiträning, pararbete och stationer.
-      Spelen ska skapa matematiska beslut och samtal – inte bara snabbast möjliga svar.
+      Utskrivbara matematikspel där eleverna använder
+      begrepp, strategier, problemlösning och matematiska resonemang.
     </p>
 
   </div>
@@ -454,150 +481,278 @@
 
 <main>
 
-  <section>
+  <div class="intro">
 
-    <div class="intro">
+    <h2>🎲 Spel med matematisk tanke</h2>
 
-      <h2>🎯 När blir ett spel matematiskt?</h2>
+    <p>
+      Spelen ska inte bara ge snabb träning.
+      De ska också skapa samtal om strategier,
+      samband och varför olika lösningar fungerar.
+    </p>
+
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut alla spel
+    </button>
+
+  </div>
+
+
+  <!-- SPEL 1 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>1. Begreppsmatch</h2>
+      <p>2–4 spelare • begrepp och förklaringar</p>
+    </div>
+
+    <div class="game-box blue">
+
+      <h3>🎯 Så spelar ni</h3>
+
+      <ol>
+        <li>Klipp ut alla kort.</li>
+        <li>Lägg dem med texten nedåt.</li>
+        <li>Vänd två kort i taget.</li>
+        <li>Du får paret om begrepp och förklaring hör ihop.</li>
+        <li>Förklara varför korten passar ihop innan du behåller paret.</li>
+      </ol>
+
+    </div>
+
+
+    <div class="cards">
+
+      <div class="game-card green">Platsvärde</div>
+      <div class="game-card green">En siffras värde beroende på dess position</div>
+
+      <div class="game-card blue">Produkt</div>
+      <div class="game-card blue">Resultatet av en multiplikation</div>
+
+      <div class="game-card purple">Kvot</div>
+      <div class="game-card purple">Resultatet av en division</div>
+
+      <div class="game-card yellow">Median</div>
+      <div class="game-card yellow">Det mittersta värdet i storleksordning</div>
+
+      <div class="game-card orange">Area</div>
+      <div class="game-card orange">Storleken på en yta</div>
+
+      <div class="game-card teal">Omkrets</div>
+      <div class="game-card teal">Längden runt en figur</div>
+
+      <div class="game-card pink">Variabel</div>
+      <div class="game-card pink">En symbol som representerar ett värde</div>
+
+      <div class="game-card gray">Procent</div>
+      <div class="game-card gray">Hundradelar</div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SPEL 2 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>2. Gör måltalet</h2>
+      <p>2–4 spelare • huvudräkning och strategier</p>
+    </div>
+
+    <div class="game-box green">
+
+      <h3>🎯 Regler</h3>
 
       <p>
-        Ett bra matematikspel ger eleverna möjlighet att fatta beslut,
-        använda strategier, jämföra alternativ och förklara sitt tänkande.
-        Slump kan gärna finnas med – men matematiken ska påverka elevens val.
+        Dra fyra talkort och ett målkort.
+        Använd så många av talkorten som du behöver för att nå måltalet.
+        Du får använda +, −, × och ÷.
+      </p>
+
+      <p>
+        Spelaren måste förklara sin beräkning.
+        Flera olika lösningar får ge poäng.
       </p>
 
     </div>
 
-  </section>
+
+    <h3 style="margin:14px 0 8px;color:#17324d;">🔢 Talkort</h3>
+
+    <div class="cards">
+
+      <div class="game-card green large-card">2</div>
+      <div class="game-card blue large-card">3</div>
+      <div class="game-card purple large-card">4</div>
+      <div class="game-card yellow large-card">5</div>
+
+      <div class="game-card orange large-card">6</div>
+      <div class="game-card teal large-card">7</div>
+      <div class="game-card pink large-card">8</div>
+      <div class="game-card gray large-card">9</div>
+
+      <div class="game-card green large-card">10</div>
+      <div class="game-card blue large-card">12</div>
+      <div class="game-card purple large-card">15</div>
+      <div class="game-card yellow large-card">20</div>
+
+    </div>
 
 
-  <section>
+    <h3 style="margin:18px 0 8px;color:#17324d;">🎯 Målkort</h3>
 
-    <h2 class="section-title">🌱 🌿 🚀 Spel genom F–9</h2>
+    <div class="cards">
 
-    <p class="section-intro">
-      Samma spelidé kan ofta utvecklas genom att förändra talområde, regler eller krav på resonemang.
-    </p>
-
-    <div class="stage-grid">
-
-      <div class="stage-card f3">
-
-        <span>🌱</span>
-
-        <h3>F–3</h3>
-
-        <p>
-          Korta spel med tydliga regler och mycket visuell matematik.
-        </p>
-
-        <ul>
-          <li>talbilder</li>
-          <li>tärningar</li>
-          <li>tiokompisar</li>
-          <li>dubbelt och hälften</li>
-          <li>enkla strategival</li>
-        </ul>
-
-      </div>
-
-
-      <div class="stage-card m46">
-
-        <span>🌿</span>
-
-        <h3>4–6</h3>
-
-        <p>
-          Strategispel där eleverna behöver välja operation eller representation.
-        </p>
-
-        <ul>
-          <li>de fyra räknesätten</li>
-          <li>bråk och decimaler</li>
-          <li>procent</li>
-          <li>geometri</li>
-          <li>problemlösning</li>
-        </ul>
-
-      </div>
-
-
-      <div class="stage-card m79">
-
-        <span>🚀</span>
-
-        <h3>7–9</h3>
-
-        <p>
-          Spel med större strategiskt djup och möjlighet till generalisering.
-        </p>
-
-        <ul>
-          <li>negativa tal</li>
-          <li>algebra</li>
-          <li>funktioner</li>
-          <li>sannolikhet</li>
-          <li>optimering</li>
-        </ul>
-
-      </div>
+      <div class="game-card orange large-card">18</div>
+      <div class="game-card teal large-card">24</div>
+      <div class="game-card pink large-card">30</div>
+      <div class="game-card gray large-card">36</div>
 
     </div>
 
   </section>
 
 
-  <section>
+  <!-- SPEL 3 -->
 
-    <div class="rules-box">
+  <section class="sheet">
 
-      <h2>🧭 Fem principer för Matteresans matematikspel</h2>
+    <div class="sheet-head">
+      <h2>3. Sant, falskt eller ibland?</h2>
+      <p>Diskussionsspel • argumentation</p>
+    </div>
+
+    <div class="game-box yellow">
+
+      <h3>🎯 Så spelar ni</h3>
 
       <p>
-        Spel ska användas som undervisning – inte som paus från undervisningen.
+        Dra ett kort. Alla spelare väljer:
+        <strong>sant, falskt eller ibland</strong>.
+        Poäng ges för en matematisk motivering,
+        inte bara för valet.
       </p>
 
-      <div class="rules-grid">
+    </div>
 
-        <div class="rule-card">
-          <span>1️⃣</span>
-          <h3>Matematiskt val</h3>
-          <p>
-            Eleven behöver fatta minst ett beslut som påverkar resultatet.
-          </p>
+
+    <div class="cards">
+
+      <div class="game-card green large-card">
+        Summan av två udda tal är alltid jämn.
+      </div>
+
+      <div class="game-card blue large-card">
+        Multiplikation gör alltid ett tal större.
+      </div>
+
+      <div class="game-card purple large-card">
+        1/8 är större än 1/4 eftersom 8 är större än 4.
+      </div>
+
+      <div class="game-card yellow large-card">
+        Alla kvadrater är rektanglar.
+      </div>
+
+      <div class="game-card orange large-card">
+        +20 % och sedan −20 % ger alltid startvärdet.
+      </div>
+
+      <div class="game-card teal large-card">
+        Medianen är alltid lika med medelvärdet.
+      </div>
+
+      <div class="game-card pink large-card">
+        Alla proportionella samband går genom origo.
+      </div>
+
+      <div class="game-card gray large-card">
+        Ett jämnt tal gånger ett heltal blir alltid jämnt.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SPEL 4 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>4. Strategijakten</h2>
+      <p>Problemlösning • välj och jämför strategier</p>
+    </div>
+
+    <div class="game-box purple">
+
+      <h3>🎯 Så spelar ni</h3>
+
+      <ol>
+        <li>Dra ett problemkort.</li>
+        <li>Dra ett strategikort.</li>
+        <li>Försök lösa problemet med den strategin.</li>
+        <li>Diskutera om strategin var lämplig.</li>
+        <li>Prova gärna en annan strategi och jämför.</li>
+      </ol>
+
+    </div>
+
+
+    <div class="two-grid">
+
+      <div>
+
+        <h3 style="margin-bottom:8px;color:#17324d;">🧠 Problemkort</h3>
+
+        <div class="cards" style="grid-template-columns:repeat(2,1fr);">
+
+          <div class="game-card green large-card">
+            20 cyklar och trehjulingar har tillsammans 49 hjul. Hur många av varje?
+          </div>
+
+          <div class="game-card blue large-card">
+            Hitta alla rektanglar med heltalssidor och area 24.
+          </div>
+
+          <div class="game-card purple large-card">
+            På hur många sätt kan du göra 20 kr med 2- och 5-kronor?
+          </div>
+
+          <div class="game-card yellow large-card">
+            Talföljden är 5, 9, 13, 17... Beskriv det n:te talet.
+          </div>
+
         </div>
 
-        <div class="rule-card">
-          <span>2️⃣</span>
-          <h3>Ingen fast svarplats</h3>
-          <p>
-            Rätt svar ska inte alltid vara först eller på samma position.
-          </p>
-        </div>
+      </div>
 
-        <div class="rule-card">
-          <span>3️⃣</span>
-          <h3>Förklara</h3>
-          <p>
-            Eleverna ska kunna motivera sina val och strategier.
-          </p>
-        </div>
 
-        <div class="rule-card">
-          <span>4️⃣</span>
-          <h3>Variation</h3>
-          <p>
-            Uppgifter, tal och lösningar ska variera så att spelet inte blir mekaniskt.
-          </p>
-        </div>
+      <div>
 
-        <div class="rule-card">
-          <span>5️⃣</span>
-          <h3>Följ upp</h3>
-          <p>
-            Samla kort upp vilka strategier och missuppfattningar som blev synliga.
-          </p>
+        <h3 style="margin-bottom:8px;color:#17324d;">🧭 Strategikort</h3>
+
+        <div class="cards" style="grid-template-columns:repeat(2,1fr);">
+
+          <div class="game-card orange large-card">
+            🎨 Rita en modell
+          </div>
+
+          <div class="game-card teal large-card">
+            📋 Gör en tabell
+          </div>
+
+          <div class="game-card pink large-card">
+            🔍 Pröva systematiskt
+          </div>
+
+          <div class="game-card gray large-card">
+            ↩️ Arbeta baklänges
+          </div>
+
         </div>
 
       </div>
@@ -607,428 +762,156 @@
   </section>
 
 
-  <section>
+  <!-- SPEL 5 -->
 
-    <h2 class="section-title">🎲 Tärningsspel</h2>
+  <section class="sheet">
 
-    <p class="section-intro">
-      Enkla spel som kan startas direkt med vanliga tärningar.
-    </p>
-
-    <div class="game-grid">
-
-
-      <div class="game-card g1">
-
-        <span>🎯</span>
-
-        <h3>Närmast 100</h3>
-
-        <p>
-          För F–3 och 4–6.
-        </p>
-
-        <div class="game-box">
-          <strong>Material:</strong> två tärningar, papper och penna.
-        </div>
-
-        <ul>
-          <li>Kasta två tärningar.</li>
-          <li>Bestäm om talen ska bilda exempelvis 34 eller 43.</li>
-          <li>Lägg till talet till din totalsumma.</li>
-          <li>Först så nära 100 som möjligt utan att gå över vinner.</li>
-        </ul>
-
-      </div>
-
-
-      <div class="game-card g2">
-
-        <span>➕➖✖️➗</span>
-
-        <h3>Bygg måltalet</h3>
-
-        <p>
-          För 4–9.
-        </p>
-
-        <div class="game-box">
-          <strong>Material:</strong> tre eller fyra tärningar.
-        </div>
-
-        <ul>
-          <li>Bestäm ett måltal, exempelvis 24.</li>
-          <li>Kasta tärningarna.</li>
-          <li>Använd talen med valfria räknesätt.</li>
-          <li>Poäng för exakt måltal eller närmaste möjliga.</li>
-          <li>Alla beräkningar måste kunna förklaras.</li>
-        </ul>
-
-      </div>
-
-
-      <div class="game-card g3">
-
-        <span>🔢</span>
-
-        <h3>Största talet</h3>
-
-        <p>
-          För F–3.
-        </p>
-
-        <div class="game-box">
-          <strong>Material:</strong> en tärning per elev.
-        </div>
-
-        <ul>
-          <li>Rita tre tomma positioner för hundratal, tiotal och ental.</li>
-          <li>Kasta tärningen tre gånger.</li>
-          <li>Efter varje kast måste talet placeras direkt.</li>
-          <li>Det största färdiga talet vinner.</li>
-        </ul>
-
-      </div>
-
-
-      <div class="game-card g4">
-
-        <span>➖</span>
-
-        <h3>Närmast noll</h3>
-
-        <p>
-          För 7–9.
-        </p>
-
-        <div class="game-box">
-          <strong>Material:</strong> två tärningar och starttal 20.
-        </div>
-
-        <ul>
-          <li>Kasta två tärningar.</li>
-          <li>Välj om talen ska adderas, subtraheras eller multipliceras.</li>
-          <li>Resultatet används för att förändra startvärdet.</li>
-          <li>Målet är att komma så nära noll som möjligt.</li>
-        </ul>
-
-      </div>
-
-
-      <div class="game-card g5">
-
-        <span>🎲</span>
-
-        <h3>Sannolikhetsduellen</h3>
-
-        <p>
-          För 4–9.
-        </p>
-
-        <div class="game-box">
-          <strong>Material:</strong> två tärningar.
-        </div>
-
-        <ul>
-          <li>Elev A väljer exempelvis ”summa större än 8”.</li>
-          <li>Elev B väljer en annan händelse.</li>
-          <li>Förutsäg vilken som är mest sannolik.</li>
-          <li>Kasta 30 gånger och registrera.</li>
-          <li>Jämför experiment och teori.</li>
-        </ul>
-
-      </div>
-
-
-      <div class="game-card g6">
-
-        <span>💯</span>
-
-        <h3>Procenttärningen</h3>
-
-        <p>
-          För 4–9.
-        </p>
-
-        <div class="game-box">
-          <strong>Material:</strong> tärning och procentkort.
-        </div>
-
-        <ul>
-          <li>Kort visar exempelvis 10 %, 25 %, 50 %, 75 %.</li>
-          <li>Tärningen bestämmer ett grundtal från en förberedd tabell.</li>
-          <li>Beräkna procentdelen.</li>
-          <li>Extra poäng för två olika strategier.</li>
-        </ul>
-
-      </div>
-
+    <div class="sheet-head">
+      <h2>5. Matematikresan</h2>
+      <p>Spelplan • resonemang och utmaningar</p>
     </div>
 
-  </section>
+    <div class="game-box teal">
 
-
-  <section>
-
-    <h2 class="section-title">🃏 Kortspel</h2>
-
-    <p class="section-intro">
-      Vanliga spelkort kan bli ett enkelt laborativt matematikmaterial.
-    </p>
-
-    <div class="game-grid">
-
-
-      <div class="game-card g3">
-
-        <span>🃏</span>
-
-        <h3>Gör 10</h3>
-
-        <p>
-          För F–3.
-        </p>
-
-        <ul>
-          <li>Använd korten 1–9.</li>
-          <li>Lägg ut fem kort.</li>
-          <li>Eleven tar två eller flera kort som tillsammans ger 10.</li>
-          <li>Den som kan förklara kombinationen behåller korten.</li>
-        </ul>
-
-      </div>
-
-
-      <div class="game-card g2">
-
-        <span>✖️</span>
-
-        <h3>Produktduellen</h3>
-
-        <p>
-          För 3–6.
-        </p>
-
-        <ul>
-          <li>Varje spelare vänder två kort.</li>
-          <li>Multiplicera talen.</li>
-          <li>Störst produkt vinner omgången.</li>
-          <li>Variant: vinnaren är den som kommer närmast måltalet 50.</li>
-        </ul>
-
-      </div>
-
-
-      <div class="game-card g4">
-
-        <span>🍕</span>
-
-        <h3>Bråkduellen</h3>
-
-        <p>
-          För 4–7.
-        </p>
-
-        <ul>
-          <li>Varje spelare drar två kort.</li>
-          <li>Ett kort blir täljare och ett nämnare.</li>
-          <li>Spelaren väljer ordningen.</li>
-          <li>Störst bråk vinner.</li>
-          <li>Förklara jämförelsen utan miniräknare.</li>
-        </ul>
-
-      </div>
-
-
-      <div class="game-card g5">
-
-        <span>🔤</span>
-
-        <h3>Algebrajakten</h3>
-
-        <p>
-          För 6–9.
-        </p>
-
-        <ul>
-          <li>Dra två talkort.</li>
-          <li>Skapa ett uttryck med x och kortens värden.</li>
-          <li>Byt uttryck med en kamrat.</li>
-          <li>Kamraten beräknar uttrycket för ett givet x.</li>
-        </ul>
-
-      </div>
-
-
-      <div class="game-card g1">
-
-        <span>📈</span>
-
-        <h3>Funktionskort</h3>
-
-        <p>
-          För 7–9.
-        </p>
-
-        <ul>
-          <li>Ett kort ger lutning.</li>
-          <li>Ett annat kort ger startvärde.</li>
-          <li>Bygg funktionen y = kx + m.</li>
-          <li>Skapa tabell och jämför med motspelaren.</li>
-        </ul>
-
-      </div>
-
-
-      <div class="game-card g6">
-
-        <span>🧠</span>
-
-        <h3>24-spelet</h3>
-
-        <p>
-          För 4–9.
-        </p>
-
-        <ul>
-          <li>Dra fyra talkort.</li>
-          <li>Använd varje tal exakt en gång.</li>
-          <li>Använd valfria räknesätt.</li>
-          <li>Målet är att få 24.</li>
-          <li>Diskutera om flera lösningar finns.</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">🤝 Parspel</h2>
-
-    <p class="section-intro">
-      Spel där samtalet är en del av uppgiften.
-    </p>
-
-    <div class="activity">
-
-      <h3>🕵️ Gissa mitt tal</h3>
+      <h3>🎲 Regler</h3>
 
       <p>
-        En elev väljer ett tal. Den andra får ställa matematiska frågor.
+        Använd en tärning och varsin spelpjäs.
+        Flytta framåt och gör uppgiften i rutan.
+        Spelaren får stå kvar om hen försöker och förklarar sitt tänkande.
       </p>
-
-      <ul>
-        <li>Är talet större än 50?</li>
-        <li>Är det jämnt?</li>
-        <li>Är det delbart med 3?</li>
-        <li>Är det ett primtal?</li>
-      </ul>
-
-      <div class="game-box">
-        <strong>Utveckling:</strong>
-        begränsa antalet frågor och diskutera vilka frågor som ger mest information.
-      </div>
 
     </div>
 
 
-    <div class="activity">
+    <div class="board">
 
-      <h3>🧩 Vilken regel tänker jag på?</h3>
+      <div class="board-square green">START</div>
+      <div class="board-square blue">Förklara skillnaden mellan area och omkrets.</div>
+      <div class="board-square purple">Ge ett bråk som är lika med 1/2.</div>
+      <div class="board-square yellow">Räkna 25 × 8 med en smart strategi.</div>
+      <div class="board-square orange">Flytta +1</div>
 
-      <p>
-        Elev A bestämmer en regel, exempelvis ”multiplicera med 3 och lägg till 2”.
-      </p>
+      <div class="board-square teal">Vad betyder 30 %?</div>
+      <div class="board-square pink">Ge ett exempel på ett proportionellt samband.</div>
+      <div class="board-square gray">Rita 3/4 på ett valfritt sätt.</div>
+      <div class="board-square green">Vad är median?</div>
+      <div class="board-square blue">Flytta −1</div>
 
-      <ul>
-        <li>Elev B ger ett starttal.</li>
-        <li>Elev A svarar enligt regeln.</li>
-        <li>Efter flera exempel ska Elev B formulera regeln.</li>
-        <li>För äldre elever skrivs regeln algebraiskt.</li>
-      </ul>
+      <div class="board-square purple">Ge ett motexempel till: multiplikation gör alltid större.</div>
+      <div class="board-square yellow">Lös: 3x + 5 = 20.</div>
+      <div class="board-square orange">Beskriv en problemlösningsstrategi.</div>
+      <div class="board-square teal">Hur kan du kontrollera ett svar?</div>
+      <div class="board-square pink">Flytta +2</div>
 
-    </div>
-
-
-    <div class="activity">
-
-      <h3>⚖️ Sant, falskt eller ibland?</h3>
-
-      <p>
-        En elev drar ett påståendekort och den andra måste ta ställning och motivera.
-      </p>
-
-      <ul>
-        <li>”När man multiplicerar blir talet alltid större.”</li>
-        <li>”Alla kvadrater är rektanglar.”</li>
-        <li>”Medianen påverkas alltid mycket av extremvärden.”</li>
-        <li>”En linjär funktion måste gå genom origo.”</li>
-      </ul>
+      <div class="board-square gray">Vad betyder variabel?</div>
+      <div class="board-square green">Ge ett exempel på sannolikheten 1/2.</div>
+      <div class="board-square blue">Vilket är störst: 0,6 eller 5/8?</div>
+      <div class="board-square purple">Beskriv ett matematiskt mönster.</div>
+      <div class="board-square yellow">MÅL 🏁</div>
 
     </div>
 
   </section>
 
 
-  <section>
+  <!-- SPEL 6 -->
 
-    <h2 class="section-title">🔄 Matematikstationer</h2>
+  <section class="sheet">
 
-    <p class="section-intro">
-      Fyra till sex stationer kan kombineras under samma lektion.
-    </p>
+    <div class="sheet-head">
+      <h2>6. Utmaningsduellen</h2>
+      <p>Fördjupning • generalisering • kreativitet</p>
+    </div>
 
-    <div class="station-grid">
+    <div class="game-box orange">
 
-      <div class="station-card g1">
-        <span>🎲</span>
-        <h3>Station 1 – Tärningsspel</h3>
-        <p>
-          Snabb färdighetsträning med ett strategiskt val.
-        </p>
+      <h3>🚀 Så spelar ni</h3>
+
+      <p>
+        Dra ett kort. Alla spelare får 2–3 minuter att fundera.
+        Därefter jämför ni lösningar.
+        Poäng kan ges för olika fungerande strategier,
+        generaliseringar och tydliga argument.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+      <div class="game-card green large-card">
+        Hitta alla positiva heltalslösningar till x + y = 12.
       </div>
 
-      <div class="station-card g2">
-        <span>🧱</span>
-        <h3>Station 2 – Laborativt</h3>
-        <p>
-          Bygg, visa och förklara med konkret material.
-        </p>
+      <div class="game-card blue large-card">
+        Skapa en rektangel med omkrets 40. Vilken heltalsrektangel ger störst area?
       </div>
 
-      <div class="station-card g3">
-        <span>🧠</span>
-        <h3>Station 3 – Problem</h3>
-        <p>
-          Ett öppet problem som kräver gemensamt resonemang.
-        </p>
+      <div class="game-card purple large-card">
+        Hitta så många sätt som möjligt att skriva värdet 0,75.
       </div>
 
-      <div class="station-card g4">
+      <div class="game-card yellow large-card">
+        Talföljden är 5, 9, 13, 17... Hur ser den ut om startvärdet ändras till 8?
+      </div>
+
+      <div class="game-card orange large-card">
+        Skapa ett felaktigt matematiskt resonemang som en annan spelare ska rätta.
+      </div>
+
+      <div class="game-card teal large-card">
+        Skapa två olika problem som båda har svaret 36.
+      </div>
+
+      <div class="game-card pink large-card">
+        Hitta ett exempel där median är ett bättre lägesmått än medelvärde.
+      </div>
+
+      <div class="game-card gray large-card">
+        Skapa ett verkligt linjärt samband som inte är proportionellt.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Gör spelet matematiskt</h2>
+
+    <div class="teacher-grid">
+
+      <div class="teacher-card">
         <span>💬</span>
-        <h3>Station 4 – Matteprat</h3>
+        <h3>Kräv förklaring</h3>
         <p>
-          Jämför strategier eller diskutera ett påstående.
+          Ett svar ger inte automatiskt poäng. Eleven ska kunna beskriva sitt tänkande.
         </p>
       </div>
 
-      <div class="station-card g5">
-        <span>✏️</span>
-        <h3>Station 5 – Elevblad</h3>
+      <div class="teacher-card">
+        <span>🛣️</span>
+        <h3>Jämför strategier</h3>
         <p>
-          Individuellt arbete för att synliggöra förståelse.
+          Låt olika lösningar bli en del av själva spelet.
         </p>
       </div>
 
-      <div class="station-card g6">
+      <div class="teacher-card">
+        <span>🧩</span>
+        <h3>Anpassa</h3>
+        <p>
+          Ändra tal, stöd eller representation utan att ta bort den matematiska kärnan.
+        </p>
+      </div>
+
+      <div class="teacher-card">
         <span>🚀</span>
-        <h3>Station 6 – Utmaning</h3>
+        <h3>Fördjupa</h3>
         <p>
-          Generalisera, ändra villkor eller hitta flera lösningar.
+          Fråga vad som händer om villkoren förändras eller om regeln kan generaliseras.
         </p>
       </div>
 
@@ -1037,109 +920,13 @@
   </section>
 
 
-  <section>
+  <div class="note">
 
-    <h2 class="section-title">🧠 Efter spelet</h2>
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
 
-    <p class="section-intro">
-      Två minuter gemensam reflektion kan göra spelandet till tydligare undervisning.
-    </p>
-
-    <div class="game-grid">
-
-      <div class="game-card g2">
-        <span>💡</span>
-        <h3>Vilken strategi?</h3>
-        <p>
-          Vad gjorde du som ökade din chans att lyckas?
-        </p>
-      </div>
-
-      <div class="game-card g4">
-        <span>⚖️</span>
-        <h3>Vilket val var bäst?</h3>
-        <p>
-          Fanns det tillfällen då flera val var möjliga men ett var smartare?
-        </p>
-      </div>
-
-      <div class="game-card g6">
-        <span>🔄</span>
-        <h3>Vad skulle du ändra?</h3>
-        <p>
-          Hur skulle reglerna kunna ändras för att göra spelet svårare?
-        </p>
-      </div>
-
-    </div>
-
-    <div class="note">
-      <strong>Viktigt:</strong>
-      vinnaren behöver inte vara den som är snabbast.
-      Matteresans spel bör belöna matematiskt tänkande, strategier, förklaringar
-      och ibland även flera möjliga lösningar.
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">🗂️ Relaterat material</h2>
-
-    <div class="tool-grid">
-
-      <a href="material-laborativt.html" class="tool-card t1">
-        <span>🧱</span>
-        <h3>Laborativ matematik</h3>
-        <p>
-          Material och aktiviteter som fungerar bra tillsammans med spel och stationer.
-        </p>
-      </a>
-
-      <a href="material-problem.html" class="tool-card t2">
-        <span>🧠</span>
-        <h3>Problembank</h3>
-        <p>
-          Öppna problem för pararbete och matematiska utmaningar.
-        </p>
-      </a>
-
-      <a href="material-matteprat.html" class="tool-card t3">
-        <span>💬</span>
-        <h3>Matteprat</h3>
-        <p>
-          Samtalsstarter för reflektion före och efter spel.
-        </p>
-      </a>
-
-      <a href="material-begrepp.html" class="tool-card t4">
-        <span>📚</span>
-        <h3>Begreppsbank</h3>
-        <p>
-          Matematiska ord att använda under spel och samtal.
-        </p>
-      </a>
-
-      <a href="larare-observation.html" class="tool-card t5">
-        <span>👀</span>
-        <h3>Observation</h3>
-        <p>
-          Observera strategier, samspel och matematisk förståelse under spel.
-        </p>
-      </a>
-
-      <a href="larare-undervisning.html" class="tool-card t6">
-        <span>👩‍🏫</span>
-        <h3>Undervisning</h3>
-        <p>
-          Koppla spel, stationer och samtal till den ordinarie matematikundervisningen.
-        </p>
-      </a>
-
-    </div>
-
-  </section>
+  </div>
 
 </main>
 
@@ -1150,7 +937,7 @@
 
   <br>
 
-  🎲 Matematikspel – pröva, tänka, välja, förklara och utmana
+  🎲 Matematikspel – spela, resonera, förklara och utmana
 
 </footer>
 
