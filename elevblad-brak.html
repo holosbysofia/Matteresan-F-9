@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Elevblad Bråk F–9 | HOLOS Matteresan</title>
+  <title>Bråk F–9 | HOLOS Matteresan</title>
 
   <style>
     * {
@@ -15,13 +15,22 @@
 
     :root {
       --dark: #17324d;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --teal-light: #eaf7f5;
-      --pink-light: #ffe9f1;
+
+      --f3: #e8f7ed;
+      --f3-strong: #5f9470;
+
+      --46: #e8f3ff;
+      --46-strong: #5d86ad;
+
+      --79: #f0eaff;
+      --79-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -31,7 +40,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     a {
@@ -41,10 +50,10 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
-        linear-gradient(135deg, #7a5528, #d19a4b);
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #78604b, #a7886f);
       color: white;
-      padding: 22px 20px 55px;
+      padding: 22px 20px 50px;
     }
 
     .topbar {
@@ -65,58 +74,54 @@
       padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
       font-weight: bold;
     }
 
     .hero {
-      max-width: 900px;
-      margin: 45px auto 0;
+      max-width: 920px;
+      margin: 42px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.1rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4.2rem);
+      font-size: clamp(2.2rem, 7vw, 4rem);
       line-height: 1.05;
       margin-bottom: 10px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 15px;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 820px;
+      max-width: 850px;
       margin: auto;
-      color: #fff9f0;
+      color: #fffaf6;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1040px;
       margin: auto;
-      padding: 42px 20px;
-    }
-
-    section {
-      margin-bottom: 55px;
+      padding: 40px 20px;
     }
 
     .intro {
-      background: var(--yellow-light);
-      border-radius: 26px;
-      padding: 32px;
+      background: var(--yellow);
+      border-radius: 24px;
+      padding: 30px;
       text-align: center;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
       color: var(--dark);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .intro p {
@@ -126,7 +131,7 @@
     }
 
     .print-button {
-      display: inline-block;
+      margin-top: 16px;
       background: var(--dark);
       color: white;
       border: none;
@@ -134,262 +139,278 @@
       padding: 12px 20px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 18px;
-    }
-
-    .stage {
-      border-radius: 28px;
-      padding: 34px;
-      margin-bottom: 34px;
-    }
-
-    .stage-f3 {
-      background: var(--green-light);
-    }
-
-    .stage-46 {
-      background: var(--blue-light);
-    }
-
-    .stage-79 {
-      background: var(--purple-light);
-    }
-
-    .stage-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-
-    .stage-header span {
-      font-size: 2.8rem;
-    }
-
-    .stage-header h2 {
-      color: var(--dark);
-      font-size: 1.9rem;
-    }
-
-    .stage-header p {
-      color: var(--muted);
-    }
-
-    .sheet-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
     }
 
     .sheet {
       background: white;
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 22px;
-      padding: 26px;
-      border: 1px solid rgba(0,0,0,0.06);
-      min-height: 500px;
+      padding: 24px;
+      margin-bottom: 28px;
+      min-height: 270mm;
     }
 
-    .sheet h3 {
-      color: var(--dark);
-      margin-bottom: 5px;
-      font-size: 1.35rem;
+    .sheet.f3 {
+      border-top: 9px solid var(--f3-strong);
     }
 
-    .sheet-sub {
-      color: var(--muted);
+    .sheet.stage46 {
+      border-top: 9px solid var(--46-strong);
+    }
+
+    .sheet.stage79 {
+      border-top: 9px solid var(--79-strong);
+    }
+
+    .sheet-head {
+      text-align: center;
       margin-bottom: 18px;
-      font-size: 0.93rem;
+    }
+
+    .stage-label {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .f3-label {
+      background: var(--f3);
+      color: #356345;
+    }
+
+    .stage46-label {
+      background: var(--46);
+      color: #345e86;
+    }
+
+    .stage79-label {
+      background: var(--79);
+      color: #634a83;
+    }
+
+    .sheet-head h2 {
+      color: var(--dark);
+      font-size: 1.7rem;
+      margin-bottom: 4px;
+    }
+
+    .sheet-head p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .field {
+      background: white;
+      border: 1.5px solid #9aa6ae;
+      border-radius: 10px;
+      min-height: 50px;
+      padding: 9px;
+    }
+
+    .field strong {
+      display: block;
+      color: var(--dark);
+      font-size: 0.86rem;
     }
 
     .task {
-      margin-bottom: 20px;
-      padding-bottom: 18px;
-      border-bottom: 1px dashed #ccd4db;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+      break-inside: avoid;
     }
 
-    .task:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
-    .task strong {
+    .task h3 {
       color: var(--dark);
+      font-size: 1rem;
+      margin-bottom: 6px;
     }
 
-    .fraction {
-      display: inline-block;
-      vertical-align: middle;
-      text-align: center;
-      font-weight: bold;
-      min-width: 28px;
-      line-height: 1.1;
+    .task p,
+    .task li {
+      color: #4e5d68;
+      font-size: 0.88rem;
     }
 
-    .fraction .top {
-      display: block;
-      border-bottom: 1.5px solid #263747;
-      padding: 0 4px 2px;
+    .task ul,
+    .task ol {
+      margin: 8px 0 0 22px;
     }
 
-    .fraction .bottom {
-      display: block;
-      padding-top: 2px;
+    .task li {
+      margin-bottom: 5px;
     }
 
-    .answer-line {
-      display: block;
-      height: 30px;
-      border-bottom: 1px solid #6f7a84;
+    .green {
+      background: var(--f3);
+    }
+
+    .blue {
+      background: var(--46);
+    }
+
+    .purple {
+      background: var(--79);
+    }
+
+    .yellow {
+      background: var(--yellow);
+    }
+
+    .orange {
+      background: var(--orange);
+    }
+
+    .teal {
+      background: var(--teal);
+    }
+
+    .pink {
+      background: var(--pink);
+    }
+
+    .gray {
+      background: var(--gray);
+    }
+
+    .write-area {
+      background: white;
+      border: 1.2px solid #98a4ad;
+      border-radius: 8px;
       margin-top: 8px;
+      min-height: 70px;
     }
 
-    .answer-box {
-      height: 76px;
-      border: 1.5px solid #9ba7b1;
+    .write-area.medium {
+      min-height: 100px;
+    }
+
+    .write-area.large {
+      min-height: 145px;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .four-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
+    }
+
+    .fraction-box {
+      background: white;
+      border: 1.2px solid #89969f;
       border-radius: 10px;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--dark);
+      font-weight: bold;
+      font-size: 1.25rem;
+      padding: 10px;
+    }
+
+    .fraction-strip {
+      display: grid;
+      gap: 4px;
       margin-top: 10px;
+    }
+
+    .halves {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quarters {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .eighths {
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    .strip-part {
+      min-height: 48px;
+      background: white;
+      border: 1.2px solid #89969f;
+    }
+
+    .circle-area {
+      width: 150px;
+      height: 150px;
+      border: 2px solid #7d8992;
+      border-radius: 50%;
+      margin: 12px auto;
       background: white;
     }
 
-    .answer-box.large {
-      height: 115px;
-    }
-
-    .fraction-bar {
-      display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      gap: 0;
-      margin-top: 12px;
-      border: 2px solid #40566a;
-      height: 42px;
-    }
-
-    .fraction-bar div {
-      border-right: 1px solid #40566a;
-    }
-
-    .fraction-bar div:last-child {
-      border-right: none;
-    }
-
-    .numberline {
-      position: relative;
-      height: 72px;
-      margin-top: 18px;
-    }
-
-    .numberline .line {
-      height: 3px;
-      background: #344a5f;
-      position: absolute;
-      left: 4%;
-      right: 4%;
-      top: 32px;
-    }
-
-    .tick {
-      position: absolute;
-      top: 23px;
-      width: 2px;
-      height: 20px;
-      background: #344a5f;
-    }
-
-    .tick-label {
-      position: absolute;
-      top: 46px;
-      transform: translateX(-50%);
-      font-size: 0.85rem;
-    }
-
-    .p0 { left: 4%; }
-    .p25 { left: 27%; }
-    .p50 { left: 50%; }
-    .p75 { left: 73%; }
-    .p100 { left: 96%; }
-
-    .choice-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .choice {
-      border: 1.5px solid #9aa6af;
+    .equation {
+      background: white;
+      border: 1px solid #98a4ad;
       border-radius: 10px;
-      padding: 8px 14px;
-      min-width: 75px;
+      padding: 13px;
+      margin-top: 8px;
       text-align: center;
+      font-size: 1.2rem;
       font-weight: bold;
-    }
-
-    .challenge {
-      background: var(--yellow-light);
-      border-radius: 18px;
-      padding: 20px;
-      margin-top: 20px;
-    }
-
-    .reflection {
-      background: var(--orange-light);
-      border-radius: 18px;
-      padding: 20px;
-      margin-top: 20px;
-    }
-
-    .challenge h4,
-    .reflection h4 {
       color: var(--dark);
-      margin-bottom: 7px;
     }
 
-    .teacher-note {
-      background: var(--teal-light);
-      border-radius: 24px;
-      padding: 28px;
-    }
-
-    .teacher-note h2 {
-      color: var(--dark);
-      margin-bottom: 10px;
-    }
-
-    .teacher-note ul {
-      padding-left: 20px;
+    .footer-note {
+      text-align: center;
+      margin-top: 14px;
       color: var(--muted);
+      font-size: 0.8rem;
     }
 
-    .teacher-note li {
-      margin-bottom: 8px;
+    .screen-note {
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 24px;
+      color: #654c37;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
+      color: white;
       text-align: center;
-      padding: 34px 20px;
+      padding: 30px 20px;
+      margin-top: 30px;
     }
 
-    @media (max-width: 850px) {
-      .sheet-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .stage,
-      .intro,
-      .teacher-note {
-        padding: 23px 16px;
-      }
-
-      .sheet {
-        padding: 20px 16px;
+      .meta-grid,
+      .two-grid,
+      .three-grid,
+      .four-grid {
+        grid-template-columns: 1fr;
       }
 
       main {
@@ -398,86 +419,161 @@
       }
     }
 
+    /* =====================================
+       UTSKRIFT – A4 + FÄRG
+       ===================================== */
+
     @page {
       size: A4 portrait;
-      margin: 12mm;
+      margin: 10mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
       body {
-        background: white;
-        font-size: 10.5pt;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
       header,
       footer,
       .intro,
-      .teacher-note,
-      .print-button,
-      .back-link {
+      .screen-note {
         display: none !important;
       }
 
       main {
+        width: 100%;
         max-width: none;
+        margin: 0;
         padding: 0;
-        margin: 0;
-      }
-
-      section {
-        margin: 0;
-      }
-
-      .stage {
-        background: white !important;
-        padding: 0;
-        margin: 0;
-      }
-
-      .stage-header {
-        margin: 0 0 7mm 0;
-      }
-
-      .stage-header span {
-        display: none;
-      }
-
-      .stage-header h2 {
-        font-size: 17pt;
-      }
-
-      .stage-header p {
-        font-size: 9pt;
-      }
-
-      .sheet-grid {
-        display: block;
       }
 
       .sheet {
-        border: none;
-        border-radius: 0;
+        width: 100%;
+        min-height: 277mm;
+        margin: 0;
         padding: 0;
-        min-height: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
         page-break-after: always;
         break-after: page;
       }
 
-      .sheet:last-child {
+      .sheet:last-of-type {
         page-break-after: auto;
         break-after: auto;
       }
 
+      .sheet.f3 {
+        border-top: 7px solid var(--f3-strong) !important;
+      }
+
+      .sheet.stage46 {
+        border-top: 7px solid var(--46-strong) !important;
+      }
+
+      .sheet.stage79 {
+        border-top: 7px solid var(--79-strong) !important;
+      }
+
+      .green,
+      .f3-label {
+        background: var(--f3) !important;
+      }
+
+      .blue,
+      .stage46-label {
+        background: var(--46) !important;
+      }
+
+      .purple,
+      .stage79-label {
+        background: var(--79) !important;
+      }
+
+      .yellow {
+        background: var(--yellow) !important;
+      }
+
+      .orange {
+        background: var(--orange) !important;
+      }
+
+      .teal {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .field,
+      .write-area,
+      .fraction-box,
+      .strip-part,
+      .circle-area,
+      .equation {
+        background: white !important;
+      }
+
+      .two-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .three-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .four-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 2.5mm !important;
+      }
+
       .task,
-      .challenge,
-      .reflection {
+      .field,
+      .fraction-strip,
+      .fraction-box,
+      .equation {
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      .stage:not(:first-of-type) {
-        page-break-before: always;
-        break-before: page;
+      .sheet-head h2,
+      .task h3,
+      .field strong,
+      .fraction-box,
+      .equation {
+        color: var(--dark) !important;
+      }
+
+      .sheet-head p,
+      .task p,
+      .task li,
+      .footer-note {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -490,22 +586,23 @@
   <div class="topbar">
     <div class="logo">HOLOS MATTERESAN</div>
 
-    <a href="material-elevblad.html" class="back-link">
-      ← Elevblad
+    <a href="material-a4-elevblad.html" class="back-link">
+      ← A4 Elevblad
     </a>
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">🍕</div>
+    <div class="hero-icon">🍕✏️</div>
 
     <h1>Bråk F–9</h1>
 
-    <h2>Se delen • Jämför • Placera • Beräkna • Förklara</h2>
+    <h2>Se • Dela • Jämför • Förklara • Generalisera</h2>
 
     <p>
-      Utskriftsklara elevblad där bråk behandlas som del av helhet,
-      del av mängd, tal på tallinjen och som grund för vidare beräkningar och resonemang.
+      Sex utskriftsklara elevblad som utvecklar förståelsen
+      för bråk från del av helhet till beräkningar och algebraiska resonemang.
     </p>
 
   </div>
@@ -515,643 +612,619 @@
 
 <main>
 
-  <section>
+  <div class="intro">
 
-    <div class="intro">
+    <h2>🍕 Bråk är tal</h2>
 
-      <h2>📄 Sex elevblad – från konkret bråk till generalisering</h2>
+    <p>
+      Elever behöver möta bråk som delar av helheter,
+      delar av mängder, tal på tallinjen, kvoter och operatorer.
+      Bilder och modeller ska successivt kopplas till symboler och generella samband.
+    </p>
+
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut alla sex elevblad
+    </button>
+
+  </div>
+
+
+  <!-- =========================
+       F–3 BLAD 1
+       ========================= -->
+
+  <section class="sheet f3">
+
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Bråk – blad 1</h2>
+      <p>Halvor • fjärdedelar • lika stora delar</p>
+    </div>
+
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task green">
+
+      <h3>1. Visa en halv</h3>
 
       <p>
-        Två blad för varje stadium. Varje elevblad skrivs ut på en egen A4-sida.
+        Dela cirkeln i två lika stora delar och färglägg en halv.
       </p>
 
-      <button class="print-button" onclick="window.print()">
-        🖨️ Skriv ut elevbladen
-      </button>
+      <div class="circle-area"></div>
 
     </div>
 
-  </section>
 
+    <div class="task yellow">
 
-  <!-- F–3 -->
+      <h3>2. Visa en fjärdedel</h3>
 
-  <section class="stage stage-f3">
+      <p>
+        Dela remsan i fyra lika stora delar.
+        Färglägg en del.
+      </p>
 
-    <div class="stage-header">
-
-      <span>🌱</span>
-
-      <div>
-        <h2>F–3 – Delar av en helhet</h2>
-        <p>Halvor • fjärdedelar • lika stora delar • del av mängd</p>
+      <div class="fraction-strip quarters">
+        <div class="strip-part"></div>
+        <div class="strip-part"></div>
+        <div class="strip-part"></div>
+        <div class="strip-part"></div>
       </div>
 
     </div>
 
-    <div class="sheet-grid">
+
+    <div class="task blue">
+
+      <h3>3. Hur mycket är färglagt?</h3>
+
+      <p>
+        Rita en egen figur där <strong>2/4</strong> är färglagt.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
 
 
-      <article class="sheet">
+    <div class="task teal">
 
-        <h3>Elevblad 1 – Dela lika</h3>
+      <h3>4. Samma mängd?</h3>
 
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
+      <p>
+        Är <strong>1/2</strong> och <strong>2/4</strong> lika mycket?
+        Visa med en bild.
+      </p>
 
-        <div class="task">
+      <div class="write-area large"></div>
 
-          <strong>1. Dela rektangeln i två lika stora delar.</strong>
-
-          <div class="answer-box"></div>
-
-          <p style="margin-top:8px;">
-            Varje del är en __________________.
-          </p>
-
-        </div>
+    </div>
 
 
-        <div class="task">
-
-          <strong>2. Dela rektangeln i fyra lika stora delar.</strong>
-
-          <div class="answer-box"></div>
-
-          <p style="margin-top:8px;">
-            Varje del är en __________________.
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Är delarna lika stora?</strong>
-
-          <p>
-            Rita en figur som är delad i fyra delar där delarna
-            <strong>inte</strong> är lika stora.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="reflection">
-
-          <h4>💬 Förklara</h4>
-
-          <p>
-            Varför måste delarna vara lika stora när vi säger en fjärdedel?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 2 – Bråk av en mängd</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Hälften.</strong>
-
-          <p>
-            Rita 10 prickar.
-            Ringa in hälften av prickarna.
-          </p>
-
-          <div class="answer-box large"></div>
-
-          <p>
-            Hälften av 10 är ______.
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Fjärdedelen.</strong>
-
-          <p>
-            Det finns 12 kulor.
-            Hur många kulor är en fjärdedel?
-          </p>
-
-          <p>
-            Svar: ______ kulor
-          </p>
-
-          <p style="margin-top:8px;">
-            Rita eller förklara hur du tänkte.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Vilket är mest?</strong>
-
-          <p>
-            Hälften av 8 eller hälften av 14?
-          </p>
-
-          <p>
-            Svar: __________________
-          </p>
-
-          <p>
-            Varför?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Utmaning</h4>
-
-          <p>
-            Hitta ett antal där hälften är 6 och en fjärdedel är 3.
-          </p>
-
-          <p>
-            Talet är ______.
-          </p>
-
-        </div>
-
-      </article>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Bråk F–3
     </div>
 
   </section>
 
 
-  <!-- 4–6 -->
+  <!-- =========================
+       F–3 BLAD 2
+       ========================= -->
 
-  <section class="stage stage-46">
+  <section class="sheet f3">
 
-    <div class="stage-header">
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Bråk – blad 2</h2>
+      <p>Del av mängd • jämföra • skapa egna bråk</p>
+    </div>
 
-      <span>🌿</span>
 
-      <div>
-        <h2>4–6 – Bråk som tal</h2>
-        <p>Tallinje • jämförelse • likvärdiga bråk • del av mängd</p>
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task green">
+
+      <h3>1. Del av en mängd</h3>
+
+      <p>
+        Rita 8 stjärnor.
+        Ringa in <strong>1/2</strong> av stjärnorna.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. En fjärdedel av 12</h3>
+
+      <p>
+        Rita eller visa hur du hittar <strong>1/4 av 12</strong>.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Vilket är störst?</h3>
+
+      <div class="two-grid">
+        <div class="fraction-box">1/2</div>
+        <div class="fraction-box">1/4</div>
       </div>
 
+      <p style="margin-top:8px;">
+        Förklara med en bild eller ord.
+      </p>
+
+      <div class="write-area medium"></div>
+
     </div>
 
-    <div class="sheet-grid">
 
+    <div class="task orange">
 
-      <article class="sheet">
+      <h3>4. Sant eller falskt?</h3>
 
-        <h3>Elevblad 3 – Jämför bråk</h3>
+      <p>
+        <strong>En fjärdedel är alltid mindre än en halv.</strong>
+      </p>
 
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
+      <p>
+        Visa hur du vet.
+      </p>
 
-        <div class="task">
+      <div class="write-area medium"></div>
 
-          <strong>1. Vilket bråk är störst?</strong>
+    </div>
 
-          <p>
-            a)
-            <span class="fraction">
-              <span class="top">3</span>
-              <span class="bottom">5</span>
-            </span>
 
-            eller
+    <div class="task teal">
 
-            <span class="fraction">
-              <span class="top">2</span>
-              <span class="bottom">5</span>
-            </span>
-          </p>
+      <h3>5. Skapa själv</h3>
 
-          <p>Svar: __________</p>
+      <p>
+        Rita en bild som visar bråket <strong>3/4</strong>.
+      </p>
 
-          <p style="margin-top:10px;">
-            b)
-            <span class="fraction">
-              <span class="top">3</span>
-              <span class="bottom">4</span>
-            </span>
+      <div class="write-area large"></div>
 
-            eller
+    </div>
 
-            <span class="fraction">
-              <span class="top">3</span>
-              <span class="bottom">8</span>
-            </span>
-          </p>
 
-          <p>Svar: __________</p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Placera på tallinjen.</strong>
-
-          <p>
-            Markera ungefär var
-            1/4, 1/2 och 3/4 ligger.
-          </p>
-
-          <div class="numberline">
-
-            <div class="line"></div>
-
-            <div class="tick p0"></div>
-            <div class="tick p25"></div>
-            <div class="tick p50"></div>
-            <div class="tick p75"></div>
-            <div class="tick p100"></div>
-
-            <div class="tick-label p0">0</div>
-            <div class="tick-label p25"></div>
-            <div class="tick-label p50"></div>
-            <div class="tick-label p75"></div>
-            <div class="tick-label p100">1</div>
-
-          </div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Skriv ett bråk mellan 1/2 och 1.</strong>
-
-          <p>
-            Mitt bråk: __________
-          </p>
-
-          <p>
-            Förklara hur du vet att det ligger mellan 1/2 och 1.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="reflection">
-
-          <h4>💬 Resonera</h4>
-
-          <p>
-            Varför är 1/8 mindre än 1/4 trots att 8 är större än 4?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 4 – Likvärdiga bråk</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Fyll i så att bråken får samma värde.</strong>
-
-          <p>
-            1/2 = ___/4
-          </p>
-
-          <p>
-            2/3 = ___/6
-          </p>
-
-          <p>
-            3/4 = ___/8
-          </p>
-
-          <p>
-            2/5 = ___/10
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Visa 4/8 i modellen.</strong>
-
-          <div class="fraction-bar">
-            <div></div><div></div><div></div><div></div>
-            <div></div><div></div><div></div><div></div>
-          </div>
-
-          <p style="margin-top:10px;">
-            Vilket enklare bråk har samma värde? __________
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Bråk av mängd.</strong>
-
-          <p>
-            3/4 av 20 elever har lämnat in sin uppgift.
-          </p>
-
-          <p>
-            Hur många elever är det?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Utmaning</h4>
-
-          <p>
-            Skriv fyra olika bråk som alla har samma värde som 1/2.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Bråk F–3
     </div>
 
   </section>
 
 
-  <!-- 7–9 -->
+  <!-- =========================
+       4–6 BLAD 1
+       ========================= -->
 
-  <section class="stage stage-79">
+  <section class="sheet stage46">
 
-    <div class="stage-header">
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Bråk – blad 1</h2>
+      <p>Likvärdiga bråk • jämföra • tallinje</p>
+    </div>
 
-      <span>🚀</span>
 
-      <div>
-        <h2>7–9 – Beräkningar & resonemang</h2>
-        <p>Operationer • rationella tal • generalisering • felsvar</p>
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>1. Likvärdiga bråk</h3>
+
+      <p>
+        Fyll i de saknade talen.
+      </p>
+
+      <div class="three-grid">
+        <div class="equation">1/2 = ___/4</div>
+        <div class="equation">2/3 = ___/6</div>
+        <div class="equation">3/5 = 6/___</div>
       </div>
 
+      <div class="write-area medium"></div>
+
     </div>
 
-    <div class="sheet-grid">
 
+    <div class="task green">
 
-      <article class="sheet">
+      <h3>2. Jämför</h3>
 
-        <h3>Elevblad 5 – Beräkna med bråk</h3>
+      <p>
+        Sätt in &lt;, &gt; eller =.
+      </p>
 
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
+      <div class="three-grid">
+        <div class="equation">3/4 ___ 2/3</div>
+        <div class="equation">5/8 ___ 1/2</div>
+        <div class="equation">4/6 ___ 2/3</div>
+      </div>
 
-        <div class="task">
+      <div class="write-area medium"></div>
 
-          <strong>1. Addition och subtraktion.</strong>
+    </div>
 
-          <p>
-            2/7 + 3/7 = __________
-          </p>
 
-          <p>
-            5/6 − 1/6 = __________
-          </p>
+    <div class="task yellow">
 
-          <p>
-            1/2 + 1/4 = __________
-          </p>
+      <h3>3. Placera på en tallinje</h3>
 
-          <p>
-            3/4 − 1/3 = __________
-          </p>
+      <p>
+        Rita en tallinje från 0 till 1 och placera:
+        <strong>1/4, 1/2, 3/4</strong>.
+      </p>
 
-        </div>
+      <div class="write-area large"></div>
 
+    </div>
 
-        <div class="task">
 
-          <strong>2. Multiplikation.</strong>
+    <div class="task purple">
 
-          <p>
-            2/3 × 3/5 = __________
-          </p>
+      <h3>4. Förklara</h3>
 
-          <p>
-            3 × 2/7 = __________
-          </p>
+      <p>
+        Varför är <strong>2/4</strong> och <strong>1/2</strong> samma tal?
+      </p>
 
-          <p style="margin-top:10px;">
-            Visa med ord vad 3 × 2/7 betyder.
-          </p>
+      <div class="write-area large"></div>
 
-          <div class="answer-box"></div>
+    </div>
 
-        </div>
 
-
-        <div class="task">
-
-          <strong>3. Division.</strong>
-
-          <p>
-            Hur många halvor ryms i 3?
-          </p>
-
-          <p>
-            3 ÷ 1/2 = __________
-          </p>
-
-          <p>
-            Förklara varför svaret blir större än 3.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="reflection">
-
-          <h4>💬 Resonera</h4>
-
-          <p>
-            När kan division ge ett svar som är större än talet man började med?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 6 – Felfinnaren & generalisering</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Hitta felet.</strong>
-
-          <p>
-            En elev skriver:
-          </p>
-
-          <p style="font-weight:bold;font-size:1.15rem;margin:8px 0;">
-            2/5 + 1/5 = 3/10
-          </p>
-
-          <p>
-            Vad har eleven gjort?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Hitta felet.</strong>
-
-          <p>
-            En elev säger:
-            ”3/8 är större än 3/4 eftersom 8 är större än 4.”
-          </p>
-
-          <p>
-            Förklara varför resonemanget inte fungerar.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Sant, falskt eller ibland?</strong>
-
-          <p>
-            ”När man multiplicerar ett positivt tal med ett bråk blir svaret mindre.”
-          </p>
-
-          <div class="choice-row">
-            <div class="choice">Sant</div>
-            <div class="choice">Falskt</div>
-            <div class="choice">Ibland</div>
-          </div>
-
-          <p style="margin-top:10px;">
-            Motivera med exempel.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Generalisera</h4>
-
-          <p>
-            Om både täljaren och nämnaren i ett bråk multipliceras med samma positiva tal:
-            vad händer med bråkets värde?
-          </p>
-
-          <p>
-            Visa med minst två exempel och skriv sedan en regel.
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-      </article>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Bråk 4–6
     </div>
 
   </section>
 
 
-  <section>
+  <!-- =========================
+       4–6 BLAD 2
+       ========================= -->
 
-    <div class="teacher-note">
+  <section class="sheet stage46">
 
-      <h2>👩‍🏫 Lärarnotering</h2>
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Bråk – blad 2</h2>
+      <p>Beräkningar • del av antal • problemlösning</p>
+    </div>
+
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>1. Del av antal</h3>
+
+      <p>
+        Beräkna:
+      </p>
+
+      <div class="three-grid">
+        <div class="fraction-box">1/2 av 36</div>
+        <div class="fraction-box">1/3 av 27</div>
+        <div class="fraction-box">3/4 av 20</div>
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task green">
+
+      <h3>2. Addition och subtraktion</h3>
+
+      <div class="three-grid">
+        <div class="equation">2/7 + 3/7</div>
+        <div class="equation">6/8 − 2/8</div>
+        <div class="equation">1/4 + 2/4</div>
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Problemet</h3>
+
+      <p>
+        3/5 av en klass med 25 elever cyklar till skolan.
+        Hur många elever är det?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Felfinnaren</h3>
+
+      <p>
+        En elev räknar:
+      </p>
+
+      <div class="equation">
+        1/3 + 1/3 = 2/6
+      </div>
+
+      <p style="margin-top:8px;">
+        Vad är fel? Förklara och rätta.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Skapa ett problem</h3>
+
+      <p>
+        Skapa en berättelseuppgift där man behöver beräkna
+        <strong>2/3 av 18</strong>.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="footer-note">
+      HOLOS Matteresan • Bråk 4–6
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       7–9 BLAD 1
+       ========================= -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Bråk – blad 1</h2>
+      <p>Beräkningar • olika nämnare • multiplikation • division</p>
+    </div>
+
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>1. Addition och subtraktion</h3>
+
+      <div class="three-grid">
+        <div class="fraction-box">1/2 + 1/3</div>
+        <div class="fraction-box">5/6 − 1/4</div>
+        <div class="fraction-box">3/5 + 7/10</div>
+      </div>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Multiplikation</h3>
+
+      <div class="three-grid">
+        <div class="fraction-box">2/3 × 3/5</div>
+        <div class="fraction-box">4 × 3/8</div>
+        <div class="fraction-box">5/6 × 12</div>
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Division</h3>
+
+      <div class="two-grid">
+        <div class="fraction-box">3/4 ÷ 1/2</div>
+        <div class="fraction-box">2 ÷ 2/5</div>
+      </div>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Förklara</h3>
+
+      <p>
+        Varför blir <strong>3/4 ÷ 1/2</strong> större än 3/4?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="footer-note">
+      HOLOS Matteresan • Bråk 7–9
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       7–9 BLAD 2
+       ========================= -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Bråk – blad 2</h2>
+      <p>Algebra • proportionalitet • resonemang • generalisering</p>
+    </div>
+
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>1. Förenkla</h3>
+
+      <div class="three-grid">
+        <div class="fraction-box">12/18</div>
+        <div class="fraction-box">21/28</div>
+        <div class="fraction-box">36/48</div>
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Algebraiska bråk</h3>
+
+      <p>
+        Förenkla när det är möjligt:
+      </p>
+
+      <div class="three-grid">
+        <div class="fraction-box">6x / 12</div>
+        <div class="fraction-box">9a / 3</div>
+        <div class="fraction-box">4x / 8x</div>
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Proportion</h3>
+
+      <p>
+        Om 3/5 av en sträcka är 18 km,
+        hur lång är hela sträckan?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Sant eller falskt?</h3>
+
+      <p>
+        <strong>
+          Om både täljaren och nämnaren ökas med samma tal
+          behåller bråket alltid samma värde.
+        </strong>
+      </p>
+
+      <p>
+        Undersök med exempel och motexempel.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Generalisera</h3>
+
+      <p>
+        Vad händer med värdet av ett positivt bråk om:
+      </p>
 
       <ul>
-        <li>
-          F–3 fokuserar på lika stora delar, halvor, fjärdedelar och bråk av mängd.
-        </li>
-
-        <li>
-          4–6 flyttar fokus mot bråk som tal, tallinje, jämförelse och likvärdiga bråk.
-        </li>
-
-        <li>
-          7–9 utvecklar operationer med rationella tal och mer generaliserande resonemang.
-        </li>
-
-        <li>
-          Var uppmärksam på missuppfattningen att större nämnare automatiskt betyder större bråk.
-        </li>
-
-        <li>
-          Låt gärna elever använda bråkstavar, tallinje eller bild även på de äldre stadierna när representationen hjälper resonemanget.
-        </li>
+        <li>täljaren fördubblas?</li>
+        <li>nämnaren fördubblas?</li>
+        <li>både täljaren och nämnaren fördubblas?</li>
       </ul>
 
-      <button class="print-button" onclick="window.print()">
-        🖨️ Skriv ut
-      </button>
+      <div class="write-area large"></div>
 
     </div>
 
+
+    <div class="footer-note">
+      HOLOS Matteresan • Bråk 7–9
+    </div>
+
   </section>
+
+
+  <div class="screen-note">
+
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+    Varje elevblad ska hamna på ett eget A4.
+
+  </div>
 
 </main>
 
@@ -1162,7 +1235,7 @@
 
   <br>
 
-  🍕 Bråk – se delen, jämför, placera, beräkna och förklara
+  🍕 Bråk – se, dela, jämför, förklara och generalisera
 
 </footer>
 
