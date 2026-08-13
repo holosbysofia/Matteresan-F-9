@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Diagnosbank F–9 | HOLOS Matteresan</title>
+  <title>Diagnostiskt material | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,17 +15,25 @@
 
     :root {
       --dark: #17324d;
-      --green: #edf9f1;
-      --blue: #eaf5ff;
-      --purple: #f1edff;
+      --text: #263747;
+      --muted: #667788;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
       --yellow: #fff6d7;
       --orange: #ffe7cf;
       --teal: #eaf7f5;
       --pink: #ffe9f1;
       --gray: #eef2f4;
-      --background: #f8fafc;
-      --text: #263747;
-      --muted: #667788;
+
+      --background: #f7f9fb;
     }
 
     body {
@@ -42,10 +50,10 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
-        linear-gradient(135deg, #5b586d, #8a8798);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
-      padding: 22px 20px 50px;
+      padding: 22px 20px 55px;
     }
 
     .topbar {
@@ -63,9 +71,9 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
@@ -81,34 +89,35 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4rem);
+      font-size: clamp(2.3rem, 7vw, 4.2rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
       margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 850px;
+      max-width: 820px;
       margin: auto;
-      color: #faf9fc;
+      color: #f7f9fc;
     }
 
     main {
-      max-width: 1120px;
+      max-width: 1040px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 42px 20px 65px;
     }
 
     .intro {
-      background: var(--purple);
-      border-radius: 24px;
-      padding: 30px;
-      text-align: center;
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
       margin-bottom: 34px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      text-align: center;
     }
 
     .intro h2 {
@@ -142,6 +151,18 @@
       min-height: 270mm;
     }
 
+    .green-sheet {
+      border-top: 9px solid var(--green-strong);
+    }
+
+    .blue-sheet {
+      border-top: 9px solid var(--blue-strong);
+    }
+
+    .purple-sheet {
+      border-top: 9px solid var(--purple-strong);
+    }
+
     .sheet-head {
       text-align: center;
       margin-bottom: 18px;
@@ -160,66 +181,50 @@
 
     .meta-grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
+      grid-template-columns: 1.4fr 1fr 1fr;
       gap: 10px;
       margin-bottom: 14px;
     }
 
     .field {
-      border: 1.5px solid #9aa6ae;
-      border-radius: 10px;
-      min-height: 52px;
-      padding: 10px;
       background: white;
+      border: 1.4px solid #9aa6ae;
+      border-radius: 10px;
+      min-height: 50px;
+      padding: 9px;
     }
 
     .field strong {
       display: block;
       color: var(--dark);
-      margin-bottom: 4px;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
     }
 
-    .diagnostic-box {
+    .task {
       border-radius: 14px;
       padding: 14px;
       margin-bottom: 12px;
       break-inside: avoid;
     }
 
-    .diagnostic-box h3 {
+    .task h3 {
       color: var(--dark);
-      margin-bottom: 6px;
+      margin-bottom: 7px;
       font-size: 1rem;
     }
 
-    .diagnostic-box p {
+    .task p,
+    .task li {
       color: #4e5d68;
       font-size: 0.88rem;
     }
 
-    .question {
-      background: white;
-      border: 1px solid #9aa6ae;
-      border-radius: 9px;
-      padding: 11px;
-      margin-top: 9px;
-      break-inside: avoid;
+    .task ul {
+      margin-left: 20px;
     }
 
-    .question strong {
-      color: var(--dark);
-      display: block;
+    .task li {
       margin-bottom: 5px;
-    }
-
-    .answer-lines {
-      margin-top: 8px;
-    }
-
-    .line {
-      height: 24px;
-      border-bottom: 1px solid #a6afb5;
     }
 
     .green { background: var(--green); }
@@ -231,93 +236,141 @@
     .pink { background: var(--pink); }
     .gray { background: var(--gray); }
 
+    .write-area {
+      background: white;
+      border: 1.2px solid #98a4ad;
+      border-radius: 8px;
+      margin-top: 8px;
+      min-height: 70px;
+    }
+
+    .write-area.medium {
+      min-height: 105px;
+    }
+
+    .write-area.large {
+      min-height: 145px;
+    }
+
     .two-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
 
-    .analysis-box {
-      background: var(--yellow);
-      border-radius: 22px;
-      padding: 28px;
-      margin-top: 32px;
+    .answer-box {
+      background: white;
+      border: 1.2px solid #98a4ad;
+      border-radius: 9px;
+      padding: 10px;
+      margin-top: 8px;
+      min-height: 55px;
     }
 
-    .analysis-box h2 {
+    .number-line {
+      height: 50px;
+      position: relative;
+      margin: 20px 12px 10px;
+      border-top: 3px solid var(--dark);
+    }
+
+    .tick {
+      position: absolute;
+      top: -8px;
+      width: 2px;
+      height: 16px;
+      background: var(--dark);
+    }
+
+    .tick span {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.75rem;
       color: var(--dark);
-      margin-bottom: 8px;
+      white-space: nowrap;
     }
 
-    .analysis-box > p {
-      color: var(--muted);
+    .table-wrap {
+      margin-top: 10px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      border: 1px solid #86939c;
+      padding: 7px;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    td {
+      background: white;
+      min-height: 45px;
+      height: 48px;
+      font-size: 0.8rem;
     }
 
     .analysis-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 18px;
+      gap: 10px;
     }
 
-    .analysis-card {
+    .analysis-box {
       border-radius: 14px;
-      padding: 16px;
+      padding: 14px;
       min-height: 150px;
     }
 
-    .analysis-card h3 {
+    .analysis-box h3 {
       color: var(--dark);
       margin-bottom: 6px;
+      font-size: 0.95rem;
     }
 
-    .analysis-card p {
+    .analysis-box p {
       color: #4e5d68;
-      font-size: 0.86rem;
+      font-size: 0.84rem;
     }
 
-    .cycle {
-      background: var(--blue);
-      border-radius: 22px;
-      padding: 28px;
-      margin-top: 28px;
+    .footer-note {
       text-align: center;
-    }
-
-    .cycle h2 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .cycle p {
+      margin-top: 14px;
       color: var(--muted);
+      font-size: 0.8rem;
     }
 
-    .cycle-flow {
-      margin-top: 18px;
-      font-size: 1.15rem;
-      font-weight: bold;
-      color: var(--dark);
-    }
-
-    .note {
+    .screen-note {
       background: var(--orange);
       border-left: 6px solid #c77f43;
-      border-radius: 14px;
-      padding: 18px;
-      margin-top: 24px;
+      border-radius: 16px;
+      padding: 20px;
       color: #654c37;
+      margin-top: 25px;
     }
 
     footer {
       background: var(--dark);
       color: white;
       text-align: center;
-      padding: 30px 20px;
-      margin-top: 30px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 750px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
@@ -334,9 +387,9 @@
       }
     }
 
-    /* =====================================
-       UTSKRIFT – A4 + FÄRG
-       ===================================== */
+    /* ===========================
+       A4 + FÄRGUTSKRIFT
+       =========================== */
 
     @page {
       size: A4 portrait;
@@ -364,15 +417,13 @@
       header,
       footer,
       .intro,
-      .analysis-box,
-      .cycle,
-      .note {
+      .screen-note {
         display: none !important;
       }
 
       main {
-        max-width: none;
         width: 100%;
+        max-width: none;
         margin: 0;
         padding: 0;
       }
@@ -380,10 +431,12 @@
       .sheet {
         width: 100%;
         min-height: 277mm;
-        border: none;
-        border-radius: 0;
-        padding: 0;
         margin: 0;
+        padding: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
         page-break-after: always;
         break-after: page;
       }
@@ -391,6 +444,18 @@
       .sheet:last-of-type {
         page-break-after: auto;
         break-after: auto;
+      }
+
+      .green-sheet {
+        border-top: 7px solid var(--green-strong) !important;
+      }
+
+      .blue-sheet {
+        border-top: 7px solid var(--blue-strong) !important;
+      }
+
+      .purple-sheet {
+        border-top: 7px solid var(--purple-strong) !important;
       }
 
       .green { background: var(--green) !important; }
@@ -403,8 +468,23 @@
       .gray { background: var(--gray) !important; }
 
       .field,
-      .question {
+      .write-area,
+      .answer-box,
+      td {
         background: white !important;
+      }
+
+      th {
+        background: var(--dark) !important;
+        color: white !important;
+      }
+
+      .number-line {
+        border-top-color: var(--dark) !important;
+      }
+
+      .tick {
+        background: var(--dark) !important;
       }
 
       .two-grid {
@@ -413,23 +493,19 @@
         gap: 3mm !important;
       }
 
-      .diagnostic-box,
-      .question,
-      .field {
+      .analysis-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .task,
+      .field,
+      .answer-box,
+      .table-wrap,
+      .analysis-box {
         break-inside: avoid;
         page-break-inside: avoid;
-      }
-
-      .sheet-head h2,
-      .diagnostic-box h3,
-      .question strong,
-      .field strong {
-        color: var(--dark) !important;
-      }
-
-      .sheet-head p,
-      .diagnostic-box p {
-        color: var(--muted) !important;
       }
     }
   </style>
@@ -442,8 +518,8 @@
   <div class="topbar">
     <div class="logo">HOLOS MATTERESAN</div>
 
-    <a href="material-a4-larare.html" class="back-link">
-      ← A4 för lärare
+    <a href="larare-utskrift.html" class="back-link">
+      ← Utskriftsmaterial
     </a>
   </div>
 
@@ -451,13 +527,13 @@
 
     <div class="hero-icon">🩺🧠</div>
 
-    <h1>Diagnosbank F–9</h1>
+    <h1>Diagnostiskt material</h1>
 
-    <h2>Undersök • Fråga vidare • Tolka • Undervisa • Följ upp</h2>
+    <h2>Förstå • Synliggör • Analysera • Planera nästa steg</h2>
 
     <p>
-      Korta diagnostiska uppgifter som hjälper dig att få syn på
-      elevens förståelse, strategier och vanliga missuppfattningar.
+      Korta diagnostiska uppgifter som hjälper läraren att se
+      hur eleverna tänker – inte bara om svaret är rätt eller fel.
     </p>
 
   </div>
@@ -467,29 +543,30 @@
 
 <main>
 
-  <div class="intro">
+  <section class="intro">
 
-    <h2>🔍 Diagnos är början – inte slutet</h2>
+    <h2>🩺 Diagnos för undervisning</h2>
 
     <p>
-      En diagnostisk uppgift ska hjälpa läraren att förstå hur eleven tänker.
-      Ett felsvar behöver följdfrågor innan undervisningsbeslut tas.
+      Underlagen är tänkta som formativt stöd.
+      Elevens lösning, representation och förklaring ger information
+      om vad undervisningen behöver ta vidare.
     </p>
 
     <button class="print-button" onclick="window.print()">
-      🖨️ Skriv ut alla diagnoser
+      🖨️ Skriv ut diagnostiskt material
     </button>
 
-  </div>
+  </section>
 
 
   <!-- SIDA 1 -->
 
-  <section class="sheet">
+  <section class="sheet green-sheet">
 
     <div class="sheet-head">
-      <h2>1. Taluppfattning & platsvärde</h2>
-      <p>Kort diagnos – F–9</p>
+      <h2>🔢 Diagnos – taluppfattning</h2>
+      <p>Platsvärde • jämförelse • tallinje • resonemang</p>
     </div>
 
     <div class="meta-grid">
@@ -498,83 +575,58 @@
       <div class="field"><strong>Datum</strong></div>
     </div>
 
-
-    <div class="diagnostic-box green">
-
-      <h3>🔢 Platsvärde</h3>
-
-      <div class="question">
-        <strong>1.</strong>
-        Vilket värde har siffran 7 i talet 4 732?
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-      <div class="question">
-        <strong>2.</strong>
-        Skriv ett tal där siffran 5 har värdet 500.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-      <div class="question">
-        <strong>3.</strong>
-        Vilket är störst: 3 905 eller 3 950?
-        Förklara.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
+    <div class="task green">
+      <h3>1. Vilket tal är störst?</h3>
+      <p>
+        4 507 &nbsp;&nbsp;&nbsp; 4 570
+      </p>
+      <div class="answer-box"></div>
+      <p style="margin-top:8px;">Förklara hur du vet.</p>
+      <div class="write-area medium"></div>
     </div>
 
-
-    <div class="diagnostic-box blue">
-
-      <h3>📍 Tallinje</h3>
-
-      <div class="question">
-        <strong>4.</strong>
-        Placera talen 0,4 – 0,7 – 0,45 i storleksordning.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-      <div class="question">
-        <strong>5.</strong>
-        Vilket tal ligger mitt emellan 40 och 60?
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
+    <div class="task blue">
+      <h3>2. Platsvärde</h3>
+      <p>
+        Vad är värdet av siffran 6 i talet 3 642?
+      </p>
+      <div class="answer-box"></div>
+      <p style="margin-top:8px;">
+        Visa gärna med uppdelning av talet.
+      </p>
+      <div class="write-area medium"></div>
     </div>
 
+    <div class="task yellow">
+      <h3>3. Placera på tallinjen</h3>
+      <p>Placera 25, 50 och 75 så noggrant du kan.</p>
 
-    <div class="diagnostic-box yellow">
+      <div class="number-line">
+        <div class="tick" style="left:0%;">
+          <span>0</span>
+        </div>
 
-      <h3>🧠 Rimlighet</h3>
-
-      <div class="question">
-        <strong>6.</strong>
-        En elev säger att 49 × 10 = 4900.
-        Är svaret rimligt? Förklara.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
+        <div class="tick" style="left:100%;">
+          <span>100</span>
         </div>
       </div>
 
+      <div class="write-area medium"></div>
+    </div>
+
+    <div class="task teal">
+      <h3>4. Vilket tal tänker jag på?</h3>
+      <p>
+        Talet är större än 300 men mindre än 400.
+        Tiotalssiffran är 6 och entalssiffran är 4.
+      </p>
+      <div class="answer-box"></div>
+      <p style="margin-top:8px;">Hur tänkte du?</p>
+      <div class="write-area medium"></div>
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Diagnos taluppfattning
     </div>
 
   </section>
@@ -582,11 +634,11 @@
 
   <!-- SIDA 2 -->
 
-  <section class="sheet">
+  <section class="sheet blue-sheet">
 
     <div class="sheet-head">
-      <h2>2. De fyra räknesätten</h2>
-      <p>Strategier och samband</p>
+      <h2>➕➖✖️➗ Diagnos – räknesätt och strategier</h2>
+      <p>Beräkna • välj strategi • förklara • kontrollera</p>
     </div>
 
     <div class="meta-grid">
@@ -595,111 +647,53 @@
       <div class="field"><strong>Datum</strong></div>
     </div>
 
-
     <div class="two-grid">
 
-      <div class="diagnostic-box green">
-
-        <h3>➕ Addition</h3>
-
-        <div class="question">
-          <strong>1.</strong>
-          Räkna 398 + 46.
-          Visa hur du tänker.
-          <div class="answer-lines">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-          </div>
-        </div>
-
+      <div class="task blue">
+        <h3>1. 398 + 47</h3>
+        <p>Beräkna på ett sätt som du tycker är smart.</p>
+        <div class="write-area large"></div>
       </div>
 
-
-      <div class="diagnostic-box blue">
-
-        <h3>➖ Subtraktion</h3>
-
-        <div class="question">
-          <strong>2.</strong>
-          Räkna 503 − 278.
-          Kontrollera på ett annat sätt.
-          <div class="answer-lines">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-          </div>
-        </div>
-
+      <div class="task green">
+        <h3>2. 503 − 278</h3>
+        <p>Visa hur du tänker.</p>
+        <div class="write-area large"></div>
       </div>
 
     </div>
 
-
     <div class="two-grid">
 
-      <div class="diagnostic-box purple">
-
-        <h3>✖️ Multiplikation</h3>
-
-        <div class="question">
-          <strong>3.</strong>
-          Räkna 24 × 16.
-          Visa en strategi.
-          <div class="answer-lines">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-          </div>
-        </div>
-
+      <div class="task yellow">
+        <h3>3. 25 × 16</h3>
+        <p>
+          Försök hitta en strategi som gör beräkningen enkel.
+        </p>
+        <div class="write-area large"></div>
       </div>
 
-
-      <div class="diagnostic-box yellow">
-
-        <h3>➗ Division</h3>
-
-        <div class="question">
-          <strong>4.</strong>
-          148 elever ska åka buss.
-          Varje buss har 48 platser.
-          Hur många bussar behövs?
-          <div class="answer-lines">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-          </div>
-        </div>
-
+      <div class="task purple">
+        <h3>4. 156 ÷ 12</h3>
+        <p>
+          Visa hur du kan kontrollera ditt svar.
+        </p>
+        <div class="write-area large"></div>
       </div>
 
     </div>
 
+    <div class="task orange">
+      <h3>5. Jämför strategier</h3>
+      <p>
+        Vilken av uppgifterna ovan tyckte du krävde mest tänkande?
+        Vad gjorde du när du inte såg svaret direkt?
+      </p>
+      <div class="write-area large"></div>
+    </div>
 
-    <div class="diagnostic-box orange">
-
-      <h3>🔗 Samband mellan räknesätt</h3>
-
-      <div class="question">
-        <strong>5.</strong>
-        Om 8 × 7 = 56, vilka två divisioner hör ihop med multiplikationen?
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-      <div class="question">
-        <strong>6.</strong>
-        Hur kan 25 × 8 hjälpa dig att räkna 25 × 16?
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Diagnos räknesätt
     </div>
 
   </section>
@@ -707,11 +701,11 @@
 
   <!-- SIDA 3 -->
 
-  <section class="sheet">
+  <section class="sheet purple-sheet">
 
     <div class="sheet-head">
-      <h2>3. Bråk • decimal • procent</h2>
-      <p>Samband och vanliga missuppfattningar</p>
+      <h2>🍕🔟💯 Diagnos – bråk, decimal och procent</h2>
+      <p>Representation • jämförelse • samband</p>
     </div>
 
     <div class="meta-grid">
@@ -720,78 +714,71 @@
       <div class="field"><strong>Datum</strong></div>
     </div>
 
-
-    <div class="diagnostic-box green">
-
-      <h3>🍕 Bråk</h3>
-
-      <div class="question">
-        <strong>1.</strong>
-        Vilket är störst: 3/4 eller 5/8?
-        Förklara.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-      <div class="question">
-        <strong>2.</strong>
-        En elev säger att 1/8 är större än 1/4 eftersom 8 är större än 4.
-        Vad behöver eleven förstå?
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
+    <div class="task purple">
+      <h3>1. Jämför bråk</h3>
+      <p>
+        Vilket är störst: 3/4 eller 2/3?
+      </p>
+      <div class="answer-box"></div>
+      <p style="margin-top:8px;">
+        Visa med bild, beräkning eller förklaring.
+      </p>
+      <div class="write-area large"></div>
     </div>
 
-
-    <div class="diagnostic-box blue">
-
-      <h3>🔟 Decimaltal</h3>
-
-      <div class="question">
-        <strong>3.</strong>
-        Vilket är störst: 0,45 eller 0,5?
-        Motivera.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
+    <div class="task blue">
+      <h3>2. Jämför decimaltal</h3>
+      <p>
+        Vilket är störst: 0,5 eller 0,45?
+      </p>
+      <div class="answer-box"></div>
+      <p style="margin-top:8px;">Förklara med platsvärde.</p>
+      <div class="write-area medium"></div>
     </div>
 
+    <div class="task green">
+      <h3>3. Samband</h3>
+      <p>
+        Fyll i så att alla uttryck beskriver samma värde.
+      </p>
 
-    <div class="diagnostic-box purple">
-
-      <h3>💯 Procent</h3>
-
-      <div class="question">
-        <strong>4.</strong>
-        Vad är 25 % av 200?
-        Visa två olika sätt om du kan.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>Bråk</th>
+            <th>Decimaltal</th>
+            <th>Procent</th>
+          </tr>
+          <tr>
+            <td>1/2</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>1/4</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>0,75</td>
+            <td></td>
+          </tr>
+        </table>
       </div>
+    </div>
 
-      <div class="question">
-        <strong>5.</strong>
-        Skriv 3/4 i decimalform och procentform.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
+    <div class="task yellow">
+      <h3>4. Procent i en situation</h3>
+      <p>
+        En tröja kostar 400 kr och säljs med 25 % rabatt.
+        Vad kostar den efter rabatten?
+      </p>
+      <div class="write-area large"></div>
+    </div>
 
+    <div class="footer-note">
+      HOLOS Matteresan • Diagnos bråk, decimal och procent
     </div>
 
   </section>
@@ -799,11 +786,11 @@
 
   <!-- SIDA 4 -->
 
-  <section class="sheet">
+  <section class="sheet green-sheet">
 
     <div class="sheet-head">
-      <h2>4. Algebra & mönster</h2>
-      <p>Likhet, variabler och generalisering</p>
+      <h2>🧩 Diagnos – problemlösning</h2>
+      <p>Förstå • planera • lösa • förklara • kontrollera</p>
     </div>
 
     <div class="meta-grid">
@@ -812,79 +799,52 @@
       <div class="field"><strong>Datum</strong></div>
     </div>
 
+    <div class="task green">
+      <h3>Problemet</h3>
+      <p>
+        På en parkering står cyklar och trehjulingar.
+        Det finns 12 fordon och tillsammans 29 hjul.
+        Hur många cyklar och trehjulingar finns det?
+      </p>
+    </div>
 
-    <div class="diagnostic-box yellow">
+    <div class="task blue">
+      <h3>1. Vad vet du?</h3>
+      <div class="write-area medium"></div>
+    </div>
 
-      <h3>⚖️ Likhet</h3>
+    <div class="task yellow">
+      <h3>2. Hur vill du lösa problemet?</h3>
+      <p>
+        Rita, gör tabell, pröva systematiskt eller välj en annan strategi.
+      </p>
+      <div class="write-area large"></div>
+    </div>
 
-      <div class="question">
-        <strong>1.</strong>
-        Fyll i talet:
-        <strong>8 + 7 = ___ + 9</strong>
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
+    <div class="task purple">
+      <h3>3. Lös och visa</h3>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="two-grid">
+
+      <div class="task teal">
+        <h3>4. Svar</h3>
+        <div class="write-area medium"></div>
       </div>
 
-      <div class="question">
-        <strong>2.</strong>
-        Är 7 + 5 = 12 + 3 = 15 korrekt skrivet?
-        Förklara.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
+      <div class="task orange">
+        <h3>5. Kontroll</h3>
+        <p>
+          Hur vet du att lösningen stämmer?
+        </p>
+        <div class="write-area medium"></div>
       </div>
 
     </div>
 
-
-    <div class="diagnostic-box purple">
-
-      <h3>🔤 Ekvation</h3>
-
-      <div class="question">
-        <strong>3.</strong>
-        Lös:
-        <strong>3x + 6 = 24</strong>
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="diagnostic-box blue">
-
-      <h3>🧩 Mönster</h3>
-
-      <div class="question">
-        <strong>4.</strong>
-        Talföljden är:
-        5, 8, 11, 14, ...
-        Skriv de nästa tre talen och beskriv regeln.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-      <div class="question">
-        <strong>5.</strong>
-        Skriv en formel för det n:te talet i talföljden.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Diagnos problemlösning
     </div>
 
   </section>
@@ -892,11 +852,11 @@
 
   <!-- SIDA 5 -->
 
-  <section class="sheet">
+  <section class="sheet blue-sheet">
 
     <div class="sheet-head">
-      <h2>5. Geometri</h2>
-      <p>Begrepp, area och omkrets</p>
+      <h2>🔤📈 Diagnos – algebra och samband</h2>
+      <p>Variabel • ekvation • tabell • funktion</p>
     </div>
 
     <div class="meta-grid">
@@ -905,68 +865,65 @@
       <div class="field"><strong>Datum</strong></div>
     </div>
 
-
-    <div class="diagnostic-box green">
-
-      <h3>📐 Area & omkrets</h3>
-
-      <div class="question">
-        <strong>1.</strong>
-        En rektangel är 8 cm lång och 3 cm bred.
-        Beräkna area och omkrets.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-      <div class="question">
-        <strong>2.</strong>
-        Kan två rektanglar ha samma area men olika omkrets?
-        Ge exempel.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
+    <div class="task blue">
+      <h3>1. Ekvation</h3>
+      <p>
+        Lös: 3x + 6 = 24
+      </p>
+      <div class="write-area large"></div>
+      <p style="margin-top:8px;">
+        Kontrollera genom att sätta in ditt värde på x.
+      </p>
+      <div class="write-area medium"></div>
     </div>
 
+    <div class="task green">
+      <h3>2. Funktion</h3>
+      <p>
+        Sambandet beskrivs av y = 2x + 5.
+      </p>
 
-    <div class="diagnostic-box orange">
-
-      <h3>🔺 Vinklar</h3>
-
-      <div class="question">
-        <strong>3.</strong>
-        Beskriv skillnaden mellan spetsig, rät och trubbig vinkel.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>x</th>
+            <th>0</th>
+            <th>1</th>
+            <th>2</th>
+            <th>5</th>
+            <th>10</th>
+          </tr>
+          <tr>
+            <th>y</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
       </div>
-
     </div>
 
+    <div class="task yellow">
+      <h3>3. Vad betyder talen?</h3>
+      <p>
+        Förklara vad 2 och 5 betyder i y = 2x + 5.
+      </p>
+      <div class="write-area large"></div>
+    </div>
 
-    <div class="diagnostic-box teal">
+    <div class="task purple">
+      <h3>4. Skapa en situation</h3>
+      <p>
+        Hitta på ett verkligt exempel som skulle kunna beskrivas
+        av y = 2x + 5.
+      </p>
+      <div class="write-area large"></div>
+    </div>
 
-      <h3>🧠 Resonemang</h3>
-
-      <div class="question">
-        <strong>4.</strong>
-        En elev räknar omkretsen av en rektangel med 8 × 3.
-        Vad har eleven troligen blandat ihop?
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Diagnos algebra och samband
     </div>
 
   </section>
@@ -974,182 +931,101 @@
 
   <!-- SIDA 6 -->
 
-  <section class="sheet">
+  <section class="sheet purple-sheet">
 
     <div class="sheet-head">
-      <h2>6. Statistik • sannolikhet • samband</h2>
-      <p>Tolka, resonera och modellera</p>
+      <h2>👩‍🏫 Analys efter diagnosen</h2>
+      <p>Från elevsvar till undervisningsbeslut</p>
     </div>
 
     <div class="meta-grid">
-      <div class="field"><strong>Namn</strong></div>
-      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Elev / grupp</strong></div>
+      <div class="field"><strong>Område</strong></div>
       <div class="field"><strong>Datum</strong></div>
     </div>
 
-
-    <div class="diagnostic-box pink">
-
-      <h3>📊 Statistik</h3>
-
-      <div class="question">
-        <strong>1.</strong>
-        Datan är:
-        3, 4, 4, 5, 19.
-        Beräkna medelvärde och median.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-      <div class="question">
-        <strong>2.</strong>
-        Vilket mått beskriver bäst ett typiskt värde här?
-        Motivera.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="diagnostic-box yellow">
-
-      <h3>🎲 Sannolikhet</h3>
-
-      <div class="question">
-        <strong>3.</strong>
-        En rättvis tärning kastas.
-        Vad är sannolikheten att få ett jämnt tal?
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-      <div class="question">
-        <strong>4.</strong>
-        Efter fem krona i rad säger en elev att klave nu är mer sannolikt.
-        Förklara.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="diagnostic-box blue">
-
-      <h3>📈 Samband</h3>
-
-      <div class="question">
-        <strong>5.</strong>
-        Vad betyder 3 och 5 i funktionen:
-        <strong>y = 3x + 5</strong>?
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-      <div class="question">
-        <strong>6.</strong>
-        Är y = 3x + 5 proportionellt?
-        Motivera.
-        <div class="answer-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="analysis-box">
-
-    <h2>🔴🟡🟢 Tolka diagnosen</h2>
-
-    <p>
-      Diagnosen ska hjälpa dig att välja undervisning – inte bara sortera elever.
-    </p>
-
     <div class="analysis-grid">
 
-      <div class="analysis-card green">
-        <h3>🟢 Stabil förståelse</h3>
+      <div class="analysis-box green">
+        <h3>✅ Visad förståelse</h3>
         <p>
-          Eleven visar fungerande strategi, begrepp och förklaring.
-          Planera vidare fördjupning.
+          Vad kan eleven förklara, representera eller använda?
         </p>
+        <div class="write-area large"></div>
       </div>
 
-      <div class="analysis-card yellow">
-        <h3>🟡 Delvis förståelse</h3>
+      <div class="analysis-box yellow">
+        <h3>🤔 Osäkerhet</h3>
         <p>
-          Eleven visar delar av förståelsen men behöver fler exempel,
-          representationer eller samtal.
+          Var syns tvekan, ofullständiga strategier eller språkbehov?
         </p>
+        <div class="write-area large"></div>
       </div>
 
-      <div class="analysis-card pink">
-        <h3>🔴 Undersök vidare</h3>
+      <div class="analysis-box pink">
+        <h3>🧩 Missuppfattningar</h3>
         <p>
-          Ställ följdfrågor och försök förstå elevens tanke
-          innan nästa undervisningsbeslut.
+          Vilket tänkande kan ligga bakom de felaktiga svaren?
         </p>
+        <div class="write-area large"></div>
       </div>
 
+    </div>
+
+    <div class="task blue" style="margin-top:14px;">
+      <h3>🔤 Begrepp och språk</h3>
+      <p>
+        Vilka matematiska ord och symboler använder eleven säkert?
+        Vad behöver utvecklas?
+      </p>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="two-grid">
+
+      <div class="task teal">
+        <h3>🌱 Stöd</h3>
+        <p>
+          Vilket konkret, visuellt eller språkligt stöd kan hjälpa?
+        </p>
+        <div class="write-area medium"></div>
+      </div>
+
+      <div class="task purple">
+        <h3>🚀 Utmaning</h3>
+        <p>
+          Hur kan förståelsen fördjupas?
+        </p>
+        <div class="write-area medium"></div>
+      </div>
+
+    </div>
+
+    <div class="task orange">
+      <h3>➡️ Nästa undervisningssteg</h3>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Diagnosanalys
     </div>
 
   </section>
 
 
-  <section class="cycle">
-
-    <h2>🔄 Diagnoscykeln</h2>
-
-    <p>
-      En diagnos blir värdefull när den följs av undervisning och ny uppföljning.
-    </p>
-
-    <div class="cycle-flow">
-      Välj område → Ge riktade uppgifter → Fråga vidare → Tolka → Undervisa → Följ upp
-    </div>
-
-  </section>
-
-
-  <div class="note">
-
+  <div class="screen-note">
     <strong>🖨️ Färgutskrift:</strong>
     välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
     och kontrollera att skrivaren står på <strong>Färg</strong>.
-
+    Varje diagnostiskt underlag är anpassat till ett eget A4.
   </div>
 
 </main>
 
 
 <footer>
-
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🩺 Diagnosbank – undersök tänkandet, undervisa och följ upp
-
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🩺 Förstå • Synliggör • Analysera • Planera nästa steg
 </footer>
 
 </body>
