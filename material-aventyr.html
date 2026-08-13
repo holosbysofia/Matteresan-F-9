@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Matematikäventyr F–9 | HOLOS Matteresan</title>
+  <title>Matematikäventyr | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,17 +15,25 @@
 
     :root {
       --dark: #17324d;
-      --green: #edf9f1;
-      --blue: #eaf5ff;
-      --purple: #f1edff;
+      --text: #263747;
+      --muted: #667788;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
       --yellow: #fff6d7;
       --orange: #ffe7cf;
       --teal: #eaf7f5;
       --pink: #ffe9f1;
       --gray: #eef2f4;
-      --background: #f8fafc;
-      --text: #263747;
-      --muted: #667788;
+
+      --background: #f7f9fb;
     }
 
     body {
@@ -36,16 +44,16 @@
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
-        linear-gradient(135deg, #5a526f, #8c82a1);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
-      padding: 22px 20px 50px;
+      padding: 22px 20px 55px;
     }
 
     .topbar {
@@ -63,14 +71,14 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
     .hero {
-      max-width: 920px;
+      max-width: 900px;
       margin: 42px auto 0;
       text-align: center;
     }
@@ -81,34 +89,34 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4rem);
+      font-size: clamp(2.3rem, 7vw, 4.2rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
       margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 850px;
+      max-width: 820px;
       margin: auto;
-      color: #faf8ff;
+      color: #f7f9fc;
     }
 
     main {
-      max-width: 1120px;
+      max-width: 1180px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 42px 20px 65px;
     }
 
     .intro {
-      background: var(--purple);
-      border-radius: 24px;
-      padding: 30px;
-      text-align: center;
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
       margin-bottom: 34px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
     }
 
     .intro h2 {
@@ -118,109 +126,103 @@
 
     .intro p {
       color: var(--muted);
-      max-width: 860px;
-      margin: auto;
+      max-width: 900px;
     }
 
-    .print-button {
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 16px;
+    }
+
+    .button {
+      display: inline-flex;
       background: var(--dark);
       color: white;
-      border: none;
       border-radius: 999px;
-      padding: 12px 20px;
+      padding: 10px 16px;
       font-weight: bold;
-      cursor: pointer;
+      font-size: 0.88rem;
     }
 
-    .sheet {
-      background: white;
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 22px;
-      padding: 24px;
-      margin-bottom: 28px;
-      min-height: 270mm;
+    .section-title {
+      margin: 38px 0 18px;
     }
 
-    .sheet-head {
-      text-align: center;
-      margin-bottom: 18px;
-    }
-
-    .sheet-head h2 {
+    .section-title h2 {
       color: var(--dark);
-      font-size: 1.7rem;
-      margin-bottom: 4px;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
     }
 
-    .sheet-head p {
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .adventure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .adventure {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 250px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .adventure.green-card {
+      border-top-color: var(--green-strong);
+    }
+
+    .adventure.blue-card {
+      border-top-color: var(--blue-strong);
+    }
+
+    .adventure.purple-card {
+      border-top-color: var(--purple-strong);
+    }
+
+    .icon {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .adventure h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.13rem;
+    }
+
+    .adventure p,
+    .adventure li {
       color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .meta-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 14px;
+    .adventure ul {
+      margin-left: 19px;
+      margin-top: 7px;
     }
 
-    .field {
-      background: white;
-      border: 1.5px solid #9aa6ae;
-      border-radius: 10px;
-      padding: 10px;
-      min-height: 52px;
-    }
-
-    .field strong {
-      display: block;
-      color: var(--dark);
-      margin-bottom: 4px;
-      font-size: 0.88rem;
-    }
-
-    .mission-box {
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 14px;
-      break-inside: avoid;
-    }
-
-    .mission-box h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .mission-box p,
-    .mission-box li {
-      color: #4e5d68;
-      font-size: 0.88rem;
-    }
-
-    .mission-box ul,
-    .mission-box ol {
-      margin: 8px 0 0 20px;
-    }
-
-    .mission-box li {
+    .adventure li {
       margin-bottom: 5px;
     }
 
-    .write-area {
-      background: white;
-      border: 1.2px solid #98a4ad;
-      border-radius: 8px;
-      margin-top: 8px;
-      min-height: 75px;
-    }
-
-    .write-area.medium {
-      min-height: 105px;
-    }
-
-    .write-area.large {
-      min-height: 145px;
+    .tag {
+      display: inline-block;
+      width: fit-content;
+      margin-top: auto;
+      padding-top: 12px;
+      font-size: 0.78rem;
+      color: var(--dark);
+      font-weight: bold;
     }
 
     .green { background: var(--green); }
@@ -232,54 +234,102 @@
     .pink { background: var(--pink); }
     .gray { background: var(--gray); }
 
-    .two-grid {
+    .structure {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .three-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 10px;
+      margin-top: 14px;
     }
 
-    .clue-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 12px;
+    .step {
+      background: white;
+      border-radius: 15px;
+      padding: 16px 10px;
+      text-align: center;
+      border: 1px solid #9aa6ae;
+      min-height: 105px;
     }
 
-    .clue-card {
-      border: 1.5px dashed #87939c;
-      border-radius: 14px;
-      padding: 14px;
-      min-height: 125px;
-      break-inside: avoid;
-    }
-
-    .clue-card span {
+    .step span {
       display: block;
-      font-size: 2rem;
-      margin-bottom: 6px;
-    }
-
-    .clue-card h4 {
-      color: var(--dark);
+      font-size: 1.9rem;
       margin-bottom: 5px;
     }
 
-    .clue-card p {
+    .step strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .step p {
       color: var(--muted);
-      font-size: 0.84rem;
+      font-size: 0.78rem;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .mission {
+      border-radius: 16px;
+      padding: 18px;
+      min-height: 190px;
+    }
+
+    .mission h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .mission p,
+    .mission li {
+      color: #4e5d68;
+      font-size: 0.88rem;
+    }
+
+    .mission ul {
+      margin-left: 19px;
+      margin-top: 7px;
+    }
+
+    .mission li {
+      margin-bottom: 5px;
+    }
+
+    .stage-box {
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    .stage-box h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .stage-box p,
+    .stage-box li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .stage-box ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .stage-box li {
+      margin-bottom: 6px;
     }
 
     .teacher-box {
-      background: var(--yellow);
-      border-radius: 22px;
-      padding: 28px;
-      margin-top: 34px;
+      margin-top: 35px;
+      background: var(--teal);
+      border-radius: 18px;
+      padding: 22px;
     }
 
     .teacher-box h2 {
@@ -287,73 +337,65 @@
       margin-bottom: 8px;
     }
 
-    .teacher-box p {
+    .teacher-box ul {
+      margin-left: 22px;
       color: var(--muted);
     }
 
-    .teacher-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 18px;
+    .teacher-box li {
+      margin-bottom: 6px;
     }
 
-    .teacher-card {
-      background: white;
-      border-radius: 14px;
-      padding: 16px;
-      min-height: 150px;
+    .warning-box {
+      margin-top: 20px;
+      background: var(--yellow);
+      border-radius: 18px;
+      padding: 22px;
     }
 
-    .teacher-card span {
-      display: block;
-      font-size: 1.8rem;
-      margin-bottom: 5px;
-    }
-
-    .teacher-card h3 {
+    .warning-box h2 {
       color: var(--dark);
-      margin-bottom: 5px;
-      font-size: 0.92rem;
+      margin-bottom: 7px;
     }
 
-    .teacher-card p {
-      font-size: 0.82rem;
+    .warning-box p {
+      color: var(--muted);
     }
 
-    .note {
+    .print-note {
+      margin-top: 20px;
       background: var(--orange);
       border-left: 6px solid #c77f43;
-      border-radius: 14px;
+      border-radius: 15px;
       padding: 18px;
       color: #654c37;
-      margin-top: 24px;
     }
 
     footer {
       background: var(--dark);
       color: white;
       text-align: center;
-      padding: 30px 20px;
-      margin-top: 30px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 850px) {
-      .teacher-grid {
+    @media (max-width: 900px) {
+      .adventure-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .structure {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 620px) {
       .topbar {
         flex-direction: column;
       }
 
-      .meta-grid,
-      .two-grid,
-      .three-grid,
-      .clue-grid,
-      .teacher-grid {
+      .adventure-grid,
+      .mission-grid,
+      .structure {
         grid-template-columns: 1fr;
       }
 
@@ -362,10 +404,6 @@
         padding-right: 14px;
       }
     }
-
-    /* =====================================
-       UTSKRIFT – A4 + FÄRG
-       ===================================== */
 
     @page {
       size: A4 portrait;
@@ -385,93 +423,72 @@
       html,
       body {
         background: white !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        forced-color-adjust: none !important;
       }
 
       header,
-      footer,
-      .intro,
-      .teacher-box,
-      .note {
+      footer {
         display: none !important;
       }
 
       main {
-        width: 100%;
         max-width: none;
-        margin: 0;
         padding: 0;
       }
 
-      .sheet {
-        width: 100%;
-        min-height: 277mm;
-        margin: 0;
-        padding: 0;
-        border: none;
-        border-radius: 0;
-        page-break-after: always;
-        break-after: page;
-      }
-
-      .sheet:last-of-type {
-        page-break-after: auto;
-        break-after: auto;
-      }
-
-      .green { background: var(--green) !important; }
-      .blue { background: var(--blue) !important; }
-      .purple { background: var(--purple) !important; }
-      .yellow { background: var(--yellow) !important; }
-      .orange { background: var(--orange) !important; }
-      .teal { background: var(--teal) !important; }
-      .pink { background: var(--pink) !important; }
-      .gray { background: var(--gray) !important; }
-
-      .field,
-      .write-area {
-        background: white !important;
-      }
-
-      .two-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 3mm !important;
-      }
-
-      .three-grid {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 3mm !important;
-      }
-
-      .clue-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 3mm !important;
-      }
-
-      .mission-box,
-      .clue-card,
-      .field {
+      .intro,
+      .adventure,
+      .step,
+      .mission,
+      .stage-box,
+      .teacher-box,
+      .warning-box,
+      .print-note {
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      .sheet-head h2,
-      .mission-box h3,
-      .clue-card h4,
-      .field strong {
-        color: var(--dark) !important;
+      .green {
+        background: var(--green) !important;
       }
 
-      .sheet-head p,
-      .mission-box p,
-      .mission-box li,
-      .clue-card p {
-        color: var(--muted) !important;
+      .blue {
+        background: var(--blue) !important;
+      }
+
+      .purple {
+        background: var(--purple) !important;
+      }
+
+      .yellow,
+      .warning-box {
+        background: var(--yellow) !important;
+      }
+
+      .orange,
+      .print-note {
+        background: var(--orange) !important;
+      }
+
+      .teal,
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .button {
+        background: var(--dark) !important;
+        color: white !important;
+      }
+
+      .step {
+        background: white !important;
       }
     }
   </style>
@@ -483,10 +500,12 @@
 
   <div class="topbar">
 
-    <div class="logo">HOLOS MATTERESAN</div>
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
 
     <a href="larare-utskrift.html" class="back-link">
-      ← Utskriftscentralen
+      ← Utskriftsmaterial
     </a>
 
   </div>
@@ -494,15 +513,15 @@
 
   <div class="hero">
 
-    <div class="hero-icon">🗺️🧠</div>
+    <div class="hero-icon">🗺️🧩</div>
 
-    <h1>Matematikäventyr F–9</h1>
+    <h1>Matematikäventyr</h1>
 
-    <h2>Utforska • Samarbeta • Resonera • Lösa</h2>
+    <h2>Berättelse • Uppdrag • Matematik • Samarbete • Lösning</h2>
 
     <p>
-      Matematiska uppdrag där eleverna använder kunskaper,
-      strategier och samarbete för att lösa ett gemensamt mysterium.
+      Matematiska äventyr där eleverna använder kunskaper och strategier
+      för att lösa uppdrag i en sammanhängande berättelse.
     </p>
 
   </div>
@@ -512,653 +531,430 @@
 
 <main>
 
-  <div class="intro">
+  <section class="intro">
 
-    <h2>🗺️ Matematik med ett uppdrag</h2>
+    <h2>🗺️ Matematik med ett syfte i berättelsen</h2>
 
     <p>
-      Matteäventyren kan genomföras i par eller små grupper.
-      Eleverna behöver inte bara hitta ett svar,
-      utan också kunna förklara hur de kom fram till lösningen.
+      Ett matematikäventyr är mer än ett arbetsblad med en berättelse runt.
+      Uppdragen behöver vara viktiga för berättelsen och kräva matematiskt tänkande
+      för att gruppen ska kunna ta sig vidare.
     </p>
 
-    <button class="print-button" onclick="window.print()">
-      🖨️ Skriv ut alla matteäventyr
-    </button>
+    <div class="button-row">
+
+      <a href="aventyr.html" class="button">
+        🗺️ Elevens äventyr
+      </a>
+
+      <a href="material-a4-kort.html" class="button">
+        🃏 Uppdragskort
+      </a>
+
+      <a href="elevblad-problemlosning.html" class="button">
+        ✏️ Problemlösning
+      </a>
+
+      <a href="material-matteprat.html" class="button">
+        💬 Matteprat
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+    <h2>🧭 Så byggs ett matematikäventyr</h2>
+    <p>En tydlig struktur gör matematiken till en naturlig del av berättelsen.</p>
+  </div>
+
+
+  <div class="structure">
+
+    <div class="step">
+      <span>📜</span>
+      <strong>1. Startbrev</strong>
+      <p>Ett problem eller mysterium presenteras.</p>
+    </div>
+
+    <div class="step">
+      <span>🗺️</span>
+      <strong>2. Uppdrag</strong>
+      <p>Gruppen behöver lösa en matematisk utmaning.</p>
+    </div>
+
+    <div class="step">
+      <span>🧠</span>
+      <strong>3. Strategi</strong>
+      <p>Eleverna planerar hur de ska gå vidare.</p>
+    </div>
+
+    <div class="step">
+      <span>🔐</span>
+      <strong>4. Ledtråd</strong>
+      <p>Lösningen öppnar nästa del.</p>
+    </div>
+
+    <div class="step">
+      <span>🏁</span>
+      <strong>5. Final</strong>
+      <p>Kunskaperna används för att lösa slutuppdraget.</p>
+    </div>
 
   </div>
 
 
-  <!-- ÄVENTYR 1 -->
-
-  <section class="sheet">
-
-    <div class="sheet-head">
-      <h2>Äventyr 1 – Den försvunna koden</h2>
-      <p>Taluppfattning • räknesätt • logiskt tänkande</p>
-    </div>
-
-    <div class="meta-grid">
-
-      <div class="field">
-        <strong>Grupp</strong>
-      </div>
-
-      <div class="field">
-        <strong>Klass</strong>
-      </div>
-
-      <div class="field">
-        <strong>Datum</strong>
-      </div>
-
-    </div>
+  <div class="section-title">
+    <h2>🌍 Tematiska matematikäventyr</h2>
+    <p>Sex exempel som kan byggas ut till en lektion eller flera veckor.</p>
+  </div>
 
 
-    <div class="mission-box purple">
+  <div class="adventure-grid">
 
-      <h3>🔐 Uppdraget</h3>
+    <div class="adventure green-card">
+
+      <div class="icon">🏝️</div>
+
+      <h3>Den försvunna ön</h3>
 
       <p>
-        Matteresans forskningsstation har låsts.
-        För att öppna dörren behöver ni hitta en fyrsiffrig kod.
-        Varje uppdrag ger en siffra.
+        En gammal karta leder till en ö som inte längre finns markerad.
+        Eleverna måste tolka koordinater, skala och avstånd.
+      </p>
+
+      <ul>
+        <li>Skala</li>
+        <li>Koordinater</li>
+        <li>Avstånd</li>
+        <li>Problemlösning</li>
+      </ul>
+
+      <span class="tag">🗺️ Geometri & samband</span>
+
+    </div>
+
+
+    <div class="adventure blue-card">
+
+      <div class="icon">🚀</div>
+
+      <h3>Rymdstation 47</h3>
+
+      <p>
+        Stationens energisystem håller på att stängas ner.
+        Gruppen behöver beräkna energiförbrukning och resurser.
+      </p>
+
+      <ul>
+        <li>Decimaltal</li>
+        <li>Procent</li>
+        <li>Tabeller</li>
+        <li>Förändring</li>
+      </ul>
+
+      <span class="tag">🚀 Tal & procent</span>
+
+    </div>
+
+
+    <div class="adventure purple-card">
+
+      <div class="icon">🏰</div>
+
+      <h3>Koden till det gamla tornet</h3>
+
+      <p>
+        En serie matematiska mönster och symboler måste avkodas
+        innan tornets dörr går att öppna.
+      </p>
+
+      <ul>
+        <li>Mönster</li>
+        <li>Algebra</li>
+        <li>Talserier</li>
+        <li>Generalisering</li>
+      </ul>
+
+      <span class="tag">🔐 Algebra & mönster</span>
+
+    </div>
+
+
+    <div class="adventure green-card">
+
+      <div class="icon">🌲</div>
+
+      <h3>Skogens räddningsuppdrag</h3>
+
+      <p>
+        Ett naturområde ska planeras om.
+        Eleverna behöver mäta, beräkna ytor och jämföra alternativ.
+      </p>
+
+      <ul>
+        <li>Area</li>
+        <li>Omkrets</li>
+        <li>Skala</li>
+        <li>Optimering</li>
+      </ul>
+
+      <span class="tag">🌲 Geometri</span>
+
+    </div>
+
+
+    <div class="adventure blue-card">
+
+      <div class="icon">🎪</div>
+
+      <h3>Festivalen måste räddas</h3>
+
+      <p>
+        Budgeten räcker inte.
+        Eleverna måste planera inköp, biljetter och kostnader.
+      </p>
+
+      <ul>
+        <li>De fyra räknesätten</li>
+        <li>Procent</li>
+        <li>Jämförpris</li>
+        <li>Budget</li>
+      </ul>
+
+      <span class="tag">💰 Matematik i verkligheten</span>
+
+    </div>
+
+
+    <div class="adventure purple-card">
+
+      <div class="icon">🕵️</div>
+
+      <h3>Mysteriet med de försvunna talen</h3>
+
+      <p>
+        Någon har ändrat information i skolans statistik.
+        Eleverna behöver undersöka data och hitta vad som inte stämmer.
+      </p>
+
+      <ul>
+        <li>Statistik</li>
+        <li>Medelvärde</li>
+        <li>Median</li>
+        <li>Datagranskning</li>
+      </ul>
+
+      <span class="tag">📊 Statistik</span>
+
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+    <h2>🎯 Exempel på uppdrag</h2>
+    <p>Uppdragen kan användas som delar i ett större äventyr.</p>
+  </div>
+
+
+  <div class="mission-grid">
+
+    <div class="mission green">
+
+      <h3>🔐 Kodlåset</h3>
+
+      <p>
+        Dörren öppnas med ett tresiffrigt tal.
+      </p>
+
+      <ul>
+        <li>Hundratalet är dubbelt så stort som entalet.</li>
+        <li>Tiotalet är 3.</li>
+        <li>Siffersumman är 12.</li>
+      </ul>
+
+      <p><strong>Vilken kod öppnar dörren?</strong></p>
+
+    </div>
+
+
+    <div class="mission blue">
+
+      <h3>🗺️ Kartan</h3>
+
+      <p>
+        På kartan motsvarar 1 cm 250 meter.
+        Avståndet mellan lägret och tornet är 6,4 cm.
+      </p>
+
+      <p>
+        <strong>Hur långt behöver gruppen gå i verkligheten?</strong>
       </p>
 
     </div>
 
 
-    <div class="clue-grid">
+    <div class="mission yellow">
 
-      <div class="clue-card green">
-
-        <span>1️⃣</span>
-
-        <h4>Första siffran</h4>
-
-        <p>
-          Vilken siffra har hundratalsvärdet i talet 4 738?
-        </p>
-
-      </div>
-
-
-      <div class="clue-card blue">
-
-        <span>2️⃣</span>
-
-        <h4>Andra siffran</h4>
-
-        <p>
-          Beräkna 72 ÷ 9.
-        </p>
-
-      </div>
-
-
-      <div class="clue-card yellow">
-
-        <span>3️⃣</span>
-
-        <h4>Tredje siffran</h4>
-
-        <p>
-          Hur många tiotal finns i 65?
-        </p>
-
-      </div>
-
-
-      <div class="clue-card orange">
-
-        <span>4️⃣</span>
-
-        <h4>Fjärde siffran</h4>
-
-        <p>
-          Vilken siffra saknas?
-          <strong>7 + ___ = 12</strong>
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="mission-box teal" style="margin-top:14px;">
-
-      <h3>🔢 Vår kod</h3>
-
-      <div class="write-area"></div>
-
-    </div>
-
-
-    <div class="mission-box gray">
-
-      <h3>💬 Förklara</h3>
+      <h3>💧 Vattenförrådet</h3>
 
       <p>
-        Välj ett av uppdragen och förklara hur ni tänkte.
+        Gruppen har 18 liter vatten.
+        Varje person behöver 1,5 liter per dag.
+        Gruppen består av fyra personer.
       </p>
 
-      <div class="write-area large"></div>
+      <p>
+        <strong>Hur många hela dagar räcker vattnet?</strong>
+      </p>
 
     </div>
+
+
+    <div class="mission purple">
+
+      <h3>📈 Den hemliga signalen</h3>
+
+      <p>
+        En sändare skickar signaler enligt mönstret:
+        5, 9, 13, 17 ...
+      </p>
+
+      <p>
+        <strong>Vilket tal kommer på plats 25? Kan du skriva en regel?</strong>
+      </p>
+
+    </div>
+
+
+    <div class="mission teal">
+
+      <h3>🎲 Den riskfyllda vägen</h3>
+
+      <p>
+        På väg A måste gruppen slå 4, 5 eller 6 med en tärning för att lyckas.
+        På väg B måste gruppen slå exakt 6.
+      </p>
+
+      <p>
+        <strong>Vilken väg är säkrast? Förklara.</strong>
+      </p>
+
+    </div>
+
+
+    <div class="mission orange">
+
+      <h3>💰 Marknaden</h3>
+
+      <p>
+        Gruppen har 600 kr.
+        Ett föremål kostar 450 kr men säljs med 20 % rabatt.
+      </p>
+
+      <p>
+        <strong>Hur mycket pengar återstår efter köpet?</strong>
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+    <h2>🌱 Progression F–9</h2>
+    <p>Berättelsen kan vara densamma, men matematiken och graden av självständighet förändras.</p>
+  </div>
+
+
+  <section class="stage-box green">
+
+    <h3>🌱 F–3 – Konkret äventyr</h3>
+
+    <ul>
+      <li>Korta berättelser med tydligt mål.</li>
+      <li>Konkreta föremål, bilder och kartor.</li>
+      <li>Räkna, sortera, mäta och jämföra.</li>
+      <li>Få uppdrag åt gången.</li>
+      <li>Berätta hur gruppen tänkte.</li>
+    </ul>
 
   </section>
 
 
-  <!-- ÄVENTYR 2 -->
+  <section class="stage-box blue">
 
-  <section class="sheet">
+    <h3>🔵 4–6 – Strategiskt äventyr</h3>
 
-    <div class="sheet-head">
-      <h2>Äventyr 2 – Bron över floden</h2>
-      <p>Problemlösning • multiplikation • division • strategi</p>
-    </div>
-
-
-    <div class="mission-box blue">
-
-      <h3>🌉 Uppdraget</h3>
-
-      <p>
-        Gruppen måste ta sig över en gammal bro.
-        Bron öppnas bara om ni löser tre matematiska problem
-        och kan motivera era lösningar.
-      </p>
-
-    </div>
-
-
-    <div class="mission-box green">
-
-      <h3>🚌 Uppdrag 1</h3>
-
-      <p>
-        148 personer ska transporteras.
-        Varje fordon rymmer 48 personer.
-        Hur många fordon behövs?
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="mission-box yellow">
-
-      <h3>🚲 Uppdrag 2</h3>
-
-      <p>
-        Det finns 20 cyklar och trehjulingar.
-        Tillsammans har de 49 hjul.
-        Hur många finns av varje sort?
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="mission-box purple">
-
-      <h3>🧠 Uppdrag 3</h3>
-
-      <p>
-        Hitta två olika strategier för att beräkna
-        <strong>24 × 16</strong>.
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="mission-box teal">
-
-      <h3>🏁 Brovakten frågar</h3>
-
-      <p>
-        Vilken strategi tyckte ni var mest effektiv – och varför?
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
+    <ul>
+      <li>Flera möjliga lösningsstrategier.</li>
+      <li>Information som behöver sorteras och tolkas.</li>
+      <li>Bråk, decimaler, procent, geometri och statistik.</li>
+      <li>Elever får fördela roller och ansvar.</li>
+      <li>Ledtrådar kräver förklaringar, inte bara rätt svar.</li>
+    </ul>
 
   </section>
 
 
-  <!-- ÄVENTYR 3 -->
-
-  <section class="sheet">
-
-    <div class="sheet-head">
-      <h2>Äventyr 3 – Den hemliga kartan</h2>
-      <p>Geometri • skala • area • omkrets</p>
-    </div>
-
-
-    <div class="mission-box green">
-
-      <h3>🗺️ Uppdraget</h3>
-
-      <p>
-        Ni har hittat en gammal karta.
-        För att hitta den markerade platsen måste ni tolka mått,
-        skala och geometriska ledtrådar.
-      </p>
-
-    </div>
-
-
-    <div class="mission-box blue">
-
-      <h3>📏 Ledtråd 1 – Skala</h3>
-
-      <p>
-        Kartan har skalan 1:100.
-        En sträcka på kartan är 6,5 cm.
-        Hur lång är sträckan i verkligheten?
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="two-grid">
-
-      <div class="mission-box yellow">
-
-        <h3>⬛ Ledtråd 2 – Area</h3>
-
-        <p>
-          Ett rektangulärt område är 8 m långt och 5 m brett.
-          Beräkna arean.
-        </p>
-
-        <div class="write-area medium"></div>
-
-      </div>
-
-
-      <div class="mission-box purple">
-
-        <h3>📐 Ledtråd 3 – Omkrets</h3>
-
-        <p>
-          Beräkna omkretsen av samma område.
-        </p>
-
-        <div class="write-area medium"></div>
-
-      </div>
-
-    </div>
-
-
-    <div class="mission-box orange">
-
-      <h3>🔍 Bonusledtråd</h3>
-
-      <p>
-        Kan ni skapa en annan rektangel med samma area
-        men en annan omkrets?
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="mission-box teal">
-
-      <h3>💬 Förklara skillnaden</h3>
-
-      <p>
-        Hur skiljer sig area från omkrets?
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ÄVENTYR 4 -->
-
-  <section class="sheet">
-
-    <div class="sheet-head">
-      <h2>Äventyr 4 – Marknaden</h2>
-      <p>Bråk • decimal • procent • jämförpris</p>
-    </div>
-
-
-    <div class="mission-box orange">
-
-      <h3>🛒 Uppdraget</h3>
-
-      <p>
-        Ni har 500 kr att handla för på marknaden.
-        Målet är att göra kloka val och kunna motivera dem matematiskt.
-      </p>
-
-    </div>
-
-
-    <div class="mission-box green">
-
-      <h3>💯 Uppdrag 1 – Rabatt</h3>
-
-      <p>
-        En vara kostar 240 kr och har 25 % rabatt.
-        Vad kostar den efter rabatten?
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="mission-box blue">
-
-      <h3>⚖️ Uppdrag 2 – Jämförpris</h3>
-
-      <p>
-        Förpackning A innehåller 500 g och kostar 30 kr.<br>
-        Förpackning B innehåller 750 g och kostar 42 kr.
-      </p>
-
-      <p>
-        Vilket köp är billigast per kilogram?
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="mission-box purple">
-
-      <h3>🍕 Uppdrag 3 – Bråk</h3>
-
-      <p>
-        Fyra personer delar tre lika stora pizzor lika.
-        Hur mycket får varje person?
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="mission-box yellow">
-
-      <h3>🧠 Beslutet</h3>
-
-      <p>
-        Vilken matematisk strategi var viktigast i marknadsuppdraget?
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ÄVENTYR 5 -->
-
-  <section class="sheet">
-
-    <div class="sheet-head">
-      <h2>Äventyr 5 – Forskningsstationen</h2>
-      <p>Statistik • sannolikhet • granskning</p>
-    </div>
-
-
-    <div class="mission-box teal">
-
-      <h3>🔬 Uppdraget</h3>
-
-      <p>
-        Forskningsstationen har fått flera märkliga resultat.
-        Er grupp ska avgöra vad datan faktiskt visar.
-      </p>
-
-    </div>
-
-
-    <div class="mission-box green">
-
-      <h3>📊 Data 1</h3>
-
-      <p>
-        Fem mätvärden är:
-        <strong>3, 4, 4, 5, 19</strong>.
-      </p>
-
-      <p>
-        Beräkna medelvärde och median.
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="mission-box yellow">
-
-      <h3>🎯 Data 2</h3>
-
-      <p>
-        Vilket lägesmått tycker ni bäst beskriver
-        ett typiskt värde i datan ovan?
-        Motivera.
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="mission-box purple">
-
-      <h3>🎲 Sannolikhet</h3>
-
-      <p>
-        En vanlig tärning kastas.
-        Vad är sannolikheten att få ett jämnt tal?
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="mission-box orange">
-
-      <h3>🤔 Forskarens påstående</h3>
-
-      <p>
-        Ett mynt har visat krona fem gånger i rad.
-        Forskaren säger:
-        <strong>"Nu måste klave vara mer sannolikt."</strong>
-      </p>
-
-      <p>
-        Har forskaren rätt? Förklara.
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ÄVENTYR 6 -->
-
-  <section class="sheet">
-
-    <div class="sheet-head">
-      <h2>Äventyr 6 – Staden år 2040</h2>
-      <p>Algebra • samband • modellering • generalisering</p>
-    </div>
-
-
-    <div class="mission-box purple">
-
-      <h3>🏙️ Uppdraget</h3>
-
-      <p>
-        Ni ska hjälpa en framtidsstad att planera transporter,
-        abonnemang och kostnader.
-        Matematiska modeller behövs för att fatta beslut.
-      </p>
-
-    </div>
-
-
-    <div class="mission-box blue">
-
-      <h3>📱 Uppdrag 1 – Abonnemang</h3>
-
-      <p>
-        Abonnemang A kostar 99 kr + 2 kr per minut.<br>
-        Abonnemang B kostar 159 kr + 1 kr per minut.
-      </p>
-
-      <p>
-        Vid hur många minuter kostar de lika mycket?
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="mission-box green">
-
-      <h3>📈 Uppdrag 2 – Formel</h3>
-
-      <p>
-        Ett system har startvärdet 5 och ökar med 3 varje steg.
-        Skriv en formel som beskriver sambandet.
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="mission-box yellow">
-
-      <h3>🔗 Uppdrag 3 – Proportionellt?</h3>
-
-      <p>
-        En taxi kostar 60 kr i startavgift
-        och därefter 15 kr per kilometer.
-      </p>
-
-      <p>
-        Är sambandet proportionellt?
-        Motivera.
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="mission-box orange">
-
-      <h3>🚀 Framtidsutmaningen</h3>
-
-      <p>
-        Skapa ett eget linjärt samband från framtidsstaden.
-        Skriv situation, tabellidé och formel.
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
+  <section class="stage-box purple">
+
+    <h3>🟣 7–9 – Modellering och komplexa beslut</h3>
+
+    <ul>
+      <li>Öppna problem med flera möjliga lösningar.</li>
+      <li>Algebra, funktioner, sannolikhet och förändring.</li>
+      <li>Elever behöver göra antaganden.</li>
+      <li>Olika lösningar får olika konsekvenser i berättelsen.</li>
+      <li>Elever argumenterar för sitt val och granskar modeller.</li>
+    </ul>
 
   </section>
 
 
   <section class="teacher-box">
 
-    <h2>👩‍🏫 Så används matteäventyren</h2>
+    <h2>👩‍🏫 Så håller du matematiken i centrum</h2>
 
-    <div class="teacher-grid">
-
-      <div class="teacher-card">
-
-        <span>📨</span>
-
-        <h3>Skapa ett uppdrag</h3>
-
-        <p>
-          Presentera äventyret som ett brev, mysterium eller gemensam utmaning.
-        </p>
-
-      </div>
-
-
-      <div class="teacher-card">
-
-        <span>👥</span>
-
-        <h3>Arbeta tillsammans</h3>
-
-        <p>
-          Låt eleverna fördela roller men kräva gemensamma förklaringar.
-        </p>
-
-      </div>
-
-
-      <div class="teacher-card">
-
-        <span>💬</span>
-
-        <h3>Stanna för matteprat</h3>
-
-        <p>
-          Jämför strategier mellan grupper innan nästa ledtråd öppnas.
-        </p>
-
-      </div>
-
-
-      <div class="teacher-card">
-
-        <span>🚀</span>
-
-        <h3>Fördjupa</h3>
-
-        <p>
-          Ändra villkor, låt elever skapa egna ledtrådar eller generalisera resultaten.
-        </p>
-
-      </div>
-
-    </div>
+    <ul>
+      <li>Bestäm först vilken matematisk idé äventyret ska utveckla.</li>
+      <li>Bygg berättelsen runt matematiken – inte tvärtom.</li>
+      <li>Låt elever dokumentera sina lösningar.</li>
+      <li>Ge ledtrådar som för eleverna vidare utan att ge svaret.</li>
+      <li>Låt grupper jämföra olika lösningsvägar.</li>
+      <li>Stanna upp för matteprat mellan uppdragen.</li>
+      <li>Använd felaktiga lösningar som nya ledtrådar eller diskussionsunderlag.</li>
+      <li>Avsluta med att skilja berättelsen från den matematik eleverna faktiskt lärde sig.</li>
+    </ul>
 
   </section>
 
 
-  <div class="note">
+  <section class="warning-box">
 
-    <strong>🖨️ Färgutskrift:</strong>
-    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
-    och kontrollera att skrivaren står på <strong>Färg</strong>.
+    <h2>⚠️ Äventyret får inte gömma matematiken</h2>
+
+    <p>
+      Berättelsen ska skapa motivation och sammanhang,
+      men eleverna behöver fortfarande få syn på vilka matematiska idéer
+      de använde. Avsluta därför alltid med frågor som
+      <strong>”Vilken matematik hjälpte oss?”</strong>,
+      <strong>”Vilka strategier fungerade?”</strong> och
+      <strong>”Vad skulle kunna användas i ett helt annat problem?”</strong>.
+    </p>
+
+  </section>
+
+
+  <div class="print-note">
+
+    <strong>🖨️ Utskrift:</strong><br>
+    Färdiga uppdrags- och problemlösningskort finns i <strong>A4-kort</strong>
+    och längre problemlösningsblad finns under <strong>Elevblad</strong>.
+    Vid färgutskrift kan du behöva välja
+    <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>.
 
   </div>
 
@@ -1167,11 +963,8 @@
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🗺️ Matematikäventyr – utforska, samarbeta, resonera och lösa
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🗺️ Berättelse • Uppdrag • Matematik • Samarbete • Lösning
 
 </footer>
 
