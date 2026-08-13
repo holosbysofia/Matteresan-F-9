@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Exit tickets F–9 | HOLOS Matteresan</title>
+  <title>Exit tickets | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,17 +15,25 @@
 
     :root {
       --dark: #17324d;
-      --green: #edf9f1;
-      --blue: #eaf5ff;
-      --purple: #f1edff;
+      --text: #263747;
+      --muted: #667788;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
       --yellow: #fff6d7;
       --orange: #ffe7cf;
       --teal: #eaf7f5;
       --pink: #ffe9f1;
       --gray: #eef2f4;
-      --background: #f8fafc;
-      --text: #263747;
-      --muted: #667788;
+
+      --background: #f7f9fb;
     }
 
     body {
@@ -42,10 +50,10 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
-        linear-gradient(135deg, #356a65, #6e9a94);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
-      padding: 22px 20px 50px;
+      padding: 22px 20px 55px;
     }
 
     .topbar {
@@ -63,9 +71,9 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
@@ -81,34 +89,35 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4rem);
+      font-size: clamp(2.3rem, 7vw, 4.2rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
       margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 850px;
+      max-width: 820px;
       margin: auto;
-      color: #f4fffd;
+      color: #f7f9fc;
     }
 
     main {
-      max-width: 1120px;
+      max-width: 1040px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 42px 20px 65px;
     }
 
     .intro {
-      background: var(--teal);
-      border-radius: 24px;
-      padding: 30px;
-      text-align: center;
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
       margin-bottom: 34px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      text-align: center;
     }
 
     .intro h2 {
@@ -142,6 +151,18 @@
       min-height: 270mm;
     }
 
+    .green-sheet {
+      border-top: 9px solid var(--green-strong);
+    }
+
+    .blue-sheet {
+      border-top: 9px solid var(--blue-strong);
+    }
+
+    .purple-sheet {
+      border-top: 9px solid var(--purple-strong);
+    }
+
     .sheet-head {
       text-align: center;
       margin-bottom: 18px;
@@ -158,44 +179,35 @@
       font-size: 0.9rem;
     }
 
-    .tickets {
+    .ticket-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
 
     .ticket {
-      border: 1.5px dashed #87939c;
-      border-radius: 16px;
-      padding: 16px;
-      min-height: 150px;
+      border: 1.5px dashed #87949d;
+      border-radius: 15px;
+      padding: 15px;
+      min-height: 125px;
       break-inside: avoid;
-    }
-
-    .ticket span {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 6px;
     }
 
     .ticket h3 {
       color: var(--dark);
-      margin-bottom: 7px;
+      margin-bottom: 6px;
       font-size: 1rem;
     }
 
-    .ticket p {
+    .ticket p,
+    .ticket li {
       color: #4e5d68;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
     }
 
-    .write-lines {
-      margin-top: 10px;
-    }
-
-    .line {
-      height: 24px;
-      border-bottom: 1px solid #9da7ae;
+    .ticket ul {
+      margin-left: 19px;
+      margin-top: 5px;
     }
 
     .green { background: var(--green); }
@@ -207,93 +219,85 @@
     .pink { background: var(--pink); }
     .gray { background: var(--gray); }
 
-    .analysis-box {
-      background: var(--yellow);
-      border-radius: 22px;
-      padding: 28px;
-      margin-top: 34px;
+    .write-lines {
+      margin-top: 10px;
     }
 
-    .analysis-box h2 {
-      color: var(--dark);
-      margin-bottom: 8px;
+    .line {
+      border-bottom: 1px solid #9aa6ae;
+      height: 23px;
     }
 
-    .analysis-box > p {
-      color: var(--muted);
-    }
-
-    .analysis-grid {
+    .mini-meta {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 18px;
+      grid-template-columns: 2fr 1fr;
+      gap: 8px;
+      margin-bottom: 9px;
     }
 
-    .analysis-card {
-      border-radius: 14px;
-      padding: 16px;
-      min-height: 150px;
-    }
-
-    .analysis-card h3 {
+    .mini-field {
+      background: white;
+      border: 1px solid #9aa6ae;
+      border-radius: 7px;
+      min-height: 34px;
+      padding: 6px;
+      font-size: 0.73rem;
       color: var(--dark);
-      margin-bottom: 6px;
+      font-weight: bold;
     }
 
-    .analysis-card p {
-      color: #4e5d68;
-      font-size: 0.86rem;
+    .scale {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-top: 10px;
     }
 
-    .cycle {
-      background: var(--blue);
-      border-radius: 22px;
-      padding: 28px;
-      margin-top: 28px;
+    .scale-box {
+      background: white;
+      border: 1px solid #9aa6ae;
+      border-radius: 8px;
+      min-height: 47px;
+      padding: 5px;
       text-align: center;
-    }
-
-    .cycle h2 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .cycle p {
-      color: var(--muted);
-    }
-
-    .cycle-flow {
-      margin-top: 18px;
-      font-size: 1.15rem;
+      font-size: 0.7rem;
       font-weight: bold;
       color: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .note {
+    .footer-note {
+      text-align: center;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .screen-note {
       background: var(--orange);
       border-left: 6px solid #c77f43;
-      border-radius: 14px;
-      padding: 18px;
-      margin-top: 24px;
+      border-radius: 16px;
+      padding: 20px;
       color: #654c37;
+      margin-top: 25px;
     }
 
     footer {
       background: var(--dark);
       color: white;
       text-align: center;
-      padding: 30px 20px;
-      margin-top: 30px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 750px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .tickets,
-      .analysis-grid {
+      .ticket-grid,
+      .scale {
         grid-template-columns: 1fr;
       }
 
@@ -302,10 +306,6 @@
         padding-right: 14px;
       }
     }
-
-    /* =====================================
-       UTSKRIFT – A4 + FÄRG
-       ===================================== */
 
     @page {
       size: A4 portrait;
@@ -333,15 +333,13 @@
       header,
       footer,
       .intro,
-      .analysis-box,
-      .cycle,
-      .note {
+      .screen-note {
         display: none !important;
       }
 
       main {
-        max-width: none;
         width: 100%;
+        max-width: none;
         margin: 0;
         padding: 0;
       }
@@ -349,10 +347,12 @@
       .sheet {
         width: 100%;
         min-height: 277mm;
-        border: none;
-        border-radius: 0;
-        padding: 0;
         margin: 0;
+        padding: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
         page-break-after: always;
         break-after: page;
       }
@@ -362,18 +362,16 @@
         break-after: auto;
       }
 
-      .tickets {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 4mm !important;
+      .green-sheet {
+        border-top: 7px solid var(--green-strong) !important;
       }
 
-      .ticket {
-        min-height: 58mm;
-        padding: 4mm;
-        page-break-inside: avoid;
-        break-inside: avoid;
-        border: 1.2px dashed #87939c !important;
+      .blue-sheet {
+        border-top: 7px solid var(--blue-strong) !important;
+      }
+
+      .purple-sheet {
+        border-top: 7px solid var(--purple-strong) !important;
       }
 
       .green { background: var(--green) !important; }
@@ -385,13 +383,37 @@
       .pink { background: var(--pink) !important; }
       .gray { background: var(--gray) !important; }
 
+      .mini-field,
+      .scale-box {
+        background: white !important;
+      }
+
+      .ticket-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .scale {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 2mm !important;
+      }
+
+      .ticket {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
       .ticket h3,
-      .sheet-head h2 {
+      .mini-field,
+      .scale-box {
         color: var(--dark) !important;
       }
 
       .ticket p,
-      .sheet-head p {
+      .ticket li,
+      .footer-note {
         color: var(--muted) !important;
       }
     }
@@ -405,22 +427,22 @@
   <div class="topbar">
     <div class="logo">HOLOS MATTERESAN</div>
 
-    <a href="material-a4-larare.html" class="back-link">
-      ← A4 för lärare
+    <a href="larare-utskrift.html" class="back-link">
+      ← Utskriftsmaterial
     </a>
   </div>
 
   <div class="hero">
 
-    <div class="hero-icon">🎟️🧠</div>
+    <div class="hero-icon">🚪✏️</div>
 
-    <h1>Exit tickets F–9</h1>
+    <h1>Exit tickets</h1>
 
-    <h2>Fråga • Samla • Sortera • Agera</h2>
+    <h2>Förståelse • Strategi • Begrepp • Resonemang • Nästa steg</h2>
 
     <p>
-      Korta formativa uppgifter som hjälper dig att snabbt få syn på
-      vad eleverna förstått och vad nästa undervisningssteg behöver bli.
+      Korta utskrivbara exit tickets som hjälper läraren att få syn på
+      vad eleverna förstått och vad undervisningen behöver ta vidare.
     </p>
 
   </div>
@@ -430,84 +452,66 @@
 
 <main>
 
-  <div class="intro">
+  <section class="intro">
 
-    <h2>🎟️ En liten fråga kan ge mycket information</h2>
+    <h2>🚪 Avsluta med information som går att använda</h2>
 
     <p>
-      Välj en exit ticket som ligger nära lektionens matematiska kärna.
-      Syftet är inte att samla poäng utan att få information om elevernas tänkande.
+      En exit ticket behöver inte fråga om allt.
+      Välj den typ som bäst fångar den matematiska idé
+      som varit viktigast under lektionen.
     </p>
 
     <button class="print-button" onclick="window.print()">
       🖨️ Skriv ut alla exit tickets
     </button>
 
-  </div>
+  </section>
 
 
   <!-- SIDA 1 -->
 
-  <section class="sheet">
+  <section class="sheet green-sheet">
 
     <div class="sheet-head">
-      <h2>Tal & räknesätt</h2>
-      <p>Klipp ut eller använd hela sidan</p>
+      <h2>🌱 Snabba exit tickets</h2>
+      <p>Åtta kort att klippa isär</p>
     </div>
 
-    <div class="tickets">
+    <div class="ticket-grid">
 
       <div class="ticket green">
-        <span>🔢</span>
-        <h3>Platsvärde</h3>
-        <p>
-          Vilket värde har siffran 6 i talet 3 684?
-          Förklara hur du vet.
-        </p>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Idag förstod jag...</h3>
         <div class="write-lines">
           <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
       </div>
-
 
       <div class="ticket blue">
-        <span>➕</span>
-        <h3>Addition</h3>
-        <p>
-          Räkna 398 + 47.
-          Visa eller förklara din strategi.
-        </p>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>En strategi jag använde...</h3>
         <div class="write-lines">
           <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
       </div>
-
-
-      <div class="ticket purple">
-        <span>➖</span>
-        <h3>Subtraktion</h3>
-        <p>
-          Vad är skillnaden mellan 503 och 278?
-          Hur kontrollerar du svaret?
-        </p>
-        <div class="write-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
 
       <div class="ticket yellow">
-        <span>✖️</span>
-        <h3>Multiplikation</h3>
-        <p>
-          Hur kan 24 × 6 hjälpa dig att räkna 24 × 12?
-        </p>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Det här behöver jag träna mer på...</h3>
         <div class="write-lines">
           <div class="line"></div>
           <div class="line"></div>
@@ -515,30 +519,25 @@
         </div>
       </div>
 
-
-      <div class="ticket orange">
-        <span>➗</span>
-        <h3>Division</h3>
-        <p>
-          148 elever ska sitta 24 i varje grupp.
-          Hur många grupper behövs?
-          Vad betyder resten?
-        </p>
+      <div class="ticket purple">
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Ett matematikord jag använde idag...</h3>
         <div class="write-lines">
           <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
       </div>
-
 
       <div class="ticket teal">
-        <span>⚖️</span>
-        <h3>Likhet</h3>
-        <p>
-          Fyll i ett tal så att likheten stämmer:
-          <strong>8 + 7 = ___ + 9</strong>
-        </p>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Så kontrollerade jag mitt svar...</h3>
         <div class="write-lines">
           <div class="line"></div>
           <div class="line"></div>
@@ -546,29 +545,38 @@
         </div>
       </div>
 
+      <div class="ticket orange">
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>En fråga jag fortfarande har...</h3>
+        <div class="write-lines">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
 
       <div class="ticket pink">
-        <span>🧠</span>
-        <h3>Rimlighet</h3>
-        <p>
-          En elev får 3 960 som svar på 39 × 10.
-          Är det rimligt? Förklara.
-        </p>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Det här blev tydligare när...</h3>
         <div class="write-lines">
           <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
       </div>
-
 
       <div class="ticket gray">
-        <span>🔄</span>
-        <h3>Samband</h3>
-        <p>
-          Skriv en multiplikation och två divisioner
-          som hör ihop.
-        </p>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Nästa steg för mig är...</h3>
         <div class="write-lines">
           <div class="line"></div>
           <div class="line"></div>
@@ -576,6 +584,10 @@
         </div>
       </div>
 
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Snabba exit tickets
     </div>
 
   </section>
@@ -583,132 +595,123 @@
 
   <!-- SIDA 2 -->
 
-  <section class="sheet">
+  <section class="sheet blue-sheet">
 
     <div class="sheet-head">
-      <h2>Bråk • decimal • procent</h2>
-      <p>Synliggör samband och förståelse</p>
+      <h2>🧠 Förståelse och strategi</h2>
+      <p>Åtta kort som synliggör hur eleven tänker</p>
     </div>
 
-    <div class="tickets">
-
-      <div class="ticket green">
-        <span>🍕</span>
-        <h3>Bråk</h3>
-        <p>
-          Vilket är störst: 3/4 eller 2/3?
-          Visa hur du tänker.
-        </p>
-        <div class="write-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
+    <div class="ticket-grid">
 
       <div class="ticket blue">
-        <span>🔟</span>
-        <h3>Decimaltal</h3>
-        <p>
-          Vilket är störst: 0,45 eller 0,5?
-          Motivera.
-        </p>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Förklara med egna ord</h3>
+        <p>Vad var den viktigaste matematiska idén idag?</p>
         <div class="write-lines">
-          <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
       </div>
 
-
-      <div class="ticket purple">
-        <span>💯</span>
-        <h3>Procent</h3>
-        <p>
-          Vad är 25 % av 240?
-          Visa en strategi.
-        </p>
+      <div class="ticket green">
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Visa på två sätt</h3>
+        <p>Visa samma matematik med två olika representationer.</p>
         <div class="write-lines">
-          <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
       </div>
-
 
       <div class="ticket yellow">
-        <span>🔗</span>
-        <h3>Samma värde</h3>
-        <p>
-          Skriv 1/2 i decimalform och procentform.
-        </p>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Jämför två strategier</h3>
+        <p>Vilken skulle du välja och varför?</p>
         <div class="write-lines">
-          <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
       </div>
 
-
-      <div class="ticket orange">
-        <span>📈</span>
-        <h3>Förändring</h3>
-        <p>
-          En vara kostar 500 kr och höjs med 20 %.
-          Vad blir det nya priset?
-        </p>
+      <div class="ticket purple">
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Hur vet du?</h3>
+        <p>Skriv en motivering, inte bara ett svar.</p>
         <div class="write-lines">
-          <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
       </div>
-
 
       <div class="ticket teal">
-        <span>🤔</span>
-        <h3>Sant eller falskt?</h3>
-        <p>
-          0,7 är mindre än 0,65 eftersom 7 är mindre än 65.
-          Förklara.
-        </p>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Ge ett exempel</h3>
+        <p>Ge ett exempel som visar dagens matematiska idé.</p>
         <div class="write-lines">
-          <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
       </div>
 
+      <div class="ticket orange">
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Ge ett motexempel</h3>
+        <p>Kan du visa när ett påstående inte gäller?</p>
+        <div class="write-lines">
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
 
       <div class="ticket pink">
-        <span>🧠</span>
-        <h3>Förklara</h3>
-        <p>
-          Varför är 1/8 mindre än 1/4 trots att 8 är större än 4?
-        </p>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Hitta felet</h3>
+        <p>Beskriv ett vanligt fel och förklara hur man kan tänka istället.</p>
         <div class="write-lines">
-          <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
       </div>
-
 
       <div class="ticket gray">
-        <span>🚀</span>
-        <h3>Utmaning</h3>
-        <p>
-          Hitta ett tal där 10 % är 7.
-          Hur vet du?
-        </p>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Skapa en egen fråga</h3>
+        <p>Skriv en fråga som testar dagens matematiska idé.</p>
         <div class="write-lines">
-          <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
       </div>
 
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Förståelse och strategi
     </div>
 
   </section>
@@ -716,126 +719,118 @@
 
   <!-- SIDA 3 -->
 
-  <section class="sheet">
+  <section class="sheet purple-sheet">
 
     <div class="sheet-head">
-      <h2>Algebra • geometri • statistik • sannolikhet</h2>
-      <p>Korta frågor med hög informationsnivå</p>
+      <h2>📊 Självskattning</h2>
+      <p>Åtta kort med snabb bedömning av förståelse</p>
     </div>
 
-    <div class="tickets">
-
-      <div class="ticket green">
-        <span>🔤</span>
-        <h3>Ekvation</h3>
-        <p>
-          Lös 3x + 6 = 24.
-          Visa dina steg.
-        </p>
-        <div class="write-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
-
-      <div class="ticket blue">
-        <span>🧩</span>
-        <h3>Mönster</h3>
-        <p>
-          Talföljden är 5, 8, 11, 14...
-          Skriv nästa två tal och beskriv regeln.
-        </p>
-        <div class="write-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
+    <div class="ticket-grid">
 
       <div class="ticket purple">
-        <span>📐</span>
-        <h3>Area & omkrets</h3>
-        <p>
-          Kan två rektanglar ha samma area men olika omkrets?
-          Ge ett exempel.
-        </p>
-        <div class="write-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Jag kan förklara dagens idé</h3>
+        <div class="scale">
+          <div class="scale-box">1<br>Inte än</div>
+          <div class="scale-box">2<br>Lite</div>
+          <div class="scale-box">3<br>Ganska säkert</div>
+          <div class="scale-box">4<br>Säkert</div>
         </div>
       </div>
 
+      <div class="ticket blue">
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Jag kan välja en strategi</h3>
+        <div class="scale">
+          <div class="scale-box">1<br>Inte än</div>
+          <div class="scale-box">2<br>Med stöd</div>
+          <div class="scale-box">3<br>Oftast</div>
+          <div class="scale-box">4<br>Självständigt</div>
+        </div>
+      </div>
+
+      <div class="ticket green">
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Jag använder matematikord</h3>
+        <div class="scale">
+          <div class="scale-box">1<br>Inte än</div>
+          <div class="scale-box">2<br>Några</div>
+          <div class="scale-box">3<br>Flera</div>
+          <div class="scale-box">4<br>Säkert</div>
+        </div>
+      </div>
 
       <div class="ticket yellow">
-        <span>📊</span>
-        <h3>Statistik</h3>
-        <p>
-          Datan är 3, 4, 4, 5, 19.
-          Vilket mått beskriver bäst ett typiskt värde? Motivera.
-        </p>
-        <div class="write-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Jag kan visa på olika sätt</h3>
+        <div class="scale">
+          <div class="scale-box">1<br>Inte än</div>
+          <div class="scale-box">2<br>Med stöd</div>
+          <div class="scale-box">3<br>Två sätt</div>
+          <div class="scale-box">4<br>Flera sätt</div>
         </div>
       </div>
-
-
-      <div class="ticket orange">
-        <span>🎲</span>
-        <h3>Sannolikhet</h3>
-        <p>
-          En rättvis tärning kastas.
-          Vad är sannolikheten att få ett jämnt tal?
-        </p>
-        <div class="write-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-
 
       <div class="ticket teal">
-        <span>📈</span>
-        <h3>Linjärt samband</h3>
-        <p>
-          Vad betyder 3 och 5 i funktionen y = 3x + 5?
-        </p>
-        <div class="write-lines">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Jag kan kontrollera mitt svar</h3>
+        <div class="scale">
+          <div class="scale-box">1<br>Inte än</div>
+          <div class="scale-box">2<br>Med stöd</div>
+          <div class="scale-box">3<br>Oftast</div>
+          <div class="scale-box">4<br>Självständigt</div>
         </div>
       </div>
 
+      <div class="ticket orange">
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Jag kan motivera hur jag vet</h3>
+        <div class="scale">
+          <div class="scale-box">1<br>Inte än</div>
+          <div class="scale-box">2<br>Kort svar</div>
+          <div class="scale-box">3<br>Förklaring</div>
+          <div class="scale-box">4<br>Tydligt argument</div>
+        </div>
+      </div>
 
       <div class="ticket pink">
-        <span>🌍</span>
-        <h3>Verkligheten</h3>
-        <p>
-          Ge ett verkligt exempel på ett proportionellt samband.
-        </p>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Jag vet vad jag behöver träna vidare på</h3>
         <div class="write-lines">
-          <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
       </div>
-
 
       <div class="ticket gray">
-        <span>💬</span>
-        <h3>Reflektion</h3>
-        <p>
-          Vilken matematisk idé blev tydligare för dig idag?
-        </p>
+        <div class="mini-meta">
+          <div class="mini-field">Namn:</div>
+          <div class="mini-field">Datum:</div>
+        </div>
+        <h3>Mitt nästa steg</h3>
         <div class="write-lines">
-          <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
@@ -843,82 +838,26 @@
 
     </div>
 
-  </section>
-
-
-  <section class="analysis-box">
-
-    <h2>🔴🟡🟢 Sortera svaren snabbt</h2>
-
-    <p>
-      Läs inte bara rätt eller fel. Titta efter vilken förståelse svaret visar.
-    </p>
-
-    <div class="analysis-grid">
-
-      <div class="analysis-card green">
-        <h3>🟢 Stabil förståelse</h3>
-        <p>
-          Eleven använder en fungerande strategi,
-          begreppen korrekt och kan motivera.
-        </p>
-      </div>
-
-      <div class="analysis-card yellow">
-        <h3>🟡 Delvis förståelse</h3>
-        <p>
-          Eleven är på väg men behöver fler representationer,
-          exempel eller samtal.
-        </p>
-      </div>
-
-      <div class="analysis-card pink">
-        <h3>🔴 Behöver undersökas</h3>
-        <p>
-          Svaret tyder på osäkerhet eller missuppfattning.
-          Ställ en följdfråga innan du drar slutsats.
-        </p>
-      </div>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Självskattning
     </div>
 
   </section>
 
 
-  <section class="cycle">
-
-    <h2>🔄 Exit ticket-cykeln</h2>
-
-    <p>
-      Exit ticketen är värdefull först när informationen används.
-    </p>
-
-    <div class="cycle-flow">
-      Välj kärnan → Fråga → Sortera → Agera
-    </div>
-
-  </section>
-
-
-  <div class="note">
-
+  <div class="screen-note">
     <strong>🖨️ Färgutskrift:</strong>
     välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
     och kontrollera att skrivaren står på <strong>Färg</strong>.
-
+    Varje sida är anpassad till ett eget A4.
   </div>
 
 </main>
 
 
 <footer>
-
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🎟️ Exit tickets – välj kärnan, fråga, sortera och agera
-
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🚪 Exit tickets • förståelse • strategi • resonemang • nästa steg
 </footer>
 
 </body>
