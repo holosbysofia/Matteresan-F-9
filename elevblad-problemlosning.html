@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Elevblad Problemlösning F–9 | HOLOS Matteresan</title>
+  <title>Problemlösning F–9 | HOLOS Matteresan</title>
 
   <style>
     * {
@@ -15,12 +15,22 @@
 
     :root {
       --dark: #17324d;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --teal-light: #eaf7f5;
+
+      --f3: #e8f7ed;
+      --f3-strong: #5f9470;
+
+      --46: #e8f3ff;
+      --46-strong: #5d86ad;
+
+      --79: #f0eaff;
+      --79-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -30,7 +40,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     a {
@@ -40,10 +50,10 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
-        linear-gradient(135deg, #2d5b6f, #3f8b8c);
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #56627b, #848fa7);
       color: white;
-      padding: 22px 20px 55px;
+      padding: 22px 20px 50px;
     }
 
     .topbar {
@@ -64,58 +74,54 @@
       padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
       font-weight: bold;
     }
 
     .hero {
       max-width: 920px;
-      margin: 45px auto 0;
+      margin: 42px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.1rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4.2rem);
+      font-size: clamp(2.2rem, 7vw, 4rem);
       line-height: 1.05;
       margin-bottom: 10px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 15px;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
       max-width: 850px;
       margin: auto;
-      color: #efffff;
+      color: #f8f9fd;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1040px;
       margin: auto;
-      padding: 42px 20px;
-    }
-
-    section {
-      margin-bottom: 55px;
+      padding: 40px 20px;
     }
 
     .intro {
-      background: var(--teal-light);
-      border-radius: 26px;
-      padding: 32px;
+      background: var(--purple);
+      border-radius: 24px;
+      padding: 30px;
       text-align: center;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
       color: var(--dark);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .intro p {
@@ -125,7 +131,7 @@
     }
 
     .print-button {
-      display: inline-block;
+      margin-top: 16px;
       background: var(--dark);
       color: white;
       border: none;
@@ -133,274 +139,248 @@
       padding: 12px 20px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 18px;
-    }
-
-    .strategy-strip {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .strategy {
-      background: white;
-      border-radius: 16px;
-      padding: 16px 12px;
-      text-align: center;
-      border: 1px solid #dfe7ea;
-    }
-
-    .strategy span {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 4px;
-    }
-
-    .strategy strong {
-      color: var(--dark);
-      font-size: 0.92rem;
-    }
-
-    .stage {
-      border-radius: 28px;
-      padding: 34px;
-      margin-bottom: 34px;
-    }
-
-    .stage-f3 {
-      background: var(--green-light);
-    }
-
-    .stage-46 {
-      background: var(--blue-light);
-    }
-
-    .stage-79 {
-      background: var(--purple-light);
-    }
-
-    .stage-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-
-    .stage-header span {
-      font-size: 2.8rem;
-    }
-
-    .stage-header h2 {
-      color: var(--dark);
-      font-size: 1.9rem;
-    }
-
-    .stage-header p {
-      color: var(--muted);
-    }
-
-    .sheet-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
     }
 
     .sheet {
       background: white;
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 22px;
-      padding: 26px;
-      border: 1px solid rgba(0,0,0,0.06);
-      min-height: 520px;
+      padding: 24px;
+      margin-bottom: 28px;
+      min-height: 270mm;
     }
 
-    .sheet h3 {
+    .sheet.f3 {
+      border-top: 9px solid var(--f3-strong);
+    }
+
+    .sheet.stage46 {
+      border-top: 9px solid var(--46-strong);
+    }
+
+    .sheet.stage79 {
+      border-top: 9px solid var(--79-strong);
+    }
+
+    .sheet-head {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .stage-label {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .f3-label {
+      background: var(--f3);
+      color: #356345;
+    }
+
+    .stage46-label {
+      background: var(--46);
+      color: #345e86;
+    }
+
+    .stage79-label {
+      background: var(--79);
+      color: #634a83;
+    }
+
+    .sheet-head h2 {
       color: var(--dark);
-      margin-bottom: 5px;
-      font-size: 1.35rem;
+      font-size: 1.7rem;
+      margin-bottom: 4px;
     }
 
-    .sheet-sub {
+    .sheet-head p {
       color: var(--muted);
-      margin-bottom: 18px;
-      font-size: 0.93rem;
+      font-size: 0.9rem;
     }
 
-    .problem-box {
-      background: #f5f8fa;
-      border-left: 5px solid #4c7d91;
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 18px;
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
-    .problem-box strong {
+    .field {
+      background: white;
+      border: 1.5px solid #9aa6ae;
+      border-radius: 10px;
+      min-height: 50px;
+      padding: 9px;
+    }
+
+    .field strong {
+      display: block;
       color: var(--dark);
+      font-size: 0.86rem;
     }
 
     .task {
-      margin-bottom: 20px;
-      padding-bottom: 18px;
-      border-bottom: 1px dashed #ccd4db;
-    }
-
-    .task:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
-    .answer-box {
-      height: 76px;
-      border: 1.5px solid #9ba7b1;
-      border-radius: 10px;
-      margin-top: 10px;
-      background: white;
-    }
-
-    .answer-box.large {
-      height: 125px;
-    }
-
-    .answer-box.xlarge {
-      height: 165px;
-    }
-
-    .solution-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .solution-part {
-      border: 1.5px solid #a6b0b8;
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 14px;
-      min-height: 110px;
+      margin-bottom: 12px;
+      break-inside: avoid;
     }
 
-    .solution-part strong {
+    .task h3 {
       color: var(--dark);
-      display: block;
-      margin-bottom: 7px;
+      font-size: 1rem;
+      margin-bottom: 6px;
     }
 
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
+    .task p,
+    .task li {
+      color: #4e5d68;
+      font-size: 0.88rem;
     }
 
-    .table th,
-    .table td {
-      border: 1px solid #9aa6af;
-      padding: 9px;
-      text-align: center;
+    .task ul,
+    .task ol {
+      margin: 8px 0 0 22px;
     }
 
-    .table th {
-      background: #f0f4f7;
+    .task li {
+      margin-bottom: 5px;
     }
 
-    .steps {
-      background: var(--yellow-light);
-      border-radius: 15px;
-      padding: 15px;
-      margin-top: 12px;
+    .green { background: var(--f3); }
+    .blue { background: var(--46); }
+    .purple { background: var(--79); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .write-area {
+      background: white;
+      border: 1.2px solid #98a4ad;
+      border-radius: 8px;
+      margin-top: 8px;
+      min-height: 70px;
     }
 
-    .steps strong {
-      color: var(--dark);
+    .write-area.medium {
+      min-height: 100px;
     }
 
-    .checklist {
-      list-style: none;
+    .write-area.large {
+      min-height: 145px;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
       margin-top: 10px;
     }
 
-    .checklist li {
-      margin-bottom: 7px;
+    .strategy-box {
+      background: white;
+      border: 1.2px solid #89969f;
+      border-radius: 10px;
+      min-height: 82px;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: var(--dark);
+      font-weight: bold;
+      font-size: 0.84rem;
     }
 
-    .checklist li::before {
-      content: "☐ ";
+    .strategy-box span {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .problem-box {
+      background: white;
+      border: 1.2px solid #89969f;
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 8px;
+      color: var(--dark);
       font-weight: bold;
     }
 
-    .challenge {
-      background: var(--yellow-light);
-      border-radius: 18px;
-      padding: 20px;
-      margin-top: 20px;
+    .check-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 8px;
     }
 
-    .reflection {
-      background: var(--orange-light);
-      border-radius: 18px;
-      padding: 20px;
-      margin-top: 20px;
-    }
-
-    .challenge h4,
-    .reflection h4 {
+    .check-box {
+      background: white;
+      border: 1.2px solid #89969f;
+      border-radius: 9px;
+      min-height: 60px;
+      padding: 8px;
+      text-align: center;
+      font-size: 0.82rem;
       color: var(--dark);
-      margin-bottom: 7px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .teacher-note {
-      background: var(--teal-light);
-      border-radius: 24px;
-      padding: 28px;
-    }
-
-    .teacher-note h2 {
-      color: var(--dark);
-      margin-bottom: 10px;
-    }
-
-    .teacher-note ul {
-      padding-left: 20px;
+    .footer-note {
+      text-align: center;
+      margin-top: 14px;
       color: var(--muted);
+      font-size: 0.8rem;
     }
 
-    .teacher-note li {
-      margin-bottom: 8px;
+    .screen-note {
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 24px;
+      color: #654c37;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
+      color: white;
       text-align: center;
-      padding: 34px 20px;
+      padding: 30px 20px;
+      margin-top: 30px;
     }
 
-    @media (max-width: 900px) {
-      .sheet-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .strategy-strip {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .stage,
-      .intro,
-      .teacher-note {
-        padding: 23px 16px;
-      }
-
-      .sheet {
-        padding: 20px 16px;
-      }
-
-      .strategy-strip,
-      .solution-grid {
+      .meta-grid,
+      .two-grid,
+      .three-grid,
+      .strategy-grid,
+      .check-row {
         grid-template-columns: 1fr;
       }
 
@@ -410,89 +390,148 @@
       }
     }
 
+    /* ===========================
+       A4 + FÄRGUTSKRIFT
+       =========================== */
+
     @page {
       size: A4 portrait;
-      margin: 12mm;
+      margin: 10mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
       body {
-        background: white;
-        font-size: 10.5pt;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
       header,
       footer,
       .intro,
-      .teacher-note,
-      .print-button,
-      .back-link {
+      .screen-note {
         display: none !important;
       }
 
       main {
+        width: 100%;
         max-width: none;
+        margin: 0;
         padding: 0;
-        margin: 0;
-      }
-
-      section {
-        margin: 0;
-      }
-
-      .stage {
-        background: white !important;
-        padding: 0;
-        margin: 0;
-      }
-
-      .stage-header {
-        margin: 0 0 7mm 0;
-      }
-
-      .stage-header span {
-        display: none;
-      }
-
-      .stage-header h2 {
-        font-size: 17pt;
-      }
-
-      .stage-header p {
-        font-size: 9pt;
-      }
-
-      .sheet-grid {
-        display: block;
       }
 
       .sheet {
-        border: none;
-        border-radius: 0;
+        width: 100%;
+        min-height: 277mm;
+        margin: 0;
         padding: 0;
-        min-height: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
         page-break-after: always;
         break-after: page;
       }
 
-      .sheet:last-child {
+      .sheet:last-of-type {
         page-break-after: auto;
         break-after: auto;
       }
 
+      .sheet.f3 {
+        border-top: 7px solid var(--f3-strong) !important;
+      }
+
+      .sheet.stage46 {
+        border-top: 7px solid var(--46-strong) !important;
+      }
+
+      .sheet.stage79 {
+        border-top: 7px solid var(--79-strong) !important;
+      }
+
+      .green,
+      .f3-label {
+        background: var(--f3) !important;
+      }
+
+      .blue,
+      .stage46-label {
+        background: var(--46) !important;
+      }
+
+      .purple,
+      .stage79-label {
+        background: var(--79) !important;
+      }
+
+      .yellow { background: var(--yellow) !important; }
+      .orange { background: var(--orange) !important; }
+      .teal { background: var(--teal) !important; }
+      .pink { background: var(--pink) !important; }
+      .gray { background: var(--gray) !important; }
+
+      .field,
+      .write-area,
+      .strategy-box,
       .problem-box,
+      .check-box {
+        background: white !important;
+      }
+
+      .two-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .three-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .strategy-grid,
+      .check-row {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 2.5mm !important;
+      }
+
       .task,
-      .challenge,
-      .reflection,
-      .solution-grid,
-      .steps {
+      .field,
+      .strategy-box,
+      .problem-box,
+      .check-box {
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      .stage:not(:first-of-type) {
-        page-break-before: always;
-        break-before: page;
+      .sheet-head h2,
+      .task h3,
+      .field strong,
+      .strategy-box,
+      .problem-box,
+      .check-box {
+        color: var(--dark) !important;
+      }
+
+      .sheet-head p,
+      .task p,
+      .task li,
+      .footer-note {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -503,13 +542,11 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
 
-    <a href="material-elevblad.html" class="back-link">
-      ← Elevblad
+    <a href="material-a4-elevblad.html" class="back-link">
+      ← A4 Elevblad
     </a>
-
   </div>
 
   <div class="hero">
@@ -521,8 +558,8 @@
     <h2>Förstå • Planera • Pröva • Förklara • Kontrollera</h2>
 
     <p>
-      Utskriftsklara problemlösningsblad där eleverna tränar på att välja strategi,
-      pröva idéer, representera problemet, förklara sin lösning och kontrollera rimlighet.
+      Sex utskriftsklara elevblad med progression från att förstå enkla problem
+      till systematiska undersökningar, modellering och generalisering.
     </p>
 
   </div>
@@ -532,672 +569,588 @@
 
 <main>
 
-  <section>
+  <div class="intro">
 
-    <div class="intro">
+    <h2>🧠 Problemlösning är en process</h2>
 
-      <h2>🧭 Strategier för problemlösning</h2>
+    <p>
+      Ett svar är bara en del av arbetet. Eleverna behöver förstå problemet,
+      välja strategi, genomföra lösningen, förklara sitt tänkande
+      och kontrollera om svaret är rimligt.
+    </p>
+
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut alla sex elevblad
+    </button>
+
+  </div>
+
+
+  <!-- F–3 BLAD 1 -->
+
+  <section class="sheet f3">
+
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Problemlösning – blad 1</h2>
+      <p>Läs • rita • räkna • svara</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task green">
+
+      <h3>1. Problemet</h3>
+
+      <div class="problem-box">
+        Mira har 8 röda pärlor och 7 blå pärlor.
+        Hon ger bort 5 pärlor.
+        Hur många pärlor har hon kvar?
+      </div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Vad vet du?</h3>
 
       <p>
-        En strategi är ett verktyg – inte en regel som alltid måste användas.
-        Eleverna behöver möta flera strategier och lära sig välja den som passar problemet.
+        Skriv eller rita den information som är viktig.
       </p>
 
-      <div class="strategy-strip">
+      <div class="write-area medium"></div>
 
-        <div class="strategy">
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Rita problemet</h3>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>4. Beräkna</h3>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Svara med en mening</h3>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="footer-note">
+      HOLOS Matteresan • Problemlösning F–3
+    </div>
+
+  </section>
+
+
+  <!-- F–3 BLAD 2 -->
+
+  <section class="sheet f3">
+
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Problemlösning – blad 2</h2>
+      <p>Pröva • hitta flera lösningar • förklara</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task green">
+
+      <h3>1. Hitta flera lösningar</h3>
+
+      <div class="problem-box">
+        Två tal tillsammans blir 20.
+        Vilka två tal kan det vara?
+      </div>
+
+      <p style="margin-top:8px;">
+        Hitta minst fem olika lösningar.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Arbeta systematiskt</h3>
+
+      <p>
+        Hur kan du ordna dina lösningar så att du vet
+        att du inte missar någon?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Ändra problemet</h3>
+
+      <p>
+        Vad händer om de två talen istället ska bli 30?
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Förklara</h3>
+
+      <p>
+        Hur vet du att en lösning är rätt?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="footer-note">
+      HOLOS Matteresan • Problemlösning F–3
+    </div>
+
+  </section>
+
+
+  <!-- 4–6 BLAD 1 -->
+
+  <section class="sheet stage46">
+
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Problemlösning – blad 1</h2>
+      <p>Förstå • välj strategi • lös • kontrollera</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>1. Problemet</h3>
+
+      <div class="problem-box">
+        148 elever ska åka på utflykt.
+        Varje buss har plats för 48 elever.
+        Hur många bussar måste skolan beställa?
+      </div>
+
+    </div>
+
+
+    <div class="task green">
+
+      <h3>2. Vilken strategi väljer du?</h3>
+
+      <div class="strategy-grid">
+
+        <div class="strategy-box">
           <span>🎨</span>
-          <strong>Rita en bild</strong>
+          Rita
         </div>
 
-        <div class="strategy">
+        <div class="strategy-box">
           <span>📋</span>
-          <strong>Gör en tabell</strong>
+          Tabell
         </div>
 
-        <div class="strategy">
+        <div class="strategy-box">
           <span>🔍</span>
-          <strong>Pröva systematiskt</strong>
+          Pröva
         </div>
 
-        <div class="strategy">
-          <span>↩️</span>
-          <strong>Arbeta baklänges</strong>
-        </div>
-
-        <div class="strategy">
-          <span>🧩</span>
-          <strong>Hitta ett mönster</strong>
+        <div class="strategy-box">
+          <span>🔢</span>
+          Beräkna
         </div>
 
       </div>
 
-      <button class="print-button" onclick="window.print()">
-        🖨️ Skriv ut elevbladen
-      </button>
+      <div class="write-area medium"></div>
 
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Lös problemet</h3>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>4. Vad betyder resten?</h3>
+
+      <p>
+        Om divisionen ger en rest – vad betyder den i just detta problem?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Kontrollera</h3>
+
+      <div class="check-row">
+        <div class="check-box">Har alla plats?</div>
+        <div class="check-box">Är svaret rimligt?</div>
+        <div class="check-box">Har jag svarat på frågan?</div>
+        <div class="check-box">Kan jag förklara?</div>
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="footer-note">
+      HOLOS Matteresan • Problemlösning 4–6
     </div>
 
   </section>
 
 
-  <!-- F–3 -->
+  <!-- 4–6 BLAD 2 -->
 
-  <section class="stage stage-f3">
+  <section class="sheet stage46">
 
-    <div class="stage-header">
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Problemlösning – blad 2</h2>
+      <p>Systematiskt prövande • hitta alla lösningar</p>
+    </div>
 
-      <span>🌱</span>
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
 
-      <div>
-        <h2>F–3 – Rita, pröva och berätta</h2>
-        <p>Förstå problemet • bild • konkret strategi • enkel förklaring</p>
+
+    <div class="task blue">
+
+      <h3>1. Problemet</h3>
+
+      <div class="problem-box">
+        På en parkering finns 20 cyklar och trehjulingar.
+        Tillsammans har de 49 hjul.
+        Hur många cyklar och trehjulingar finns det?
       </div>
 
     </div>
 
-    <div class="sheet-grid">
 
+    <div class="task green">
 
-      <article class="sheet">
+      <h3>2. Gör en plan</h3>
 
-        <h3>Elevblad 1 – Katterna</h3>
+      <p>
+        Hur kan du pröva möjligheter på ett ordnat sätt?
+      </p>
 
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="problem-box">
-
-          <strong>🐱 Problem</strong>
-
-          <p style="margin-top:7px;">
-            Tre katter har tillsammans 12 leksaksbollar.
-            Varje katt ska få lika många.
-          </p>
-
-          <p>
-            Hur många bollar får varje katt?
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>1. Vad vet du?</strong>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Rita problemet.</strong>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Skriv beräkningen.</strong>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="reflection">
-
-          <h4>💬 Svara med en mening</h4>
-
-          <p>
-            Varje katt får ______________________________________.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 2 – Hitta alla möjligheter</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="problem-box">
-
-          <strong>🧩 Problem</strong>
-
-          <p style="margin-top:7px;">
-            Mira har 10 kronor.
-            Hon vill använda två mynt.
-          </p>
-
-          <p>
-            Vilka olika kombinationer av mynt skulle kunna ge 10 kronor?
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>1. Rita eller skriv dina förslag.</strong>
-
-          <div class="answer-box xlarge"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Hur vet du att du har hittat alla?</strong>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Nytt villkor</h4>
-
-          <p>
-            Hur förändras problemet om Mira måste använda exakt tre mynt?
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-      </article>
+      <div class="write-area medium"></div>
 
     </div>
 
-  </section>
 
+    <div class="task yellow">
 
-  <!-- 4–6 -->
+      <h3>3. Pröva systematiskt</h3>
 
-  <section class="stage stage-46">
-
-    <div class="stage-header">
-
-      <span>🌿</span>
-
-      <div>
-        <h2>4–6 – Välj strategi & visa lösningen</h2>
-        <p>Systematiskt prövande • tabell • modell • flera steg • rimlighet</p>
+      <div class="two-grid">
+        <div class="write-area large"></div>
+        <div class="write-area large"></div>
       </div>
 
     </div>
 
-    <div class="sheet-grid">
 
+    <div class="task purple">
 
-      <article class="sheet">
+      <h3>4. Hur vet du att lösningen stämmer?</h3>
 
-        <h3>Elevblad 3 – Cyklar och trehjulingar</h3>
+      <p>
+        Kontrollera både antalet fordon och antalet hjul.
+      </p>
 
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
+      <div class="write-area large"></div>
 
-        <div class="problem-box">
+    </div>
 
-          <strong>🚲 Problem</strong>
 
-          <p style="margin-top:7px;">
-            På en gård står cyklar med två hjul och trehjulingar med tre hjul.
-            Det finns 12 fordon och tillsammans har de 30 hjul.
-          </p>
+    <div class="task orange">
 
-          <p>
-            Hur många cyklar och hur många trehjulingar finns det?
-          </p>
+      <h3>5. Ändra villkoret</h3>
 
-        </div>
+      <p>
+        Hur förändras problemet om det istället finns 52 hjul?
+        Finns det en lösning?
+      </p>
 
+      <div class="write-area large"></div>
 
-        <div class="task">
+    </div>
 
-          <strong>1. Vilken strategi väljer du?</strong>
 
-          <p>
-            ☐ Rita &nbsp;&nbsp;
-            ☐ Tabell &nbsp;&nbsp;
-            ☐ Pröva systematiskt &nbsp;&nbsp;
-            ☐ Annan
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Undersök systematiskt.</strong>
-
-          <table class="table">
-
-            <tr>
-              <th>Cyklar</th>
-              <th>Trehjulingar</th>
-              <th>Fordon totalt</th>
-              <th>Hjul totalt</th>
-            </tr>
-
-            <tr>
-              <td></td>
-              <td></td>
-              <td>12</td>
-              <td></td>
-            </tr>
-
-            <tr>
-              <td></td>
-              <td></td>
-              <td>12</td>
-              <td></td>
-            </tr>
-
-            <tr>
-              <td></td>
-              <td></td>
-              <td>12</td>
-              <td></td>
-            </tr>
-
-            <tr>
-              <td></td>
-              <td></td>
-              <td>12</td>
-              <td></td>
-            </tr>
-
-          </table>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Svar.</strong>
-
-          <p>
-            Det finns ______ cyklar och ______ trehjulingar.
-          </p>
-
-        </div>
-
-
-        <div class="reflection">
-
-          <h4>💬 Kontrollera</h4>
-
-          <p>
-            Visa att både antalet fordon och antalet hjul stämmer.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 4 – Arbeta baklänges</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="problem-box">
-
-          <strong>↩️ Problem</strong>
-
-          <p style="margin-top:7px;">
-            Leo tänker på ett tal.
-            Han multiplicerar talet med 3 och lägger sedan till 8.
-            Svaret blir 35.
-          </p>
-
-          <p>
-            Vilket tal tänkte Leo på?
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>1. Skriv vad som hände framåt.</strong>
-
-          <div class="steps">
-            Starttal → × 3 → + 8 → 35
-          </div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Arbeta baklänges.</strong>
-
-          <p>
-            Vilken operation gör du först från 35? __________________
-          </p>
-
-          <p>
-            Vad gör du sedan? __________________
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Svar.</strong>
-
-          <p>
-            Leos tal var ______.
-          </p>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Skapa ett eget</h4>
-
-          <p>
-            Skapa ett problem som måste lösas baklänges och ge det till en klasskamrat.
-          </p>
-
-          <div class="answer-box xlarge"></div>
-
-        </div>
-
-      </article>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Problemlösning 4–6
     </div>
 
   </section>
 
 
-  <!-- 7–9 -->
+  <!-- 7–9 BLAD 1 -->
 
-  <section class="stage stage-79">
+  <section class="sheet stage79">
 
-    <div class="stage-header">
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Problemlösning – blad 1</h2>
+      <p>Modellera • jämför strategier • tolka</p>
+    </div>
 
-      <span>🚀</span>
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
 
-      <div>
-        <h2>7–9 – Modellera, generalisera & argumentera</h2>
-        <p>Algebraisk modell • mönster • effektiv strategi • bevisliknande resonemang</p>
+
+    <div class="task purple">
+
+      <h3>1. Problemet</h3>
+
+      <div class="problem-box">
+        Mobilabonnemang A kostar 99 kr per månad
+        plus 2 kr per minut.
+
+        Mobilabonnemang B kostar 159 kr per månad
+        plus 1 kr per minut.
+
+        Vid hur många minuter kostar abonnemangen lika mycket?
       </div>
 
     </div>
 
-    <div class="sheet-grid">
 
+    <div class="task blue">
 
-      <article class="sheet">
+      <h3>2. Välj representation</h3>
 
-        <h3>Elevblad 5 – Biljettproblemet</h3>
+      <p>
+        Visa problemet med minst två av följande:
+      </p>
 
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
+      <div class="strategy-grid">
 
-        <div class="problem-box">
-
-          <strong>🎟️ Problem</strong>
-
-          <p style="margin-top:7px;">
-            Till en konsert säljs vuxenbiljetter för 180 kr
-            och ungdomsbiljetter för 120 kr.
-          </p>
-
-          <p>
-            Totalt säljs 250 biljetter och intäkten blir 38 400 kr.
-          </p>
-
-          <p>
-            Hur många vuxenbiljetter och ungdomsbiljetter såldes?
-          </p>
-
+        <div class="strategy-box">
+          📋 Tabell
         </div>
 
-
-        <div class="task">
-
-          <strong>1. Definiera variabler.</strong>
-
-          <p>
-            Låt x = __________________________________________
-          </p>
-
-          <p>
-            Låt y = __________________________________________
-          </p>
-
+        <div class="strategy-box">
+          📈 Graf
         </div>
 
-
-        <div class="task">
-
-          <strong>2. Skriv två samband.</strong>
-
-          <p>
-            Antal biljetter:
-          </p>
-
-          <div class="answer-box"></div>
-
-          <p>
-            Intäkten:
-          </p>
-
-          <div class="answer-box"></div>
-
+        <div class="strategy-box">
+          🔤 Ekvation
         </div>
 
-
-        <div class="task">
-
-          <strong>3. Lös problemet.</strong>
-
-          <div class="answer-box xlarge"></div>
-
+        <div class="strategy-box">
+          💬 Resonemang
         </div>
 
+      </div>
 
-        <div class="reflection">
+      <div class="write-area large"></div>
 
-          <h4>💬 Kontrollera</h4>
-
-          <p>
-            Visa att din lösning uppfyller båda villkoren.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
+    </div>
 
 
-      <article class="sheet">
+    <div class="task yellow">
 
-        <h3>Elevblad 6 – Växande mönster</h3>
+      <h3>3. Lös och tolka</h3>
 
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
+      <p>
+        Vad betyder lösningen i den verkliga situationen?
+      </p>
 
-        <div class="problem-box">
+      <div class="write-area large"></div>
 
-          <strong>🧩 Problem</strong>
-
-          <p style="margin-top:7px;">
-            Ett figurativt mönster byggs med stickor.
-          </p>
-
-          <p>
-            Figur 1 behöver 5 stickor.<br>
-            Figur 2 behöver 8 stickor.<br>
-            Figur 3 behöver 11 stickor.<br>
-            Figur 4 behöver 14 stickor.
-          </p>
-
-        </div>
+    </div>
 
 
-        <div class="task">
+    <div class="task orange">
 
-          <strong>1. Fortsätt tabellen.</strong>
+      <h3>4. Jämför abonnemangen</h3>
 
-          <table class="table">
-            <tr>
-              <th>Figur n</th>
-              <th>Antal stickor</th>
-            </tr>
+      <p>
+        När är A billigast?
+        När är B billigast?
+      </p>
 
-            <tr>
-              <td>1</td>
-              <td>5</td>
-            </tr>
+      <div class="write-area large"></div>
 
-            <tr>
-              <td>2</td>
-              <td>8</td>
-            </tr>
-
-            <tr>
-              <td>3</td>
-              <td>11</td>
-            </tr>
-
-            <tr>
-              <td>4</td>
-              <td>14</td>
-            </tr>
-
-            <tr>
-              <td>5</td>
-              <td></td>
-            </tr>
-
-            <tr>
-              <td>10</td>
-              <td></td>
-            </tr>
-
-          </table>
-
-        </div>
+    </div>
 
 
-        <div class="task">
-
-          <strong>2. Beskriv mönstret med ord.</strong>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Skriv en generell regel för figur n.</strong>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Utmaning</h4>
-
-          <p>
-            Finns det någon figur i mönstret som använder exakt 100 stickor?
-          </p>
-
-          <p>
-            Motivera utan att rita alla figurer.
-          </p>
-
-          <div class="answer-box xlarge"></div>
-
-        </div>
-
-      </article>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Problemlösning 7–9
     </div>
 
   </section>
 
 
-  <section>
+  <!-- 7–9 BLAD 2 -->
 
-    <div class="teacher-note">
+  <section class="sheet stage79">
 
-      <h2>👩‍🏫 Lärarnotering</h2>
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Problemlösning – blad 2</h2>
+      <p>Öppet problem • optimera • generalisera</p>
+    </div>
 
-      <ul>
-        <li>
-          F–3 fokuserar på att förstå situationen, rita, pröva och formulera ett svar.
-        </li>
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
 
-        <li>
-          4–6 utvecklar strategier som tabell, systematiskt prövande och arbete baklänges.
-        </li>
 
-        <li>
-          7–9 utvecklar modellering, algebraiska representationer, generalisering och kontroll av villkor.
-        </li>
+    <div class="task purple">
 
-        <li>
-          Fråga inte bara ”Vad fick du för svar?” utan också ”Hur började du?”, ”Varför valde du den strategin?” och ”Hur vet du att lösningen stämmer?”.
-        </li>
+      <h3>1. Problemet</h3>
 
-        <li>
-          Ett problemlösningsblad behöver inte lösas snabbt. Strategival, representation och resonemang är en central del av matematiken.
-        </li>
-      </ul>
+      <div class="problem-box">
+        En rektangel har omkretsen 40 cm.
+        Vilka mått kan rektangeln ha?
+      </div>
 
-      <button class="print-button" onclick="window.print()">
-        🖨️ Skriv ut
-      </button>
+      <p style="margin-top:8px;">
+        Undersök först rektanglar med heltalssidor.
+      </p>
 
     </div>
 
+
+    <div class="task blue">
+
+      <h3>2. Hitta flera lösningar</h3>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Beräkna arean</h3>
+
+      <p>
+        Beräkna arean för dina olika rektanglar.
+        Vilken får störst area?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Upptäck ett samband</h3>
+
+      <p>
+        Vad verkar hända med arean när rektangelns sidor
+        blir mer lika långa?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Generalisera</h3>
+
+      <p>
+        Om en rektangel har omkretsen <strong>P</strong>,
+        vilka sidlängder tror du ger den största möjliga arean?
+        Förklara.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="footer-note">
+      HOLOS Matteresan • Problemlösning 7–9
+    </div>
+
   </section>
+
+
+  <div class="screen-note">
+
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+    Varje elevblad ska hamna på ett eget A4.
+
+  </div>
 
 </main>
 
 
 <footer>
-
   <strong>HOLOS Matteresan F–9</strong>
-
   <br>
-
-  🧠 Problemlösning – förstå, planera, pröva, förklara och kontrollera
-
+  🧠🧩 Problemlösning – förstå, planera, pröva, förklara och kontrollera
 </footer>
 
 </body>
