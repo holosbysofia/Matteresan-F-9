@@ -184,15 +184,41 @@
       font-size: 0.93rem;
     }
 
-    .p1 { background: var(--green-light); }
-    .p2 { background: var(--blue-light); }
-    .p3 { background: var(--yellow-light); }
-    .p4 { background: var(--purple-light); }
-    .p5 { background: var(--orange-light); }
-    .p6 { background: var(--teal-light); }
-    .p7 { background: var(--pink-light); }
-    .p8 { background: var(--cream); }
-    .p9 { background: #f0f3f6; }
+    .p1 {
+      background: var(--green-light);
+    }
+
+    .p2 {
+      background: var(--blue-light);
+    }
+
+    .p3 {
+      background: var(--yellow-light);
+    }
+
+    .p4 {
+      background: var(--purple-light);
+    }
+
+    .p5 {
+      background: var(--orange-light);
+    }
+
+    .p6 {
+      background: var(--teal-light);
+    }
+
+    .p7 {
+      background: var(--pink-light);
+    }
+
+    .p8 {
+      background: var(--cream);
+    }
+
+    .p9 {
+      background: #f0f3f6;
+    }
 
     .guide-box {
       background:
@@ -276,9 +302,17 @@
       margin-bottom: 7px;
     }
 
-    .f3stage { background: var(--green-light); }
-    .m46stage { background: var(--blue-light); }
-    .m79stage { background: var(--purple-light); }
+    .f3stage {
+      background: var(--green-light);
+    }
+
+    .m46stage {
+      background: var(--blue-light);
+    }
+
+    .m79stage {
+      background: var(--purple-light);
+    }
 
     .tips-box {
       background: var(--yellow-light);
@@ -371,50 +405,255 @@
       }
     }
 
+    /* ========================================
+       UTSKRIFT – A4 + FÄRG
+       ======================================== */
+
+    @page {
+      size: A4 portrait;
+      margin: 12mm;
+    }
+
     @media print {
-      @page {
-        size: A4;
-        margin: 12mm;
+
+      /*
+        Viktigt för färgutskrift.
+        Försöker få Chrome/Edge/Safari att behålla
+        bakgrundsfärger och textfärger vid utskrift.
+      */
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
       header,
       footer,
       .back-link {
-        display: none;
+        display: none !important;
+      }
+
+      html,
+      body {
+        background: white !important;
       }
 
       body {
-        background: white;
-        color: black;
+        color: var(--text) !important;
       }
 
       main {
         max-width: none;
+        width: 100%;
+        margin: 0;
         padding: 0;
       }
+
+      section {
+        margin-bottom: 10mm;
+      }
+
+      /*
+        BEHÅLL FÄRGER
+      */
+
+      .intro-box {
+        background: var(--cream) !important;
+      }
+
+      .p1 {
+        background: var(--green-light) !important;
+      }
+
+      .p2 {
+        background: var(--blue-light) !important;
+      }
+
+      .p3 {
+        background: var(--yellow-light) !important;
+      }
+
+      .p4 {
+        background: var(--purple-light) !important;
+      }
+
+      .p5 {
+        background: var(--orange-light) !important;
+      }
+
+      .p6 {
+        background: var(--teal-light) !important;
+      }
+
+      .p7 {
+        background: var(--pink-light) !important;
+      }
+
+      .p8 {
+        background: var(--cream) !important;
+      }
+
+      .p9 {
+        background: #f0f3f6 !important;
+      }
+
+      .f3stage {
+        background: var(--green-light) !important;
+      }
+
+      .m46stage {
+        background: var(--blue-light) !important;
+      }
+
+      .m79stage {
+        background: var(--purple-light) !important;
+      }
+
+      .tips-box {
+        background: var(--yellow-light) !important;
+      }
+
+      .tip-card {
+        background: white !important;
+      }
+
+      .note {
+        background: var(--orange-light) !important;
+        border-left-color: #cc8445 !important;
+      }
+
+      /*
+        Mörka guide-rutan behåller färg
+      */
+
+      .guide-box {
+        background: #29485d !important;
+        color: white !important;
+      }
+
+      .guide-box h2,
+      .guide-box p,
+      .guide-card h3,
+      .guide-card p {
+        color: white !important;
+      }
+
+      .guide-card {
+        background: #496579 !important;
+        border-color: #7890a1 !important;
+      }
+
+      /*
+        Textfärger
+      */
+
+      .section-title,
+      .print-card h3,
+      .stage-card h3,
+      .tip-card h3 {
+        color: var(--dark) !important;
+      }
+
+      .section-intro,
+      .print-card p,
+      .stage-card ul,
+      .tip-card p,
+      .intro-box p {
+        color: var(--muted) !important;
+      }
+
+      /*
+        Undvik att delar bryts mitt itu
+      */
 
       section,
       .print-card,
       .stage-card,
       .guide-card,
-      .tip-card {
+      .tip-card,
+      .intro-box,
+      .tips-box,
+      .note {
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      .print-grid,
-      .stage-grid,
-      .guide-grid,
+      /*
+        Behåll grid även i utskrift.
+        Då ser materialet mer ut som sidan
+        och färgkorten ligger snyggare på A4.
+      */
+
+      .print-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 5mm !important;
+      }
+
+      .stage-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 4mm !important;
+      }
+
+      .guide-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 4mm !important;
+      }
+
       .tips-grid {
-        display: block;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 4mm !important;
       }
 
       .print-card,
       .stage-card,
       .guide-card,
       .tip-card {
-        margin-bottom: 12px;
         min-height: 0;
+        margin-bottom: 0;
+      }
+
+      /*
+        Snyggare storlek på papper
+      */
+
+      .print-card {
+        padding: 5mm;
+      }
+
+      .stage-card {
+        padding: 5mm;
+      }
+
+      .guide-card {
+        padding: 5mm;
+      }
+
+      .tip-card {
+        padding: 5mm;
+      }
+
+      .intro-box,
+      .guide-box,
+      .tips-box {
+        padding: 7mm;
+      }
+
+      a {
+        color: inherit !important;
       }
     }
   </style>
@@ -490,7 +729,8 @@
         <span>👧📄</span>
         <h3>Elevblad A4</h3>
         <p>
-          Utskriftsvänliga elevuppgifter för individuellt arbete, pararbete och matematiska undersökningar.
+          Utskriftsvänliga elevuppgifter för individuellt arbete,
+          pararbete och matematiska undersökningar.
         </p>
       </a>
 
@@ -498,7 +738,8 @@
         <span>🃏</span>
         <h3>Kort & småformat</h3>
         <p>
-          Begreppskort, strategikort, samtalskort och mindre material för stationer och grupparbete.
+          Begreppskort, strategikort, samtalskort
+          och mindre material för stationer och grupparbete.
         </p>
       </a>
 
@@ -506,7 +747,8 @@
         <span>🖼️</span>
         <h3>Affischer</h3>
         <p>
-          Visuellt stöd för klassrummet: begrepp, strategier, problemlösning och matematiska samtal.
+          Visuellt stöd för klassrummet:
+          begrepp, strategier, problemlösning och matematiska samtal.
         </p>
       </a>
 
@@ -514,7 +756,8 @@
         <span>👩‍🏫📋</span>
         <h3>Lärarunderlag</h3>
         <p>
-          Planeringsmallar, observationsblad, analysstöd och andra utskriftsvänliga lärarverktyg.
+          Planeringsmallar, observationsblad,
+          analysstöd och andra utskriftsvänliga lärarverktyg.
         </p>
       </a>
 
@@ -522,7 +765,8 @@
         <span>✏️</span>
         <h3>Elevblad</h3>
         <p>
-          Samlad bank med arbetsblad och aktiviteter inom Matteresans matematikområden.
+          Samlad bank med arbetsblad och aktiviteter
+          inom Matteresans matematikområden.
         </p>
       </a>
 
@@ -530,7 +774,8 @@
         <span>🧠</span>
         <h3>Problemlösning</h3>
         <p>
-          Problem som kan användas i undervisning, grupparbete, stationer eller som veckans problem.
+          Problem som kan användas i undervisning,
+          grupparbete, stationer eller som veckans problem.
         </p>
       </a>
 
@@ -538,7 +783,8 @@
         <span>💬</span>
         <h3>Matteprat</h3>
         <p>
-          Bilder, frågor och uppgifter för matematiska samtal och strategijämförelser.
+          Bilder, frågor och uppgifter för matematiska
+          samtal och strategijämförelser.
         </p>
       </a>
 
@@ -546,7 +792,8 @@
         <span>📚</span>
         <h3>Begreppsmaterial</h3>
         <p>
-          Begreppskort, ordstöd och visuella modeller för matematiskt språk.
+          Begreppskort, ordstöd och visuella modeller
+          för matematiskt språk.
         </p>
       </a>
 
@@ -554,7 +801,8 @@
         <span>🧱</span>
         <h3>Laborativt material</h3>
         <p>
-          Mallar och aktiviteter för konkret och visuellt arbete i matematik.
+          Mallar och aktiviteter för konkret
+          och visuellt arbete i matematik.
         </p>
       </a>
 
@@ -563,7 +811,8 @@
         <span>🎟️</span>
         <h3>Exit tickets</h3>
         <p>
-          Färdiga små exit tickets och mallar som kan användas för snabb formativ uppföljning.
+          Färdiga små exit tickets och mallar som kan
+          användas för snabb formativ uppföljning.
         </p>
       </a>
 
@@ -571,7 +820,8 @@
         <span>🩺</span>
         <h3>Diagnoser</h3>
         <p>
-          Korta diagnostiska uppgifter för att synliggöra förståelse och vanliga missuppfattningar.
+          Korta diagnostiska uppgifter för att synliggöra
+          förståelse och vanliga missuppfattningar.
         </p>
       </a>
 
@@ -579,7 +829,8 @@
         <span>📋</span>
         <h3>Mallar</h3>
         <p>
-          Generella elev- och lärarmallar som kan återanvändas i olika matematikområden.
+          Generella elev- och lärarmallar som kan
+          återanvändas i olika matematikområden.
         </p>
       </a>
 
@@ -587,7 +838,8 @@
         <span>📌</span>
         <h3>Klassrumsaffischer</h3>
         <p>
-          Matematiska strategier, begrepp och stödstrukturer att använda i lärmiljön.
+          Matematiska strategier, begrepp och stödstrukturer
+          att använda i lärmiljön.
         </p>
       </a>
 
@@ -595,7 +847,8 @@
         <span>🗺️</span>
         <h3>Matematikäventyr</h3>
         <p>
-          Uppdragskort, ledtrådar och utskriftsmaterial till matematiska äventyr.
+          Uppdragskort, ledtrådar och utskriftsmaterial
+          till matematiska äventyr.
         </p>
       </a>
 
@@ -603,7 +856,8 @@
         <span>🗓️</span>
         <h3>Planeringsmaterial</h3>
         <p>
-          Planeringsmallar för lektioner, arbetsområden och matematiska progressioner.
+          Planeringsmallar för lektioner,
+          arbetsområden och matematiska progressioner.
         </p>
       </a>
 
@@ -628,7 +882,8 @@
           <span>1️⃣</span>
           <h3>Bestäm syftet</h3>
           <p>
-            Ska materialet introducera, träna, synliggöra förståelse, ge stöd eller utmana?
+            Ska materialet introducera, träna,
+            synliggöra förståelse, ge stöd eller utmana?
           </p>
         </div>
 
@@ -636,7 +891,8 @@
           <span>2️⃣</span>
           <h3>Välj material</h3>
           <p>
-            Välj elevblad, begreppskort, problem, exit ticket, diagnos eller lärarmall.
+            Välj elevblad, begreppskort, problem,
+            exit ticket, diagnos eller lärarmall.
           </p>
         </div>
 
@@ -644,7 +900,8 @@
           <span>3️⃣</span>
           <h3>Anpassa</h3>
           <p>
-            Minska mängd, lägg till visuellt stöd eller ge större utmaning utan att förlora matematisk kärna.
+            Minska mängd, lägg till visuellt stöd
+            eller ge större utmaning utan att förlora matematisk kärna.
           </p>
         </div>
 
@@ -652,7 +909,8 @@
           <span>4️⃣</span>
           <h3>Följ upp</h3>
           <p>
-            Använd elevens arbete som information för nästa undervisningssteg.
+            Använd elevens arbete som information
+            för nästa undervisningssteg.
           </p>
         </div>
 
@@ -670,7 +928,8 @@
     </h2>
 
     <p class="section-intro">
-      Välj material som passar både matematiken och elevens grad av självständighet.
+      Välj material som passar både matematiken
+      och elevens grad av självständighet.
     </p>
 
     <div class="stage-grid">
@@ -745,7 +1004,8 @@
       </h2>
 
       <p class="section-intro">
-        För att utskrifter ska fungera bra behöver materialet vara tydligt även på vanligt A4-papper.
+        För att utskrifter ska fungera bra behöver materialet
+        vara tydligt även på vanligt A4-papper.
       </p>
 
       <div class="tips-grid">
@@ -754,7 +1014,8 @@
           <span>📏</span>
           <h3>Rätt marginaler</h3>
           <p>
-            Håll innehållet inom tydliga marginaler så att text och rutor inte kapas vid utskrift.
+            Håll innehållet inom tydliga marginaler
+            så att text och rutor inte kapas vid utskrift.
           </p>
         </div>
 
@@ -762,7 +1023,8 @@
           <span>🔠</span>
           <h3>Läsbar text</h3>
           <p>
-            Använd tillräckligt stor text och undvik att pressa in för mycket innehåll på samma sida.
+            Använd tillräckligt stor text och undvik
+            att pressa in för mycket innehåll på samma sida.
           </p>
         </div>
 
@@ -770,15 +1032,17 @@
           <span>✂️</span>
           <h3>Undvik sidbrytningar mitt i</h3>
           <p>
-            Uppgifter, tabeller och kort ska så långt möjligt hållas samman på samma sida.
+            Uppgifter, tabeller och kort ska så långt möjligt
+            hållas samman på samma sida.
           </p>
         </div>
 
         <div class="tip-card">
-          <span>⚫</span>
-          <h3>Fungerar även i gråskala</h3>
+          <span>🎨</span>
+          <h3>Färg + gråskala</h3>
           <p>
-            Viktig information ska inte vara beroende enbart av färg för att kunna förstås.
+            Materialet använder färg för struktur,
+            men viktig information ska fortfarande vara begriplig i gråskala.
           </p>
         </div>
 
@@ -796,7 +1060,8 @@
     </h2>
 
     <p class="section-intro">
-      Dessa sidor innehåller material som också kan användas som underlag för utskrift.
+      Dessa sidor innehåller material som också
+      kan användas som underlag för utskrift.
     </p>
 
     <div class="print-grid">
@@ -813,7 +1078,8 @@
         <span>🩺</span>
         <h3>Diagnostiska uppgifter</h3>
         <p>
-          Mini-diagnoser inom tal, bråk, procent, algebra, geometri med mera.
+          Mini-diagnoser inom tal, bråk, procent,
+          algebra, geometri med mera.
         </p>
       </a>
 
@@ -821,7 +1087,8 @@
         <span>👀</span>
         <h3>Observationsunderlag</h3>
         <p>
-          Färdig tabell för strategi, begrepp, resonemang och självständighet.
+          Färdig tabell för strategi, begrepp,
+          resonemang och självständighet.
         </p>
       </a>
 
@@ -829,7 +1096,8 @@
         <span>🗓️</span>
         <h3>Planeringsmall</h3>
         <p>
-          Planera matematisk kärna, språk, stöd, aktiviteter och bedömning.
+          Planera matematisk kärna, språk,
+          stöd, aktiviteter och bedömning.
         </p>
       </a>
 
@@ -837,7 +1105,8 @@
         <span>💬</span>
         <h3>Matteprat</h3>
         <p>
-          Samtalsdrag, meningsstarter och färdiga matematiska samtalsuppgifter.
+          Samtalsdrag, meningsstarter och färdiga
+          matematiska samtalsuppgifter.
         </p>
       </a>
 
@@ -845,16 +1114,27 @@
         <span>🧱</span>
         <h3>Konkret & visuellt</h3>
         <p>
-          Idéer för representationer och stödmaterial genom F–9.
+          Idéer för representationer
+          och stödmaterial genom F–9.
         </p>
       </a>
 
     </div>
 
+
     <div class="note">
-      <strong>Viktigt:</strong>
-      alla nya elevblad och lärarunderlag som skapas framöver ska göras
-      <strong>A4-anpassade från början</strong>, så att innehåll inte hamnar mitt över två sidor vid utskrift.
+
+      <strong>🖨️ Viktigt vid färgutskrift:</strong><br><br>
+
+      När du väljer <strong>Skriv ut</strong> i Chrome eller Edge:
+      öppna <strong>Fler inställningar</strong> och slå på
+      <strong>Bakgrundsgrafik</strong>.
+      <br><br>
+
+      Skrivaren ska dessutom vara inställd på <strong>Färg</strong>.
+      Då behålls de gröna, blå, lila, gula och övriga färgade
+      rutorna i materialet.
+
     </div>
 
   </section>
