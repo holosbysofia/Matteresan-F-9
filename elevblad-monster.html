@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Elevblad Mönster F–9 | HOLOS Matteresan</title>
+  <title>Mönster F–9 | HOLOS Matteresan</title>
 
   <style>
     * {
@@ -15,12 +15,22 @@
 
     :root {
       --dark: #17324d;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --teal-light: #eaf7f5;
+
+      --f3: #e8f7ed;
+      --f3-strong: #5f9470;
+
+      --46: #e8f3ff;
+      --46-strong: #5d86ad;
+
+      --79: #f0eaff;
+      --79-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -30,7 +40,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     a {
@@ -40,10 +50,10 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
-        linear-gradient(135deg, #5a3d84, #8b63b7);
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #536b66, #80958f);
       color: white;
-      padding: 22px 20px 55px;
+      padding: 22px 20px 50px;
     }
 
     .topbar {
@@ -64,58 +74,54 @@
       padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
       font-weight: bold;
     }
 
     .hero {
-      max-width: 900px;
-      margin: 45px auto 0;
+      max-width: 920px;
+      margin: 42px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.1rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4.2rem);
+      font-size: clamp(2.2rem, 7vw, 4rem);
       line-height: 1.05;
       margin-bottom: 10px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 15px;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 820px;
+      max-width: 850px;
       margin: auto;
-      color: #f8f4ff;
+      color: #f7fbf9;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1040px;
       margin: auto;
-      padding: 42px 20px;
-    }
-
-    section {
-      margin-bottom: 55px;
+      padding: 40px 20px;
     }
 
     .intro {
-      background: var(--purple-light);
-      border-radius: 26px;
-      padding: 32px;
+      background: var(--teal);
+      border-radius: 24px;
+      padding: 30px;
       text-align: center;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
       color: var(--dark);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .intro p {
@@ -125,7 +131,7 @@
     }
 
     .print-button {
-      display: inline-block;
+      margin-top: 16px;
       background: var(--dark);
       color: white;
       border: none;
@@ -133,237 +139,254 @@
       padding: 12px 20px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 18px;
-    }
-
-    .stage {
-      border-radius: 28px;
-      padding: 34px;
-      margin-bottom: 34px;
-    }
-
-    .stage-f3 {
-      background: var(--green-light);
-    }
-
-    .stage-46 {
-      background: var(--blue-light);
-    }
-
-    .stage-79 {
-      background: var(--purple-light);
-    }
-
-    .stage-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-
-    .stage-header span {
-      font-size: 2.8rem;
-    }
-
-    .stage-header h2 {
-      color: var(--dark);
-      font-size: 1.9rem;
-    }
-
-    .stage-header p {
-      color: var(--muted);
-    }
-
-    .sheet-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
     }
 
     .sheet {
       background: white;
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 22px;
-      padding: 26px;
-      border: 1px solid rgba(0,0,0,0.06);
-      min-height: 500px;
+      padding: 24px;
+      margin-bottom: 28px;
+      min-height: 270mm;
     }
 
-    .sheet h3 {
-      color: var(--dark);
-      margin-bottom: 5px;
-      font-size: 1.35rem;
+    .sheet.f3 {
+      border-top: 9px solid var(--f3-strong);
     }
 
-    .sheet-sub {
-      color: var(--muted);
+    .sheet.stage46 {
+      border-top: 9px solid var(--46-strong);
+    }
+
+    .sheet.stage79 {
+      border-top: 9px solid var(--79-strong);
+    }
+
+    .sheet-head {
+      text-align: center;
       margin-bottom: 18px;
-      font-size: 0.93rem;
+    }
+
+    .stage-label {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .f3-label {
+      background: var(--f3);
+      color: #356345;
+    }
+
+    .stage46-label {
+      background: var(--46);
+      color: #345e86;
+    }
+
+    .stage79-label {
+      background: var(--79);
+      color: #634a83;
+    }
+
+    .sheet-head h2 {
+      color: var(--dark);
+      font-size: 1.7rem;
+      margin-bottom: 4px;
+    }
+
+    .sheet-head p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .field {
+      background: white;
+      border: 1.5px solid #9aa6ae;
+      border-radius: 10px;
+      min-height: 50px;
+      padding: 9px;
+    }
+
+    .field strong {
+      display: block;
+      color: var(--dark);
+      font-size: 0.86rem;
     }
 
     .task {
-      margin-bottom: 20px;
-      padding-bottom: 18px;
-      border-bottom: 1px dashed #ccd4db;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+      break-inside: avoid;
     }
 
-    .task:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
-    .task strong {
+    .task h3 {
       color: var(--dark);
+      font-size: 1rem;
+      margin-bottom: 6px;
     }
 
-    .answer-box {
-      height: 76px;
-      border: 1.5px solid #9ba7b1;
-      border-radius: 10px;
-      margin-top: 10px;
+    .task p,
+    .task li {
+      color: #4e5d68;
+      font-size: 0.88rem;
+    }
+
+    .task ul {
+      margin: 8px 0 0 22px;
+    }
+
+    .task li {
+      margin-bottom: 5px;
+    }
+
+    .green { background: var(--f3); }
+    .blue { background: var(--46); }
+    .purple { background: var(--79); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .write-area {
       background: white;
+      border: 1.2px solid #98a4ad;
+      border-radius: 8px;
+      margin-top: 8px;
+      min-height: 70px;
     }
 
-    .answer-box.large {
-      height: 115px;
+    .write-area.medium {
+      min-height: 100px;
     }
 
-    .answer-box.xlarge {
-      height: 155px;
+    .write-area.large {
+      min-height: 145px;
     }
 
-    .pattern-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      margin-top: 14px;
-      font-size: 1.8rem;
-    }
-
-    .shape {
-      display: inline-block;
-      width: 34px;
-      height: 34px;
-    }
-
-    .square {
-      border: 2px solid #465b6b;
-      background: #e8f3f7;
-    }
-
-    .circle {
-      border: 2px solid #465b6b;
-      border-radius: 50%;
-      background: #f4eefe;
-    }
-
-    .triangle {
-      width: 0;
-      height: 0;
-      border-left: 19px solid transparent;
-      border-right: 19px solid transparent;
-      border-bottom: 34px solid #dfeee6;
-    }
-
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-    }
-
-    .table th,
-    .table td {
-      border: 1px solid #9aa6af;
-      padding: 9px;
-      text-align: center;
-    }
-
-    .table th {
-      background: #f0f4f7;
-    }
-
-    .choice-row {
-      display: flex;
-      flex-wrap: wrap;
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
-      margin-top: 10px;
     }
 
-    .choice {
-      border: 1.5px solid #9aa6af;
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .four-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
+    }
+
+    .pattern-box,
+    .number-box {
+      background: white;
+      border: 1.2px solid #89969f;
       border-radius: 10px;
-      padding: 8px 14px;
-      min-width: 82px;
+      min-height: 74px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      color: var(--dark);
       font-weight: bold;
     }
 
-    .challenge {
-      background: var(--yellow-light);
-      border-radius: 18px;
-      padding: 20px;
-      margin-top: 20px;
+    .pattern-box {
+      font-size: 1.25rem;
     }
 
-    .reflection {
-      background: var(--orange-light);
-      border-radius: 18px;
-      padding: 20px;
-      margin-top: 20px;
-    }
-
-    .challenge h4,
-    .reflection h4 {
+    .sequence {
+      background: white;
+      border: 1.2px solid #89969f;
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 8px;
+      text-align: center;
       color: var(--dark);
-      margin-bottom: 7px;
+      font-weight: bold;
+      font-size: 1.25rem;
     }
 
-    .teacher-note {
-      background: var(--teal-light);
-      border-radius: 24px;
-      padding: 28px;
+    .table-wrap {
+      margin-top: 10px;
+      overflow-x: auto;
     }
 
-    .teacher-note h2 {
-      color: var(--dark);
-      margin-bottom: 10px;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
     }
 
-    .teacher-note ul {
-      padding-left: 20px;
+    th,
+    td {
+      border: 1px solid #86939c;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background: var(--dark);
+      color: white;
+      font-size: 0.84rem;
+    }
+
+    td {
+      background: white;
+      height: 45px;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 14px;
       color: var(--muted);
+      font-size: 0.8rem;
     }
 
-    .teacher-note li {
-      margin-bottom: 8px;
+    .screen-note {
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 24px;
+      color: #654c37;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
+      color: white;
       text-align: center;
-      padding: 34px 20px;
+      padding: 30px 20px;
+      margin-top: 30px;
     }
 
-    @media (max-width: 850px) {
-      .sheet-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .stage,
-      .intro,
-      .teacher-note {
-        padding: 23px 16px;
-      }
-
-      .sheet {
-        padding: 20px 16px;
+      .meta-grid,
+      .two-grid,
+      .three-grid,
+      .four-grid {
+        grid-template-columns: 1fr;
       }
 
       main {
@@ -372,86 +395,154 @@
       }
     }
 
+    /* ===========================
+       A4 + FÄRGUTSKRIFT
+       =========================== */
+
     @page {
       size: A4 portrait;
-      margin: 12mm;
+      margin: 10mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
       body {
-        background: white;
-        font-size: 10.5pt;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
       header,
       footer,
       .intro,
-      .teacher-note,
-      .print-button,
-      .back-link {
+      .screen-note {
         display: none !important;
       }
 
       main {
+        width: 100%;
         max-width: none;
+        margin: 0;
         padding: 0;
-        margin: 0;
-      }
-
-      section {
-        margin: 0;
-      }
-
-      .stage {
-        background: white !important;
-        padding: 0;
-        margin: 0;
-      }
-
-      .stage-header {
-        margin: 0 0 7mm 0;
-      }
-
-      .stage-header span {
-        display: none;
-      }
-
-      .stage-header h2 {
-        font-size: 17pt;
-      }
-
-      .stage-header p {
-        font-size: 9pt;
-      }
-
-      .sheet-grid {
-        display: block;
       }
 
       .sheet {
-        border: none;
-        border-radius: 0;
+        width: 100%;
+        min-height: 277mm;
+        margin: 0;
         padding: 0;
-        min-height: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
         page-break-after: always;
         break-after: page;
       }
 
-      .sheet:last-child {
+      .sheet:last-of-type {
         page-break-after: auto;
         break-after: auto;
       }
 
+      .sheet.f3 {
+        border-top: 7px solid var(--f3-strong) !important;
+      }
+
+      .sheet.stage46 {
+        border-top: 7px solid var(--46-strong) !important;
+      }
+
+      .sheet.stage79 {
+        border-top: 7px solid var(--79-strong) !important;
+      }
+
+      .green,
+      .f3-label {
+        background: var(--f3) !important;
+      }
+
+      .blue,
+      .stage46-label {
+        background: var(--46) !important;
+      }
+
+      .purple,
+      .stage79-label {
+        background: var(--79) !important;
+      }
+
+      .yellow { background: var(--yellow) !important; }
+      .orange { background: var(--orange) !important; }
+      .teal { background: var(--teal) !important; }
+      .pink { background: var(--pink) !important; }
+      .gray { background: var(--gray) !important; }
+
+      .field,
+      .write-area,
+      .pattern-box,
+      .number-box,
+      .sequence,
+      td {
+        background: white !important;
+      }
+
+      th {
+        background: var(--dark) !important;
+        color: white !important;
+      }
+
+      .two-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .three-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .four-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 2.5mm !important;
+      }
+
       .task,
-      .challenge,
-      .reflection {
+      .field,
+      .pattern-box,
+      .number-box,
+      .sequence,
+      .table-wrap {
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      .stage:not(:first-of-type) {
-        page-break-before: always;
-        break-before: page;
+      .sheet-head h2,
+      .task h3,
+      .field strong,
+      .pattern-box,
+      .number-box,
+      .sequence {
+        color: var(--dark) !important;
+      }
+
+      .sheet-head p,
+      .task p,
+      .task li,
+      .footer-note {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -462,26 +553,24 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
 
-    <a href="material-elevblad.html" class="back-link">
-      ← Elevblad
+    <a href="material-a4-elevblad.html" class="back-link">
+      ← A4 Elevblad
     </a>
-
   </div>
 
   <div class="hero">
 
-    <div class="hero-icon">🧩</div>
+    <div class="hero-icon">🧩✏️</div>
 
     <h1>Mönster F–9</h1>
 
     <h2>Se • Fortsätt • Beskriv • Förutsäg • Generalisera</h2>
 
     <p>
-      Utskriftsklara elevblad för upprepade och växande mönster,
-      talföljder, tabeller, regler och algebraiska generaliseringar.
+      Sex utskriftsklara elevblad som utvecklar förståelsen
+      från enkla upprepade mönster till generella talföljder och uttryck.
     </p>
 
   </div>
@@ -491,660 +580,630 @@
 
 <main>
 
-  <section>
+  <div class="intro">
 
-    <div class="intro">
+    <h2>🧩 Mönster leder till algebra</h2>
 
-      <h2>📄 Sex utskriftsklara elevblad</h2>
+    <p>
+      När elever upptäcker vad som förändras, vad som är konstant
+      och hur ett mönster kan beskrivas, läggs grunden för
+      generalisering och algebraiska uttryck.
+    </p>
 
-      <p>
-        Två elevblad för varje stadium. Varje blad placeras på en egen A4-sida vid utskrift.
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut alla sex elevblad
+    </button>
+
+  </div>
+
+
+  <!-- F–3 BLAD 1 -->
+
+  <section class="sheet f3">
+
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Mönster – blad 1</h2>
+      <p>Se • fortsätt • beskriva</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task green">
+
+      <h3>1. Fortsätt färgmönstret</h3>
+
+      <div class="sequence">
+        🔴 🔵 🔴 🔵 🔴 🔵 ___ ___ ___ ___
+      </div>
+
+      <p style="margin-top:8px;">
+        Beskriv regeln.
       </p>
 
-      <button class="print-button" onclick="window.print()">
-        🖨️ Skriv ut elevbladen
-      </button>
+      <div class="write-area medium"></div>
 
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>2. Fortsätt formmönstret</h3>
+
+      <div class="sequence">
+        ▲ ▲ ● ▲ ▲ ● ▲ ▲ ___ ___ ___
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>3. Hitta det som upprepas</h3>
+
+      <p>
+        Vilken del av mönstret upprepas?
+      </p>
+
+      <div class="sequence">
+        ⭐ ○ ○ ⭐ ○ ○ ⭐ ○ ○
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>4. Skapa ett eget mönster</h3>
+
+      <p>
+        Rita ett mönster där en del upprepas minst fyra gånger.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Mönster F–3
     </div>
 
   </section>
 
 
-  <!-- F–3 -->
+  <!-- F–3 BLAD 2 -->
 
-  <section class="stage stage-f3">
+  <section class="sheet f3">
 
-    <div class="stage-header">
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Mönster – blad 2</h2>
+      <p>Talmönster • växande mönster • förutsäga</p>
+    </div>
 
-      <span>🌱</span>
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
 
-      <div>
-        <h2>F–3 – Upptäck & fortsätt mönster</h2>
-        <p>Upprepning • talmönster • regel • skapa eget</p>
+
+    <div class="task green">
+
+      <h3>1. Fortsätt talen</h3>
+
+      <div class="sequence">
+        2, 4, 6, 8, ___, ___, ___
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Hitta regeln</h3>
+
+      <div class="sequence">
+        5, 10, 15, 20, 25, ___, ___
+      </div>
+
+      <p style="margin-top:8px;">
+        Vad händer varje gång?
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Baklängesmönster</h3>
+
+      <div class="sequence">
+        30, 27, 24, 21, ___, ___, ___
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>4. Förutsäg</h3>
+
+      <p>
+        Mönstret börjar:
+        <strong>3, 6, 9, 12...</strong>
+      </p>
+
+      <p>
+        Vilket tal tror du finns på plats 10?
+        Förklara.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>5. Två möjliga regler</h3>
+
+      <p>
+        Kan mönstret <strong>1, 2, 3</strong> fortsätta på två olika sätt?
+        Visa.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Mönster F–3
+    </div>
+
+  </section>
+
+
+  <!-- 4–6 BLAD 1 -->
+
+  <section class="sheet stage46">
+
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Mönster – blad 1</h2>
+      <p>Talföljder • regler • tabeller</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>1. Fortsätt talföljden</h3>
+
+      <div class="sequence">
+        5, 8, 11, 14, 17, ___, ___, ___
+      </div>
+
+      <p style="margin-top:8px;">
+        Beskriv regeln med ord.
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task green">
+
+      <h3>2. Tabell</h3>
+
+      <p>
+        Ett mönster har:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>Figur</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+          </tr>
+          <tr>
+            <th>Antal rutor</th>
+            <td>4</td>
+            <td>7</td>
+            <td>10</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
       </div>
 
     </div>
 
-    <div class="sheet-grid">
+
+    <div class="task yellow">
+
+      <h3>3. Figur 10</h3>
+
+      <p>
+        Hur många rutor finns i figur 10?
+        Visa hur du tänker.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
 
 
-      <article class="sheet">
+    <div class="task purple">
 
-        <h3>Elevblad 1 – Vad kommer sedan?</h3>
+      <h3>4. Beskriv sambandet</h3>
 
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
+      <p>
+        Hur förändras antalet rutor när figurnumret ökar med 1?
+      </p>
 
-        <div class="task">
+      <div class="write-area medium"></div>
 
-          <strong>1. Fortsätt mönstret.</strong>
-
-          <div class="pattern-row">
-            <div class="shape square"></div>
-            <div class="shape circle"></div>
-            <div class="shape square"></div>
-            <div class="shape circle"></div>
-            <div class="shape square"></div>
-            <span>___ ___ ___</span>
-          </div>
-
-        </div>
+    </div>
 
 
-        <div class="task">
+    <div class="task teal">
 
-          <strong>2. Fortsätt.</strong>
+      <h3>5. Skapa ett eget växande mönster</h3>
 
-          <div class="pattern-row">
-            🔺 🔺 ⚪ 🔺 🔺 ⚪ 🔺 🔺 ___ ___ ___
-          </div>
+      <p>
+        Rita eller beskriv de tre första figurerna.
+      </p>
 
-        </div>
+      <div class="write-area large"></div>
 
+    </div>
 
-        <div class="task">
-
-          <strong>3. Vad är regeln?</strong>
-
-          <p>
-            🟦 🟡 🟦 🟡 🟦 🟡
-          </p>
-
-          <p>
-            Beskriv mönstret med ord.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="reflection">
-
-          <h4>💬 Förklara</h4>
-
-          <p>
-            Hur kan du veta vad som kommer nästa i ett mönster?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 2 – Talmönster</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Fortsätt talen.</strong>
-
-          <p>
-            2, 4, 6, 8, ______, ______
-          </p>
-
-          <p>
-            5, 10, 15, ______, ______
-          </p>
-
-          <p>
-            20, 18, 16, ______, ______
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Hitta regeln.</strong>
-
-          <p style="font-weight:bold;">
-            3, 6, 9, 12, 15
-          </p>
-
-          <p>
-            Regeln är:
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Skapa eget talmönster.</strong>
-
-          <p>
-            Skriv sex tal:
-          </p>
-
-          <div class="answer-box"></div>
-
-          <p>
-            Min regel:
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Utmaning</h4>
-
-          <p>
-            Mönstret är:
-          </p>
-
-          <p style="font-weight:bold;">
-            4, 8, 12, 16...
-          </p>
-
-          <p>
-            Vilket tal kommer på plats 10?
-          </p>
-
-          <p>
-            Svar: ______
-          </p>
-
-        </div>
-
-      </article>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Mönster 4–6
     </div>
 
   </section>
 
 
-  <!-- 4–6 -->
+  <!-- 4–6 BLAD 2 -->
 
-  <section class="stage stage-46">
+  <section class="sheet stage46">
 
-    <div class="stage-header">
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Mönster – blad 2</h2>
+      <p>Förutsäga • uttrycka • generalisera</p>
+    </div>
 
-      <span>🌿</span>
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
 
-      <div>
-        <h2>4–6 – Växande mönster & tabeller</h2>
-        <p>Position • förändring • tabell • regel • förutsägelse</p>
+
+    <div class="task blue">
+
+      <h3>1. Mönstret</h3>
+
+      <div class="sequence">
+        7, 11, 15, 19, 23, ...
+      </div>
+
+      <p style="margin-top:8px;">
+        Vilket är tal nummer 10?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task green">
+
+      <h3>2. Tal nummer 50</h3>
+
+      <p>
+        Hur kan du hitta tal nummer 50 utan att skriva alla tidigare tal?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Startvärde och förändring</h3>
+
+      <p>
+        Vad är startvärdet i mönstret?
+        Hur mycket ökar det varje steg?
+      </p>
+
+      <div class="two-grid">
+        <div class="number-box">Startvärde</div>
+        <div class="number-box">Ökning per steg</div>
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Skriv en regel</h3>
+
+      <p>
+        Försök skriva en generell regel för tal nummer n.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Ändra mönstret</h3>
+
+      <p>
+        Behåll ökningen +4 men ändra startvärdet till 3.
+        Hur ser regeln ut då?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Mönster 4–6
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 BLAD 1 -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Mönster – blad 1</h2>
+      <p>Aritmetiska talföljder • n:te talet • algebra</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>1. Beskriv talföljden</h3>
+
+      <div class="sequence">
+        5, 9, 13, 17, 21, ...
+      </div>
+
+      <p style="margin-top:8px;">
+        Vilken är differensen mellan två efterföljande tal?
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Det n:te talet</h3>
+
+      <p>
+        Skriv ett uttryck för tal nummer n.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Kontrollera formeln</h3>
+
+      <p>
+        Använd ditt uttryck för att beräkna:
+      </p>
+
+      <div class="three-grid">
+        <div class="number-box">Tal 10</div>
+        <div class="number-box">Tal 25</div>
+        <div class="number-box">Tal 100</div>
+      </div>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Baklänges</h3>
+
+      <p>
+        Finns talet 73 i talföljden?
+        Om ja – på vilken plats?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Mönster 7–9
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 BLAD 2 -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Mönster – blad 2</h2>
+      <p>Funktioner • geometriska mönster • generalisering</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>1. Figurmönster</h3>
+
+      <p>
+        Antalet rutor i ett mönster är:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>Figur n</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+          </tr>
+          <tr>
+            <th>Rutor</th>
+            <td>6</td>
+            <td>10</td>
+            <td>14</td>
+            <td>18</td>
+            <td>22</td>
+          </tr>
+        </table>
       </div>
 
     </div>
 
-    <div class="sheet-grid">
+
+    <div class="task blue">
+
+      <h3>2. Skriv en formel</h3>
+
+      <p>
+        Skriv en formel för antalet rutor y i figur n.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
 
 
-      <article class="sheet">
+    <div class="task yellow">
 
-        <h3>Elevblad 3 – Växande talmönster</h3>
+      <h3>3. Figur 40</h3>
 
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
+      <p>
+        Hur många rutor finns i figur 40?
+      </p>
 
-        <div class="task">
+      <div class="write-area medium"></div>
 
-          <strong>1. Undersök mönstret.</strong>
-
-          <p style="font-weight:bold;">
-            5, 8, 11, 14, 17...
-          </p>
-
-          <p>
-            Hur mycket ökar mönstret varje gång? ______
-          </p>
-
-          <p>
-            Nästa tre tal:
-            ______, ______, ______
-          </p>
-
-        </div>
+    </div>
 
 
-        <div class="task">
+    <div class="task orange">
 
-          <strong>2. Fyll i tabellen.</strong>
+      <h3>4. Omvänd fråga</h3>
 
-          <table class="table">
-            <tr>
-              <th>Position</th>
-              <th>Tal</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>5</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>11</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>14</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td></td>
-            </tr>
-          </table>
+      <p>
+        Vilken figur har 102 rutor?
+      </p>
 
-        </div>
+      <div class="write-area large"></div>
+
+    </div>
 
 
-        <div class="task">
+    <div class="task teal">
 
-          <strong>3. Beskriv regeln.</strong>
+      <h3>5. Generalisera</h3>
 
-          <div class="answer-box"></div>
+      <p>
+        En talföljd börjar med talet <strong>a</strong>
+        och ökar med <strong>d</strong> varje steg.
+      </p>
 
-        </div>
+      <p>
+        Försök skriva ett generellt uttryck för det n:te talet.
+      </p>
 
+      <div class="write-area large"></div>
 
-        <div class="reflection">
+    </div>
 
-          <h4>💬 Förklara</h4>
-
-          <p>
-            Hur kunde du hitta talet på position 10 utan att skriva alla tal?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 4 – Figurmönstret</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Ett mönster byggs med rutor.</strong>
-
-          <p>
-            Figur 1 har 3 rutor.<br>
-            Figur 2 har 5 rutor.<br>
-            Figur 3 har 7 rutor.<br>
-            Figur 4 har 9 rutor.
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Fyll i.</strong>
-
-          <table class="table">
-            <tr>
-              <th>Figur</th>
-              <th>Antal rutor</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>5</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>7</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>9</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td></td>
-            </tr>
-          </table>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Hur växer mönstret?</strong>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Utmaning</h4>
-
-          <p>
-            Hur många rutor har figur 20?
-          </p>
-
-          <p>
-            Visa hur du tänker.
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-      </article>
-
+    <div class="footer-note">
+      HOLOS Matteresan • Mönster 7–9
     </div>
 
   </section>
 
 
-  <!-- 7–9 -->
+  <div class="screen-note">
 
-  <section class="stage stage-79">
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+    Varje elevblad ska hamna på ett eget A4.
 
-    <div class="stage-header">
-
-      <span>🚀</span>
-
-      <div>
-        <h2>7–9 – Talföljder & generalisering</h2>
-        <p>Algebraisk regel • n:te term • linjära mönster • argumentation</p>
-      </div>
-
-    </div>
-
-    <div class="sheet-grid">
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 5 – Hitta den generella regeln</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Undersök talföljden.</strong>
-
-          <p style="font-weight:bold;">
-            7, 11, 15, 19, 23...
-          </p>
-
-          <p>
-            Differensen är ______.
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Fyll i tabellen.</strong>
-
-          <table class="table">
-            <tr>
-              <th>n</th>
-              <th>Värde</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>7</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>11</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>15</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>19</td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td></td>
-            </tr>
-          </table>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Skriv en regel med n.</strong>
-
-          <p>
-            Formel: ______________________________
-          </p>
-
-          <p>
-            Testa formeln för n = 1 och n = 4.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="reflection">
-
-          <h4>💬 Förklara</h4>
-
-          <p>
-            Varför räcker det inte alltid att bara säga ”lägg till 4” om vi vill kunna hitta term 100 direkt?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 6 – Generalisera & undersök</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Två mönster.</strong>
-
-          <p>
-            Mönster A:
-            3, 6, 9, 12...
-          </p>
-
-          <p>
-            Mönster B:
-            5, 8, 11, 14...
-          </p>
-
-          <p>
-            Skriv en regel för varje mönster.
-          </p>
-
-          <p>
-            A: __________________
-          </p>
-
-          <p>
-            B: __________________
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Kan mönstren få samma värde?</strong>
-
-          <p>
-            Undersök om det finns någon position där mönster A och B har samma värde.
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Hitta felet.</strong>
-
-          <p>
-            Talföljden är:
-          </p>
-
-          <p style="font-weight:bold;">
-            4, 7, 10, 13...
-          </p>
-
-          <p>
-            En elev säger att regeln är 3n.
-          </p>
-
-          <p>
-            Förklara varför den regeln inte stämmer och skriv en bättre regel.
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Skapa ett mönster</h4>
-
-          <p>
-            Skapa en linjär talföljd där:
-          </p>
-
-          <p>
-            • första termen är större än 10<br>
-            • differensen är negativ<br>
-            • den tionde termen är positiv
-          </p>
-
-          <p>
-            Skriv de första fem termerna och en generell regel.
-          </p>
-
-          <div class="answer-box xlarge"></div>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="teacher-note">
-
-      <h2>👩‍🏫 Lärarnotering</h2>
-
-      <ul>
-        <li>
-          F–3 fokuserar på att upptäcka upprepning, fortsätta mönster och beskriva regeln med vardagligt språk.
-        </li>
-
-        <li>
-          4–6 utvecklar växande mönster, tabeller, position och förutsägelse.
-        </li>
-
-        <li>
-          7–9 utvecklar algebraiska regler, n:te term och generaliserande resonemang.
-        </li>
-
-        <li>
-          Be eleverna beskriva både vad som förändras och vad som är konstant i ett mönster.
-        </li>
-
-        <li>
-          Skillnaden mellan en rekursiv beskrivning, exempelvis ”lägg till 3”, och en direkt regel för term n är viktig när eleverna går mot algebra.
-        </li>
-      </ul>
-
-      <button class="print-button" onclick="window.print()">
-        🖨️ Skriv ut
-      </button>
-
-    </div>
-
-  </section>
+  </div>
 
 </main>
 
 
 <footer>
-
   <strong>HOLOS Matteresan F–9</strong>
-
   <br>
-
   🧩 Mönster – se, fortsätt, beskriv, förutsäg och generalisera
-
 </footer>
 
 </body>
