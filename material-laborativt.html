@@ -15,13 +15,14 @@
 
     :root {
       --dark: #17324d;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --teal-light: #eaf7f5;
-      --pink-light: #ffe9f1;
+      --green: #edf9f1;
+      --blue: #eaf5ff;
+      --purple: #f1edff;
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -31,7 +32,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     a {
@@ -41,10 +42,10 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
-        linear-gradient(135deg, #2b6254, #55987a);
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #476d5f, #769b8e);
       color: white;
-      padding: 22px 20px 55px;
+      padding: 22px 20px 50px;
     }
 
     .topbar {
@@ -65,307 +66,324 @@
       padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
       font-weight: bold;
     }
 
     .hero {
       max-width: 920px;
-      margin: 45px auto 0;
+      margin: 42px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.2rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4.3rem);
+      font-size: clamp(2.2rem, 7vw, 4rem);
       line-height: 1.05;
       margin-bottom: 10px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 15px;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
       max-width: 850px;
       margin: auto;
-      color: #effff7;
+      color: #f4faf7;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1120px;
       margin: auto;
-      padding: 42px 20px;
-    }
-
-    section {
-      margin-bottom: 58px;
+      padding: 40px 20px;
     }
 
     .intro {
-      background: var(--green-light);
-      border-radius: 26px;
-      padding: 32px;
+      background: var(--green);
+      border-radius: 24px;
+      padding: 30px;
       text-align: center;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
       color: var(--dark);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .intro p {
-      max-width: 880px;
+      color: var(--muted);
+      max-width: 860px;
       margin: auto;
-      color: var(--muted);
     }
 
-    .section-title {
-      text-align: center;
-      color: var(--dark);
-      font-size: clamp(1.7rem, 4vw, 2.35rem);
-      margin-bottom: 8px;
+    .print-button {
+      margin-top: 16px;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
     }
 
-    .section-intro {
-      text-align: center;
-      color: var(--muted);
-      max-width: 850px;
-      margin: 0 auto 28px;
-    }
-
-    .stage-grid,
-    .material-grid,
-    .area-grid,
-    .print-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .stage-card,
-    .material-card,
-    .area-card,
-    .print-card {
+    .sheet {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 22px;
       padding: 24px;
-      min-height: 220px;
-      transition: 0.2s;
+      margin-bottom: 28px;
+      min-height: 270mm;
     }
 
-    .stage-card:hover,
-    .material-card:hover,
-    .area-card:hover,
-    .print-card:hover {
-      transform: translateY(-3px);
+    .sheet-head {
+      text-align: center;
+      margin-bottom: 18px;
     }
 
-    .stage-card span,
-    .material-card span,
-    .area-card span,
-    .print-card span {
-      display: block;
-      font-size: 2.4rem;
-      margin-bottom: 8px;
-    }
-
-    .stage-card h3,
-    .material-card h3,
-    .area-card h3,
-    .print-card h3 {
+    .sheet-head h2 {
       color: var(--dark);
-      margin-bottom: 8px;
+      font-size: 1.7rem;
+      margin-bottom: 4px;
     }
 
-    .stage-card p,
-    .material-card p,
-    .area-card p,
-    .print-card p {
+    .sheet-head p {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.9rem;
     }
 
-    .stage-card ul,
-    .material-card ul,
-    .area-card ul {
-      padding-left: 20px;
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin-top: 10px;
-    }
-
-    .stage-card li,
-    .material-card li,
-    .area-card li {
-      margin-bottom: 6px;
-    }
-
-    .f3 { background: var(--green-light); }
-    .m46 { background: var(--blue-light); }
-    .m79 { background: var(--purple-light); }
-
-    .m1 { background: var(--yellow-light); }
-    .m2 { background: var(--teal-light); }
-    .m3 { background: var(--blue-light); }
-    .m4 { background: var(--orange-light); }
-    .m5 { background: var(--pink-light); }
-    .m6 { background: var(--purple-light); }
-    .m7 { background: var(--green-light); }
-    .m8 { background: #f0f3f6; }
-    .m9 { background: #fff4e8; }
-
-    .progression {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 35%),
-        linear-gradient(135deg, #17324d, #356c57);
-      color: white;
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .progression h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .progression > p {
-      max-width: 850px;
-      color: #f3fff7;
-    }
-
-    .progression-grid {
+    .meta-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-      margin-top: 24px;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
-    .progression-card {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 18px;
-      padding: 19px;
-      min-height: 170px;
+    .field {
+      border: 1.5px solid #9aa6ae;
+      border-radius: 10px;
+      min-height: 52px;
+      padding: 10px;
+      background: white;
     }
 
-    .progression-card span {
+    .field strong {
       display: block;
-      font-size: 2rem;
-      margin-bottom: 5px;
-    }
-
-    .progression-card h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-
-    .progression-card p {
-      color: #f4fff7;
-      font-size: 0.89rem;
+      color: var(--dark);
+      margin-bottom: 4px;
+      font-size: 0.88rem;
     }
 
     .activity-box {
-      background: var(--yellow-light);
-      border-radius: 28px;
-      padding: 32px;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+      break-inside: avoid;
     }
 
-    .activity-grid {
+    .activity-box h3 {
+      color: var(--dark);
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .activity-box p {
+      color: #4e5d68;
+      font-size: 0.88rem;
+    }
+
+    .activity-box ul {
+      margin: 8px 0 0 20px;
+      color: #4e5d68;
+      font-size: 0.87rem;
+    }
+
+    .activity-box li {
+      margin-bottom: 5px;
+    }
+
+    .write-area {
+      background: white;
+      border: 1.2px solid #98a4ad;
+      border-radius: 8px;
+      margin-top: 8px;
+      min-height: 75px;
+    }
+
+    .write-area.medium {
+      min-height: 105px;
+    }
+
+    .write-area.large {
+      min-height: 145px;
+    }
+
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .two-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin-top: 24px;
+      gap: 12px;
     }
 
-    .activity-card {
-      background: white;
-      border-radius: 20px;
-      padding: 23px;
-      border: 1px solid #ebdfbe;
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
     }
 
-    .activity-card span {
+    .representation-flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .rep-card {
+      border-radius: 12px;
+      padding: 12px;
+      min-height: 130px;
+    }
+
+    .rep-card span {
       display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
     }
 
-    .activity-card h3 {
+    .rep-card h4 {
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .rep-card p {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      border: 1px solid #83919b;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background: var(--dark);
+      color: white;
+    }
+
+    td {
+      height: 44px;
+      background: white;
+    }
+
+    .teacher-box {
+      background: var(--yellow);
+      border-radius: 22px;
+      padding: 28px;
+      margin-top: 34px;
+    }
+
+    .teacher-box h2 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .activity-card p,
-    .activity-card li {
+    .teacher-box > p {
       color: var(--muted);
+    }
+
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .teacher-card {
+      background: white;
+      border-radius: 14px;
+      padding: 16px;
+      min-height: 155px;
+    }
+
+    .teacher-card span {
+      display: block;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .teacher-card h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
       font-size: 0.93rem;
     }
 
-    .activity-card ul {
-      padding-left: 20px;
-      margin-top: 8px;
+    .teacher-card p {
+      color: var(--muted);
+      font-size: 0.82rem;
     }
 
     .note {
-      background: var(--orange-light);
+      background: var(--orange);
       border-left: 6px solid #c77f43;
       border-radius: 14px;
-      padding: 20px;
+      padding: 18px;
       margin-top: 24px;
       color: #654c37;
     }
 
-    .p1 { background: var(--green-light); }
-    .p2 { background: var(--blue-light); }
-    .p3 { background: var(--purple-light); }
-    .p4 { background: var(--orange-light); }
-    .p5 { background: var(--pink-light); }
-    .p6 { background: var(--teal-light); }
-
     footer {
       background: var(--dark);
-      color: #edf3f7;
+      color: white;
       text-align: center;
-      padding: 34px 20px;
+      padding: 30px 20px;
       margin-top: 30px;
     }
 
-    @media (max-width: 1000px) {
-      .stage-grid,
-      .material-grid,
-      .area-grid,
-      .print-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .progression-grid {
+    @media (max-width: 900px) {
+      .representation-flow,
+      .teacher-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 750px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .stage-grid,
-      .material-grid,
-      .area-grid,
-      .print-grid,
-      .progression-grid,
-      .activity-grid {
+      .meta-grid,
+      .two-grid,
+      .three-grid,
+      .representation-flow,
+      .teacher-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro,
-      .progression,
-      .activity-box {
-        padding: 24px 17px;
       }
 
       main {
@@ -374,48 +392,122 @@
       }
     }
 
+    /* =====================================
+       UTSKRIFT – A4 + FÄRG
+       ===================================== */
+
     @page {
       size: A4 portrait;
-      margin: 12mm;
+      margin: 10mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
+      body {
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
       header,
       footer,
-      .back-link {
+      .intro,
+      .teacher-box,
+      .note {
         display: none !important;
       }
 
-      body {
-        background: white;
-        color: black;
-        font-size: 10.5pt;
-      }
-
       main {
+        width: 100%;
         max-width: none;
         margin: 0;
         padding: 0;
       }
 
-      .stage-card,
-      .material-card,
-      .area-card,
-      .progression-card,
-      .activity-card,
-      .print-card {
-        break-inside: avoid;
-        page-break-inside: avoid;
-        margin-bottom: 10px;
+      .sheet {
+        width: 100%;
+        min-height: 277mm;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        page-break-after: always;
+        break-after: page;
       }
 
-      .stage-grid,
-      .material-grid,
-      .area-grid,
-      .progression-grid,
-      .activity-grid,
-      .print-grid {
-        display: block;
+      .sheet:last-of-type {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .green { background: var(--green) !important; }
+      .blue { background: var(--blue) !important; }
+      .purple { background: var(--purple) !important; }
+      .yellow { background: var(--yellow) !important; }
+      .orange { background: var(--orange) !important; }
+      .teal { background: var(--teal) !important; }
+      .pink { background: var(--pink) !important; }
+      .gray { background: var(--gray) !important; }
+
+      .field,
+      .write-area,
+      td {
+        background: white !important;
+      }
+
+      th {
+        background: var(--dark) !important;
+        color: white !important;
+      }
+
+      .two-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .three-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .representation-flow {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 2.5mm !important;
+      }
+
+      .activity-box,
+      .rep-card,
+      .field,
+      .table-wrap {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .sheet-head h2,
+      .activity-box h3,
+      .rep-card h4,
+      .field strong {
+        color: var(--dark) !important;
+      }
+
+      .sheet-head p,
+      .activity-box p,
+      .activity-box ul,
+      .rep-card p {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -426,27 +518,25 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
 
-    <a href="larare-material.html" class="back-link">
-      ← Materialbanken
+    <a href="larare-utskrift.html" class="back-link">
+      ← Utskriftscentralen
     </a>
-
   </div>
 
   <div class="hero">
 
-    <div class="hero-icon">🧱🧠</div>
+    <div class="hero-icon">🧱🎨🧠</div>
 
     <h1>Laborativ matematik F–9</h1>
 
     <h2>Göra • Se • Säga • Skriva • Generalisera</h2>
 
     <p>
-      Laborativt material används för att synliggöra matematiska idéer.
-      Målet är inte själva materialet – målet är att eleverna ska kunna
-      koppla handling, bild, språk och symboler till samma matematiska innehåll.
+      Laborativa aktiviteter som hjälper eleverna
+      att bygga broar mellan konkreta erfarenheter,
+      visuella representationer, språk och matematiska symboler.
     </p>
 
   </div>
@@ -456,643 +546,622 @@
 
 <main>
 
-  <section>
+  <div class="intro">
 
-    <div class="intro">
+    <h2>🧱 Materialet är ett verktyg – inte målet</h2>
 
-      <h2>🧠 Konkret material ska leda vidare</h2>
+    <p>
+      Laborativ matematik blir kraftfull när eleverna får beskriva
+      vad materialet visar och koppla det vidare till bilder,
+      språk, symboler och generella matematiska idéer.
+    </p>
+
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut laborativa arbetsblad
+    </button>
+
+  </div>
+
+
+  <!-- SIDA 1 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>1. Bygg talet</h2>
+      <p>Taluppfattning • platsvärde • representation</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="activity-box green">
+
+      <h3>🧱 Material</h3>
 
       <p>
-        Laborativ matematik blir kraftfull när läraren hjälper eleverna att se
-        sambandet mellan det de gör med materialet och den matematik som senare
-        uttrycks med bilder, ord, tabeller, symboler och formler.
+        Använd exempelvis tiobasmaterial, multilinkkuber,
+        räknemarkörer eller egenritade modeller.
       </p>
 
     </div>
 
-  </section>
+
+    <div class="activity-box blue">
+
+      <h3>🔢 Uppgift 1 – bygg ett tal</h3>
+
+      <p>
+        Bygg talet <strong>324</strong>.
+      </p>
+
+      <ul>
+        <li>Hur många hundratal?</li>
+        <li>Hur många tiotal?</li>
+        <li>Hur många ental?</li>
+        <li>Kan du bygga samma värde på ett annat sätt?</li>
+      </ul>
+
+      <div class="write-area medium"></div>
+
+    </div>
 
 
-  <section>
+    <div class="activity-box yellow">
 
-    <h2 class="section-title">🌱 🌿 🚀 Laborativt genom F–9</h2>
+      <h3>🎨 Rita modellen</h3>
 
-    <p class="section-intro">
-      Konkreta representationer är inte bara för yngre elever.
-      Materialets funktion förändras när matematiken blir mer abstrakt.
-    </p>
+      <p>
+        Rita hur ditt material såg ut.
+      </p>
 
-    <div class="stage-grid">
+      <div class="write-area large"></div>
 
-      <div class="stage-card f3">
+    </div>
 
-        <span>🌱</span>
 
-        <h3>F–3</h3>
+    <div class="two-grid">
 
-        <p>
-          Eleverna bygger grundläggande förståelse genom handling och visuella modeller.
-        </p>
-
-        <ul>
-          <li>räkna och gruppera</li>
-          <li>bygga tal</li>
-          <li>sortera former</li>
-          <li>dela helheter</li>
-          <li>mäta konkret</li>
-        </ul>
-
+      <div class="activity-box purple">
+        <h3>💬 Förklara</h3>
+        <p>Hur visar modellen talets platsvärden?</p>
+        <div class="write-area medium"></div>
       </div>
 
-
-      <div class="stage-card m46">
-
-        <span>🌿</span>
-
-        <h3>4–6</h3>
-
-        <p>
-          Material används för att synliggöra strukturer och samband.
-        </p>
-
-        <ul>
-          <li>bråkmodeller</li>
-          <li>decimaler och procent</li>
-          <li>area och volym</li>
-          <li>algebraiska mönster</li>
-          <li>sannolikhetsförsök</li>
-        </ul>
-
+      <div class="activity-box orange">
+        <h3>🔢 Skriv med symboler</h3>
+        <p>Skriv talet i utvecklad form.</p>
+        <div class="write-area medium"></div>
       </div>
 
+    </div>
 
-      <div class="stage-card m79">
 
-        <span>🚀</span>
+    <div class="activity-box teal">
 
-        <h3>7–9</h3>
+      <h3>🚀 Utmana</h3>
 
-        <p>
-          Laborativa och visuella modeller används för analys och generalisering.
-        </p>
+      <p>
+        Bygg ett tal där siffran 5 har värdet 500.
+        Hitta minst tre olika tal.
+      </p>
 
-        <ul>
-          <li>algebra tiles</li>
-          <li>funktionsmodeller</li>
-          <li>geometriska samband</li>
-          <li>statistiska simuleringar</li>
-          <li>modellering</li>
-        </ul>
-
-      </div>
+      <div class="write-area medium"></div>
 
     </div>
 
   </section>
 
 
-  <section>
+  <!-- SIDA 2 -->
 
-    <h2 class="section-title">🧰 Materialbanken</h2>
+  <section class="sheet">
 
-    <p class="section-intro">
-      Vanligt laborativt material och vad det kan användas till.
-    </p>
+    <div class="sheet-head">
+      <h2>2. Multiplikation med material</h2>
+      <p>Grupper • area • distributiva lagen</p>
+    </div>
 
-    <div class="material-grid">
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
 
-      <div class="material-card m1">
 
+    <div class="activity-box green">
+
+      <h3>🧱 Bygg 6 × 8</h3>
+
+      <p>
+        Använd kuber, markörer, rutpapper eller annat material.
+        Visa 6 grupper med 8 i varje eller en rektangel som är 6 × 8.
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="activity-box blue">
+
+      <h3>🎨 Rita det du byggde</h3>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="two-grid">
+
+      <div class="activity-box yellow">
+        <h3>🔢 Skriv beräkningen</h3>
+        <div class="write-area medium"></div>
+      </div>
+
+      <div class="activity-box purple">
+        <h3>💬 Förklara</h3>
+        <p>Hur syns 6 × 8 i din modell?</p>
+        <div class="write-area medium"></div>
+      </div>
+
+    </div>
+
+
+    <div class="activity-box orange">
+
+      <h3>✂️ Dela upp modellen</h3>
+
+      <p>
+        Visa hur 6 × 8 kan delas upp i två enklare multiplikationer.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="activity-box teal">
+
+      <h3>🚀 Generalisera</h3>
+
+      <p>
+        Hur kan samma idé hjälpa dig att beräkna 16 × 8?
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SIDA 3 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>3. Bråk med konkreta modeller</h2>
+      <p>Del av helhet • jämförelse • likvärdiga bråk</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="activity-box green">
+
+      <h3>🍕 Bygg 1/2</h3>
+
+      <p>
+        Använd bråkcirklar, papper, kuber eller ritade modeller.
+        Visa en halv på minst två olika sätt.
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="activity-box blue">
+
+      <h3>🔗 Hitta likvärdiga bråk</h3>
+
+      <p>
+        Bygg och jämför:
+        <strong>1/2, 2/4 och 4/8</strong>.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="two-grid">
+
+      <div class="activity-box yellow">
+        <h3>🎨 Rita</h3>
+        <p>Visa varför bråken har samma värde.</p>
+        <div class="write-area large"></div>
+      </div>
+
+      <div class="activity-box purple">
+        <h3>💬 Förklara</h3>
+        <p>Vad förändras och vad är oförändrat?</p>
+        <div class="write-area large"></div>
+      </div>
+
+    </div>
+
+
+    <div class="activity-box orange">
+
+      <h3>⚖️ Jämför 3/4 och 2/3</h3>
+
+      <p>
+        Använd material eller modell innan du bestämmer vilket som är störst.
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SIDA 4 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>4. Area & omkrets</h2>
+      <p>Bygg • mät • jämför • generalisera</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="activity-box green">
+
+      <h3>🟦 Bygg rektanglar med area 24</h3>
+
+      <p>
+        Använd 24 kvadratiska plattor eller rutor.
+        Bygg alla olika rektanglar med heltalssidor som du kan hitta.
+      </p>
+
+    </div>
+
+
+    <div class="table-wrap">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Längd</th>
+            <th>Bredd</th>
+            <th>Area</th>
+            <th>Omkrets</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+
+    </div>
+
+
+    <div class="two-grid" style="margin-top:12px;">
+
+      <div class="activity-box yellow">
+        <h3>🔍 Vad upptäcker du?</h3>
+        <p>Jämför rektanglarnas omkrets.</p>
+        <div class="write-area large"></div>
+      </div>
+
+      <div class="activity-box blue">
+        <h3>🎨 Rita två exempel</h3>
+        <div class="write-area large"></div>
+      </div>
+
+    </div>
+
+
+    <div class="activity-box purple">
+
+      <h3>🚀 Generalisera</h3>
+
+      <p>
+        Kan två rektanglar ha samma area men olika omkrets?
+        Förklara varför.
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SIDA 5 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>5. Sannolikhet – teori och försök</h2>
+      <p>Förutsäg • pröva • dokumentera • jämför</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="activity-box green">
+
+      <h3>🎲 Förutsäg</h3>
+
+      <p>
+        En vanlig sexsidig tärning kastas.
+        Hur stor tror du sannolikheten är för varje utfall?
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="activity-box blue">
+
+      <h3>🔬 Gör 30 kast</h3>
+
+      <p>
+        Registrera resultaten i tabellen.
+      </p>
+
+    </div>
+
+
+    <div class="table-wrap">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Utfall</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Antal</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+
+    <div class="two-grid" style="margin-top:12px;">
+
+      <div class="activity-box yellow">
+        <h3>📊 Experimentell sannolikhet</h3>
+        <p>Hur såg dina faktiska resultat ut?</p>
+        <div class="write-area large"></div>
+      </div>
+
+      <div class="activity-box purple">
+        <h3>🧠 Teoretisk sannolikhet</h3>
+        <p>Vad borde sannolikheten vara för varje sida?</p>
+        <div class="write-area large"></div>
+      </div>
+
+    </div>
+
+
+    <div class="activity-box orange">
+
+      <h3>💬 Jämför</h3>
+
+      <p>
+        Varför blev resultaten inte nödvändigtvis exakt lika fördelade?
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SIDA 6 -->
+
+  <section class="sheet">
+
+    <div class="sheet-head">
+      <h2>6. Från konkret till generell matematik</h2>
+      <p>Göra → Se → Säga → Skriva → Generalisera</p>
+    </div>
+
+
+    <div class="activity-box gray">
+
+      <h3>🎯 Matematiskt innehåll</h3>
+
+      <p>
+        Välj ett problem, ett begrepp eller ett samband att undersöka.
+      </p>
+
+      <div class="write-area"></div>
+
+    </div>
+
+
+    <div class="representation-flow">
+
+      <div class="rep-card green">
         <span>🧱</span>
-
-        <h3>Tiobasmaterial</h3>
-
+        <h4>1. Göra</h4>
         <p>
-          Entalskuber, tiostavar, hundraplattor och tusenkuber.
-        </p>
-
-        <ul>
-          <li>platsvärde</li>
-          <li>växling</li>
-          <li>addition och subtraktion</li>
-          <li>decimaler</li>
-        </ul>
-
-      </div>
-
-
-      <div class="material-card m2">
-
-        <span>📏</span>
-
-        <h3>Tallinje</h3>
-
-        <p>
-          Fysisk, tejpad eller utskriven tallinje.
-        </p>
-
-        <ul>
-          <li>talens storlek</li>
-          <li>negativa tal</li>
-          <li>bråk</li>
-          <li>decimaler</li>
-          <li>operationer</li>
-        </ul>
-
-      </div>
-
-
-      <div class="material-card m3">
-
-        <span>🍕</span>
-
-        <h3>Bråkstavar & bråkcirklar</h3>
-
-        <p>
-          Synliggör relationer mellan olika bråk.
-        </p>
-
-        <ul>
-          <li>likvärdiga bråk</li>
-          <li>jämförelse</li>
-          <li>addition av bråk</li>
-          <li>helhet och delar</li>
-        </ul>
-
-      </div>
-
-
-      <div class="material-card m4">
-
-        <span>🟦</span>
-
-        <h3>Multilink & kuber</h3>
-
-        <p>
-          Små sammanfogbara kuber för många matematiska områden.
-        </p>
-
-        <ul>
-          <li>mönster</li>
-          <li>proportioner</li>
-          <li>volym</li>
-          <li>statistik</li>
-          <li>problemlösning</li>
-        </ul>
-
-      </div>
-
-
-      <div class="material-card m5">
-
-        <span>📐</span>
-
-        <h3>Geobräde</h3>
-
-        <p>
-          Bräde med piggar och gummiband för geometriska konstruktioner.
-        </p>
-
-        <ul>
-          <li>former</li>
-          <li>omkrets</li>
-          <li>area</li>
-          <li>symmetri</li>
-          <li>koordinater</li>
-        </ul>
-
-      </div>
-
-
-      <div class="material-card m6">
-
-        <span>🎲</span>
-
-        <h3>Tärningar</h3>
-
-        <p>
-          Vanliga tärningar, tiotärningar och specialtärningar.
-        </p>
-
-        <ul>
-          <li>taluppfattning</li>
-          <li>räknesätt</li>
-          <li>sannolikhet</li>
-          <li>statistik</li>
-          <li>spel</li>
-        </ul>
-
-      </div>
-
-
-      <div class="material-card m7">
-
-        <span>🃏</span>
-
-        <h3>Sifferkort</h3>
-
-        <p>
-          Kort med tal, symboler, bråk eller matematiska uttryck.
-        </p>
-
-        <ul>
-          <li>sortera tal</li>
-          <li>bygga uttryck</li>
-          <li>jämföra</li>
-          <li>skapa ekvationer</li>
-        </ul>
-
-      </div>
-
-
-      <div class="material-card m8">
-
-        <span>⚖️</span>
-
-        <h3>Balansvåg</h3>
-
-        <p>
-          Konkret modell för likhet och ekvationer.
-        </p>
-
-        <ul>
-          <li>likhetstecknet</li>
-          <li>okända tal</li>
-          <li>ekvationer</li>
-          <li>balansprincipen</li>
-        </ul>
-
-      </div>
-
-
-      <div class="material-card m9">
-
-        <span>📏🥛</span>
-
-        <h3>Mätmaterial</h3>
-
-        <p>
-          Linjaler, måttband, litermått, vågar och termometrar.
-        </p>
-
-        <ul>
-          <li>längd</li>
-          <li>massa</li>
-          <li>volym</li>
-          <li>temperatur</li>
-          <li>enhetsomvandling</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="progression">
-
-      <h2>🔄 Från konkret till abstrakt</h2>
-
-      <p>
-        Målet är inte att eleven ska lämna det konkreta så snabbt som möjligt.
-        Målet är att eleven ska kunna koppla flera representationer till samma idé.
-      </p>
-
-      <div class="progression-grid">
-
-        <div class="progression-card">
-          <span>1️⃣</span>
-          <h3>Göra</h3>
-          <p>
-            Bygga, flytta, dela, mäta eller sortera med konkreta objekt.
-          </p>
-        </div>
-
-        <div class="progression-card">
-          <span>2️⃣</span>
-          <h3>Se</h3>
-          <p>
-            Rita eller visa samma matematik med en visuell modell.
-          </p>
-        </div>
-
-        <div class="progression-card">
-          <span>3️⃣</span>
-          <h3>Säga</h3>
-          <p>
-            Sätta ord på vad som händer och vilka samband som syns.
-          </p>
-        </div>
-
-        <div class="progression-card">
-          <span>4️⃣</span>
-          <h3>Skriva</h3>
-          <p>
-            Koppla modellen till symboler, beräkningar och matematiska uttryck.
-          </p>
-        </div>
-
-        <div class="progression-card">
-          <span>5️⃣</span>
-          <h3>Generalisera</h3>
-          <p>
-            Använd idén i nya situationer och formulera mer generella samband.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">📚 Laborativt efter matematikområde</h2>
-
-    <div class="area-grid">
-
-      <div class="area-card m1">
-        <span>🔢</span>
-        <h3>Taluppfattning</h3>
-        <p>
-          Bygg tal, jämför mängder, placera tal på tallinje och undersök platsvärde.
+          Använd material eller en verklig situation.
         </p>
       </div>
 
-      <div class="area-card m2">
-        <span>➕➖✖️➗</span>
-        <h3>Räknesätt</h3>
-        <p>
-          Visa gruppering, delning, växling och olika beräkningsstrategier.
-        </p>
-      </div>
-
-      <div class="area-card m3">
-        <span>🍕</span>
-        <h3>Bråk</h3>
-        <p>
-          Dela helheter, jämför bråk och bygg likvärdiga bråk.
-        </p>
-      </div>
-
-      <div class="area-card m4">
-        <span>💯</span>
-        <h3>Decimal & procent</h3>
-        <p>
-          Använd hundrarutor, pengar och tiobasmaterial för att koppla representationer.
-        </p>
-      </div>
-
-      <div class="area-card m5">
-        <span>🔤</span>
-        <h3>Algebra</h3>
-        <p>
-          Använd balansvåg, kubmönster och algebraiska brickor för uttryck och ekvationer.
-        </p>
-      </div>
-
-      <div class="area-card m6">
-        <span>📐</span>
-        <h3>Geometri</h3>
-        <p>
-          Bygg former, mät vinklar, jämför area och skapa tredimensionella modeller.
-        </p>
-      </div>
-
-      <div class="area-card m7">
-        <span>📊</span>
-        <h3>Statistik</h3>
-        <p>
-          Samla verklig data med föremål, sortera och bygg konkreta diagram.
-        </p>
-      </div>
-
-      <div class="area-card m8">
-        <span>🎲</span>
-        <h3>Sannolikhet</h3>
-        <p>
-          Genomför slumpförsök med tärningar, kort, mynt och spinnare.
-        </p>
-      </div>
-
-      <div class="area-card m9">
-        <span>📈</span>
-        <h3>Samband</h3>
-        <p>
-          Bygg växande mönster, samla värden i tabeller och koppla till grafer och funktioner.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="activity-box">
-
-      <h2 class="section-title">🧪 Färdiga aktiviteter</h2>
-
-      <p class="section-intro">
-        Enkla laborativa aktiviteter som kan genomföras direkt i klassrummet.
-      </p>
-
-      <div class="activity-grid">
-
-        <div class="activity-card">
-
-          <span>🧱</span>
-
-          <h3>Bygg talet</h3>
-
-          <p>
-            Ge eleverna tiobasmaterial och ett tal, exempelvis 243.
-          </p>
-
-          <ul>
-            <li>Bygg talet.</li>
-            <li>Visa talet på ett annat sätt.</li>
-            <li>Vad händer om 10 ental växlas?</li>
-            <li>Hur ser 243 + 10 ut?</li>
-          </ul>
-
-        </div>
-
-
-        <div class="activity-card">
-
-          <span>🍕</span>
-
-          <h3>Bråkjakten</h3>
-
-          <p>
-            Använd bråkstavar eller pappersremsor.
-          </p>
-
-          <ul>
-            <li>Hitta alla sätt att bygga 1/2.</li>
-            <li>Vilka bråk är likvärdiga?</li>
-            <li>Vilka bråk ligger mellan 1/2 och 1?</li>
-          </ul>
-
-        </div>
-
-
-        <div class="activity-card">
-
-          <span>📐</span>
-
-          <h3>Samma area</h3>
-
-          <p>
-            Använd multilink eller centimeterrutor.
-          </p>
-
-          <ul>
-            <li>Bygg rektanglar med area 24.</li>
-            <li>Beräkna omkretsen.</li>
-            <li>Vilken form ger störst omkrets?</li>
-          </ul>
-
-        </div>
-
-
-        <div class="activity-card">
-
-          <span>🎲</span>
-
-          <h3>100 tärningskast</h3>
-
-          <p>
-            Låt grupper samla data från många tärningskast.
-          </p>
-
-          <ul>
-            <li>Förutsäg resultatet först.</li>
-            <li>Samla frekvenser.</li>
-            <li>Jämför med teoretisk sannolikhet.</li>
-            <li>Vad händer när antalet kast ökar?</li>
-          </ul>
-
-        </div>
-
-
-        <div class="activity-card">
-
-          <span>🔤</span>
-
-          <h3>Balans & ekvation</h3>
-
-          <p>
-            Använd balansvåg eller ritad balansmodell.
-          </p>
-
-          <ul>
-            <li>Bygg x + 3 = 8.</li>
-            <li>Vad kan tas bort från båda sidor?</li>
-            <li>Översätt sedan till symbolisk lösning.</li>
-          </ul>
-
-        </div>
-
-
-        <div class="activity-card">
-
-          <span>📈</span>
-
-          <h3>Bygg en funktion</h3>
-
-          <p>
-            Använd kuber för ett växande figurativt mönster.
-          </p>
-
-          <ul>
-            <li>Bygg figur 1–4.</li>
-            <li>Fyll i en tabell.</li>
-            <li>Rita graf.</li>
-            <li>Formulera en regel för figur n.</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="note">
-      <strong>Viktigt:</strong>
-      laborativ matematik betyder inte att elever bara ska ”göra något med material”.
-      Läraren behöver hela tiden knyta aktiviteten till den matematiska idén:
-      <strong>Vad visar modellen? Hur kan vi rita det? Hur skriver vi det med matematiska symboler?</strong>
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">🗂️ Relaterat material</h2>
-
-    <div class="print-grid">
-
-      <a href="larare-konkret.html" class="print-card p1">
-        <span>👩‍🏫</span>
-        <h3>Konkret & visuellt</h3>
-        <p>
-          Lärarstöd för att använda konkreta och visuella representationer genom F–9.
-        </p>
-      </a>
-
-      <a href="material-elevblad.html" class="print-card p2">
-        <span>✏️</span>
-        <h3>Elevblad</h3>
-        <p>
-          Koppla laborativ aktivitet till elevens bild, beräkning och förklaring.
-        </p>
-      </a>
-
-      <a href="material-matteprat.html" class="print-card p3">
-        <span>💬</span>
-        <h3>Matteprat</h3>
-        <p>
-          Samtala om vad materialet visar och jämför olika representationer.
-        </p>
-      </a>
-
-      <a href="material-begrepp.html" class="print-card p4">
-        <span>📚</span>
-        <h3>Begreppsbank</h3>
-        <p>
-          Matematiska ord och begrepp att koppla till det laborativa arbetet.
-        </p>
-      </a>
-
-      <a href="material-spel.html" class="print-card p5">
-        <span>🎮</span>
-        <h3>Matematikspel</h3>
-        <p>
-          Spel med tärningar, kort och konkret material.
-        </p>
-      </a>
-
-      <a href="larare-observation.html" class="print-card p6">
+      <div class="rep-card blue">
         <span>👀</span>
-        <h3>Observation</h3>
+        <h4>2. Se</h4>
         <p>
-          Observera hur elever använder material, strategier och representationer.
+          Rita eller skapa en visuell modell.
         </p>
-      </a>
+      </div>
+
+      <div class="rep-card yellow">
+        <span>💬</span>
+        <h4>3. Säga</h4>
+        <p>
+          Beskriv matematiken med ord.
+        </p>
+      </div>
+
+      <div class="rep-card purple">
+        <span>🔢</span>
+        <h4>4. Skriva</h4>
+        <p>
+          Använd symboler, beräkningar eller formler.
+        </p>
+      </div>
+
+      <div class="rep-card orange">
+        <span>🚀</span>
+        <h4>5. Generalisera</h4>
+        <p>
+          Formulera vad som verkar gälla generellt.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="activity-box green" style="margin-top:14px;">
+      <h3>🧱 Min konkreta modell</h3>
+      <div class="write-area large"></div>
+    </div>
+
+    <div class="two-grid">
+
+      <div class="activity-box blue">
+        <h3>🎨 Min bild / modell</h3>
+        <div class="write-area large"></div>
+      </div>
+
+      <div class="activity-box yellow">
+        <h3>💬 Min förklaring</h3>
+        <div class="write-area large"></div>
+      </div>
+
+    </div>
+
+    <div class="two-grid">
+
+      <div class="activity-box purple">
+        <h3>🔢 Matematiska symboler</h3>
+        <div class="write-area medium"></div>
+      </div>
+
+      <div class="activity-box orange">
+        <h3>🚀 Min generalisering</h3>
+        <div class="write-area medium"></div>
+      </div>
 
     </div>
 
   </section>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Fyra saker att tänka på</h2>
+
+    <p>
+      Laborativt material ska hjälpa eleverna att förstå matematiken,
+      inte bli en fristående aktivitet utan tydlig koppling till idéerna.
+    </p>
+
+    <div class="teacher-grid">
+
+      <div class="teacher-card">
+        <span>🎯</span>
+        <h3>Matematisk kärna</h3>
+        <p>
+          Börja med vad eleverna ska förstå – välj material därefter.
+        </p>
+      </div>
+
+      <div class="teacher-card">
+        <span>💬</span>
+        <h3>Sätt ord på modellen</h3>
+        <p>
+          Fråga vad varje del av materialet representerar.
+        </p>
+      </div>
+
+      <div class="teacher-card">
+        <span>🔄</span>
+        <h3>Byt representation</h3>
+        <p>
+          Koppla materialet till bild, språk och symboler.
+        </p>
+      </div>
+
+      <div class="teacher-card">
+        <span>🚀</span>
+        <h3>Lyft blicken</h3>
+        <p>
+          Avsluta med samband, regler eller generaliseringar.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="note">
+
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+
+  </div>
 
 </main>
 
