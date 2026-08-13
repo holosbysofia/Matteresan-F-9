@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Elevblad Geometri F–9 | HOLOS Matteresan</title>
+  <title>Geometri F–9 | HOLOS Matteresan</title>
 
   <style>
     * {
@@ -15,12 +15,22 @@
 
     :root {
       --dark: #17324d;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --teal-light: #eaf7f5;
+
+      --f3: #e8f7ed;
+      --f3-strong: #5f9470;
+
+      --46: #e8f3ff;
+      --46-strong: #5d86ad;
+
+      --79: #f0eaff;
+      --79-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
       --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
@@ -30,7 +40,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     a {
@@ -40,10 +50,10 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
-        linear-gradient(135deg, #2e6174, #4b91a6);
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
+        linear-gradient(135deg, #4f6b78, #7d9ba8);
       color: white;
-      padding: 22px 20px 55px;
+      padding: 22px 20px 50px;
     }
 
     .topbar {
@@ -64,58 +74,54 @@
       padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
       font-weight: bold;
     }
 
     .hero {
-      max-width: 900px;
-      margin: 45px auto 0;
+      max-width: 920px;
+      margin: 42px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.1rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4.2rem);
+      font-size: clamp(2.2rem, 7vw, 4rem);
       line-height: 1.05;
       margin-bottom: 10px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 15px;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 820px;
+      max-width: 850px;
       margin: auto;
-      color: #eefbff;
+      color: #f7fbfd;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1040px;
       margin: auto;
-      padding: 42px 20px;
-    }
-
-    section {
-      margin-bottom: 55px;
+      padding: 40px 20px;
     }
 
     .intro {
-      background: var(--teal-light);
-      border-radius: 26px;
-      padding: 32px;
+      background: var(--teal);
+      border-radius: 24px;
+      padding: 30px;
       text-align: center;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
       color: var(--dark);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .intro p {
@@ -125,7 +131,7 @@
     }
 
     .print-button {
-      display: inline-block;
+      margin-top: 16px;
       background: var(--dark);
       color: white;
       border: none;
@@ -133,272 +139,237 @@
       padding: 12px 20px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 18px;
-    }
-
-    .stage {
-      border-radius: 28px;
-      padding: 34px;
-      margin-bottom: 34px;
-    }
-
-    .stage-f3 {
-      background: var(--green-light);
-    }
-
-    .stage-46 {
-      background: var(--blue-light);
-    }
-
-    .stage-79 {
-      background: var(--purple-light);
-    }
-
-    .stage-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-
-    .stage-header span {
-      font-size: 2.8rem;
-    }
-
-    .stage-header h2 {
-      color: var(--dark);
-      font-size: 1.9rem;
-    }
-
-    .stage-header p {
-      color: var(--muted);
-    }
-
-    .sheet-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
     }
 
     .sheet {
       background: white;
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 22px;
-      padding: 26px;
-      border: 1px solid rgba(0,0,0,0.06);
-      min-height: 500px;
+      padding: 24px;
+      margin-bottom: 28px;
+      min-height: 270mm;
     }
 
-    .sheet h3 {
-      color: var(--dark);
-      margin-bottom: 5px;
-      font-size: 1.35rem;
+    .sheet.f3 {
+      border-top: 9px solid var(--f3-strong);
     }
 
-    .sheet-sub {
-      color: var(--muted);
+    .sheet.stage46 {
+      border-top: 9px solid var(--46-strong);
+    }
+
+    .sheet.stage79 {
+      border-top: 9px solid var(--79-strong);
+    }
+
+    .sheet-head {
+      text-align: center;
       margin-bottom: 18px;
-      font-size: 0.93rem;
+    }
+
+    .stage-label {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .f3-label {
+      background: var(--f3);
+      color: #356345;
+    }
+
+    .stage46-label {
+      background: var(--46);
+      color: #345e86;
+    }
+
+    .stage79-label {
+      background: var(--79);
+      color: #634a83;
+    }
+
+    .sheet-head h2 {
+      color: var(--dark);
+      font-size: 1.7rem;
+      margin-bottom: 4px;
+    }
+
+    .sheet-head p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .field {
+      background: white;
+      border: 1.5px solid #9aa6ae;
+      border-radius: 10px;
+      min-height: 50px;
+      padding: 9px;
+    }
+
+    .field strong {
+      display: block;
+      color: var(--dark);
+      font-size: 0.86rem;
     }
 
     .task {
-      margin-bottom: 20px;
-      padding-bottom: 18px;
-      border-bottom: 1px dashed #ccd4db;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+      break-inside: avoid;
     }
 
-    .task:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
-    .task strong {
+    .task h3 {
       color: var(--dark);
+      font-size: 1rem;
+      margin-bottom: 6px;
     }
 
-    .answer-box {
-      height: 76px;
-      border: 1.5px solid #9ba7b1;
-      border-radius: 10px;
-      margin-top: 10px;
+    .task p,
+    .task li {
+      color: #4e5d68;
+      font-size: 0.88rem;
+    }
+
+    .task ul {
+      margin: 8px 0 0 22px;
+    }
+
+    .task li {
+      margin-bottom: 5px;
+    }
+
+    .green { background: var(--f3); }
+    .blue { background: var(--46); }
+    .purple { background: var(--79); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .write-area {
       background: white;
+      border: 1.2px solid #98a4ad;
+      border-radius: 8px;
+      margin-top: 8px;
+      min-height: 70px;
     }
 
-    .answer-box.large {
-      height: 115px;
+    .write-area.medium {
+      min-height: 100px;
     }
 
-    .shape-grid {
+    .write-area.large {
+      min-height: 145px;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .three-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 12px;
+      gap: 10px;
     }
 
-    .shape-card {
-      border: 1.5px solid #9aa6af;
-      border-radius: 12px;
-      min-height: 100px;
-      padding: 12px;
-      text-align: center;
-      background: #fff;
+    .four-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
     }
 
-    .shape {
-      margin: 8px auto;
-    }
-
-    .square {
-      width: 46px;
-      height: 46px;
-      border: 2px solid #294456;
-    }
-
-    .rectangle {
-      width: 70px;
-      height: 42px;
-      border: 2px solid #294456;
-    }
-
-    .triangle {
-      width: 0;
-      height: 0;
-      border-left: 30px solid transparent;
-      border-right: 30px solid transparent;
-      border-bottom: 52px solid #d8eaf3;
-      position: relative;
-    }
-
-    .triangle:after {
-      content: "";
-      position: absolute;
-      left: -27px;
-      top: 4px;
-      width: 0;
-      height: 0;
-      border-left: 27px solid transparent;
-      border-right: 27px solid transparent;
-      border-bottom: 47px solid white;
-    }
-
-    .circle {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 2px solid #294456;
-    }
-
-    .angle-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .angle-card {
-      border: 1.5px solid #9aa6af;
+    .number-box,
+    .shape-box {
+      background: white;
+      border: 1.2px solid #89969f;
       border-radius: 10px;
+      min-height: 72px;
       padding: 10px;
-      min-width: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      color: var(--dark);
+      font-weight: bold;
     }
 
-    .grid-paper {
-      width: 100%;
-      height: 180px;
-      margin-top: 12px;
-      border: 1px solid #8c9aa4;
-      background-image:
-        linear-gradient(to right, #dbe3e8 1px, transparent 1px),
-        linear-gradient(to bottom, #dbe3e8 1px, transparent 1px);
+    .shape-box {
+      min-height: 110px;
+      font-size: 2.5rem;
+    }
+
+    .equation {
+      background: white;
+      border: 1px solid #98a4ad;
+      border-radius: 10px;
+      padding: 13px;
+      margin-top: 8px;
+      text-align: center;
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: var(--dark);
+    }
+
+    .grid-area {
+      background:
+        linear-gradient(to right, #d8dee3 1px, transparent 1px),
+        linear-gradient(to bottom, #d8dee3 1px, transparent 1px);
       background-size: 20px 20px;
+      background-color: white;
+      border: 1.2px solid #89969f;
+      border-radius: 8px;
+      min-height: 150px;
+      margin-top: 8px;
     }
 
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-    }
-
-    .table th,
-    .table td {
-      border: 1px solid #9aa6af;
-      padding: 9px;
+    .footer-note {
       text-align: center;
-    }
-
-    .table th {
-      background: #f0f4f7;
-    }
-
-    .challenge {
-      background: var(--yellow-light);
-      border-radius: 18px;
-      padding: 20px;
-      margin-top: 20px;
-    }
-
-    .reflection {
-      background: var(--orange-light);
-      border-radius: 18px;
-      padding: 20px;
-      margin-top: 20px;
-    }
-
-    .challenge h4,
-    .reflection h4 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .teacher-note {
-      background: var(--teal-light);
-      border-radius: 24px;
-      padding: 28px;
-    }
-
-    .teacher-note h2 {
-      color: var(--dark);
-      margin-bottom: 10px;
-    }
-
-    .teacher-note ul {
-      padding-left: 20px;
+      margin-top: 14px;
       color: var(--muted);
+      font-size: 0.8rem;
     }
 
-    .teacher-note li {
-      margin-bottom: 8px;
+    .screen-note {
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 24px;
+      color: #654c37;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
+      color: white;
       text-align: center;
-      padding: 34px 20px;
+      padding: 30px 20px;
+      margin-top: 30px;
     }
 
-    @media (max-width: 850px) {
-      .sheet-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .stage,
-      .intro,
-      .teacher-note {
-        padding: 23px 16px;
-      }
-
-      .sheet {
-        padding: 20px 16px;
-      }
-
-      .shape-grid {
+      .meta-grid,
+      .two-grid,
+      .three-grid,
+      .four-grid {
         grid-template-columns: 1fr;
       }
 
@@ -408,86 +379,156 @@
       }
     }
 
+    /* ===========================
+       A4 + FÄRGUTSKRIFT
+       =========================== */
+
     @page {
       size: A4 portrait;
-      margin: 12mm;
+      margin: 10mm;
     }
 
     @media print {
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
+      }
+
+      html,
       body {
-        background: white;
-        font-size: 10.5pt;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
       header,
       footer,
       .intro,
-      .teacher-note,
-      .print-button,
-      .back-link {
+      .screen-note {
         display: none !important;
       }
 
       main {
+        width: 100%;
         max-width: none;
+        margin: 0;
         padding: 0;
-        margin: 0;
-      }
-
-      section {
-        margin: 0;
-      }
-
-      .stage {
-        background: white !important;
-        padding: 0;
-        margin: 0;
-      }
-
-      .stage-header {
-        margin: 0 0 7mm 0;
-      }
-
-      .stage-header span {
-        display: none;
-      }
-
-      .stage-header h2 {
-        font-size: 17pt;
-      }
-
-      .stage-header p {
-        font-size: 9pt;
-      }
-
-      .sheet-grid {
-        display: block;
       }
 
       .sheet {
-        border: none;
-        border-radius: 0;
+        width: 100%;
+        min-height: 277mm;
+        margin: 0;
         padding: 0;
-        min-height: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
         page-break-after: always;
         break-after: page;
       }
 
-      .sheet:last-child {
+      .sheet:last-of-type {
         page-break-after: auto;
         break-after: auto;
       }
 
+      .sheet.f3 {
+        border-top: 7px solid var(--f3-strong) !important;
+      }
+
+      .sheet.stage46 {
+        border-top: 7px solid var(--46-strong) !important;
+      }
+
+      .sheet.stage79 {
+        border-top: 7px solid var(--79-strong) !important;
+      }
+
+      .green,
+      .f3-label {
+        background: var(--f3) !important;
+      }
+
+      .blue,
+      .stage46-label {
+        background: var(--46) !important;
+      }
+
+      .purple,
+      .stage79-label {
+        background: var(--79) !important;
+      }
+
+      .yellow { background: var(--yellow) !important; }
+      .orange { background: var(--orange) !important; }
+      .teal { background: var(--teal) !important; }
+      .pink { background: var(--pink) !important; }
+      .gray { background: var(--gray) !important; }
+
+      .field,
+      .write-area,
+      .number-box,
+      .shape-box,
+      .equation {
+        background: white !important;
+      }
+
+      .grid-area {
+        background:
+          linear-gradient(to right, #d8dee3 1px, transparent 1px),
+          linear-gradient(to bottom, #d8dee3 1px, transparent 1px) !important;
+        background-size: 20px 20px !important;
+        background-color: white !important;
+      }
+
+      .two-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .three-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 3mm !important;
+      }
+
+      .four-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 2.5mm !important;
+      }
+
       .task,
-      .challenge,
-      .reflection {
+      .field,
+      .number-box,
+      .shape-box,
+      .equation,
+      .grid-area {
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      .stage:not(:first-of-type) {
-        page-break-before: always;
-        break-before: page;
+      .sheet-head h2,
+      .task h3,
+      .field strong,
+      .number-box,
+      .shape-box,
+      .equation {
+        color: var(--dark) !important;
+      }
+
+      .sheet-head p,
+      .task p,
+      .task li,
+      .footer-note {
+        color: var(--muted) !important;
       }
     }
   </style>
@@ -498,26 +539,24 @@
 <header>
 
   <div class="topbar">
-
     <div class="logo">HOLOS MATTERESAN</div>
 
-    <a href="material-elevblad.html" class="back-link">
-      ← Elevblad
+    <a href="material-a4-elevblad.html" class="back-link">
+      ← A4 Elevblad
     </a>
-
   </div>
 
   <div class="hero">
 
-    <div class="hero-icon">📐</div>
+    <div class="hero-icon">📐✏️</div>
 
     <h1>Geometri F–9</h1>
 
     <h2>Se • Beskriv • Mät • Beräkna • Resonera</h2>
 
     <p>
-      Utskriftsklara elevblad för former, geometriska egenskaper,
-      vinklar, omkrets, area, volym, koordinater, skala och geometriska resonemang.
+      Sex utskriftsklara elevblad med progression från former och lägesord
+      till area, omkrets, vinklar, skala och geometriska samband.
     </p>
 
   </div>
@@ -527,616 +566,567 @@
 
 <main>
 
-  <section>
+  <div class="intro">
 
-    <div class="intro">
+    <h2>📐 Geometri handlar om samband</h2>
 
-      <h2>📄 Sex utskriftsklara elevblad</h2>
+    <p>
+      Elever behöver beskriva, jämföra, konstruera och resonera om geometriska objekt.
+      Formler blir meningsfulla när de växer fram ur bilder, mätningar och undersökningar.
+    </p>
+
+    <button class="print-button" onclick="window.print()">
+      🖨️ Skriv ut alla sex elevblad
+    </button>
+
+  </div>
+
+
+  <!-- F–3 BLAD 1 -->
+
+  <section class="sheet f3">
+
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Geometri – blad 1</h2>
+      <p>Former • egenskaper • sortera</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task green">
+
+      <h3>1. Vad heter formerna?</h3>
+
+      <div class="four-grid">
+        <div class="shape-box">○</div>
+        <div class="shape-box">△</div>
+        <div class="shape-box">□</div>
+        <div class="shape-box">▭</div>
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>2. Beskriv en triangel</h3>
 
       <p>
-        Två elevblad för varje stadium. Varje blad placeras på en egen A4-sida vid utskrift.
+        Hur många hörn och sidor har en triangel?
       </p>
 
-      <button class="print-button" onclick="window.print()">
-        🖨️ Skriv ut elevbladen
-      </button>
+      <div class="write-area medium"></div>
 
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>3. Kvadrat eller rektangel?</h3>
+
+      <p>
+        Vad är lika och vad är olika?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>4. Hitta former omkring dig</h3>
+
+      <p>
+        Skriv eller rita tre saker i klassrummet som har geometriska former.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Geometri F–3
     </div>
 
   </section>
 
 
-  <!-- F–3 -->
+  <!-- F–3 BLAD 2 -->
 
-  <section class="stage stage-f3">
+  <section class="sheet f3">
 
-    <div class="stage-header">
+    <div class="sheet-head">
+      <span class="stage-label f3-label">🌱 F–3</span>
+      <h2>Geometri – blad 2</h2>
+      <p>Läge • symmetri • bygga • rita</p>
+    </div>
 
-      <span>🌱</span>
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
 
-      <div>
-        <h2>F–3 – Former & egenskaper</h2>
-        <p>Form • hörn • sidor • läge • mätning</p>
-      </div>
+
+    <div class="task green">
+
+      <h3>1. Lägesord</h3>
+
+      <p>
+        Rita en cirkel <strong>över</strong> kvadraten,
+        en triangel <strong>under</strong> kvadraten
+        och en stjärna <strong>till höger om</strong> kvadraten.
+      </p>
+
+      <div class="grid-area"></div>
 
     </div>
 
-    <div class="sheet-grid">
 
+    <div class="task blue">
 
-      <article class="sheet">
+      <h3>2. Symmetri</h3>
 
-        <h3>Elevblad 1 – Känn igen formerna</h3>
+      <p>
+        Rita en figur med en tydlig symmetrilinje.
+      </p>
 
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Skriv formens namn.</strong>
-
-          <div class="shape-grid">
-
-            <div class="shape-card">
-              <div class="shape square"></div>
-              __________________
-            </div>
-
-            <div class="shape-card">
-              <div class="shape rectangle"></div>
-              __________________
-            </div>
-
-            <div class="shape-card">
-              <div class="shape circle"></div>
-              __________________
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Hur många hörn och sidor?</strong>
-
-          <p>
-            Kvadrat: ______ hörn och ______ sidor
-          </p>
-
-          <p>
-            Triangel: ______ hörn och ______ sidor
-          </p>
-
-          <p>
-            Rektangel: ______ hörn och ______ sidor
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Rita.</strong>
-
-          <p>
-            Rita en fyrhörning som inte är en kvadrat.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="reflection">
-
-          <h4>💬 Förklara</h4>
-
-          <p>
-            Vad är lika mellan en kvadrat och en rektangel?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 2 – Mäta & jämföra</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Rita tre sträckor.</strong>
-
-          <p>
-            Rita en sträcka som är:
-          </p>
-
-          <p>
-            • 3 cm<br>
-            • 5 cm<br>
-            • 7 cm
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Vilken är längst?</strong>
-
-          <p>
-            4 cm, 8 cm eller 6 cm?
-          </p>
-
-          <p>
-            Svar: __________
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Lägesord.</strong>
-
-          <p>
-            Rita en cirkel <strong>ovanför</strong> en kvadrat.
-          </p>
-
-          <p>
-            Rita en triangel <strong>till vänster om</strong> kvadraten.
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Utmaning</h4>
-
-          <p>
-            Kan du rita två olika former som båda har fyra sidor?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
+      <div class="grid-area"></div>
 
     </div>
 
-  </section>
 
+    <div class="task yellow">
 
-  <!-- 4–6 -->
+      <h3>3. Bygg en figur</h3>
 
-  <section class="stage stage-46">
-
-    <div class="stage-header">
-
-      <span>🌿</span>
-
-      <div>
-        <h2>4–6 – Vinklar, omkrets & area</h2>
-        <p>Geometriska egenskaper • vinkel • omkrets • area • koordinater</p>
-      </div>
-
-    </div>
-
-    <div class="sheet-grid">
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 3 – Vinklar & egenskaper</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Skriv vilken typ av vinkel.</strong>
-
-          <div class="angle-row">
-
-            <div class="angle-card">
-              45°<br>
-              __________________
-            </div>
-
-            <div class="angle-card">
-              90°<br>
-              __________________
-            </div>
-
-            <div class="angle-card">
-              125°<br>
-              __________________
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Sant eller falskt?</strong>
-
-          <p>
-            Alla kvadrater är rektanglar. __________
-          </p>
-
-          <p>
-            Alla rektanglar är kvadrater. __________
-          </p>
-
-          <p>
-            En triangel kan ha två räta vinklar. __________
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Rita en triangel.</strong>
-
-          <p>
-            Rita en triangel med en rät vinkel.
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-
-        <div class="reflection">
-
-          <h4>💬 Resonera</h4>
-
-          <p>
-            Om två vinklar i en triangel är 50° och 60°,
-            hur stor är den tredje vinkeln?
-          </p>
-
-          <p>
-            Förklara hur du vet.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 4 – Omkrets & area</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. En rektangel är 8 cm lång och 5 cm bred.</strong>
-
-          <p>
-            Omkrets: __________ cm
-          </p>
-
-          <p>
-            Area: __________ cm²
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Samma area – olika form.</strong>
-
-          <p>
-            Rita två olika rektanglar med area 24 rutor.
-          </p>
-
-          <div class="grid-paper"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Koordinater.</strong>
-
-          <p>
-            Punkten A ligger i (2, 3).
-          </p>
-
-          <p>
-            Punkten flyttas 4 steg åt höger och 2 steg upp.
-          </p>
-
-          <p>
-            Ny koordinat: (______, ______)
-          </p>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Utmaning</h4>
-
-          <p>
-            En rektangel har omkrets 30 cm.
-            Hitta minst tre olika möjliga längder och bredder.
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </section>
-
-
-  <!-- 7–9 -->
-
-  <section class="stage stage-79">
-
-    <div class="stage-header">
-
-      <span>🚀</span>
-
-      <div>
-        <h2>7–9 – Area, volym, skala & samband</h2>
-        <p>Formler • volym • skala • Pythagoras • geometriska resonemang</p>
-      </div>
-
-    </div>
-
-    <div class="sheet-grid">
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 5 – Area & volym</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Triangel.</strong>
-
-          <p>
-            En triangel har basen 12 cm och höjden 7 cm.
-          </p>
-
-          <p>
-            Area: __________ cm²
-          </p>
-
-          <p>
-            Visa beräkningen:
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Rätblock.</strong>
-
-          <p>
-            Ett rätblock har måtten:
-          </p>
-
-          <p>
-            längd 8 cm, bredd 5 cm, höjd 4 cm.
-          </p>
-
-          <p>
-            Volym: __________ cm³
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Förändra måtten.</strong>
-
-          <p>
-            En kvadrat har sidan 4 cm.
-          </p>
-
-          <p>
-            Om sidan fördubblas, hur förändras arean?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="reflection">
-
-          <h4>💬 Generalisera</h4>
-
-          <p>
-            Vad händer med volymen av en kub om sidlängden fördubblas?
-          </p>
-
-          <p>
-            Testa med exempel och förklara.
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-      </article>
-
-
-      <article class="sheet">
-
-        <h3>Elevblad 6 – Skala & Pythagoras</h3>
-
-        <p class="sheet-sub">
-          Namn: __________________________ Datum: ______________
-        </p>
-
-        <div class="task">
-
-          <strong>1. Skala 1:100.</strong>
-
-          <p>
-            En vägg är 4,5 cm lång på en ritning.
-          </p>
-
-          <p>
-            Hur lång är väggen i verkligheten?
-          </p>
-
-          <p>
-            Svar: __________
-          </p>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>2. Skala 1:50 000.</strong>
-
-          <p>
-            Avståndet mellan två platser är 6 cm på kartan.
-          </p>
-
-          <p>
-            Hur långt är det i verkligheten?
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="task">
-
-          <strong>3. Rätvinklig triangel.</strong>
-
-          <p>
-            Kateterna är 6 cm och 8 cm.
-          </p>
-
-          <p>
-            Bestäm hypotenusan.
-          </p>
-
-          <div class="answer-box"></div>
-
-        </div>
-
-
-        <div class="challenge">
-
-          <h4>🚀 Resonera</h4>
-
-          <p>
-            En elev säger:
-            ”Om längden och bredden i en rektangel fördubblas
-            blir arean dubbelt så stor.”
-          </p>
-
-          <p>
-            Undersök påståendet och förklara.
-          </p>
-
-          <div class="answer-box large"></div>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="teacher-note">
-
-      <h2>👩‍🏫 Lärarnotering</h2>
+      <p>
+        Rita en figur som består av:
+      </p>
 
       <ul>
-        <li>
-          F–3 fokuserar på att känna igen, beskriva, jämföra och skapa geometriska former.
-        </li>
-
-        <li>
-          4–6 utvecklar klassificering, vinklar, koordinater, omkrets och area.
-        </li>
-
-        <li>
-          7–9 utvecklar formler, volym, skala, Pythagoras och generaliserande geometriska samband.
-        </li>
-
-        <li>
-          Var särskilt uppmärksam på sammanblandning mellan omkrets och area.
-        </li>
-
-        <li>
-          Låt elever rita och bygga även när de arbetar med formler – representationen kan göra sambanden tydligare.
-        </li>
+        <li>2 trianglar</li>
+        <li>1 kvadrat</li>
+        <li>1 rektangel</li>
       </ul>
 
-      <button class="print-button" onclick="window.print()">
-        🖨️ Skriv ut
-      </button>
+      <div class="grid-area"></div>
 
     </div>
 
+
+    <div class="task orange">
+
+      <h3>4. Resonera</h3>
+
+      <p>
+        Kan två olika figurer ha lika många hörn?
+        Visa med exempel.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Geometri F–3
+    </div>
+
   </section>
+
+
+  <!-- 4–6 BLAD 1 -->
+
+  <section class="sheet stage46">
+
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Geometri – blad 1</h2>
+      <p>Area • omkrets • rektanglar</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>1. Rektangeln</h3>
+
+      <p>
+        En rektangel är 8 cm lång och 3 cm bred.
+      </p>
+
+      <ul>
+        <li>Beräkna arean.</li>
+        <li>Beräkna omkretsen.</li>
+      </ul>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task green">
+
+      <h3>2. Samma area</h3>
+
+      <p>
+        Rita minst tre olika rektanglar med heltalssidor och area 24 cm².
+      </p>
+
+      <div class="grid-area"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Jämför omkrets</h3>
+
+      <p>
+        Har rektanglar med samma area alltid samma omkrets?
+        Undersök med dina rektanglar ovan.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Förklara</h3>
+
+      <p>
+        Vad är skillnaden mellan area och omkrets?
+        Ge ett verkligt exempel på när man behöver vardera.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Geometri 4–6
+    </div>
+
+  </section>
+
+
+  <!-- 4–6 BLAD 2 -->
+
+  <section class="sheet stage46">
+
+    <div class="sheet-head">
+      <span class="stage-label stage46-label">🔎 4–6</span>
+      <h2>Geometri – blad 2</h2>
+      <p>Vinklar • skala • volym • resonemang</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>1. Vinkeltyper</h3>
+
+      <p>
+        Skriv ett exempel på:
+      </p>
+
+      <div class="three-grid">
+        <div class="number-box">Spetsig vinkel</div>
+        <div class="number-box">Rät vinkel</div>
+        <div class="number-box">Trubbig vinkel</div>
+      </div>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+
+    <div class="task green">
+
+      <h3>2. Triangelns vinklar</h3>
+
+      <p>
+        Två vinklar i en triangel är 55° och 70°.
+        Hur stor är den tredje vinkeln?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Skala</h3>
+
+      <p>
+        En ritning har skalan 1:100.
+        En vägg är 4,5 cm på ritningen.
+        Hur lång är väggen i verkligheten?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>4. Volym</h3>
+
+      <p>
+        Ett rätblock är 5 cm långt, 4 cm brett och 3 cm högt.
+        Beräkna volymen.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Skapa själv</h3>
+
+      <p>
+        Skapa ett eget problem där skala eller volym behövs.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Geometri 4–6
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 BLAD 1 -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Geometri – blad 1</h2>
+      <p>Trianglar • cirklar • Pythagoras • resonemang</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>1. Triangelns area</h3>
+
+      <p>
+        En triangel har basen 12 cm och höjden 7 cm.
+        Beräkna arean.
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Cirkel</h3>
+
+      <p>
+        En cirkel har radien 5 cm.
+      </p>
+
+      <ul>
+        <li>Beräkna omkretsen.</li>
+        <li>Beräkna arean.</li>
+      </ul>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Pythagoras sats</h3>
+
+      <p>
+        En rätvinklig triangel har kateterna 6 cm och 8 cm.
+        Hur lång är hypotenusan?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Förklara</h3>
+
+      <p>
+        Hur vet du vilken sida som är hypotenusan i en rätvinklig triangel?
+      </p>
+
+      <div class="write-area medium"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Geometri 7–9
+    </div>
+
+  </section>
+
+
+  <!-- 7–9 BLAD 2 -->
+
+  <section class="sheet stage79">
+
+    <div class="sheet-head">
+      <span class="stage-label stage79-label">🚀 7–9</span>
+      <h2>Geometri – blad 2</h2>
+      <p>Likformighet • skala • förändring • generalisering</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="field"><strong>Namn</strong></div>
+      <div class="field"><strong>Klass</strong></div>
+      <div class="field"><strong>Datum</strong></div>
+    </div>
+
+
+    <div class="task purple">
+
+      <h3>1. Likformighet</h3>
+
+      <p>
+        En triangel har sidorna 3 cm, 4 cm och 5 cm.
+        En likformig triangel har den kortaste sidan 9 cm.
+      </p>
+
+      <p>
+        Hur långa är de andra sidorna?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task blue">
+
+      <h3>2. Skala</h3>
+
+      <p>
+        På en karta i skala 1:50 000 är avståndet mellan två platser 8 cm.
+        Hur långt är avståndet i verkligheten?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task yellow">
+
+      <h3>3. Fördubblade längder</h3>
+
+      <p>
+        En rektangels längd och bredd fördubblas.
+      </p>
+
+      <ul>
+        <li>Vad händer med omkretsen?</li>
+        <li>Vad händer med arean?</li>
+      </ul>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task orange">
+
+      <h3>4. Fördubblade mått i tre dimensioner</h3>
+
+      <p>
+        Alla sidlängder i ett rätblock fördubblas.
+        Hur förändras volymen?
+      </p>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+
+    <div class="task teal">
+
+      <h3>5. Generalisera</h3>
+
+      <p>
+        Om alla längder i en figur multipliceras med faktorn <strong>k</strong>,
+        hur förändras:
+      </p>
+
+      <ul>
+        <li>längder?</li>
+        <li>area?</li>
+        <li>volym?</li>
+      </ul>
+
+      <div class="write-area large"></div>
+
+    </div>
+
+    <div class="footer-note">
+      HOLOS Matteresan • Geometri 7–9
+    </div>
+
+  </section>
+
+
+  <div class="screen-note">
+    <strong>🖨️ Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+    Varje elevblad ska hamna på ett eget A4.
+  </div>
 
 </main>
 
 
 <footer>
-
   <strong>HOLOS Matteresan F–9</strong>
-
   <br>
-
   📐 Geometri – se, beskriv, mät, beräkna och resonera
-
 </footer>
 
 </body>
