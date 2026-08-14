@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Årskurs 8 | HOLOS Matteresan</title>
+  <title>Årskurs 8 | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -14,26 +14,37 @@
     }
 
     :root {
-      --dark: #1d2d44;
-      --purple: #7057c7;
-      --purple-dark: #4f3b98;
-      --purple-light: #f0ecff;
-      --blue-light: #eaf4ff;
-      --green-light: #eaf7ef;
-      --yellow: #fff1bb;
-      --orange: #ffe1c3;
-      --pink: #ffe5ef;
-      --background: #f8f8fc;
-      --text: #293645;
-      --muted: #677789;
-      --white: #ffffff;
+      --dark: #17324d;
+      --text: #263747;
+      --muted: #667788;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -43,14 +54,14 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
-        linear-gradient(135deg, #4f3b98, #8068d8);
+        radial-gradient(circle at top right, rgba(255,255,255,0.22), transparent 32%),
+        linear-gradient(135deg, #8266a3, #aa95c3);
       color: white;
-      padding: 22px 20px 52px;
+      padding: 22px 20px 62px;
     }
 
     .topbar {
-      max-width: 1150px;
+      max-width: 1180px;
       margin: auto;
       display: flex;
       justify-content: space-between;
@@ -59,355 +70,318 @@
     }
 
     .logo {
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 1px;
     }
 
     .back-link {
-      padding: 8px 15px;
-      border: 1px solid rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.7);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--purple-dark);
-    }
-
     .hero {
-      max-width: 820px;
-      margin: 45px auto 0;
+      max-width: 960px;
+      margin: 46px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4rem;
+      font-size: 4.2rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.3rem, 7vw, 4.5rem);
-      line-height: 1.05;
-      margin-bottom: 10px;
-    }
-
-    .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.5rem);
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      color: #f4f1ff;
-      font-size: 1.03rem;
-    }
-
-    main {
-      max-width: 1150px;
-      margin: auto;
-      padding: 45px 20px;
-    }
-
-    section {
-      margin-bottom: 60px;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.35rem);
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .section-intro {
-      text-align: center;
-      max-width: 740px;
-      margin: 0 auto 30px;
-      color: var(--muted);
-    }
-
-    .intro-box {
-      background: var(--purple-light);
-      border-radius: 26px;
-      padding: 34px;
-      text-align: center;
-    }
-
-    .intro-box h2 {
-      color: var(--dark);
+      font-size: clamp(2.7rem, 7vw, 4.8rem);
+      line-height: 1.04;
       margin-bottom: 12px;
     }
 
-    .intro-box p {
-      max-width: 760px;
+    .hero h2 {
+      font-size: clamp(1.05rem, 3vw, 1.45rem);
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      max-width: 850px;
       margin: auto;
-      color: #536574;
+      color: #faf7fd;
     }
 
-    .area-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 42px 20px 70px;
     }
 
-    .area-card {
+    .intro {
+      background: white;
       border-radius: 22px;
-      padding: 24px;
-      min-height: 185px;
-      border: 1px solid rgba(0,0,0,0.05);
-      transition: 0.2s;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      margin-bottom: 34px;
     }
 
-    .area-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
-    }
-
-    .area-icon {
-      font-size: 2.3rem;
+    .intro h2 {
+      color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .area-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-      font-size: 1.12rem;
+    .intro p {
+      color: var(--muted);
     }
 
-    .area-card p {
-      color: #596978;
-      font-size: 0.94rem;
-    }
-
-    .c1 { background: var(--purple-light); }
-    .c2 { background: var(--blue-light); }
-    .c3 { background: var(--green-light); }
-    .c4 { background: var(--yellow); }
-    .c5 { background: var(--orange); }
-    .c6 { background: var(--pink); }
-
-    .talk-box {
-      background: linear-gradient(135deg, #fff5cc, #ffe79e);
-      border-radius: 28px;
-      padding: 38px;
+    .progression {
+      margin-top: 20px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: center;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
     }
 
-    .talk-box h2 {
+    .progression div {
+      background: var(--purple);
+      border-radius: 14px;
+      padding: 14px 10px;
+      text-align: center;
       color: var(--dark);
-      font-size: 2rem;
-      margin-bottom: 10px;
+      font-weight: 800;
+      font-size: 0.84rem;
     }
 
-    .example {
-      background: white;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 8px 25px rgba(70,55,15,0.08);
+    .section-title {
+      margin: 42px 0 18px;
     }
 
-    .bubble {
-      margin-top: 10px;
-      padding: 11px 14px;
-      border-radius: 12px;
-      background: #f5f7f8;
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.9rem;
+      margin-bottom: 5px;
     }
 
-    .thinking-grid {
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .thinking-card {
-      background: white;
-      border-radius: 20px;
+    .card {
+      border-radius: 19px;
       padding: 22px;
-      border: 1px solid #e7e1f6;
-      min-height: 165px;
+      min-height: 235px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .thinking-card span {
-      font-size: 2rem;
-      display: block;
+    .card:nth-child(6n+1) {
+      background: var(--green);
+    }
+
+    .card:nth-child(6n+2) {
+      background: var(--blue);
+    }
+
+    .card:nth-child(6n+3) {
+      background: var(--yellow);
+    }
+
+    .card:nth-child(6n+4) {
+      background: var(--purple);
+    }
+
+    .card:nth-child(6n+5) {
+      background: var(--teal);
+    }
+
+    .card:nth-child(6n+6) {
+      background: var(--pink);
+    }
+
+    .icon {
+      font-size: 2.2rem;
       margin-bottom: 8px;
     }
 
-    .thinking-card h3 {
-      color: var(--purple-dark);
+    .card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+      font-size: 1.08rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .card ul {
+      margin: 10px 0 0 20px;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .activity-card {
+      background: white;
+      border-radius: 19px;
+      padding: 22px;
+      min-height: 230px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--purple-strong);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .activity-card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .activity-card:nth-child(3n+3) {
+      border-top-color: var(--green-strong);
+    }
+
+    .activity-card span {
+      font-size: 2rem;
       margin-bottom: 7px;
     }
 
-    .thinking-card p {
+    .activity-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .activity-card p {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.86rem;
+      margin-bottom: 14px;
     }
 
-    .adventure {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 35%),
-        linear-gradient(135deg, #27214f, #5e4aa0);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .adventure h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .adventure p {
-      color: #f1eeff;
-      max-width: 760px;
-    }
-
-    .adventure-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .adventure-card {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 18px;
-      padding: 20px;
-      transition: 0.2s;
-    }
-
-    .adventure-card:hover {
-      background: rgba(255,255,255,0.18);
-      transform: translateY(-3px);
+    .activity-card strong {
+      margin-top: auto;
+      color: var(--dark);
+      font-size: 0.8rem;
     }
 
     .support-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 18px;
     }
 
-    .support-card {
-      background: white;
-      border: 1px solid #e5e1f1;
+    .support {
       border-radius: 20px;
-      padding: 22px;
-      min-height: 150px;
-      transition: 0.2s;
+      padding: 24px;
     }
 
-    .support-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(30,50,60,0.08);
-    }
-
-    .support-card div {
-      font-size: 2rem;
-    }
-
-    .support-card h3 {
-      margin: 7px 0;
+    .support h3 {
       color: var(--dark);
+      margin-bottom: 8px;
     }
 
-    .support-card p {
+    .support li {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.86rem;
+      margin-bottom: 6px;
     }
 
-    .progression {
-      background: var(--purple-light);
-      border-radius: 28px;
-      padding: 38px;
-      text-align: center;
+    .support ul {
+      margin: 10px 0 0 20px;
     }
 
-    .progression h2 {
-      color: var(--dark);
-      margin-bottom: 10px;
+    .support.help {
+      background: var(--teal);
     }
 
-    .progression p {
-      max-width: 740px;
-      margin: auto;
-      color: var(--muted);
+    .support.challenge {
+      background: var(--purple);
     }
 
-    .progression-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-top: 25px;
-    }
-
-    .progression-card {
+    .teacher-box {
+      margin-top: 42px;
       background: white;
-      border-radius: 18px;
-      padding: 20px;
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
     }
 
-    .progression-card strong {
-      color: var(--purple-dark);
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
     }
 
-    .next-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 11px 19px;
-      border-radius: 999px;
-      background: var(--purple-dark);
+    .teacher-box li {
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .teacher-box ul {
+      margin: 10px 0 0 22px;
+    }
+
+    .links {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .links a {
+      background: var(--dark);
       color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.8rem;
       font-weight: bold;
+    }
+
+    .curriculum-note {
+      margin-top: 24px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 15px;
+      padding: 18px;
+      color: #665831;
     }
 
     footer {
       background: var(--dark);
-      color: #edf0f5;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 900px) {
-      .area-grid,
-      .thinking-grid,
-      .support-grid {
+    @media (max-width: 1000px) {
+      .grid,
+      .activity-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .talk-box {
-        grid-template-columns: 1fr;
-      }
-
-      .adventure-grid,
-      .progression-row {
-        grid-template-columns: 1fr;
+      .progression {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .area-grid,
-      .thinking-grid,
+      .grid,
+      .activity-grid,
+      .progression,
       .support-grid {
         grid-template-columns: 1fr;
-      }
-
-      .talk-box,
-      .intro-box,
-      .adventure,
-      .progression {
-        padding: 25px 18px;
       }
 
       main {
@@ -416,24 +390,54 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
-      main {
-        padding: 0;
-        max-width: none;
+      .progression div,
+      .card:nth-child(6n+4),
+      .support.challenge {
+        background: var(--purple) !important;
       }
 
-      section {
-        break-inside: avoid;
+      .card:nth-child(6n+1) {
+        background: var(--green) !important;
+      }
+
+      .card:nth-child(6n+2) {
+        background: var(--blue) !important;
+      }
+
+      .card:nth-child(6n+3),
+      .curriculum-note {
+        background: var(--yellow) !important;
+      }
+
+      .card:nth-child(6n+5),
+      .support.help {
+        background: var(--teal) !important;
+      }
+
+      .card:nth-child(6n+6) {
+        background: var(--pink) !important;
       }
     }
   </style>
@@ -446,27 +450,30 @@
   <div class="topbar">
 
     <div class="logo">
-      HOLOS MATTERESAN
+      HOLOS MATTERESAN F–9
     </div>
 
     <a href="7-9.html" class="back-link">
-      ← Till 7–9
+      ← 7–9
     </a>
 
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">🔬</div>
+    <div class="hero-icon">8️⃣🟣📊</div>
 
     <h1>Årskurs 8</h1>
 
-    <h2>Jag analyserar och generaliserar</h2>
+    <h2>Analysera • Förändra • Modellera • Argumentera • Generalisera</h2>
 
     <p>
-      Här utvecklar du ett mer avancerat matematiskt tänkande.
-      Du arbetar med algebra, funktioner, förändring, geometri,
-      statistik och problemlösning och tränar på att beskriva generella samband.
+      I årskurs 8 fördjupas algebra, ekvationer,
+      proportionalitet, funktioner och geometriska samband.
+      Eleverna behöver kunna växla mellan flera representationer,
+      analysera förändring och använda matematiken för att beskriva
+      och jämföra verkliga situationer.
     </p>
 
   </div>
@@ -476,461 +483,434 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>🟣 Från samband till förändring</h2>
 
-      <h2>🚀 Från exempel till generella samband</h2>
-
-      <p>
-        I årskurs 8 använder du matematiken för att analysera förändringar,
-        beskriva samband och formulera regler. Du tränar på att röra dig
-        mellan tabeller, grafer, uttryck, modeller och matematiska resonemang.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Matematik i årskurs 8
-    </h2>
-
-    <p class="section-intro">
-      Välj ett område och utveckla ditt matematiska tänkande.
+    <p>
+      I årskurs 8 behöver eleverna få syn på hur matematiska uttryck,
+      tabeller och grafer beskriver samma samband.
+      Ekvationer ska förstås som relationer, inte bara som procedurer,
+      och funktioner behöver kopplas till förändring i verkliga situationer.
+      Resonemang kring varför metoder fungerar blir allt viktigare.
     </p>
-
-    <div class="area-grid">
-
-      <a href="ak8-tal.html" class="area-card c1">
-        <div class="area-icon">🔢</div>
-        <h3>Tal & potenser</h3>
-        <p>
-          Reella tal, potenser, kvadrattal, prioriteringsregler och effektiva beräkningar.
-        </p>
-      </a>
-
-
-      <a href="ak8-algebra.html" class="area-card c2">
-        <div class="area-icon">🔤</div>
-        <h3>Algebra</h3>
-        <p>
-          Algebraiska uttryck, förenkling, ekvationer, formler och variabler.
-        </p>
-      </a>
-
-
-      <a href="ak8-procent.html" class="area-card c3">
-        <div class="area-icon">%</div>
-        <h3>Procent & förändring</h3>
-        <p>
-          Procentuell förändring, förändringsfaktor, jämförelser och ekonomiska situationer.
-        </p>
-      </a>
-
-
-      <a href="ak8-funktioner.html" class="area-card c4">
-        <div class="area-icon">📈</div>
-        <h3>Funktioner</h3>
-        <p>
-          Samband mellan variabler, tabeller, grafer, formler och linjära samband.
-        </p>
-      </a>
-
-
-      <a href="ak8-proportionalitet.html" class="area-card c5">
-        <div class="area-icon">🔗</div>
-        <h3>Proportionalitet</h3>
-        <p>
-          Förhållanden, proportionalitet, jämförpris, skala och samband mellan storheter.
-        </p>
-      </a>
-
-
-      <a href="ak8-geometri.html" class="area-card c6">
-        <div class="area-icon">📐</div>
-        <h3>Geometri</h3>
-        <p>
-          Area, volym, skala, likformighet, vinklar och geometriska samband.
-        </p>
-      </a>
-
-
-      <a href="ak8-pythagoras.html" class="area-card c1">
-        <div class="area-icon">📏</div>
-        <h3>Pythagoras sats</h3>
-        <p>
-          Undersök sambandet mellan sidorna i rätvinkliga trianglar och använd satsen i problem.
-        </p>
-      </a>
-
-
-      <a href="ak8-statistik.html" class="area-card c2">
-        <div class="area-icon">📊</div>
-        <h3>Statistik</h3>
-        <p>
-          Lägesmått, spridning, diagram, datamängder och kritisk tolkning av statistik.
-        </p>
-      </a>
-
-
-      <a href="ak8-sannolikhet.html" class="area-card c3">
-        <div class="area-icon">🎲</div>
-        <h3>Sannolikhet</h3>
-        <p>
-          Slumpförsök, sannolikheter, träddiagram och kombinationer av möjliga utfall.
-        </p>
-      </a>
-
-
-      <a href="ak8-monster.html" class="area-card c4">
-        <div class="area-icon">🧩</div>
-        <h3>Mönster & generalisering</h3>
-        <p>
-          Formulera regler och uttryck som beskriver matematiska mönster.
-        </p>
-      </a>
-
-
-      <a href="ak8-problem.html" class="area-card c5">
-        <div class="area-icon">🧠</div>
-        <h3>Problemlösning</h3>
-        <p>
-          Modellera, pröva strategier, värdera resultat och lösa problem i flera steg.
-        </p>
-      </a>
-
-
-      <a href="ak8-resonemang.html" class="area-card c6">
-        <div class="area-icon">💬</div>
-        <h3>Resonemang & bevisidéer</h3>
-        <p>
-          Motivera slutsatser, pröva påståenden och utveckla matematiska argument.
-        </p>
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="talk-box">
-
-      <div>
-
-        <h2>🗣️ Matteprat</h2>
-
-        <p>
-          I årskurs 8 tränar du på att gå från enskilda exempel
-          till mer generella matematiska resonemang.
-        </p>
-
-        <br>
-
-        <a href="matteprat-ak8.html" class="next-button">
-          Öppna Matteprat →
-        </a>
-
-      </div>
-
-      <div class="example">
-
-        <strong>Vad kan du säga om sambandet?</strong>
-
-        <h2 style="margin-top:12px;">
-          y = 3x + 2
-        </h2>
-
-        <div class="bubble">
-          🔬 Vad betyder talet 3?
-        </div>
-
-        <div class="bubble">
-          📈 Vad betyder talet 2?
-        </div>
-
-        <div class="bubble">
-          🔗 Hur förändras y när x ökar med 1?
-        </div>
-
-        <div class="bubble">
-          🗣️ Kan du beskriva sambandet utan att använda formeln?
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Utveckla ditt matematiska tänkande
-    </h2>
-
-    <p class="section-intro">
-      I årskurs 8 tränar du på att upptäcka strukturer och formulera matematiska regler.
-    </p>
-
-    <div class="thinking-grid">
-
-      <div class="thinking-card">
-        <span>🔎</span>
-        <h3>Analysera</h3>
-        <p>
-          Undersök vad som förändras och vad som är konstant.
-        </p>
-      </div>
-
-
-      <div class="thinking-card">
-        <span>🧩</span>
-        <h3>Generalisera</h3>
-        <p>
-          Formulera regler som gäller för många olika fall.
-        </p>
-      </div>
-
-
-      <div class="thinking-card">
-        <span>📈</span>
-        <h3>Representera</h3>
-        <p>
-          Växla mellan formel, graf, tabell, text och bild.
-        </p>
-      </div>
-
-
-      <div class="thinking-card">
-        <span>🧠</span>
-        <h3>Modellera</h3>
-        <p>
-          Översätt verkliga situationer till matematiska modeller.
-        </p>
-      </div>
-
-
-      <div class="thinking-card">
-        <span>⚖️</span>
-        <h3>Värdera</h3>
-        <p>
-          Bedöm metod, resultat, rimlighet och modellens begränsningar.
-        </p>
-      </div>
-
-
-      <div class="thinking-card">
-        <span>🗣️</span>
-        <h3>Argumentera</h3>
-        <p>
-          Stöd dina slutsatser med matematiska exempel och resonemang.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="adventure">
-
-      <h2>🧭 Matematikäventyr i årskurs 8</h2>
-
-      <p>
-        Lös större problem där matematik används för att planera,
-        analysera, modellera och fatta beslut.
-      </p>
-
-      <div class="adventure-grid">
-
-        <a href="aventyr-8.html" class="adventure-card">
-          <h3>🏙️ Bygg framtidens stad</h3>
-          <p>
-            Använd skala, geometri, procent, budget, statistik och funktioner för att planera staden.
-          </p>
-        </a>
-
-
-        <a href="ak8-energin.html" class="adventure-card">
-          <h3>⚡ Energiutmaningen</h3>
-          <p>
-            Analysera förbrukning, procent, grafer och matematiska modeller.
-          </p>
-        </a>
-
-
-        <a href="ak8-kodlabbet.html" class="adventure-card">
-          <h3>🔐 Kodlabbet</h3>
-          <p>
-            Lös algebraiska samband, funktioner och logiska problem för att knäcka koderna.
-          </p>
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Jag vill...
-    </h2>
-
-    <p class="section-intro">
-      Välj hur du vill utveckla dina kunskaper vidare.
-    </p>
-
-    <div class="support-grid">
-
-      <a href="spel-ak8.html" class="support-card">
-        <div>🎮</div>
-        <h3>Spela</h3>
-        <p>
-          Träna algebra, funktioner, geometri och problemlösning genom spel.
-        </p>
-      </a>
-
-
-      <a href="strategier-ak8.html" class="support-card">
-        <div>🧩</div>
-        <h3>Strategibanken</h3>
-        <p>
-          Jämför metoder och utveckla effektiva problemlösningsstrategier.
-        </p>
-      </a>
-
-
-      <a href="begrepp-ak8.html" class="support-card">
-        <div>💬</div>
-        <h3>Språk & begrepp</h3>
-        <p>
-          Träna matematiska termer, symboler, samband och förklaringar.
-        </p>
-      </a>
-
-
-      <a href="stod-ak8.html" class="support-card">
-        <div>🛟</div>
-        <h3>Få hjälp</h3>
-        <p>
-          Få visuella modeller och förklaringar steg för steg.
-        </p>
-      </a>
-
-
-      <a href="utmaning-ak8.html" class="support-card">
-        <div>🚀</div>
-        <h3>Få en utmaning</h3>
-        <p>
-          Lös problem som kräver generalisering och flera matematiska idéer.
-        </p>
-      </a>
-
-
-      <a href="undersok-ak8.html" class="support-card">
-        <div>🔎</div>
-        <h3>Undersök matematik</h3>
-        <p>
-          Formulera hypoteser, testa dem och dra generella slutsatser.
-        </p>
-      </a>
-
-
-      <a href="verkligheten-ak8.html" class="support-card">
-        <div>🌍</div>
-        <h3>Matematik i verkligheten</h3>
-        <p>
-          Använd matematik inom ekonomi, klimat, teknik och samhälle.
-        </p>
-      </a>
-
-
-      <a href="veckansproblem-ak8.html" class="support-card">
-        <div>⭐</div>
-        <h3>Veckans problem</h3>
-        <p>
-          Lös ett större problem och argumentera för din lösning.
-        </p>
-      </a>
-
-
-      <a href="minresa-ak8.html" class="support-card">
-        <div>🏆</div>
-        <h3>Min matteresa</h3>
-        <p>
-          Följ din utveckling och se vad nästa steg är.
-        </p>
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <section>
 
     <div class="progression">
 
-      <h2>🔗 Din röda tråd</h2>
+      <div>🔍 Analysera</div>
+      <div>📈 Beskriva förändring</div>
+      <div>🔤 Generalisera</div>
+      <div>🌍 Modellera</div>
+      <div>💬 Argumentera</div>
 
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>🔢 Matematiska fokusområden</h2>
+
+    <p>
+      Detta är Matteresans pedagogiskt planerade fokus för årskurs 8.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+      <div class="icon">🔢</div>
+      <h3>Tal och beräkningar</h3>
+      <p>Fördjupa arbete med tal, potenser och säkra beräkningsstrategier.</p>
+      <ul>
+        <li>Negativa tal</li>
+        <li>Bråk och decimaltal</li>
+        <li>Potenser i enkla sammanhang</li>
+        <li>Prioriteringsregler</li>
+        <li>Överslagsräkning och kontroll</li>
+      </ul>
+    </article>
+
+
+    <article class="card">
+      <div class="icon">💯</div>
+      <h3>Procent och förändring</h3>
+      <p>Analysera ökning, minskning och förändring i flera sammanhang.</p>
+      <ul>
+        <li>Procentuell ökning</li>
+        <li>Procentuell minskning</li>
+        <li>Andel, del och helhet</li>
+        <li>Rabatt och prisförändring</li>
+        <li>Jämföra procentuell och faktisk förändring</li>
+      </ul>
+    </article>
+
+
+    <article class="card">
+      <div class="icon">🔤</div>
+      <h3>Algebraiska uttryck</h3>
+      <p>Bearbeta och tolka uttryck med större säkerhet.</p>
+      <ul>
+        <li>Variabler</li>
+        <li>Förenkla uttryck</li>
+        <li>Multiplicera in i parentes i enkla fall</li>
+        <li>Sätta in värden</li>
+        <li>Formulera uttryck från situationer</li>
+      </ul>
+    </article>
+
+
+    <article class="card">
+      <div class="icon">⚖️</div>
+      <h3>Ekvationer</h3>
+      <p>Förstå ekvationer som likheter där båda leden måste vara i balans.</p>
+      <ul>
+        <li>Lösa enkla ekvationer</li>
+        <li>Kontrollera lösningen</li>
+        <li>Formulera ekvationer från problem</li>
+        <li>Balansmodellen</li>
+      </ul>
+    </article>
+
+
+    <article class="card">
+      <div class="icon">📈</div>
+      <h3>Funktioner och grafer</h3>
+      <p>Beskriv hur två storheter hänger ihop och förändras.</p>
+      <ul>
+        <li>Koordinatsystem</li>
+        <li>Tabell–graf–uttryck</li>
+        <li>Linjära samband</li>
+        <li>Förändringstakt i enkla situationer</li>
+        <li>Tolka grafens betydelse</li>
+      </ul>
+    </article>
+
+
+    <article class="card">
+      <div class="icon">⚡</div>
+      <h3>Proportionalitet</h3>
+      <p>Fördjupa förståelsen för förhållanden och proportionella samband.</p>
+      <ul>
+        <li>Förhållanden</li>
+        <li>Jämförpris</li>
+        <li>Skala</li>
+        <li>Hastighet–tid–sträcka</li>
+        <li>Proportionella grafer</li>
+      </ul>
+    </article>
+
+
+    <article class="card">
+      <div class="icon">📐</div>
+      <h3>Geometri</h3>
+      <p>Analysera geometriska relationer och lösa problem i flera steg.</p>
+      <ul>
+        <li>Vinkelsamband</li>
+        <li>Area</li>
+        <li>Volym</li>
+        <li>Skala</li>
+        <li>Likformighet i lämpliga sammanhang</li>
+      </ul>
+    </article>
+
+
+    <article class="card">
+      <div class="icon">📊</div>
+      <h3>Statistik</h3>
+      <p>Analysera data och granska hur statistik presenteras.</p>
+      <ul>
+        <li>Lägesmått</li>
+        <li>Spridning i enkla sammanhang</li>
+        <li>Diagram</li>
+        <li>Urval</li>
+        <li>Vilseledande presentationer</li>
+      </ul>
+    </article>
+
+
+    <article class="card">
+      <div class="icon">🎲</div>
+      <h3>Sannolikhet</h3>
+      <p>Beräkna och resonera kring sammansatta slumpförsök.</p>
+      <ul>
+        <li>Möjliga utfall</li>
+        <li>Träddiagram i enkla situationer</li>
+        <li>Tvåstegsförsök</li>
+        <li>Teoretisk och experimentell sannolikhet</li>
+        <li>Rättvisa spel</li>
+      </ul>
+    </article>
+
+
+    <article class="card">
+      <div class="icon">🧩</div>
+      <h3>Problemlösning</h3>
+      <p>Välj och kombinera strategier när lösningsmetoden inte är given.</p>
+      <ul>
+        <li>Formulera antaganden</li>
+        <li>Välja representation</li>
+        <li>Arbeta systematiskt</li>
+        <li>Motivera lösningen</li>
+        <li>Granska rimlighet</li>
+      </ul>
+    </article>
+
+
+    <article class="card">
+      <div class="icon">🔁</div>
+      <h3>Mönster och generalisering</h3>
+      <p>Gå från konkreta exempel till algebraiska regler.</p>
+      <ul>
+        <li>Växande mönster</li>
+        <li>Tabeller</li>
+        <li>Uttryck</li>
+        <li>Generalisering med variabler</li>
+      </ul>
+    </article>
+
+
+    <article class="card">
+      <div class="icon">🌍</div>
+      <h3>Matematisk modellering</h3>
+      <p>Bygg modeller och diskutera hur väl de beskriver verkligheten.</p>
+      <ul>
+        <li>Göra antaganden</li>
+        <li>Välja variabler</li>
+        <li>Beräkna</li>
+        <li>Tolka resultat</li>
+        <li>Diskutera modellens begränsningar</li>
+      </ul>
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧠 Aktiviteter att använda direkt</h2>
+
+    <p>
+      Aktiviteter som tränar analys, modellering och generalisering.
+    </p>
+
+  </div>
+
+
+  <div class="activity-grid">
+
+    <article class="activity-card">
+      <span>💯</span>
+      <h3>Två rabatter</h3>
       <p>
-        I årskurs 8 utvecklar du förmågan att analysera samband
-        och formulera generella matematiska regler.
-        Nästa steg är att använda dessa kunskaper mer självständigt i årskurs 9.
+        En vara sänks först med 20 % och sedan med ytterligare 10 %.
+        Är det samma sak som 30 % rabatt? Förklara.
       </p>
+      <strong>Tränar procentuell förändring.</strong>
+    </article>
 
-      <div class="progression-row">
 
-        <div class="progression-card">
-          🧭<br>
-          <strong>Årskurs 7</strong>
-          <p>Fördjupa & koppla ihop</p>
-        </div>
+    <article class="activity-card">
+      <span>⚖️</span>
+      <h3>Ekvationsbalansen</h3>
+      <p>
+        Visa en ekvation som balans.
+        Vad måste göras på ena sidan om samma förändring ska bevara likheten?
+      </p>
+      <strong>Bygger ekvationsförståelse.</strong>
+    </article>
 
-        <div class="progression-card">
-          🔬<br>
-          <strong>Årskurs 8</strong>
-          <p>Analysera & generalisera</p>
-        </div>
 
-        <div class="progression-card">
-          🎯<br>
-          <strong>Årskurs 9</strong>
-          <p>Argumentera & använda självständigt</p>
-        </div>
+    <article class="activity-card">
+      <span>📈</span>
+      <h3>Taxiresan</h3>
+      <p>
+        Ett taxibolag tar en startavgift och ett pris per kilometer.
+        Gör tabell, graf och uttryck.
+      </p>
+      <strong>Linjära samband.</strong>
+    </article>
 
-      </div>
 
-      <a href="ak9.html" class="next-button">
-        Se nästa steg: Åk 9 →
+    <article class="activity-card">
+      <span>⚡</span>
+      <h3>Hastighetsjakten</h3>
+      <p>
+        Jämför två resor med olika sträcka och tid.
+        Beräkna och resonera om medelhastighet.
+      </p>
+      <strong>Hastighet–tid–sträcka.</strong>
+    </article>
+
+
+    <article class="activity-card">
+      <span>📐</span>
+      <h3>Skuggmätning</h3>
+      <p>
+        Använd skuggor och proportioner för att uppskatta höjden
+        på ett högt objekt.
+      </p>
+      <strong>Geometri och proportionalitet.</strong>
+    </article>
+
+
+    <article class="activity-card">
+      <span>📊</span>
+      <h3>Kan diagrammet lura oss?</h3>
+      <p>
+        Visa två diagram med samma data men olika skalor.
+        Diskutera vilket intryck de ger.
+      </p>
+      <strong>Kritisk statistik.</strong>
+    </article>
+
+
+    <article class="activity-card">
+      <span>🎲</span>
+      <h3>Tvåstegschansen</h3>
+      <p>
+        Undersök sannolikheten att få krona två gånger,
+        eller en viss kombination med två tärningar.
+      </p>
+      <strong>Tränar sammansatt sannolikhet.</strong>
+    </article>
+
+
+    <article class="activity-card">
+      <span>🔤</span>
+      <h3>Vilket uttryck passar?</h3>
+      <p>
+        Ge flera algebraiska uttryck och flera situationer.
+        Eleverna matchar och motiverar.
+      </p>
+      <strong>Algebraisk tolkning.</strong>
+    </article>
+
+
+    <article class="activity-card">
+      <span>🧩</span>
+      <h3>Mobilabonnemangen</h3>
+      <p>
+        Jämför två abonnemang med olika fasta och rörliga kostnader.
+        När är vilket billigast?
+      </p>
+      <strong>Problemlösning och funktioner.</strong>
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🪜 Stöd och 🚀 utmaning</h2>
+
+    <p>
+      Variera representation och abstraktionsnivå utan att ta bort den matematiska kärnan.
+    </p>
+
+  </div>
+
+
+  <div class="support-grid">
+
+    <section class="support help">
+      <h3>🪜 När eleven behöver stöd</h3>
+      <ul>
+        <li>Använd balansmodell vid ekvationer.</li>
+        <li>Arbeta från tabell till graf och därefter uttryck.</li>
+        <li>Färgmarkera förändring och startvärde i linjära samband.</li>
+        <li>Använd procentmodeller innan förändringsberäkningar abstraheras.</li>
+        <li>Rita proportionalitetsproblem.</li>
+        <li>Ge tydliga problemlösningssteg och språkstarter.</li>
+        <li>Kontrollera varje nytt symboliskt steg mot en konkret eller verbal betydelse.</li>
+      </ul>
+    </section>
+
+
+    <section class="support challenge">
+      <h3>🚀 När eleven behöver utmaning</h3>
+      <ul>
+        <li>Jämför två olika linjära modeller och hitta deras skärningspunkt.</li>
+        <li>Generalisera ett växande mönster algebraiskt.</li>
+        <li>Skapa en situation som passar ett givet uttryck eller en graf.</li>
+        <li>Undersök flera förändringar efter varandra.</li>
+        <li>Analysera begränsningarna i en matematisk modell.</li>
+        <li>Konstruera sannolikhetsproblem med ett bestämt önskat utfall.</li>
+        <li>Formulera och försvara ett matematiskt påstående.</li>
+      </ul>
+    </section>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Särskilt viktigt i årskurs 8</h2>
+
+    <ul>
+      <li>Se till att ekvationslösning bygger på förståelse av likhet och balans.</li>
+      <li>Knyt linjära samband till situation, tabell, graf och uttryck.</li>
+      <li>Arbeta med procentuell förändring som relation, inte bara en procedur.</li>
+      <li>Lyft skillnaden mellan proportionella och andra linjära samband.</li>
+      <li>Använd statistik för att träna kritisk granskning av presentation och urval.</li>
+      <li>Låt elever argumentera för varför en algebraisk metod fungerar.</li>
+      <li>Ge problemlösning där flera matematiska områden behöver kombineras.</li>
+      <li>Använd elevlösningar och exit tickets för att identifiera nästa undervisningssteg.</li>
+    </ul>
+
+
+    <div class="links">
+
+      <a href="ak7.html">
+        7️⃣ Årskurs 7
+      </a>
+
+      <a href="ak9.html">
+        9️⃣ Nästa: Årskurs 9
+      </a>
+
+      <a href="matteprat.html">
+        💬 Matteprat
+      </a>
+
+      <a href="problemlosning.html">
+        🧩 Problemlösning
+      </a>
+
+      <a href="undersok.html">
+        🔬 Undersök
+      </a>
+
+      <a href="larare-79.html">
+        👩‍🏫 Lärarstöd 7–9
       </a>
 
     </div>
 
   </section>
+
+
+  <div class="curriculum-note">
+
+    <strong>📘 Om Lgr22:</strong><br>
+    Matteresan är byggd med Lgr22 som grund.
+    Läroplanens centrala innehåll anges i bredare årskursintervall.
+    Innehållet på denna sida är därför
+    <strong>Matteresans pedagogiskt planerade progression för årskurs 8</strong>
+    och ska inte tolkas som att Lgr22 föreskriver exakt detta innehåll just i årskurs 8.
+
+  </div>
 
 </main>
 
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🔬 Årskurs 8 – Jag analyserar och generaliserar
+  <strong>HOLOS Matteresan F–9</strong><br>
+  8️⃣ Årskurs 8 • Analysera • Förändra • Modellera • Argumentera • Generalisera
 
 </footer>
 
