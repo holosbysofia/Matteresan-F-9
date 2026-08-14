@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Undersök matematiken | HOLOS Matteresan</title>
+  <title>Undersökande matematik | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,25 +15,36 @@
 
     :root {
       --dark: #17324d;
-      --green: #3f8f68;
-      --green-dark: #2d6b4c;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --pink-light: #ffe9f1;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -43,14 +54,14 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
-        linear-gradient(135deg, #285f48, #4b9a72);
+        radial-gradient(circle at top right, rgba(255,255,255,0.20), transparent 32%),
+        linear-gradient(135deg, #5f9470, #5d86ad, #8266a3);
       color: white;
-      padding: 22px 20px 58px;
+      padding: 22px 20px 64px;
     }
 
     .topbar {
-      max-width: 1150px;
+      max-width: 1180px;
       margin: auto;
       display: flex;
       justify-content: space-between;
@@ -59,26 +70,20 @@
     }
 
     .logo {
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 1px;
     }
 
     .back-link {
-      padding: 8px 15px;
-      border: 1px solid rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.75);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--green-dark);
-    }
-
     .hero {
-      max-width: 850px;
-      margin: 50px auto 0;
+      max-width: 960px;
+      margin: 48px auto 0;
       text-align: center;
     }
 
@@ -88,154 +93,139 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 4.8rem);
-      line-height: 1.05;
-      margin-bottom: 10px;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      line-height: 1.04;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.05rem, 3vw, 1.5rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 720px;
+      max-width: 860px;
       margin: auto;
-      color: #effff6;
-      font-size: 1.03rem;
+      color: #f7f9fb;
     }
 
     main {
-      max-width: 1150px;
+      max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
     }
 
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
+    .intro h2 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 30px;
+    .intro p {
       color: var(--muted);
     }
 
-    .intro-box {
-      background: var(--green-light);
-      border-radius: 28px;
-      padding: 36px;
+    .flow {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .flow div {
+      border-radius: 14px;
+      padding: 14px 10px;
       text-align: center;
-    }
-
-    .intro-box h2 {
       color: var(--dark);
-      margin-bottom: 12px;
+      font-weight: 800;
+      font-size: 0.84rem;
     }
 
-    .intro-box p {
-      max-width: 760px;
-      margin: auto;
-      color: #5c6872;
+    .flow div:nth-child(1) {
+      background: var(--green);
+    }
+
+    .flow div:nth-child(2) {
+      background: var(--blue);
+    }
+
+    .flow div:nth-child(3) {
+      background: var(--yellow);
+    }
+
+    .flow div:nth-child(4) {
+      background: var(--purple);
+    }
+
+    .flow div:nth-child(5) {
+      background: var(--teal);
+    }
+
+    .section-title {
+      margin: 42px 0 18px;
+    }
+
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.9rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
+      color: var(--muted);
     }
 
     .stage-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
     .stage-card {
-      border-radius: 24px;
-      padding: 30px 24px;
-      min-height: 245px;
-      display: flex;
-      flex-direction: column;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 20px;
+      padding: 24px;
+      min-height: 270px;
     }
 
-    .stage-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    .stage-card.green {
+      background: var(--green);
+      border-top: 7px solid var(--green-strong);
     }
 
-    .f3 {
-      background: var(--green-light);
+    .stage-card.blue {
+      background: var(--blue);
+      border-top: 7px solid var(--blue-strong);
     }
 
-    .m46 {
-      background: var(--blue-light);
-    }
-
-    .m79 {
-      background: var(--purple-light);
-    }
-
-    .stage-icon {
-      font-size: 3rem;
-      margin-bottom: 10px;
+    .stage-card.purple {
+      background: var(--purple);
+      border-top: 7px solid var(--purple-strong);
     }
 
     .stage-card h3 {
       color: var(--dark);
-      font-size: 1.45rem;
+      font-size: 1.25rem;
       margin-bottom: 8px;
     }
 
-    .stage-card p {
+    .stage-card p,
+    .stage-card li {
       color: var(--muted);
-      flex-grow: 1;
+      font-size: 0.86rem;
     }
 
-    .stage-button {
-      display: inline-block;
-      align-self: flex-start;
-      margin-top: 18px;
-      background: var(--dark);
-      color: white;
-      padding: 10px 17px;
-      border-radius: 999px;
-      font-weight: bold;
+    .stage-card ul {
+      margin: 10px 0 0 20px;
     }
 
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .process-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      text-align: center;
-      border: 1px solid #e6ebef;
-      min-height: 180px;
-    }
-
-    .process-card span {
-      display: block;
-      font-size: 2.3rem;
-      margin-bottom: 8px;
-    }
-
-    .process-card h3 {
-      color: var(--green-dark);
+    .stage-card li {
       margin-bottom: 6px;
-    }
-
-    .process-card p {
-      color: var(--muted);
-      font-size: 0.93rem;
     }
 
     .investigation-grid {
@@ -245,21 +235,26 @@
     }
 
     .investigation-card {
-      border-radius: 22px;
-      padding: 24px;
-      min-height: 200px;
-      border: 1px solid rgba(0,0,0,0.05);
-      transition: 0.2s;
+      background: white;
+      border-radius: 20px;
+      padding: 23px;
+      min-height: 300px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      display: flex;
+      flex-direction: column;
+      border-top: 6px solid var(--green-strong);
     }
 
-    .investigation-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
+    .investigation-card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
     }
 
-    .investigation-card span {
-      display: block;
-      font-size: 2.5rem;
+    .investigation-card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .investigation-card .icon {
+      font-size: 2.2rem;
       margin-bottom: 8px;
     }
 
@@ -268,166 +263,142 @@
       margin-bottom: 7px;
     }
 
-    .investigation-card p {
+    .investigation-card p,
+    .investigation-card li {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.86rem;
     }
 
-    .c1 { background: var(--yellow-light); }
-    .c2 { background: var(--green-light); }
-    .c3 { background: var(--blue-light); }
-    .c4 { background: var(--orange-light); }
-    .c5 { background: var(--purple-light); }
-    .c6 { background: var(--pink-light); }
-
-    .example-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 35%),
-        linear-gradient(135deg, #244f42, #3f8064);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: center;
+    .investigation-card ul {
+      margin: 10px 0 14px 20px;
     }
 
-    .example-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+    .investigation-card li {
+      margin-bottom: 5px;
     }
 
-    .example-box > div:first-child p {
-      color: #effff6;
-    }
-
-    .example-card {
-      background: white;
-      color: var(--text);
-      border-radius: 20px;
-      padding: 25px;
-    }
-
-    .step {
-      margin-top: 10px;
-      background: #f5f7f8;
-      border-radius: 12px;
-      padding: 11px 14px;
+    .investigation-card strong {
+      margin-top: auto;
+      color: var(--dark);
+      font-size: 0.82rem;
     }
 
     .question-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
 
     .question-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      border: 1px solid #e6ebef;
-      min-height: 165px;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 180px;
     }
 
-    .question-card span {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 8px;
+    .question-card:nth-child(4n+1) {
+      background: var(--green);
+    }
+
+    .question-card:nth-child(4n+2) {
+      background: var(--blue);
+    }
+
+    .question-card:nth-child(4n+3) {
+      background: var(--yellow);
+    }
+
+    .question-card:nth-child(4n+4) {
+      background: var(--purple);
     }
 
     .question-card h3 {
       color: var(--dark);
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
 
     .question-card p {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.88rem;
     }
 
-    .rules-box {
-      background: var(--green-light);
-      border-radius: 28px;
-      padding: 36px;
+    .teacher-box {
+      margin-top: 42px;
+      background: var(--teal);
+      border-radius: 22px;
+      padding: 26px;
     }
 
-    .rules-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 25px;
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
     }
 
-    .rule-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      text-align: center;
+    .teacher-box p,
+    .teacher-box li {
+      color: var(--muted);
     }
 
-    .rule-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
+    .teacher-box ul {
+      margin: 10px 0 0 22px;
     }
 
-    .rule-card h3 {
-      color: var(--green-dark);
+    .teacher-box li {
       margin-bottom: 6px;
     }
 
-    .rule-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
+    .tip {
+      margin-top: 24px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 15px;
+      padding: 18px;
+      color: #665831;
+    }
+
+    .links {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .links a {
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.8rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 950px) {
-      .process-grid,
-      .rules-grid {
+    @media (max-width: 1000px) {
+      .stage-grid,
+      .investigation-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .investigation-grid,
-      .question-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .example-box {
-        grid-template-columns: 1fr;
+      .flow {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 750px) {
-      .stage-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .process-grid,
+      .stage-grid,
       .investigation-grid,
       .question-grid,
-      .rules-grid {
+      .flow {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .example-box,
-      .rules-box {
-        padding: 25px 18px;
       }
 
       main {
@@ -436,24 +407,55 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
-      main {
-        padding: 0;
-        max-width: none;
+      .flow div:nth-child(1),
+      .stage-card.green,
+      .question-card:nth-child(4n+1) {
+        background: var(--green) !important;
       }
 
-      section {
-        break-inside: avoid;
+      .flow div:nth-child(2),
+      .stage-card.blue,
+      .question-card:nth-child(4n+2) {
+        background: var(--blue) !important;
+      }
+
+      .flow div:nth-child(3),
+      .question-card:nth-child(4n+3),
+      .tip {
+        background: var(--yellow) !important;
+      }
+
+      .flow div:nth-child(4),
+      .stage-card.purple,
+      .question-card:nth-child(4n+4) {
+        background: var(--purple) !important;
+      }
+
+      .flow div:nth-child(5),
+      .teacher-box {
+        background: var(--teal) !important;
       }
     }
   </style>
@@ -466,7 +468,7 @@
   <div class="topbar">
 
     <div class="logo">
-      HOLOS MATTERESAN
+      HOLOS MATTERESAN F–9
     </div>
 
     <a href="index.html" class="back-link">
@@ -475,17 +477,20 @@
 
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">🔎</div>
+    <div class="hero-icon">🔬🧠📊</div>
 
-    <h1>Undersök matematiken</h1>
+    <h1>Undersökande matematik</h1>
 
-    <h2>Fråga • Prova • Upptäck • Förklara</h2>
+    <h2>Upptäck • Pröva • Samla • Jämför • Generalisera</h2>
 
     <p>
-      Här får du undersöka matematiska idéer, leta efter mönster,
-      testa hypoteser och försöka förstå varför något fungerar.
+      I undersökande matematik får eleverna upptäcka samband,
+      pröva idéer, samla resultat och formulera egna slutsatser.
+      Fokus flyttas från att bara följa en metod
+      till att undersöka hur matematiken faktiskt fungerar.
     </p>
 
   </div>
@@ -495,388 +500,560 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>🔬 Vad betyder undersökande matematik?</h2>
 
-      <h2>💡 Matematik är något du kan undersöka</h2>
+    <p>
+      Eleverna får en fråga eller situation där svaret inte är det enda viktiga.
+      De behöver prova flera exempel, organisera sina resultat,
+      leta efter mönster och försöka förklara varför något händer.
+      En undersökning kan vara kort och ta tio minuter
+      eller utvecklas till ett helt lektionsområde.
+    </p>
+
+    <div class="flow">
+
+      <div>❓ Fråga</div>
+      <div>🧪 Pröva</div>
+      <div>📝 Samla</div>
+      <div>🔎 Upptäck</div>
+      <div>💬 Förklara</div>
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>🌱🔵🟣 Progression F–9</h2>
+
+    <p>
+      Undersökandet utvecklas från konkret upptäckande till generalisering och modellering.
+    </p>
+
+  </div>
+
+
+  <div class="stage-grid">
+
+    <section class="stage-card green">
+
+      <h3>🌱 F–3</h3>
 
       <p>
-        Du behöver inte alltid börja med en färdig regel.
-        Ibland kan du prova exempel, samla information,
-        upptäcka ett mönster och själv formulera en matematisk idé.
+        Eleverna undersöker genom att bygga, sortera, rita och jämföra.
       </p>
 
-    </div>
+      <ul>
+        <li>Vad händer om...?</li>
+        <li>Hur många sätt finns?</li>
+        <li>Vad är lika och olika?</li>
+        <li>Vilket mönster ser du?</li>
+        <li>Kan du visa på ett annat sätt?</li>
+        <li>Kan du hitta fler exempel?</li>
+      </ul>
 
-  </section>
+    </section>
 
 
-  <section>
+    <section class="stage-card blue">
 
-    <h2 class="section-title">
-      Välj din nivå
-    </h2>
+      <h3>🔵 4–6</h3>
 
-    <p class="section-intro">
-      Undersökningarna utvecklas från konkreta upptäckter till generaliseringar och matematiska modeller.
-    </p>
-
-    <div class="stage-grid">
-
-      <a href="undersok-f3.html" class="stage-card f3">
-        <div class="stage-icon">🌱</div>
-        <h3>Undersök F–3</h3>
-        <p>
-          Bygg, sortera, jämför, rita och upptäck mönster med tal och former.
-        </p>
-        <span class="stage-button">
-          Utforska F–3 →
-        </span>
-      </a>
-
-      <a href="undersok-46.html" class="stage-card m46">
-        <div class="stage-icon">🌿</div>
-        <h3>Undersök 4–6</h3>
-        <p>
-          Testa idéer, gör tabeller, upptäck samband och formulera hypoteser.
-        </p>
-        <span class="stage-button">
-          Utforska 4–6 →
-        </span>
-      </a>
-
-      <a href="undersok-79.html" class="stage-card m79">
-        <div class="stage-icon">🚀</div>
-        <h3>Undersök 7–9</h3>
-        <p>
-          Generalisera, modellera, analysera och argumentera för matematiska samband.
-        </p>
-        <span class="stage-button">
-          Utforska 7–9 →
-        </span>
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Så arbetar en matematikdetektiv
-    </h2>
-
-    <p class="section-intro">
-      En matematisk undersökning kan börja med en enkel fråga.
-    </p>
-
-    <div class="process-grid">
-
-      <div class="process-card">
-        <span>❓</span>
-        <h3>1. Fråga</h3>
-        <p>
-          Vad vill du veta? Vad verkar intressant eller märkligt?
-        </p>
-      </div>
-
-      <div class="process-card">
-        <span>🧪</span>
-        <h3>2. Prova</h3>
-        <p>
-          Testa flera exempel och dokumentera vad som händer.
-        </p>
-      </div>
-
-      <div class="process-card">
-        <span>🔎</span>
-        <h3>3. Upptäck</h3>
-        <p>
-          Leta efter mönster, skillnader och samband.
-        </p>
-      </div>
-
-      <div class="process-card">
-        <span>🗣️</span>
-        <h3>4. Förklara</h3>
-        <p>
-          Formulera vad du tror gäller och förklara varför.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Vad vill du undersöka?
-    </h2>
-
-    <p class="section-intro">
-      Välj ett område och börja leta efter matematiska samband.
-    </p>
-
-    <div class="investigation-grid">
-
-      <a href="undersok-tal.html" class="investigation-card c1">
-        <span>🔢</span>
-        <h3>Tal</h3>
-        <p>
-          Undersök jämna och udda tal, delbarhet, siffermönster och talföljder.
-        </p>
-      </a>
-
-      <a href="undersok-raknesatt.html" class="investigation-card c2">
-        <span>➕➖✖️➗</span>
-        <h3>Räknesätt</h3>
-        <p>
-          Vad händer när tal förändras? Vilka samband finns mellan räknesätten?
-        </p>
-      </a>
-
-      <a href="undersok-monster.html" class="investigation-card c3">
-        <span>🧩</span>
-        <h3>Mönster</h3>
-        <p>
-          Bygg, fortsätt och beskriv mönster med tal, figurer och symboler.
-        </p>
-      </a>
-
-      <a href="undersok-geometri.html" class="investigation-card c4">
-        <span>📐</span>
-        <h3>Geometri</h3>
-        <p>
-          Undersök former, vinklar, area, omkrets, volym och geometriska samband.
-        </p>
-      </a>
-
-      <a href="undersok-brak.html" class="investigation-card c5">
-        <span>🍕</span>
-        <h3>Bråk, decimal & procent</h3>
-        <p>
-          Undersök hur olika representationer kan beskriva samma tal.
-        </p>
-      </a>
-
-      <a href="undersok-algebra.html" class="investigation-card c6">
-        <span>🔤</span>
-        <h3>Algebra</h3>
-        <p>
-          Upptäck regler och försök beskriva dem med symboler och uttryck.
-        </p>
-      </a>
-
-      <a href="undersok-statistik.html" class="investigation-card c1">
-        <span>📊</span>
-        <h3>Statistik</h3>
-        <p>
-          Samla data, jämför resultat och undersök hur presentation påverkar tolkningen.
-        </p>
-      </a>
-
-      <a href="undersok-sannolikhet.html" class="investigation-card c2">
-        <span>🎲</span>
-        <h3>Sannolikhet</h3>
-        <p>
-          Gör slumpförsök och jämför vad du tror ska hända med vad som faktiskt händer.
-        </p>
-      </a>
-
-      <a href="undersok-samband.html" class="investigation-card c3">
-        <span>📈</span>
-        <h3>Samband & förändring</h3>
-        <p>
-          Undersök hur två storheter förändras tillsammans med tabeller, grafer och formler.
-        </p>
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="example-box">
-
-      <div>
-
-        <h2>🔎 Exempel: Vad händer med summan?</h2>
-
-        <p>
-          En bra undersökning kan börja med en mycket enkel förändring.
-          Sedan provar du flera exempel och försöker formulera en regel.
-        </p>
-
-      </div>
-
-      <div class="example-card">
-
-        <strong>Undersök:</strong>
-
-        <h2 style="margin-top:12px;">
-          8 + 5 = 13
-        </h2>
-
-        <div class="step">
-          ➕ Öka båda talen med 1.
-        </div>
-
-        <div class="step">
-          🔎 Vad händer med summan?
-        </div>
-
-        <div class="step">
-          🧪 Prova med flera olika tal.
-        </div>
-
-        <div class="step">
-          🧠 Kan du formulera en regel?
-        </div>
-
-        <div class="step">
-          🚀 Gäller regeln alltid?
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Frågor som hjälper dig att undersöka
-    </h2>
-
-    <p class="section-intro">
-      Använd frågorna när du vill komma längre i din undersökning.
-    </p>
-
-    <div class="question-grid">
-
-      <div class="question-card">
-        <span>👀</span>
-        <h3>Vad ser du?</h3>
-        <p>
-          Beskriv det du lägger märke till innan du försöker förklara.
-        </p>
-      </div>
-
-      <div class="question-card">
-        <span>🔄</span>
-        <h3>Vad förändras?</h3>
-        <p>
-          Vilka delar ändras och vilka delar är oförändrade?
-        </p>
-      </div>
-
-      <div class="question-card">
-        <span>🧩</span>
-        <h3>Finns ett mönster?</h3>
-        <p>
-          Leta efter något som upprepas eller förändras regelbundet.
-        </p>
-      </div>
-
-      <div class="question-card">
-        <span>🧪</span>
-        <h3>Har du provat tillräckligt?</h3>
-        <p>
-          Testa flera exempel innan du bestämmer dig för en regel.
-        </p>
-      </div>
-
-      <div class="question-card">
-        <span>❌</span>
-        <h3>Kan du hitta ett motexempel?</h3>
-        <p>
-          Försök hitta ett exempel där din idé inte fungerar.
-        </p>
-      </div>
-
-      <div class="question-card">
-        <span>🗣️</span>
-        <h3>Hur kan du övertyga någon?</h3>
-        <p>
-          Förklara varför din slutsats bör gälla.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="rules-box">
-
-      <h2 class="section-title">
-        Fyra viktiga tankar
-      </h2>
-
-      <p class="section-intro">
-        När du undersöker matematik är själva tänkandet lika viktigt som svaret.
+      <p>
+        Eleverna samlar resultat och börjar formulera tydligare regler.
       </p>
 
-      <div class="rules-grid">
+      <ul>
+        <li>Göra tabeller</li>
+        <li>Jämföra strategier</li>
+        <li>Undersöka förändring</li>
+        <li>Formulera hypoteser</li>
+        <li>Pröva om en regel håller</li>
+        <li>Förklara samband</li>
+      </ul>
 
-        <div class="rule-card">
-          <span>💡</span>
-          <h3>Våga gissa</h3>
-          <p>
-            En hypotes är en idé som du sedan kan testa.
-          </p>
-        </div>
+    </section>
 
-        <div class="rule-card">
-          <span>🧪</span>
-          <h3>Våga prova</h3>
-          <p>
-            Flera exempel kan hjälpa dig att upptäcka en struktur.
-          </p>
-        </div>
 
-        <div class="rule-card">
-          <span>❌</span>
-          <h3>Våga ha fel</h3>
-          <p>
-            Ett motexempel kan hjälpa dig att förbättra din idé.
-          </p>
-        </div>
+    <section class="stage-card purple">
 
-        <div class="rule-card">
-          <span>🚀</span>
-          <h3>Våga generalisera</h3>
-          <p>
-            Försök beskriva vad som gäller även i nya situationer.
-          </p>
-        </div>
+      <h3>🟣 7–9</h3>
 
-      </div>
+      <p>
+        Eleverna går mot generalisering, algebraiska uttryck och modeller.
+      </p>
 
-    </div>
+      <ul>
+        <li>Formulera antaganden</li>
+        <li>Generaliserade regler</li>
+        <li>Algebraiska representationer</li>
+        <li>Grafer och funktioner</li>
+        <li>Motexempel</li>
+        <li>Diskutera modellens begränsningar</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧪 Tolv undersökningar att prova</h2>
+
+    <p>
+      Ändra tal och krav på förklaring för att anpassa till elevernas nivå.
+    </p>
+
+  </div>
+
+
+  <div class="investigation-grid">
+
+    <article class="investigation-card">
+
+      <div class="icon">🔢</div>
+
+      <h3>1. Hur många sätt?</h3>
+
+      <p>
+        Välj ett tal, exempelvis 10.
+        Hur många olika sätt kan talet delas upp i två delar?
+      </p>
+
+      <ul>
+        <li>10 = 1 + 9</li>
+        <li>10 = 2 + 8</li>
+        <li>Fortsätt systematiskt</li>
+        <li>Hur vet du att alla finns med?</li>
+      </ul>
+
+      <strong>
+        F–3 • Taluppfattning
+      </strong>
+
+    </article>
+
+
+    <article class="investigation-card">
+
+      <div class="icon">🟦</div>
+
+      <h3>2. Rektanglar med samma area</h3>
+
+      <p>
+        Skapa så många rektanglar som möjligt
+        med arean 24 rutor.
+      </p>
+
+      <ul>
+        <li>Vilka sidlängder fungerar?</li>
+        <li>Beräkna omkretsen</li>
+        <li>Vad förändras?</li>
+        <li>Vad är konstant?</li>
+      </ul>
+
+      <strong>
+        3–9 • Area och omkrets
+      </strong>
+
+    </article>
+
+
+    <article class="investigation-card">
+
+      <div class="icon">🎲</div>
+
+      <h3>3. Vilken summa kommer oftast?</h3>
+
+      <p>
+        Kasta två tärningar många gånger
+        och registrera summan.
+      </p>
+
+      <ul>
+        <li>Gör en hypotes först</li>
+        <li>Samla resultat</li>
+        <li>Gör diagram</li>
+        <li>Förklara varför vissa summor är vanligare</li>
+      </ul>
+
+      <strong>
+        3–9 • Sannolikhet
+      </strong>
+
+    </article>
+
+
+    <article class="investigation-card">
+
+      <div class="icon">🔁</div>
+
+      <h3>4. Växande figurer</h3>
+
+      <p>
+        Bygg figur 1, 2, 3 och 4 med stickor eller rutor.
+        Fortsätt serien.
+      </p>
+
+      <ul>
+        <li>Gör en tabell</li>
+        <li>Vad förändras?</li>
+        <li>Hur många behövs i figur 10?</li>
+        <li>Kan du skriva en regel?</li>
+      </ul>
+
+      <strong>
+        2–9 • Mönster och algebra
+      </strong>
+
+    </article>
+
+
+    <article class="investigation-card">
+
+      <div class="icon">🍕</div>
+
+      <h3>5. Bråkfamiljer</h3>
+
+      <p>
+        Undersök vilka bråk som har samma värde som 1/2.
+      </p>
+
+      <ul>
+        <li>Visa med modeller</li>
+        <li>Placera på tallinje</li>
+        <li>Skriv flera exempel</li>
+        <li>Vad händer med täljare och nämnare?</li>
+      </ul>
+
+      <strong>
+        4–7 • Likvärdiga bråk
+      </strong>
+
+    </article>
+
+
+    <article class="investigation-card">
+
+      <div class="icon">💯</div>
+
+      <h3>6. Procentfamiljen</h3>
+
+      <p>
+        Undersök 50 %, 25 %, 10 % och 1 %
+        av olika tal.
+      </p>
+
+      <ul>
+        <li>Vilka genvägar upptäcker du?</li>
+        <li>Hur kan 5 % hittas?</li>
+        <li>Hur kan 15 % hittas?</li>
+        <li>Vilka samband finns?</li>
+      </ul>
+
+      <strong>
+        5–9 • Procent
+      </strong>
+
+    </article>
+
+
+    <article class="investigation-card">
+
+      <div class="icon">📏</div>
+
+      <h3>7. Hur nära kan vi uppskatta?</h3>
+
+      <p>
+        Uppskatta längd, massa, volym eller tid
+        innan ni mäter.
+      </p>
+
+      <ul>
+        <li>Dokumentera uppskattningen</li>
+        <li>Mät</li>
+        <li>Beräkna skillnaden</li>
+        <li>Blir ni bättre efter flera försök?</li>
+      </ul>
+
+      <strong>
+        F–6 • Mätning och rimlighet
+      </strong>
+
+    </article>
+
+
+    <article class="investigation-card">
+
+      <div class="icon">📊</div>
+
+      <h3>8. Klassens data</h3>
+
+      <p>
+        Samla data kring en tydlig fråga
+        och undersök hur resultatet kan beskrivas.
+      </p>
+
+      <ul>
+        <li>Gör tabell</li>
+        <li>Välj diagram</li>
+        <li>Beräkna lägesmått där det passar</li>
+        <li>Vilka slutsatser är rimliga?</li>
+      </ul>
+
+      <strong>
+        3–9 • Statistik
+      </strong>
+
+    </article>
+
+
+    <article class="investigation-card">
+
+      <div class="icon">📐</div>
+
+      <h3>9. Vinkelsumman</h3>
+
+      <p>
+        Rita flera trianglar.
+        Mät eller klipp ut vinklarna
+        och undersök summan.
+      </p>
+
+      <ul>
+        <li>Vad upptäcker du?</li>
+        <li>Gäller det alla trianglar?</li>
+        <li>Hur kan du övertyga någon?</li>
+      </ul>
+
+      <strong>
+        5–9 • Geometri
+      </strong>
+
+    </article>
+
+
+    <article class="investigation-card">
+
+      <div class="icon">📈</div>
+
+      <h3>10. Från tabell till graf</h3>
+
+      <p>
+        Välj en situation där två storheter förändras tillsammans,
+        exempelvis kostnad och antal.
+      </p>
+
+      <ul>
+        <li>Skapa tabell</li>
+        <li>Rita graf</li>
+        <li>Beskriv förändringen</li>
+        <li>Formulera regel</li>
+      </ul>
+
+      <strong>
+        6–9 • Funktioner och samband
+      </strong>
+
+    </article>
+
+
+    <article class="investigation-card">
+
+      <div class="icon">⚖️</div>
+
+      <h3>11. När är sambandet proportionellt?</h3>
+
+      <p>
+        Jämför flera situationer:
+        pris per kilo, taxiresa, recept och inträdesavgift.
+      </p>
+
+      <ul>
+        <li>Gör tabeller</li>
+        <li>Rita grafer</li>
+        <li>Vad kännetecknar proportionalitet?</li>
+        <li>Skapa ett motexempel</li>
+      </ul>
+
+      <strong>
+        6–9 • Proportionalitet
+      </strong>
+
+    </article>
+
+
+    <article class="investigation-card">
+
+      <div class="icon">🌍</div>
+
+      <h3>12. Bygg en matematisk modell</h3>
+
+      <p>
+        Välj en verklig situation,
+        exempelvis mobilkostnad, resa eller energiförbrukning.
+      </p>
+
+      <ul>
+        <li>Vilka variabler behövs?</li>
+        <li>Vilka antaganden gör ni?</li>
+        <li>Skapa tabell, graf eller uttryck</li>
+        <li>När fungerar modellen inte längre?</li>
+      </ul>
+
+      <strong>
+        7–9 • Modellering
+      </strong>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>❓ Frågor som driver undersökningen vidare</h2>
+
+    <p>
+      Bra frågor hjälper eleverna att se struktur utan att läraren avslöjar upptäckten.
+    </p>
+
+  </div>
+
+
+  <div class="question-grid">
+
+    <article class="question-card">
+
+      <h3>🔍 Se mönster</h3>
+
+      <p>
+        Vad lägger du märke till?<br><br>
+        Vad förändras?<br><br>
+        Vad verkar vara samma varje gång?
+      </p>
+
+    </article>
+
+
+    <article class="question-card">
+
+      <h3>🧪 Pröva vidare</h3>
+
+      <p>
+        Vad händer om du provar ett större tal?<br><br>
+        Ett mindre tal?<br><br>
+        Ett extremt fall?
+      </p>
+
+    </article>
+
+
+    <article class="question-card">
+
+      <h3>💡 Formulera idé</h3>
+
+      <p>
+        Vad tror du kommer hända?<br><br>
+        Kan du formulera en regel?<br><br>
+        Hur skulle du skriva den med ord?
+      </p>
+
+    </article>
+
+
+    <article class="question-card">
+
+      <h3>✅ Kontrollera</h3>
+
+      <p>
+        Gäller din regel alltid?<br><br>
+        Kan du hitta ett motexempel?<br><br>
+        Hur kan du övertyga någon annan?
+      </p>
+
+    </article>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Lärarens roll i en undersökande lektion</h2>
+
+    <p>
+      Läraren planerar den matematiska riktningen,
+      men lämnar själva upptäckten till eleverna.
+    </p>
+
+    <ul>
+      <li>Välj en fråga som innehåller ett tydligt matematiskt samband.</li>
+      <li>Ge eleverna tid att prova innan en metod visas.</li>
+      <li>Uppmuntra dokumentation med tabell, bild eller symboler.</li>
+      <li>Ställ frågor som öppnar tänkandet snarare än ger svaret.</li>
+      <li>Samla olika elevresultat.</li>
+      <li>Låt elever jämföra upptäckter.</li>
+      <li>Avsluta med att formulera den matematiska idén gemensamt.</li>
+      <li>Visa hur upptäckten kan uttryckas mer generellt när det är lämpligt.</li>
+    </ul>
 
   </section>
+
+
+  <div class="tip">
+
+    <strong>⭐ Kom ihåg:</strong><br>
+    Undersökande matematik betyder inte att eleverna ska lämnas helt själva.
+    Läraren behöver ha ett tydligt matematiskt mål,
+    välja produktiva exempel och hjälpa klassen att
+    <strong>sammanfatta vad undersökningen faktiskt visar</strong>.
+
+  </div>
+
+
+  <div class="links">
+
+    <a href="problemlosning.html">
+      🧩 Problemlösning
+    </a>
+
+    <a href="matteprat.html">
+      💬 Matteprat
+    </a>
+
+    <a href="aventyr.html">
+      🗺️ Matematikäventyr
+    </a>
+
+    <a href="verkligheten.html">
+      🌍 Matematik i verkligheten
+    </a>
+
+    <a href="elevblad-undersok.html">
+      ✏️ Elevblad undersök
+    </a>
+
+    <a href="larare-konkret.html">
+      🧱 Laborativt lärarstöd
+    </a>
+
+    <a href="larare-undervisning.html">
+      👩‍🏫 Undervisningsstöd
+    </a>
+
+  </div>
 
 </main>
 
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🔎 Undersök matematiken – fråga, prova, upptäck och förklara
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🔬 Undersökande matematik • Upptäck • Pröva • Samla • Jämför • Generalisera
 
 </footer>
 
