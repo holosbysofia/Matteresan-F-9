@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Utmana mig | HOLOS Matteresan</title>
+  <title>Utmaning i matematik | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,25 +15,36 @@
 
     :root {
       --dark: #17324d;
-      --purple: #7657c9;
-      --purple-dark: #503c98;
-      --purple-light: #f1edff;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --pink-light: #ffe9f1;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -43,14 +54,14 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
-        linear-gradient(135deg, #503c98, #8069d6);
+        radial-gradient(circle at top right, rgba(255,255,255,0.20), transparent 32%),
+        linear-gradient(135deg, #5f9470, #5d86ad, #8266a3);
       color: white;
-      padding: 22px 20px 58px;
+      padding: 22px 20px 64px;
     }
 
     .topbar {
-      max-width: 1150px;
+      max-width: 1180px;
       margin: auto;
       display: flex;
       justify-content: space-between;
@@ -59,26 +70,20 @@
     }
 
     .logo {
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 1px;
     }
 
     .back-link {
-      padding: 8px 15px;
-      border: 1px solid rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.75);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--purple-dark);
-    }
-
     .hero {
-      max-width: 850px;
-      margin: 50px auto 0;
+      max-width: 960px;
+      margin: 48px auto 0;
       text-align: center;
     }
 
@@ -88,115 +93,139 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 4.8rem);
-      line-height: 1.05;
-      margin-bottom: 10px;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      line-height: 1.04;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.05rem, 3vw, 1.5rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 720px;
+      max-width: 860px;
       margin: auto;
-      color: #f5f2ff;
-      font-size: 1.03rem;
+      color: #f7f9fb;
     }
 
     main {
-      max-width: 1150px;
+      max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
     }
 
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
+    .intro h2 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 30px;
+    .intro p {
       color: var(--muted);
     }
 
-    .intro-box {
-      background: var(--purple-light);
-      border-radius: 28px;
-      padding: 36px;
+    .flow {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .flow div {
+      border-radius: 14px;
+      padding: 14px 10px;
       text-align: center;
-    }
-
-    .intro-box h2 {
       color: var(--dark);
-      margin-bottom: 12px;
+      font-weight: 800;
+      font-size: 0.84rem;
     }
 
-    .intro-box p {
-      max-width: 780px;
-      margin: auto;
-      color: #5c6872;
+    .flow div:nth-child(1) {
+      background: var(--green);
+    }
+
+    .flow div:nth-child(2) {
+      background: var(--blue);
+    }
+
+    .flow div:nth-child(3) {
+      background: var(--yellow);
+    }
+
+    .flow div:nth-child(4) {
+      background: var(--purple);
+    }
+
+    .flow div:nth-child(5) {
+      background: var(--teal);
+    }
+
+    .section-title {
+      margin: 42px 0 18px;
+    }
+
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.9rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
+      color: var(--muted);
     }
 
     .stage-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
     .stage-card {
-      border-radius: 24px;
-      padding: 30px 24px;
-      min-height: 245px;
-      display: flex;
-      flex-direction: column;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 20px;
+      padding: 24px;
+      min-height: 270px;
     }
 
-    .stage-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    .stage-card.green {
+      background: var(--green);
+      border-top: 7px solid var(--green-strong);
     }
 
-    .f3 { background: var(--green-light); }
-    .m46 { background: var(--blue-light); }
-    .m79 { background: var(--purple-light); }
+    .stage-card.blue {
+      background: var(--blue);
+      border-top: 7px solid var(--blue-strong);
+    }
 
-    .stage-icon {
-      font-size: 3rem;
-      margin-bottom: 10px;
+    .stage-card.purple {
+      background: var(--purple);
+      border-top: 7px solid var(--purple-strong);
     }
 
     .stage-card h3 {
       color: var(--dark);
-      font-size: 1.45rem;
+      font-size: 1.25rem;
       margin-bottom: 8px;
     }
 
-    .stage-card p {
+    .stage-card p,
+    .stage-card li {
       color: var(--muted);
-      flex-grow: 1;
+      font-size: 0.86rem;
     }
 
-    .stage-button {
-      display: inline-block;
-      align-self: flex-start;
-      margin-top: 18px;
-      background: var(--dark);
-      color: white;
-      padding: 10px 17px;
-      border-radius: 999px;
-      font-weight: bold;
+    .stage-card ul {
+      margin: 10px 0 0 20px;
+    }
+
+    .stage-card li {
+      margin-bottom: 6px;
     }
 
     .challenge-grid {
@@ -206,21 +235,26 @@
     }
 
     .challenge-card {
-      border-radius: 22px;
-      padding: 24px;
-      min-height: 205px;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.05);
+      background: white;
+      border-radius: 20px;
+      padding: 23px;
+      min-height: 290px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--green-strong);
+      display: flex;
+      flex-direction: column;
     }
 
-    .challenge-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
+    .challenge-card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
     }
 
-    .challenge-card span {
-      font-size: 2.5rem;
-      display: block;
+    .challenge-card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .challenge-card .icon {
+      font-size: 2.2rem;
       margin-bottom: 8px;
     }
 
@@ -229,166 +263,167 @@
       margin-bottom: 7px;
     }
 
-    .challenge-card p {
+    .challenge-card p,
+    .challenge-card li {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.86rem;
     }
 
-    .c1 { background: var(--yellow-light); }
-    .c2 { background: var(--green-light); }
-    .c3 { background: var(--blue-light); }
-    .c4 { background: var(--orange-light); }
-    .c5 { background: var(--purple-light); }
-    .c6 { background: var(--pink-light); }
+    .challenge-card ul {
+      margin: 10px 0 14px 20px;
+    }
 
-    .example-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 35%),
-        linear-gradient(135deg, #30235f, #5b489b);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
+    .challenge-card li {
+      margin-bottom: 5px;
+    }
+
+    .challenge-card strong {
+      margin-top: auto;
+      color: var(--dark);
+      font-size: 0.82rem;
+    }
+
+    .task-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: center;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
-    .example-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .example-box > div:first-child p {
-      color: #f5f2ff;
-    }
-
-    .example-card {
-      background: white;
-      color: var(--text);
-      border-radius: 20px;
-      padding: 25px;
-    }
-
-    .step {
-      margin-top: 10px;
-      background: #f5f7f8;
-      border-radius: 12px;
-      padding: 11px 14px;
-    }
-
-    .thinking-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .thinking-card {
-      background: white;
-      border-radius: 20px;
+    .task-card {
+      border-radius: 18px;
       padding: 22px;
-      text-align: center;
-      border: 1px solid #e6ebef;
-      min-height: 180px;
+      min-height: 225px;
     }
 
-    .thinking-card span {
-      font-size: 2.3rem;
-      display: block;
+    .task-card:nth-child(6n+1) {
+      background: var(--green);
+    }
+
+    .task-card:nth-child(6n+2) {
+      background: var(--blue);
+    }
+
+    .task-card:nth-child(6n+3) {
+      background: var(--yellow);
+    }
+
+    .task-card:nth-child(6n+4) {
+      background: var(--purple);
+    }
+
+    .task-card:nth-child(6n+5) {
+      background: var(--teal);
+    }
+
+    .task-card:nth-child(6n+6) {
+      background: var(--pink);
+    }
+
+    .task-card h3 {
+      color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .thinking-card h3 {
-      color: var(--purple-dark);
+    .task-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .task-card .question {
+      margin-top: 12px;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .task-card .label {
+      display: inline-block;
+      margin-top: 14px;
+      background: rgba(255,255,255,0.75);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .teacher-box {
+      margin-top: 42px;
+      background: var(--teal);
+      border-radius: 22px;
+      padding: 26px;
+    }
+
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box p,
+    .teacher-box li {
+      color: var(--muted);
+    }
+
+    .teacher-box ul {
+      margin: 10px 0 0 22px;
+    }
+
+    .teacher-box li {
       margin-bottom: 6px;
     }
 
-    .thinking-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .levels-box {
-      background: var(--purple-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .levels-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
+    .tip {
       margin-top: 24px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 15px;
+      padding: 18px;
+      color: #665831;
     }
 
-    .level-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 170px;
-      border: 1px solid #e7e2f4;
+    .links {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .level-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .level-card h3 {
-      color: var(--purple-dark);
-      margin-bottom: 6px;
-    }
-
-    .level-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
+    .links a {
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.8rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 950px) {
+    @media (max-width: 1000px) {
+      .stage-grid,
       .challenge-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .thinking-grid,
-      .levels-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .example-box {
-        grid-template-columns: 1fr;
+      .flow {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 750px) {
-      .stage-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
+      .stage-grid,
       .challenge-grid,
-      .thinking-grid,
-      .levels-grid {
+      .task-grid,
+      .flow {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .example-box,
-      .levels-box {
-        padding: 25px 18px;
       }
 
       main {
@@ -397,24 +432,60 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
-      main {
-        padding: 0;
-        max-width: none;
+      .flow div:nth-child(1),
+      .stage-card.green,
+      .task-card:nth-child(6n+1) {
+        background: var(--green) !important;
       }
 
-      section {
-        break-inside: avoid;
+      .flow div:nth-child(2),
+      .stage-card.blue,
+      .task-card:nth-child(6n+2) {
+        background: var(--blue) !important;
+      }
+
+      .flow div:nth-child(3),
+      .task-card:nth-child(6n+3),
+      .tip {
+        background: var(--yellow) !important;
+      }
+
+      .flow div:nth-child(4),
+      .stage-card.purple,
+      .task-card:nth-child(6n+4) {
+        background: var(--purple) !important;
+      }
+
+      .flow div:nth-child(5),
+      .task-card:nth-child(6n+5),
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .task-card:nth-child(6n+6) {
+        background: var(--pink) !important;
       }
     }
   </style>
@@ -427,7 +498,7 @@
   <div class="topbar">
 
     <div class="logo">
-      HOLOS MATTERESAN
+      HOLOS MATTERESAN F–9
     </div>
 
     <a href="index.html" class="back-link">
@@ -436,17 +507,21 @@
 
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">🚀</div>
+    <div class="hero-icon">🚀🧠🔍</div>
 
-    <h1>Utmana mig</h1>
+    <h1>Utmaning i matematik</h1>
 
-    <h2>Tänk längre • Hitta fler vägar • Förklara djupare</h2>
+    <h2>Fördjupa • Generalisera • Motivera • Skapa • Bevisa</h2>
 
     <p>
-      Här hittar du matematiska utmaningar som kräver mer än en snabb beräkning.
-      Du får undersöka, generalisera, argumentera och hitta flera möjliga lösningar.
+      Matematiska utmaningar ska inte bara innebära större tal
+      eller fler uppgifter.
+      En verklig utmaning ger eleven möjlighet att tänka djupare,
+      upptäcka samband, formulera regler och argumentera för varför
+      en matematisk idé fungerar.
     </p>
 
   </div>
@@ -456,309 +531,625 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>🚀 Djupare – inte bara längre fram</h2>
 
-      <h2>🧠 En utmaning är inte bara större tal</h2>
+    <p>
+      Elever som snabbt blir klara behöver inte automatiskt börja på nästa årskurs innehåll.
+      Ofta kan samma matematiska område fördjupas genom att eleven får
+      hitta flera lösningar, skapa egna problem,
+      undersöka vad som alltid gäller,
+      formulera generaliseringar eller analysera en modell.
+    </p>
+
+    <div class="flow">
+
+      <div>🔎 Undersök</div>
+      <div>🧠 Fördjupa</div>
+      <div>🔗 Generalisera</div>
+      <div>💬 Motivera</div>
+      <div>🚀 Skapa nytt</div>
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>🌱🔵🟣 Utmaning genom F–9</h2>
+
+    <p>
+      Djupet förändras med elevernas matematiska verktyg, men principen är densamma.
+    </p>
+
+  </div>
+
+
+  <div class="stage-grid">
+
+    <section class="stage-card green">
+
+      <h3>🌱 F–3</h3>
 
       <p>
-        Att utmana sitt matematiska tänkande kan betyda att hitta flera lösningar,
-        upptäcka ett mönster, förklara varför något alltid fungerar,
-        skapa egna problem eller använda samma idé i en helt ny situation.
+        Utmaning handlar om att hitta fler möjligheter och beskriva mönster.
       </p>
 
-    </div>
+      <ul>
+        <li>Hitta alla sätt</li>
+        <li>Skapa ett eget exempel</li>
+        <li>Förklara varför</li>
+        <li>Fortsätt mönstret</li>
+        <li>Gör problemet på två sätt</li>
+        <li>Vad händer om talet ändras?</li>
+      </ul>
 
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">Välj din nivå</h2>
-
-    <p class="section-intro">
-      Utmaningarna utvecklas från öppna upptäckter till generalisering, modellering och argumentation.
-    </p>
-
-    <div class="stage-grid">
-
-      <a href="utmaning-f3.html" class="stage-card f3">
-        <div class="stage-icon">🌱</div>
-        <h3>Utmana mig F–3</h3>
-        <p>
-          Hitta flera lösningar, skapa mönster, bygga, rita och lösa kluringar.
-        </p>
-        <span class="stage-button">Utmana mig F–3 →</span>
-      </a>
-
-      <a href="utmaning-46.html" class="stage-card m46">
-        <div class="stage-icon">🌿</div>
-        <h3>Utmana mig 4–6</h3>
-        <p>
-          Öppna problem, systematiskt prövande, samband och matematiska undersökningar.
-        </p>
-        <span class="stage-button">Utmana mig 4–6 →</span>
-      </a>
-
-      <a href="utmaning-79.html" class="stage-card m79">
-        <div class="stage-icon">🚀</div>
-        <h3>Utmana mig 7–9</h3>
-        <p>
-          Generalisering, algebra, modeller, bevisidéer och komplex problemlösning.
-        </p>
-        <span class="stage-button">Utmana mig 7–9 →</span>
-      </a>
-
-    </div>
-
-  </section>
+    </section>
 
 
-  <section>
+    <section class="stage-card blue">
 
-    <h2 class="section-title">Välj typ av utmaning</h2>
+      <h3>🔵 4–6</h3>
 
-    <p class="section-intro">
-      Du kan utmana ditt matematiska tänkande på många olika sätt.
-    </p>
-
-    <div class="challenge-grid">
-
-      <a href="utmaning-flera-losningar.html" class="challenge-card c1">
-        <span>🔄</span>
-        <h3>Flera lösningar</h3>
-        <p>
-          Hitta så många olika lösningar eller strategier som möjligt.
-        </p>
-      </a>
-
-      <a href="utmaning-monster.html" class="challenge-card c2">
-        <span>🧩</span>
-        <h3>Hitta regeln</h3>
-        <p>
-          Undersök mönster och formulera en regel som beskriver dem.
-        </p>
-      </a>
-
-      <a href="utmaning-alltid.html" class="challenge-card c3">
-        <span>❓</span>
-        <h3>Är det alltid sant?</h3>
-        <p>
-          Pröva ett påstående och försök avgöra om det gäller generellt.
-        </p>
-      </a>
-
-      <a href="utmaning-systematiskt.html" class="challenge-card c4">
-        <span>🔎</span>
-        <h3>Prova systematiskt</h3>
-        <p>
-          Hitta alla möjligheter utan att missa eller upprepa någon.
-        </p>
-      </a>
-
-      <a href="utmaning-skapa.html" class="challenge-card c5">
-        <span>✍️</span>
-        <h3>Skapa själv</h3>
-        <p>
-          Skapa ett matematiskt problem som uppfyller vissa villkor.
-        </p>
-      </a>
-
-      <a href="utmaning-fel.html" class="challenge-card c6">
-        <span>🕵️</span>
-        <h3>Hitta felet</h3>
-        <p>
-          Analysera en felaktig lösning och förklara exakt vad som gick fel.
-        </p>
-      </a>
-
-      <a href="utmaning-bevis.html" class="challenge-card c1">
-        <span>🗣️</span>
-        <h3>Övertyga mig</h3>
-        <p>
-          Ge ett resonemang som visar varför din slutsats måste vara riktig.
-        </p>
-      </a>
-
-      <a href="utmaning-verklighet.html" class="challenge-card c2">
-        <span>🌍</span>
-        <h3>Verklig utmaning</h3>
-        <p>
-          Lös ett problem där du behöver väga flera matematiska faktorer mot varandra.
-        </p>
-      </a>
-
-      <a href="utmaning-extrem.html" class="challenge-card c3">
-        <span>🏆</span>
-        <h3>Mattemästaren</h3>
-        <p>
-          Kombinera flera områden i en större matematisk utmaning.
-        </p>
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="example-box">
-
-      <div>
-
-        <h2>🚀 Exempel på en öppen utmaning</h2>
-
-        <p>
-          I en öppen uppgift finns ofta flera möjliga svar.
-          Då behöver du arbeta systematiskt och kunna förklara hur du vet att du är klar.
-        </p>
-
-      </div>
-
-      <div class="example-card">
-
-        <strong>Utmaning:</strong>
-
-        <h2 style="margin-top:12px;">
-          Summan är 24
-        </h2>
-
-        <div class="step">
-          🔢 Hitta tre olika positiva heltal som tillsammans blir 24.
-        </div>
-
-        <div class="step">
-          🔎 Hur många olika lösningar kan du hitta?
-        </div>
-
-        <div class="step">
-          📋 Hur kan du organisera dina lösningar?
-        </div>
-
-        <div class="step">
-          🧠 Hur vet du när du hittat alla?
-        </div>
-
-        <div class="step">
-          🚀 Ny regel: talen måste vara olika. Vad förändras?
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">Så tänker du vidare</h2>
-
-    <p class="section-intro">
-      När du redan har ett svar börjar nästa del av utmaningen.
-    </p>
-
-    <div class="thinking-grid">
-
-      <div class="thinking-card">
-        <span>🔄</span>
-        <h3>Hitta ett annat sätt</h3>
-        <p>
-          Kan du lösa uppgiften med en helt annan strategi?
-        </p>
-      </div>
-
-      <div class="thinking-card">
-        <span>❓</span>
-        <h3>Ändra villkoret</h3>
-        <p>
-          Vad händer om ett tal, en regel eller en förutsättning ändras?
-        </p>
-      </div>
-
-      <div class="thinking-card">
-        <span>🧩</span>
-        <h3>Generalisera</h3>
-        <p>
-          Kan du formulera en regel som gäller i fler situationer?
-        </p>
-      </div>
-
-      <div class="thinking-card">
-        <span>🗣️</span>
-        <h3>Övertyga</h3>
-        <p>
-          Hur kan du visa någon annan att din slutsats är riktig?
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="levels-box">
-
-      <h2 class="section-title">🌟 Fyra sätt att gå vidare</h2>
-
-      <p class="section-intro">
-        När du klarat en uppgift behöver du inte vara färdig.
+      <p>
+        Elever kan börja formulera regler och jämföra strategier mer systematiskt.
       </p>
 
-      <div class="levels-grid">
+      <ul>
+        <li>Hitta alla lösningar</li>
+        <li>Jämför metoder</li>
+        <li>Förändra ett villkor</li>
+        <li>Skapa motexempel</li>
+        <li>Generalisera mönster</li>
+        <li>Undersök om något alltid gäller</li>
+      </ul>
 
-        <div class="level-card">
-          <span>⭐</span>
-          <h3>Nivå 1</h3>
-          <p>
-            Jag kan hitta en lösning.
-          </p>
-        </div>
+    </section>
 
-        <div class="level-card">
-          <span>⭐⭐</span>
-          <h3>Nivå 2</h3>
-          <p>
-            Jag kan hitta flera lösningar eller strategier.
-          </p>
-        </div>
 
-        <div class="level-card">
-          <span>⭐⭐⭐</span>
-          <h3>Nivå 3</h3>
-          <p>
-            Jag kan förklara samband och varför lösningarna fungerar.
-          </p>
-        </div>
+    <section class="stage-card purple">
 
-        <div class="level-card">
-          <span>🚀</span>
-          <h3>Nivå 4</h3>
-          <p>
-            Jag kan generalisera, ändra villkor och skapa nya problem.
-          </p>
-        </div>
+      <h3>🟣 7–9</h3>
 
-      </div>
+      <p>
+        Utmaning kan utvecklas mot formella generaliseringar, argument och modellering.
+      </p>
 
-    </div>
+      <ul>
+        <li>Formulera algebraisk regel</li>
+        <li>Bevisa eller motbevisa</li>
+        <li>Optimera</li>
+        <li>Analysera modell</li>
+        <li>Skapa flera representationer</li>
+        <li>Diskutera begränsningar</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧠 Tolv sätt att fördjupa en uppgift</h2>
+
+    <p>
+      Du behöver ofta inte byta uppgift – bara ställa en bättre nästa fråga.
+    </p>
+
+  </div>
+
+
+  <div class="challenge-grid">
+
+    <article class="challenge-card">
+
+      <div class="icon">🔁</div>
+
+      <h3>1. Hitta fler lösningar</h3>
+
+      <p>
+        När eleven hittat ett svar:
+      </p>
+
+      <ul>
+        <li>Finns det fler?</li>
+        <li>Hur många?</li>
+        <li>Hur vet du att alla finns med?</li>
+      </ul>
+
+      <strong>
+        Fördjupar systematik.
+      </strong>
+
+    </article>
+
+
+    <article class="challenge-card">
+
+      <div class="icon">🛣️</div>
+
+      <h3>2. Lös på ett annat sätt</h3>
+
+      <p>
+        Be eleven skapa en andra eller tredje lösningsmetod.
+      </p>
+
+      <ul>
+        <li>Bild</li>
+        <li>Tabell</li>
+        <li>Symboler</li>
+        <li>Graf</li>
+      </ul>
+
+      <strong>
+        Utvecklar flexibilitet.
+      </strong>
+
+    </article>
+
+
+    <article class="challenge-card">
+
+      <div class="icon">⚖️</div>
+
+      <h3>3. Jämför strategier</h3>
+
+      <p>
+        Låt eleven analysera två lösningar.
+      </p>
+
+      <ul>
+        <li>Vad är lika?</li>
+        <li>Vad är olika?</li>
+        <li>Vilken är mest effektiv?</li>
+        <li>När passar respektive metod?</li>
+      </ul>
+
+      <strong>
+        Utvecklar strategisk kompetens.
+      </strong>
+
+    </article>
+
+
+    <article class="challenge-card">
+
+      <div class="icon">🔧</div>
+
+      <h3>4. Ändra ett villkor</h3>
+
+      <p>
+        Ändra en del av problemet och studera effekten.
+      </p>
+
+      <ul>
+        <li>Byt ett tal</li>
+        <li>Ändra en regel</li>
+        <li>Lägg till en begränsning</li>
+        <li>Ta bort ett villkor</li>
+      </ul>
+
+      <strong>
+        Gör strukturen synlig.
+      </strong>
+
+    </article>
+
+
+    <article class="challenge-card">
+
+      <div class="icon">❌</div>
+
+      <h3>5. Hitta ett motexempel</h3>
+
+      <p>
+        Ge ett påstående och låt eleven undersöka om det alltid gäller.
+      </p>
+
+      <ul>
+        <li>Alltid?</li>
+        <li>Ibland?</li>
+        <li>Aldrig?</li>
+        <li>Kan du motbevisa?</li>
+      </ul>
+
+      <strong>
+        Tränar argumentation.
+      </strong>
+
+    </article>
+
+
+    <article class="challenge-card">
+
+      <div class="icon">🔤</div>
+
+      <h3>6. Generalisera</h3>
+
+      <p>
+        Gå från flera exempel till en regel.
+      </p>
+
+      <ul>
+        <li>Beskriv med ord</li>
+        <li>Gör tabell</li>
+        <li>Använd variabel</li>
+        <li>Skriv uttryck</li>
+      </ul>
+
+      <strong>
+        Algebraisk utveckling.
+      </strong>
+
+    </article>
+
+
+    <article class="challenge-card">
+
+      <div class="icon">🎨</div>
+
+      <h3>7. Byt representation</h3>
+
+      <p>
+        Visa samma matematiska idé på flera sätt.
+      </p>
+
+      <ul>
+        <li>Bild</li>
+        <li>Symboler</li>
+        <li>Tabell</li>
+        <li>Graf</li>
+        <li>Ord</li>
+      </ul>
+
+      <strong>
+        Fördjupar förståelsen.
+      </strong>
+
+    </article>
+
+
+    <article class="challenge-card">
+
+      <div class="icon">🛠️</div>
+
+      <h3>8. Skapa ett eget problem</h3>
+
+      <p>
+        Eleven använder en matematisk idé för att konstruera en ny uppgift.
+      </p>
+
+      <ul>
+        <li>Bestäm svar först</li>
+        <li>Skapa villkor</li>
+        <li>Gör flera svårighetsnivåer</li>
+      </ul>
+
+      <strong>
+        Visar djup begreppsförståelse.
+      </strong>
+
+    </article>
+
+
+    <article class="challenge-card">
+
+      <div class="icon">🎯</div>
+
+      <h3>9. Optimera</h3>
+
+      <p>
+        Hitta den bästa lösningen under vissa villkor.
+      </p>
+
+      <ul>
+        <li>Minsta kostnad</li>
+        <li>Största area</li>
+        <li>Kortaste väg</li>
+        <li>Minst material</li>
+      </ul>
+
+      <strong>
+        Problemlösning och modellering.
+      </strong>
+
+    </article>
+
+
+    <article class="challenge-card">
+
+      <div class="icon">🌍</div>
+
+      <h3>10. Bygg en modell</h3>
+
+      <p>
+        Låt eleven beskriva en verklig situation matematiskt.
+      </p>
+
+      <ul>
+        <li>Välj variabler</li>
+        <li>Gör antaganden</li>
+        <li>Skapa samband</li>
+        <li>Tolka resultat</li>
+      </ul>
+
+      <strong>
+        Särskilt 6–9.
+      </strong>
+
+    </article>
+
+
+    <article class="challenge-card">
+
+      <div class="icon">🧪</div>
+
+      <h3>11. Vad händer om...?</h3>
+
+      <p>
+        Ändra matematiska förutsättningar och förutsäg resultatet.
+      </p>
+
+      <ul>
+        <li>Dubbla ett värde</li>
+        <li>Halvera ett värde</li>
+        <li>Byt tecken</li>
+        <li>Ändra startvärde</li>
+      </ul>
+
+      <strong>
+        Tränar samband och förändring.
+      </strong>
+
+    </article>
+
+
+    <article class="challenge-card">
+
+      <div class="icon">💬</div>
+
+      <h3>12. Övertyga någon</h3>
+
+      <p>
+        Eleven ska inte bara ge ett svar utan ett hållbart matematiskt argument.
+      </p>
+
+      <ul>
+        <li>Varför fungerar det?</li>
+        <li>Gäller det alltid?</li>
+        <li>Hur kan du visa det?</li>
+        <li>Kan någon invända?</li>
+      </ul>
+
+      <strong>
+        Resonemang och bevisidéer.
+      </strong>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🚀 Sex färdiga utmaningar</h2>
+
+    <p>
+      Uppgifterna är öppna nog för flera strategier och fördjupningar.
+    </p>
+
+  </div>
+
+
+  <div class="task-grid">
+
+    <article class="task-card">
+
+      <h3>🔢 Utmaning 1 – Talet 24</h3>
+
+      <p>
+        Använd talen 1, 2, 3 och 4.
+        Varje tal får användas en gång.
+        Du får använda de fyra räknesätten.
+      </p>
+
+      <p class="question">
+        På hur många olika sätt kan du skapa talet 24?
+        Vilka strategier fungerar bäst?
+      </p>
+
+      <span class="label">
+        Strategi • 3–9
+      </span>
+
+    </article>
+
+
+    <article class="task-card">
+
+      <h3>📐 Utmaning 2 – Area 36</h3>
+
+      <p>
+        Skapa rektanglar med arean 36 cm².
+      </p>
+
+      <p class="question">
+        Vilka omkretsar är möjliga?
+        Vilken rektangel ger minst omkrets?
+        Kan du förklara varför?
+      </p>
+
+      <span class="label">
+        Geometri • 4–9
+      </span>
+
+    </article>
+
+
+    <article class="task-card">
+
+      <h3>🔁 Utmaning 3 – Växande mönster</h3>
+
+      <p>
+        Figur 1 innehåller 4 rutor.
+        Figur 2 innehåller 7 rutor.
+        Figur 3 innehåller 10 rutor.
+      </p>
+
+      <p class="question">
+        Hur många rutor har figur 20?
+        Kan du skapa en generell regel för figur n?
+      </p>
+
+      <span class="label">
+        Mönster • Algebra • 5–9
+      </span>
+
+    </article>
+
+
+    <article class="task-card">
+
+      <h3>💯 Utmaning 4 – Rabatt eller rabatt?</h3>
+
+      <p>
+        Butik A erbjuder 30 % rabatt.
+        Butik B erbjuder först 20 % och sedan ytterligare 15 % rabatt.
+      </p>
+
+      <p class="question">
+        Vilket erbjudande ger störst rabatt?
+        Är svaret beroende av ursprungspriset?
+      </p>
+
+      <span class="label">
+        Procent • 6–9
+      </span>
+
+    </article>
+
+
+    <article class="task-card">
+
+      <h3>🎲 Utmaning 5 – Designa ett spel</h3>
+
+      <p>
+        Skapa ett spel med två tärningar.
+        Spelare A och B ska ha lika stor chans att vinna.
+      </p>
+
+      <p class="question">
+        Formulera reglerna och visa matematiskt
+        varför spelet är rättvist.
+      </p>
+
+      <span class="label">
+        Sannolikhet • 5–9
+      </span>
+
+    </article>
+
+
+    <article class="task-card">
+
+      <h3>📈 Utmaning 6 – Två taxibolag</h3>
+
+      <p>
+        Bolag A: 60 kr i startavgift + 18 kr/km.<br>
+        Bolag B: 110 kr i startavgift + 13 kr/km.
+      </p>
+
+      <p class="question">
+        När är respektive bolag billigast?
+        Visa med tabell, graf och algebra.
+      </p>
+
+      <span class="label">
+        Funktioner • 7–9
+      </span>
+
+    </article>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 När elever behöver större utmaning</h2>
+
+    <p>
+      Börja med att fördjupa den matematik klassen redan arbetar med.
+      Då kan eleven fortfarande delta i gemensamma samtal och samtidigt få större kognitiv utmaning.
+    </p>
+
+    <ul>
+      <li>Ställ nästa fråga i stället för att bara ge fler likadana uppgifter.</li>
+      <li>Be eleven hitta flera lösningar.</li>
+      <li>Kräv motivering och generalisering.</li>
+      <li>Använd öppna problem där svaret inte är givet från början.</li>
+      <li>Låt elever skapa egna exempel och motexempel.</li>
+      <li>Ge problem där flera representationer kan jämföras.</li>
+      <li>Låt elever undersöka vad som händer när villkor förändras.</li>
+      <li>Ge möjlighet att arbeta med modellering, argumentation och optimering.</li>
+    </ul>
 
   </section>
+
+
+  <div class="tip">
+
+    <strong>⭐ Kom ihåg:</strong><br>
+    Matematiskt avancerade elever behöver inte bara
+    <strong>mer</strong> matematik.
+    De behöver också <strong>djupare</strong> matematik:
+    större krav på samband, resonemang, kreativitet,
+    generalisering och matematiska argument.
+
+  </div>
+
+
+  <div class="links">
+
+    <a href="larare-utmaning.html">
+      👩‍🏫 Lärarstöd utmaning
+    </a>
+
+    <a href="elevblad-utmana.html">
+      🚀 Elevblad utmana
+    </a>
+
+    <a href="undersok.html">
+      🔬 Undersök
+    </a>
+
+    <a href="problemlosning.html">
+      🧩 Problemlösning
+    </a>
+
+    <a href="strategier.html">
+      🧰 Strategier
+    </a>
+
+    <a href="stod.html">
+      🪜 Stöd
+    </a>
+
+    <a href="matteprat.html">
+      💬 Matteprat
+    </a>
+
+  </div>
 
 </main>
 
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🚀 Utmana mig – tänk längre och förklara djupare
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🚀 Utmaning • Fördjupa • Generalisera • Motivera • Skapa • Bevisa
 
 </footer>
 
