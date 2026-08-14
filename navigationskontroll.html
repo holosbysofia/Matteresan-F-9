@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Navigationskontroll | HOLOS Matteresan F–9</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --text: #263747;
+      --muted: #667788;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+
+      --red: #ffe8e8;
+      --red-strong: #b84d4d;
+
+      --gray: #eef2f4;
+      --background: #f7f9fb;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,.2), transparent 32%),
+        linear-gradient(135deg, #5f9470, #5d86ad, #8266a3);
+      color: white;
+      padding: 28px 20px 58px;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.3rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: auto;
+      color: #f7f9fb;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 36px 18px 70px;
+    }
+
+    .info {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 7px 22px rgba(32,48,64,.07);
+      margin-bottom: 24px;
+    }
+
+    .info h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .info p {
+      color: var(--muted);
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    button,
+    .button-link {
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-family: inherit;
+      font-size: .88rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button {
+      background: var(--dark);
+      color: white;
+    }
+
+    button:hover {
+      opacity: .9;
+    }
+
+    .button-link {
+      background: var(--gray);
+      text-decoration: none;
+      color: var(--dark);
+      display: inline-block;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 13px;
+      margin: 26px 0;
+    }
+
+    .summary-card {
+      background: white;
+      border-radius: 18px;
+      padding: 18px 10px;
+      text-align: center;
+      box-shadow: 0 5px 17px rgba(32,48,64,.05);
+    }
+
+    .summary-card strong {
+      display: block;
+      font-size: 1.9rem;
+      color: var(--dark);
+    }
+
+    .summary-card span {
+      font-size: .77rem;
+      color: var(--muted);
+    }
+
+    .progress-box {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 17px rgba(32,48,64,.05);
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .progress {
+      height: 14px;
+      border-radius: 999px;
+      background: var(--gray);
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #5f9470, #5d86ad, #8266a3);
+      transition: width .2s ease;
+    }
+
+    .section-title {
+      margin: 35px 0 14px;
+    }
+
+    .section-title h2 {
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .results {
+      display: grid;
+      gap: 12px;
+    }
+
+    .result {
+      background: white;
+      border-radius: 17px;
+      padding: 18px;
+      border-left: 7px solid #adb8c0;
+      box-shadow: 0 4px 15px rgba(32,48,64,.05);
+    }
+
+    .result.ok {
+      background: var(--green);
+      border-left-color: var(--green-strong);
+    }
+
+    .result.error {
+      background: var(--red);
+      border-left-color: var(--red-strong);
+    }
+
+    .result.warning {
+      background: var(--yellow);
+      border-left-color: #c39b44;
+    }
+
+    .result h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+      word-break: break-word;
+    }
+
+    .result p {
+      color: var(--muted);
+      font-size: .86rem;
+      margin-top: 4px;
+      word-break: break-word;
+    }
+
+    .link-row {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .mini-link {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(255,255,255,.78);
+      color: var(--dark);
+      font-size: .75rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .broken-list {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .broken-list li {
+      margin-bottom: 7px;
+      color: #7f3333;
+      font-size: .85rem;
+      word-break: break-word;
+    }
+
+    .empty {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .notice {
+      margin-top: 32px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 16px;
+      padding: 19px;
+      color: #665831;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    @media (max-width: 900px) {
+      .summary {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .summary {
+        grid-template-columns: 1fr;
+      }
+
+      .progress-label {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="hero">
+
+    <div class="hero-icon">🔗🔎✅</div>
+
+    <h1>Navigationskontroll</h1>
+
+    <h2>Kontrollera knappar och länkar mellan Matteresans sidor</h2>
+
+    <p>
+      Den här sidan går igenom HOLOS Matteresan F–9,
+      läser länkarna på varje sida och kontrollerar
+      om de HTML-filer som länkarna pekar till verkligen finns.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section class="info">
+
+    <h2>🔎 Kontrollera navigationen</h2>
+
+    <p>
+      Kör kontrollen från den publicerade GitHub Pages-sidan.
+      Gröna resultat betyder att de interna HTML-länkarna på sidan fungerar.
+      Röda resultat visar vilken sida som innehåller en länk som behöver rättas.
+    </p>
+
+    <div class="buttons">
+
+      <button onclick="startNavigationCheck()">
+        ▶ Kontrollera alla länkar
+      </button>
+
+      <button onclick="showOnlyErrors()">
+        ❌ Visa bara fel
+      </button>
+
+      <button onclick="showAllResults()">
+        📋 Visa alla resultat
+      </button>
+
+      <a href="kontroll.html" class="button-link">
+        🔎 Filkontroll
+      </a>
+
+      <a href="index.html" class="button-link">
+        🏠 Matteresan
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section class="summary">
+
+    <div class="summary-card">
+      <strong id="pageTotal">0</strong>
+      <span>sidor</span>
+    </div>
+
+    <div class="summary-card">
+      <strong id="pageChecked">0</strong>
+      <span>kontrollerade sidor</span>
+    </div>
+
+    <div class="summary-card">
+      <strong id="linkTotal">0</strong>
+      <span>interna länkar</span>
+    </div>
+
+    <div class="summary-card">
+      <strong id="linkOk">0</strong>
+      <span>fungerande länkar</span>
+    </div>
+
+    <div class="summary-card">
+      <strong id="linkErrors">0</strong>
+      <span>trasiga länkar</span>
+    </div>
+
+  </section>
+
+
+  <section class="progress-box">
+
+    <div class="progress-label">
+      <span id="progressText">Kontrollen har inte startat.</span>
+      <span id="progressPercent">0 %</span>
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>📋 Resultat</h2>
+
+    <p>
+      Varje rad visar en sida och resultatet för sidans interna HTML-länkar.
+    </p>
+
+  </div>
+
+
+  <div id="results" class="results">
+
+    <div class="empty">
+      Tryck på <strong>Kontrollera alla länkar</strong> för att starta.
+    </div>
+
+  </div>
+
+
+  <div class="notice">
+
+    <strong>💡 Så läser du resultatet:</strong><br><br>
+
+    ✅ <strong>Grön sida</strong> = alla kontrollerade HTML-länkar fungerar.<br>
+    ❌ <strong>Röd sida</strong> = minst en länk pekar på en fil som inte hittades.<br>
+    ⚠️ <strong>Gul sida</strong> = själva sidan kunde inte läsas och behöver därför kontrolleras.<br><br>
+
+    Externa länkar, e-postlänkar och ankarlänkar som
+    <strong>#avsnitt</strong> räknas inte som fel i denna kontroll.
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🔗 Navigationskontroll
+
+</footer>
+
+
+<script>
+
+const pages = [
+
+  "index.html",
+
+  "f-3.html",
+  "4-6.html",
+  "7-9.html",
+
+  "forskoleklass.html",
+  "ak1.html",
+  "ak2.html",
+  "ak3.html",
+  "ak4.html",
+  "ak5.html",
+  "ak6.html",
+  "ak7.html",
+  "ak8.html",
+  "ak9.html",
+
+  "matteprat.html",
+  "aventyr.html",
+  "problemlosning.html",
+  "spel.html",
+  "undersok.html",
+  "verkligheten.html",
+  "begrepp.html",
+  "strategier.html",
+  "stod.html",
+  "utmaning.html",
+  "veckansproblem.html",
+  "minresa.html",
+
+  "larare.html",
+  "larare-lgr22.html",
+  "larare-progression.html",
+  "larare-missuppfattningar.html",
+  "larare-undervisning.html",
+  "larare-bedomning.html",
+  "larare-material.html",
+  "larare-sprak.html",
+  "larare-stod.html",
+  "larare-utmaning.html",
+
+  "larare-f3.html",
+  "larare-46.html",
+  "larare-79.html",
+
+  "larare-tal.html",
+  "larare-raknesatt.html",
+  "larare-brak.html",
+  "larare-decimal.html",
+  "larare-procent.html",
+  "larare-algebra.html",
+  "larare-geometri.html",
+  "larare-statistik.html",
+  "larare-sannolikhet.html",
+  "larare-problemlosning.html",
+  "larare-monster.html",
+  "larare-samband.html",
+
+  "larare-sva.html",
+  "larare-npf.html",
+  "larare-konkret.html",
+  "larare-matteprat.html",
+  "larare-exittickets.html",
+  "larare-diagnoser.html",
+  "larare-observation.html",
+  "larare-planering.html",
+  "larare-utskrift.html",
+
+  "material-affischer.html",
+  "material-elevblad.html",
+  "material-matteprat.html",
+  "material-problem.html",
+  "material-begrepp.html",
+  "material-laborativt.html",
+  "material-spel.html",
+  "material-aventyr.html",
+  "material-mallar.html",
+
+  "material-a4-elevblad.html",
+  "material-a4-kort.html",
+  "material-a4-affischer.html",
+  "material-a4-larare.html",
+  "material-lektionsmall.html",
+  "material-observation.html",
+  "material-planering.html",
+  "material-exit.html",
+  "material-diagnos.html",
+
+  "elevblad-tal.html",
+  "elevblad-raknesatt.html",
+  "elevblad-brak.html",
+  "elevblad-decimal.html",
+  "elevblad-procent.html",
+  "elevblad-algebra.html",
+  "elevblad-geometri.html",
+  "elevblad-statistik.html",
+  "elevblad-sannolikhet.html",
+  "elevblad-problemlosning.html",
+  "elevblad-monster.html",
+  "elevblad-samband.html",
+
+  "elevblad-rita.html",
+  "elevblad-forklara.html",
+  "elevblad-jamfor.html",
+  "elevblad-felfinnaren.html",
+  "elevblad-santfalskt.html",
+  "elevblad-hittaalla.html",
+  "elevblad-utmana.html",
+  "elevblad-verkligheten.html",
+  "elevblad-undersok.html"
+
+];
+
+
+let checkedPages = 0;
+let totalLinks = 0;
+let goodLinks = 0;
+let brokenLinks = 0;
+
+
+document.getElementById("pageTotal").textContent = pages.length;
+
+
+function normalizeHref(href) {
+
+  if (!href) return null;
+
+  href = href.trim();
+
+  if (
+    href.startsWith("#") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:") ||
+    href.startsWith("javascript:")
+  ) {
+    return null;
+  }
+
+  if (
+    href.startsWith("http://") ||
+    href.startsWith("https://")
+  ) {
+    return null;
+  }
+
+  const withoutHash = href.split("#")[0];
+  const withoutQuery = withoutHash.split("?")[0];
+
+  if (!withoutQuery) return null;
+
+  if (!withoutQuery.toLowerCase().endsWith(".html")) {
+    return null;
+  }
+
+  return withoutQuery;
+
+}
+
+
+async function fetchPage(page) {
+
+  const response = await fetch(
+    page + "?navcheck=" + Date.now(),
+    {
+      method: "GET",
+      cache: "no-store"
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("HTTP " + response.status);
+  }
+
+  return await response.text();
+
+}
+
+
+async function checkTarget(target) {
+
+  try {
+
+    const response = await fetch(
+      target + "?linkcheck=" + Date.now(),
+      {
+        method: "GET",
+        cache: "no-store"
+      }
+    );
+
+    return response.ok;
+
+  } catch (error) {
+
+    return false;
+
+  }
+
+}
+
+
+function updateSummary() {
+
+  document.getElementById("pageChecked").textContent = checkedPages;
+  document.getElementById("linkTotal").textContent = totalLinks;
+  document.getElementById("linkOk").textContent = goodLinks;
+  document.getElementById("linkErrors").textContent = brokenLinks;
+
+  const percent = pages.length === 0
+    ? 0
+    : Math.round((checkedPages / pages.length) * 100);
+
+  document.getElementById("progressBar").style.width = percent + "%";
+  document.getElementById("progressPercent").textContent = percent + " %";
+
+}
+
+
+function addPageResult(page, status, links, broken, message) {
+
+  const container = document.getElementById("results");
+
+  const card = document.createElement("article");
+
+  if (status === "ok") {
+    card.className = "result ok";
+    card.dataset.status = "ok";
+  }
+
+  if (status === "error") {
+    card.className = "result error";
+    card.dataset.status = "error";
+  }
+
+  if (status === "warning") {
+    card.className = "result warning";
+    card.dataset.status = "warning";
+  }
+
+
+  let icon = "✅";
+
+  if (status === "error") {
+    icon = "❌";
+  }
+
+  if (status === "warning") {
+    icon = "⚠️";
+  }
+
+
+  let html = `
+    <h3>${icon} ${page}</h3>
+    <p>${message}</p>
+  `;
+
+
+  if (links.length > 0) {
+
+    html += `
+      <p>
+        Interna HTML-länkar på sidan:
+        <strong>${links.length}</strong>
+      </p>
+    `;
+
+  }
+
+
+  if (broken.length > 0) {
+
+    html += `
+      <ul class="broken-list">
+        ${broken.map(item => `
+          <li>
+            <strong>Trasig länk:</strong>
+            ${item}
+          </li>
+        `).join("")}
+      </ul>
+    `;
+
+  }
+
+
+  html += `
+    <div class="link-row">
+      <a
+        href="${page}"
+        target="_blank"
+        class="mini-link">
+        Öppna sidan ↗
+      </a>
+    </div>
+  `;
+
+
+  card.innerHTML = html;
+
+  container.appendChild(card);
+
+}
+
+
+async function inspectPage(page) {
+
+  document.getElementById("progressText").textContent =
+    "Kontrollerar " + page + "...";
+
+  try {
+
+    const html = await fetchPage(page);
+
+    const parser = new DOMParser();
+    const documentPage = parser.parseFromString(html, "text/html");
+
+    const anchors = [...documentPage.querySelectorAll("a[href]")];
+
+    const internalLinks = [];
+
+    anchors.forEach(anchor => {
+
+      const normalized = normalizeHref(anchor.getAttribute("href"));
+
+      if (normalized && !internalLinks.includes(normalized)) {
+        internalLinks.push(normalized);
+      }
+
+    });
+
+
+    totalLinks += internalLinks.length;
+
+
+    const broken = [];
+
+
+    for (const target of internalLinks) {
+
+      const works = await checkTarget(target);
+
+      if (works) {
+
+        goodLinks++;
+
+      } else {
+
+        brokenLinks++;
+        broken.push(target);
+
+      }
+
+      updateSummary();
+
+    }
+
+
+    if (broken.length === 0) {
+
+      addPageResult(
+        page,
+        "ok",
+        internalLinks,
+        [],
+        "Alla kontrollerade interna HTML-länkar fungerar."
+      );
+
+    } else {
+
+      addPageResult(
+        page,
+        "error",
+        internalLinks,
+        broken,
+        broken.length +
+        " intern länk / länkar behöver rättas."
+      );
+
+    }
+
+
+  } catch (error) {
+
+    addPageResult(
+      page,
+      "warning",
+      [],
+      [],
+      "Sidan kunde inte läsas. " + error.message
+    );
+
+  }
+
+
+  checkedPages++;
+
+  updateSummary();
+
+}
+
+
+async function startNavigationCheck() {
+
+  checkedPages = 0;
+  totalLinks = 0;
+  goodLinks = 0;
+  brokenLinks = 0;
+
+  document.getElementById("results").innerHTML = "";
+
+  updateSummary();
+
+  showAllResults();
+
+
+  for (const page of pages) {
+
+    await inspectPage(page);
+
+  }
+
+
+  document.getElementById("progressText").textContent =
+    "Kontrollen är klar.";
+
+
+  if (brokenLinks === 0) {
+
+    alert(
+      "✅ Navigationskontrollen är klar! " +
+      goodLinks +
+      " interna HTML-länkar fungerar."
+    );
+
+  } else {
+
+    alert(
+      "🔎 Navigationskontrollen är klar. " +
+      goodLinks +
+      " länkar fungerar och " +
+      brokenLinks +
+      " behöver rättas."
+    );
+
+  }
+
+}
+
+
+function showOnlyErrors() {
+
+  document.querySelectorAll(".result").forEach(card => {
+
+    if (
+      card.dataset.status === "error" ||
+      card.dataset.status === "warning"
+    ) {
+
+      card.style.display = "block";
+
+    } else {
+
+      card.style.display = "none";
+
+    }
+
+  });
+
+}
+
+
+function showAllResults() {
+
+  document.querySelectorAll(".result").forEach(card => {
+    card.style.display = "block";
+  });
+
+}
+
+</script>
+
+</body>
+</html>
