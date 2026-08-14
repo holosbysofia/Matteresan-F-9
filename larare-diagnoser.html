@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Diagnostisk matematik F–9 | HOLOS Matteresan</title>
+  <title>Diagnoser | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,27 +15,32 @@
 
     :root {
       --dark: #17324d;
-      --red: #b85c5c;
-      --red-dark: #824141;
-      --red-light: #fff0f0;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --pink-light: #ffe9f1;
-      --teal-light: #eaf7f5;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -45,8 +50,8 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
-        linear-gradient(135deg, #6f3838, #b85c5c);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
       padding: 22px 20px 58px;
     }
@@ -66,303 +71,264 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--red-dark);
-    }
-
     .hero {
-      max-width: 920px;
-      margin: 50px auto 0;
+      max-width: 930px;
+      margin: 44px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.4rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 7vw, 4.6rem);
+      font-size: clamp(2.4rem, 7vw, 4.4rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 840px;
+      max-width: 850px;
       margin: auto;
-      color: #fff5f5;
-      font-size: 1.03rem;
+      color: #f6f9fb;
     }
 
     main {
       max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      margin-bottom: 36px;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
+    .intro h2 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 840px;
-      margin: 0 auto 30px;
+    .intro p {
+      color: var(--muted);
+      max-width: 950px;
+    }
+
+    .important {
+      margin-top: 17px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 17px;
+      color: #665831;
+    }
+
+    .section-title {
+      margin: 42px 0 18px;
+    }
+
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
       color: var(--muted);
     }
 
-    .intro-box {
-      background: var(--red-light);
-      border-radius: 28px;
-      padding: 36px;
-      text-align: center;
-    }
-
-    .intro-box h2 {
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-
-    .intro-box p {
-      max-width: 880px;
-      margin: auto;
-      color: #5c6872;
-    }
-
-    .core-grid {
+    .cycle {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
     }
 
-    .core-card {
+    .cycle-step {
       background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 185px;
-      border: 1px solid #e6ebef;
+      border-radius: 16px;
+      padding: 18px 10px;
+      min-height: 160px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
     }
 
-    .core-card span {
+    .cycle-step:nth-child(1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .cycle-step:nth-child(2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .cycle-step:nth-child(3) {
+      border-top-color: #c39b44;
+    }
+
+    .cycle-step:nth-child(4) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .cycle-step:nth-child(5) {
+      border-top-color: #5d9c92;
+    }
+
+    .cycle-step span {
       display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .core-card h3 {
-      color: var(--red-dark);
+      font-size: 2rem;
       margin-bottom: 6px;
     }
 
-    .core-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .cycle-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
-        linear-gradient(135deg, #17324d, #6b4040);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .cycle-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .cycle-box > p {
-      color: #fff5f5;
-      max-width: 850px;
-    }
-
-    .cycle-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-      margin-top: 25px;
-    }
-
-    .cycle-card {
-      border-radius: 20px;
-      padding: 21px;
-      min-height: 200px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.08);
-    }
-
-    .cycle-card span {
+    .cycle-step strong {
       display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .cycle-card h3 {
-      margin-bottom: 7px;
-    }
-
-    .cycle-card p {
-      color: #fffafa;
-      font-size: 0.91rem;
-    }
-
-    .diagnosis-box {
-      background: white;
-      border-radius: 28px;
-      padding: 32px;
-      border: 1px solid #e6ebef;
-      margin-bottom: 25px;
-    }
-
-    .diagnosis-title {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 22px;
-    }
-
-    .diagnosis-title span {
-      font-size: 2.6rem;
-    }
-
-    .diagnosis-title h2 {
       color: var(--dark);
-      font-size: 1.7rem;
+      margin-bottom: 5px;
     }
 
-    .diagnosis-title p {
+    .cycle-step p {
       color: var(--muted);
+      font-size: 0.8rem;
     }
 
-    .diagnosis-grid {
+    .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 18px;
     }
 
-    .diagnosis-card {
+    .card {
+      background: white;
       border-radius: 18px;
       padding: 20px;
-      min-height: 225px;
+      min-height: 245px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
     }
 
-    .diagnosis-card h3 {
+    .card:nth-child(3n+1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
       color: var(--dark);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      font-size: 1.08rem;
     }
 
-    .diagnosis-card p,
-    .diagnosis-card ul {
+    .card p,
+    .card li {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.88rem;
     }
 
-    .diagnosis-card ul {
-      padding-left: 20px;
+    .card ul {
+      margin-left: 19px;
+      margin-top: 7px;
     }
 
-    .diagnosis-card li {
-      margin-bottom: 7px;
+    .card li {
+      margin-bottom: 5px;
     }
 
-    .d1 { background: var(--green-light); }
-    .d2 { background: var(--blue-light); }
-    .d3 { background: var(--yellow-light); }
-
-    .analysis-box {
-      background: var(--teal-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
 
     .analysis-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
+      gap: 14px;
     }
 
-    .analysis-card {
-      background: white;
+    .analysis {
       border-radius: 18px;
       padding: 20px;
-      min-height: 195px;
-      border: 1px solid #dfe9e6;
+      min-height: 210px;
     }
 
-    .analysis-card span {
-      display: block;
-      font-size: 2.1rem;
+    .analysis h3 {
+      color: var(--dark);
       margin-bottom: 7px;
     }
 
-    .analysis-card h3 {
-      color: var(--dark);
+    .analysis p,
+    .analysis li {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .analysis ul {
+      margin-left: 18px;
+      margin-top: 8px;
+    }
+
+    .analysis li {
       margin-bottom: 6px;
     }
 
-    .analysis-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .response-box {
-      background: var(--purple-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .response-grid {
+    .question-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
 
-    .response-card {
-      background: white;
+    .question {
       border-radius: 18px;
       padding: 20px;
-      min-height: 190px;
-      border: 1px solid #e2dcf1;
+      min-height: 210px;
     }
 
-    .response-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .response-card h3 {
+    .question h3 {
       color: var(--dark);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
-    .response-card p {
+    .question p,
+    .question li {
       color: var(--muted);
-      font-size: 0.91rem;
+      font-size: 0.9rem;
+    }
+
+    .question ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .question li {
+      margin-bottom: 6px;
     }
 
     .stage-grid {
@@ -371,173 +337,121 @@
       gap: 18px;
     }
 
-    .stage-card {
-      border-radius: 24px;
-      padding: 26px;
-      min-height: 270px;
+    .stage {
+      border-radius: 18px;
+      padding: 22px;
     }
 
-    .stage-card span {
-      display: block;
-      font-size: 2.5rem;
-      margin-bottom: 8px;
-    }
-
-    .stage-card h3 {
+    .stage h3 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .stage-card ul {
-      padding-left: 20px;
+    .stage p,
+    .stage li {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.9rem;
     }
 
-    .stage-card li {
-      margin-bottom: 7px;
+    .stage ul {
+      margin-left: 20px;
+      margin-top: 8px;
     }
 
-    .f3stage { background: var(--green-light); }
-    .m46stage { background: var(--blue-light); }
-    .m79stage { background: var(--purple-light); }
-
-    .pitfall-box {
-      background: var(--pink-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .pitfall-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .pitfall-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 195px;
-      border: 1px solid #eee1e5;
-    }
-
-    .pitfall-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .pitfall-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .link-card {
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 175px;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.04);
-    }
-
-    .link-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
-    }
-
-    .link-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .link-card h3 {
-      color: var(--dark);
+    .stage li {
       margin-bottom: 6px;
     }
 
-    .link-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
+    .teacher-box {
+      margin-top: 36px;
+      background: var(--teal);
+      border-radius: 20px;
+      padding: 24px;
     }
 
-    .c1 { background: var(--red-light); }
-    .c2 { background: var(--green-light); }
-    .c3 { background: var(--blue-light); }
-    .c4 { background: var(--yellow-light); }
-    .c5 { background: var(--purple-light); }
-    .c6 { background: var(--teal-light); }
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
 
-    .note {
-      background: var(--yellow-light);
-      border-left: 6px solid #dba327;
-      border-radius: 14px;
+    .teacher-box ul {
+      margin-left: 22px;
+      color: var(--muted);
+    }
+
+    .teacher-box li {
+      margin-bottom: 7px;
+    }
+
+    .warning {
+      margin-top: 22px;
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 16px;
       padding: 20px;
-      color: #665528;
-      margin-top: 25px;
+      color: #654c37;
+    }
+
+    .links {
+      margin-top: 36px;
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+    }
+
+    .links h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .link-row a {
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.83rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
-    }
-
-    @media (max-width: 1100px) {
-      .cycle-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+      padding: 32px 20px;
     }
 
     @media (max-width: 1000px) {
-      .core-grid,
-      .analysis-grid,
-      .response-grid {
+      .cycle {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .analysis-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 900px) {
-      .diagnosis-grid,
-      .stage-grid,
-      .pitfall-grid,
-      .links-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .core-grid,
-      .cycle-grid,
+      .cycle,
+      .grid,
       .analysis-grid,
-      .response-grid {
+      .question-grid,
+      .stage-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .cycle-box,
-      .diagnosis-box,
-      .analysis-box,
-      .response-box,
-      .pitfall-box {
-        padding: 25px 18px;
-      }
-
-      .diagnosis-title {
-        align-items: flex-start;
       }
 
       main {
@@ -546,16 +460,28 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link,
-      .links-grid {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+      }
+
+      header,
+      footer {
+        display: none !important;
       }
 
       main {
@@ -563,11 +489,57 @@
         padding: 0;
       }
 
-      section,
-      .diagnosis-box,
-      .diagnosis-card,
-      .stage-card {
+      .intro,
+      .cycle-step,
+      .card,
+      .analysis,
+      .question,
+      .stage,
+      .teacher-box,
+      .warning,
+      .links {
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .green {
+        background: var(--green) !important;
+      }
+
+      .blue {
+        background: var(--blue) !important;
+      }
+
+      .purple {
+        background: var(--purple) !important;
+      }
+
+      .yellow,
+      .important {
+        background: var(--yellow) !important;
+      }
+
+      .orange,
+      .warning {
+        background: var(--orange) !important;
+      }
+
+      .teal,
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .link-row a {
+        background: var(--dark) !important;
+        color: white !important;
       }
     }
   </style>
@@ -579,28 +551,27 @@
 
   <div class="topbar">
 
-    <div class="logo">
-      HOLOS MATTERESAN
-    </div>
+    <div class="logo">HOLOS MATTERESAN</div>
 
     <a href="larare.html" class="back-link">
-      ← Lärarvy
+      ← Lärarportalen
     </a>
 
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">🩺🧠</div>
+    <div class="hero-icon">🩺📊</div>
 
-    <h1>Diagnostisk matematik F–9</h1>
+    <h1>Diagnoser</h1>
 
-    <h2>Upptäck • Tolka • Undervisa • Följ upp</h2>
+    <h2>Upptäck • Tolka • Planera • Undervisa • Följ upp</h2>
 
     <p>
-      En diagnos ska inte bara tala om att ett svar är fel.
-      Den ska hjälpa läraren förstå hur eleven tänker,
-      vilken kunskap som är stabil och vilken matematisk idé som behöver utvecklas.
+      Diagnostiska uppgifter används för att förstå
+      hur eleven tänker och för att planera undervisning
+      som möter det faktiska behovet.
     </p>
 
   </div>
@@ -610,842 +581,516 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>🩺 Diagnosen ska svara på en undervisningsfråga</h2>
 
-      <h2>🩺 Diagnos betyder: ta reda på vad undervisningen behöver göra härnäst</h2>
+    <p>
+      En matematikdiagnos är mest användbar när läraren redan från början
+      vet vilken information som behövs.
+      Syftet är inte bara att räkna antal rätt,
+      utan att upptäcka elevens förståelse, strategier och möjliga missuppfattningar.
+    </p>
+
+    <div class="important">
+
+      <strong>Grundprincip:</strong><br>
+      Fråga inte bara <strong>”Hur många rätt?”</strong>.
+      Fråga också:
+      <strong>”Vad visar svaren om hur eleven tänker,
+      och vad behöver undervisningen göra nu?”</strong>
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>🔄 Diagnostisk arbetsgång</h2>
+
+    <p>
+      Diagnosen är början på ett undervisningsbeslut – inte slutet.
+    </p>
+
+  </div>
+
+
+  <div class="cycle">
+
+    <div class="cycle-step">
+      <span>🎯</span>
+      <strong>1. Bestäm fokus</strong>
+      <p>Vilken matematisk förståelse behöver du undersöka?</p>
+    </div>
+
+    <div class="cycle-step">
+      <span>✏️</span>
+      <strong>2. Välj uppgifter</strong>
+      <p>Använd uppgifter som skiljer mellan olika sätt att tänka.</p>
+    </div>
+
+    <div class="cycle-step">
+      <span>👀</span>
+      <strong>3. Analysera</strong>
+      <p>Leta efter mönster, strategier och återkommande fel.</p>
+    </div>
+
+    <div class="cycle-step">
+      <span>🧠</span>
+      <strong>4. Undervisa</strong>
+      <p>Planera undervisning utifrån det analysen visar.</p>
+    </div>
+
+    <div class="cycle-step">
+      <span>🔁</span>
+      <strong>5. Följ upp</strong>
+      <p>Undersök om förståelsen förändrats i nya uppgifter.</p>
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧠 Vad kan en diagnos undersöka?</h2>
+
+    <p>
+      En stark diagnos undersöker den matematiska idén från flera håll.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">🔤</div>
+
+      <h3>Begrepp</h3>
 
       <p>
-        Ett felsvar är information – men först när läraren undersöker vad som ligger bakom det.
-        Samma felaktiga svar kan bero på helt olika saker:
-        bristande begreppsförståelse, språk, strategi, beräkning,
-        arbetsminnesbelastning eller en stabil missuppfattning.
+        Förstår eleven betydelsen av centrala matematiska begrepp?
       </p>
 
-    </div>
+      <ul>
+        <li>Förklara begreppet.</li>
+        <li>Välja rätt exempel.</li>
+        <li>Skapa eget exempel.</li>
+        <li>Koppla till närliggande begrepp.</li>
+      </ul>
 
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Fyra saker en diagnos behöver synliggöra
-    </h2>
-
-    <p class="section-intro">
-      Undersök mer än om eleven kan producera rätt svar.
-    </p>
-
-    <div class="core-grid">
-
-      <div class="core-card">
-        <span>🧠</span>
-        <h3>Begrepp</h3>
-        <p>
-          Vilken matematisk innebörd har eleven byggt upp?
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>🧩</span>
-        <h3>Strategi</h3>
-        <p>
-          Hur angriper eleven uppgiften och varför väljer eleven just den metoden?
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>⚠️</span>
-        <h3>Missuppfattning</h3>
-        <p>
-          Finns ett återkommande tankemönster som fungerar i vissa situationer men leder fel i andra?
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>➡️</span>
-        <h3>Nästa steg</h3>
-        <p>
-          Vilken undervisningsaktivitet skulle bäst hjälpa eleven vidare?
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="cycle-box">
+      <div class="icon">🔢</div>
 
-      <h2>🔄 Diagnostisk arbetsgång</h2>
+      <h3>Talrelationer</h3>
 
       <p>
-        Diagnosen blir meningsfull först när den leder vidare till undervisning och ny uppföljning.
+        Ser eleven relationer mellan tal eller arbetar eleven endast med procedurer?
       </p>
 
-      <div class="cycle-grid">
+      <ul>
+        <li>Storlek</li>
+        <li>Platsvärde</li>
+        <li>Del–helhet</li>
+        <li>Rimlighet</li>
+      </ul>
 
-        <div class="cycle-card">
-          <span>1️⃣</span>
-          <h3>Välj område</h3>
-          <p>
-            Bestäm vilken matematisk idé du vill undersöka.
-          </p>
-        </div>
+    </article>
 
-        <div class="cycle-card">
-          <span>2️⃣</span>
-          <h3>Ge riktade uppgifter</h3>
-          <p>
-            Använd få uppgifter som skiljer mellan olika sätt att tänka.
-          </p>
-        </div>
 
-        <div class="cycle-card">
-          <span>3️⃣</span>
-          <h3>Fråga vidare</h3>
-          <p>
-            Be eleven visa, förklara eller lösa på ett annat sätt.
-          </p>
-        </div>
+    <article class="card">
 
-        <div class="cycle-card">
-          <span>4️⃣</span>
-          <h3>Tolka</h3>
-          <p>
-            Leta efter mönster i elevens svar och strategier.
-          </p>
-        </div>
+      <div class="icon">🧰</div>
 
-        <div class="cycle-card">
-          <span>5️⃣</span>
-          <h3>Undervisa & följ upp</h3>
-          <p>
-            Anpassa undervisningen och kontrollera senare om förståelsen förändrats.
-          </p>
-        </div>
+      <h3>Strategier</h3>
 
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="diagnosis-box">
-
-      <div class="diagnosis-title">
-        <span>🔢</span>
-
-        <div>
-          <h2>Mini-diagnos: Taluppfattning</h2>
-          <p>Undersök storlek, platsvärde och tallinje.</p>
-        </div>
-      </div>
-
-      <div class="diagnosis-grid">
-
-        <div class="diagnosis-card d1">
-          <h3>1. Jämför</h3>
-          <p>
-            Vilket tal är störst?
-          </p>
-          <p style="font-weight:bold;font-size:1.2rem;margin:10px 0;">
-            0,7 eller 0,65
-          </p>
-          <p>
-            Förklara hur du vet.
-          </p>
-        </div>
-
-        <div class="diagnosis-card d2">
-          <h3>2. Platsvärde</h3>
-          <p>
-            Vad betyder siffran 4 i:
-          </p>
-          <p style="font-weight:bold;font-size:1.2rem;margin:10px 0;">
-            6,42
-          </p>
-          <p>
-            Visa gärna på två sätt.
-          </p>
-        </div>
-
-        <div class="diagnosis-card d3">
-          <h3>3. Tallinje</h3>
-          <p>
-            Placera 0,38 ungefär rätt mellan 0 och 1.
-          </p>
-          <p style="margin-top:10px;">
-            Var ligger 0,4 i förhållande till 0,38?
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="diagnosis-box">
-
-      <div class="diagnosis-title">
-        <span>➕➖✖️➗</span>
-
-        <div>
-          <h2>Mini-diagnos: Räknesätten</h2>
-          <p>Undersök förståelse, strategi och rimlighet.</p>
-        </div>
-      </div>
-
-      <div class="diagnosis-grid">
-
-        <div class="diagnosis-card d1">
-          <h3>1. Addition</h3>
-          <p>
-            Beräkna:
-          </p>
-          <p style="font-weight:bold;font-size:1.2rem;margin:10px 0;">
-            398 + 47
-          </p>
-          <p>
-            Visa din strategi.
-          </p>
-        </div>
-
-        <div class="diagnosis-card d2">
-          <h3>2. Division</h3>
-          <p>
-            56 elever ska delas in i grupper med 8 elever i varje.
-          </p>
-          <p style="margin-top:10px;">
-            Hur många grupper blir det? Förklara vad divisionen betyder.
-          </p>
-        </div>
-
-        <div class="diagnosis-card d3">
-          <h3>3. Rimlighet</h3>
-          <p>
-            En elev skriver:
-          </p>
-          <p style="font-weight:bold;font-size:1.2rem;margin:10px 0;">
-            49 × 21 = 129
-          </p>
-          <p>
-            Hur kan du veta att svaret inte är rimligt utan att räkna exakt?
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="diagnosis-box">
-
-      <div class="diagnosis-title">
-        <span>🍕</span>
-
-        <div>
-          <h2>Mini-diagnos: Bråk</h2>
-          <p>Undersök om eleven ser bråk som tal och relation.</p>
-        </div>
-      </div>
-
-      <div class="diagnosis-grid">
-
-        <div class="diagnosis-card d1">
-          <h3>1. Jämför</h3>
-          <p>
-            Vilket är störst?
-          </p>
-          <p style="font-weight:bold;font-size:1.2rem;margin:10px 0;">
-            3/7 eller 3/5
-          </p>
-          <p>
-            Förklara utan att bara använda decimalform.
-          </p>
-        </div>
-
-        <div class="diagnosis-card d2">
-          <h3>2. Samma värde</h3>
-          <p>
-            Skriv två andra bråk som har samma värde som:
-          </p>
-          <p style="font-weight:bold;font-size:1.2rem;margin:10px 0;">
-            1/2
-          </p>
-        </div>
-
-        <div class="diagnosis-card d3">
-          <h3>3. Felsvar</h3>
-          <p>
-            En elev skriver:
-          </p>
-          <p style="font-weight:bold;font-size:1.2rem;margin:10px 0;">
-            1/4 + 2/4 = 3/8
-          </p>
-          <p>
-            Vad tror du att eleven tänker?
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="diagnosis-box">
-
-      <div class="diagnosis-title">
-        <span>%</span>
-
-        <div>
-          <h2>Mini-diagnos: Procent</h2>
-          <p>Undersök andel, helhet och förändring.</p>
-        </div>
-      </div>
-
-      <div class="diagnosis-grid">
-
-        <div class="diagnosis-card d1">
-          <h3>1. Andel</h3>
-          <p>
-            Hur mycket är 25 % av 120?
-          </p>
-          <p style="margin-top:10px;">
-            Visa hur du tänker.
-          </p>
-        </div>
-
-        <div class="diagnosis-card d2">
-          <h3>2. Helheten</h3>
-          <p>
-            18 elever är 30 % av en grupp.
-          </p>
-          <p style="margin-top:10px;">
-            Hur stor är hela gruppen?
-          </p>
-        </div>
-
-        <div class="diagnosis-card d3">
-          <h3>3. Förändring</h3>
-          <p>
-            Ett pris ökar först med 20 % och sänks sedan med 20 %.
-          </p>
-          <p style="margin-top:10px;">
-            Blir priset samma som från början? Förklara.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="diagnosis-box">
-
-      <div class="diagnosis-title">
-        <span>🔤</span>
-
-        <div>
-          <h2>Mini-diagnos: Algebra</h2>
-          <p>Undersök likhet, variabler och ekvationer.</p>
-        </div>
-      </div>
-
-      <div class="diagnosis-grid">
-
-        <div class="diagnosis-card d1">
-          <h3>1. Likhet</h3>
-          <p>
-            Fyll i rutan:
-          </p>
-          <p style="font-weight:bold;font-size:1.2rem;margin:10px 0;">
-            14 + 8 = □ + 10
-          </p>
-          <p>
-            Förklara varför.
-          </p>
-        </div>
-
-        <div class="diagnosis-card d2">
-          <h3>2. Uttryck</h3>
-          <p>
-            Vad betyder:
-          </p>
-          <p style="font-weight:bold;font-size:1.2rem;margin:10px 0;">
-            3x + 5
-          </p>
-          <p>
-            Skapa en situation som uttrycket kan beskriva.
-          </p>
-        </div>
-
-        <div class="diagnosis-card d3">
-          <h3>3. Ekvation</h3>
-          <p>
-            Lös:
-          </p>
-          <p style="font-weight:bold;font-size:1.2rem;margin:10px 0;">
-            3x + 4 = 19
-          </p>
-          <p>
-            Kontrollera lösningen genom insättning.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="diagnosis-box">
-
-      <div class="diagnosis-title">
-        <span>📐</span>
-
-        <div>
-          <h2>Mini-diagnos: Geometri</h2>
-          <p>Undersök begrepp och geometriska relationer.</p>
-        </div>
-      </div>
-
-      <div class="diagnosis-grid">
-
-        <div class="diagnosis-card d1">
-          <h3>1. Klassificering</h3>
-          <p>
-            Är en kvadrat en rektangel?
-          </p>
-          <p style="margin-top:10px;">
-            Motivera med egenskaper.
-          </p>
-        </div>
-
-        <div class="diagnosis-card d2">
-          <h3>2. Omkrets & area</h3>
-          <p>
-            Rita två rektanglar som har samma omkrets men olika area.
-          </p>
-        </div>
-
-        <div class="diagnosis-card d3">
-          <h3>3. Vinkel</h3>
-          <p>
-            Två vinklar har samma öppning men olika långa vinkelben.
-          </p>
-          <p style="margin-top:10px;">
-            Är den ena vinkeln större?
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="diagnosis-box">
-
-      <div class="diagnosis-title">
-        <span>📊</span>
-
-        <div>
-          <h2>Mini-diagnos: Statistik</h2>
-          <p>Undersök tolkning snarare än bara beräkning.</p>
-        </div>
-      </div>
-
-      <div class="diagnosis-grid">
-
-        <div class="diagnosis-card d1">
-          <h3>1. Median</h3>
-          <p>
-            Bestäm medianen:
-          </p>
-          <p style="font-weight:bold;margin:10px 0;">
-            12, 4, 8, 7, 20
-          </p>
-          <p>
-            Visa första steget.
-          </p>
-        </div>
-
-        <div class="diagnosis-card d2">
-          <h3>2. Lägesmått</h3>
-          <p>
-            När kan median vara mer användbar än medelvärde?
-          </p>
-        </div>
-
-        <div class="diagnosis-card d3">
-          <h3>3. Diagram</h3>
-          <p>
-            Vad behöver du kontrollera på en diagrams axlar innan du tolkar skillnaderna?
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="diagnosis-box">
-
-      <div class="diagnosis-title">
-        <span>🎲</span>
-
-        <div>
-          <h2>Mini-diagnos: Sannolikhet</h2>
-          <p>Undersök intuitiva föreställningar om slump.</p>
-        </div>
-      </div>
-
-      <div class="diagnosis-grid">
-
-        <div class="diagnosis-card d1">
-          <h3>1. Mynt</h3>
-          <p>
-            Ett mynt har visat krona sex gånger i rad.
-          </p>
-          <p style="margin-top:10px;">
-            Vad är sannolikheten för krona nästa gång?
-          </p>
-        </div>
-
-        <div class="diagnosis-card d2">
-          <h3>2. Tärning</h3>
-          <p>
-            Vad är sannolikheten att få ett tal större än 4 med en vanlig sexsidig tärning?
-          </p>
-        </div>
-
-        <div class="diagnosis-card d3">
-          <h3>3. Experiment</h3>
-          <p>
-            Varför kan experimentell sannolikhet skilja sig från den teoretiska när få försök görs?
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="analysis-box">
-
-      <h2 class="section-title">
-        🔍 Analys av elevsvar
-      </h2>
-
-      <p class="section-intro">
-        Titta på vad eleven gör konsekvent – inte bara vilket svar som blev fel.
+      <p>
+        Vilka metoder väljer eleven och kan eleven anpassa strategin efter uppgiften?
       </p>
 
-      <div class="analysis-grid">
+      <ul>
+        <li>Huvudräkning</li>
+        <li>Skriftliga metoder</li>
+        <li>Rita eller modellera</li>
+        <li>Strategibyte</li>
+      </ul>
 
-        <div class="analysis-card">
-          <span>🧠</span>
-          <h3>Begreppsfel</h3>
-          <p>
-            Eleven har byggt en felaktig eller ofullständig matematisk innebörd.
-          </p>
-        </div>
-
-        <div class="analysis-card">
-          <span>🧩</span>
-          <h3>Strategifel</h3>
-          <p>
-            Begreppet kan vara förstått men eleven väljer en metod som inte passar situationen.
-          </p>
-        </div>
-
-        <div class="analysis-card">
-          <span>🔢</span>
-          <h3>Beräkningsfel</h3>
-          <p>
-            Strategin är rimlig men ett aritmetiskt misstag sker under genomförandet.
-          </p>
-        </div>
-
-        <div class="analysis-card">
-          <span>📖</span>
-          <h3>Språk- eller tolkningshinder</h3>
-          <p>
-            Eleven kan matematiken men missförstår ord, instruktion eller situation.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="response-box">
+      <div class="icon">🎨</div>
 
-      <h2 class="section-title">
-        🛠️ Från diagnos till undervisning
-      </h2>
+      <h3>Representationer</h3>
 
-      <p class="section-intro">
-        Olika diagnosresultat kräver olika undervisningssvar.
+      <p>
+        Kan eleven koppla samman bild, konkret modell och symboler?
       </p>
 
-      <div class="response-grid">
+      <ul>
+        <li>Tallinje</li>
+        <li>Bild</li>
+        <li>Tabell</li>
+        <li>Graf</li>
+      </ul>
 
-        <div class="response-card">
-          <span>🧱</span>
-          <h3>Byt representation</h3>
-          <p>
-            Gå från symbol till konkret material, bild, tallinje, tabell eller annan representation.
-          </p>
-        </div>
-
-        <div class="response-card">
-          <span>💬</span>
-          <h3>Samtala om tanken</h3>
-          <p>
-            Be eleven förklara varför metoden verkade rimlig och jämför med andra strategier.
-          </p>
-        </div>
-
-        <div class="response-card">
-          <span>⚖️</span>
-          <h3>Kontrastuppgifter</h3>
-          <p>
-            Jämför två noggrant valda exempel där elevens nuvarande regel fungerar i det ena men inte i det andra.
-          </p>
-        </div>
-
-        <div class="response-card">
-          <span>🔄</span>
-          <h3>Följ upp igen</h3>
-          <p>
-            Använd en ny kort uppgift senare för att se om elevens sätt att tänka faktiskt har förändrats.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <h2 class="section-title">
-      🌱 🌿 🚀 Diagnoser genom F–9
-    </h2>
+      <div class="icon">🧩</div>
 
-    <p class="section-intro">
-      Diagnostiken förändras från konkret och muntligt till allt mer abstrakt resonemang.
+      <h3>Problemlösning</h3>
+
+      <p>
+        Vad händer när metoden inte är given i förväg?
+      </p>
+
+      <ul>
+        <li>Tolka problemet.</li>
+        <li>Välja information.</li>
+        <li>Planera strategi.</li>
+        <li>Kontrollera lösningen.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">💬</div>
+
+      <h3>Resonemang</h3>
+
+      <p>
+        Kan eleven motivera varför en lösning eller ett påstående fungerar?
+      </p>
+
+      <ul>
+        <li>Förklara.</li>
+        <li>Jämföra.</li>
+        <li>Motivera.</li>
+        <li>Granska.</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🔎 Diagnostiska frågetyper</h2>
+
+    <p>
+      Variera frågorna för att minska risken att diagnosen bara mäter rutin.
     </p>
 
-    <div class="stage-grid">
-
-      <div class="stage-card f3stage">
-
-        <span>🌱</span>
-
-        <h3>F–3</h3>
-
-        <ul>
-          <li>låt eleven visa med material</li>
-          <li>observera strategier</li>
-          <li>använd korta muntliga frågor</li>
-          <li>rita och placera på tallinje</li>
-          <li>undersök talrelationer</li>
-          <li>fråga ”Hur såg du?”</li>
-        </ul>
-
-      </div>
+  </div>
 
 
-      <div class="stage-card m46stage">
+  <div class="question-grid">
 
-        <span>🌿</span>
+    <section class="question green">
 
-        <h3>4–6</h3>
+      <h3>✅❌ Sant eller falskt</h3>
 
-        <ul>
-          <li>jämför flera strategier</li>
-          <li>analysera felsvar</li>
-          <li>bråk–decimal–procent</li>
-          <li>operationernas betydelse</li>
-          <li>problemlösning och texttolkning</li>
-          <li>begär motivering</li>
-        </ul>
-
-      </div>
-
-
-      <div class="stage-card m79stage">
-
-        <span>🚀</span>
-
-        <h3>7–9</h3>
-
-        <ul>
-          <li>algebraiska strukturer</li>
-          <li>funktioner och grafer</li>
-          <li>proportionella samband</li>
-          <li>generaliserande resonemang</li>
-          <li>modellering</li>
-          <li>analysera villkor och begränsningar</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="pitfall-box">
-
-      <h2 class="section-title">
-        ⚠️ Vanliga fallgropar
-      </h2>
-
-      <p class="section-intro">
-        En diagnos ska ge bättre undervisning – inte bara mer dokumentation.
+      <p>
+        Ett påstående kan snabbt avslöja hur eleven tolkar en matematisk idé.
       </p>
 
-      <div class="pitfall-grid">
+      <ul>
+        <li>0,45 är större än 0,5.</li>
+        <li>1/8 är större än 1/4.</li>
+        <li>Större omkrets ger alltid större area.</li>
+        <li>Alla multiplikationer gör ett tal större.</li>
+      </ul>
 
-        <div class="pitfall-card">
-          <h3>För många uppgifter</h3>
-          <p>
-            Ett långt test kan visa prestation men gör det svårare att undersöka den specifika matematiska idén.
-          </p>
-        </div>
+    </section>
 
-        <div class="pitfall-card">
-          <h3>Poäng före tänkande</h3>
-          <p>
-            Två elever med samma poäng kan ha helt olika förståelse och därför behöva olika undervisning.
-          </p>
-        </div>
 
-        <div class="pitfall-card">
-          <h3>Alla felsvar behandlas lika</h3>
-          <p>
-            Ett beräkningsmisstag och en stabil missuppfattning kräver inte samma åtgärd.
-          </p>
-        </div>
+    <section class="question blue">
 
-        <div class="pitfall-card">
-          <h3>Diagnos blir betygsprov</h3>
-          <p>
-            När syftet är diagnostiskt behöver eleven våga visa hur den tänker, även när den är osäker.
-          </p>
-        </div>
+      <h3>🕵️ Analysera ett fel</h3>
 
-        <div class="pitfall-card">
-          <h3>Ingen uppföljning</h3>
-          <p>
-            Om undervisningen förändras men förståelsen aldrig kontrolleras igen vet vi inte om åtgärden fungerade.
-          </p>
-        </div>
+      <p>
+        Låt eleven förklara vad någon annan kan ha tänkt.
+      </p>
 
-        <div class="pitfall-card">
-          <h3>Språk misstas för matematik</h3>
-          <p>
-            Kontrollera med bild, konkret material eller muntlig fråga om det är språket som hindrar eleven från att visa förståelse.
-          </p>
-        </div>
+      <ul>
+        <li>Var börjar felet?</li>
+        <li>Vad verkar personen tro?</li>
+        <li>Hur skulle du förklara annorlunda?</li>
+        <li>Vilket exempel visar varför regeln inte fungerar?</li>
+      </ul>
 
-      </div>
+    </section>
 
-    </div>
+
+    <section class="question yellow">
+
+      <h3>🎨 Visa på flera sätt</h3>
+
+      <p>
+        Undersök om förståelsen är kopplad till en enda representation.
+      </p>
+
+      <ul>
+        <li>Rita.</li>
+        <li>Visa på tallinje.</li>
+        <li>Skriv med symboler.</li>
+        <li>Förklara med ord.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="question purple">
+
+      <h3>⚖️ Jämför</h3>
+
+      <p>
+        Jämförelseuppgifter kan göra relationer och strategier synliga.
+      </p>
+
+      <ul>
+        <li>Vilket är störst?</li>
+        <li>Vilken strategi är effektivast?</li>
+        <li>Vad är lika?</li>
+        <li>Vad är olika?</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>📊 Från elevsvar till undervisning</h2>
+
+    <p>
+      Sortera efter tänkande och behov – inte bara poäng.
+    </p>
+
+  </div>
+
+
+  <div class="analysis-grid">
+
+    <section class="analysis green">
+
+      <h3>🟢 Stabil förståelse</h3>
+
+      <p>
+        Eleven visar förståelse i flera typer av uppgifter.
+      </p>
+
+      <ul>
+        <li>Gå vidare.</li>
+        <li>Öka komplexiteten.</li>
+        <li>Generalisera.</li>
+        <li>Ge öppna problem.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="analysis blue">
+
+      <h3>🔵 Procedur utan djup</h3>
+
+      <p>
+        Eleven kan utföra metoden men förklaringen eller representationen är svag.
+      </p>
+
+      <ul>
+        <li>Arbeta med modeller.</li>
+        <li>Fråga varför.</li>
+        <li>Jämför strategier.</li>
+        <li>Variera uppgifterna.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="analysis yellow">
+
+      <h3>🟡 Instabil förståelse</h3>
+
+      <p>
+        Eleven lyckas i vissa uppgifter men inte när formen förändras.
+      </p>
+
+      <ul>
+        <li>Byt representation.</li>
+        <li>Undersök med följdfrågor.</li>
+        <li>Arbeta med kontraster.</li>
+        <li>Följ upp snart igen.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="analysis pink">
+
+      <h3>🔴 Tydlig missuppfattning</h3>
+
+      <p>
+        Ett konsekvent felmönster visar att en underliggande modell behöver byggas om.
+      </p>
+
+      <ul>
+        <li>Undersök elevens resonemang.</li>
+        <li>Gå tillbaka till kärnidén.</li>
+        <li>Använd konkret eller visuell modell.</li>
+        <li>Följ upp i ny situation.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🌱 Diagnoser genom F–9</h2>
+
+    <p>
+      Diagnosen behöver anpassas efter vilka uttrycksformer eleverna kan använda.
+    </p>
+
+  </div>
+
+
+  <div class="stage-grid">
+
+    <section class="stage green">
+
+      <h3>🌱 F–3</h3>
+
+      <ul>
+        <li>Observera konkret arbete.</li>
+        <li>Låt eleven berätta muntligt.</li>
+        <li>Använd bilder och tallinje.</li>
+        <li>Undersök talrelationer.</li>
+        <li>Ha få uppgifter med hög informationsnivå.</li>
+        <li>Komplettera skriftliga svar med samtal.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage blue">
+
+      <h3>🔵 4–6</h3>
+
+      <ul>
+        <li>Jämför representationer.</li>
+        <li>Undersök bråk, decimal och procent tillsammans.</li>
+        <li>Analysera strategival.</li>
+        <li>Ta med problemlösning.</li>
+        <li>Låt eleven motivera.</li>
+        <li>Identifiera överförda heltalsregler.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage purple">
+
+      <h3>🟣 7–9</h3>
+
+      <ul>
+        <li>Undersök algebraisk förståelse.</li>
+        <li>Koppla text, tabell, graf och formel.</li>
+        <li>Analysera generaliseringar.</li>
+        <li>Ta med modellering.</li>
+        <li>Granska argument.</li>
+        <li>Skilj metodfel från begreppsliga missuppfattningar.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Frågor när du analyserar en diagnos</h2>
+
+    <ul>
+      <li>Vilka uppgifter klarar eleven säkert?</li>
+      <li>Vilka typer av uppgifter blir svåra?</li>
+      <li>Finns ett återkommande felmönster?</li>
+      <li>Vilken strategi verkar eleven använda?</li>
+      <li>Kan eleven förklara sin metod?</li>
+      <li>Kan eleven växla representation?</li>
+      <li>Är problemet matematiskt eller kan språk och layout påverka?</li>
+      <li>Vilka elever visar liknande behov?</li>
+      <li>Vad behöver tas i helklass?</li>
+      <li>Vad behöver tas i mindre grupp?</li>
+      <li>Vilka elever är redo för fördjupning?</li>
+      <li>När och hur ska förståelsen följas upp?</li>
+    </ul>
 
   </section>
 
 
-  <section>
+  <div class="warning">
 
-    <h2 class="section-title">
-      Relaterade lärarverktyg
-    </h2>
+    <strong>⚠️ Diagnosen är inte ett betyg.</strong><br>
+    Ett diagnostiskt material är till för att
+    <strong>identifiera undervisningsbehov</strong>.
+    Resultaten bör därför tolkas tillsammans med annan information,
+    exempelvis observationer, elevsamtal, tidigare lösningar och elevens
+    prestation i undervisningen.
 
-    <p class="section-intro">
-      Diagnostiska underlag blir starkare när de kombineras med samtal, observation och formativ uppföljning.
-    </p>
+  </div>
 
-    <div class="links-grid">
 
-      <a href="larare-missuppfattningar.html" class="link-card c1">
-        <span>⚠️</span>
-        <h3>Missuppfattningar</h3>
-        <p>
-          Se vanliga elevtankar och hur de kan bemötas i undervisningen.
-        </p>
+  <section class="links">
+
+    <h2>➡️ Diagnosmaterial och nästa steg</h2>
+
+    <div class="link-row">
+
+      <a href="material-diagnos.html">
+        🖨️ Diagnoser A4
       </a>
 
-      <a href="larare-observation.html" class="link-card c2">
-        <span>👀</span>
-        <h3>Observation</h3>
-        <p>
-          Komplettera diagnosen med information om strategier och resonemang under arbetet.
-        </p>
+      <a href="larare-bedomning.html">
+        📊 Bedömning
       </a>
 
-      <a href="larare-exittickets.html" class="link-card c3">
-        <span>🎟️</span>
-        <h3>Exit tickets</h3>
-        <p>
-          Använd kortare underlag för kontinuerlig uppföljning mellan diagnoser.
-        </p>
+      <a href="larare-missuppfattningar.html">
+        🧠 Missuppfattningar
       </a>
 
-      <a href="larare-matteprat.html" class="link-card c4">
-        <span>💬</span>
-        <h3>Matteprat</h3>
-        <p>
-          Följ upp diagnostiska svar genom gemensam analys och strategijämförelse.
-        </p>
+      <a href="larare-observation.html">
+        👀 Observation
       </a>
 
-      <a href="larare-stod.html" class="link-card c5">
-        <span>🛟</span>
-        <h3>Stöd & anpassningar</h3>
-        <p>
-          Välj stöd utifrån det specifika hinder diagnosen har synliggjort.
-        </p>
+      <a href="larare-exittickets.html">
+        🚪 Exit tickets
       </a>
 
-      <a href="larare-planering.html" class="link-card c6">
-        <span>🗓️</span>
-        <h3>Planering</h3>
-        <p>
-          Låt diagnostisk information påverka nästa undervisningssekvens.
-        </p>
+      <a href="material-a4-larare.html">
+        📝 Analysblad
       </a>
 
-    </div>
+      <a href="larare-planering.html">
+        📅 Planering
+      </a>
 
-    <div class="note">
-      <strong>Grundprincip:</strong>
-      fråga inte bara
-      <strong>”Vad kan eleven inte?”</strong>
-      utan också
-      <strong>”Vad verkar eleven tro – och vilken undervisning kan hjälpa eleven att ompröva den idén?”</strong>
     </div>
 
   </section>
@@ -1455,11 +1100,8 @@
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🩺🧠 Diagnostisk matematik – upptäck, tolka, undervisa och följ upp
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🩺 Upptäck • Tolka • Undervisa • Följ upp
 
 </footer>
 
