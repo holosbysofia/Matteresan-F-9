@@ -78,7 +78,7 @@
     }
 
     .hero {
-      max-width: 930px;
+      max-width: 950px;
       margin: 44px auto 0;
       text-align: center;
     }
@@ -100,7 +100,7 @@
     }
 
     .hero p {
-      max-width: 850px;
+      max-width: 860px;
       margin: auto;
       color: #f6f9fb;
     }
@@ -126,7 +126,7 @@
 
     .intro p {
       color: var(--muted);
-      max-width: 950px;
+      max-width: 970px;
     }
 
     .important {
@@ -152,7 +152,7 @@
       color: var(--muted);
     }
 
-    .planning-flow {
+    .flow {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       gap: 10px;
@@ -162,8 +162,8 @@
       background: white;
       border-radius: 16px;
       padding: 18px 10px;
-      min-height: 165px;
       text-align: center;
+      min-height: 165px;
       box-shadow: 0 6px 18px rgba(32,48,64,0.06);
       border-top: 6px solid var(--blue-strong);
     }
@@ -195,7 +195,7 @@
     .flow-step span {
       display: block;
       font-size: 2rem;
-      margin-bottom: 7px;
+      margin-bottom: 6px;
     }
 
     .flow-step strong {
@@ -206,7 +206,7 @@
 
     .flow-step p {
       color: var(--muted);
-      font-size: 0.79rem;
+      font-size: 0.8rem;
     }
 
     .grid {
@@ -219,7 +219,7 @@
       background: white;
       border-radius: 18px;
       padding: 20px;
-      min-height: 250px;
+      min-height: 245px;
       box-shadow: 0 7px 22px rgba(32,48,64,0.06);
       border-top: 6px solid var(--blue-strong);
     }
@@ -262,6 +262,38 @@
       margin-bottom: 5px;
     }
 
+    .example-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .example {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 220px;
+    }
+
+    .example h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .example p,
+    .example li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .example ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .example li {
+      margin-bottom: 6px;
+    }
+
     .green { background: var(--green); }
     .blue { background: var(--blue); }
     .purple { background: var(--purple); }
@@ -270,110 +302,6 @@
     .teal { background: var(--teal); }
     .pink { background: var(--pink); }
     .gray { background: var(--gray); }
-
-    .level-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .level {
-      border-radius: 18px;
-      padding: 22px;
-      min-height: 235px;
-    }
-
-    .level h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .level p,
-    .level li {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .level ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .level li {
-      margin-bottom: 6px;
-    }
-
-    .lesson-box {
-      background: white;
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
-    }
-
-    .lesson-box h2 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .lesson-box p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .lesson-parts {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-    }
-
-    .lesson-part {
-      border-radius: 15px;
-      padding: 16px 12px;
-      min-height: 180px;
-    }
-
-    .lesson-part h3 {
-      color: var(--dark);
-      font-size: 0.95rem;
-      margin-bottom: 7px;
-    }
-
-    .lesson-part p {
-      color: var(--muted);
-      font-size: 0.82rem;
-      margin: 0;
-    }
-
-    .analysis-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .analysis {
-      border-radius: 18px;
-      padding: 20px;
-    }
-
-    .analysis h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .analysis p,
-    .analysis li {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .analysis ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .analysis li {
-      margin-bottom: 6px;
-    }
 
     .teacher-box {
       margin-top: 36px;
@@ -441,16 +369,10 @@
     }
 
     @media (max-width: 1050px) {
-      .planning-flow {
+      .flow {
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .lesson-parts {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 900px) {
       .grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -461,11 +383,9 @@
         flex-direction: column;
       }
 
-      .planning-flow,
       .grid,
-      .level-grid,
-      .lesson-parts,
-      .analysis-grid {
+      .flow,
+      .example-grid {
         grid-template-columns: 1fr;
       }
 
@@ -492,6 +412,9 @@
       html,
       body {
         background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
       header,
@@ -507,10 +430,7 @@
       .intro,
       .flow-step,
       .card,
-      .level,
-      .lesson-box,
-      .lesson-part,
-      .analysis,
+      .example,
       .teacher-box,
       .warning,
       .links {
@@ -578,16 +498,16 @@
 
   <div class="hero">
 
-    <div class="hero-icon">📅🧠</div>
+    <div class="hero-icon">🗓️🧠✏️</div>
 
     <h1>Planering</h1>
 
-    <h2>Från matematiskt mål till nästa undervisningssteg</h2>
+    <h2>Mål • Innehåll • Aktivitet • Stöd • Uppföljning • Nästa steg</h2>
 
     <p>
-      Planeringsstöd för att skapa en tydlig röd tråd mellan
-      Lgr22, matematiskt innehåll, undervisning, stöd,
-      utmaning, bedömning och uppföljning.
+      En genomtänkt matematikplanering börjar i vad eleverna ska utveckla
+      och arbetar bakåt mot undervisning, aktiviteter, frågor,
+      stöd, utmaning och uppföljning.
     </p>
 
   </div>
@@ -599,22 +519,22 @@
 
   <section class="intro">
 
-    <h2>📅 Planera bakifrån från förståelsen</h2>
+    <h2>🗓️ Börja med lärandet – inte med sidan i boken</h2>
 
     <p>
-      Börja inte med frågan ”vilka sidor ska eleverna göra?”.
-      Börja med vilken matematisk förståelse eleverna behöver utveckla
-      och vilket kunnande du vill kunna se i slutet av området.
+      Läromedel kan vara ett viktigt stöd, men planeringen behöver utgå från
+      vilken matematisk förståelse eleverna ska utveckla.
+      När målet är tydligt blir det lättare att välja relevanta aktiviteter,
+      representationer, frågor och bedömningsunderlag.
     </p>
 
     <div class="important">
 
       <strong>Grundprincip:</strong><br>
-      En bra planering håller ihop
-      <strong>mål → förkunskaper → undervisning → aktivitet →
-      bedömning → nästa steg</strong>.
-      Bedömningen planeras alltså samtidigt som undervisningen,
-      inte först efteråt.
+      Planera bakifrån:
+      <strong>vad ska eleverna förstå → hur kan de visa det →
+      vilken undervisning behöver de möta → hur följer vi upp?</strong>
+      Undervisningen ska därefter kunna justeras utifrån det eleverna faktiskt visar.
 
     </div>
 
@@ -622,55 +542,106 @@
 
 
   <div class="section-title">
-    <h2>🧭 Planering i sex steg</h2>
-    <p>Från matematisk kärna till uppföljning.</p>
+
+    <h2>🔄 Sex steg i planeringen</h2>
+
+    <p>
+      Använd samma struktur för ett helt område, en vecka eller en enskild lektion.
+    </p>
+
   </div>
 
 
-  <div class="planning-flow">
+  <div class="flow">
 
     <div class="flow-step">
+
       <span>🎯</span>
-      <strong>1. Kärnan</strong>
-      <p>Vad ska eleverna förstå matematiskt?</p>
+
+      <strong>1. Mål</strong>
+
+      <p>
+        Vilken matematisk förståelse ska eleverna utveckla?
+      </p>
+
     </div>
 
+
     <div class="flow-step">
+
       <span>🧠</span>
+
       <strong>2. Förkunskaper</strong>
-      <p>Vad behöver redan vara begripligt?</p>
+
+      <p>
+        Vad behöver eleverna redan kunna och förstå?
+      </p>
+
     </div>
 
-    <div class="flow-step">
-      <span>🧱</span>
-      <strong>3. Undervisning</strong>
-      <p>Hur ska idén göras synlig?</p>
-    </div>
 
     <div class="flow-step">
+
       <span>🧩</span>
-      <strong>4. Aktivitet</strong>
-      <p>Vad ska eleverna göra och tänka?</p>
+
+      <strong>3. Aktivitet</strong>
+
+      <p>
+        Vilka problem, modeller och samtal kan utveckla målet?
+      </p>
+
     </div>
 
-    <div class="flow-step">
-      <span>👀</span>
-      <strong>5. Synliggör</strong>
-      <p>Hur ska elevernas förståelse bli synlig?</p>
-    </div>
 
     <div class="flow-step">
-      <span>🔁</span>
-      <strong>6. Anpassa</strong>
-      <p>Vad blir nästa steg utifrån det du ser?</p>
+
+      <span>🪜</span>
+
+      <strong>4. Anpassning</strong>
+
+      <p>
+        Vilket stöd och vilken utmaning behöver finnas från början?
+      </p>
+
+    </div>
+
+
+    <div class="flow-step">
+
+      <span>🔍</span>
+
+      <strong>5. Uppföljning</strong>
+
+      <p>
+        Hur ska elevernas tänkande bli synligt?
+      </p>
+
+    </div>
+
+
+    <div class="flow-step">
+
+      <span>➡️</span>
+
+      <strong>6. Nästa steg</strong>
+
+      <p>
+        Hur förändras undervisningen utifrån det du får syn på?
+      </p>
+
     </div>
 
   </div>
 
 
   <div class="section-title">
-    <h2>🧠 Åtta delar i en genomtänkt områdesplanering</h2>
-    <p>Alla delar behöver inte vara långa – men de behöver hänga ihop.</p>
+
+    <h2>🧠 Sex frågor före ett matematikområde</h2>
+
+    <p>
+      En bra områdesplanering behöver synliggöra mer än vilka sidor som ska göras.
+    </p>
+
   </div>
 
 
@@ -680,36 +651,17 @@
 
       <div class="icon">🎯</div>
 
-      <h3>Matematisk kärna</h3>
+      <h3>Vad är kärnan?</h3>
 
       <p>
-        Formulera vad eleverna ska förstå, inte bara vilket område ni ska arbeta med.
+        Identifiera den matematiska idé som undervisningen ska bygga.
       </p>
 
       <ul>
-        <li>Vilka samband är centrala?</li>
-        <li>Vilka idéer ska leva vidare?</li>
-        <li>Vad vill du att eleven ska kunna förklara?</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">📘</div>
-
-      <h3>Koppling till Lgr22</h3>
-
-      <p>
-        Identifiera relevant centralt innehåll och ämnets långsiktiga riktning.
-      </p>
-
-      <ul>
-        <li>Relevant innehåll</li>
-        <li>Begrepp</li>
-        <li>Metoder</li>
-        <li>Problemlösning och resonemang</li>
+        <li>Vilket begrepp är centralt?</li>
+        <li>Vilket samband ska förstås?</li>
+        <li>Vilken strategi ska utvecklas?</li>
+        <li>Vilket resonemang vill du höra?</li>
       </ul>
 
     </article>
@@ -719,16 +671,16 @@
 
       <div class="icon">🧠</div>
 
-      <h3>Förkunskaper</h3>
+      <h3>Vad kan eleverna redan?</h3>
 
       <p>
-        Ta reda på vilka tidigare idéer den nya matematiken bygger vidare på.
+        Aktivera och undersök relevanta förkunskaper.
       </p>
 
       <ul>
-        <li>Vad ska återaktiveras?</li>
-        <li>Vilka luckor kan hindra?</li>
-        <li>Vilka missuppfattningar är vanliga?</li>
+        <li>Vad bygger området vidare på?</li>
+        <li>Vilken snabb diagnos behövs?</li>
+        <li>Vilka erfarenheter kan användas?</li>
       </ul>
 
     </article>
@@ -736,19 +688,18 @@
 
     <article class="card">
 
-      <div class="icon">🔤</div>
+      <div class="icon">🕵️</div>
 
-      <h3>Språk och begrepp</h3>
+      <h3>Vilka missuppfattningar kan uppstå?</h3>
 
       <p>
-        Planera vilka ord och representationer elever behöver för att kunna tänka och samtala.
+        Planera för kritiska punkter innan de blir stora hinder.
       </p>
 
       <ul>
-        <li>Centrala matematikord</li>
-        <li>Representationer</li>
-        <li>Meningstarter</li>
-        <li>Problemtextens språk</li>
+        <li>Vilka typiska feltankar finns?</li>
+        <li>Vilka motexempel behövs?</li>
+        <li>Vilken representation kan synliggöra skillnaden?</li>
       </ul>
 
     </article>
@@ -758,17 +709,18 @@
 
       <div class="icon">🧱</div>
 
-      <h3>Representationer</h3>
+      <h3>Vilka representationer behövs?</h3>
 
       <p>
-        Bestäm hur matematiken kan synliggöras på flera sätt.
+        Planera hur eleverna ska möta samma idé på flera sätt.
       </p>
 
       <ul>
-        <li>Konkret</li>
-        <li>Bild eller modell</li>
-        <li>Tabell eller graf</li>
-        <li>Symboliskt</li>
+        <li>Konkret material</li>
+        <li>Bild</li>
+        <li>Tallinje</li>
+        <li>Tabell och graf</li>
+        <li>Symboler</li>
       </ul>
 
     </article>
@@ -778,17 +730,17 @@
 
       <div class="icon">💬</div>
 
-      <h3>Matteprat</h3>
+      <h3>Vilket språk behövs?</h3>
 
       <p>
-        Planera frågor och elevlösningar som kan utveckla förståelsen.
+        Matematiska begrepp och meningsstrukturer behöver planeras.
       </p>
 
       <ul>
-        <li>Hur tänkte du?</li>
-        <li>Vad är lika och olika?</li>
-        <li>Hur vet du?</li>
-        <li>Gäller det alltid?</li>
+        <li>Centrala begrepp</li>
+        <li>Relationsord</li>
+        <li>Meningsstarter</li>
+        <li>Mattepratsfrågor</li>
       </ul>
 
     </article>
@@ -796,38 +748,20 @@
 
     <article class="card">
 
-      <div class="icon">🌱🚀</div>
+      <div class="icon">🔍</div>
 
-      <h3>Stöd och utmaning</h3>
-
-      <p>
-        Planera variationen innan eleverna kör fast eller blir färdiga.
-      </p>
-
-      <ul>
-        <li>Vilket stöd kan finnas tillgängligt?</li>
-        <li>Hur kan uppgiften öppnas?</li>
-        <li>Hur behåller vi samma matematiska kärna?</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">📊</div>
-
-      <h3>Bedömning och uppföljning</h3>
+      <h3>Hur ska lärandet synas?</h3>
 
       <p>
-        Bestäm vilken information du behöver för att planera nästa steg.
+        Bestäm redan från början vilket underlag du behöver.
       </p>
 
       <ul>
         <li>Observation</li>
-        <li>Elevlösningar</li>
-        <li>Exit tickets</li>
-        <li>Diagnostiska frågor</li>
+        <li>Exit ticket</li>
+        <li>Diagnos</li>
+        <li>Elevlösning</li>
+        <li>Matematiskt samtal</li>
       </ul>
 
     </article>
@@ -836,217 +770,372 @@
 
 
   <div class="section-title">
-    <h2>📚 Tre planeringsnivåer</h2>
-    <p>Planeringen behöver fungera både på lång och kort sikt.</p>
-  </div>
 
-
-  <div class="level-grid">
-
-    <section class="level green">
-
-      <h3>🗓️ Områdesnivå</h3>
-
-      <p>
-        Ger riktningen för flera veckors undervisning.
-      </p>
-
-      <ul>
-        <li>Matematisk kärna</li>
-        <li>Progression</li>
-        <li>Centrala begrepp</li>
-        <li>Representationer</li>
-        <li>Slutmål och bedömningsunderlag</li>
-      </ul>
-
-    </section>
-
-
-    <section class="level blue">
-
-      <h3>📅 Veckonivå</h3>
-
-      <p>
-        Håller ihop progressionen mellan lektionerna.
-      </p>
-
-      <ul>
-        <li>Vad behöver återkomma?</li>
-        <li>Vad ska introduceras?</li>
-        <li>Vilken träning behövs?</li>
-        <li>Var finns problemlösning?</li>
-        <li>Vad ska följas upp?</li>
-      </ul>
-
-    </section>
-
-
-    <section class="level purple">
-
-      <h3>⏱️ Lektionsnivå</h3>
-
-      <p>
-        Fokuserar på vilket matematiskt tänkande som ska ske just idag.
-      </p>
-
-      <ul>
-        <li>Tydligt lärandefokus</li>
-        <li>Aktivera förkunskaper</li>
-        <li>Huvudaktivitet</li>
-        <li>Gemensam sammanfattning</li>
-        <li>Snabb uppföljning</li>
-      </ul>
-
-    </section>
-
-  </div>
-
-
-  <div class="section-title">
-    <h2>⏱️ Planera en matematiklektion</h2>
-    <p>En möjlig struktur – inte ett krav på att varje lektion måste se likadan ut.</p>
-  </div>
-
-
-  <section class="lesson-box">
-
-    <h2>🧩 Lektionens fem delar</h2>
+    <h2>🧩 Planera en matematisk lektion</h2>
 
     <p>
-      Anpassa tiden efter syftet. Ibland behöver huvudaktiviteten vara lång,
-      ibland behöver samtalet få större utrymme.
+      En tydlig lektionsstruktur skapar plats för både undervisning och elevtänkande.
     </p>
 
-
-    <div class="lesson-parts">
-
-      <section class="lesson-part green">
-        <h3>1. 🎯 Start</h3>
-        <p>
-          Synliggör dagens matematiska fokus och skapa en tydlig ingång.
-        </p>
-      </section>
-
-
-      <section class="lesson-part blue">
-        <h3>2. 🧠 Aktivera</h3>
-        <p>
-          Plocka fram relevanta förkunskaper genom en kort fråga eller aktivitet.
-        </p>
-      </section>
-
-
-      <section class="lesson-part yellow">
-        <h3>3. 🧩 Arbeta</h3>
-        <p>
-          Elever utforskar, tränar, problemlöser eller undersöker den centrala idén.
-        </p>
-      </section>
-
-
-      <section class="lesson-part purple">
-        <h3>4. 💬 Samla</h3>
-        <p>
-          Jämför elevlösningar och lyft den matematiska kärnan.
-        </p>
-      </section>
-
-
-      <section class="lesson-part teal">
-        <h3>5. ✅ Fånga</h3>
-        <p>
-          Använd en kort fråga, observation eller exit ticket för att se nästa steg.
-        </p>
-      </section>
-
-    </div>
-
-  </section>
-
-
-  <div class="section-title">
-    <h2>🔁 Planera efter det eleverna visar</h2>
-    <p>Planeringen är en hypotes – undervisningen behöver kunna justeras.</p>
   </div>
 
 
-  <div class="analysis-grid">
+  <div class="example-grid">
 
-    <section class="analysis green">
+    <section class="example green">
 
-      <h3>✅ Många har förstått</h3>
+      <h3>1. Start – rikta uppmärksamheten</h3>
 
       <ul>
-        <li>Gå vidare men återkom senare.</li>
-        <li>Öka självständigheten.</li>
-        <li>Öppna uppgifterna.</li>
-        <li>Generaliserande frågor.</li>
+        <li>Aktivera förkunskaper.</li>
+        <li>Visa dagens matematiska fokus.</li>
+        <li>Använd en bild, fråga eller kort uppgift.</li>
+        <li>Skapa nyfikenhet.</li>
       </ul>
+
+      <p>
+        Starten behöver vara kort men matematisk.
+      </p>
 
     </section>
 
 
-    <section class="analysis blue">
+    <section class="example blue">
 
-      <h3>🟡 Blandad förståelse</h3>
+      <h3>2. Undersök – låt eleverna tänka</h3>
 
       <ul>
-        <li>Arbeta med strategigrupper.</li>
-        <li>Återanvänd visuella modeller.</li>
-        <li>Planera pararbete med tydligt syfte.</li>
-        <li>Ge stöd och utmaning inom samma kärna.</li>
+        <li>Ge en rik uppgift.</li>
+        <li>Låt eleverna använda representationer.</li>
+        <li>Ge tänketid.</li>
+        <li>Observera strategier.</li>
+        <li>Ställ frågor istället för att ge lösningen.</li>
       </ul>
+
+      <p>
+        Här skapas underlaget för den gemensamma undervisningen.
+      </p>
 
     </section>
 
 
-    <section class="analysis yellow">
+    <section class="example yellow">
 
-      <h3>🔴 Många har samma missuppfattning</h3>
+      <h3>3. Samla – gör matematiken synlig</h3>
 
       <ul>
-        <li>Stanna progressionen.</li>
-        <li>Byt representation.</li>
-        <li>Skapa ett kontrasterande exempel.</li>
-        <li>Planera ny gemensam undervisning.</li>
+        <li>Välj elevlösningar medvetet.</li>
+        <li>Jämför strategier.</li>
+        <li>Lyft centrala begrepp.</li>
+        <li>Knyt bild, språk och symboler samman.</li>
       </ul>
+
+      <p>
+        Läraren hjälper gruppen att se den matematiska strukturen.
+      </p>
 
     </section>
 
 
-    <section class="analysis purple">
+    <section class="example purple">
 
-      <h3>🚀 Några behöver större utmaning</h3>
+      <h3>4. Avsluta – fånga lärandet</h3>
 
       <ul>
-        <li>Hitta alla lösningar.</li>
-        <li>Ändra villkor.</li>
-        <li>Generalisera.</li>
-        <li>Skapa och granska egna problem.</li>
+        <li>Sammanfatta kärnidén.</li>
+        <li>Låt elever formulera vad de upptäckt.</li>
+        <li>Använd exit ticket eller kort uppgift.</li>
+        <li>Planera nästa steg.</li>
       </ul>
 
+      <p>
+        Avslutningen ska ge både elev och lärare riktning framåt.
+      </p>
+
     </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🪜 Planera stöd och utmaning samtidigt</h2>
+
+    <p>
+      Anpassningar blir bättre när de finns med redan i planeringen
+      istället för att läggas till när lektionen har börjat.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">🧱</div>
+
+      <h3>Stöd genom representation</h3>
+
+      <p>
+        Låt eleven arbeta med samma matematiska mål via en mer tillgänglig representation.
+      </p>
+
+      <ul>
+        <li>Konkret material</li>
+        <li>Bildstöd</li>
+        <li>Tallinje</li>
+        <li>Färdigt tabellstöd</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🗣️</div>
+
+      <h3>Stöd genom språk</h3>
+
+      <p>
+        Språklig stöttning kan göra den matematiska uppgiften tillgänglig utan att förenkla bort innehållet.
+      </p>
+
+      <ul>
+        <li>Begreppslista</li>
+        <li>Meningsstarter</li>
+        <li>Parprat</li>
+        <li>Visualisering</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🪜</div>
+
+      <h3>Stöd genom struktur</h3>
+
+      <p>
+        Bryt ner processen utan att ge bort matematiken.
+      </p>
+
+      <ul>
+        <li>Ett steg i taget</li>
+        <li>Checklista</li>
+        <li>Strategikort</li>
+        <li>Exempel som modell</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🚀</div>
+
+      <h3>Utmaning genom generalisering</h3>
+
+      <p>
+        Höj djupet istället för att bara ge större tal.
+      </p>
+
+      <ul>
+        <li>Gäller detta alltid?</li>
+        <li>Formulera en regel.</li>
+        <li>Bevisa eller motivera.</li>
+        <li>Skapa ett motexempel.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔄</div>
+
+      <h3>Utmaning genom representation</h3>
+
+      <p>
+        Be eleven visa samma matematik på flera sätt.
+      </p>
+
+      <ul>
+        <li>Bild</li>
+        <li>Tabell</li>
+        <li>Graf</li>
+        <li>Uttryck</li>
+        <li>Verklig situation</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">❓</div>
+
+      <h3>Utmaning genom nya villkor</h3>
+
+      <p>
+        Behåll samma kärnproblem men förändra villkoren.
+      </p>
+
+      <ul>
+        <li>Vad händer om...?</li>
+        <li>Finns fler lösningar?</li>
+        <li>Vilken lösning är mest effektiv?</li>
+        <li>Kan du skapa ett eget problem?</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🕵️ Vanliga planeringsfällor</h2>
+
+    <p>
+      En planering kan vara detaljerad utan att vara tydligt kopplad till lärandet.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">📖</div>
+
+      <h3>Planering = sidor i boken</h3>
+
+      <p>
+        ”Måndag sida 42–45” säger inget om vilken matematisk förståelse som ska utvecklas.
+      </p>
+
+      <ul>
+        <li>Formulera lärandets kärna först.</li>
+        <li>Välj sedan läromedelsuppgifter som stödjer den.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🎯</div>
+
+      <h3>För många mål</h3>
+
+      <p>
+        En lektion försöker täcka ett helt område samtidigt.
+      </p>
+
+      <ul>
+        <li>Välj ett tydligt matematiskt fokus.</li>
+        <li>Bygg progression över flera lektioner.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📝</div>
+
+      <h3>Aktiviteten styr målet</h3>
+
+      <p>
+        En rolig aktivitet väljs först och matematiken läggs till efteråt.
+      </p>
+
+      <ul>
+        <li>Fråga vilken matematisk idé aktiviteten faktiskt utvecklar.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🪜</div>
+
+      <h3>Stöd planeras för sent</h3>
+
+      <p>
+        Anpassningen kommer först när eleven redan har misslyckats med uppgiften.
+      </p>
+
+      <ul>
+        <li>Förutse möjliga hinder.</li>
+        <li>Ha stödstrukturer redo från start.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🚀</div>
+
+      <h3>Utmaning = fler uppgifter</h3>
+
+      <p>
+        Snabba elever får bara fler likadana beräkningar.
+      </p>
+
+      <ul>
+        <li>Fördjupa resonemanget.</li>
+        <li>Öppna uppgiften.</li>
+        <li>Generaliseringsfrågor.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔍</div>
+
+      <h3>Ingen plan för uppföljning</h3>
+
+      <p>
+        Läraren upptäcker först efter området att elevernas förståelse varierar kraftigt.
+      </p>
+
+      <ul>
+        <li>Planera små kontrollpunkter längs vägen.</li>
+        <li>Justera innan området är slut.</li>
+      </ul>
+
+    </article>
 
   </div>
 
 
   <section class="teacher-box">
 
-    <h2>👩‍🏫 Kontrollfrågor före ett nytt arbetsområde</h2>
+    <h2>👩‍🏫 Frågor att ställa när du planerar</h2>
 
     <ul>
-      <li>Vad är den viktigaste matematiska förståelsen?</li>
-      <li>Vilka delar av tidigare undervisning bygger området vidare på?</li>
-      <li>Vilka begrepp behöver vara aktiva från början?</li>
-      <li>Vilka vanliga missuppfattningar kan jag förutse?</li>
-      <li>Hur ska eleverna få möta matematiken konkret och visuellt?</li>
-      <li>När ska eleverna prata matematik?</li>
-      <li>Var finns problemlösning och undersökande arbete?</li>
-      <li>Vilken färdighetsträning behövs?</li>
-      <li>Vilket stöd kan finnas från början?</li>
-      <li>Hur kan elever som redan förstått få fördjupa samma idé?</li>
-      <li>Vad ska jag observera under området?</li>
-      <li>Hur vet jag när vi är redo att gå vidare?</li>
+      <li>Vad är det viktigaste matematiska lärandet här?</li>
+      <li>Vad behöver eleverna redan förstå?</li>
+      <li>Vilken missuppfattning vill jag kunna upptäcka?</li>
+      <li>Vilka representationer ska eleverna möta?</li>
+      <li>Vilka matematiska begrepp behöver vara synliga?</li>
+      <li>Vilken rik uppgift kan skapa behov av den nya matematiken?</li>
+      <li>Vilka frågor ska jag ställa under arbetet?</li>
+      <li>Hur ska eleverna få prata matematik?</li>
+      <li>Vilket stöd behöver finnas från början?</li>
+      <li>Hur kan samma uppgift ge större utmaning?</li>
+      <li>Hur ska jag få syn på elevernas förståelse?</li>
+      <li>Vad gör jag om majoriteten inte är redo att gå vidare?</li>
+      <li>Vad gör jag om några redan kan området?</li>
+      <li>Hur följer jag upp nästa lektion?</li>
     </ul>
 
   </section>
@@ -1054,51 +1143,51 @@
 
   <div class="warning">
 
-    <strong>⚠️ Planeringen ska stödja undervisningen – inte låsa den.</strong><br>
-    Om elevernas lösningar visar något annat än du förväntade dig
-    behöver planen kunna förändras. En stark planering innehåller därför
-    inte bara <strong>vad du tänker undervisa om</strong>,
-    utan också <strong>hur du ska upptäcka när undervisningen behöver ändras</strong>.
+    <strong>⚠️ En planering är ett arbetsredskap – inte ett kontrakt.</strong><br>
+    En genomtänkt planering ska ge riktning,
+    men behöver kunna förändras när observationer,
+    samtal, diagnoser eller exit tickets visar att eleverna
+    <strong>behöver en annan väg, mer tid eller större utmaning</strong>.
 
   </div>
 
 
   <section class="links">
 
-    <h2>➡️ Planeringsverktyg</h2>
+    <h2>➡️ Fortsätt i Matteresan</h2>
 
     <div class="link-row">
 
       <a href="material-planering.html">
-        📅 A4-planering
+        🗓️ Utskrivbara planeringsblad
       </a>
 
       <a href="material-lektionsmall.html">
-        📋 Lektionsmall
+        ✏️ Lektionsmall
       </a>
 
       <a href="larare-progression.html">
         📈 Progression
       </a>
 
-      <a href="larare-lgr22.html">
-        📘 Lgr22
+      <a href="larare-undervisning.html">
+        👩‍🏫 Undervisning
       </a>
 
       <a href="larare-bedomning.html">
         📊 Bedömning
       </a>
 
+      <a href="larare-observation.html">
+        👀 Observation
+      </a>
+
       <a href="larare-stod.html">
-        🌱 Stöd
+        🪜 Stöd
       </a>
 
       <a href="larare-utmaning.html">
         🚀 Utmaning
-      </a>
-
-      <a href="larare-observation.html">
-        👀 Observation
       </a>
 
     </div>
@@ -1111,7 +1200,7 @@
 <footer>
 
   <strong>HOLOS Matteresan F–9</strong><br>
-  📅 Planera • Undervisa • Observera • Anpassa • Följ upp
+  🗓️ Mål • Innehåll • Aktivitet • Stöd • Uppföljning • Nästa steg
 
 </footer>
 
