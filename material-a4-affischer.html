@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Affischer | HOLOS Matteresan F–9</title>
+  <title>A4-affischer | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -40,7 +40,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.45;
     }
 
     a {
@@ -49,313 +49,322 @@
     }
 
     header {
-      background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 32%),
-        linear-gradient(135deg, #53677a, #8295a8);
-      color: white;
-      padding: 22px 20px 58px;
+      max-width: 1050px;
+      margin: 24px auto 0;
+      padding: 0 18px;
     }
 
     .topbar {
-      max-width: 1180px;
-      margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
+      margin-bottom: 18px;
     }
 
     .logo {
       font-weight: 800;
       letter-spacing: 1px;
+      color: var(--dark);
     }
 
     .back-link {
-      border: 1px solid rgba(255,255,255,0.65);
-      border-radius: 999px;
-      padding: 8px 15px;
-      font-weight: bold;
-    }
-
-    .hero {
-      max-width: 950px;
-      margin: 44px auto 0;
-      text-align: center;
-    }
-
-    .hero-icon {
-      font-size: 4rem;
-      margin-bottom: 8px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 7vw, 4.4rem);
-      line-height: 1.05;
-      margin-bottom: 12px;
-    }
-
-    .hero h2 {
-      font-size: clamp(1.05rem, 3vw, 1.4rem);
-      margin-bottom: 14px;
-    }
-
-    .hero p {
-      max-width: 860px;
-      margin: auto;
-      color: #f6f9fb;
-    }
-
-    main {
-      max-width: 1180px;
-      margin: auto;
-      padding: 42px 20px 70px;
-    }
-
-    .intro {
-      background: white;
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
-      margin-bottom: 34px;
-    }
-
-    .intro h2 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .intro p {
-      color: var(--muted);
-      max-width: 970px;
-    }
-
-    .print-box {
-      margin-top: 17px;
-      background: var(--yellow);
-      border-left: 6px solid #c39b44;
-      border-radius: 14px;
-      padding: 17px;
-      color: #665831;
-    }
-
-    .main-link {
-      margin-top: 28px;
-      background: linear-gradient(135deg, var(--teal), var(--blue));
-      border-radius: 22px;
-      padding: 26px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .main-link-text h2 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .main-link-text p {
-      color: var(--muted);
-      max-width: 760px;
-    }
-
-    .main-button {
-      background: var(--dark);
-      color: white;
-      border-radius: 999px;
-      padding: 12px 18px;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    .section-title {
-      margin: 42px 0 18px;
-    }
-
-    .section-title h2 {
-      color: var(--dark);
-      font-size: 1.8rem;
-      margin-bottom: 5px;
-    }
-
-    .section-title p {
-      color: var(--muted);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .poster-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 290px;
-      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
-      border-top: 7px solid var(--green-strong);
-    }
-
-    .poster-card:nth-child(2) {
-      border-top-color: var(--blue-strong);
-    }
-
-    .poster-card:nth-child(3) {
-      border-top-color: #c39b44;
-    }
-
-    .poster-card:nth-child(4) {
-      border-top-color: var(--purple-strong);
-    }
-
-    .poster-card:nth-child(5) {
-      border-top-color: #5d9c92;
-    }
-
-    .poster-card:nth-child(6) {
-      border-top-color: #aa7188;
-    }
-
-    .poster-icon {
-      font-size: 2.4rem;
-      margin-bottom: 9px;
-    }
-
-    .poster-card h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-      font-size: 1.15rem;
-    }
-
-    .poster-card p,
-    .poster-card li {
-      color: var(--muted);
-      font-size: 0.89rem;
-    }
-
-    .poster-card ul {
-      margin: 10px 0 0 20px;
-    }
-
-    .poster-card li {
-      margin-bottom: 6px;
-    }
-
-    .use-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .use-card {
-      border-radius: 17px;
-      padding: 18px;
-      min-height: 170px;
-    }
-
-    .use-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .use-card p {
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .green {
-      background: var(--green);
-    }
-
-    .blue {
-      background: var(--blue);
-    }
-
-    .yellow {
-      background: var(--yellow);
-    }
-
-    .purple {
-      background: var(--purple);
-    }
-
-    .teal {
-      background: var(--teal);
-    }
-
-    .pink {
-      background: var(--pink);
-    }
-
-    .orange {
-      background: var(--orange);
-    }
-
-    .teacher-box {
-      margin-top: 36px;
-      background: var(--teal);
-      border-radius: 20px;
-      padding: 24px;
-    }
-
-    .teacher-box h2 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .teacher-box ul {
-      margin-left: 22px;
-      color: var(--muted);
-    }
-
-    .teacher-box li {
-      margin-bottom: 7px;
-    }
-
-    .links {
-      margin-top: 28px;
-      background: white;
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
-    }
-
-    .links h2 {
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-
-    .link-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .link-row a {
       background: var(--dark);
       color: white;
       border-radius: 999px;
       padding: 9px 14px;
-      font-size: 0.83rem;
       font-weight: bold;
+      font-size: 0.85rem;
     }
 
-    footer {
+    .screen-intro {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.07);
+      margin-bottom: 18px;
+    }
+
+    .screen-intro h1 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .screen-intro p {
+      color: var(--muted);
+    }
+
+    .screen-note {
+      margin-top: 14px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 15px;
+      color: #665831;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 0 18px 50px;
+    }
+
+    .sheet {
+      background: white;
+      width: 100%;
+      min-height: 277mm;
+      margin: 22px auto;
+      padding: 14mm;
+      border-radius: 18px;
+      box-shadow: 0 6px 22px rgba(32,48,64,0.08);
+      page-break-after: always;
+      break-after: page;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sheet.final-sheet {
+      page-break-after: auto;
+      break-after: auto;
+    }
+
+    .sheet.green {
+      background: var(--green);
+      border-top: 12px solid var(--green-strong);
+    }
+
+    .sheet.blue {
+      background: var(--blue);
+      border-top: 12px solid var(--blue-strong);
+    }
+
+    .sheet.yellow {
+      background: var(--yellow);
+      border-top: 12px solid #c39b44;
+    }
+
+    .sheet.purple {
+      background: var(--purple);
+      border-top: 12px solid var(--purple-strong);
+    }
+
+    .sheet.teal {
+      background: var(--teal);
+      border-top: 12px solid #5d9c92;
+    }
+
+    .sheet.pink {
+      background: var(--pink);
+      border-top: 12px solid #aa7188;
+    }
+
+    .poster-header {
+      text-align: center;
+      margin-bottom: 12mm;
+    }
+
+    .poster-icon {
+      font-size: 4rem;
+      margin-bottom: 6px;
+    }
+
+    .poster-header h2 {
+      color: var(--dark);
+      font-size: 2.25rem;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .poster-header p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .steps {
+      display: grid;
+      gap: 7mm;
+      flex: 1;
+      align-content: center;
+    }
+
+    .step {
+      background: rgba(255,255,255,0.82);
+      border-radius: 18px;
+      padding: 7mm;
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 14px;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(32,48,64,0.05);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
       background: var(--dark);
       color: white;
-      text-align: center;
-      padding: 32px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      font-weight: 800;
     }
 
-    @media (max-width: 1000px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .step h3 {
+      color: var(--dark);
+      margin-bottom: 3px;
+      font-size: 1.15rem;
+    }
 
-      .use-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .step p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .question-list {
+      display: grid;
+      gap: 7mm;
+      flex: 1;
+      align-content: center;
+    }
+
+    .question {
+      background: rgba(255,255,255,0.85);
+      border-radius: 18px;
+      padding: 8mm;
+      text-align: center;
+      color: var(--dark);
+      font-size: 1.2rem;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(32,48,64,0.05);
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8mm;
+      flex: 1;
+      align-content: center;
+    }
+
+    .tool {
+      background: rgba(255,255,255,0.85);
+      border-radius: 18px;
+      padding: 8mm;
+      min-height: 48mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(32,48,64,0.05);
+    }
+
+    .tool span {
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .tool h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .tool p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .language-list {
+      display: grid;
+      gap: 8mm;
+      flex: 1;
+      align-content: center;
+    }
+
+    .language-item {
+      background: rgba(255,255,255,0.86);
+      border-radius: 18px;
+      padding: 8mm;
+      color: var(--dark);
+      font-size: 1.1rem;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(32,48,64,0.05);
+    }
+
+    .error-flow {
+      display: grid;
+      gap: 8mm;
+      flex: 1;
+      align-content: center;
+    }
+
+    .error-step {
+      background: rgba(255,255,255,0.86);
+      border-radius: 18px;
+      padding: 8mm;
+      display: grid;
+      grid-template-columns: 55px 1fr;
+      gap: 15px;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(32,48,64,0.05);
+    }
+
+    .error-step span {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .error-step h3 {
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .error-step p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8mm;
+      flex: 1;
+      align-content: center;
+    }
+
+    .check {
+      background: rgba(255,255,255,0.86);
+      border-radius: 18px;
+      padding: 8mm;
+      min-height: 48mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(32,48,64,0.05);
+    }
+
+    .check span {
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .check h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .check p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .poster-footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.76rem;
+      margin-top: 10mm;
     }
 
     @media (max-width: 700px) {
@@ -363,19 +372,13 @@
         flex-direction: column;
       }
 
-      .grid,
-      .use-grid {
+      .tool-grid,
+      .check-grid {
         grid-template-columns: 1fr;
       }
 
-      .main-link {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      main {
-        padding-left: 14px;
-        padding-right: 14px;
+      .sheet {
+        min-height: auto;
       }
     }
 
@@ -401,59 +404,64 @@
         forced-color-adjust: none !important;
       }
 
-      header,
-      footer {
+      header {
         display: none !important;
       }
 
       main {
         max-width: none;
         padding: 0;
+        margin: 0;
       }
 
-      .intro,
-      .main-link,
-      .poster-card,
-      .use-card,
-      .teacher-box,
-      .links {
-        break-inside: avoid;
-        page-break-inside: avoid;
+      .sheet {
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0;
+        width: 100%;
+        min-height: 277mm;
       }
 
-      .print-box,
-      .yellow {
-        background: var(--yellow) !important;
-      }
-
-      .main-link,
-      .blue {
-        background: var(--blue) !important;
-      }
-
-      .green {
+      .sheet.green {
         background: var(--green) !important;
+        border-top: 12px solid var(--green-strong) !important;
       }
 
-      .purple {
+      .sheet.blue {
+        background: var(--blue) !important;
+        border-top: 12px solid var(--blue-strong) !important;
+      }
+
+      .sheet.yellow {
+        background: var(--yellow) !important;
+        border-top: 12px solid #c39b44 !important;
+      }
+
+      .sheet.purple {
         background: var(--purple) !important;
+        border-top: 12px solid var(--purple-strong) !important;
       }
 
-      .teal,
-      .teacher-box {
+      .sheet.teal {
         background: var(--teal) !important;
+        border-top: 12px solid #5d9c92 !important;
       }
 
-      .pink {
+      .sheet.pink {
         background: var(--pink) !important;
+        border-top: 12px solid #aa7188 !important;
       }
 
-      .orange {
-        background: var(--orange) !important;
+      .step,
+      .question,
+      .tool,
+      .language-item,
+      .error-step,
+      .check {
+        background: rgba(255,255,255,0.86) !important;
       }
 
-      .main-button,
-      .link-row a {
+      .step-number {
         background: var(--dark) !important;
         color: white !important;
       }
@@ -471,350 +479,423 @@
       HOLOS MATTERESAN
     </div>
 
-    <a href="larare-utskrift.html" class="back-link">
-      ← Utskriftscentral
+    <a href="material-affischer.html" class="back-link">
+      ← Affischbanken
     </a>
 
   </div>
 
+  <section class="screen-intro">
 
-  <div class="hero">
-
-    <div class="hero-icon">🖼️✨</div>
-
-    <h1>Affischer</h1>
-
-    <h2>Strategier • Matteprat • Begrepp • Problemlösning</h2>
+    <h1>🖼️ A4-affischer</h1>
 
     <p>
-      Matteresans affischer ska fungera som aktiva stöd i undervisningen.
-      De påminner elever om matematiska strategier, språk
-      och arbetsgångar som kan användas under lektionen.
+      Sex färdiga matematikaffischer.
+      Varje affisch skrivs ut på ett eget A4.
     </p>
 
-  </div>
+    <div class="screen-note">
+      🖨️ <strong>Färgutskrift:</strong>
+      välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+      och kontrollera att skrivaren står på <strong>Färg</strong>.
+      Varje affisch är anpassad till ett eget A4.
+    </div>
+
+  </section>
 
 </header>
 
 
 <main>
 
-  <section class="intro">
+  <!-- AFFISCH 1 -->
+  <section class="sheet green">
 
-    <h2>🖼️ Matematiska stöd på väggen</h2>
-
-    <p>
-      Affischer fungerar bäst när eleverna redan har arbetat
-      med innehållet och vet vad orden och symbolerna betyder.
-      Introducera därför affischen tillsammans med eleverna
-      och hänvisa aktivt till den under matematiklektionerna.
-    </p>
-
-    <div class="print-box">
-      🖨️ <strong>Färgutskrift:</strong>
-      välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
-      och kontrollera att skrivaren står på <strong>Färg</strong>.
-    </div>
-
-  </section>
-
-
-  <section class="main-link">
-
-    <div class="main-link-text">
-
-      <h2>📄 Färdiga A4-affischer</h2>
-
-      <p>
-        Här finns sex färdiga affischer som är anpassade
-        för utskrift på varsitt A4:
-        problemlösning, matteprat, strategier,
-        matematikord, felfinnaren och kontroll av svar.
-      </p>
-
-    </div>
-
-    <a href="material-a4-affischer.html" class="main-button">
-      Öppna A4-affischer →
-    </a>
-
-  </section>
-
-
-  <div class="section-title">
-
-    <h2>🎨 Affischer i paketet</h2>
-
-    <p>
-      Sex affischer som kan användas genom stora delar av F–9.
-    </p>
-
-  </div>
-
-
-  <div class="grid">
-
-    <article class="poster-card">
+    <div class="poster-header">
 
       <div class="poster-icon">🧩</div>
 
-      <h3>1. Så löser vi problem</h3>
+      <h2>Så löser vi problem</h2>
 
       <p>
-        En tydlig arbetsgång som hjälper eleverna när lösningen
-        inte är given från början.
+        En arbetsgång när lösningen inte är given från början.
       </p>
 
-      <ul>
-        <li>Förstå problemet.</li>
-        <li>Planera en strategi.</li>
-        <li>Lös.</li>
-        <li>Förklara.</li>
-        <li>Kontrollera.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="poster-card">
-
-      <div class="poster-icon">💬</div>
-
-      <h3>2. Matteprat</h3>
-
-      <p>
-        Samtalsstöd som hjälper eleverna att uttrycka
-        och utveckla matematiska resonemang.
-      </p>
-
-      <ul>
-        <li>Hur tänkte du?</li>
-        <li>Hur vet du?</li>
-        <li>Kan du visa på annat sätt?</li>
-        <li>Vem tänkte annorlunda?</li>
-        <li>Gäller det alltid?</li>
-      </ul>
-
-    </article>
-
-
-    <article class="poster-card">
-
-      <div class="poster-icon">🧰</div>
-
-      <h3>3. Min strategiverktygslåda</h3>
-
-      <p>
-        Påminner eleverna om att de kan välja mellan
-        flera olika problemlösningsstrategier.
-      </p>
-
-      <ul>
-        <li>Rita.</li>
-        <li>Bygg.</li>
-        <li>Gör en tabell.</li>
-        <li>Pröva systematiskt.</li>
-        <li>Arbeta baklänges.</li>
-        <li>Sök ett mönster.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="poster-card">
-
-      <div class="poster-icon">🔤</div>
-
-      <h3>4. Matematikord vi använder</h3>
-
-      <p>
-        Ett stöd för att utveckla det matematiska språket
-        under samtal och skriftliga förklaringar.
-      </p>
-
-      <ul>
-        <li>Jag ser...</li>
-        <li>Jag jämför...</li>
-        <li>Jag vet att...</li>
-        <li>Jag valde...</li>
-        <li>Det fungerar eftersom...</li>
-      </ul>
-
-    </article>
-
-
-    <article class="poster-card">
-
-      <div class="poster-icon">🕵️</div>
-
-      <h3>5. Felfinnaren</h3>
-
-      <p>
-        Hjälper eleverna att se fel som en möjlighet
-        att analysera och förstå matematik.
-      </p>
-
-      <ul>
-        <li>Var börjar felet?</li>
-        <li>Vad kan personen ha tänkt?</li>
-        <li>Hur kan vi rätta?</li>
-        <li>Vad lär vi oss av felet?</li>
-      </ul>
-
-    </article>
-
-
-    <article class="poster-card">
-
-      <div class="poster-icon">✅</div>
-
-      <h3>6. Så kontrollerar jag mitt svar</h3>
-
-      <p>
-        Stöd för att utveckla rimlighetsbedömning
-        och självständig kontroll.
-      </p>
-
-      <ul>
-        <li>Är svaret rimligt?</li>
-        <li>Har jag svarat på frågan?</li>
-        <li>Är enheten rätt?</li>
-        <li>Kan jag lösa på annat sätt?</li>
-        <li>Kan jag använda motsatt räknesätt?</li>
-      </ul>
-
-    </article>
-
-  </div>
-
-
-  <div class="section-title">
-
-    <h2>🏫 Så kan affischerna användas</h2>
-
-    <p>
-      Affischerna får störst effekt när de ingår aktivt i undervisningen.
-    </p>
-
-  </div>
-
-
-  <div class="use-grid">
-
-    <section class="use-card green">
-
-      <h3>🎯 Före arbetet</h3>
-
-      <p>
-        Repetera den affisch som eleverna kommer att behöva
-        under dagens aktivitet.
-      </p>
-
-    </section>
-
-
-    <section class="use-card blue">
-
-      <h3>🧠 Under arbetet</h3>
-
-      <p>
-        Hänvisa till affischen istället för att direkt
-        ge eleven nästa steg eller lösning.
-      </p>
-
-    </section>
-
-
-    <section class="use-card yellow">
-
-      <h3>💬 I matteprat</h3>
-
-      <p>
-        Använd formuleringarna på affischen
-        för att stötta jämförelse och resonemang.
-      </p>
-
-    </section>
-
-
-    <section class="use-card purple">
-
-      <h3>🔁 Efter lektionen</h3>
-
-      <p>
-        Låt eleverna identifiera vilken strategi,
-        fråga eller kontroll de faktiskt använde.
-      </p>
-
-    </section>
-
-  </div>
-
-
-  <section class="teacher-box">
-
-    <h2>👩‍🏫 Gör affischen till elevernas verktyg</h2>
-
-    <ul>
-      <li>Introducera inte alla affischer samtidigt.</li>
-      <li>Ta fram en affisch när innehållet blir aktuellt.</li>
-      <li>Modellera hur den används i en riktig matematisk situation.</li>
-      <li>Låt eleverna själva hänvisa till affischen.</li>
-      <li>Använd samma språk i undervisning, elevblad och matteprat.</li>
-      <li>Återkom till affischerna regelbundet.</li>
-      <li>Ta bort eller byt affisch när den inte längre används.</li>
-    </ul>
+    </div>
+
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <div>
+          <h3>Förstå</h3>
+          <p>Vad vet jag? Vad ska jag ta reda på?</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div>
+          <h3>Planera</h3>
+          <p>Vilken strategi kan hjälpa mig?</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div>
+          <h3>Lös</h3>
+          <p>Genomför min plan och visa mina steg.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div>
+          <h3>Förklara</h3>
+          <p>Berätta hur jag tänkte och varför metoden fungerar.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <div>
+          <h3>Kontrollera</h3>
+          <p>Är svaret rimligt? Kan jag kontrollera på ett annat sätt?</p>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="poster-footer">
+      HOLOS Matteresan F–9 • Problemlösning
+    </div>
 
   </section>
 
 
-  <section class="links">
+  <!-- AFFISCH 2 -->
+  <section class="sheet blue">
 
-    <h2>➡️ Fortsätt i materialbanken</h2>
+    <div class="poster-header">
 
-    <div class="link-row">
+      <div class="poster-icon">💬</div>
 
-      <a href="material-a4-affischer.html">
-        🖨️ A4-affischer
-      </a>
+      <h2>Matteprat</h2>
 
-      <a href="material-a4-kort.html">
-        🃏 Utskrivbara kort
-      </a>
+      <p>
+        Matematik blir tydligare när vi förklarar våra tankar.
+      </p>
 
-      <a href="material-elevblad.html">
-        ✏️ Elevblad
-      </a>
+    </div>
 
-      <a href="material-matteprat.html">
-        💬 Matteprat
-      </a>
 
-      <a href="material-begrepp.html">
-        🔤 Begrepp
-      </a>
+    <div class="question-list">
 
-      <a href="material-problem.html">
-        🧩 Problemlösning
-      </a>
+      <div class="question">
+        🧠 Hur tänkte du?
+      </div>
 
-      <a href="larare-utskrift.html">
-        🖨️ Utskriftscentral
-      </a>
+      <div class="question">
+        🔎 Hur vet du?
+      </div>
 
+      <div class="question">
+        🎨 Kan du visa på ett annat sätt?
+      </div>
+
+      <div class="question">
+        ⚖️ Vad är lika och vad är olika?
+      </div>
+
+      <div class="question">
+        🔄 Vem använde en annan strategi?
+      </div>
+
+      <div class="question">
+        🚀 Gäller det alltid?
+      </div>
+
+    </div>
+
+
+    <div class="poster-footer">
+      HOLOS Matteresan F–9 • Matteprat
+    </div>
+
+  </section>
+
+
+  <!-- AFFISCH 3 -->
+  <section class="sheet yellow">
+
+    <div class="poster-header">
+
+      <div class="poster-icon">🧰</div>
+
+      <h2>Min strategiverktygslåda</h2>
+
+      <p>
+        När jag fastnar kan jag prova en annan strategi.
+      </p>
+
+    </div>
+
+
+    <div class="tool-grid">
+
+      <div class="tool">
+        <span>✏️</span>
+        <h3>Rita</h3>
+        <p>Gör en bild, modell eller skiss.</p>
+      </div>
+
+      <div class="tool">
+        <span>🧱</span>
+        <h3>Bygg</h3>
+        <p>Använd konkret material.</p>
+      </div>
+
+      <div class="tool">
+        <span>📋</span>
+        <h3>Gör en tabell</h3>
+        <p>Ordna informationen.</p>
+      </div>
+
+      <div class="tool">
+        <span>🔍</span>
+        <h3>Pröva systematiskt</h3>
+        <p>Testa möjligheter i en tydlig ordning.</p>
+      </div>
+
+      <div class="tool">
+        <span>↩️</span>
+        <h3>Arbeta baklänges</h3>
+        <p>Börja från det du vet om slutet.</p>
+      </div>
+
+      <div class="tool">
+        <span>🔁</span>
+        <h3>Sök ett mönster</h3>
+        <p>Undersök flera fall.</p>
+      </div>
+
+      <div class="tool">
+        <span>🌱</span>
+        <h3>Förenkla</h3>
+        <p>Prova först med mindre tal.</p>
+      </div>
+
+      <div class="tool">
+        <span>🔤</span>
+        <h3>Skriv matematiskt</h3>
+        <p>Använd uttryck, ekvation eller formel.</p>
+      </div>
+
+    </div>
+
+
+    <div class="poster-footer">
+      HOLOS Matteresan F–9 • Strategier
+    </div>
+
+  </section>
+
+
+  <!-- AFFISCH 4 -->
+  <section class="sheet purple">
+
+    <div class="poster-header">
+
+      <div class="poster-icon">🔤</div>
+
+      <h2>Matematikord vi använder</h2>
+
+      <p>
+        Hjälpmeningar för matematiska samtal och förklaringar.
+      </p>
+
+    </div>
+
+
+    <div class="language-list">
+
+      <div class="language-item">
+        👀 Jag ser att...
+      </div>
+
+      <div class="language-item">
+        🧠 Jag tänkte så här eftersom...
+      </div>
+
+      <div class="language-item">
+        🛣️ Jag valde strategin ... eftersom...
+      </div>
+
+      <div class="language-item">
+        ⚖️ Min lösning liknar din eftersom...
+      </div>
+
+      <div class="language-item">
+        🔄 Min lösning skiljer sig genom att...
+      </div>
+
+      <div class="language-item">
+        🔗 Jag ser ett samband mellan ... och ...
+      </div>
+
+      <div class="language-item">
+        ✅ Jag vet att svaret är rimligt eftersom...
+      </div>
+
+      <div class="language-item">
+        🚀 Jag tror att detta gäller även när...
+      </div>
+
+    </div>
+
+
+    <div class="poster-footer">
+      HOLOS Matteresan F–9 • Matematiskt språk
+    </div>
+
+  </section>
+
+
+  <!-- AFFISCH 5 -->
+  <section class="sheet teal">
+
+    <div class="poster-header">
+
+      <div class="poster-icon">🕵️</div>
+
+      <h2>Felfinnaren</h2>
+
+      <p>
+        Ett fel kan hjälpa oss att förstå matematiken bättre.
+      </p>
+
+    </div>
+
+
+    <div class="error-flow">
+
+      <div class="error-step">
+        <span>👀</span>
+        <div>
+          <h3>Vad ser du?</h3>
+          <p>Beskriv lösningen utan att direkt bedöma den.</p>
+        </div>
+      </div>
+
+      <div class="error-step">
+        <span>🔎</span>
+        <div>
+          <h3>Var börjar felet?</h3>
+          <p>Hitta det första steg där resonemanget förändras.</p>
+        </div>
+      </div>
+
+      <div class="error-step">
+        <span>🧠</span>
+        <div>
+          <h3>Vad kan personen ha tänkt?</h3>
+          <p>Försök förstå idén bakom felet.</p>
+        </div>
+      </div>
+
+      <div class="error-step">
+        <span>🛠️</span>
+        <div>
+          <h3>Hur rättar vi?</h3>
+          <p>Visa en bättre lösning och förklara varför den fungerar.</p>
+        </div>
+      </div>
+
+      <div class="error-step">
+        <span>🌟</span>
+        <div>
+          <h3>Vad lär vi oss?</h3>
+          <p>Vilken matematisk idé blev tydligare?</p>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="poster-footer">
+      HOLOS Matteresan F–9 • Felfinnaren
+    </div>
+
+  </section>
+
+
+  <!-- AFFISCH 6 -->
+  <section class="sheet pink final-sheet">
+
+    <div class="poster-header">
+
+      <div class="poster-icon">✅</div>
+
+      <h2>Så kontrollerar jag mitt svar</h2>
+
+      <p>
+        Innan jag är klar granskar jag min lösning.
+      </p>
+
+    </div>
+
+
+    <div class="check-grid">
+
+      <div class="check">
+        <span>🎯</span>
+        <h3>Har jag svarat på frågan?</h3>
+        <p>Kontrollera att svaret faktiskt handlar om det som efterfrågas.</p>
+      </div>
+
+      <div class="check">
+        <span>🧠</span>
+        <h3>Är svaret rimligt?</h3>
+        <p>Passar storleken på svaret situationen?</p>
+      </div>
+
+      <div class="check">
+        <span>📏</span>
+        <h3>Är enheten rätt?</h3>
+        <p>Behöver svaret vara i kronor, meter, procent eller något annat?</p>
+      </div>
+
+      <div class="check">
+        <span>🔄</span>
+        <h3>Kan jag lösa på annat sätt?</h3>
+        <p>Jämför med en annan strategi om det är möjligt.</p>
+      </div>
+
+      <div class="check">
+        <span>↔️</span>
+        <h3>Kan jag använda motsatt räknesätt?</h3>
+        <p>Kontrollera exempelvis addition med subtraktion.</p>
+      </div>
+
+      <div class="check">
+        <span>💬</span>
+        <h3>Kan jag förklara lösningen?</h3>
+        <p>Om jag kan förklara den tydligt har jag granskat mitt tänkande.</p>
+      </div>
+
+    </div>
+
+
+    <div class="poster-footer">
+      HOLOS Matteresan F–9 • Kontrollera ditt svar
     </div>
 
   </section>
 
 </main>
-
-
-<footer>
-
-  <strong>HOLOS Matteresan F–9</strong><br>
-  🖼️ Strategier • Matteprat • Begrepp • Problemlösning
-
-</footer>
 
 </body>
 </html>
