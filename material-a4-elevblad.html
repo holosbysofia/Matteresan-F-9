@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Elevblad | HOLOS Matteresan F–9</title>
+  <title>A4 Elevblad | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -100,7 +100,7 @@
     }
 
     .hero p {
-      max-width: 870px;
+      max-width: 860px;
       margin: auto;
       color: #f6f9fb;
     }
@@ -116,7 +116,7 @@
       border-radius: 22px;
       padding: 28px;
       box-shadow: 0 8px 25px rgba(32,48,64,0.07);
-      margin-bottom: 30px;
+      margin-bottom: 34px;
     }
 
     .intro h2 {
@@ -126,46 +126,41 @@
 
     .intro p {
       color: var(--muted);
-      max-width: 980px;
     }
 
-    .info-box {
-      margin-top: 16px;
+    .count-box {
+      margin-top: 17px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .count {
+      border-radius: 15px;
+      padding: 16px;
+      text-align: center;
+      background: var(--gray);
+    }
+
+    .count strong {
+      display: block;
+      color: var(--dark);
+      font-size: 1.6rem;
+      margin-bottom: 3px;
+    }
+
+    .count span {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .print-note {
+      margin-top: 18px;
       background: var(--yellow);
       border-left: 6px solid #c39b44;
       border-radius: 14px;
-      padding: 16px;
+      padding: 17px;
       color: #665831;
-    }
-
-    .main-link {
-      margin-top: 26px;
-      background: linear-gradient(135deg, var(--teal), var(--blue));
-      border-radius: 22px;
-      padding: 26px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .main-link h2 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .main-link p {
-      color: var(--muted);
-      max-width: 760px;
-    }
-
-    .main-button {
-      background: var(--dark);
-      color: white;
-      border-radius: 999px;
-      padding: 12px 18px;
-      font-weight: bold;
-      white-space: nowrap;
     }
 
     .section-title {
@@ -190,23 +185,19 @@
 
     .card {
       background: white;
-      border-radius: 18px;
+      border-radius: 19px;
       padding: 21px;
       min-height: 225px;
       box-shadow: 0 7px 22px rgba(32,48,64,0.06);
-      border-top: 6px solid var(--blue-strong);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      border-top: 6px solid var(--green-strong);
       display: flex;
       flex-direction: column;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .card:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 26px rgba(32,48,64,0.1);
-    }
-
-    .card:nth-child(3n+1) {
-      border-top-color: var(--green-strong);
     }
 
     .card:nth-child(3n+2) {
@@ -222,28 +213,28 @@
       margin-bottom: 8px;
     }
 
-    .card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-      font-size: 1.08rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.88rem;
-      margin-bottom: 15px;
-    }
-
     .tag {
       display: inline-block;
       align-self: flex-start;
-      margin-bottom: 13px;
+      margin-bottom: 10px;
       background: var(--gray);
       border-radius: 999px;
       padding: 5px 9px;
       font-size: 0.72rem;
       font-weight: bold;
       color: var(--muted);
+    }
+
+    .card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+      font-size: 1.06rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.87rem;
+      margin-bottom: 15px;
     }
 
     .button {
@@ -267,7 +258,7 @@
     .method-card {
       border-radius: 18px;
       padding: 20px;
-      min-height: 210px;
+      min-height: 215px;
       display: flex;
       flex-direction: column;
     }
@@ -303,7 +294,7 @@
 
     .method-card p {
       color: var(--muted);
-      font-size: 0.88rem;
+      font-size: 0.87rem;
       margin-bottom: 14px;
     }
 
@@ -311,34 +302,25 @@
       margin-top: auto;
     }
 
-    .teacher-box {
+    .info {
       margin-top: 38px;
       background: var(--teal);
       border-radius: 20px;
       padding: 24px;
     }
 
-    .teacher-box h2 {
+    .info h2 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .teacher-box ul {
+    .info ul {
       margin-left: 22px;
       color: var(--muted);
     }
 
-    .teacher-box li {
+    .info li {
       margin-bottom: 7px;
-    }
-
-    .print-box {
-      margin-top: 22px;
-      background: var(--yellow);
-      border-left: 6px solid #c39b44;
-      border-radius: 16px;
-      padding: 20px;
-      color: #665831;
     }
 
     .links {
@@ -389,13 +371,9 @@
       }
 
       .grid,
-      .method-grid {
+      .method-grid,
+      .count-box {
         grid-template-columns: 1fr;
-      }
-
-      .main-link {
-        flex-direction: column;
-        align-items: flex-start;
       }
 
       main {
@@ -437,31 +415,24 @@
       }
 
       .intro,
-      .main-link,
+      .count,
       .card,
       .method-card,
-      .teacher-box,
-      .print-box,
+      .info,
       .links {
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      .main-link {
-        background: var(--blue) !important;
-      }
-
-      .teacher-box {
-        background: var(--teal) !important;
-      }
-
-      .info-box,
-      .print-box {
+      .print-note {
         background: var(--yellow) !important;
       }
 
+      .info {
+        background: var(--teal) !important;
+      }
+
       .button,
-      .main-button,
       .link-row a {
         background: var(--dark) !important;
         color: white !important;
@@ -480,8 +451,8 @@
       HOLOS MATTERESAN
     </div>
 
-    <a href="larare-utskrift.html" class="back-link">
-      ← Utskriftscentral
+    <a href="material-elevblad.html" class="back-link">
+      ← Elevbladsbanken
     </a>
 
   </div>
@@ -489,16 +460,15 @@
 
   <div class="hero">
 
-    <div class="hero-icon">✏️📄</div>
+    <div class="hero-icon">🖨️✏️📚</div>
 
-    <h1>Elevblad</h1>
+    <h1>A4 Elevblad</h1>
 
-    <h2>21 paket • 126 elevblad • Matematik F–9</h2>
+    <h2>21 paket • 126 elevblad • 6 blad i varje paket</h2>
 
     <p>
-      Här finns Matteresans elevblad samlade i både matematiska
-      kunskapsområden och arbetssätt.
-      Varje paket innehåller sex utskrivbara elevblad.
+      Här finns samtliga Matteresans elevblad samlade.
+      Varje paket öppnas som en egen sida med sex utskrivbara A4-blad.
     </p>
 
   </div>
@@ -510,42 +480,40 @@
 
   <section class="intro">
 
-    <h2>✏️ En samlad elevbladsbank</h2>
+    <h2>📚 Hela elevbladsbanken</h2>
 
     <p>
-      Elevbladen är skapade för att komplettera undervisning,
-      laborativt arbete, matematiska samtal och problemlösning.
-      De ska inte ersätta lärarledd undervisning utan ge elever
-      möjlighet att visa, förklara, jämföra och använda matematik på flera sätt.
+      Elevbladen är organiserade i tolv matematiska kunskapsområden
+      och nio paket som fokuserar på matematiska arbetssätt.
+      Klicka på det paket du vill använda och skriv därefter ut
+      ett eller flera av de sex bladen.
     </p>
 
-    <div class="info-box">
-      <strong>Totalt:</strong>
-      21 elevbladspaket × 6 blad = <strong>126 elevblad</strong>.
-      Matteresans indelning är en pedagogisk struktur inom F–9
-      och ska inte tolkas som att Lgr22 föreskriver exakt samma innehåll
-      i ett visst enskilt år.
-    </div>
+    <div class="count-box">
 
-  </section>
+      <div class="count">
+        <strong>21</strong>
+        <span>elevbladspaket</span>
+      </div>
 
+      <div class="count">
+        <strong>6</strong>
+        <span>A4-blad i varje paket</span>
+      </div>
 
-  <section class="main-link">
-
-    <div>
-
-      <h2>🖨️ Alla 21 paket på en sida</h2>
-
-      <p>
-        Öppna den samlade A4-sidan om du vill få en snabb översikt
-        över samtliga elevbladspaket och gå direkt till rätt material.
-      </p>
+      <div class="count">
+        <strong>126</strong>
+        <span>elevblad totalt</span>
+      </div>
 
     </div>
 
-    <a href="material-a4-elevblad.html" class="main-button">
-      Öppna A4-elevblad →
-    </a>
+    <div class="print-note">
+      🖨️ <strong>Färgutskrift:</strong>
+      välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+      och kontrollera att skrivaren står på <strong>Färg</strong>.
+      Varje elevblad i paketen är anpassat till ett eget A4.
+    </div>
 
   </section>
 
@@ -555,7 +523,7 @@
     <h2>🔢 Matematiska kunskapsområden</h2>
 
     <p>
-      Tolv paket som följer Matteresans centrala matematiska områden.
+      Tolv paket med sex elevblad i varje.
     </p>
 
   </div>
@@ -565,11 +533,11 @@
 
     <a href="elevblad-tal.html" class="card">
       <div class="icon">🔢</div>
-      <span class="tag">6 elevblad</span>
+      <span class="tag">6 A4-blad</span>
       <h3>Taluppfattning</h3>
       <p>
-        Tal, tallinje, platsvärde, jämförelse, rimlighet
-        och olika representationer.
+        Tal, tallinje, jämförelse, platsvärde,
+        rimlighet och olika sätt att representera tal.
       </p>
       <span class="button">Öppna paketet →</span>
     </a>
@@ -577,11 +545,11 @@
 
     <a href="elevblad-raknesatt.html" class="card">
       <div class="icon">➕➖✖️➗</div>
-      <span class="tag">6 elevblad</span>
+      <span class="tag">6 A4-blad</span>
       <h3>De fyra räknesätten</h3>
       <p>
-        Innebörd, strategier, samband mellan räknesätt
-        och kontroll av beräkningar.
+        Addition, subtraktion, multiplikation och division
+        med fokus på strategier och samband.
       </p>
       <span class="button">Öppna paketet →</span>
     </a>
@@ -589,11 +557,11 @@
 
     <a href="elevblad-brak.html" class="card">
       <div class="icon">🍕</div>
-      <span class="tag">6 elevblad</span>
+      <span class="tag">6 A4-blad</span>
       <h3>Bråk</h3>
       <p>
-        Del och helhet, tallinje, jämförelse,
-        likvärdiga bråk och bråk i olika sammanhang.
+        Del–helhet, tallinje, jämförelse,
+        likvärdiga bråk och olika representationer.
       </p>
       <span class="button">Öppna paketet →</span>
     </a>
@@ -601,11 +569,11 @@
 
     <a href="elevblad-decimal.html" class="card">
       <div class="icon">🔵</div>
-      <span class="tag">6 elevblad</span>
+      <span class="tag">6 A4-blad</span>
       <h3>Decimaltal</h3>
       <p>
-        Platsvärde, storlek, tallinje,
-        samband med bråk och vardagliga tillämpningar.
+        Platsvärde, storleksordning, tallinje
+        samt samband mellan decimaler, bråk och vardag.
       </p>
       <span class="button">Öppna paketet →</span>
     </a>
@@ -613,11 +581,11 @@
 
     <a href="elevblad-procent.html" class="card">
       <div class="icon">💯</div>
-      <span class="tag">6 elevblad</span>
+      <span class="tag">6 A4-blad</span>
       <h3>Procent</h3>
       <p>
-        Andel, helhet, bråk–decimal–procent,
-        jämförelse och procentuell förändring.
+        Helhet, andel, bråk–decimal–procent,
+        förändring och procentuella resonemang.
       </p>
       <span class="button">Öppna paketet →</span>
     </a>
@@ -625,7 +593,7 @@
 
     <a href="elevblad-algebra.html" class="card">
       <div class="icon">🔤</div>
-      <span class="tag">6 elevblad</span>
+      <span class="tag">6 A4-blad</span>
       <h3>Algebra</h3>
       <p>
         Likhet, okända tal, variabler,
@@ -637,11 +605,11 @@
 
     <a href="elevblad-geometri.html" class="card">
       <div class="icon">📐</div>
-      <span class="tag">6 elevblad</span>
+      <span class="tag">6 A4-blad</span>
       <h3>Geometri</h3>
       <p>
-        Former, egenskaper, vinklar, area,
-        omkrets, volym och geometriska resonemang.
+        Former, vinklar, area, omkrets,
+        volym och geometriska resonemang.
       </p>
       <span class="button">Öppna paketet →</span>
     </a>
@@ -649,11 +617,11 @@
 
     <a href="elevblad-statistik.html" class="card">
       <div class="icon">📊</div>
-      <span class="tag">6 elevblad</span>
+      <span class="tag">6 A4-blad</span>
       <h3>Statistik</h3>
       <p>
-        Samla, organisera, representera
-        och tolka data samt granska slutsatser.
+        Samla, sortera, representera,
+        sammanfatta och tolka data.
       </p>
       <span class="button">Öppna paketet →</span>
     </a>
@@ -661,11 +629,11 @@
 
     <a href="elevblad-sannolikhet.html" class="card">
       <div class="icon">🎲</div>
-      <span class="tag">6 elevblad</span>
+      <span class="tag">6 A4-blad</span>
       <h3>Sannolikhet</h3>
       <p>
-        Möjliga utfall, jämförelser,
-        experiment, spel och sannolikhetsresonemang.
+        Möjliga utfall, experiment,
+        spel och sannolikhetsresonemang.
       </p>
       <span class="button">Öppna paketet →</span>
     </a>
@@ -673,11 +641,11 @@
 
     <a href="elevblad-problemlosning.html" class="card">
       <div class="icon">🧩</div>
-      <span class="tag">6 elevblad</span>
+      <span class="tag">6 A4-blad</span>
       <h3>Problemlösning</h3>
       <p>
-        Förstå, planera, välja strategi,
-        lösa, förklara och kontrollera.
+        Förstå, välja strategi, lösa,
+        förklara och kontrollera matematiska problem.
       </p>
       <span class="button">Öppna paketet →</span>
     </a>
@@ -685,7 +653,7 @@
 
     <a href="elevblad-monster.html" class="card">
       <div class="icon">🔁</div>
-      <span class="tag">6 elevblad</span>
+      <span class="tag">6 A4-blad</span>
       <h3>Mönster</h3>
       <p>
         Upptäcka, fortsätta, beskriva,
@@ -697,7 +665,7 @@
 
     <a href="elevblad-samband.html" class="card">
       <div class="icon">📈</div>
-      <span class="tag">6 elevblad</span>
+      <span class="tag">6 A4-blad</span>
       <h3>Samband och förändring</h3>
       <p>
         Proportionalitet, tabeller, grafer,
@@ -714,7 +682,7 @@
     <h2>🧠 Matematiska arbetssätt</h2>
 
     <p>
-      Nio paket som tränar sätt att tänka, resonera och kommunicera matematik.
+      Nio paket med sex elevblad i varje.
     </p>
 
   </div>
@@ -724,121 +692,120 @@
 
     <a href="elevblad-rita.html" class="method-card">
       <div class="icon">✏️</div>
+      <span class="tag">6 A4-blad</span>
       <h3>Rita matematiken</h3>
       <p>
-        Använd bilder, modeller och skisser för att göra matematiska idéer synliga.
+        Gör matematiska idéer synliga genom modeller, skisser och bilder.
       </p>
-      <span class="button">Öppna 6 elevblad →</span>
+      <span class="button">Öppna paketet →</span>
     </a>
 
 
     <a href="elevblad-forklara.html" class="method-card">
       <div class="icon">💬</div>
+      <span class="tag">6 A4-blad</span>
       <h3>Förklara</h3>
       <p>
-        Träna på att sätta ord på strategi, lösning och matematiskt resonemang.
+        Träna på att beskriva strategi,
+        tanke och matematiskt resonemang.
       </p>
-      <span class="button">Öppna 6 elevblad →</span>
+      <span class="button">Öppna paketet →</span>
     </a>
 
 
     <a href="elevblad-jamfor.html" class="method-card">
       <div class="icon">⚖️</div>
+      <span class="tag">6 A4-blad</span>
       <h3>Jämför</h3>
       <p>
-        Jämför tal, metoder, representationer och lösningar och motivera skillnader.
+        Jämför tal, strategier, representationer och lösningar.
       </p>
-      <span class="button">Öppna 6 elevblad →</span>
+      <span class="button">Öppna paketet →</span>
     </a>
 
 
     <a href="elevblad-felfinnaren.html" class="method-card">
       <div class="icon">🕵️</div>
+      <span class="tag">6 A4-blad</span>
       <h3>Felfinnaren</h3>
       <p>
-        Undersök felaktiga lösningar och förklara var och varför felet uppstår.
+        Analysera felaktiga lösningar och förklara vad som behöver ändras.
       </p>
-      <span class="button">Öppna 6 elevblad →</span>
+      <span class="button">Öppna paketet →</span>
     </a>
 
 
     <a href="elevblad-santfalskt.html" class="method-card">
       <div class="icon">✅❌</div>
+      <span class="tag">6 A4-blad</span>
       <h3>Sant eller falskt?</h3>
       <p>
-        Ta ställning till matematiska påståenden och argumentera för svaret.
+        Bedöm matematiska påståenden och motivera med exempel och motexempel.
       </p>
-      <span class="button">Öppna 6 elevblad →</span>
+      <span class="button">Öppna paketet →</span>
     </a>
 
 
     <a href="elevblad-hittaalla.html" class="method-card">
       <div class="icon">🔎</div>
+      <span class="tag">6 A4-blad</span>
       <h3>Hitta alla</h3>
       <p>
-        Arbeta systematiskt och undersök hur man kan veta att alla möjligheter är funna.
+        Arbeta systematiskt och undersök hur man vet att alla möjligheter är hittade.
       </p>
-      <span class="button">Öppna 6 elevblad →</span>
+      <span class="button">Öppna paketet →</span>
     </a>
 
 
     <a href="elevblad-utmana.html" class="method-card">
       <div class="icon">🚀</div>
+      <span class="tag">6 A4-blad</span>
       <h3>Utmana</h3>
       <p>
-        Fördjupa genom generalisering, flera lösningar, nya villkor och motexempel.
+        Fördjupa matematiken genom generalisering, villkor och flera lösningar.
       </p>
-      <span class="button">Öppna 6 elevblad →</span>
+      <span class="button">Öppna paketet →</span>
     </a>
 
 
     <a href="elevblad-verkligheten.html" class="method-card">
       <div class="icon">🌍</div>
+      <span class="tag">6 A4-blad</span>
       <h3>Matematik i verkligheten</h3>
       <p>
-        Använd matematik i situationer som handlar om pengar, mätning, data och vardagsproblem.
+        Matematik i situationer med pengar, mätning, data och vardagsproblem.
       </p>
-      <span class="button">Öppna 6 elevblad →</span>
+      <span class="button">Öppna paketet →</span>
     </a>
 
 
     <a href="elevblad-undersok.html" class="method-card">
       <div class="icon">🔬</div>
+      <span class="tag">6 A4-blad</span>
       <h3>Undersök</h3>
       <p>
-        Ställ frågor, samla information, upptäck mönster och formulera matematiska slutsatser.
+        Formulera frågor, pröva, upptäck mönster och dra slutsatser.
       </p>
-      <span class="button">Öppna 6 elevblad →</span>
+      <span class="button">Öppna paketet →</span>
     </a>
 
   </div>
 
 
-  <section class="teacher-box">
+  <section class="info">
 
-    <h2>👩‍🏫 Så kan elevbladen användas</h2>
+    <h2>👩‍🏫 Använd elevbladen med ett tydligt syfte</h2>
 
     <ul>
-      <li>Använd inte alltid elevbladet som lektionens startpunkt.</li>
-      <li>Bygg gärna förståelsen först med konkret material, samtal eller gemensamt problem.</li>
-      <li>Välj enstaka blad utifrån det matematiska mål som är aktuellt.</li>
-      <li>Låt elever jämföra och diskutera lösningar efter arbetet.</li>
-      <li>Använd elevens förklaring och strategi som underlag – inte bara rätt eller fel.</li>
-      <li>Ge stöd genom representation, begrepp och struktur utan att sänka matematikens nivå.</li>
-      <li>Fördjupa för elever som är redo genom frågor som ”Gäller det alltid?” och ”Kan du hitta en annan lösning?”.</li>
+      <li>Välj blad utifrån det matematiska mål som är aktuellt.</li>
+      <li>Bygg gärna förståelsen först genom samtal, laborativt arbete eller gemensam modellering.</li>
+      <li>Låt elever jämföra lösningar efter arbetet.</li>
+      <li>Observera strategi och resonemang – inte bara slutresultatet.</li>
+      <li>Använd samma blad på olika nivåer genom att förändra tal, stöd och krav på förklaring.</li>
+      <li>Fördjupa med frågor som ”Varför?”, ”Finns fler lösningar?” och ”Gäller det alltid?”.</li>
     </ul>
 
   </section>
-
-
-  <div class="print-box">
-
-    🖨️ <strong>Färgutskrift:</strong>
-    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
-    och kontrollera att skrivaren står på <strong>Färg</strong>.
-    De enskilda elevbladspaketen är byggda så att varje elevblad ska kunna skrivas ut på eget A4.
-
-  </div>
 
 
   <section class="links">
@@ -847,28 +814,20 @@
 
     <div class="link-row">
 
-      <a href="material-a4-elevblad.html">
-        🖨️ A4-elevblad
+      <a href="material-elevblad.html">
+        ✏️ Elevbladsbanken
       </a>
 
       <a href="material-a4-kort.html">
-        🃏 Kort
+        🃏 A4-kort
       </a>
 
       <a href="material-a4-affischer.html">
-        🖼️ Affischer
+        🖼️ A4-affischer
       </a>
 
-      <a href="material-matteprat.html">
-        💬 Matteprat
-      </a>
-
-      <a href="material-problem.html">
-        🧩 Problemlösning
-      </a>
-
-      <a href="material-laborativt.html">
-        🧱 Laborativt
+      <a href="material-mallar.html">
+        📄 Mallar
       </a>
 
       <a href="larare-utskrift.html">
@@ -885,7 +844,7 @@
 <footer>
 
   <strong>HOLOS Matteresan F–9</strong><br>
-  ✏️ 21 paket • 126 elevblad • Matematik F–9
+  🖨️ 21 paket • 126 elevblad • 6 A4-blad i varje paket
 
 </footer>
 
