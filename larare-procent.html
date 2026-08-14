@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Procent F–9 | HOLOS Matteresan</title>
+  <title>Procent | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,25 +15,32 @@
 
     :root {
       --dark: #17324d;
-      --green: #4b9870;
-      --green-dark: #347052;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --pink-light: #ffe9f1;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -43,8 +50,8 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
-        linear-gradient(135deg, #2d6549, #4b9870);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
       padding: 22px 20px 58px;
     }
@@ -64,566 +71,352 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--green-dark);
-    }
-
     .hero {
-      max-width: 900px;
-      margin: 50px auto 0;
+      max-width: 930px;
+      margin: 44px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.4rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 4.7rem);
+      font-size: clamp(2.4rem, 7vw, 4.4rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 800px;
+      max-width: 850px;
       margin: auto;
-      color: #f0fff6;
-      font-size: 1.03rem;
+      color: #f6f9fb;
     }
 
     main {
       max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      margin-bottom: 36px;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: var(--muted);
+      max-width: 950px;
+    }
+
+    .important {
+      margin-top: 17px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 17px;
+      color: #665831;
     }
 
     .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
-      color: var(--dark);
-      margin-bottom: 8px;
+      margin: 42px 0 18px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 30px;
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
       color: var(--muted);
     }
 
-    .intro-box {
-      background: var(--green-light);
-      border-radius: 28px;
-      padding: 36px;
-      text-align: center;
-    }
-
-    .intro-box h2 {
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-
-    .intro-box p {
-      max-width: 860px;
-      margin: auto;
-      color: #5c6872;
-    }
-
-    .core-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .core-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 180px;
-      border: 1px solid #e6ebef;
-    }
-
-    .core-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .core-card h3 {
-      color: var(--green-dark);
-      margin-bottom: 6px;
-    }
-
-    .core-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .progression-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
-        linear-gradient(135deg, #17324d, #376b55);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .progression-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .progression-box > p {
-      color: #effff5;
-      max-width: 830px;
-    }
-
-    .progression-grid {
+    .progression {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 25px;
     }
 
-    .progression-card {
-      border-radius: 20px;
+    .stage {
+      border-radius: 18px;
       padding: 22px;
-      min-height: 280px;
-      border: 1px solid rgba(255,255,255,0.18);
+      min-height: 270px;
     }
 
-    .f3 { background: rgba(118,211,149,0.15); }
-    .m46 { background: rgba(110,177,238,0.15); }
-    .m79 { background: rgba(177,147,245,0.15); }
-
-    .progression-card span {
-      display: block;
-      font-size: 2.5rem;
-      margin-bottom: 7px;
-    }
-
-    .progression-card h3 {
+    .stage h3 {
+      color: var(--dark);
       margin-bottom: 8px;
+      font-size: 1.12rem;
     }
 
-    .progression-card ul {
-      padding-left: 20px;
-      color: #f8fff9;
-      font-size: 0.93rem;
-    }
-
-    .progression-card li {
-      margin-bottom: 6px;
-    }
-
-    .section-card {
-      background: white;
-      border-radius: 28px;
-      padding: 32px;
-      border: 1px solid #e6ebef;
-      margin-bottom: 25px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 22px;
-    }
-
-    .section-header span {
-      font-size: 2.7rem;
-    }
-
-    .section-header h2 {
-      color: var(--dark);
-      font-size: 1.75rem;
-    }
-
-    .section-header p {
-      color: var(--muted);
-    }
-
-    .three-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .mini-card {
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 190px;
-    }
-
-    .mini-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .mini-card p,
-    .mini-card ul {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .mini-card ul {
-      padding-left: 20px;
-    }
-
-    .mini-card li {
-      margin-bottom: 6px;
-    }
-
-    .m1 { background: var(--green-light); }
-    .m2 { background: var(--blue-light); }
-    .m3 { background: var(--yellow-light); }
-
-    .representation-box {
-      background: var(--blue-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .representation-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-      margin-top: 24px;
-    }
-
-    .rep-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      text-align: center;
-      min-height: 175px;
-      border: 1px solid #dfe8ef;
-    }
-
-    .rep-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .rep-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .rep-card p {
+    .stage p,
+    .stage li {
       color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .change-box {
-      background: var(--purple-light);
-      border-radius: 28px;
-      padding: 36px;
+    .stage ul {
+      margin-left: 20px;
+      margin-top: 8px;
     }
 
-    .change-grid {
+    .stage li {
+      margin-bottom: 6px;
+    }
+
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
-    .change-card {
+    .card {
       background: white;
       border-radius: 18px;
       padding: 20px;
-      min-height: 190px;
-      border: 1px solid #e2dcf1;
+      min-height: 245px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
     }
 
-    .change-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
+    .card:nth-child(3n+1) {
+      border-top-color: var(--green-strong);
     }
 
-    .change-card h3 {
+    .card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
       color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .card ul {
+      margin-left: 19px;
+      margin-top: 7px;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .flow-step {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 10px;
+      text-align: center;
+      min-height: 155px;
+      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+    }
+
+    .flow-step:nth-child(1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .flow-step:nth-child(2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .flow-step:nth-child(3) {
+      border-top-color: #c39b44;
+    }
+
+    .flow-step:nth-child(4) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .flow-step:nth-child(5) {
+      border-top-color: #5d9c92;
+    }
+
+    .flow-step span {
+      display: block;
+      font-size: 2rem;
       margin-bottom: 6px;
     }
 
-    .change-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .mis-box {
-      background: var(--pink-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .mis-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .mis-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 200px;
-      border: 1px solid #eee1e5;
-    }
-
-    .mis-card span {
+    .flow-step strong {
       display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .mis-card h3 {
       color: var(--dark);
-      margin-bottom: 7px;
+      margin-bottom: 5px;
     }
 
-    .mis-card p {
+    .flow-step p {
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.8rem;
     }
 
-    .question-box {
-      background: var(--yellow-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .question-grid {
+    .example-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
 
-    .question-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 170px;
-      border: 1px solid #eee3c6;
-    }
-
-    .question-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .question-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .support-grid,
-    .assessment-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .support-card,
-    .assessment-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 180px;
-      border: 1px solid #e6ebef;
-    }
-
-    .support-card span,
-    .assessment-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .support-card h3,
-    .assessment-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .support-card p,
-    .assessment-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .challenge-box {
-      background: var(--orange-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .challenge-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
-    }
-
-    .challenge-card {
-      background: white;
+    .example {
       border-radius: 18px;
       padding: 20px;
-      min-height: 180px;
-      border: 1px solid #eadfd3;
+      min-height: 220px;
     }
 
-    .challenge-card span {
-      display: block;
-      font-size: 2.1rem;
+    .example h3 {
+      color: var(--dark);
       margin-bottom: 7px;
     }
 
-    .challenge-card h3 {
-      color: var(--dark);
+    .example p,
+    .example li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .example ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .example li {
       margin-bottom: 6px;
     }
 
-    .challenge-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .link-card {
+    .teacher-box {
+      margin-top: 36px;
+      background: var(--teal);
       border-radius: 20px;
-      padding: 22px;
-      min-height: 175px;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.04);
+      padding: 24px;
     }
 
-    .link-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
     }
 
-    .link-card span {
-      display: block;
-      font-size: 2.2rem;
+    .teacher-box ul {
+      margin-left: 22px;
+      color: var(--muted);
+    }
+
+    .teacher-box li {
       margin-bottom: 7px;
     }
 
-    .link-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .link-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .c1 { background: var(--green-light); }
-    .c2 { background: var(--blue-light); }
-    .c3 { background: var(--orange-light); }
-    .c4 { background: var(--yellow-light); }
-    .c5 { background: var(--purple-light); }
-    .c6 { background: var(--pink-light); }
-
-    .note {
-      background: var(--yellow-light);
-      border-left: 6px solid #dba327;
-      border-radius: 14px;
+    .warning {
+      margin-top: 22px;
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 16px;
       padding: 20px;
-      color: #665528;
-      margin-top: 25px;
+      color: #654c37;
+    }
+
+    .links {
+      margin-top: 36px;
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+    }
+
+    .links h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .link-row a {
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.83rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 1050px) {
-      .representation-grid {
+    @media (max-width: 1000px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flow {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 1000px) {
-      .core-grid,
-      .change-grid,
-      .support-grid,
-      .assessment-grid,
-      .challenge-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 900px) {
-      .progression-grid,
-      .three-grid,
-      .mis-grid,
-      .question-grid,
-      .links-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .core-grid,
-      .representation-grid,
-      .change-grid,
-      .support-grid,
-      .assessment-grid,
-      .challenge-grid {
+      .progression,
+      .grid,
+      .flow,
+      .example-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .progression-box,
-      .section-card,
-      .representation-box,
-      .change-box,
-      .mis-box,
-      .question-box,
-      .challenge-box {
-        padding: 25px 18px;
-      }
-
-      .section-header {
-        align-items: flex-start;
       }
 
       main {
@@ -632,15 +425,28 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+      }
+
+      header,
+      footer {
+        display: none !important;
       }
 
       main {
@@ -648,9 +454,56 @@
         padding: 0;
       }
 
-      section,
-      .section-card {
+      .intro,
+      .stage,
+      .card,
+      .flow-step,
+      .example,
+      .teacher-box,
+      .warning,
+      .links {
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .green {
+        background: var(--green) !important;
+      }
+
+      .blue {
+        background: var(--blue) !important;
+      }
+
+      .purple {
+        background: var(--purple) !important;
+      }
+
+      .yellow,
+      .important {
+        background: var(--yellow) !important;
+      }
+
+      .orange,
+      .warning {
+        background: var(--orange) !important;
+      }
+
+      .teal,
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .link-row a {
+        background: var(--dark) !important;
+        color: white !important;
       }
     }
   </style>
@@ -662,28 +515,27 @@
 
   <div class="topbar">
 
-    <div class="logo">
-      HOLOS MATTERESAN
-    </div>
+    <div class="logo">HOLOS MATTERESAN</div>
 
     <a href="larare.html" class="back-link">
-      ← Lärarvy
+      ← Lärarportalen
     </a>
 
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">💯</div>
+    <div class="hero-icon">💯🧠</div>
 
-    <h1>Procent F–9</h1>
+    <h1>Procent</h1>
 
-    <h2>Andel • Del • Helhet • Förändring</h2>
+    <h2>Andel • Helhet • Jämförelse • Förändring • Faktor</h2>
 
     <p>
-      Procent beskriver relationer till hundra och är nära kopplat till bråk,
-      decimaler och proportionalitet. Förståelsen utvecklas vidare mot
-      procentuell förändring, procentenheter och förändringsfaktor.
+      Procent är ett sätt att beskriva relationer med hundradelar.
+      Förståelsen blir starkast när procent kopplas till bråk,
+      decimaler, proportionalitet och verkliga förändringar.
     </p>
 
   </div>
@@ -693,1018 +545,562 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>💯 Procent betyder hundradelar</h2>
 
-      <h2>💯 Procent betyder hundradelar – men alltid av något</h2>
+    <p>
+      Procentundervisning blir lätt procedurstyrd om elever direkt får regler
+      för att ”räkna procent”. Börja istället med relationen mellan
+      andelen och helheten och koppla procent till redan kända
+      representationer som bråk, decimaler och hundrarutor.
+    </p>
+
+    <div class="important">
+
+      <strong>Grundprincip:</strong><br>
+      Knyt ihop
+      <strong>bråk → decimal → procent → proportion → förändring</strong>.
+      Fråga alltid:
+      <strong>Vad är helheten? Vad är delen? Hur stor är relationen mellan dem?</strong>
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>📈 Progression F–9</h2>
+
+    <p>
+      Procentförståelsen växer fram ur bråk, decimaler och proportionella relationer.
+    </p>
+
+  </div>
+
+
+  <div class="progression">
+
+    <section class="stage green">
+
+      <h3>🌱 F–3</h3>
+
+      <ul>
+        <li>Del och helhet.</li>
+        <li>Halva och dubbelt.</li>
+        <li>Fjärdedelar.</li>
+        <li>Jämföra delar av lika stora helheter.</li>
+        <li>Pengar och enkla vardagliga relationer.</li>
+        <li>Förberedande hundratänkande.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage blue">
+
+      <h3>🔵 4–6</h3>
+
+      <ul>
+        <li>Procent som hundradelar.</li>
+        <li>1 %, 10 %, 25 %, 50 %, 75 % och 100 % som referensvärden.</li>
+        <li>Koppling bråk–decimal–procent.</li>
+        <li>Beräkna enkel procent av antal.</li>
+        <li>Bestämma andelen i procent.</li>
+        <li>Bestämma helheten i enkla situationer.</li>
+        <li>Procent i vardagliga problem.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage purple">
+
+      <h3>🟣 7–9</h3>
+
+      <ul>
+        <li>Procentuell ökning och minskning.</li>
+        <li>Förändringsfaktor.</li>
+        <li>Upprepade procentuella förändringar.</li>
+        <li>Jämförelse av procent och procentenheter.</li>
+        <li>Procent i ekonomi och statistik.</li>
+        <li>Proportionalitet.</li>
+        <li>Algebraiska procentproblem.</li>
+        <li>Rimlighetsbedömning.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧠 Sex centrala procentidéer</h2>
+
+    <p>
+      Procent handlar om relationer – inte bara om en beräkningsregel.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">🧩</div>
+
+      <h3>Helheten</h3>
 
       <p>
-        Procent kan inte förstås fristående från helheten.
-        25 % beskriver en andel, men hur mycket det faktiskt motsvarar beror på
-        vilken helhet procenten relateras till.
-        Därför behöver eleverna alltid träna på relationen mellan andel, del och helhet.
+        Procent kan inte tolkas utan att veta vad 100 % motsvarar.
       </p>
 
-    </div>
+      <ul>
+        <li>Vad är det hela?</li>
+        <li>Är helheten samma i båda jämförelserna?</li>
+        <li>Kan helheten förändras?</li>
+      </ul>
 
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Fyra kärnor i procentförståelse
-    </h2>
-
-    <p class="section-intro">
-      Dessa idéer behöver kopplas ihop genom hela undervisningen.
-    </p>
-
-    <div class="core-grid">
-
-      <div class="core-card">
-        <span>💯</span>
-        <h3>Andel</h3>
-        <p>
-          Procent beskriver hur stor del något utgör av en bestämd helhet.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>🧩</span>
-        <h3>Del</h3>
-        <p>
-          Den faktiska mängd eller storlek som procentandelen motsvarar.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>⭕</span>
-        <h3>Helhet</h3>
-        <p>
-          Det värde som motsvarar 100 % och som jämförelsen utgår från.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>📈</span>
-        <h3>Förändring</h3>
-        <p>
-          Procent används också för att beskriva hur något ökar eller minskar relativt ett ursprungsvärde.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="progression-box">
+      <div class="icon">🍕</div>
 
-      <h2>🌱 → 🌿 → 🚀 Progression F–9</h2>
+      <h3>Andelen</h3>
 
       <p>
-        Procentförståelse bygger på tidigare arbete med delar, bråk,
-        decimaler och multiplikativa samband.
+        Andelen är den del av helheten som undersöks.
       </p>
 
-      <div class="progression-grid">
+      <ul>
+        <li>25 av 100 = 25 %</li>
+        <li>5 av 20 = 25 %</li>
+        <li>Samma procent kan motsvara olika antal.</li>
+      </ul>
 
-        <div class="progression-card f3">
+    </article>
 
-          <span>🌱</span>
 
-          <h3>F–3 – bygg förkunskaper</h3>
+    <article class="card">
 
-          <ul>
-            <li>helhet och delar</li>
-            <li>hälften</li>
-            <li>fjärdedelar</li>
-            <li>dubbelt och hälften</li>
-            <li>del av antal</li>
-            <li>hundraruta och tal till 100</li>
-          </ul>
+      <div class="icon">🔗</div>
 
-        </div>
+      <h3>Bråk–decimal–procent</h3>
 
-
-        <div class="progression-card m46">
-
-          <span>🌿</span>
-
-          <h3>4–6 – utveckla procentbegreppet</h3>
-
-          <ul>
-            <li>procent som hundradel</li>
-            <li>10 %, 25 %, 50 %, 75 % och 100 %</li>
-            <li>bråk ↔ decimal ↔ procent</li>
-            <li>procent av antal</li>
-            <li>andel, del och helhet</li>
-            <li>enkla procentuella ökningar och minskningar</li>
-          </ul>
-
-        </div>
-
-
-        <div class="progression-card m79">
-
-          <span>🚀</span>
-
-          <h3>7–9 – fördjupa förändring</h3>
-
-          <ul>
-            <li>procentuell förändring</li>
-            <li>förändringsfaktor</li>
-            <li>upprepade förändringar</li>
-            <li>procentenheter</li>
-            <li>jämförelser</li>
-            <li>ekonomiska situationer</li>
-            <li>modellering</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🔗</span>
-
-        <div>
-          <h2>Bråk ↔ decimal ↔ procent</h2>
-          <p>Samma värde behöver kunna kännas igen i flera former.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Ankartal</h3>
-
-          <ul>
-            <li>1/2 = 0,5 = 50 %</li>
-            <li>1/4 = 0,25 = 25 %</li>
-            <li>3/4 = 0,75 = 75 %</li>
-            <li>1/10 = 0,1 = 10 %</li>
-            <li>1/5 = 0,2 = 20 %</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Bygg vidare</h3>
-
-          <p>
-            Från kända samband kan elever härleda nya:
-            om 10 % är 24, då är 5 % hälften av 24 och 20 % dubbelt så mycket.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <ul>
-            <li>Vilket bråk motsvarar procenten?</li>
-            <li>Hur skrivs den i decimalform?</li>
-            <li>Vilken representation är enklast här?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🧩</span>
-
-        <div>
-          <h2>Beräkna delen</h2>
-          <p>När procentandelen och helheten är kända söker vi delen.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Exempel</h3>
-
-          <p>
-            25 % av 240.
-          </p>
-
-          <p style="margin-top:10px;">
-            Eftersom 25 % = 1/4 kan vi beräkna 240 ÷ 4 = 60.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Flera strategier</h3>
-
-          <ul>
-            <li>bråkstrategi</li>
-            <li>10 %-strategi</li>
-            <li>decimalform</li>
-            <li>dubbel tallinje</li>
-            <li>proportionell tabell</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <ul>
-            <li>Vad är 100 %?</li>
-            <li>Kan ett enkelt ankartal användas?</li>
-            <li>Vilken metod är effektivast?</li>
-            <li>Är svaret rimligt?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>⭕</span>
-
-        <div>
-          <h2>Beräkna helheten</h2>
-          <p>När delen och procentandelen är kända behöver eleven resonera bakåt.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Exempel</h3>
-
-          <p>
-            60 är 25 % av ett tal.
-            Hur stort är hela talet?
-          </p>
-
-          <p style="margin-top:10px;">
-            25 % = 1/4, alltså är helheten 4 × 60 = 240.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Representationer</h3>
-
-          <ul>
-            <li>dubbel tallinje</li>
-            <li>procentremsa</li>
-            <li>tabell</li>
-            <li>bråkmodell</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <ul>
-            <li>Vad representerar 60?</li>
-            <li>Hur många sådana delar bygger 100 %?</li>
-            <li>Vilken operation behövs för att gå tillbaka till helheten?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>💯</span>
-
-        <div>
-          <h2>Beräkna andelen</h2>
-          <p>När delen och helheten är kända söker vi hur stor del något utgör.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Exempel</h3>
-
-          <p>
-            30 av 120 elever väljer ett alternativ.
-            Hur många procent är det?
-          </p>
-
-          <p style="margin-top:10px;">
-            30/120 = 1/4 = 25 %.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Tänk relation</h3>
-
-          <p>
-            Andelen beskriver relationen mellan delen och hela mängden,
-            inte storleken på delen ensam.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <ul>
-            <li>Vilken är delen?</li>
-            <li>Vilken är helheten?</li>
-            <li>Vilket bråk beskriver relationen?</li>
-            <li>Hur skrivs det i procentform?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="representation-box">
-
-      <h2 class="section-title">
-        🖼️ Representationer för procent
-      </h2>
-
-      <p class="section-intro">
-        Representationerna hjälper eleverna att se relationer istället för att memorera formler.
+      <p>
+        Samma rationella tal kan uttryckas på flera sätt.
       </p>
 
-      <div class="representation-grid">
+      <ul>
+        <li>1/2 = 0,5 = 50 %</li>
+        <li>1/4 = 0,25 = 25 %</li>
+        <li>3/4 = 0,75 = 75 %</li>
+      </ul>
 
-        <div class="rep-card">
-          <span>💯</span>
-          <h3>Hundraruta</h3>
-          <p>
-            Gör procentens koppling till hundradelar konkret.
-          </p>
-        </div>
-
-        <div class="rep-card">
-          <span>↔️</span>
-          <h3>Dubbel tallinje</h3>
-          <p>
-            Kopplar procent till faktiska mängder.
-          </p>
-        </div>
-
-        <div class="rep-card">
-          <span>📊</span>
-          <h3>Tabell</h3>
-          <p>
-            Visar proportionella samband mellan procent och mängd.
-          </p>
-        </div>
-
-        <div class="rep-card">
-          <span>🍕</span>
-          <h3>Bråkmodell</h3>
-          <p>
-            Gör samband som 25 % = 1/4 synliga.
-          </p>
-        </div>
-
-        <div class="rep-card">
-          <span>📏</span>
-          <h3>Procentremsa</h3>
-          <p>
-            Synliggör 0 %, 50 %, 100 % och mellanliggande värden.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="change-box">
+      <div class="icon">🎯</div>
 
-      <h2 class="section-title">
-        📈 Procentuell förändring
-      </h2>
+      <h3>Referensprocent</h3>
 
-      <p class="section-intro">
-        Här går undervisningen från statisk andel till multiplikativ förändring.
+      <p>
+        Kända procenttal kan användas för flexibel huvudräkning.
       </p>
 
-      <div class="change-grid">
+      <ul>
+        <li>10 % = en tiondel.</li>
+        <li>5 % = hälften av 10 %.</li>
+        <li>25 % = en fjärdedel.</li>
+        <li>50 % = hälften.</li>
+      </ul>
 
-        <div class="change-card">
-          <span>⬆️</span>
-          <h3>Procentuell ökning</h3>
-          <p>
-            Om ett värde ökar med 20 % blir det nya värdet 120 % av det ursprungliga.
-          </p>
-        </div>
+    </article>
 
-        <div class="change-card">
-          <span>⬇️</span>
-          <h3>Procentuell minskning</h3>
-          <p>
-            Om ett värde minskar med 20 % återstår 80 % av det ursprungliga värdet.
-          </p>
-        </div>
 
-        <div class="change-card">
-          <span>✖️</span>
-          <h3>Förändringsfaktor</h3>
-          <p>
-            +20 % motsvarar faktorn 1,20 och −20 % motsvarar faktorn 0,80.
-          </p>
-        </div>
+    <article class="card">
 
-        <div class="change-card">
-          <span>🔁</span>
-          <h3>Upprepade förändringar</h3>
-          <p>
-            Flera procentuella förändringar påverkar successivt nya helheter och ska därför inte bara adderas.
-          </p>
-        </div>
+      <div class="icon">📈</div>
 
-      </div>
+      <h3>Förändring</h3>
 
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>📈</span>
-
-        <div>
-          <h2>Ökning och förändringsfaktor</h2>
-          <p>Bygg faktorn från procentens betydelse.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Exempel</h3>
-
-          <p>
-            Ett pris på 500 kr ökar med 20 %.
-          </p>
-
-          <p style="margin-top:10px;">
-            100 % + 20 % = 120 % = 1,20.
-          </p>
-
-          <p>
-            500 × 1,20 = 600 kr.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Synliggör sambandet</h3>
-
-          <ul>
-            <li>100 % → 1,00</li>
-            <li>110 % → 1,10</li>
-            <li>125 % → 1,25</li>
-            <li>150 % → 1,50</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <ul>
-            <li>Hur mycket av ursprungsvärdet finns efter förändringen?</li>
-            <li>Vilken decimal motsvarar den procenten?</li>
-            <li>Varför multiplicerar vi?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>⬇️</span>
-
-        <div>
-          <h2>Minskning och förändringsfaktor</h2>
-          <p>Fokusera på hur stor del som återstår.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Exempel</h3>
-
-          <p>
-            Ett pris på 800 kr sänks med 25 %.
-          </p>
-
-          <p style="margin-top:10px;">
-            100 % − 25 % = 75 % = 0,75.
-          </p>
-
-          <p>
-            800 × 0,75 = 600 kr.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Synliggör sambandet</h3>
-
-          <ul>
-            <li>−10 % → 0,90</li>
-            <li>−20 % → 0,80</li>
-            <li>−25 % → 0,75</li>
-            <li>−50 % → 0,50</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <ul>
-            <li>Hur många procent återstår?</li>
-            <li>Vilken faktor motsvarar det?</li>
-            <li>Bör nya värdet bli större eller mindre?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>↕️</span>
-
-        <div>
-          <h2>Procent och procentenheter</h2>
-          <p>Två olika sätt att beskriva förändring måste hållas isär.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Exempel</h3>
-
-          <p>
-            En andel ökar från 20 % till 30 %.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Procentenheter</h3>
-
-          <p>
-            Ökningen är 10 procentenheter.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Procentuell ökning</h3>
-
-          <p>
-            Ökningen från 20 till 30 är 10 på en ursprunglig nivå av 20:
-            10/20 = 50 %.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="mis-box">
-
-      <h2 class="section-title">
-        ⚠️ Vanliga missuppfattningar
-      </h2>
-
-      <p class="section-intro">
-        Procentfel handlar ofta om att helheten inte identifieras.
+      <p>
+        Procent kan beskriva hur mycket en storhet förändras relativt sitt ursprungliga värde.
       </p>
 
-      <div class="mis-grid">
+      <ul>
+        <li>Ökning</li>
+        <li>Minskning</li>
+        <li>Ursprungsvärde</li>
+        <li>Nytt värde</li>
+      </ul>
 
-        <div class="mis-card">
-          <span>💯</span>
-          <h3>25 % betyder alltid 25</h3>
-          <p>
-            Procenten beskriver en andel. Det faktiska värdet beror på helheten.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>⭕</span>
-          <h3>Helheten är alltid det största talet</h3>
-          <p>
-            Helheten bestäms av situationen och är det värde som representerar 100 %.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>⬆️⬇️</span>
-          <h3>+20 % och −20 % tar ut varandra</h3>
-          <p>
-            Minskningen sker från ett nytt värde. 100 → 120 → 96.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>↕️</span>
-          <h3>Procent = procentenheter</h3>
-          <p>
-            En förändring från 40 % till 50 % är 10 procentenheter men 25 % relativ ökning.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>➕</span>
-          <h3>Flera procentförändringar kan bara adderas</h3>
-          <p>
-            Upprepade förändringar behöver behandlas multiplikativt eftersom basen förändras.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>🏷️</span>
-          <h3>50 % rabatt två gånger = gratis</h3>
-          <p>
-            Första rabatten halverar priset och den andra halverar det nya priset.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="question-box">
+      <div class="icon">✖️</div>
 
-      <h2 class="section-title">
-        💬 Diagnostiska frågor
-      </h2>
+      <h3>Förändringsfaktor</h3>
 
-      <p class="section-intro">
-        Frågorna hjälper läraren att se om eleven förstår relationen bakom procenten.
+      <p>
+        En procentuell förändring kan uttryckas som multiplikativ faktor.
       </p>
 
-      <div class="question-grid">
+      <ul>
+        <li>+20 % → × 1,20</li>
+        <li>−20 % → × 0,80</li>
+        <li>+5 % → × 1,05</li>
+        <li>−35 % → × 0,65</li>
+      </ul>
 
-        <div class="question-card">
-          <h3>Vad är 100 %?</h3>
-          <p>
-            Den viktigaste frågan när elever arbetar med procent i en situation.
-          </p>
-        </div>
+    </article>
 
-        <div class="question-card">
-          <h3>Är 30 % alltid större än 20 %?</h3>
-          <p>
-            Nej, inte om procentandelarna relateras till olika stora helheter.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Hur mycket är 10 %?</h3>
-          <p>
-            10 %-strategin kan användas som utgångspunkt för många andra procentandelar.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Vad återstår efter en minskning med 35 %?</h3>
-          <p>
-            Synliggör om eleven kan tänka 100 % − 35 % = 65 %.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Vad betyder faktorn 1,15?</h3>
-          <p>
-            Testar om eleven kan koppla faktor till 115 % och 15 % ökning.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Är svaret rimligt?</h3>
-          <p>
-            Om något ökar med 10 % bör svaret ligga relativt nära ursprungsvärdet.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
+  <div class="section-title">
 
-    <h2 class="section-title">
-      🛟 Stöd när procent blir svårt
-    </h2>
+    <h2>🔄 Från hundradelar till procentuell förändring</h2>
 
-    <p class="section-intro">
-      Gå tillbaka till helheten och använd kända procentandelar.
+    <p>
+      Behåll relationen synlig även när beräkningarna blir mer avancerade.
     </p>
 
-    <div class="support-grid">
+  </div>
 
-      <div class="support-card">
-        <span>💯</span>
-        <h3>Markera 100 %</h3>
-        <p>
-          Skriv alltid tydligt vilket tal eller vilken mängd som är helheten.
-        </p>
-      </div>
 
-      <div class="support-card">
-        <span>↔️</span>
-        <h3>Dubbel tallinje</h3>
-        <p>
-          Koppla procenttal på ena linjen till faktiska mängder på den andra.
-        </p>
-      </div>
+  <div class="flow">
 
-      <div class="support-card">
-        <span>🔟</span>
-        <h3>Utgå från 10 %</h3>
-        <p>
-          Hitta 10 %, 1 %, 5 %, 20 % eller 50 % och bygg vidare därifrån.
-        </p>
-      </div>
-
-      <div class="support-card">
-        <span>🍕</span>
-        <h3>Koppla till bråk</h3>
-        <p>
-          Använd välkända samband som 25 % = 1/4 och 50 % = 1/2.
-        </p>
-      </div>
-
+    <div class="flow-step">
+      <span>🟦</span>
+      <strong>1. Visa</strong>
+      <p>Använd hundraruta, bråkmodell eller konkret situation.</p>
     </div>
 
-  </section>
+    <div class="flow-step">
+      <span>🍕</span>
+      <strong>2. Relatera</strong>
+      <p>Koppla delen till helheten.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>🔢</span>
+      <strong>3. Representera</strong>
+      <p>Skriv som bråk, decimal och procent.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>🧠</span>
+      <strong>4. Beräkna</strong>
+      <p>Använd referensprocent, proportionalitet eller faktor.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>✅</span>
+      <strong>5. Tolka</strong>
+      <p>Kontrollera vad procenttalet betyder i situationen.</p>
+    </div>
+
+  </div>
 
 
-  <section>
+  <div class="section-title">
 
-    <div class="challenge-box">
+    <h2>🧩 Fyra undervisningsidéer</h2>
 
-      <h2 class="section-title">
-        🚀 Fördjupa procentförståelsen
-      </h2>
+    <p>
+      Aktiviteter som utvecklar procent som relation snarare än isolerad procedur.
+    </p>
 
-      <p class="section-intro">
-        Utmana genom jämförelser, omvända problem och förändringar över flera steg.
+  </div>
+
+
+  <div class="example-grid">
+
+    <section class="example green">
+
+      <h3>🟦 Hundrarutan</h3>
+
+      <ul>
+        <li>Färglägg 25 av 100 rutor.</li>
+        <li>Skriv som bråk.</li>
+        <li>Skriv som decimal.</li>
+        <li>Skriv som procent.</li>
+        <li>Visa samma procent på annat sätt.</li>
+      </ul>
+
+      <p>
+        Ger en stark visuell grund för hundradelsbegreppet.
       </p>
 
-      <div class="challenge-grid">
+    </section>
 
-        <div class="challenge-card">
-          <span>🔄</span>
-          <h3>Arbeta baklänges</h3>
-          <p>
-            Efter en ökning med 25 % kostar något 500 kr. Vad kostade det från början?
-          </p>
-        </div>
 
-        <div class="challenge-card">
-          <span>🏷️</span>
-          <h3>Jämför rabatter</h3>
-          <p>
-            Vad är bäst: 30 % rabatt eller först 20 % och sedan ytterligare 15 %?
-          </p>
-        </div>
+    <section class="example blue">
 
-        <div class="challenge-card">
-          <span>📈</span>
-          <h3>Upprepade förändringar</h3>
-          <p>
-            Undersök hur ett värde förändras efter flera års ökning med samma procentsats.
-          </p>
-        </div>
+      <h3>🎯 Bygg från 10 %</h3>
 
-        <div class="challenge-card">
-          <span>⚖️</span>
-          <h3>Procent eller procentenheter?</h3>
-          <p>
-            Skapa situationer där skillnaden mellan begreppen blir tydlig.
-          </p>
-        </div>
+      <ul>
+        <li>10 % av 360 = ?</li>
+        <li>5 % = ?</li>
+        <li>20 % = ?</li>
+        <li>35 % = ?</li>
+        <li>Visa hur du bygger svaret av kända delar.</li>
+      </ul>
 
-      </div>
+      <p>
+        Utvecklar flexibel huvudräkning och proportionalitet.
+      </p>
 
-    </div>
+    </section>
+
+
+    <section class="example yellow">
+
+      <h3>⚖️ Samma procent – olika antal</h3>
+
+      <ul>
+        <li>25 % av 20.</li>
+        <li>25 % av 100.</li>
+        <li>25 % av 240.</li>
+        <li>Vad är lika?</li>
+        <li>Vad förändras?</li>
+      </ul>
+
+      <p>
+        Synliggör skillnaden mellan andel och antal.
+      </p>
+
+    </section>
+
+
+    <section class="example purple">
+
+      <h3>📈 Före och efter</h3>
+
+      <ul>
+        <li>En vara kostar 500 kr.</li>
+        <li>Priset höjs med 20 %.</li>
+        <li>Hur mycket är ökningen?</li>
+        <li>Vad blir det nya priset?</li>
+        <li>Hur kan samma beräkning visas med förändringsfaktor?</li>
+      </ul>
+
+      <p>
+        Bygger bron mellan procentandel och procentuell förändring.
+      </p>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🕵️ Vanliga missuppfattningar</h2>
+
+    <p>
+      Många procentfel handlar om att helheten eller förändringens riktning blir oklar.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">💯</div>
+
+      <h3>Procent som antal</h3>
+
+      <p>
+        Eleven behandlar 25 % som om det alltid betyder 25 enheter.
+      </p>
+
+      <ul>
+        <li>Jämför 25 % av olika helheter.</li>
+        <li>Fråga alltid vad 100 % motsvarar.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🧩</div>
+
+      <h3>Helheten identifieras fel</h3>
+
+      <p>
+        Eleven vet procenttalet men utgår från fel basvärde.
+      </p>
+
+      <ul>
+        <li>Markera ursprungsvärdet.</li>
+        <li>Använd tabell eller dubbel tallinje.</li>
+        <li>Skriv vad 100 % betyder.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">➕</div>
+
+      <h3>20 % upp och 20 % ner tar ut varandra</h3>
+
+      <p>
+        Eleven antar att lika procenttal alltid ger motsatta förändringar.
+      </p>
+
+      <ul>
+        <li>Visa att helheten förändras efter första steget.</li>
+        <li>Jämför förändringsfaktorerna 1,20 och 0,80.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📊</div>
+
+      <h3>Procent och procentenheter blandas ihop</h3>
+
+      <p>
+        Exempel: från 20 % till 30 % är en ökning med 10 procentenheter men 50 % relativt.
+      </p>
+
+      <ul>
+        <li>Jämför absolut och relativ förändring.</li>
+        <li>Använd konkreta exempel.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">✖️</div>
+
+      <h3>Förändringsfaktor som regel</h3>
+
+      <p>
+        Eleven använder 1,20 eller 0,80 utan att förstå relationen till 100 %.
+      </p>
+
+      <ul>
+        <li>1,20 = 120 %.</li>
+        <li>0,80 = 80 %.</li>
+        <li>Koppla faktorn till nytt värde/originalvärde.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔢</div>
+
+      <h3>Fel riktning</h3>
+
+      <p>
+        Eleven kan räkna en procentandel men vet inte om uppgiften söker delen, procenten eller helheten.
+      </p>
+
+      <ul>
+        <li>Identifiera vad som är känt.</li>
+        <li>Markera vad som söks.</li>
+        <li>Använd modell före formel.</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Frågor som avslöjar procentförståelse</h2>
+
+    <ul>
+      <li>Vad är 100 % i den här situationen?</li>
+      <li>Vad är delen och vad är helheten?</li>
+      <li>Hur kan 25 % visas som bråk och decimal?</li>
+      <li>Hur kan du använda 10 % för att hitta 35 %?</li>
+      <li>Är 20 % alltid samma antal?</li>
+      <li>Kan du hitta helheten om 25 % är 15?</li>
+      <li>Vad betyder en ökning med 30 %?</li>
+      <li>Vad blir förändringsfaktorn?</li>
+      <li>Varför blir en minskning med 20 % faktor 0,80?</li>
+      <li>Vad är skillnaden mellan procent och procentenheter?</li>
+      <li>Är svaret rimligt jämfört med helheten?</li>
+      <li>Kan du lösa problemet på två olika sätt?</li>
+    </ul>
 
   </section>
 
 
-  <section>
+  <div class="warning">
 
-    <h2 class="section-title">
-      📊 Bedömning – vad ska läraren få syn på?
-    </h2>
+    <strong>⚠️ Undvik att göra procent till en formelsamling.</strong><br>
+    Regler som <strong>delen / det hela × 100</strong> kan vara användbara,
+    men bör komma efter att relationen är förstådd.
+    Behåll därför <strong>hundrarutor, bråk, decimaler, referensprocent,
+    dubbla tallinjer och proportionalitetsresonemang</strong> genom progressionen.
 
-    <p class="section-intro">
-      Bedöm om eleven förstår relationerna och inte bara använder en inlärd formel.
-    </p>
-
-    <div class="assessment-grid">
-
-      <div class="assessment-card">
-        <span>⭕</span>
-        <h3>Helhet</h3>
-        <p>
-          Kan eleven identifiera vilket värde som motsvarar 100 %?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>🔗</span>
-        <h3>Talformer</h3>
-        <p>
-          Kan eleven koppla procent till bråk och decimalform?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>🧠</span>
-        <h3>Strategi</h3>
-        <p>
-          Kan eleven välja mellan exempelvis bråkstrategi, 10 %-strategi eller förändringsfaktor?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>📈</span>
-        <h3>Förändring</h3>
-        <p>
-          Kan eleven skilja mellan procentuell förändring, faktor och procentenheter?
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
+  <section class="links">
 
-    <h2 class="section-title">
-      Relaterade lärarsidor
-    </h2>
+    <h2>➡️ Fortsätt i Matteresan</h2>
 
-    <p class="section-intro">
-      Procent bygger på flera centrala samband i matematiken.
-    </p>
+    <div class="link-row">
 
-    <div class="links-grid">
-
-      <a href="larare-brak.html" class="link-card c1">
-        <span>🍕</span>
-        <h3>Bråk</h3>
-        <p>
-          Procent kan förstås som bråk med hundra som referens.
-        </p>
+      <a href="elevblad-procent.html">
+        ✏️ Elevblad procent
       </a>
 
-      <a href="larare-decimal.html" class="link-card c2">
-        <span>🔟</span>
-        <h3>Decimaltal</h3>
-        <p>
-          Decimalform gör förändringsfaktor och procentberäkningar tydliga.
-        </p>
+      <a href="larare-brak.html">
+        🍕 Bråk
       </a>
 
-      <a href="larare-tal.html" class="link-card c3">
-        <span>🔢</span>
-        <h3>Taluppfattning</h3>
-        <p>
-          Referenstal och rimlighetsbedömning är viktiga i procentarbete.
-        </p>
+      <a href="larare-decimal.html">
+        🔵 Decimaler
       </a>
 
-      <a href="larare-samband.html" class="link-card c4">
-        <span>🔗</span>
-        <h3>Samband & förändring</h3>
-        <p>
-          Procentuell förändring bygger vidare på proportionalitet och multiplikativa relationer.
-        </p>
+      <a href="larare-tal.html">
+        🔢 Taluppfattning
       </a>
 
-      <a href="larare-raknesatt.html" class="link-card c5">
-        <span>➕➖✖️➗</span>
-        <h3>Räknesätten</h3>
-        <p>
-          Procent kräver flexibla multiplikativa och divisiva strategier.
-        </p>
+      <a href="larare-samband.html">
+        📈 Samband
       </a>
 
-      <a href="larare-missuppfattningar.html" class="link-card c6">
-        <span>⚠️</span>
-        <h3>Missuppfattningar</h3>
-        <p>
-          Fördjupa analysen av vanliga procentfel.
-        </p>
+      <a href="larare-problemlosning.html">
+        🧩 Problemlösning
       </a>
 
-    </div>
+      <a href="larare-missuppfattningar.html">
+        🕵️ Missuppfattningar
+      </a>
 
-    <div class="note">
-      <strong>Kom ihåg:</strong>
-      om eleven kan identifiera 100 %, se relationen mellan del och helhet
-      och koppla procent till bråk och decimal, blir många procentmetoder betydligt mer begripliga.
+      <a href="larare-konkret.html">
+        🧱 Konkret & visuellt
+      </a>
+
     </div>
 
   </section>
@@ -1714,11 +1110,8 @@
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  💯 Procent F–9 – andel, del, helhet och förändring
+  <strong>HOLOS Matteresan F–9</strong><br>
+  💯 Andel • Helhet • Jämförelse • Förändring • Faktor
 
 </footer>
 
