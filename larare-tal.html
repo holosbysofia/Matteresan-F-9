@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Taluppfattning F–9 | HOLOS Matteresan</title>
+  <title>Taluppfattning | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,25 +15,32 @@
 
     :root {
       --dark: #17324d;
-      --gold: #d7a33a;
-      --gold-dark: #946c17;
-      --gold-light: #fff6d7;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --orange-light: #ffe7cf;
-      --pink-light: #ffe9f1;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -43,8 +50,8 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
-        linear-gradient(135deg, #745616, #d0a13c);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
       padding: 22px 20px 58px;
     }
@@ -64,490 +71,352 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--gold-dark);
-    }
-
     .hero {
-      max-width: 900px;
-      margin: 50px auto 0;
+      max-width: 930px;
+      margin: 44px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.4rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 4.7rem);
+      font-size: clamp(2.4rem, 7vw, 4.4rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 800px;
+      max-width: 850px;
       margin: auto;
-      color: #fff9e9;
-      font-size: 1.03rem;
+      color: #f6f9fb;
     }
 
     main {
       max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      margin-bottom: 36px;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
+    .intro h2 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 30px;
+    .intro p {
       color: var(--muted);
+      max-width: 950px;
     }
 
-    .intro-box {
-      background: var(--gold-light);
-      border-radius: 28px;
-      padding: 36px;
-      text-align: center;
+    .important {
+      margin-top: 17px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 17px;
+      color: #665831;
     }
 
-    .intro-box h2 {
+    .section-title {
+      margin: 42px 0 18px;
+    }
+
+    .section-title h2 {
       color: var(--dark);
-      margin-bottom: 12px;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
     }
 
-    .intro-box p {
-      max-width: 860px;
-      margin: auto;
-      color: #5c6872;
-    }
-
-    .core-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .core-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 180px;
-      border: 1px solid #e6ebef;
-    }
-
-    .core-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .core-card h3 {
-      color: var(--gold-dark);
-      margin-bottom: 6px;
-    }
-
-    .core-card p {
+    .section-title p {
       color: var(--muted);
-      font-size: 0.92rem;
     }
 
-    .progression-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
-        linear-gradient(135deg, #17324d, #6e5a2b);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .progression-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .progression-box > p {
-      color: #fff9e9;
-      max-width: 830px;
-    }
-
-    .progression-grid {
+    .progression {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 25px;
     }
 
-    .progression-card {
-      border-radius: 20px;
+    .stage {
+      border-radius: 18px;
       padding: 22px;
       min-height: 270px;
     }
 
-    .f3 {
-      background: rgba(118, 211, 149, 0.16);
-      border: 1px solid rgba(255,255,255,0.19);
+    .stage h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.12rem;
     }
 
-    .m46 {
-      background: rgba(110, 177, 238, 0.16);
-      border: 1px solid rgba(255,255,255,0.19);
+    .stage p,
+    .stage li {
+      color: var(--muted);
+      font-size: 0.9rem;
     }
 
-    .m79 {
-      background: rgba(177, 147, 245, 0.16);
-      border: 1px solid rgba(255,255,255,0.19);
+    .stage ul {
+      margin-left: 20px;
+      margin-top: 8px;
     }
 
-    .progression-card span {
-      display: block;
-      font-size: 2.5rem;
-      margin-bottom: 7px;
+    .stage li {
+      margin-bottom: 6px;
     }
 
-    .progression-card h3 {
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 240px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+    }
+
+    .card:nth-child(3n+1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .icon {
+      font-size: 2rem;
       margin-bottom: 8px;
     }
 
-    .progression-card ul {
-      padding-left: 20px;
-      color: #fffdf6;
-      font-size: 0.93rem;
+    .card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.08rem;
     }
 
-    .progression-card li {
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .card ul {
+      margin-left: 19px;
+      margin-top: 7px;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .flow-step {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 10px;
+      text-align: center;
+      min-height: 155px;
+      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+    }
+
+    .flow-step:nth-child(1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .flow-step:nth-child(2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .flow-step:nth-child(3) {
+      border-top-color: #c39b44;
+    }
+
+    .flow-step:nth-child(4) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .flow-step:nth-child(5) {
+      border-top-color: #5d9c92;
+    }
+
+    .flow-step span {
+      display: block;
+      font-size: 2rem;
       margin-bottom: 6px;
     }
 
-    .section-card {
-      background: white;
-      border-radius: 28px;
-      padding: 32px;
-      border: 1px solid #e6ebef;
-      margin-bottom: 25px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 22px;
-    }
-
-    .section-header span {
-      font-size: 2.7rem;
-    }
-
-    .section-header h2 {
+    .flow-step strong {
+      display: block;
       color: var(--dark);
-      font-size: 1.75rem;
+      margin-bottom: 5px;
     }
 
-    .section-header p {
+    .flow-step p {
       color: var(--muted);
+      font-size: 0.8rem;
     }
 
-    .three-grid {
+    .example-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
 
-    .mini-card {
+    .example {
       border-radius: 18px;
       padding: 20px;
-      min-height: 185px;
+      min-height: 215px;
     }
 
-    .mini-card h3 {
+    .example h3 {
       color: var(--dark);
       margin-bottom: 7px;
     }
 
-    .mini-card p,
-    .mini-card ul {
+    .example p,
+    .example li {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.9rem;
     }
 
-    .mini-card ul {
-      padding-left: 20px;
+    .example ul {
+      margin-left: 20px;
+      margin-top: 8px;
     }
 
-    .mini-card li {
+    .example li {
       margin-bottom: 6px;
     }
 
-    .m1 { background: var(--green-light); }
-    .m2 { background: var(--blue-light); }
-    .m3 { background: var(--yellow-light); }
-
-    .mis-box {
-      background: var(--pink-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .mis-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .mis-card {
-      background: white;
+    .teacher-box {
+      margin-top: 36px;
+      background: var(--teal);
       border-radius: 20px;
-      padding: 22px;
-      min-height: 200px;
-      border: 1px solid #eee1e5;
+      padding: 24px;
     }
 
-    .mis-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .mis-card h3 {
+    .teacher-box h2 {
       color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box ul {
+      margin-left: 22px;
+      color: var(--muted);
+    }
+
+    .teacher-box li {
       margin-bottom: 7px;
     }
 
-    .mis-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .question-box {
-      background: var(--blue-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .question-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .question-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 170px;
-      border: 1px solid #dfe8ef;
-    }
-
-    .question-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .question-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .support-grid,
-    .assessment-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .support-card,
-    .assessment-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 180px;
-      border: 1px solid #e6ebef;
-    }
-
-    .support-card span,
-    .assessment-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .support-card h3,
-    .assessment-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .support-card p,
-    .assessment-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .challenge-box {
-      background: var(--purple-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .challenge-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
-    }
-
-    .challenge-card {
-      background: white;
-      border-radius: 18px;
+    .warning {
+      margin-top: 22px;
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 16px;
       padding: 20px;
-      min-height: 180px;
-      border: 1px solid #e2dcf1;
+      color: #654c37;
     }
 
-    .challenge-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .challenge-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .challenge-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .link-card {
+    .links {
+      margin-top: 36px;
+      background: white;
       border-radius: 20px;
-      padding: 22px;
-      min-height: 175px;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.04);
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
     }
 
-    .link-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
-    }
-
-    .link-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .link-card h3 {
+    .links h2 {
       color: var(--dark);
-      margin-bottom: 6px;
+      margin-bottom: 12px;
     }
 
-    .link-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .c1 { background: var(--gold-light); }
-    .c2 { background: var(--green-light); }
-    .c3 { background: var(--blue-light); }
-    .c4 { background: var(--orange-light); }
-    .c5 { background: var(--purple-light); }
-    .c6 { background: var(--pink-light); }
-
-    .note {
-      background: var(--gold-light);
-      border-left: 6px solid var(--gold);
-      border-radius: 14px;
-      padding: 20px;
-      color: #665528;
-      margin-top: 25px;
+    .link-row a {
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.83rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
     @media (max-width: 1000px) {
-      .core-grid,
-      .support-grid,
-      .assessment-grid,
-      .challenge-grid {
+      .grid {
         grid-template-columns: repeat(2, 1fr);
       }
-    }
 
-    @media (max-width: 900px) {
-      .progression-grid,
-      .three-grid,
-      .mis-grid,
-      .question-grid,
-      .links-grid {
-        grid-template-columns: 1fr;
+      .flow {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .core-grid,
-      .support-grid,
-      .assessment-grid,
-      .challenge-grid {
+      .progression,
+      .grid,
+      .flow,
+      .example-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .progression-box,
-      .section-card,
-      .mis-box,
-      .question-box,
-      .challenge-box {
-        padding: 25px 18px;
-      }
-
-      .section-header {
-        align-items: flex-start;
       }
 
       main {
@@ -556,15 +425,28 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+      }
+
+      header,
+      footer {
+        display: none !important;
       }
 
       main {
@@ -572,9 +454,56 @@
         padding: 0;
       }
 
-      section,
-      .section-card {
+      .intro,
+      .stage,
+      .card,
+      .flow-step,
+      .example,
+      .teacher-box,
+      .warning,
+      .links {
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .green {
+        background: var(--green) !important;
+      }
+
+      .blue {
+        background: var(--blue) !important;
+      }
+
+      .purple {
+        background: var(--purple) !important;
+      }
+
+      .yellow,
+      .important {
+        background: var(--yellow) !important;
+      }
+
+      .orange,
+      .warning {
+        background: var(--orange) !important;
+      }
+
+      .teal,
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .link-row a {
+        background: var(--dark) !important;
+        color: white !important;
       }
     }
   </style>
@@ -586,28 +515,27 @@
 
   <div class="topbar">
 
-    <div class="logo">
-      HOLOS MATTERESAN
-    </div>
+    <div class="logo">HOLOS MATTERESAN</div>
 
     <a href="larare.html" class="back-link">
-      ← Lärarvy
+      ← Lärarportalen
     </a>
 
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">🔢</div>
+    <div class="hero-icon">🔢🧠</div>
 
-    <h1>Taluppfattning F–9</h1>
+    <h1>Taluppfattning</h1>
 
-    <h2>Förstå tal • Se relationer • Jämföra • Använda</h2>
+    <h2>Storlek • Struktur • Relation • Representation • Rimlighet</h2>
 
     <p>
-      Taluppfattning är en grund för nästan all annan matematik.
-      Här följer läraren utvecklingen från antal och tiostruktur
-      till rationella tal, negativa tal, potenser och flexibelt numeriskt tänkande.
+      Taluppfattning är grunden för stora delar av matematiken.
+      Elever behöver förstå hur tal är uppbyggda, hur de förhåller sig
+      till varandra och hur samma tal kan representeras på flera sätt.
     </p>
 
   </div>
@@ -617,745 +545,574 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>🔢 Tal är mer än siffror</h2>
 
-      <h2>🔢 Taluppfattning är mer än att kunna läsa tal</h2>
+    <p>
+      En elev kan kunna läsa och skriva ett tal utan att ha en stabil
+      uppfattning om talets storlek, struktur eller relation till andra tal.
+      Därför behöver taluppfattning utvecklas genom jämförelser,
+      representationer, strategier och resonemang genom hela F–9.
+    </p>
+
+    <div class="important">
+
+      <strong>Grundprincip:</strong><br>
+      Hjälp elever att gå mellan
+      <strong>antal → struktur → tallinje → språk → symbol → relation</strong>.
+      När taluppfattningen är flexibel blir även beräkningar,
+      algebra, bråk, procent och problemlösning mer begripliga.
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>📈 Progression F–9</h2>
+
+    <p>
+      Progressionen går från konkreta antal och heltal mot rationella,
+      negativa och mer generella talrelationer.
+    </p>
+
+  </div>
+
+
+  <div class="progression">
+
+    <section class="stage green">
+
+      <h3>🌱 F–3</h3>
+
+      <ul>
+        <li>Antal och räkneord.</li>
+        <li>Subitisering och strukturerade talbilder.</li>
+        <li>Del–helhet.</li>
+        <li>Tiobassystemet.</li>
+        <li>Jämföra och ordna tal.</li>
+        <li>Tallinje.</li>
+        <li>Udda och jämna tal.</li>
+        <li>Enkla bråk som del av helhet.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage blue">
+
+      <h3>🔵 4–6</h3>
+
+      <ul>
+        <li>Stora tal och platsvärde.</li>
+        <li>Decimaltal.</li>
+        <li>Bråk som tal.</li>
+        <li>Bråk på tallinje.</li>
+        <li>Relation mellan bråk, decimal och procent.</li>
+        <li>Negativa tal som idé.</li>
+        <li>Överslag och rimlighet.</li>
+        <li>Multiplikativa relationer.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage purple">
+
+      <h3>🟣 7–9</h3>
+
+      <ul>
+        <li>Positiva och negativa tal.</li>
+        <li>Rationella tal.</li>
+        <li>Proportioner och förhållanden.</li>
+        <li>Procentuell förändring.</li>
+        <li>Potenser och storleksordning.</li>
+        <li>Tal i algebraiska sammanhang.</li>
+        <li>Rimlighet i komplexa beräkningar.</li>
+        <li>Generalisering av talmönster.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧠 Sex delar av stark taluppfattning</h2>
+
+    <p>
+      Taluppfattning är ett nätverk av förståelse, inte en enskild färdighet.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">🔍</div>
+
+      <h3>Storlek</h3>
 
       <p>
-        En elev med stark taluppfattning ser relationer mellan tal,
-        kan dela upp och sätta samman tal, jämföra storlek,
-        använda tallinjen, förstå platsvärde och välja rimliga strategier.
-        Denna förståelse behöver fortsätta utvecklas genom hela F–9.
+        Eleven behöver kunna bedöma hur stort ett tal är och jämföra med andra tal.
       </p>
 
-    </div>
+      <ul>
+        <li>Vilket är störst?</li>
+        <li>Vilket ligger närmast 100?</li>
+        <li>Var ligger talet på tallinjen?</li>
+        <li>Är svaret rimligt?</li>
+      </ul>
 
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Fyra kärnor i taluppfattning
-    </h2>
-
-    <p class="section-intro">
-      Dessa idéer återkommer i olika former genom hela grundskolan.
-    </p>
-
-    <div class="core-grid">
-
-      <div class="core-card">
-        <span>🔗</span>
-        <h3>Talrelationer</h3>
-        <p>
-          Se hur tal kan delas, sättas samman, jämföras och relateras till referenstal.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>🔟</span>
-        <h3>Platsvärde</h3>
-        <p>
-          Förstå hur siffrans värde förändras beroende på position i vårt talsystem.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>↔️</span>
-        <h3>Tallinje</h3>
-        <p>
-          Förstå tal som positioner och avstånd på en sammanhängande linje.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>⚖️</span>
-        <h3>Storlek & rimlighet</h3>
-        <p>
-          Jämföra tal, uppskatta resultat och avgöra om svar är rimliga.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="progression-box">
+      <div class="icon">🧱</div>
 
-      <h2>🌱 → 🌿 → 🚀 Progression F–9</h2>
+      <h3>Struktur</h3>
 
       <p>
-        Talområdet utvidgas stegvis, men varje nytt talområde behöver kopplas till tidigare förståelse.
+        Tal kan delas upp och sättas samman på flera sätt.
       </p>
 
-      <div class="progression-grid">
+      <ul>
+        <li>8 = 5 + 3</li>
+        <li>48 = 40 + 8</li>
+        <li>0,75 = 0,7 + 0,05</li>
+        <li>3/4 = 6/8</li>
+      </ul>
 
-        <div class="progression-card f3">
+    </article>
 
-          <span>🌱</span>
 
-          <h3>F–3</h3>
+    <article class="card">
 
-          <ul>
-            <li>antal och kardinalitet</li>
-            <li>subitisering</li>
-            <li>talens ordning</li>
-            <li>del–helhet</li>
-            <li>tiostruktur</li>
-            <li>platsvärde</li>
-            <li>tallinje</li>
-            <li>enkla bråkidéer</li>
-          </ul>
+      <div class="icon">🔗</div>
 
-        </div>
+      <h3>Relationer</h3>
 
-
-        <div class="progression-card m46">
-
-          <span>🌿</span>
-
-          <h3>4–6</h3>
-
-          <ul>
-            <li>stora naturliga tal</li>
-            <li>fördjupat platsvärde</li>
-            <li>bråk som tal</li>
-            <li>decimaltal</li>
-            <li>procent</li>
-            <li>negativa tal i sammanhang</li>
-            <li>avrundning</li>
-            <li>överslag</li>
-          </ul>
-
-        </div>
-
-
-        <div class="progression-card m79">
-
-          <span>🚀</span>
-
-          <h3>7–9</h3>
-
-          <ul>
-            <li>rationella tal</li>
-            <li>negativa tal i beräkningar</li>
-            <li>potenser</li>
-            <li>tal i olika former</li>
-            <li>storleksordning</li>
-            <li>precision</li>
-            <li>numeriska samband</li>
-            <li>rimlighetsbedömning i komplexa situationer</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="section-card">
-
-      <div class="section-header">
-
-        <span>🌱</span>
-
-        <div>
-          <h2>F–3 – bygg talets betydelse</h2>
-          <p>Tal måste först bli något eleven kan uppleva, se och resonera om.</p>
-        </div>
-
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Förkunskaper och grund</h3>
-
-          <ul>
-            <li>räkneramsa</li>
-            <li>ett-till-ett-principen</li>
-            <li>antal</li>
-            <li>jämförelser</li>
-            <li>sortering</li>
-            <li>mönster</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Representationer</h3>
-
-          <ul>
-            <li>föremål</li>
-            <li>fem- och tiobilder</li>
-            <li>pärlband</li>
-            <li>tallinje</li>
-            <li>tiobasmaterial</li>
-            <li>hundraruta</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Viktiga frågor</h3>
-
-          <ul>
-            <li>Hur många ser du utan att räkna?</li>
-            <li>Hur kan 8 delas?</li>
-            <li>Hur långt är det till 10?</li>
-            <li>Vilket tal ligger mellan?</li>
-            <li>Kan du visa talet på tre sätt?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-
-        <span>🌿</span>
-
-        <div>
-          <h2>4–6 – koppla ihop talformer</h2>
-          <p>Eleven behöver se att heltal, bråk, decimal och procent ingår i samma talsystem.</p>
-        </div>
-
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Utveckla</h3>
-
-          <ul>
-            <li>stora tal</li>
-            <li>decimaltal</li>
-            <li>bråk på tallinjen</li>
-            <li>procent som andel</li>
-            <li>negativa tal</li>
-            <li>avrundning</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Koppla representationer</h3>
-
-          <ul>
-            <li>1/2</li>
-            <li>0,5</li>
-            <li>50 %</li>
-            <li>hälften</li>
-            <li>punkt på tallinjen</li>
-            <li>bildmodell</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Viktiga frågor</h3>
-
-          <ul>
-            <li>Vilket tal är störst?</li>
-            <li>Hur vet du?</li>
-            <li>Vilket referenstal kan hjälpa?</li>
-            <li>Var ligger talet på tallinjen?</li>
-            <li>Vilka former visar samma värde?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-
-        <span>🚀</span>
-
-        <div>
-          <h2>7–9 – flexibel numerisk förståelse</h2>
-          <p>Eleven behöver kunna välja talform och representation efter situation.</p>
-        </div>
-
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Utveckla</h3>
-
-          <ul>
-            <li>rationella tal</li>
-            <li>negativa tal</li>
-            <li>potenser</li>
-            <li>tal i bråk- och decimalform</li>
-            <li>procent</li>
-            <li>precision och approximation</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Använd i</h3>
-
-          <ul>
-            <li>algebra</li>
-            <li>funktioner</li>
-            <li>procentuell förändring</li>
-            <li>statistik</li>
-            <li>sannolikhet</li>
-            <li>modellering</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Viktiga frågor</h3>
-
-          <ul>
-            <li>Vilken talform är mest användbar?</li>
-            <li>Vilken storleksordning väntar du dig?</li>
-            <li>Behöver svaret vara exakt?</li>
-            <li>Hur påverkar tecknet talets storlek?</li>
-            <li>Hur kontrollerar du rimligheten?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Viktiga representationer
-    </h2>
-
-    <p class="section-intro">
-      Samma tal behöver mötas i flera former.
-    </p>
-
-    <div class="support-grid">
-
-      <div class="support-card">
-        <span>🧱</span>
-        <h3>Konkret</h3>
-        <p>
-          Föremål, tiobasmaterial, bråkstavar och andra modeller.
-        </p>
-      </div>
-
-      <div class="support-card">
-        <span>↔️</span>
-        <h3>Tallinje</h3>
-        <p>
-          Synliggör ordning, position, avstånd, bråk, decimaler och negativa tal.
-        </p>
-      </div>
-
-      <div class="support-card">
-        <span>🔟</span>
-        <h3>Positionsschema</h3>
-        <p>
-          Synliggör enheter, tiotal, hundratal, tiondelar och hundradelar.
-        </p>
-      </div>
-
-      <div class="support-card">
-        <span>💬</span>
-        <h3>Språk</h3>
-        <p>
-          Talnamn, större än, mindre än, mellan, dubbelt, hälften och andra relationer.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="mis-box">
-
-      <h2 class="section-title">
-        ⚠️ Vanliga missuppfattningar
-      </h2>
-
-      <p class="section-intro">
-        Många svårigheter uppstår när regler från ett talområde förs över till ett annat.
+      <p>
+        Ett tal förstås bättre när det kopplas till andra tal.
       </p>
 
-      <div class="mis-grid">
+      <ul>
+        <li>Dubbelt och hälften</li>
+        <li>Skillnad</li>
+        <li>Förhållande</li>
+        <li>Nära kända tal</li>
+      </ul>
 
-        <div class="mis-card">
-          <span>🔟</span>
-          <h3>Fler siffror = större tal</h3>
-          <p>
-            Eleven kan exempelvis bedöma 0,125 som större än 0,8 eftersom 125 är större än 8.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>🍕</span>
-          <h3>Större nämnare = större bråk</h3>
-          <p>
-            1/8 bedöms som större än 1/4 eftersom 8 är större än 4.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>➖</span>
-          <h3>−8 är större än −3</h3>
-          <p>
-            Eleven jämför de positiva delarna och bortser från talens position på tallinjen.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>0️⃣</span>
-          <h3>Noll har inget värde</h3>
-          <p>
-            Eleven kan missa nollans betydelse som platshållare i exempelvis 507 eller 3,04.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>↔️</span>
-          <h3>Tallinjen är bara markeringar</h3>
-          <p>
-            Eleven räknar streck istället för att förstå tal som position och avstånd.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>%</span>
-          <h3>Procent är ett fristående tal</h3>
-          <p>
-            Eleven glömmer att procent alltid beskriver en andel av en bestämd helhet.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="question-box">
+      <div class="icon">🎨</div>
 
-      <h2 class="section-title">
-        💬 Frågor som synliggör taluppfattning
-      </h2>
+      <h3>Representationer</h3>
 
-      <p class="section-intro">
-        Frågorna kan användas diagnostiskt och i matematiska samtal.
+      <p>
+        Samma tal behöver kunna ses i flera former.
       </p>
 
-      <div class="question-grid">
+      <ul>
+        <li>Material</li>
+        <li>Tallinje</li>
+        <li>Bild</li>
+        <li>Bråk</li>
+        <li>Decimal</li>
+        <li>Procent</li>
+      </ul>
 
-        <div class="question-card">
-          <h3>Hur vet du vilket tal som är störst?</h3>
-          <p>
-            Synliggör om eleven använder platsvärde, referenstal eller en felaktig heltalsregel.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Var ligger talet på tallinjen?</h3>
-          <p>
-            Visar om eleven förstår talets storlek och relation till andra tal.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Hur kan talet delas?</h3>
-          <p>
-            Synliggör flexibilitet och del–helhetsförståelse.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Vilket tal ligger nära?</h3>
-          <p>
-            Referenstal som 10, 100, 0, 1, 1/2 och 50 % kan avslöja mycket om förståelsen.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Kan du skriva talet på ett annat sätt?</h3>
-          <p>
-            Exempelvis bråk, decimal, procent, ord eller potensform.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Är svaret rimligt?</h3>
-          <p>
-            Hjälper eleven att koppla taluppfattning till beräkning och problemlösning.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <h2 class="section-title">
-      🛟 Stöd när taluppfattningen är osäker
-    </h2>
+      <div class="icon">🧰</div>
 
-    <p class="section-intro">
-      Gå tillbaka till representationen där eleven kan se relationen.
-    </p>
+      <h3>Flexibilitet</h3>
 
-    <div class="support-grid">
-
-      <div class="support-card">
-        <span>↔️</span>
-        <h3>Använd tallinje</h3>
-        <p>
-          Placera, jämför och uppskatta istället för att bara träna symboliska jämförelser.
-        </p>
-      </div>
-
-      <div class="support-card">
-        <span>🔟</span>
-        <h3>Synliggör platsvärde</h3>
-        <p>
-          Använd positionsschema och material när decimaler eller stora tal blir otydliga.
-        </p>
-      </div>
-
-      <div class="support-card">
-        <span>⚖️</span>
-        <h3>Använd referenstal</h3>
-        <p>
-          Jämför med 0, 1, 1/2, 10, 100 eller andra ankartal som eleven känner.
-        </p>
-      </div>
-
-      <div class="support-card">
-        <span>🔄</span>
-        <h3>Byt representation</h3>
-        <p>
-          Om symbolerna blockerar förståelsen, gå till bild, modell eller vardaglig situation.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="challenge-box">
-
-      <h2 class="section-title">
-        🚀 Utmana taluppfattningen
-      </h2>
-
-      <p class="section-intro">
-        Fördjupa genom relationer och generalisering istället för enbart större tal.
+      <p>
+        Eleven väljer strategi utifrån talens struktur.
       </p>
 
-      <div class="challenge-grid">
+      <ul>
+        <li>49 + 27 → nära 50</li>
+        <li>25 × 16 → dela upp</li>
+        <li>99 × 4 → 100 × 4 − 4</li>
+        <li>15 % → 10 % + 5 %</li>
+      </ul>
 
-        <div class="challenge-card">
-          <span>🔎</span>
-          <h3>Hitta alla</h3>
-          <p>
-            Hitta alla tal som uppfyller flera villkor och förklara systematiken.
-          </p>
-        </div>
+    </article>
 
-        <div class="challenge-card">
-          <span>⚖️</span>
-          <h3>Ordna utan miniräknare</h3>
-          <p>
-            Jämför bråk, decimaler, procent och negativa tal genom resonemang.
-          </p>
-        </div>
 
-        <div class="challenge-card">
-          <span>🧩</span>
-          <h3>Skapa ett tal</h3>
-          <p>
-            Skapa ett tal som ligger mellan två givna tal och uppfyller bestämda villkor.
-          </p>
-        </div>
+    <article class="card">
 
-        <div class="challenge-card">
-          <span>🚀</span>
-          <h3>Generalisera</h3>
-          <p>
-            Vad händer med ett tals värde när decimaltecknet eller positionen förändras?
-          </p>
-        </div>
+      <div class="icon">✅</div>
 
-      </div>
+      <h3>Rimlighet</h3>
 
+      <p>
+        Eleven behöver kunna upptäcka resultat som inte passar situationen.
+      </p>
+
+      <ul>
+        <li>Överslag</li>
+        <li>Storleksbedömning</li>
+        <li>Kontroll med annan strategi</li>
+        <li>Tolka svaret i sammanhanget</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🔄 Undervisa taluppfattning genom flera representationer</h2>
+
+    <p>
+      Symbolen bör hela tiden kopplas tillbaka till en meningsfull matematisk idé.
+    </p>
+
+  </div>
+
+
+  <div class="flow">
+
+    <div class="flow-step">
+      <span>🧱</span>
+      <strong>1. Bygg</strong>
+      <p>Använd material, mängder eller verkliga situationer.</p>
     </div>
+
+    <div class="flow-step">
+      <span>👀</span>
+      <strong>2. Se</strong>
+      <p>Upptäck struktur, storlek och relation.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>📏</span>
+      <strong>3. Placera</strong>
+      <p>Använd tallinje och jämförelser.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>💬</span>
+      <strong>4. Förklara</strong>
+      <p>Sätt ord på vad talet betyder.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>🔢</span>
+      <strong>5. Symbolisera</strong>
+      <p>Koppla till siffror, bråk, decimal, procent och algebra.</p>
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧩 Fyra undervisningsidéer</h2>
+
+    <p>
+      Aktiviteter som fungerar i flera åldrar genom att talen och kraven förändras.
+    </p>
+
+  </div>
+
+
+  <div class="example-grid">
+
+    <section class="example green">
+
+      <h3>📏 Tom tallinje</h3>
+
+      <ul>
+        <li>Markera två referenstal.</li>
+        <li>Placera ett nytt tal ungefärligt.</li>
+        <li>Motivera placeringen.</li>
+        <li>Jämför flera elevers placeringar.</li>
+        <li>Diskutera avstånd och storlek.</li>
+      </ul>
+
+      <p>
+        Fungerar med heltal, bråk, decimaler och negativa tal.
+      </p>
+
+    </section>
+
+
+    <section class="example blue">
+
+      <h3>🔢 Talet på många sätt</h3>
+
+      <ul>
+        <li>Visa talet som summa.</li>
+        <li>Visa med multiplikation.</li>
+        <li>Placera på tallinje.</li>
+        <li>Skapa ett problem där talet är svaret.</li>
+        <li>Visa en närliggande representation.</li>
+      </ul>
+
+      <p>
+        Exempel: 24, 0,5, 3/4 eller −8 beroende på nivå.
+      </p>
+
+    </section>
+
+
+    <section class="example yellow">
+
+      <h3>⚖️ Vilket är störst?</h3>
+
+      <ul>
+        <li>0,6 eller 0,58?</li>
+        <li>3/5 eller 5/8?</li>
+        <li>−3 eller −7?</li>
+        <li>25 % eller 1/5?</li>
+        <li>Motivera utan att bara använda en regel.</li>
+      </ul>
+
+      <p>
+        Gör storlek och representationer synliga.
+      </p>
+
+    </section>
+
+
+    <section class="example purple">
+
+      <h3>🧠 Hur nära?</h3>
+
+      <ul>
+        <li>Vilket tal ligger närmast 100?</li>
+        <li>Hur långt är 0,72 från 1?</li>
+        <li>Vilket bråk ligger närmast 1/2?</li>
+        <li>Hur långt från noll ligger −12?</li>
+        <li>Hur vet du?</li>
+      </ul>
+
+      <p>
+        Tränar referenstal, avstånd och rimlighet.
+      </p>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🕵️ Vanliga missuppfattningar</h2>
+
+    <p>
+      Fel kan ge viktig information om vilken talmodell eleven använder.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">🔟</div>
+
+      <h3>Platsvärde</h3>
+
+      <p>
+        Eleven kan läsa siffrorna men inte förstå deras värde i talet.
+      </p>
+
+      <ul>
+        <li>203 läses som 23.</li>
+        <li>4,08 uppfattas som större än 4,8.</li>
+        <li>Siffrans position kopplas inte till värdet.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🍕</div>
+
+      <h3>Bråk</h3>
+
+      <p>
+        Heltalstänkande överförs till bråk.
+      </p>
+
+      <ul>
+        <li>1/8 anses större än 1/4 eftersom 8 &gt; 4.</li>
+        <li>Täljare och nämnare behandlas som separata heltal.</li>
+        <li>Bråk ses bara som delar av cirklar.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔵</div>
+
+      <h3>Decimaler</h3>
+
+      <p>
+        Antalet decimaler används som mått på storlek.
+      </p>
+
+      <ul>
+        <li>0,125 anses större än 0,8.</li>
+        <li>Decimaltecknet förstås som separator snarare än platsvärde.</li>
+        <li>Kopplingen till bråk saknas.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">➖</div>
+
+      <h3>Negativa tal</h3>
+
+      <p>
+        Eleven kan ha svårt att tolka ordningen på tallinjen.
+      </p>
+
+      <ul>
+        <li>−8 anses större än −3 eftersom 8 &gt; 3.</li>
+        <li>Minustecknets olika betydelser blandas ihop.</li>
+        <li>Avstånd från noll förväxlas med talets värde.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">💯</div>
+
+      <h3>Procent</h3>
+
+      <p>
+        Procent ses som en fristående regel istället för ett relationstal.
+      </p>
+
+      <ul>
+        <li>25 % kopplas inte till 1/4.</li>
+        <li>10 % beräknas mekaniskt utan förståelse.</li>
+        <li>Det hela identifieras fel.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📏</div>
+
+      <h3>Tallinje</h3>
+
+      <p>
+        Tallinjen kan användas som räknestreck snarare än som kontinuerlig modell.
+      </p>
+
+      <ul>
+        <li>Avstånden blir olika stora.</li>
+        <li>Bråk placeras efter nämnarens storlek.</li>
+        <li>Negativa tal ordnas fel.</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Frågor som avslöjar taluppfattning</h2>
+
+    <ul>
+      <li>Vilket tal är störst? Hur vet du?</li>
+      <li>Kan du placera talet på en tom tallinje?</li>
+      <li>Vilket tal ligger närmast?</li>
+      <li>Kan du dela upp talet på tre olika sätt?</li>
+      <li>Vilket referenstal hjälper dig?</li>
+      <li>Kan du visa samma tal som bråk, decimal eller procent?</li>
+      <li>Vad händer om talet blir tio gånger större?</li>
+      <li>Vad händer om en siffra flyttas ett steg åt höger?</li>
+      <li>Är svaret rimligt utan att du räknar exakt?</li>
+      <li>Kan du skapa ett tal som ligger mellan dessa två?</li>
+      <li>Kan du hitta flera sådana tal?</li>
+      <li>Hur vet du att din jämförelse stämmer?</li>
+    </ul>
 
   </section>
 
 
-  <section>
+  <div class="warning">
 
-    <h2 class="section-title">
-      📊 Bedömning – vad ska läraren få syn på?
-    </h2>
+    <strong>⚠️ Taluppfattning blir aldrig ”färdig”.</strong><br>
+    När elever möter decimaler, negativa tal, bråk, procent,
+    potenser och algebra behöver deras tidigare talbilder utvecklas.
+    Fortsätt därför använda
+    <strong>tallinje, referenstal, jämförelser, representationer och rimlighetsresonemang även i 7–9</strong>.
 
-    <p class="section-intro">
-      Ett korrekt svar räcker inte för att visa stabil taluppfattning.
-    </p>
-
-    <div class="assessment-grid">
-
-      <div class="assessment-card">
-        <span>🔗</span>
-        <h3>Relationer</h3>
-        <p>
-          Kan eleven beskriva hur tal hänger ihop och använda del–helhetsrelationer?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>↔️</span>
-        <h3>Storlek</h3>
-        <p>
-          Kan eleven placera och jämföra tal även när de skrivs i olika former?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>🔄</span>
-        <h3>Flexibilitet</h3>
-        <p>
-          Kan eleven växla mellan representationer och använda lämpliga referenstal?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>✅</span>
-        <h3>Rimlighet</h3>
-        <p>
-          Kan eleven uppskatta och upptäcka svar som inte verkar rimliga?
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
+  <section class="links">
 
-    <h2 class="section-title">
-      Relaterade lärarsidor
-    </h2>
+    <h2>➡️ Fortsätt i Matteresan</h2>
 
-    <p class="section-intro">
-      Taluppfattning hänger nära ihop med flera andra delar av Matteresan.
-    </p>
+    <div class="link-row">
 
-    <div class="links-grid">
-
-      <a href="larare-raknesatt.html" class="link-card c1">
-        <span>➕➖✖️➗</span>
-        <h3>De fyra räknesätten</h3>
-        <p>
-          Taluppfattning är grunden för flexibla beräkningsstrategier.
-        </p>
+      <a href="elevblad-tal.html">
+        ✏️ Elevblad tal
       </a>
 
-      <a href="larare-brak.html" class="link-card c2">
-        <span>🍕</span>
-        <h3>Bråk</h3>
-        <p>
-          Fördjupa bråk som tal och relationer.
-        </p>
+      <a href="larare-raknesatt.html">
+        ➕ Räknesätt
       </a>
 
-      <a href="larare-decimal.html" class="link-card c3">
-        <span>🔟</span>
-        <h3>Decimaltal</h3>
-        <p>
-          Positionssystemet fortsätter på andra sidan decimaltecknet.
-        </p>
+      <a href="larare-brak.html">
+        🍕 Bråk
       </a>
 
-      <a href="larare-procent.html" class="link-card c4">
-        <span>%</span>
-        <h3>Procent</h3>
-        <p>
-          Koppla andel, helhet och talrepresentationer.
-        </p>
+      <a href="larare-decimal.html">
+        🔵 Decimaler
       </a>
 
-      <a href="larare-progression.html" class="link-card c5">
-        <span>🔗</span>
-        <h3>Progression F–9</h3>
-        <p>
-          Se hur taluppfattningen stödjer den fortsatta matematiken.
-        </p>
+      <a href="larare-procent.html">
+        💯 Procent
       </a>
 
-      <a href="larare-missuppfattningar.html" class="link-card c6">
-        <span>⚠️</span>
-        <h3>Missuppfattningar</h3>
-        <p>
-          Fördjupa analysen av vanliga felsvar och bakomliggande tankar.
-        </p>
+      <a href="larare-konkret.html">
+        🧱 Konkret & visuellt
       </a>
 
-    </div>
+      <a href="larare-missuppfattningar.html">
+        🕵️ Missuppfattningar
+      </a>
 
-    <div class="note">
-      <strong>Kom ihåg:</strong>
-      svag taluppfattning kan visa sig som problem inom många andra områden.
-      När en elev fastnar i bråk, procent, algebra eller beräkningar kan det därför vara värdefullt att undersöka den underliggande talförståelsen.
+      <a href="larare-progression.html">
+        📈 Progression F–9
+      </a>
+
     </div>
 
   </section>
@@ -1365,11 +1122,8 @@
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🔢 Taluppfattning F–9 – förstå tal, se relationer och använd dem flexibelt
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🔢 Storlek • Struktur • Relation • Representation • Rimlighet
 
 </footer>
 
