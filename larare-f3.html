@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Läraröversikt F–3 | HOLOS Matteresan</title>
+  <title>F–3 för lärare | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,25 +15,32 @@
 
     :root {
       --dark: #17324d;
-      --green: #4f9f71;
-      --green-dark: #347451;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --pink-light: #ffe9f1;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -43,8 +50,8 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
-        linear-gradient(135deg, #2f6e50, #58a97a);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #5f9470, #85b895);
       color: white;
       padding: 22px 20px 58px;
     }
@@ -64,531 +71,366 @@
     }
 
     .back-link {
-      padding: 8px 15px;
-      border: 1px solid rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.7);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--green-dark);
-    }
-
     .hero {
-      max-width: 900px;
-      margin: 50px auto 0;
+      max-width: 930px;
+      margin: 44px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.4rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 4.7rem);
+      font-size: clamp(2.4rem, 7vw, 4.4rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 800px;
+      max-width: 850px;
       margin: auto;
-      color: #effff5;
-      font-size: 1.03rem;
+      color: #f5fff7;
     }
 
     main {
       max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      margin-bottom: 36px;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: var(--muted);
+      max-width: 950px;
+    }
+
+    .important {
+      margin-top: 17px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 17px;
+      color: #665831;
     }
 
     .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
-      color: var(--dark);
-      margin-bottom: 8px;
+      margin: 42px 0 18px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 30px;
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
       color: var(--muted);
     }
 
-    .intro-box {
-      background: var(--green-light);
-      border-radius: 28px;
-      padding: 36px;
-      text-align: center;
-    }
-
-    .intro-box h2 {
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-
-    .intro-box p {
-      max-width: 860px;
-      margin: auto;
-      color: #5c6872;
-    }
-
-    .year-grid {
+    .progression {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+      gap: 14px;
     }
 
     .year-card {
-      background: white;
-      border-radius: 22px;
-      padding: 24px;
-      text-align: center;
-      border: 1px solid #e6ebef;
-      transition: 0.2s;
-      min-height: 190px;
-    }
-
-    .year-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
-    }
-
-    .year-card span {
-      display: block;
-      font-size: 2.6rem;
-      margin-bottom: 8px;
+      border-radius: 18px;
+      padding: 22px;
+      min-height: 265px;
     }
 
     .year-card h3 {
       color: var(--dark);
-      margin-bottom: 7px;
+      margin-bottom: 8px;
+      font-size: 1.12rem;
     }
 
-    .year-card p {
+    .year-card p,
+    .year-card li {
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.88rem;
     }
 
-    .thread-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
-        linear-gradient(135deg, #17324d, #376b55);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
+    .year-card ul {
+      margin-left: 20px;
+      margin-top: 8px;
     }
 
-    .thread-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .thread-box > p {
-      color: #effff5;
-      max-width: 830px;
-    }
-
-    .thread-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-      margin-top: 25px;
-    }
-
-    .thread-card {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.20);
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 180px;
-    }
-
-    .thread-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .thread-card h3 {
+    .year-card li {
       margin-bottom: 6px;
     }
 
-    .thread-card p {
-      color: #effff5;
+    .fklass {
+      background: #f1f9e8;
+    }
+
+    .ak1 {
+      background: var(--green);
+    }
+
+    .ak2 {
+      background: #dcf2e4;
+    }
+
+    .ak3 {
+      background: #d1ebda;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 240px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--green-strong);
+    }
+
+    .card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .card:nth-child(3n+3) {
+      border-top-color: #c39b44;
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .card ul {
+      margin-left: 19px;
+      margin-top: 7px;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .lesson-flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .lesson-step {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 10px;
+      min-height: 150px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--green-strong);
+    }
+
+    .lesson-step:nth-child(2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .lesson-step:nth-child(3) {
+      border-top-color: #c39b44;
+    }
+
+    .lesson-step:nth-child(4) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .lesson-step:nth-child(5) {
+      border-top-color: #5d9c92;
+    }
+
+    .lesson-step span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .lesson-step strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .lesson-step p {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .practice {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 210px;
+    }
+
+    .practice h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .practice p,
+    .practice li {
+      color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .area {
-      background: white;
-      border-radius: 28px;
-      padding: 32px;
-      border: 1px solid #e6ebef;
-      margin-bottom: 25px;
+    .practice ul {
+      margin-left: 20px;
+      margin-top: 8px;
     }
 
-    .area-header {
+    .practice li {
+      margin-bottom: 6px;
+    }
+
+    .teacher-box {
+      margin-top: 36px;
+      background: var(--teal);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box ul {
+      margin-left: 22px;
+      color: var(--muted);
+    }
+
+    .teacher-box li {
+      margin-bottom: 7px;
+    }
+
+    .warning {
+      margin-top: 22px;
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 16px;
+      padding: 20px;
+      color: #654c37;
+    }
+
+    .links {
+      margin-top: 36px;
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+    }
+
+    .links h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .link-row {
       display: flex;
-      gap: 15px;
-      align-items: center;
-      margin-bottom: 22px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .area-header span {
-      font-size: 2.7rem;
-    }
-
-    .area-header h2 {
-      color: var(--dark);
-      font-size: 1.75rem;
-    }
-
-    .area-header p {
-      color: var(--muted);
-    }
-
-    .area-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .area-card {
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 185px;
-    }
-
-    .area-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .area-card p,
-    .area-card ul {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .area-card ul {
-      padding-left: 20px;
-    }
-
-    .area-card li {
-      margin-bottom: 6px;
-    }
-
-    .a1 { background: var(--green-light); }
-    .a2 { background: var(--blue-light); }
-    .a3 { background: var(--yellow-light); }
-
-    .critical-box {
-      background: var(--yellow-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .critical-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .critical-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 180px;
-      border: 1px solid #eee4c9;
-    }
-
-    .critical-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .critical-card p {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .language-box {
-      background: var(--blue-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .language-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
-    }
-
-    .language-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 180px;
-      border: 1px solid #dfe8ef;
-    }
-
-    .language-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .language-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .language-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .mis-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .mis-card {
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 190px;
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .mis-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .mis-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .mis-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .m1 { background: var(--pink-light); }
-    .m2 { background: var(--orange-light); }
-    .m3 { background: var(--yellow-light); }
-
-    .assessment-box {
-      background: var(--green-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .assessment-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
-    }
-
-    .assessment-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 180px;
-      border: 1px solid #dfe9e2;
-    }
-
-    .assessment-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .assessment-card h3 {
-      color: var(--green-dark);
-      margin-bottom: 6px;
-    }
-
-    .assessment-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .bridge-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
-        linear-gradient(135deg, #17324d, #4c82bb);
+    .link-row a {
+      background: var(--dark);
       color: white;
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .bridge-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .bridge-box > p {
-      color: #edf5fb;
-      max-width: 830px;
-    }
-
-    .bridge-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 25px;
-    }
-
-    .bridge-card {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.20);
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 180px;
-    }
-
-    .bridge-card h3 {
-      margin-bottom: 7px;
-    }
-
-    .bridge-card p {
-      color: #edf5fb;
-      font-size: 0.91rem;
-    }
-
-    .teacher-links {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .teacher-link {
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 175px;
-      transition: 0.2s;
-    }
-
-    .teacher-link:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
-    }
-
-    .teacher-link span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .teacher-link h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .teacher-link p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .c1 { background: var(--yellow-light); }
-    .c2 { background: var(--blue-light); }
-    .c3 { background: var(--purple-light); }
-    .c4 { background: var(--orange-light); }
-    .c5 { background: var(--green-light); }
-    .c6 { background: var(--pink-light); }
-
-    .note {
-      background: var(--yellow-light);
-      border-left: 6px solid #dba327;
-      border-radius: 14px;
-      padding: 20px;
-      color: #665528;
-      margin-top: 25px;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.83rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
     @media (max-width: 1050px) {
-      .thread-grid {
+      .progression {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .lesson-flow {
         grid-template-columns: repeat(3, 1fr);
       }
+    }
 
-      .year-grid {
+    @media (max-width: 900px) {
+      .grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 950px) {
-      .area-grid,
-      .critical-grid,
-      .mis-grid,
-      .teacher-links {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .language-grid,
-      .assessment-grid,
-      .bridge-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .year-grid,
-      .thread-grid,
-      .area-grid,
-      .critical-grid,
-      .language-grid,
-      .mis-grid,
-      .assessment-grid,
-      .bridge-grid,
-      .teacher-links {
+      .progression,
+      .grid,
+      .lesson-flow,
+      .practice-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .thread-box,
-      .area,
-      .critical-box,
-      .language-box,
-      .assessment-box,
-      .bridge-box {
-        padding: 25px 18px;
-      }
-
-      .area-header {
-        align-items: flex-start;
       }
 
       main {
@@ -597,15 +439,28 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+      }
+
+      header,
+      footer {
+        display: none !important;
       }
 
       main {
@@ -613,9 +468,72 @@
         padding: 0;
       }
 
-      section,
-      .area {
+      .intro,
+      .year-card,
+      .card,
+      .lesson-step,
+      .practice,
+      .teacher-box,
+      .warning,
+      .links {
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .fklass {
+        background: #f1f9e8 !important;
+      }
+
+      .ak1 {
+        background: var(--green) !important;
+      }
+
+      .ak2 {
+        background: #dcf2e4 !important;
+      }
+
+      .ak3 {
+        background: #d1ebda !important;
+      }
+
+      .green {
+        background: var(--green) !important;
+      }
+
+      .blue {
+        background: var(--blue) !important;
+      }
+
+      .purple {
+        background: var(--purple) !important;
+      }
+
+      .yellow,
+      .important {
+        background: var(--yellow) !important;
+      }
+
+      .orange,
+      .warning {
+        background: var(--orange) !important;
+      }
+
+      .teal,
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .link-row a {
+        background: var(--dark) !important;
+        color: white !important;
       }
     }
   </style>
@@ -627,28 +545,27 @@
 
   <div class="topbar">
 
-    <div class="logo">
-      HOLOS MATTERESAN
-    </div>
+    <div class="logo">HOLOS MATTERESAN</div>
 
     <a href="larare.html" class="back-link">
-      ← Lärarvy
+      ← Lärarportalen
     </a>
 
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">🌱</div>
+    <div class="hero-icon">🌱🔢</div>
 
-    <h1>Läraröversikt F–3</h1>
+    <h1>F–3 för lärare</h1>
 
-    <h2>Upptäcka • Bygga • Förstå • Förklara</h2>
+    <h2>Bygg förståelsen från grunden</h2>
 
     <p>
-      Under F–3 byggs den matematiska grund som senare undervisning vilar på.
-      Fokus ligger på förståelse, talrelationer, språk, representationer,
-      strategier och tidiga matematiska resonemang.
+      Pedagogiskt stöd för undervisning från förskoleklass till årskurs 3,
+      med fokus på taluppfattning, representationer, språk,
+      strategier, problemlösning och matematiska samtal.
     </p>
 
   </div>
@@ -658,789 +575,549 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>🌱 De första matematikåren lägger grunden</h2>
 
-      <h2>🌱 Grunden är mer än att kunna räkna</h2>
+    <p>
+      I F–3 bygger elever de mentala modeller som senare matematik vilar på.
+      Därför behöver undervisningen ge rika erfarenheter av tal,
+      relationer, mönster, räknesätt, geometri, mätning,
+      problemlösning och matematiskt språk.
+    </p>
+
+    <div class="important">
+
+      <strong>Viktigt om progressionen nedan:</strong><br>
+      Indelningen mellan förskoleklass, årskurs 1, 2 och 3 är
+      <strong>Matteresans pedagogiska progression</strong>.
+      Den ska användas som planeringsstöd inom den bredare styrningen,
+      inte som en påstådd officiell år-för-år-fördelning i Lgr22.
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>📈 Matteresans progression F–3</h2>
+
+    <p>
+      Elever utvecklas olika snabbt. Årskurserna visar därför riktning,
+      inte fasta gränser för när en viss förståelse måste uppstå.
+    </p>
+
+  </div>
+
+
+  <div class="progression">
+
+    <section class="year-card fklass">
+
+      <h3>🌼 Förskoleklass</h3>
 
       <p>
-        Elever behöver utveckla flexibla föreställningar om tal,
-        förstå vad räknesätten betyder, kunna se mönster,
-        använda matematiska begrepp och börja förklara hur de tänker.
-        Det är dessa strukturer som senare gör bråk, algebra, proportionalitet
-        och mer avancerad problemlösning möjliga.
+        Matematik upptäcks genom lek, samtal, rörelse,
+        sortering, byggande och vardagliga situationer.
       </p>
 
-    </div>
+      <ul>
+        <li>Antal och räkneord.</li>
+        <li>Jämföra mer, mindre och lika.</li>
+        <li>Sortera och klassificera.</li>
+        <li>Upptäcka och skapa mönster.</li>
+        <li>Form, läge och riktning.</li>
+        <li>Mätning med informella enheter.</li>
+        <li>Matematiskt språk i vardagen.</li>
+      </ul>
 
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Årskurser i F–3
-    </h2>
-
-    <p class="section-intro">
-      Matteresan använder årskurssidor för att skapa en tydlig pedagogisk progression inom stadiet.
-    </p>
-
-    <div class="year-grid">
-
-      <a href="forskoleklass.html" class="year-card">
-        <span>🌈</span>
-        <h3>Förskoleklass</h3>
-        <p>
-          Upptäcka antal, mönster, former, läge och matematik i lek och vardag.
-        </p>
-      </a>
-
-      <a href="ak1.html" class="year-card">
-        <span>🐞</span>
-        <h3>Åk 1</h3>
-        <p>
-          Bygga talrelationer, grundläggande addition och subtraktion samt matematiskt språk.
-        </p>
-      </a>
-
-      <a href="ak2.html" class="year-card">
-        <span>🌻</span>
-        <h3>Åk 2</h3>
-        <p>
-          Utveckla strategier och förstå multiplikativa idéer, mätning och problemlösning.
-        </p>
-      </a>
-
-      <a href="ak3.html" class="year-card">
-        <span>🌳</span>
-        <h3>Åk 3</h3>
-        <p>
-          Fördjupa strategier, bråk, räknesätt, resonemang och förbered övergången till 4–6.
-        </p>
-      </a>
-
-    </div>
-
-  </section>
+    </section>
 
 
-  <section>
+    <section class="year-card ak1">
 
-    <div class="thread-box">
-
-      <h2>🔗 Den röda tråden F–3</h2>
+      <h3>🌱 Årskurs 1</h3>
 
       <p>
-        Samma matematiska idé behöver återkomma i flera former tills eleven kan röra sig flexibelt mellan dem.
+        Elever börjar bygga mer strukturerade talrelationer
+        och representationer.
       </p>
 
-      <div class="thread-grid">
+      <ul>
+        <li>Tal och antal.</li>
+        <li>Del–helhet.</li>
+        <li>Tiokompisar och talrelationer.</li>
+        <li>Addition och subtraktion.</li>
+        <li>Tallinje.</li>
+        <li>Enkla problem.</li>
+        <li>Beskriva strategier muntligt.</li>
+      </ul>
 
-        <div class="thread-card">
-          <span>🧱</span>
-          <h3>Göra</h3>
-          <p>
-            Eleven bygger, delar, flyttar, sorterar, mäter och jämför.
-          </p>
-        </div>
+    </section>
 
-        <div class="thread-card">
-          <span>🖼️</span>
-          <h3>Visa</h3>
-          <p>
-            Eleven använder bilder, prickmönster, modeller och tallinjer.
-          </p>
-        </div>
 
-        <div class="thread-card">
-          <span>💬</span>
-          <h3>Säga</h3>
-          <p>
-            Eleven utvecklar matematiska ord och beskriver vad som händer.
-          </p>
-        </div>
+    <section class="year-card ak2">
 
-        <div class="thread-card">
-          <span>🔢</span>
-          <h3>Skriva</h3>
-          <p>
-            Eleven kopplar symboler och uttryck till den matematiska idén.
-          </p>
-        </div>
-
-        <div class="thread-card">
-          <span>🧠</span>
-          <h3>Förklara</h3>
-          <p>
-            Eleven börjar motivera, jämföra och kontrollera sina lösningar.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Centrala utvecklingsområden
-    </h2>
-
-    <p class="section-intro">
-      Nedan synliggörs sådant som undervisningen behöver bygga systematiskt genom F–3.
-    </p>
-
-
-    <div class="area">
-
-      <div class="area-header">
-        <span>🔢</span>
-        <div>
-          <h2>Taluppfattning</h2>
-          <p>Tal ska förstås som relationer – inte bara som siffror på ett papper.</p>
-        </div>
-      </div>
-
-      <div class="area-grid">
-
-        <div class="area-card a1">
-          <h3>Bygg</h3>
-          <ul>
-            <li>subitisering</li>
-            <li>antal och kardinalitet</li>
-            <li>del–helhet</li>
-            <li>fler, färre, lika många</li>
-            <li>talens grannar</li>
-            <li>tiostruktur</li>
-          </ul>
-        </div>
-
-        <div class="area-card a2">
-          <h3>Synliggör med</h3>
-          <ul>
-            <li>fem- och tiobilder</li>
-            <li>pärlband</li>
-            <li>tallinje</li>
-            <li>tiobasmaterial</li>
-            <li>hundraruta</li>
-          </ul>
-        </div>
-
-        <div class="area-card a3">
-          <h3>Fråga</h3>
-          <ul>
-            <li>Hur vet du hur många?</li>
-            <li>Hur kan talet delas?</li>
-            <li>Vilket tal är nära?</li>
-            <li>Hur långt är det till 10?</li>
-            <li>Kan du visa på ett annat sätt?</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="area">
-
-      <div class="area-header">
-        <span>➕➖✖️➗</span>
-        <div>
-          <h2>Räknesättens innebörd</h2>
-          <p>Metoder behöver byggas på förståelse för vad operationerna betyder.</p>
-        </div>
-      </div>
-
-      <div class="area-grid">
-
-        <div class="area-card a1">
-          <h3>Addition & subtraktion</h3>
-          <ul>
-            <li>lägga ihop</li>
-            <li>öka och minska</li>
-            <li>jämföra</li>
-            <li>komplettera</li>
-            <li>se inversa samband</li>
-          </ul>
-        </div>
-
-        <div class="area-card a2">
-          <h3>Multiplikation & division</h3>
-          <ul>
-            <li>lika stora grupper</li>
-            <li>upprepad addition</li>
-            <li>rektangulära mönster</li>
-            <li>dela lika</li>
-            <li>gruppera</li>
-          </ul>
-        </div>
-
-        <div class="area-card a3">
-          <h3>Strategier</h3>
-          <ul>
-            <li>tiokompisar</li>
-            <li>dubbelt och nära dubbelt</li>
-            <li>dela upp tal</li>
-            <li>kompensera</li>
-            <li>använd känt faktum</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="area">
-
-      <div class="area-header">
-        <span>🧩</span>
-        <div>
-          <h2>Mönster & tidig algebra</h2>
-          <p>Algebraiskt tänkande börjar långt före bokstäver och ekvationer.</p>
-        </div>
-      </div>
-
-      <div class="area-grid">
-
-        <div class="area-card a1">
-          <h3>Undersök</h3>
-          <ul>
-            <li>upprepade mönster</li>
-            <li>växande mönster</li>
-            <li>talserier</li>
-            <li>regler</li>
-            <li>okända tal</li>
-          </ul>
-        </div>
-
-        <div class="area-card a2">
-          <h3>Bygg likhet</h3>
-          <p>
-            Arbeta med exempel som 7 + 3 = 6 + 4 och □ + 5 = 12
-            så att likhetstecknet förstås som en relation.
-          </p>
-        </div>
-
-        <div class="area-card a3">
-          <h3>Fråga</h3>
-          <ul>
-            <li>Vad förändras?</li>
-            <li>Vad är samma?</li>
-            <li>Vilken regel ser du?</li>
-            <li>Vad kommer senare?</li>
-            <li>Hur vet du?</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="area">
-
-      <div class="area-header">
-        <span>📐</span>
-        <div>
-          <h2>Geometri & mätning</h2>
-          <p>Elever behöver beskriva egenskaper – inte bara känna igen standardbilder.</p>
-        </div>
-      </div>
-
-      <div class="area-grid">
-
-        <div class="area-card a1">
-          <h3>Geometriska idéer</h3>
-          <ul>
-            <li>2D- och 3D-former</li>
-            <li>egenskaper</li>
-            <li>symmetri</li>
-            <li>läge och riktning</li>
-            <li>bygga och dela former</li>
-          </ul>
-        </div>
-
-        <div class="area-card a2">
-          <h3>Mätning</h3>
-          <ul>
-            <li>jämföra direkt</li>
-            <li>icke-standardiserade enheter</li>
-            <li>standardiserade enheter</li>
-            <li>längd</li>
-            <li>massa</li>
-            <li>tid</li>
-          </ul>
-        </div>
-
-        <div class="area-card a3">
-          <h3>Variera figurerna</h3>
-          <p>
-            Visa trianglar, rektanglar och andra former i olika storlek,
-            riktning och proportion så att begreppen inte binds till en enda prototyp.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="area">
-
-      <div class="area-header">
-        <span>📊🎲</span>
-        <div>
-          <h2>Statistik & sannolikhet</h2>
-          <p>Utgå från elevernas egna frågor, data och konkreta slumpförsök.</p>
-        </div>
-      </div>
-
-      <div class="area-grid">
-
-        <div class="area-card a1">
-          <h3>Statistik</h3>
-          <ul>
-            <li>sortera</li>
-            <li>klassificera</li>
-            <li>samla data</li>
-            <li>tabeller</li>
-            <li>bilddiagram</li>
-            <li>stapeldiagram</li>
-          </ul>
-        </div>
-
-        <div class="area-card a2">
-          <h3>Sannolikhet</h3>
-          <ul>
-            <li>säkert</li>
-            <li>möjligt</li>
-            <li>omöjligt</li>
-            <li>mer eller mindre sannolikt</li>
-            <li>enkla slumpförsök</li>
-          </ul>
-        </div>
-
-        <div class="area-card a3">
-          <h3>Fråga</h3>
-          <ul>
-            <li>Vad visar diagrammet?</li>
-            <li>Vad är vanligast?</li>
-            <li>Vad tror du händer?</li>
-            <li>Kan vi veta säkert?</li>
-            <li>Vad hände när vi provade många gånger?</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="area">
-
-      <div class="area-header">
-        <span>🧠</span>
-        <div>
-          <h2>Problemlösning & resonemang</h2>
-          <p>Problemlösning ska utvecklas parallellt med övrigt innehåll.</p>
-        </div>
-      </div>
-
-      <div class="area-grid">
-
-        <div class="area-card a1">
-          <h3>Strategier</h3>
-          <ul>
-            <li>rita</li>
-            <li>bygga</li>
-            <li>prova</li>
-            <li>göra tabell</li>
-            <li>använda tallinje</li>
-            <li>spela upp situationen</li>
-          </ul>
-        </div>
-
-        <div class="area-card a2">
-          <h3>Utveckla resonemang</h3>
-          <ul>
-            <li>Hur tänkte du?</li>
-            <li>Varför?</li>
-            <li>Finns ett annat sätt?</li>
-            <li>Hur vet vi?</li>
-            <li>Är svaret rimligt?</li>
-          </ul>
-        </div>
-
-        <div class="area-card a3">
-          <h3>Fokusera på processen</h3>
-          <p>
-            Eleven behöver förstå problemet, välja strategi,
-            genomföra lösningen och börja kontrollera sitt resultat.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="critical-box">
-
-      <h2 class="section-title">
-        ⚠️ Kritiska övergångar i F–3
-      </h2>
-
-      <p class="section-intro">
-        Vissa övergångar är särskilt viktiga eftersom de påverkar mycket av den senare matematiken.
-      </p>
-
-      <div class="critical-grid">
-
-        <div class="critical-card">
-          <h3>1 → 10 → 100</h3>
-          <p>
-            Eleven behöver se tiostrukturen och förstå att siffrans värde beror på dess position.
-          </p>
-        </div>
-
-        <div class="critical-card">
-          <h3>Räkna allt → använda relationer</h3>
-          <p>
-            Eleven behöver gå från att räkna ett i taget till att använda kända talfakta och flexibla strategier.
-          </p>
-        </div>
-
-        <div class="critical-card">
-          <h3>Additivt → multiplikativt tänkande</h3>
-          <p>
-            Lika stora grupper och relationer behöver byggas innan multiplikation reduceras till tabellträning.
-          </p>
-        </div>
-
-        <div class="critical-card">
-          <h3>Helhet → delar</h3>
-          <p>
-            Tidig förståelse av del–helhet skapar grund för både räknesätt och senare bråk.
-          </p>
-        </div>
-
-        <div class="critical-card">
-          <h3>Bild → symbol</h3>
-          <p>
-            Symboler måste kopplas till en matematisk betydelse, inte läras som fristående tecken.
-          </p>
-        </div>
-
-        <div class="critical-card">
-          <h3>Svar → förklaring</h3>
-          <p>
-            Redan i tidiga år behöver elever träna på att visa och beskriva hur de vet.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="language-box">
-
-      <h2 class="section-title">
-        💬 Språk i F–3
-      </h2>
-
-      <p class="section-intro">
-        Matematiska begrepp behöver användas aktivt i handling, samtal och representationer.
-      </p>
-
-      <div class="language-grid">
-
-        <div class="language-card">
-          <span>👂</span>
-          <h3>Lyssna</h3>
-          <p>
-            Läraren modellerar matematiska ord i meningsfulla situationer.
-          </p>
-        </div>
-
-        <div class="language-card">
-          <span>🗣️</span>
-          <h3>Säga</h3>
-          <p>
-            Elever får återkommande prata med en kamrat innan de svarar i helklass.
-          </p>
-        </div>
-
-        <div class="language-card">
-          <span>🖼️</span>
-          <h3>Visa</h3>
-          <p>
-            Begreppet kopplas till konkreta exempel, bilder och symboler.
-          </p>
-        </div>
-
-        <div class="language-card">
-          <span>✍️</span>
-          <h3>Skriva</h3>
-          <p>
-            Elever börjar formulera korta matematiska förklaringar och använda begrepp i meningar.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Vanliga missuppfattningar att vara uppmärksam på
-    </h2>
-
-    <p class="section-intro">
-      Tidiga missuppfattningar kan följa med långt upp i årskurserna om de inte synliggörs.
-    </p>
-
-    <div class="mis-grid">
-
-      <div class="mis-card m1">
-        <span>🔢</span>
-        <h3>Siffran och talet blandas ihop</h3>
-        <p>
-          Eleven kan läsa en siffra men saknar stabil förståelse för antal, relationer eller platsvärde.
-        </p>
-      </div>
-
-      <div class="mis-card m2">
-        <span>=</span>
-        <h3>= betyder ”svaret kommer”</h3>
-        <p>
-          Arbeta med likheter i olika former så att likhetstecknet förstås som att två uttryck har samma värde.
-        </p>
-      </div>
-
-      <div class="mis-card m3">
-        <span>➖</span>
-        <h3>Subtraktion betyder bara ”ta bort”</h3>
-        <p>
-          Eleven behöver också möta subtraktion som skillnad, jämförelse och komplettering.
-        </p>
-      </div>
-
-      <div class="mis-card m1">
-        <span>✖️</span>
-        <h3>Multiplikation är bara upprepad addition</h3>
-        <p>
-          Utvidga med rektangulära mönster, jämförelser och multiplikativa relationer.
-        </p>
-      </div>
-
-      <div class="mis-card m2">
-        <span>📐</span>
-        <h3>En triangel ser alltid ut på ett sätt</h3>
-        <p>
-          Använd många exempel och icke-exempel med varierande riktning, storlek och proportion.
-        </p>
-      </div>
-
-      <div class="mis-card m3">
-        <span>🍕</span>
-        <h3>Fler delar betyder mer</h3>
-        <p>
-          När bråk introduceras behöver samma helhet användas för att synliggöra att fler lika delar innebär mindre delar.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="assessment-box">
-
-      <h2 class="section-title">
-        👀 Bedömning i F–3
-      </h2>
-
-      <p class="section-intro">
-        Mycket av elevens matematiska kunnande syns bäst när eleven arbetar och pratar.
-      </p>
-
-      <div class="assessment-grid">
-
-        <div class="assessment-card">
-          <span>🧱</span>
-          <h3>Kan eleven visa?</h3>
-          <p>
-            Be eleven använda material eller bild för att representera idén.
-          </p>
-        </div>
-
-        <div class="assessment-card">
-          <span>🧠</span>
-          <h3>Vilken strategi används?</h3>
-          <p>
-            Observera om eleven räknar allt, använder relationer eller väljer flexibel strategi.
-          </p>
-        </div>
-
-        <div class="assessment-card">
-          <span>💬</span>
-          <h3>Kan eleven förklara?</h3>
-          <p>
-            Lyssna efter begrepp, relationer och hur eleven motiverar sina val.
-          </p>
-        </div>
-
-        <div class="assessment-card">
-          <span>🔄</span>
-          <h3>Kan kunskapen användas igen?</h3>
-          <p>
-            Variera tal och sammanhang för att se om förståelsen är stabil.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="bridge-box">
-
-      <h2>🌉 Bron från åk 3 till åk 4</h2>
+      <h3>🌿 Årskurs 2</h3>
 
       <p>
-        Övergången till 4–6 blir starkare när eleverna har en flexibel grund
-        och inte enbart har tränat procedurer.
+        Strategier breddas och elever börjar se tydligare samband
+        mellan operationer och representationer.
       </p>
 
-      <div class="bridge-grid">
+      <ul>
+        <li>Platsvärde.</li>
+        <li>Flexibel addition och subtraktion.</li>
+        <li>Multiplikation som grupper och mönster.</li>
+        <li>Division som delning och gruppering.</li>
+        <li>Bråk som del av helhet.</li>
+        <li>Mätning och geometri.</li>
+        <li>Flerstegsresonemang muntligt.</li>
+      </ul>
 
-        <div class="bridge-card">
-          <h3>🔢 Tal</h3>
-          <p>
-            Stabil platsvärdesförståelse och förmåga att jämföra och dela upp tal.
-          </p>
-        </div>
+    </section>
 
-        <div class="bridge-card">
-          <h3>🧩 Strategier</h3>
-          <p>
-            Flera sätt att beräkna samt förståelse för varför strategier fungerar.
-          </p>
-        </div>
 
-        <div class="bridge-card">
-          <h3>💬 Språk</h3>
-          <p>
-            Kunna använda centrala begrepp och beskriva en lösningsväg.
-          </p>
-        </div>
+    <section class="year-card ak3">
 
-        <div class="bridge-card">
-          <h3>🧠 Problemlösning</h3>
-          <p>
-            Kunna tolka en enkel situation, välja representation och kontrollera ett svar.
-          </p>
-        </div>
+      <h3>🌳 Årskurs 3</h3>
 
-      </div>
+      <p>
+        Elever fördjupar strategierna och kopplar samman
+        flera matematiska idéer.
+      </p>
 
+      <ul>
+        <li>Stabilt platsvärde.</li>
+        <li>Räknesättens samband.</li>
+        <li>Multiplikativa relationer.</li>
+        <li>Bråk på tallinje och i modeller.</li>
+        <li>Tabeller och diagram.</li>
+        <li>Problemlösning med strategival.</li>
+        <li>Förklara och kontrollera lösningar.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧠 Vad behöver undervisningen bygga?</h2>
+
+    <p>
+      Färdighet och förståelse behöver utvecklas tillsammans.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">🔢</div>
+
+      <h3>Taluppfattning</h3>
+
+      <p>
+        Tal behöver förstås som relationer, inte bara som symboler.
+      </p>
+
+      <ul>
+        <li>Antal</li>
+        <li>Storlek</li>
+        <li>Platsvärde</li>
+        <li>Del–helhet</li>
+        <li>Talens relationer</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">➕➖</div>
+
+      <h3>Räknesättens innebörd</h3>
+
+      <p>
+        Innan procedurer automatiseras behöver elever förstå
+        vilka situationer operationerna beskriver.
+      </p>
+
+      <ul>
+        <li>Lägga till</li>
+        <li>Ta bort</li>
+        <li>Jämföra</li>
+        <li>Gruppera</li>
+        <li>Dela</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🧰</div>
+
+      <h3>Strategier</h3>
+
+      <p>
+        Elever behöver flera strategier och möjlighet att välja mellan dem.
+      </p>
+
+      <ul>
+        <li>Dela upp tal.</li>
+        <li>Använd kända fakta.</li>
+        <li>Dubbel och hälften.</li>
+        <li>Nära tiotal.</li>
+        <li>Tallinje.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🎨</div>
+
+      <h3>Representationer</h3>
+
+      <p>
+        Samma matematiska idé ska kunna visas på flera sätt.
+      </p>
+
+      <ul>
+        <li>Material</li>
+        <li>Bild</li>
+        <li>Tallinje</li>
+        <li>Ord</li>
+        <li>Symboler</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔤</div>
+
+      <h3>Matematiskt språk</h3>
+
+      <p>
+        Elever behöver lära sig att sätta ord på relationer,
+        strategier och förändringar.
+      </p>
+
+      <ul>
+        <li>Fler/färre</li>
+        <li>Skillnad</li>
+        <li>Summa</li>
+        <li>Dubbelt/hälften</li>
+        <li>Lika mycket</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🧩</div>
+
+      <h3>Problemlösning</h3>
+
+      <p>
+        Problem ska finnas från början – inte först när alla metoder är färdigtränade.
+      </p>
+
+      <ul>
+        <li>Förstå situationen.</li>
+        <li>Rita.</li>
+        <li>Pröva.</li>
+        <li>Förklara.</li>
+        <li>Kontrollera.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">💬</div>
+
+      <h3>Matteprat</h3>
+
+      <p>
+        Samtal hjälper elever att upptäcka att samma problem
+        kan lösas på flera sätt.
+      </p>
+
+      <ul>
+        <li>Hur såg du det?</li>
+        <li>Hur tänkte du?</li>
+        <li>Vem gjorde på ett annat sätt?</li>
+        <li>Vad är lika?</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📐</div>
+
+      <h3>Geometri och mätning</h3>
+
+      <p>
+        Matematik ska också erfaras genom kropp, rum,
+        former och verkliga mätningar.
+      </p>
+
+      <ul>
+        <li>Former</li>
+        <li>Läge</li>
+        <li>Längd</li>
+        <li>Tid</li>
+        <li>Area och omkrets som idéer</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📊</div>
+
+      <h3>Data, mönster och sannolikhet</h3>
+
+      <p>
+        Redan tidigt kan elever samla information,
+        upptäcka mönster och resonera om vad som kan hända.
+      </p>
+
+      <ul>
+        <li>Sortera data.</li>
+        <li>Göra enkla diagram.</li>
+        <li>Fortsätta mönster.</li>
+        <li>Förutsäga.</li>
+        <li>Resonera om chans.</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>⏱️ En fungerande lektionsrytm i F–3</h2>
+
+    <p>
+      Variation behöver finnas, men strukturen kan vara återkommande och trygg.
+    </p>
+
+  </div>
+
+
+  <div class="lesson-flow">
+
+    <div class="lesson-step">
+      <span>🎯</span>
+      <strong>1. Start</strong>
+      <p>En kort fråga, bild eller situation aktiverar tänkandet.</p>
     </div>
+
+    <div class="lesson-step">
+      <span>🧱</span>
+      <strong>2. Utforska</strong>
+      <p>Elever gör, bygger, ritar eller undersöker.</p>
+    </div>
+
+    <div class="lesson-step">
+      <span>💬</span>
+      <strong>3. Prata</strong>
+      <p>Strategier och representationer delas och jämförs.</p>
+    </div>
+
+    <div class="lesson-step">
+      <span>✏️</span>
+      <strong>4. Träna</strong>
+      <p>Elever befäster den idé som undervisningen gjort begriplig.</p>
+    </div>
+
+    <div class="lesson-step">
+      <span>✅</span>
+      <strong>5. Fånga</strong>
+      <p>En kort avslutning visar vad eleverna förstått.</p>
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧩 Undervisningsidéer</h2>
+
+    <p>
+      Enkla strukturer som kan återkomma med olika innehåll.
+    </p>
+
+  </div>
+
+
+  <div class="practice-grid">
+
+    <section class="practice green">
+
+      <h3>🔢 Talbilden</h3>
+
+      <ul>
+        <li>Visa prickar eller föremål kort.</li>
+        <li>Fråga: Hur många såg du?</li>
+        <li>Hur såg du det utan att räkna en och en?</li>
+        <li>Visa samma antal på ett annat sätt.</li>
+      </ul>
+
+      <p>
+        Tränar strukturering av antal och talrelationer.
+      </p>
+
+    </section>
+
+
+    <section class="practice blue">
+
+      <h3>💬 Vilken hör inte hemma?</h3>
+
+      <ul>
+        <li>Visa fyra tal, bilder eller former.</li>
+        <li>Elever väljer en som inte hör ihop.</li>
+        <li>Alla svar måste motiveras.</li>
+        <li>Flera lösningar kan vara rimliga.</li>
+      </ul>
+
+      <p>
+        Utvecklar språk, klassificering och resonemang.
+      </p>
+
+    </section>
+
+
+    <section class="practice yellow">
+
+      <h3>🧩 Hitta alla</h3>
+
+      <ul>
+        <li>Hur många sätt kan du göra 10?</li>
+        <li>Vilka rektanglar kan byggas med 12 rutor?</li>
+        <li>Vilka talpar ger summan 20?</li>
+        <li>Hur vet du att du hittat alla?</li>
+      </ul>
+
+      <p>
+        Skapar naturlig utmaning utan att lämna området.
+      </p>
+
+    </section>
+
+
+    <section class="practice purple">
+
+      <h3>🕵️ Felfinnaren</h3>
+
+      <ul>
+        <li>Visa ett medvetet fel.</li>
+        <li>Vad tror du personen tänkte?</li>
+        <li>Var började det bli fel?</li>
+        <li>Hur kan vi visa rätt idé med material eller bild?</li>
+      </ul>
+
+      <p>
+        Gör missuppfattningar till undervisningsresurser.
+      </p>
+
+    </section>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Vad läraren behöver lyssna efter i F–3</h2>
+
+    <ul>
+      <li>Räknar eleven fortfarande allt från ett?</li>
+      <li>Ser eleven strukturerade antal utan att räkna varje objekt?</li>
+      <li>Kan eleven dela upp och sätta samman tal?</li>
+      <li>Förstår eleven platsvärdet eller läser den bara siffror?</li>
+      <li>Kan eleven förklara varför en strategi fungerar?</li>
+      <li>Ser eleven samband mellan addition och subtraktion?</li>
+      <li>Ser eleven samband mellan multiplikation och division?</li>
+      <li>Kan eleven använda tallinjen som modell?</li>
+      <li>Kan eleven visa samma idé med material, bild och symboler?</li>
+      <li>Vilka matematiska ord använder eleven spontant?</li>
+      <li>Vad gör eleven när en uppgift inte liknar ett tidigare exempel?</li>
+    </ul>
 
   </section>
 
 
-  <section>
+  <div class="warning">
 
-    <h2 class="section-title">
-      Till lärarstöden
-    </h2>
+    <strong>⚠️ Skynda inte förbi förståelsen.</strong><br>
+    Snabb och korrekt beräkning är värdefull,
+    men automatisering utan stabil taluppfattning kan skapa problem senare.
+    I F–3 behöver elever därför både få
+    <strong>träna färdigheter och bygga modeller för varför matematiken fungerar</strong>.
 
-    <p class="section-intro">
-      Använd lärarvyn för att fördjupa planeringen inom F–3.
-    </p>
+  </div>
 
-    <div class="teacher-links">
 
-      <a href="larare-progression.html" class="teacher-link c1">
-        <span>🔗</span>
-        <h3>Progression F–9</h3>
-        <p>
-          Se vad F–3 bygger mot senare.
-        </p>
+  <section class="links">
+
+    <h2>➡️ F–3 i Matteresan</h2>
+
+    <div class="link-row">
+
+      <a href="forskoleklass.html">
+        🌼 Förskoleklass
       </a>
 
-      <a href="larare-missuppfattningar.html" class="teacher-link c2">
-        <span>⚠️</span>
-        <h3>Missuppfattningar</h3>
-        <p>
-          Se vanliga felsvar och möjliga undervisningsinsatser.
-        </p>
+      <a href="ak1.html">
+        🌱 Årskurs 1
       </a>
 
-      <a href="larare-undervisning.html" class="teacher-link c3">
-        <span>🧠</span>
-        <h3>Undervisningsidéer</h3>
-        <p>
-          Matteprat, laborativt, representationer och undersökande arbetssätt.
-        </p>
+      <a href="ak2.html">
+        🌿 Årskurs 2
       </a>
 
-      <a href="larare-sprak.html" class="teacher-link c4">
-        <span>💬</span>
-        <h3>Språk & begrepp</h3>
-        <p>
-          Planera matematiskt språk parallellt med innehållet.
-        </p>
+      <a href="ak3.html">
+        🌳 Årskurs 3
       </a>
 
-      <a href="larare-stod.html" class="teacher-link c5">
-        <span>🛟</span>
-        <h3>Stöd & anpassningar</h3>
-        <p>
-          Gör matematiken tillgänglig utan att ta bort tänkandet.
-        </p>
+      <a href="larare-progression.html">
+        📈 Progression F–9
       </a>
 
-      <a href="larare-bedomning.html" class="teacher-link c6">
-        <span>📊</span>
-        <h3>Bedömning</h3>
-        <p>
-          Observation, elevlösningar och nästa undervisningssteg.
-        </p>
+      <a href="larare-konkret.html">
+        🧱 Konkret & visuellt
       </a>
 
-    </div>
+      <a href="larare-matteprat.html">
+        💬 Matteprat
+      </a>
 
-    <div class="note">
-      <strong>Viktigt:</strong>
-      Matteresans årskursfördelning inom F–3 är en pedagogisk progression för plattformen.
-      Den ska användas tillsammans med aktuella styrdokument och lärarens professionella planering.
+      <a href="larare-stod.html">
+        🌱 Stöd
+      </a>
+
+      <a href="larare-utmaning.html">
+        🚀 Utmaning
+      </a>
+
     </div>
 
   </section>
@@ -1450,11 +1127,8 @@
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🌱 Läraröversikt F–3 – bygg den matematiska grunden
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🌱 Göra • Se • Prata • Förstå • Symbolisera
 
 </footer>
 
