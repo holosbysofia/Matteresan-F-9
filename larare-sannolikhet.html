@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Statistik F–9 | HOLOS Matteresan</title>
+  <title>Sannolikhet | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,25 +15,32 @@
 
     :root {
       --dark: #17324d;
-      --blue: #4d87b8;
-      --blue-dark: #315e83;
-      --blue-light: #eaf5ff;
-      --green-light: #edf9f1;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --pink-light: #ffe9f1;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -43,8 +50,8 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
-        linear-gradient(135deg, #274d70, #4d87b8);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
       padding: 22px 20px 58px;
     }
@@ -64,553 +71,352 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--blue-dark);
-    }
-
     .hero {
-      max-width: 900px;
-      margin: 50px auto 0;
+      max-width: 930px;
+      margin: 44px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.4rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 4.7rem);
+      font-size: clamp(2.4rem, 7vw, 4.4rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 820px;
+      max-width: 850px;
       margin: auto;
-      color: #eef8ff;
-      font-size: 1.03rem;
+      color: #f6f9fb;
     }
 
     main {
       max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      margin-bottom: 36px;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
+    .intro h2 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 30px;
+    .intro p {
+      color: var(--muted);
+      max-width: 950px;
+    }
+
+    .important {
+      margin-top: 17px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 17px;
+      color: #665831;
+    }
+
+    .section-title {
+      margin: 42px 0 18px;
+    }
+
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
       color: var(--muted);
     }
 
-    .intro-box {
-      background: var(--blue-light);
-      border-radius: 28px;
-      padding: 36px;
-      text-align: center;
+    .progression {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
-    .intro-box h2 {
+    .stage {
+      border-radius: 18px;
+      padding: 22px;
+      min-height: 275px;
+    }
+
+    .stage h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.12rem;
+    }
+
+    .stage p,
+    .stage li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .stage ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .stage li {
+      margin-bottom: 6px;
+    }
+
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 245px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+    }
+
+    .card:nth-child(3n+1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .card ul {
+      margin-left: 19px;
+      margin-top: 7px;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .flow-step {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 10px;
+      text-align: center;
+      min-height: 155px;
+      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+    }
+
+    .flow-step:nth-child(1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .flow-step:nth-child(2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .flow-step:nth-child(3) {
+      border-top-color: #c39b44;
+    }
+
+    .flow-step:nth-child(4) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .flow-step:nth-child(5) {
+      border-top-color: #5d9c92;
+    }
+
+    .flow-step span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .flow-step strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .flow-step p {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .example {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 220px;
+    }
+
+    .example h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .example p,
+    .example li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .example ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .example li {
+      margin-bottom: 6px;
+    }
+
+    .teacher-box {
+      margin-top: 36px;
+      background: var(--teal);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box ul {
+      margin-left: 22px;
+      color: var(--muted);
+    }
+
+    .teacher-box li {
+      margin-bottom: 7px;
+    }
+
+    .warning {
+      margin-top: 22px;
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 16px;
+      padding: 20px;
+      color: #654c37;
+    }
+
+    .links {
+      margin-top: 36px;
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+    }
+
+    .links h2 {
       color: var(--dark);
       margin-bottom: 12px;
     }
 
-    .intro-box p {
-      max-width: 860px;
-      margin: auto;
-      color: #5c6872;
-    }
-
-    .core-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .core-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 180px;
-      border: 1px solid #e6ebef;
-    }
-
-    .core-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .core-card h3 {
-      color: var(--blue-dark);
-      margin-bottom: 6px;
-    }
-
-    .core-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .progression-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
-        linear-gradient(135deg, #17324d, #315e83);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .progression-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .progression-box > p {
-      color: #eef8ff;
-      max-width: 830px;
-    }
-
-    .progression-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 25px;
-    }
-
-    .progression-card {
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 285px;
-      border: 1px solid rgba(255,255,255,0.18);
-    }
-
-    .f3 { background: rgba(118,211,149,0.15); }
-    .m46 { background: rgba(110,177,238,0.15); }
-    .m79 { background: rgba(177,147,245,0.15); }
-
-    .progression-card span {
-      display: block;
-      font-size: 2.5rem;
-      margin-bottom: 7px;
-    }
-
-    .progression-card h3 {
-      margin-bottom: 8px;
-    }
-
-    .progression-card ul {
-      padding-left: 20px;
-      color: #f8fbff;
-      font-size: 0.93rem;
-    }
-
-    .progression-card li {
-      margin-bottom: 6px;
-    }
-
-    .section-card {
-      background: white;
-      border-radius: 28px;
-      padding: 32px;
-      border: 1px solid #e6ebef;
-      margin-bottom: 25px;
-    }
-
-    .section-header {
+    .link-row {
       display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 22px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .section-header span {
-      font-size: 2.7rem;
-    }
-
-    .section-header h2 {
-      color: var(--dark);
-      font-size: 1.75rem;
-    }
-
-    .section-header p {
-      color: var(--muted);
-    }
-
-    .three-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .mini-card {
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 190px;
-    }
-
-    .mini-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .mini-card p,
-    .mini-card ul {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .mini-card ul {
-      padding-left: 20px;
-    }
-
-    .mini-card li {
-      margin-bottom: 6px;
-    }
-
-    .m1 { background: var(--green-light); }
-    .m2 { background: var(--blue-light); }
-    .m3 { background: var(--yellow-light); }
-
-    .measure-box {
-      background: var(--green-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .measure-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
-    }
-
-    .measure-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 185px;
-      border: 1px solid #dfe9e2;
-    }
-
-    .measure-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .measure-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .measure-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .critical-box {
-      background: var(--yellow-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .critical-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .critical-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 190px;
-      border: 1px solid #eee4c9;
-    }
-
-    .critical-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .critical-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .mis-box {
-      background: var(--pink-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .mis-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .mis-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 200px;
-      border: 1px solid #eee1e5;
-    }
-
-    .mis-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .mis-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .mis-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .question-box {
-      background: var(--purple-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .question-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .question-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 175px;
-      border: 1px solid #e2dcf1;
-    }
-
-    .question-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .question-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .support-grid,
-    .assessment-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .support-card,
-    .assessment-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 180px;
-      border: 1px solid #e6ebef;
-    }
-
-    .support-card span,
-    .assessment-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .support-card h3,
-    .assessment-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .support-card p,
-    .assessment-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .challenge-box {
-      background: var(--orange-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .challenge-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
-    }
-
-    .challenge-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 180px;
-      border: 1px solid #eadfd3;
-    }
-
-    .challenge-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .challenge-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .challenge-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .link-card {
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 175px;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.04);
-    }
-
-    .link-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
-    }
-
-    .link-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .link-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .link-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .c1 { background: var(--blue-light); }
-    .c2 { background: var(--green-light); }
-    .c3 { background: var(--purple-light); }
-    .c4 { background: var(--orange-light); }
-    .c5 { background: var(--yellow-light); }
-    .c6 { background: var(--pink-light); }
-
-    .note {
-      background: var(--yellow-light);
-      border-left: 6px solid #dba327;
-      border-radius: 14px;
-      padding: 20px;
-      color: #665528;
-      margin-top: 25px;
+    .link-row a {
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.83rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
     @media (max-width: 1000px) {
-      .core-grid,
-      .measure-grid,
-      .support-grid,
-      .assessment-grid,
-      .challenge-grid {
+      .grid {
         grid-template-columns: repeat(2, 1fr);
       }
-    }
 
-    @media (max-width: 900px) {
-      .progression-grid,
-      .three-grid,
-      .critical-grid,
-      .mis-grid,
-      .question-grid,
-      .links-grid {
-        grid-template-columns: 1fr;
+      .flow {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .core-grid,
-      .measure-grid,
-      .support-grid,
-      .assessment-grid,
-      .challenge-grid {
+      .progression,
+      .grid,
+      .flow,
+      .example-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .progression-box,
-      .section-card,
-      .measure-box,
-      .critical-box,
-      .mis-box,
-      .question-box,
-      .challenge-box {
-        padding: 25px 18px;
-      }
-
-      .section-header {
-        align-items: flex-start;
       }
 
       main {
@@ -619,15 +425,28 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+      }
+
+      header,
+      footer {
+        display: none !important;
       }
 
       main {
@@ -635,9 +454,56 @@
         padding: 0;
       }
 
-      section,
-      .section-card {
+      .intro,
+      .stage,
+      .card,
+      .flow-step,
+      .example,
+      .teacher-box,
+      .warning,
+      .links {
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .green {
+        background: var(--green) !important;
+      }
+
+      .blue {
+        background: var(--blue) !important;
+      }
+
+      .purple {
+        background: var(--purple) !important;
+      }
+
+      .yellow,
+      .important {
+        background: var(--yellow) !important;
+      }
+
+      .orange,
+      .warning {
+        background: var(--orange) !important;
+      }
+
+      .teal,
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .link-row a {
+        background: var(--dark) !important;
+        color: white !important;
       }
     }
   </style>
@@ -648,25 +514,28 @@
 <header>
 
   <div class="topbar">
+
     <div class="logo">HOLOS MATTERESAN</div>
 
     <a href="larare.html" class="back-link">
-      ← Lärarvy
+      ← Lärarportalen
     </a>
+
   </div>
+
 
   <div class="hero">
 
-    <div class="hero-icon">📊</div>
+    <div class="hero-icon">🎲🧠</div>
 
-    <h1>Statistik F–9</h1>
+    <h1>Sannolikhet</h1>
 
-    <h2>Samla • Representera • Analysera • Värdera</h2>
+    <h2>Möjlighet • Utfall • Jämförelse • Experiment • Modell</h2>
 
     <p>
-      Statistik handlar inte bara om att rita diagram.
-      Elever behöver utveckla förståelse för hur data samlas in,
-      organiseras, representeras, analyseras och används för att dra slutsatser.
+      Sannolikhet handlar om att beskriva och resonera om osäkerhet.
+      Elever behöver gå från vardagliga ord som möjligt och omöjligt
+      till systematiska utfallsrum, relativa frekvenser och beräkningar.
     </p>
 
   </div>
@@ -676,867 +545,564 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>🎲 Sannolikhet byggs genom både försök och resonemang</h2>
 
-      <h2>📊 Från data till slutsats</h2>
+    <p>
+      Elever behöver få kasta, dra, snurra, registrera och jämföra,
+      men också förklara varför vissa utfall är mer eller mindre sannolika.
+      Det är samspelet mellan experiment och matematisk modell
+      som bygger en stabil förståelse.
+    </p>
+
+    <div class="important">
+
+      <strong>Grundprincip:</strong><br>
+      Arbeta genom
+      <strong>förutsäga → genomföra → registrera → jämföra → förklara → modellera</strong>.
+      Fråga inte bara vad som hände, utan också vad som kan förväntas
+      om försöket upprepas många gånger.
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>📈 Progression F–9</h2>
+
+    <p>
+      Sannolikhetsförståelsen utvecklas från vardagligt språk
+      mot matematiska modeller och beräkningar.
+    </p>
+
+  </div>
+
+
+  <div class="progression">
+
+    <section class="stage green">
+
+      <h3>🌱 F–3</h3>
+
+      <ul>
+        <li>Händelser som säkra, möjliga och omöjliga.</li>
+        <li>Jämföra vad som verkar mest eller minst sannolikt.</li>
+        <li>Enkla slumpförsök.</li>
+        <li>Samla och sortera resultat.</li>
+        <li>Resonera före och efter experiment.</li>
+        <li>Upptäcka att slump inte betyder att allt är lika sannolikt.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage blue">
+
+      <h3>🔵 4–6</h3>
+
+      <ul>
+        <li>Möjliga utfall.</li>
+        <li>Systematiskt lista utfall.</li>
+        <li>Jämföra sannolikheter.</li>
+        <li>Bråk som sannolikhet.</li>
+        <li>Enkla beräkningar.</li>
+        <li>Experimentell sannolikhet.</li>
+        <li>Relativ frekvens som idé.</li>
+        <li>Jämföra modell och resultat.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage purple">
+
+      <h3>🟣 7–9</h3>
+
+      <ul>
+        <li>Sannolikhetsmodeller.</li>
+        <li>Systematiska utfallsrum.</li>
+        <li>Flera steg i slumpförsök.</li>
+        <li>Träddiagram och tabeller när det är lämpligt.</li>
+        <li>Komplementhändelser.</li>
+        <li>Relativ frekvens.</li>
+        <li>Koppling till statistik.</li>
+        <li>Bedöma rimlighet i sannolikhetsresonemang.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧠 Sex centrala sannolikhetsidéer</h2>
+
+    <p>
+      Sannolikhet kräver både språk, representationer och proportionellt tänkande.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">✅</div>
+
+      <h3>Säkert och omöjligt</h3>
 
       <p>
-        Statistikundervisning behöver utgå från frågor.
-        Elever samlar data för att undersöka något,
-        väljer hur informationen ska representeras och lär sig sedan
-        tolka vad materialet faktiskt visar – och vad det inte visar.
+        Elever behöver kunna placera händelser på en skala från omöjligt till säkert.
       </p>
 
-    </div>
+      <ul>
+        <li>Omöjligt</li>
+        <li>Osannolikt</li>
+        <li>Ungefär lika sannolikt</li>
+        <li>Sannolikt</li>
+        <li>Säkert</li>
+      </ul>
 
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">Fyra kärnor i statistik</h2>
-
-    <p class="section-intro">
-      Den statistiska processen behöver hållas samman.
-    </p>
-
-    <div class="core-grid">
-
-      <div class="core-card">
-        <span>❓</span>
-        <h3>Fråga</h3>
-        <p>
-          Formulera en fråga som kan undersökas med hjälp av data.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>📝</span>
-        <h3>Samla data</h3>
-        <p>
-          Bestäm vilken information som behövs och hur den kan samlas in på ett rimligt sätt.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>📊</span>
-        <h3>Representera</h3>
-        <p>
-          Organisera data i tabeller, diagram och andra lämpliga representationer.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>🔎</span>
-        <h3>Analysera</h3>
-        <p>
-          Beskriv mönster, jämför, beräkna lägesmått och dra välgrundade slutsatser.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="progression-box">
+      <div class="icon">🎯</div>
 
-      <h2>🌱 → 🌿 → 🚀 Progression F–9</h2>
+      <h3>Möjliga utfall</h3>
 
       <p>
-        Eleverna går från att sortera och läsa enkla diagram till att analysera data kritiskt.
+        Innan sannolikhet beräknas behöver elever veta vilka utfall som kan inträffa.
       </p>
 
-      <div class="progression-grid">
+      <ul>
+        <li>Tärning: 1–6.</li>
+        <li>Mynt: krona eller klave.</li>
+        <li>Snurra: vilka sektorer finns?</li>
+        <li>Är utfallen lika sannolika?</li>
+      </ul>
 
-        <div class="progression-card f3">
+    </article>
 
-          <span>🌱</span>
 
-          <h3>F–3</h3>
+    <article class="card">
 
-          <ul>
-            <li>sortera och klassificera</li>
-            <li>samla enkla data</li>
-            <li>frekvenstabeller</li>
-            <li>bilddiagram</li>
-            <li>enkla stapeldiagram</li>
-            <li>flest och minst</li>
-            <li>jämföra kategorier</li>
-            <li>formulera enkla slutsatser</li>
-          </ul>
+      <div class="icon">⚖️</div>
 
-        </div>
+      <h3>Jämföra sannolikhet</h3>
 
-
-        <div class="progression-card m46">
-
-          <span>🌿</span>
-
-          <h3>4–6</h3>
-
-          <ul>
-            <li>tabeller och flera diagramtyper</li>
-            <li>stapeldiagram</li>
-            <li>linjediagram</li>
-            <li>cirkeldiagram</li>
-            <li>medelvärde</li>
-            <li>median</li>
-            <li>typvärde</li>
-            <li>jämföra datamängder</li>
-          </ul>
-
-        </div>
-
-
-        <div class="progression-card m79">
-
-          <span>🚀</span>
-
-          <h3>7–9</h3>
-
-          <ul>
-            <li>lägesmått</li>
-            <li>spridning</li>
-            <li>urval</li>
-            <li>datainsamling</li>
-            <li>digital analys</li>
-            <li>kritisk diagramgranskning</li>
-            <li>jämföra fördelningar</li>
-            <li>värdera statistiska slutsatser</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>❓</span>
-
-        <div>
-          <h2>Formulera en statistisk fråga</h2>
-          <p>Statistik börjar med något vi vill undersöka.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>En statistisk fråga</h3>
-
-          <p>
-            Förväntar sig variation i svaren.
-          </p>
-
-          <p style="margin-top:10px;">
-            Exempel: Hur lång tid tar det för eleverna i klassen att komma till skolan?
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Inte statistisk</h3>
-
-          <p>
-            Hur lång tid tar det för Ali att komma till skolan idag?
-          </p>
-
-          <p style="margin-top:10px;">
-            Frågan söker ett enskilt värde och fokuserar inte på variation.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <ul>
-            <li>Vilken information behöver vi?</li>
-            <li>Förväntar vi oss olika svar?</li>
-            <li>Hur ska svaren samlas in?</li>
-            <li>Vilka ska undersökas?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>📝</span>
-
-        <div>
-          <h2>Samla & organisera data</h2>
-          <p>Datans kvalitet påverkar vilka slutsatser som kan dras.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Samla</h3>
-
-          <ul>
-            <li>observation</li>
-            <li>mätning</li>
-            <li>enkät</li>
-            <li>experiment</li>
-            <li>befintliga data</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Organisera</h3>
-
-          <ul>
-            <li>sortera</li>
-            <li>frekvenstabell</li>
-            <li>klassindelning</li>
-            <li>digitalt kalkylblad</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Diskutera</h3>
-
-          <ul>
-            <li>Hur ställdes frågan?</li>
-            <li>Saknas värden?</li>
-            <li>Är mätningen rättvis?</li>
-            <li>Kan något ha påverkat resultatet?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>📊</span>
-
-        <div>
-          <h2>Diagram</h2>
-          <p>Diagram väljs efter vilken information som ska synliggöras.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Stapeldiagram</h3>
-
-          <p>
-            Passar för att jämföra kategorier och frekvenser.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Linjediagram</h3>
-
-          <p>
-            Passar ofta när en storhet förändras över tid eller annan kontinuerlig variabel.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Cirkeldiagram</h3>
-
-          <p>
-            Visar hur en helhet delas upp i andelar och kopplar naturligt till procent.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🔎</span>
-
-        <div>
-          <h2>Läsa diagram kritiskt</h2>
-          <p>Eleven ska läsa både informationen och hur den presenteras.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Läs av</h3>
-
-          <ul>
-            <li>rubrik</li>
-            <li>axlar</li>
-            <li>enheter</li>
-            <li>skala</li>
-            <li>kategorier</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Analysera</h3>
-
-          <ul>
-            <li>största och minsta värde</li>
-            <li>skillnader</li>
-            <li>trender</li>
-            <li>mönster</li>
-            <li>avvikande värden</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Granska</h3>
-
-          <ul>
-            <li>Börjar axeln vid 0?</li>
-            <li>Är skalan jämn?</li>
-            <li>Kan presentationen överdriva skillnader?</li>
-            <li>Vad visar diagrammet inte?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="measure-box">
-
-      <h2 class="section-title">📍 Lägesmått & spridning</h2>
-
-      <p class="section-intro">
-        Olika mått beskriver olika delar av en datamängd.
+      <p>
+        Sannolikhet handlar om relationen mellan gynnsamma och möjliga utfall.
       </p>
 
-      <div class="measure-grid">
+      <ul>
+        <li>Vilket är mest sannolikt?</li>
+        <li>Vilket är minst sannolikt?</li>
+        <li>Är två händelser lika sannolika?</li>
+      </ul>
 
-        <div class="measure-card">
-          <span>➗</span>
-          <h3>Medelvärde</h3>
-          <p>
-            Summan av alla värden dividerad med antalet värden. Påverkas av mycket höga och låga värden.
-          </p>
-        </div>
-
-        <div class="measure-card">
-          <span>↔️</span>
-          <h3>Median</h3>
-          <p>
-            Det mittersta värdet när datan ordnas. Mindre känsligt för extremvärden.
-          </p>
-        </div>
-
-        <div class="measure-card">
-          <span>⭐</span>
-          <h3>Typvärde</h3>
-          <p>
-            Det värde eller den kategori som förekommer flest gånger.
-          </p>
-        </div>
-
-        <div class="measure-card">
-          <span>📏</span>
-          <h3>Spridning</h3>
-          <p>
-            Beskriver hur utspridda värdena är. Variationsbredd kan ge en första bild.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="critical-box">
+      <div class="icon">🍕</div>
 
-      <h2 class="section-title">🧠 Vilket lägesmått passar?</h2>
+      <h3>Bråk och procent</h3>
 
-      <p class="section-intro">
-        Målet är inte bara att kunna beräkna tre lägesmått utan att förstå vad de berättar.
+      <p>
+        Sannolikhet kan uttryckas som rationellt tal.
       </p>
 
-      <div class="critical-grid">
+      <ul>
+        <li>1/2</li>
+        <li>0,5</li>
+        <li>50 %</li>
+        <li>Samma sannolikhet – olika representationer.</li>
+      </ul>
 
-        <div class="critical-card">
-          <h3>Exempel 1</h3>
-
-          <p>
-            Löner: 28 000, 29 000, 30 000, 31 000 och 150 000 kr.
-            Medelvärdet påverkas kraftigt av det mycket höga värdet.
-            Medianen kan ge en annan bild av en ”typisk” lön.
-          </p>
-        </div>
-
-        <div class="critical-card">
-          <h3>Exempel 2</h3>
-
-          <p>
-            Favoritfrukt är kategorisk data.
-            Där är typvärde meningsfullt, medan medelvärde inte är det.
-          </p>
-        </div>
-
-        <div class="critical-card">
-          <h3>Fråga</h3>
-
-          <p>
-            Vilken egenskap hos datan vill vi beskriva?
-            Vilket mått hjälper bäst och vad riskerar måttet att dölja?
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="section-card">
+      <div class="icon">🧪</div>
 
-      <div class="section-header">
-        <span>🎯</span>
+      <h3>Experiment</h3>
 
-        <div>
-          <h2>Urval & representativitet</h2>
-          <p>Vilka vi undersöker påverkar vilka slutsatser vi får dra.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Population</h3>
-
-          <p>
-            Hela den grupp vi egentligen vill veta något om.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Urval</h3>
-
-          <p>
-            Den del av populationen som faktiskt undersöks.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <ul>
-            <li>Vilka deltog?</li>
-            <li>Vilka deltog inte?</li>
-            <li>Hur valdes gruppen?</li>
-            <li>Kan resultatet generaliseras?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="mis-box">
-
-      <h2 class="section-title">⚠️ Vanliga missuppfattningar</h2>
-
-      <p class="section-intro">
-        Statistik kan ge korrekta beräkningar men ändå felaktiga slutsatser.
+      <p>
+        Resultatet i ett litet antal försök behöver inte exakt motsvara modellen.
       </p>
 
-      <div class="mis-grid">
+      <ul>
+        <li>Genomför många försök.</li>
+        <li>Registrera frekvens.</li>
+        <li>Beräkna relativ frekvens.</li>
+        <li>Jämför med förväntad sannolikhet.</li>
+      </ul>
 
-        <div class="mis-card">
-          <span>➗</span>
-          <h3>Medelvärde = vanligaste värdet</h3>
-          <p>
-            Eleven blandar ihop medelvärde och typvärde.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>↔️</span>
-          <h3>Medianen hittas utan sortering</h3>
-          <p>
-            Data måste först ordnas för att mittvärdet ska kunna identifieras.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>📊</span>
-          <h3>Högsta stapeln betyder alltid störst skillnad</h3>
-          <p>
-            Axelskalan kan göra små skillnader visuellt mycket stora.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>📈</span>
-          <h3>Alla diagram visar sanningen neutralt</h3>
-          <p>
-            Skalor, val av period och urval kan påverka vilket intryck diagrammet ger.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>🎯</span>
-          <h3>Ett stort urval är automatiskt representativt</h3>
-          <p>
-            Ett stort men snedvridet urval kan fortfarande ge missvisande slutsatser.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>🔗</span>
-          <h3>Samband betyder orsak</h3>
-          <p>
-            Två variabler kan samvariera utan att den ena orsakar den andra.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="question-box">
+      <div class="icon">🌳</div>
 
-      <h2 class="section-title">💬 Diagnostiska frågor</h2>
+      <h3>Flera steg</h3>
 
-      <p class="section-intro">
-        Frågorna synliggör hur eleven tolkar statistik, inte bara om beräkningen blir rätt.
+      <p>
+        När flera val eller slumpförsök kombineras behövs systematiska representationer.
       </p>
 
-      <div class="question-grid">
+      <ul>
+        <li>Tabell</li>
+        <li>Lista</li>
+        <li>Träddiagram</li>
+        <li>Systematisk kontroll av alla utfall</li>
+      </ul>
 
-        <div class="question-card">
-          <h3>Vad berättar medianen?</h3>
-          <p>
-            Be eleven förklara innebörden i den aktuella datamängden.
-          </p>
-        </div>
+    </article>
 
-        <div class="question-card">
-          <h3>Vilket lägesmått passar bäst?</h3>
-          <p>
-            Kräver att eleven värderar datans struktur och syftet med beskrivningen.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Vad händer om extremvärdet tas bort?</h3>
-          <p>
-            Synliggör hur medelvärde och median påverkas olika.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Kan diagrammet vara missvisande?</h3>
-          <p>
-            Låt eleven granska skala, axlar och hur informationen valts ut.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Vilka kan vi dra slutsatser om?</h3>
-          <p>
-            För samtalet mot urval, population och representativitet.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Vad vet vi inte?</h3>
-          <p>
-            En viktig statistisk fråga som motverkar alltför säkra slutsatser.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
+  <div class="section-title">
 
-    <h2 class="section-title">🛟 Stöd när statistik blir svårt</h2>
+    <h2>🔄 Från gissning till matematisk modell</h2>
 
-    <p class="section-intro">
-      Börja med elevnära data och bygg analysen stegvis.
+    <p>
+      Upplevelsen ska gradvis kopplas till mer precisa matematiska representationer.
     </p>
 
-    <div class="support-grid">
+  </div>
 
-      <div class="support-card">
-        <span>👥</span>
-        <h3>Använd klassens data</h3>
-        <p>
-          Samla information som eleverna känner till och kan kontrollera.
-        </p>
-      </div>
 
-      <div class="support-card">
-        <span>🧱</span>
-        <h3>Bygg diagram</h3>
-        <p>
-          Använd konkreta föremål eller elever som levande staplar före symboliska diagram.
-        </p>
-      </div>
+  <div class="flow">
 
-      <div class="support-card">
-        <span>📝</span>
-        <h3>Sortera först</h3>
-        <p>
-          Gör datamängden synlig och ordna den innan median och spridning diskuteras.
-        </p>
-      </div>
-
-      <div class="support-card">
-        <span>💬</span>
-        <h3>Använd språkstöd</h3>
-        <p>
-          Modellera uttryck som ”störst frekvens”, ”mittvärde”, ”spridning” och ”resultatet tyder på”.
-        </p>
-      </div>
-
+    <div class="flow-step">
+      <span>🤔</span>
+      <strong>1. Förutsäg</strong>
+      <p>Vad tror du kommer att hända? Varför?</p>
     </div>
 
-  </section>
+    <div class="flow-step">
+      <span>🎲</span>
+      <strong>2. Genomför</strong>
+      <p>Gör slumpförsöket flera gånger.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>📝</span>
+      <strong>3. Registrera</strong>
+      <p>Samla resultaten systematiskt.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>📊</span>
+      <strong>4. Jämför</strong>
+      <p>Jämför resultatet med förutsägelsen.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>🧠</span>
+      <strong>5. Modellera</strong>
+      <p>Förklara med möjliga utfall och sannolikhet.</p>
+    </div>
+
+  </div>
 
 
-  <section>
+  <div class="section-title">
 
-    <div class="challenge-box">
+    <h2>🧩 Fyra undervisningsidéer</h2>
 
-      <h2 class="section-title">🚀 Fördjupa statistik</h2>
+    <p>
+      Undersökningar som fungerar på flera nivåer genom att kraven förändras.
+    </p>
 
-      <p class="section-intro">
-        Utmana genom att låta elever planera, kritisera och skapa egna undersökningar.
+  </div>
+
+
+  <div class="example-grid">
+
+    <section class="example green">
+
+      <h3>🎲 Tärningsjakten</h3>
+
+      <ul>
+        <li>Vilket tal tror du kommer flest gånger?</li>
+        <li>Kasta tärningen 30 gånger.</li>
+        <li>Registrera resultatet.</li>
+        <li>Jämför talen.</li>
+        <li>Varför blev de inte exakt lika många?</li>
+      </ul>
+
+      <p>
+        Synliggör skillnaden mellan slumpresultat och modell.
       </p>
 
-      <div class="challenge-grid">
+    </section>
 
-        <div class="challenge-card">
-          <span>🔎</span>
-          <h3>Samma medelvärde</h3>
-          <p>
-            Skapa två mycket olika datamängder som har samma medelvärde.
-          </p>
-        </div>
 
-        <div class="challenge-card">
-          <span>📊</span>
-          <h3>Vilseledande diagram</h3>
-          <p>
-            Skapa två diagram av samma data som ger olika visuellt intryck och analysera varför.
-          </p>
-        </div>
+    <section class="example blue">
 
-        <div class="challenge-card">
-          <span>🎯</span>
-          <h3>Planera urvalet</h3>
-          <p>
-            Designa ett så representativt urval som möjligt för en given frågeställning.
-          </p>
-        </div>
+      <h3>🎨 Designa ett lyckohjul</h3>
 
-        <div class="challenge-card">
-          <span>⚖️</span>
-          <h3>Värdera slutsatsen</h3>
-          <p>
-            Få en statistisk slutsats och undersök vilket underlag som skulle behövas för att stödja den.
-          </p>
-        </div>
+      <ul>
+        <li>Skapa ett hjul med flera färger.</li>
+        <li>Bestäm sannolikheten för varje färg.</li>
+        <li>Ändra designen så att blå blir dubbelt så sannolik som röd.</li>
+        <li>Testa genom experiment.</li>
+      </ul>
 
-      </div>
+      <p>
+        Kombinerar geometri, bråk och sannolikhet.
+      </p>
 
-    </div>
+    </section>
+
+
+    <section class="example yellow">
+
+      <h3>🧦 Den hemliga påsen</h3>
+
+      <ul>
+        <li>En påse innehåller färgade föremål.</li>
+        <li>Dra med återläggning.</li>
+        <li>Registrera många dragningar.</li>
+        <li>Försök uppskatta innehållet.</li>
+        <li>Hur säker kan du vara?</li>
+      </ul>
+
+      <p>
+        Knyter experimentell sannolikhet till inferens.
+      </p>
+
+    </section>
+
+
+    <section class="example purple">
+
+      <h3>🌳 Hitta alla utfall</h3>
+
+      <ul>
+        <li>Kasta två mynt.</li>
+        <li>Vilka möjliga utfall finns?</li>
+        <li>Lista systematiskt.</li>
+        <li>Gör ett träddiagram.</li>
+        <li>Beräkna sannolikheten för två kronor.</li>
+      </ul>
+
+      <p>
+        Bygger förståelse för flerstegssituationer.
+      </p>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🕵️ Vanliga missuppfattningar</h2>
+
+    <p>
+      Sannolikhet påverkas lätt av vardagliga intuitioner som inte alltid är matematiska.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">🎲</div>
+
+      <h3>”Sexan måste komma snart”</h3>
+
+      <p>
+        Eleven tror att tidigare utfall styr nästa oberoende tärningskast.
+      </p>
+
+      <ul>
+        <li>Jämför varje nytt kast med samma utfallsrum.</li>
+        <li>Diskutera oberoende försök.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔁</div>
+
+      <h3>Slump ska ge jämnt resultat direkt</h3>
+
+      <p>
+        Eleven förväntar sig exakt lika fördelning i ett litet antal försök.
+      </p>
+
+      <ul>
+        <li>Jämför 10, 100 och fler försök.</li>
+        <li>Diskutera variation.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">⚖️</div>
+
+      <h3>Alla synliga alternativ är lika sannolika</h3>
+
+      <p>
+        Ett lyckohjul med tre färger antas ge 1/3 per färg trots olika sektorstorlekar.
+      </p>
+
+      <ul>
+        <li>Jämför yta eller vinkel.</li>
+        <li>Koppla till andel av helheten.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔢</div>
+
+      <h3>Fler gynnsamma utfall räcker</h3>
+
+      <p>
+        Eleven jämför bara antalet gynnsamma utfall och ignorerar totalantalet möjliga utfall.
+      </p>
+
+      <ul>
+        <li>Jämför relationen gynnsamma/möjliga.</li>
+        <li>Använd bråk.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🌳</div>
+
+      <h3>Utfall missas i flera steg</h3>
+
+      <p>
+        Eleven listar inte kombinationerna systematiskt.
+      </p>
+
+      <ul>
+        <li>Använd tabell eller träddiagram.</li>
+        <li>Kontrollera att alla grenar finns.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📊</div>
+
+      <h3>Experimentellt resultat = exakt sannolikhet</h3>
+
+      <p>
+        Eleven använder exempelvis 7 träffar av 10 som bevis för att sannolikheten är exakt 70 %.
+      </p>
+
+      <ul>
+        <li>Skilj observation från modell.</li>
+        <li>Diskutera fler försök.</li>
+        <li>Jämför relativ frekvens över tid.</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Frågor som utvecklar sannolikhetstänkande</h2>
+
+    <ul>
+      <li>Vilka utfall är möjliga?</li>
+      <li>Har du hittat alla?</li>
+      <li>Är utfallen lika sannolika?</li>
+      <li>Vilket utfall är mest sannolikt? Varför?</li>
+      <li>Hur kan sannolikheten uttryckas som bråk?</li>
+      <li>Hur kan den uttryckas som decimal eller procent?</li>
+      <li>Vad tror du händer innan vi testar?</li>
+      <li>Vad visar experimentet?</li>
+      <li>Varför behöver resultatet inte bli exakt som modellen?</li>
+      <li>Vad händer om vi gör fler försök?</li>
+      <li>Hur kan alla kombinationer visas systematiskt?</li>
+      <li>Är slutsatsen rimlig utifrån antal försök?</li>
+    </ul>
 
   </section>
 
 
-  <section>
+  <div class="warning">
 
-    <h2 class="section-title">📊 Bedömning – vad ska läraren få syn på?</h2>
+    <strong>⚠️ Slump betyder inte ”vad som helst kan hända”.</strong><br>
+    Sannolikhet beskriver strukturen bakom osäkerhet.
+    Elever behöver därför kombinera
+    <strong>experiment, systematiska utfallsrum, bråk, procent och resonemang</strong>.
+    Undvik att låta området stanna vid att bara kasta tärningar och registrera resultat.
 
-    <p class="section-intro">
-      Bedöm hela den statistiska processen, inte bara beräkningen.
-    </p>
-
-    <div class="assessment-grid">
-
-      <div class="assessment-card">
-        <span>❓</span>
-        <h3>Frågeställning</h3>
-        <p>
-          Kan eleven formulera en fråga som kan undersökas statistiskt?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>📊</span>
-        <h3>Representation</h3>
-        <p>
-          Kan eleven välja och läsa en lämplig tabell eller diagramtyp?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>🔎</span>
-        <h3>Analys</h3>
-        <p>
-          Kan eleven använda lägesmått, spridning och jämförelser för att beskriva data?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>⚖️</span>
-        <h3>Kritisk värdering</h3>
-        <p>
-          Kan eleven värdera urval, presentation och hur väl slutsatsen stöds av datan?
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
+  <section class="links">
 
-    <h2 class="section-title">Relaterade lärarsidor</h2>
+    <h2>➡️ Fortsätt i Matteresan</h2>
 
-    <p class="section-intro">
-      Statistik hänger nära ihop med sannolikhet, procent, grafer och kritiskt resonemang.
-    </p>
+    <div class="link-row">
 
-    <div class="links-grid">
-
-      <a href="larare-sannolikhet.html" class="link-card c1">
-        <span>🎲</span>
-        <h3>Sannolikhet</h3>
-        <p>
-          Experimentell sannolikhet bygger på data från slumpförsök.
-        </p>
+      <a href="elevblad-sannolikhet.html">
+        ✏️ Elevblad sannolikhet
       </a>
 
-      <a href="larare-procent.html" class="link-card c2">
-        <span>%</span>
-        <h3>Procent</h3>
-        <p>
-          Andelar och procent används ofta när statistiska resultat presenteras.
-        </p>
+      <a href="larare-statistik.html">
+        📊 Statistik
       </a>
 
-      <a href="larare-samband.html" class="link-card c3">
-        <span>📈</span>
-        <h3>Samband & förändring</h3>
-        <p>
-          Tabeller, grafer och förändring binder samman statistik och funktionstänkande.
-        </p>
+      <a href="larare-brak.html">
+        🍕 Bråk
       </a>
 
-      <a href="larare-problemlosning.html" class="link-card c4">
-        <span>🧠</span>
-        <h3>Problemlösning</h3>
-        <p>
-          Statistiska undersökningar kräver planering, strategival och tolkning.
-        </p>
+      <a href="larare-procent.html">
+        💯 Procent
       </a>
 
-      <a href="larare-sprak.html" class="link-card c5">
-        <span>💬</span>
-        <h3>Språk & begrepp</h3>
-        <p>
-          Statistik innehåller ett omfattande språk för jämförelser och slutsatser.
-        </p>
+      <a href="larare-problemlosning.html">
+        🧩 Problemlösning
       </a>
 
-      <a href="larare-missuppfattningar.html" class="link-card c6">
-        <span>⚠️</span>
-        <h3>Missuppfattningar</h3>
-        <p>
-          Fördjupa analysen av vanliga elevtankar kring diagram och lägesmått.
-        </p>
+      <a href="larare-undersvisning.html">
+        🧠 Undervisning
       </a>
 
-    </div>
+      <a href="larare-missuppfattningar.html">
+        🕵️ Missuppfattningar
+      </a>
 
-    <div class="note">
-      <strong>Kom ihåg:</strong>
-      statistisk kompetens innebär inte bara att kunna räkna ut ett medelvärde.
-      Eleven behöver också kunna fråga var datan kommer ifrån, hur den presenteras och vilka slutsatser den faktiskt tillåter.
+      <a href="larare-utmaning.html">
+        🚀 Utmaning
+      </a>
+
     </div>
 
   </section>
@@ -1546,11 +1112,8 @@
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  📊 Statistik F–9 – samla, representera, analysera och värdera
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🎲 Möjlighet • Utfall • Jämförelse • Experiment • Modell
 
 </footer>
 
