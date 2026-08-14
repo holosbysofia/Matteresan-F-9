@@ -78,7 +78,7 @@
     }
 
     .hero {
-      max-width: 930px;
+      max-width: 950px;
       margin: 44px auto 0;
       text-align: center;
     }
@@ -100,7 +100,7 @@
     }
 
     .hero p {
-      max-width: 850px;
+      max-width: 860px;
       margin: auto;
       color: #f6f9fb;
     }
@@ -126,7 +126,7 @@
 
     .intro p {
       color: var(--muted);
-      max-width: 950px;
+      max-width: 970px;
     }
 
     .important {
@@ -152,55 +152,55 @@
       color: var(--muted);
     }
 
-    .cycle {
+    .flow {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 10px;
     }
 
-    .cycle-step {
+    .flow-step {
       background: white;
       border-radius: 16px;
       padding: 18px 10px;
-      min-height: 160px;
       text-align: center;
+      min-height: 160px;
       box-shadow: 0 6px 18px rgba(32,48,64,0.06);
       border-top: 6px solid var(--blue-strong);
     }
 
-    .cycle-step:nth-child(1) {
+    .flow-step:nth-child(1) {
       border-top-color: var(--green-strong);
     }
 
-    .cycle-step:nth-child(2) {
+    .flow-step:nth-child(2) {
       border-top-color: var(--blue-strong);
     }
 
-    .cycle-step:nth-child(3) {
+    .flow-step:nth-child(3) {
       border-top-color: #c39b44;
     }
 
-    .cycle-step:nth-child(4) {
+    .flow-step:nth-child(4) {
       border-top-color: var(--purple-strong);
     }
 
-    .cycle-step:nth-child(5) {
+    .flow-step:nth-child(5) {
       border-top-color: #5d9c92;
     }
 
-    .cycle-step span {
+    .flow-step span {
       display: block;
       font-size: 2rem;
       margin-bottom: 6px;
     }
 
-    .cycle-step strong {
+    .flow-step strong {
       display: block;
       color: var(--dark);
       margin-bottom: 5px;
     }
 
-    .cycle-step p {
+    .flow-step p {
       color: var(--muted);
       font-size: 0.8rem;
     }
@@ -215,7 +215,7 @@
       background: white;
       border-radius: 18px;
       padding: 20px;
-      min-height: 250px;
+      min-height: 245px;
       box-shadow: 0 7px 22px rgba(32,48,64,0.06);
       border-top: 6px solid var(--blue-strong);
     }
@@ -258,6 +258,38 @@
       margin-bottom: 5px;
     }
 
+    .levels {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .level {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 215px;
+    }
+
+    .level h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .level p,
+    .level li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .level ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .level li {
+      margin-bottom: 6px;
+    }
+
     .green { background: var(--green); }
     .blue { background: var(--blue); }
     .purple { background: var(--purple); }
@@ -266,69 +298,6 @@
     .teal { background: var(--teal); }
     .pink { background: var(--pink); }
     .gray { background: var(--gray); }
-
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .focus {
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 210px;
-    }
-
-    .focus h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .focus p,
-    .focus li {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .focus ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .focus li {
-      margin-bottom: 6px;
-    }
-
-    .stage-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .stage {
-      border-radius: 18px;
-      padding: 22px;
-    }
-
-    .stage h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .stage p,
-    .stage li {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .stage ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .stage li {
-      margin-bottom: 6px;
-    }
 
     .teacher-box {
       margin-top: 36px;
@@ -348,6 +317,27 @@
     }
 
     .teacher-box li {
+      margin-bottom: 7px;
+    }
+
+    .analysis-box {
+      margin-top: 22px;
+      background: var(--pink);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .analysis-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .analysis-box ul {
+      margin-left: 22px;
+      color: var(--muted);
+    }
+
+    .analysis-box li {
       margin-bottom: 7px;
     }
 
@@ -396,12 +386,12 @@
     }
 
     @media (max-width: 1000px) {
-      .cycle {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
       .grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flow {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -410,10 +400,9 @@
         flex-direction: column;
       }
 
-      .cycle,
       .grid,
-      .focus-grid,
-      .stage-grid {
+      .flow,
+      .levels {
         grid-template-columns: 1fr;
       }
 
@@ -440,6 +429,9 @@
       html,
       body {
         background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
       header,
@@ -453,11 +445,11 @@
       }
 
       .intro,
-      .cycle-step,
+      .flow-step,
       .card,
-      .focus,
-      .stage,
+      .level,
       .teacher-box,
+      .analysis-box,
       .warning,
       .links {
         break-inside: avoid;
@@ -491,7 +483,8 @@
         background: var(--teal) !important;
       }
 
-      .pink {
+      .pink,
+      .analysis-box {
         background: var(--pink) !important;
       }
 
@@ -524,16 +517,17 @@
 
   <div class="hero">
 
-    <div class="hero-icon">👀🧠</div>
+    <div class="hero-icon">👀🧠📋</div>
 
     <h1>Observation</h1>
 
-    <h2>Se • Lyssna • Tolka • Dokumentera • Anpassa</h2>
+    <h2>Se • Dokumentera • Tolka • Agera • Följ upp</h2>
 
     <p>
-      Observation i matematik hjälper läraren att få syn på
-      sådant som inte alltid syns i färdiga svar:
-      strategier, representationer, språk, resonemang och självständighet.
+      Matematiska observationer hjälper läraren att få syn på
+      sådant som inte alltid syns i ett rättat arbetsblad:
+      strategier, representationer, språk, resonemang,
+      uthållighet och självständighet.
     </p>
 
   </div>
@@ -545,22 +539,21 @@
 
   <section class="intro">
 
-    <h2>👀 Observera tänkandet – inte bara resultatet</h2>
+    <h2>👀 Observera det matematiska tänkandet</h2>
 
     <p>
-      Under en matematiklektion finns mycket information i hur eleverna
-      angriper en uppgift. Vilken strategi väljer de?
-      Vad gör de när de kör fast?
-      Vilka begrepp använder de?
-      Hur reagerar de på någon annans lösning?
+      Observation i matematik handlar inte främst om
+      om eleven arbetar tyst, snabbt eller gör många uppgifter.
+      Fokus behöver ligga på
+      <strong>vad eleven gör matematiskt, vilka val som görs och hur eleven resonerar</strong>.
     </p>
 
     <div class="important">
 
       <strong>Grundprincip:</strong><br>
-      Bestäm <strong>vad du ska observera innan lektionen</strong>.
-      Om du försöker registrera allt samtidigt blir informationen lätt ytlig.
-      Välj hellre ett tydligt fokus och samla användbara exempel.
+      Arbeta genom
+      <strong>bestäm fokus → observera → dokumentera → tolka → planera nästa steg</strong>.
+      Försök observera ett avgränsat område åt gången istället för allt samtidigt.
 
     </div>
 
@@ -568,49 +561,93 @@
 
 
   <div class="section-title">
-    <h2>🔄 Observation i fem steg</h2>
-    <p>Från undervisningsfråga till nästa undervisningsbeslut.</p>
+
+    <h2>🔄 Observationscykeln</h2>
+
+    <p>
+      Observation blir formativ när det du ser påverkar den fortsatta undervisningen.
+    </p>
+
   </div>
 
 
-  <div class="cycle">
+  <div class="flow">
 
-    <div class="cycle-step">
+    <div class="flow-step">
+
       <span>🎯</span>
-      <strong>1. Välj fokus</strong>
-      <p>Vad vill du få syn på idag?</p>
+
+      <strong>1. Bestäm fokus</strong>
+
+      <p>
+        Vad vill du få syn på under lektionen?
+      </p>
+
     </div>
 
-    <div class="cycle-step">
+
+    <div class="flow-step">
+
       <span>👀</span>
+
       <strong>2. Observera</strong>
-      <p>Se vad eleven gör, säger och använder.</p>
+
+      <p>
+        Titta och lyssna efter strategier, språk och resonemang.
+      </p>
+
     </div>
 
-    <div class="cycle-step">
+
+    <div class="flow-step">
+
       <span>📝</span>
+
       <strong>3. Dokumentera</strong>
-      <p>Skriv korta konkreta noteringar.</p>
+
+      <p>
+        Skriv korta konkreta noteringar om det eleven faktiskt gör.
+      </p>
+
     </div>
 
-    <div class="cycle-step">
+
+    <div class="flow-step">
+
       <span>🧠</span>
+
       <strong>4. Tolka</strong>
-      <p>Vilket matematiskt tänkande kan noteringen visa?</p>
+
+      <p>
+        Vad kan observationen säga om elevens förståelse?
+      </p>
+
     </div>
 
-    <div class="cycle-step">
-      <span>🔁</span>
-      <strong>5. Anpassa</strong>
-      <p>Vad behöver undervisningen göra härnäst?</p>
+
+    <div class="flow-step">
+
+      <span>🪜</span>
+
+      <strong>5. Agera</strong>
+
+      <p>
+        Anpassa nästa fråga, representation, stöd eller utmaning.
+      </p>
+
     </div>
 
   </div>
 
 
   <div class="section-title">
-    <h2>🧠 Sex saker att observera</h2>
-    <p>Välj en eller två kategorier som fokus under en lektion.</p>
+
+    <h2>🧠 Sex områden att observera</h2>
+
+    <p>
+      Välj ett eller två fokusområden per observation.
+    </p>
+
   </div>
 
 
@@ -618,19 +655,20 @@
 
     <article class="card">
 
-      <div class="icon">🧰</div>
+      <div class="icon">🛣️</div>
 
       <h3>Strategier</h3>
 
       <p>
-        Hur angriper eleven uppgiften?
+        Hur tar eleven sig an den matematiska uppgiften?
       </p>
 
       <ul>
-        <li>Vilken strategi väljs spontant?</li>
-        <li>Kan eleven byta strategi?</li>
-        <li>Används en effektiv metod?</li>
-        <li>Finns en regel som används mekaniskt?</li>
+        <li>Hur börjar eleven?</li>
+        <li>Vilken strategi väljs?</li>
+        <li>Ändrar eleven strategi?</li>
+        <li>Är metoden effektiv?</li>
+        <li>Kan eleven beskriva sitt val?</li>
       </ul>
 
     </article>
@@ -638,19 +676,20 @@
 
     <article class="card">
 
-      <div class="icon">🎨</div>
+      <div class="icon">🧱</div>
 
       <h3>Representationer</h3>
 
       <p>
-        Vilka sätt använder eleven för att göra matematiken synlig?
+        Vilka representationer använder eleven för att tänka?
       </p>
 
       <ul>
-        <li>Material</li>
+        <li>Konkret material</li>
         <li>Bild</li>
         <li>Tallinje</li>
-        <li>Tabell, graf eller symboler</li>
+        <li>Tabell eller graf</li>
+        <li>Symboler</li>
       </ul>
 
     </article>
@@ -663,14 +702,14 @@
       <h3>Begrepp och språk</h3>
 
       <p>
-        Hur använder eleven matematiska ord när den tänker och förklarar?
+        Hur använder och tolkar eleven matematiska ord?
       </p>
 
       <ul>
-        <li>Centrala begrepp</li>
-        <li>Vardagsspråk</li>
-        <li>Precisa relationer</li>
-        <li>Språkliga missförstånd</li>
+        <li>Använder eleven relevanta begrepp?</li>
+        <li>Förstår eleven relationsord?</li>
+        <li>Kan eleven precisera sin förklaring?</li>
+        <li>Förstår eleven symbolerna?</li>
       </ul>
 
     </article>
@@ -683,14 +722,14 @@
       <h3>Resonemang</h3>
 
       <p>
-        Hur motiverar eleven sina beslut?
+        Hur motiverar och utvecklar eleven sina matematiska idéer?
       </p>
 
       <ul>
-        <li>Förklarar hur</li>
-        <li>Förklarar varför</li>
-        <li>Jämför lösningar</li>
-        <li>Bygger vidare på andras idéer</li>
+        <li>Förklarar eleven varför?</li>
+        <li>Jämför eleven metoder?</li>
+        <li>Använder eleven exempel?</li>
+        <li>Kan eleven ge motexempel?</li>
       </ul>
 
     </article>
@@ -703,14 +742,14 @@
       <h3>Problemlösning</h3>
 
       <p>
-        Vad gör eleven när metoden inte är given?
+        Vad händer när lösningsvägen inte är given?
       </p>
 
       <ul>
-        <li>Tolkar frågan</li>
-        <li>Planerar</li>
-        <li>Prövar</li>
-        <li>Ändrar strategi</li>
+        <li>Förstår eleven problemet?</li>
+        <li>Prövar eleven en idé?</li>
+        <li>Arbetar eleven systematiskt?</li>
+        <li>Kontrolleras lösningen?</li>
       </ul>
 
     </article>
@@ -718,19 +757,19 @@
 
     <article class="card">
 
-      <div class="icon">✅</div>
+      <div class="icon">🌱</div>
 
       <h3>Självständighet</h3>
 
       <p>
-        Vilket stöd behöver eleven för att komma vidare?
+        Hur använder eleven stöd och tar ansvar för nästa steg?
       </p>
 
       <ul>
-        <li>Startar själv</li>
-        <li>Använder stöd självständigt</li>
-        <li>Ber om hjälp direkt</li>
-        <li>Kontrollerar sitt svar</li>
+        <li>Kommer eleven igång?</li>
+        <li>Väljer eleven hjälpmedel?</li>
+        <li>Ber eleven om relevant hjälp?</li>
+        <li>Kan stödet trappas ned?</li>
       </ul>
 
     </article>
@@ -739,80 +778,85 @@
 
 
   <div class="section-title">
-    <h2>🔎 Tre observationsnivåer</h2>
-    <p>Olika syften kräver olika grad av detalj.</p>
+
+    <h2>🔍 Fyra observationsnivåer</h2>
+
+    <p>
+      Observation kan göras på olika nivåer beroende på vilket underlag du behöver.
+    </p>
+
   </div>
 
 
-  <div class="focus-grid">
+  <div class="levels">
 
-    <section class="focus green">
+    <section class="level green">
 
-      <h3>👥 Klassöversikt</h3>
+      <h3>👥 Hela klassen</h3>
 
       <p>
-        Använd när du vill se mönster i hela gruppen.
+        Observera mönster i gruppen.
       </p>
 
       <ul>
-        <li>Vilka strategier dominerar?</li>
-        <li>Vilka elever behöver mer stöd?</li>
-        <li>Vilka missuppfattningar återkommer?</li>
-        <li>Vilka elever är redo för fördjupning?</li>
+        <li>Vilka strategier används mest?</li>
+        <li>Var fastnar många elever?</li>
+        <li>Vilket begrepp behöver tas upp gemensamt?</li>
+        <li>Vilken representation fungerar väl?</li>
       </ul>
 
     </section>
 
 
-    <section class="focus blue">
+    <section class="level blue">
 
-      <h3>👤 Individuell fördjupning</h3>
+      <h3>👤 En elev</h3>
 
       <p>
-        Följ en elev under en längre aktivitet.
+        Följ en elev genom hela eller delar av en aktivitet.
       </p>
 
       <ul>
         <li>Hur startar eleven?</li>
-        <li>Vad händer vid motstånd?</li>
+        <li>Vad gör eleven vid svårighet?</li>
         <li>Vilket stöd används?</li>
-        <li>Hur förändras strategin?</li>
+        <li>Hur förklarar eleven?</li>
       </ul>
 
     </section>
 
 
-    <section class="focus yellow">
+    <section class="level yellow">
 
       <h3>💬 Matematiskt samtal</h3>
 
       <p>
-        Observera deltagandet i ett matteprat.
+        Lyssna efter hur elevernas idéer utvecklas i samspel.
       </p>
 
       <ul>
-        <li>Vem kommer till tals?</li>
-        <li>Vilka begrepp används?</li>
-        <li>Lyssnar eleverna på varandra?</li>
-        <li>Byggs resonemangen vidare?</li>
+        <li>Förklarar eleverna för varandra?</li>
+        <li>Bygger de vidare på idéer?</li>
+        <li>Används matematiska begrepp?</li>
+        <li>Motiveras påståenden?</li>
       </ul>
 
     </section>
 
 
-    <section class="focus purple">
+    <section class="level purple">
 
-      <h3>🧩 Uppgift eller aktivitet</h3>
+      <h3>🧩 En specifik uppgift</h3>
 
       <p>
-        Analysera hur själva uppgiften fungerar i gruppen.
+        Använd samma uppgift för att jämföra olika elevstrategier.
       </p>
 
       <ul>
-        <li>Skapar den tänkande?</li>
-        <li>Finns flera strategier?</li>
-        <li>Är språkbelastningen rimlig?</li>
-        <li>Ger den möjlighet till stöd och utmaning?</li>
+        <li>Vilka lösningsvägar uppstår?</li>
+        <li>Vilka missuppfattningar syns?</li>
+        <li>Vilka elever generaliserar?</li>
+        <li>Vilka behöver annan representation?</li>
       </ul>
 
     </section>
@@ -821,125 +865,170 @@
 
 
   <div class="section-title">
-    <h2>📝 Dokumentera konkret</h2>
-    <p>Skilj mellan vad du såg och hur du tolkar det.</p>
+
+    <h2>📝 Dokumentera det du faktiskt ser</h2>
+
+    <p>
+      Försök skilja observation från tolkning.
+    </p>
+
   </div>
 
 
-  <div class="focus-grid">
+  <div class="grid">
 
-    <section class="focus green">
+    <article class="card">
 
-      <h3>✅ Beskriv observationen</h3>
+      <div class="icon">✅</div>
+
+      <h3>Konkret observation</h3>
 
       <p>
-        Skriv sådant som faktiskt gick att se eller höra.
+        Skriv vad eleven gör eller säger.
       </p>
 
       <ul>
-        <li>”Ritar först en tallinje.”</li>
-        <li>”Säger: 0,35 är större eftersom 35 är större än 8.”</li>
-        <li>”Byter från huvudräkning till skriftlig metod.”</li>
-        <li>”Frågar kamraten varför svaret blev 24.”</li>
+        <li>”Ritar en tallinje.”</li>
+        <li>”Markerar 0,5 mitt mellan 0 och 1.”</li>
+        <li>”Säger att 0,25 är mindre än 0,5.”</li>
+        <li>”Kontrollerar med bråk.”</li>
       </ul>
 
-    </section>
+    </article>
 
 
-    <section class="focus pink">
+    <article class="card">
 
-      <h3>⚠️ Undvik vaga etiketter</h3>
+      <div class="icon">⚠️</div>
+
+      <h3>Undvik vaga omdömen</h3>
 
       <p>
-        Formuleringar som dessa säger väldigt lite om vad som behöver undervisas:
+        Formuleringar som dessa är svåra att använda pedagogiskt:
       </p>
 
       <ul>
         <li>”Kan inte matte.”</li>
-        <li>”Svag.”</li>
-        <li>”Oengagerad.”</li>
-        <li>”Förstår inget.”</li>
+        <li>”Är osäker.”</li>
+        <li>”Är svag.”</li>
+        <li>”Förstår inte.”</li>
       </ul>
 
-    </section>
-
-  </div>
+    </article>
 
 
-  <div class="section-title">
-    <h2>🌱 Observation genom F–9</h2>
-    <p>Vad som är viktigt att observera förändras när matematiken blir mer avancerad.</p>
-  </div>
+    <article class="card">
 
+      <div class="icon">🧠</div>
 
-  <div class="stage-grid">
+      <h3>Tolka efteråt</h3>
 
-    <section class="stage green">
-
-      <h3>🌱 F–3</h3>
+      <p>
+        När observationen är dokumenterad kan du formulera en försiktig tolkning.
+      </p>
 
       <ul>
-        <li>Hur eleven räknar och strukturerar antal.</li>
-        <li>Vilka talbilder eleven använder.</li>
-        <li>Hur konkret material används.</li>
-        <li>Hur eleven förklarar muntligt.</li>
-        <li>Om eleven ser del–helhet.</li>
-        <li>Om eleven kontrollerar resultat.</li>
+        <li>Vad verkar eleven förstå?</li>
+        <li>Vilken idé verkar osäker?</li>
+        <li>Vilken följdfråga behövs?</li>
       </ul>
 
-    </section>
+    </article>
 
 
-    <section class="stage blue">
+    <article class="card">
 
-      <h3>🔵 4–6</h3>
+      <div class="icon">❓</div>
+
+      <h3>Ställ följdfrågor</h3>
+
+      <p>
+        Observationen blir starkare när eleven får förklara sin tanke.
+      </p>
 
       <ul>
-        <li>Strategival och flexibilitet.</li>
-        <li>Samband mellan representationer.</li>
-        <li>Bråk-, decimal- och procentförståelse.</li>
-        <li>Matematiskt ämnesspråk.</li>
-        <li>Problemlösningsstrategier.</li>
-        <li>Förmåga att jämföra metoder.</li>
+        <li>Hur tänkte du här?</li>
+        <li>Varför valde du den metoden?</li>
+        <li>Kan du visa på ett annat sätt?</li>
       </ul>
 
-    </section>
+    </article>
 
 
-    <section class="stage purple">
+    <article class="card">
 
-      <h3>🟣 7–9</h3>
+      <div class="icon">🔁</div>
+
+      <h3>Observera över tid</h3>
+
+      <p>
+        En enskild lektion ger bara ett begränsat underlag.
+      </p>
 
       <ul>
-        <li>Algebraiska representationer.</li>
-        <li>Generalisering.</li>
-        <li>Koppling mellan graf, tabell och formel.</li>
-        <li>Argumentation och motexempel.</li>
-        <li>Modellering.</li>
-        <li>Granskning av rimlighet och antaganden.</li>
+        <li>Återkom till samma fokus.</li>
+        <li>Jämför förändring över tid.</li>
+        <li>Se om stödet ger effekt.</li>
       </ul>
 
-    </section>
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🎯</div>
+
+      <h3>Knyt till nästa undervisning</h3>
+
+      <p>
+        Observationen ska leda till ett pedagogiskt beslut.
+      </p>
+
+      <ul>
+        <li>Repetition?</li>
+        <li>Ny representation?</li>
+        <li>Språkstöd?</li>
+        <li>Utmaning?</li>
+        <li>Ny gruppindelning?</li>
+      </ul>
+
+    </article>
 
   </div>
 
 
   <section class="teacher-box">
 
-    <h2>👩‍🏫 Frågor efter observationen</h2>
+    <h2>👩‍🏫 Frågor att ha med under observationen</h2>
 
     <ul>
-      <li>Vad såg eller hörde jag konkret?</li>
-      <li>Vilken matematisk förståelse kan det tyda på?</li>
-      <li>Finns alternativa tolkningar?</li>
-      <li>Behöver jag samla mer information innan jag drar en slutsats?</li>
-      <li>Vilka mönster ser jag i gruppen?</li>
-      <li>Vilka elever visar liknande strategier eller behov?</li>
-      <li>Vad behöver tas i helklass?</li>
-      <li>Vad passar bättre i mindre grupp?</li>
-      <li>Vilket stöd ska vara tillgängligt nästa gång?</li>
-      <li>Vilka elever behöver större utmaning?</li>
-      <li>Hur och när följer jag upp observationen?</li>
+      <li>Vad gör eleven först?</li>
+      <li>Vilken matematisk idé använder eleven?</li>
+      <li>Vilken strategi väljs?</li>
+      <li>Hur representeras problemet?</li>
+      <li>Vilka begrepp använder eleven?</li>
+      <li>Kan eleven förklara varför metoden fungerar?</li>
+      <li>Vad händer när eleven fastnar?</li>
+      <li>Byter eleven strategi?</li>
+      <li>Kontrollerar eleven sitt svar?</li>
+      <li>Kan eleven jämföra med en annan lösning?</li>
+      <li>Vilket stöd används?</li>
+      <li>Vilket skulle nästa utvecklingssteg kunna vara?</li>
+    </ul>
+
+  </section>
+
+
+  <section class="analysis-box">
+
+    <h2>🔍 Efter observationen</h2>
+
+    <ul>
+      <li><strong>Vad såg jag?</strong> Beskriv konkret.</li>
+      <li><strong>Vad kan det betyda?</strong> Formulera en försiktig tolkning.</li>
+      <li><strong>Vad behöver jag veta mer?</strong> Planera en följdfråga eller ny observation.</li>
+      <li><strong>Vad ska jag förändra?</strong> Välj nästa undervisningsåtgärd.</li>
+      <li><strong>När följer jag upp?</strong> Bestäm ett nytt tillfälle.</li>
     </ul>
 
   </section>
@@ -947,23 +1036,23 @@
 
   <div class="warning">
 
-    <strong>⚠️ Observation är ett underlag – inte en etikett.</strong><br>
-    En elev kan agera olika beroende på uppgift, dagsform,
-    språkbelastning, gruppsituation och tidigare erfarenheter.
-    Använd därför observationer tillsammans med
-    <strong>elevsamtal, elevlösningar, diagnoser och uppföljning över tid</strong>.
+    <strong>⚠️ Observera matematiskt lärande – inte personlighet.</strong><br>
+    Noteringar bör beskriva
+    <strong>strategier, handlingar, resonemang och matematiska behov</strong>,
+    inte etiketter som ”lat”, ”svag” eller ”omotiverad”.
+    En elevs beteende kan ha många orsaker och behöver förstås i sitt sammanhang.
 
   </div>
 
 
   <section class="links">
 
-    <h2>➡️ Observationsmaterial</h2>
+    <h2>➡️ Fortsätt i Matteresan</h2>
 
     <div class="link-row">
 
       <a href="material-observation.html">
-        🖨️ Observation A4
+        👀 Utskrivbara observationsunderlag
       </a>
 
       <a href="larare-bedomning.html">
@@ -971,23 +1060,27 @@
       </a>
 
       <a href="larare-diagnoser.html">
-        🩺 Diagnoser
+        🔎 Diagnoser
       </a>
 
       <a href="larare-exittickets.html">
-        🚪 Exit tickets
-      </a>
-
-      <a href="larare-matteprat.html">
-        💬 Matteprat
+        🎫 Exit tickets
       </a>
 
       <a href="larare-missuppfattningar.html">
-        🧠 Missuppfattningar
+        🕵️ Missuppfattningar
+      </a>
+
+      <a href="larare-stod.html">
+        🪜 Stöd
+      </a>
+
+      <a href="larare-utmaning.html">
+        🚀 Utmaning
       </a>
 
       <a href="larare-planering.html">
-        📅 Planering
+        🗓️ Planering
       </a>
 
     </div>
@@ -1000,7 +1093,7 @@
 <footer>
 
   <strong>HOLOS Matteresan F–9</strong><br>
-  👀 Se • Lyssna • Tolka • Dokumentera • Anpassa
+  👀 Se • Dokumentera • Tolka • Agera • Följ upp
 
 </footer>
 
