@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Sannolikhet | HOLOS Matteresan F–9</title>
+  <title>Elevblad – Sannolikhet | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -40,7 +40,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.45;
     }
 
     a {
@@ -53,7 +53,7 @@
         radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
         linear-gradient(135deg, #53677a, #8295a8);
       color: white;
-      padding: 22px 20px 58px;
+      padding: 22px 20px 50px;
     }
 
     .topbar {
@@ -71,52 +71,52 @@
     }
 
     .back-link {
-      border: 1px solid rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.7);
       border-radius: 999px;
       padding: 8px 15px;
       font-weight: bold;
     }
 
     .hero {
-      max-width: 930px;
-      margin: 44px auto 0;
+      max-width: 920px;
+      margin: 38px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4rem;
-      margin-bottom: 8px;
+      font-size: 3.8rem;
+      margin-bottom: 7px;
     }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 7vw, 4.4rem);
+      font-size: clamp(2.3rem, 7vw, 4.2rem);
       line-height: 1.05;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .hero h2 {
-      font-size: clamp(1.05rem, 3vw, 1.4rem);
-      margin-bottom: 14px;
+      font-size: clamp(1.05rem, 3vw, 1.35rem);
+      margin-bottom: 12px;
     }
 
     .hero p {
-      max-width: 850px;
+      max-width: 820px;
       margin: auto;
       color: #f6f9fb;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1100px;
       margin: auto;
-      padding: 42px 20px 70px;
+      padding: 38px 20px 70px;
     }
 
     .intro {
       background: white;
       border-radius: 22px;
-      padding: 28px;
+      padding: 26px;
       box-shadow: 0 8px 25px rgba(32,48,64,0.07);
-      margin-bottom: 36px;
+      margin-bottom: 28px;
     }
 
     .intro h2 {
@@ -126,285 +126,242 @@
 
     .intro p {
       color: var(--muted);
-      max-width: 950px;
     }
 
-    .important {
-      margin-top: 17px;
+    .screen-note {
       background: var(--yellow);
       border-left: 6px solid #c39b44;
       border-radius: 14px;
       padding: 17px;
+      margin-bottom: 30px;
       color: #665831;
     }
 
-    .section-title {
-      margin: 42px 0 18px;
-    }
-
-    .section-title h2 {
-      color: var(--dark);
-      font-size: 1.8rem;
-      margin-bottom: 5px;
-    }
-
-    .section-title p {
-      color: var(--muted);
-    }
-
-    .progression {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .stage {
-      border-radius: 18px;
-      padding: 22px;
-      min-height: 275px;
-    }
-
-    .stage h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-      font-size: 1.12rem;
-    }
-
-    .stage p,
-    .stage li {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .stage ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .stage li {
-      margin-bottom: 6px;
-    }
-
-    .green { background: var(--green); }
-    .blue { background: var(--blue); }
-    .purple { background: var(--purple); }
-    .yellow { background: var(--yellow); }
-    .orange { background: var(--orange); }
-    .teal { background: var(--teal); }
-    .pink { background: var(--pink); }
-    .gray { background: var(--gray); }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
+    .sheet {
+      width: 100%;
+      min-height: 277mm;
       background: white;
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 245px;
-      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
-      border-top: 6px solid var(--blue-strong);
+      margin: 0 auto 28px;
+      padding: 12mm;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.08);
+      border-top: 8px solid var(--green-strong);
+
+      page-break-after: always;
+      break-after: page;
     }
 
-    .card:nth-child(3n+1) {
-      border-top-color: var(--green-strong);
-    }
-
-    .card:nth-child(3n+2) {
+    .sheet:nth-of-type(2) {
       border-top-color: var(--blue-strong);
     }
 
-    .card:nth-child(3n+3) {
+    .sheet:nth-of-type(3) {
+      border-top-color: #c39b44;
+    }
+
+    .sheet:nth-of-type(4) {
       border-top-color: var(--purple-strong);
     }
 
-    .icon {
-      font-size: 2rem;
-      margin-bottom: 8px;
+    .sheet:nth-of-type(5) {
+      border-top-color: #5d9c92;
     }
 
-    .card h3 {
+    .sheet:nth-of-type(6) {
+      border-top-color: #aa7188;
+    }
+
+    .sheet.final-sheet {
+      page-break-after: auto;
+      break-after: auto;
+    }
+
+    .sheet-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      border-bottom: 2px solid #dce3e8;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    .sheet-header h2 {
       color: var(--dark);
-      margin-bottom: 8px;
-      font-size: 1.08rem;
+      font-size: 1.7rem;
+      margin-bottom: 4px;
     }
 
-    .card p,
-    .card li {
+    .sheet-header p {
       color: var(--muted);
       font-size: 0.88rem;
     }
 
-    .card ul {
-      margin-left: 19px;
-      margin-top: 7px;
-    }
-
-    .card li {
-      margin-bottom: 5px;
-    }
-
-    .flow {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-    }
-
-    .flow-step {
-      background: white;
-      border-radius: 16px;
-      padding: 18px 10px;
-      text-align: center;
-      min-height: 155px;
-      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
-      border-top: 6px solid var(--blue-strong);
-    }
-
-    .flow-step:nth-child(1) {
-      border-top-color: var(--green-strong);
-    }
-
-    .flow-step:nth-child(2) {
-      border-top-color: var(--blue-strong);
-    }
-
-    .flow-step:nth-child(3) {
-      border-top-color: #c39b44;
-    }
-
-    .flow-step:nth-child(4) {
-      border-top-color: var(--purple-strong);
-    }
-
-    .flow-step:nth-child(5) {
-      border-top-color: #5d9c92;
-    }
-
-    .flow-step span {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 6px;
-    }
-
-    .flow-step strong {
-      display: block;
-      color: var(--dark);
-      margin-bottom: 5px;
-    }
-
-    .flow-step p {
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    .example-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .example {
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 220px;
-    }
-
-    .example h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .example p,
-    .example li {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .example ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .example li {
-      margin-bottom: 6px;
-    }
-
-    .teacher-box {
-      margin-top: 36px;
-      background: var(--teal);
-      border-radius: 20px;
-      padding: 24px;
-    }
-
-    .teacher-box h2 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .teacher-box ul {
-      margin-left: 22px;
-      color: var(--muted);
-    }
-
-    .teacher-box li {
-      margin-bottom: 7px;
-    }
-
-    .warning {
-      margin-top: 22px;
-      background: var(--orange);
-      border-left: 6px solid #c77f43;
-      border-radius: 16px;
-      padding: 20px;
-      color: #654c37;
-    }
-
-    .links {
-      margin-top: 36px;
-      background: white;
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
-    }
-
-    .links h2 {
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-
-    .link-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .link-row a {
+    .sheet-number {
       background: var(--dark);
       color: white;
       border-radius: 999px;
-      padding: 9px 14px;
-      font-size: 0.83rem;
+      padding: 6px 11px;
       font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .student-row {
+      display: grid;
+      grid-template-columns: 1fr 0.7fr;
+      gap: 15px;
+      margin-bottom: 16px;
+    }
+
+    .field {
+      border-bottom: 1px solid #63717b;
+      padding: 7px 2px;
+      min-height: 32px;
+    }
+
+    .goal {
+      background: var(--green);
+      border-radius: 13px;
+      padding: 13px;
+      margin-bottom: 16px;
+    }
+
+    .goal strong {
+      color: var(--dark);
+    }
+
+    .task {
+      margin-bottom: 17px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .task h3 {
+      color: var(--dark);
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .task p {
+      font-size: 0.91rem;
+    }
+
+    .answer-line {
+      border-bottom: 1px solid #687682;
+      height: 29px;
+      margin-top: 5px;
+    }
+
+    .answer-lines {
+      margin-top: 5px;
+    }
+
+    .answer-lines div {
+      border-bottom: 1px solid #687682;
+      height: 28px;
+    }
+
+    .box {
+      border: 2px solid #9aa8b1;
+      border-radius: 10px;
+      min-height: 90px;
+      margin-top: 8px;
+      padding: 8px;
+    }
+
+    .large-box {
+      border: 2px solid #9aa8b1;
+      border-radius: 10px;
+      min-height: 145px;
+      margin-top: 8px;
+      padding: 8px;
+    }
+
+    .tiny-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
+      margin-top: 10px;
+    }
+
+    .tiny-card {
+      border: 1px solid #aeb9c0;
+      border-radius: 10px;
+      min-height: 78px;
+      padding: 9px;
+      text-align: center;
+    }
+
+    .probability-scale {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .probability-scale div {
+      border: 1px solid #9aa8b1;
+      border-radius: 10px;
+      padding: 12px 6px;
+      text-align: center;
+      min-height: 58px;
+      font-size: 0.82rem;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 9px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th,
+    td {
+      border: 1px solid #9faab2;
+      padding: 9px;
+      text-align: center;
+    }
+
+    th {
+      background: var(--blue);
+      color: var(--dark);
+    }
+
+    td {
+      height: 42px;
+    }
+
+    .reflection {
+      background: var(--yellow);
+      border-radius: 13px;
+      padding: 13px;
+      margin-top: 15px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .reflection h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .check-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      font-size: 0.9rem;
     }
 
     footer {
       background: var(--dark);
       color: white;
       text-align: center;
-      padding: 32px 20px;
-    }
-
-    @media (max-width: 1000px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .flow {
-        grid-template-columns: repeat(3, 1fr);
-      }
+      padding: 30px 20px;
     }
 
     @media (max-width: 700px) {
@@ -412,16 +369,23 @@
         flex-direction: column;
       }
 
-      .progression,
-      .grid,
-      .flow,
-      .example-grid {
+      .student-row {
         grid-template-columns: 1fr;
       }
 
+      .tiny-grid,
+      .probability-scale {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sheet {
+        padding: 20px 15px;
+        min-height: auto;
+      }
+
       main {
-        padding-left: 14px;
-        padding-right: 14px;
+        padding-left: 12px;
+        padding-right: 12px;
       }
     }
 
@@ -431,6 +395,7 @@
     }
 
     @media print {
+
       *,
       *::before,
       *::after {
@@ -445,65 +410,54 @@
       }
 
       header,
-      footer {
+      footer,
+      .intro,
+      .screen-note {
         display: none !important;
       }
 
       main {
         max-width: none;
         padding: 0;
+        margin: 0;
       }
 
-      .intro,
-      .stage,
-      .card,
-      .flow-step,
-      .example,
-      .teacher-box,
-      .warning,
-      .links {
-        break-inside: avoid;
-        page-break-inside: avoid;
+      .sheet {
+        width: auto;
+        min-height: 277mm;
+        margin: 0;
+        padding: 7mm;
+        border-radius: 0;
+        box-shadow: none;
+
+        page-break-after: always;
+        break-after: page;
       }
 
-      .green {
+      .sheet.final-sheet {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .goal {
         background: var(--green) !important;
       }
 
-      .blue {
-        background: var(--blue) !important;
-      }
-
-      .purple {
-        background: var(--purple) !important;
-      }
-
-      .yellow,
-      .important {
+      .reflection {
         background: var(--yellow) !important;
       }
 
-      .orange,
-      .warning {
-        background: var(--orange) !important;
+      th {
+        background: var(--blue) !important;
       }
 
-      .teal,
-      .teacher-box {
-        background: var(--teal) !important;
-      }
-
-      .pink {
-        background: var(--pink) !important;
-      }
-
-      .gray {
-        background: var(--gray) !important;
-      }
-
-      .link-row a {
-        background: var(--dark) !important;
-        color: white !important;
+      .sheet,
+      .task,
+      .reflection,
+      .tiny-card,
+      table {
+        break-inside: avoid;
+        page-break-inside: avoid;
       }
     }
   </style>
@@ -515,10 +469,12 @@
 
   <div class="topbar">
 
-    <div class="logo">HOLOS MATTERESAN</div>
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
 
-    <a href="larare.html" class="back-link">
-      ← Lärarportalen
+    <a href="material-elevblad.html" class="back-link">
+      ← Elevblad
     </a>
 
   </div>
@@ -526,16 +482,15 @@
 
   <div class="hero">
 
-    <div class="hero-icon">🎲🧠</div>
+    <div class="hero-icon">🎲✏️</div>
 
-    <h1>Sannolikhet</h1>
+    <h1>Elevblad – Sannolikhet</h1>
 
-    <h2>Möjlighet • Utfall • Jämförelse • Experiment • Modell</h2>
+    <h2>6 utskrivbara elevblad</h2>
 
     <p>
-      Sannolikhet handlar om att beskriva och resonera om osäkerhet.
-      Elever behöver gå från vardagliga ord som möjligt och omöjligt
-      till systematiska utfallsrum, relativa frekvenser och beräkningar.
+      Träna sannolikhet genom förutsägelser, slumpförsök,
+      möjliga utfall, jämförelser, tabeller och resonemang.
     </p>
 
   </div>
@@ -547,561 +502,816 @@
 
   <section class="intro">
 
-    <h2>🎲 Sannolikhet byggs genom både försök och resonemang</h2>
+    <h2>📄 Sannolikhet från erfarenhet till resonemang</h2>
 
     <p>
-      Elever behöver få kasta, dra, snurra, registrera och jämföra,
-      men också förklara varför vissa utfall är mer eller mindre sannolika.
-      Det är samspelet mellan experiment och matematisk modell
-      som bygger en stabil förståelse.
+      Paketet innehåller sex fristående elevblad.
+      De kan användas individuellt, i par, på stationer,
+      som undersökande matematik eller som underlag för matematiska samtal.
     </p>
 
-    <div class="important">
+  </section>
 
-      <strong>Grundprincip:</strong><br>
-      Arbeta genom
-      <strong>förutsäga → genomföra → registrera → jämföra → förklara → modellera</strong>.
-      Fråga inte bara vad som hände, utan också vad som kan förväntas
-      om försöket upprepas många gånger.
+
+  <div class="screen-note">
+    🖨️ <strong>Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+    Varje elevblad är anpassat till ett eget A4.
+  </div>
+
+
+  <!-- ELEVBLAD 1 -->
+
+  <section class="sheet">
+
+    <div class="sheet-header">
+
+      <div>
+        <h2>🎯 Elevblad 1 – Hur sannolikt är det?</h2>
+        <p>Sortera händelser från omöjligt till säkert.</p>
+      </div>
+
+      <div class="sheet-number">
+        1 / 6
+      </div>
+
+    </div>
+
+
+    <div class="student-row">
+
+      <div class="field">
+        <strong>Namn:</strong>
+      </div>
+
+      <div class="field">
+        <strong>Datum:</strong>
+      </div>
+
+    </div>
+
+
+    <div class="goal">
+      <strong>Mitt mål:</strong>
+      Jag kan använda ord som omöjligt, osannolikt, sannolikt och säkert.
+    </div>
+
+
+    <div class="task">
+
+      <h3>1. Tänk på sannolikhet som en skala</h3>
+
+      <div class="probability-scale">
+
+        <div>
+          <strong>Omöjligt</strong>
+        </div>
+
+        <div>
+          <strong>Osannolikt</strong>
+        </div>
+
+        <div>
+          <strong>Ungefär lika sannolikt</strong>
+        </div>
+
+        <div>
+          <strong>Sannolikt</strong>
+        </div>
+
+        <div>
+          <strong>Säkert</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>2. Placera händelserna på skalan</h3>
+
+      <p>
+        A. Att få en 7:a när du kastar en vanlig sexsidig tärning.
+      </p>
+
+      <div class="answer-line"></div>
+
+      <p>
+        B. Att få ett tal mellan 1 och 6 på samma tärning.
+      </p>
+
+      <div class="answer-line"></div>
+
+      <p>
+        C. Att få en 6:a.
+      </p>
+
+      <div class="answer-line"></div>
+
+      <p>
+        D. Att få ett jämnt tal.
+      </p>
+
+      <div class="answer-line"></div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>3. Skapa egna exempel</h3>
+
+      <div class="tiny-grid">
+
+        <div class="tiny-card">
+          Omöjligt
+        </div>
+
+        <div class="tiny-card">
+          Osannolikt
+        </div>
+
+        <div class="tiny-card">
+          Sannolikt
+        </div>
+
+        <div class="tiny-card">
+          Säkert
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="reflection">
+
+      <h3>💬 Förklara</h3>
+
+      <p>
+        Vad är skillnaden mellan något som är möjligt och något som är sannolikt?
+      </p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
 
     </div>
 
   </section>
 
 
-  <div class="section-title">
+  <!-- ELEVBLAD 2 -->
 
-    <h2>📈 Progression F–9</h2>
+  <section class="sheet">
 
-    <p>
-      Sannolikhetsförståelsen utvecklas från vardagligt språk
-      mot matematiska modeller och beräkningar.
-    </p>
+    <div class="sheet-header">
 
-  </div>
+      <div>
+        <h2>🎲 Elevblad 2 – Tärningsförsöket</h2>
+        <p>Förutsäg, testa och jämför.</p>
+      </div>
 
+      <div class="sheet-number">
+        2 / 6
+      </div>
 
-  <div class="progression">
-
-    <section class="stage green">
-
-      <h3>🌱 F–3</h3>
-
-      <ul>
-        <li>Händelser som säkra, möjliga och omöjliga.</li>
-        <li>Jämföra vad som verkar mest eller minst sannolikt.</li>
-        <li>Enkla slumpförsök.</li>
-        <li>Samla och sortera resultat.</li>
-        <li>Resonera före och efter experiment.</li>
-        <li>Upptäcka att slump inte betyder att allt är lika sannolikt.</li>
-      </ul>
-
-    </section>
-
-
-    <section class="stage blue">
-
-      <h3>🔵 4–6</h3>
-
-      <ul>
-        <li>Möjliga utfall.</li>
-        <li>Systematiskt lista utfall.</li>
-        <li>Jämföra sannolikheter.</li>
-        <li>Bråk som sannolikhet.</li>
-        <li>Enkla beräkningar.</li>
-        <li>Experimentell sannolikhet.</li>
-        <li>Relativ frekvens som idé.</li>
-        <li>Jämföra modell och resultat.</li>
-      </ul>
-
-    </section>
-
-
-    <section class="stage purple">
-
-      <h3>🟣 7–9</h3>
-
-      <ul>
-        <li>Sannolikhetsmodeller.</li>
-        <li>Systematiska utfallsrum.</li>
-        <li>Flera steg i slumpförsök.</li>
-        <li>Träddiagram och tabeller när det är lämpligt.</li>
-        <li>Komplementhändelser.</li>
-        <li>Relativ frekvens.</li>
-        <li>Koppling till statistik.</li>
-        <li>Bedöma rimlighet i sannolikhetsresonemang.</li>
-      </ul>
-
-    </section>
-
-  </div>
-
-
-  <div class="section-title">
-
-    <h2>🧠 Sex centrala sannolikhetsidéer</h2>
-
-    <p>
-      Sannolikhet kräver både språk, representationer och proportionellt tänkande.
-    </p>
-
-  </div>
-
-
-  <div class="grid">
-
-    <article class="card">
-
-      <div class="icon">✅</div>
-
-      <h3>Säkert och omöjligt</h3>
-
-      <p>
-        Elever behöver kunna placera händelser på en skala från omöjligt till säkert.
-      </p>
-
-      <ul>
-        <li>Omöjligt</li>
-        <li>Osannolikt</li>
-        <li>Ungefär lika sannolikt</li>
-        <li>Sannolikt</li>
-        <li>Säkert</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🎯</div>
-
-      <h3>Möjliga utfall</h3>
-
-      <p>
-        Innan sannolikhet beräknas behöver elever veta vilka utfall som kan inträffa.
-      </p>
-
-      <ul>
-        <li>Tärning: 1–6.</li>
-        <li>Mynt: krona eller klave.</li>
-        <li>Snurra: vilka sektorer finns?</li>
-        <li>Är utfallen lika sannolika?</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">⚖️</div>
-
-      <h3>Jämföra sannolikhet</h3>
-
-      <p>
-        Sannolikhet handlar om relationen mellan gynnsamma och möjliga utfall.
-      </p>
-
-      <ul>
-        <li>Vilket är mest sannolikt?</li>
-        <li>Vilket är minst sannolikt?</li>
-        <li>Är två händelser lika sannolika?</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🍕</div>
-
-      <h3>Bråk och procent</h3>
-
-      <p>
-        Sannolikhet kan uttryckas som rationellt tal.
-      </p>
-
-      <ul>
-        <li>1/2</li>
-        <li>0,5</li>
-        <li>50 %</li>
-        <li>Samma sannolikhet – olika representationer.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🧪</div>
-
-      <h3>Experiment</h3>
-
-      <p>
-        Resultatet i ett litet antal försök behöver inte exakt motsvara modellen.
-      </p>
-
-      <ul>
-        <li>Genomför många försök.</li>
-        <li>Registrera frekvens.</li>
-        <li>Beräkna relativ frekvens.</li>
-        <li>Jämför med förväntad sannolikhet.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🌳</div>
-
-      <h3>Flera steg</h3>
-
-      <p>
-        När flera val eller slumpförsök kombineras behövs systematiska representationer.
-      </p>
-
-      <ul>
-        <li>Tabell</li>
-        <li>Lista</li>
-        <li>Träddiagram</li>
-        <li>Systematisk kontroll av alla utfall</li>
-      </ul>
-
-    </article>
-
-  </div>
-
-
-  <div class="section-title">
-
-    <h2>🔄 Från gissning till matematisk modell</h2>
-
-    <p>
-      Upplevelsen ska gradvis kopplas till mer precisa matematiska representationer.
-    </p>
-
-  </div>
-
-
-  <div class="flow">
-
-    <div class="flow-step">
-      <span>🤔</span>
-      <strong>1. Förutsäg</strong>
-      <p>Vad tror du kommer att hända? Varför?</p>
     </div>
 
-    <div class="flow-step">
-      <span>🎲</span>
-      <strong>2. Genomför</strong>
-      <p>Gör slumpförsöket flera gånger.</p>
+
+    <div class="student-row">
+
+      <div class="field">
+        <strong>Namn:</strong>
+      </div>
+
+      <div class="field">
+        <strong>Datum:</strong>
+      </div>
+
     </div>
 
-    <div class="flow-step">
-      <span>📝</span>
-      <strong>3. Registrera</strong>
-      <p>Samla resultaten systematiskt.</p>
+
+    <div class="goal">
+      <strong>Mitt mål:</strong>
+      Jag kan genomföra ett slumpförsök och jämföra resultatet med min förutsägelse.
     </div>
 
-    <div class="flow-step">
-      <span>📊</span>
-      <strong>4. Jämför</strong>
-      <p>Jämför resultatet med förutsägelsen.</p>
+
+    <div class="task">
+
+      <h3>1. Förutsäg</h3>
+
+      <p>
+        Vilket tal tror du kommer flest gånger när en tärning kastas 30 gånger?
+      </p>
+
+      <div class="answer-line"></div>
+
+      <p><strong>Varför tror du det?</strong></p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
     </div>
 
-    <div class="flow-step">
-      <span>🧠</span>
-      <strong>5. Modellera</strong>
-      <p>Förklara med möjliga utfall och sannolikhet.</p>
+
+    <div class="task">
+
+      <h3>2. Kasta tärningen 30 gånger</h3>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <tr>
+            <th>Utfall</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+          </tr>
+
+          <tr>
+            <td>Antal</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+        </table>
+
+      </div>
+
     </div>
 
-  </div>
+
+    <div class="task">
+
+      <h3>3. Vilket utfall kom flest gånger?</h3>
+
+      <div class="answer-line"></div>
+
+    </div>
 
 
-  <div class="section-title">
+    <div class="task">
 
-    <h2>🧩 Fyra undervisningsidéer</h2>
+      <h3>4. Vilket utfall kom minst antal gånger?</h3>
 
-    <p>
-      Undersökningar som fungerar på flera nivåer genom att kraven förändras.
-    </p>
+      <div class="answer-line"></div>
 
-  </div>
+    </div>
 
 
-  <div class="example-grid">
+    <div class="task">
 
-    <section class="example green">
+      <h3>5. Blev resultatet som du förutsåg?</h3>
 
-      <h3>🎲 Tärningsjakten</h3>
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
 
-      <ul>
-        <li>Vilket tal tror du kommer flest gånger?</li>
-        <li>Kasta tärningen 30 gånger.</li>
-        <li>Registrera resultatet.</li>
-        <li>Jämför talen.</li>
-        <li>Varför blev de inte exakt lika många?</li>
-      </ul>
-
-      <p>
-        Synliggör skillnaden mellan slumpresultat och modell.
-      </p>
-
-    </section>
+    </div>
 
 
-    <section class="example blue">
+    <div class="reflection">
 
-      <h3>🎨 Designa ett lyckohjul</h3>
-
-      <ul>
-        <li>Skapa ett hjul med flera färger.</li>
-        <li>Bestäm sannolikheten för varje färg.</li>
-        <li>Ändra designen så att blå blir dubbelt så sannolik som röd.</li>
-        <li>Testa genom experiment.</li>
-      </ul>
+      <h3>🧠 Tänk vidare</h3>
 
       <p>
-        Kombinerar geometri, bråk och sannolikhet.
+        Betyder det att det tal som kom flest gånger är mest sannolikt nästa gång?
+        Förklara.
       </p>
 
-    </section>
-
-
-    <section class="example yellow">
-
-      <h3>🧦 Den hemliga påsen</h3>
-
-      <ul>
-        <li>En påse innehåller färgade föremål.</li>
-        <li>Dra med återläggning.</li>
-        <li>Registrera många dragningar.</li>
-        <li>Försök uppskatta innehållet.</li>
-        <li>Hur säker kan du vara?</li>
-      </ul>
-
-      <p>
-        Knyter experimentell sannolikhet till inferens.
-      </p>
-
-    </section>
-
-
-    <section class="example purple">
-
-      <h3>🌳 Hitta alla utfall</h3>
-
-      <ul>
-        <li>Kasta två mynt.</li>
-        <li>Vilka möjliga utfall finns?</li>
-        <li>Lista systematiskt.</li>
-        <li>Gör ett träddiagram.</li>
-        <li>Beräkna sannolikheten för två kronor.</li>
-      </ul>
-
-      <p>
-        Bygger förståelse för flerstegssituationer.
-      </p>
-
-    </section>
-
-  </div>
-
-
-  <div class="section-title">
-
-    <h2>🕵️ Vanliga missuppfattningar</h2>
-
-    <p>
-      Sannolikhet påverkas lätt av vardagliga intuitioner som inte alltid är matematiska.
-    </p>
-
-  </div>
-
-
-  <div class="grid">
-
-    <article class="card">
-
-      <div class="icon">🎲</div>
-
-      <h3>”Sexan måste komma snart”</h3>
-
-      <p>
-        Eleven tror att tidigare utfall styr nästa oberoende tärningskast.
-      </p>
-
-      <ul>
-        <li>Jämför varje nytt kast med samma utfallsrum.</li>
-        <li>Diskutera oberoende försök.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🔁</div>
-
-      <h3>Slump ska ge jämnt resultat direkt</h3>
-
-      <p>
-        Eleven förväntar sig exakt lika fördelning i ett litet antal försök.
-      </p>
-
-      <ul>
-        <li>Jämför 10, 100 och fler försök.</li>
-        <li>Diskutera variation.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">⚖️</div>
-
-      <h3>Alla synliga alternativ är lika sannolika</h3>
-
-      <p>
-        Ett lyckohjul med tre färger antas ge 1/3 per färg trots olika sektorstorlekar.
-      </p>
-
-      <ul>
-        <li>Jämför yta eller vinkel.</li>
-        <li>Koppla till andel av helheten.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🔢</div>
-
-      <h3>Fler gynnsamma utfall räcker</h3>
-
-      <p>
-        Eleven jämför bara antalet gynnsamma utfall och ignorerar totalantalet möjliga utfall.
-      </p>
-
-      <ul>
-        <li>Jämför relationen gynnsamma/möjliga.</li>
-        <li>Använd bråk.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🌳</div>
-
-      <h3>Utfall missas i flera steg</h3>
-
-      <p>
-        Eleven listar inte kombinationerna systematiskt.
-      </p>
-
-      <ul>
-        <li>Använd tabell eller träddiagram.</li>
-        <li>Kontrollera att alla grenar finns.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">📊</div>
-
-      <h3>Experimentellt resultat = exakt sannolikhet</h3>
-
-      <p>
-        Eleven använder exempelvis 7 träffar av 10 som bevis för att sannolikheten är exakt 70 %.
-      </p>
-
-      <ul>
-        <li>Skilj observation från modell.</li>
-        <li>Diskutera fler försök.</li>
-        <li>Jämför relativ frekvens över tid.</li>
-      </ul>
-
-    </article>
-
-  </div>
-
-
-  <section class="teacher-box">
-
-    <h2>👩‍🏫 Frågor som utvecklar sannolikhetstänkande</h2>
-
-    <ul>
-      <li>Vilka utfall är möjliga?</li>
-      <li>Har du hittat alla?</li>
-      <li>Är utfallen lika sannolika?</li>
-      <li>Vilket utfall är mest sannolikt? Varför?</li>
-      <li>Hur kan sannolikheten uttryckas som bråk?</li>
-      <li>Hur kan den uttryckas som decimal eller procent?</li>
-      <li>Vad tror du händer innan vi testar?</li>
-      <li>Vad visar experimentet?</li>
-      <li>Varför behöver resultatet inte bli exakt som modellen?</li>
-      <li>Vad händer om vi gör fler försök?</li>
-      <li>Hur kan alla kombinationer visas systematiskt?</li>
-      <li>Är slutsatsen rimlig utifrån antal försök?</li>
-    </ul>
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
 
   </section>
 
 
-  <div class="warning">
+  <!-- ELEVBLAD 3 -->
 
-    <strong>⚠️ Slump betyder inte ”vad som helst kan hända”.</strong><br>
-    Sannolikhet beskriver strukturen bakom osäkerhet.
-    Elever behöver därför kombinera
-    <strong>experiment, systematiska utfallsrum, bråk, procent och resonemang</strong>.
-    Undvik att låta området stanna vid att bara kasta tärningar och registrera resultat.
+  <section class="sheet">
 
-  </div>
+    <div class="sheet-header">
+
+      <div>
+        <h2>🎯 Elevblad 3 – Möjliga utfall</h2>
+        <p>Hitta alla möjligheter systematiskt.</p>
+      </div>
+
+      <div class="sheet-number">
+        3 / 6
+      </div>
+
+    </div>
 
 
-  <section class="links">
+    <div class="student-row">
 
-    <h2>➡️ Fortsätt i Matteresan</h2>
+      <div class="field">
+        <strong>Namn:</strong>
+      </div>
 
-    <div class="link-row">
+      <div class="field">
+        <strong>Datum:</strong>
+      </div>
 
-      <a href="elevblad-sannolikhet.html">
-        ✏️ Elevblad sannolikhet
-      </a>
+    </div>
 
-      <a href="larare-statistik.html">
-        📊 Statistik
-      </a>
 
-      <a href="larare-brak.html">
-        🍕 Bråk
-      </a>
+    <div class="goal">
+      <strong>Mitt mål:</strong>
+      Jag kan hitta alla möjliga utfall och kontrollera att inget saknas.
+    </div>
 
-      <a href="larare-procent.html">
-        💯 Procent
-      </a>
 
-      <a href="larare-problemlosning.html">
-        🧩 Problemlösning
-      </a>
+    <div class="task">
 
-      <a href="larare-undersvisning.html">
-        🧠 Undervisning
-      </a>
+      <h3>1. Ett mynt kastas en gång</h3>
 
-      <a href="larare-missuppfattningar.html">
-        🕵️ Missuppfattningar
-      </a>
+      <p>
+        Vilka utfall är möjliga?
+      </p>
 
-      <a href="larare-utmaning.html">
-        🚀 Utmaning
-      </a>
+      <div class="answer-line"></div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>2. Två mynt kastas</h3>
+
+      <p>
+        Skriv alla möjliga kombinationer.
+      </p>
+
+      <div class="large-box"></div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>3. Hur många möjliga utfall hittade du?</h3>
+
+      <div class="answer-line"></div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>4. Vilka utfall ger två lika sidor?</h3>
+
+      <div class="answer-line"></div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>5. Hur kan du visa att du verkligen hittat alla?</h3>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="reflection">
+
+      <h3>🚀 Utmaning</h3>
+
+      <p>
+        Hur många möjliga utfall tror du att det finns om tre mynt kastas?
+        Försök hitta alla.
+      </p>
+
+      <div class="large-box"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ELEVBLAD 4 -->
+
+  <section class="sheet">
+
+    <div class="sheet-header">
+
+      <div>
+        <h2>⚖️ Elevblad 4 – Vilket spel är bäst?</h2>
+        <p>Jämför sannolikheter.</p>
+      </div>
+
+      <div class="sheet-number">
+        4 / 6
+      </div>
+
+    </div>
+
+
+    <div class="student-row">
+
+      <div class="field">
+        <strong>Namn:</strong>
+      </div>
+
+      <div class="field">
+        <strong>Datum:</strong>
+      </div>
+
+    </div>
+
+
+    <div class="goal">
+      <strong>Mitt mål:</strong>
+      Jag kan jämföra sannolikheter och motivera vilket alternativ som är bäst.
+    </div>
+
+
+    <div class="task">
+
+      <h3>1. Spel A</h3>
+
+      <p>
+        Du vinner om en vanlig sexsidig tärning visar 6.
+      </p>
+
+      <p><strong>Hur många gynnsamma utfall finns?</strong></p>
+      <div class="answer-line"></div>
+
+      <p><strong>Hur många möjliga utfall finns totalt?</strong></p>
+      <div class="answer-line"></div>
+
+      <p><strong>Sannolikheten är:</strong></p>
+      <div class="answer-line"></div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>2. Spel B</h3>
+
+      <p>
+        Du vinner om tärningen visar ett jämnt tal.
+      </p>
+
+      <p><strong>Vilka utfall gör att du vinner?</strong></p>
+      <div class="answer-line"></div>
+
+      <p><strong>Sannolikheten är:</strong></p>
+      <div class="answer-line"></div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>3. Vilket spel skulle du välja?</h3>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>4. Skapa ett eget tärningsspel</h3>
+
+      <p>
+        Spelet ska ge ungefär 1/3 chans att vinna.
+      </p>
+
+      <div class="large-box"></div>
+
+    </div>
+
+
+    <div class="reflection">
+
+      <h3>💬 Motivera</h3>
+
+      <p>
+        Hur vet du att ditt spel ger ungefär 1/3 chans att vinna?
+      </p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ELEVBLAD 5 -->
+
+  <section class="sheet">
+
+    <div class="sheet-header">
+
+      <div>
+        <h2>🎨 Elevblad 5 – Designa ett lyckohjul</h2>
+        <p>Skapa sannolikhet med area och andelar.</p>
+      </div>
+
+      <div class="sheet-number">
+        5 / 6
+      </div>
+
+    </div>
+
+
+    <div class="student-row">
+
+      <div class="field">
+        <strong>Namn:</strong>
+      </div>
+
+      <div class="field">
+        <strong>Datum:</strong>
+      </div>
+
+    </div>
+
+
+    <div class="goal">
+      <strong>Mitt mål:</strong>
+      Jag kan skapa en modell där olika utfall har olika sannolikhet.
+    </div>
+
+
+    <div class="task">
+
+      <h3>1. Rita ett lyckohjul</h3>
+
+      <p>
+        Hjulet ska innehålla tre färger:
+        blå, gul och röd.
+      </p>
+
+      <div class="large-box">
+        Rita ditt lyckohjul här.
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>2. Gör blå dubbelt så sannolik som röd</h3>
+
+      <p>
+        Förklara hur du har gjort.
+      </p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>3. Skriv sannolikheten för varje färg</h3>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <tr>
+            <th>Färg</th>
+            <th>Bråk</th>
+            <th>Decimal</th>
+            <th>Procent</th>
+          </tr>
+
+          <tr>
+            <td>Blå</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>Gul</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>Röd</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+
+
+    <div class="reflection">
+
+      <h3>🚀 Utmaning</h3>
+
+      <p>
+        Hur skulle du ändra hjulet om blå skulle ha 50 % chans?
+      </p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ELEVBLAD 6 -->
+
+  <section class="sheet final-sheet">
+
+    <div class="sheet-header">
+
+      <div>
+        <h2>🕵️ Elevblad 6 – Sannolikhetsdetektiven</h2>
+        <p>Granska påståenden och förklara ditt resonemang.</p>
+      </div>
+
+      <div class="sheet-number">
+        6 / 6
+      </div>
+
+    </div>
+
+
+    <div class="student-row">
+
+      <div class="field">
+        <strong>Namn:</strong>
+      </div>
+
+      <div class="field">
+        <strong>Datum:</strong>
+      </div>
+
+    </div>
+
+
+    <div class="goal">
+      <strong>Mitt mål:</strong>
+      Jag kan avgöra om ett sannolikhetspåstående är rimligt och förklara varför.
+    </div>
+
+
+    <div class="task">
+
+      <h3>1. Sant eller falskt?</h3>
+
+      <p>
+        <strong>A.</strong>
+        Om en sexa inte har kommit på tio tärningskast är det större chans
+        att nästa kast blir en sexa.
+      </p>
+
+      <div class="answer-line"></div>
+
+      <p><strong>Förklara:</strong></p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <p>
+        <strong>B.</strong>
+        Om ett mynt kastas 20 gånger måste det bli exakt 10 kronor och 10 klavar.
+      </p>
+
+      <div class="answer-line"></div>
+
+      <p><strong>Förklara:</strong></p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <p>
+        <strong>C.</strong>
+        På en vanlig sexsidig tärning är sannolikheten att få ett jämnt tal 1/2.
+      </p>
+
+      <div class="answer-line"></div>
+
+      <p><strong>Förklara:</strong></p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>2. Skapa ett eget sant påstående om sannolikhet</h3>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>3. Skapa ett eget falskt påstående</h3>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+      <p><strong>Förklara varför det är falskt:</strong></p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="reflection">
+
+      <h3>🌟 Min sannolikhetsreflektion</h3>
+
+      <p>
+        Det viktigaste jag har upptäckt om sannolikhet är:
+      </p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="check-row">
+        <span>☐ Jag kan hitta möjliga utfall.</span>
+        <span>☐ Jag kan jämföra sannolikheter.</span>
+        <span>☐ Jag kan göra ett slumpförsök.</span>
+        <span>☐ Jag kan förklara mitt resonemang.</span>
+      </div>
 
     </div>
 
@@ -1113,7 +1323,7 @@
 <footer>
 
   <strong>HOLOS Matteresan F–9</strong><br>
-  🎲 Möjlighet • Utfall • Jämförelse • Experiment • Modell
+  🎲 Elevblad – Sannolikhet
 
 </footer>
 
