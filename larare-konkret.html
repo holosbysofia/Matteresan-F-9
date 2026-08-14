@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Konkret & visuellt | HOLOS Matteresan F–9</title>
+  <title>Konkret och visuellt | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -78,7 +78,7 @@
     }
 
     .hero {
-      max-width: 930px;
+      max-width: 950px;
       margin: 44px auto 0;
       text-align: center;
     }
@@ -100,7 +100,7 @@
     }
 
     .hero p {
-      max-width: 850px;
+      max-width: 860px;
       margin: auto;
       color: #f6f9fb;
     }
@@ -126,7 +126,7 @@
 
     .intro p {
       color: var(--muted);
-      max-width: 950px;
+      max-width: 970px;
     }
 
     .important {
@@ -152,58 +152,47 @@
       color: var(--muted);
     }
 
-    .flow {
+    .progression {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
-    .flow-step {
-      background: white;
-      border-radius: 16px;
-      padding: 18px 10px;
-      text-align: center;
-      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
-      min-height: 155px;
-      border-top: 6px solid var(--blue-strong);
+    .stage {
+      border-radius: 18px;
+      padding: 22px;
+      min-height: 275px;
     }
 
-    .flow-step:nth-child(1) {
-      border-top-color: var(--green-strong);
+    .stage h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.12rem;
     }
 
-    .flow-step:nth-child(2) {
-      border-top-color: var(--blue-strong);
+    .stage p,
+    .stage li {
+      color: var(--muted);
+      font-size: 0.9rem;
     }
 
-    .flow-step:nth-child(3) {
-      border-top-color: #c39b44;
+    .stage ul {
+      margin-left: 20px;
+      margin-top: 8px;
     }
 
-    .flow-step:nth-child(4) {
-      border-top-color: var(--purple-strong);
-    }
-
-    .flow-step:nth-child(5) {
-      border-top-color: #5d9c92;
-    }
-
-    .flow-step span {
-      display: block;
-      font-size: 2rem;
+    .stage li {
       margin-bottom: 6px;
     }
 
-    .flow-step strong {
-      display: block;
-      color: var(--dark);
-      margin-bottom: 5px;
-    }
-
-    .flow-step p {
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
 
     .grid {
       display: grid;
@@ -215,7 +204,7 @@
       background: white;
       border-radius: 18px;
       padding: 20px;
-      min-height: 240px;
+      min-height: 245px;
       box-shadow: 0 7px 22px rgba(32,48,64,0.06);
       border-top: 6px solid var(--blue-strong);
     }
@@ -258,14 +247,58 @@
       margin-bottom: 5px;
     }
 
-    .green { background: var(--green); }
-    .blue { background: var(--blue); }
-    .purple { background: var(--purple); }
-    .yellow { background: var(--yellow); }
-    .orange { background: var(--orange); }
-    .teal { background: var(--teal); }
-    .pink { background: var(--pink); }
-    .gray { background: var(--gray); }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .flow-step {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 10px;
+      text-align: center;
+      min-height: 160px;
+      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+    }
+
+    .flow-step:nth-child(1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .flow-step:nth-child(2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .flow-step:nth-child(3) {
+      border-top-color: #c39b44;
+    }
+
+    .flow-step:nth-child(4) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .flow-step:nth-child(5) {
+      border-top-color: #5d9c92;
+    }
+
+    .flow-step span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .flow-step strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .flow-step p {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
 
     .example-grid {
       display: grid;
@@ -276,7 +309,7 @@
     .example {
       border-radius: 18px;
       padding: 20px;
-      min-height: 210px;
+      min-height: 220px;
     }
 
     .example h3 {
@@ -296,37 +329,6 @@
     }
 
     .example li {
-      margin-bottom: 6px;
-    }
-
-    .stage-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .stage {
-      border-radius: 18px;
-      padding: 22px;
-    }
-
-    .stage h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .stage p,
-    .stage li {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .stage ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .stage li {
       margin-bottom: 6px;
     }
 
@@ -395,13 +397,13 @@
       padding: 32px 20px;
     }
 
-    @media (max-width: 980px) {
-      .flow {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
+    @media (max-width: 1000px) {
       .grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flow {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -410,10 +412,10 @@
         flex-direction: column;
       }
 
-      .flow,
+      .progression,
       .grid,
-      .example-grid,
-      .stage-grid {
+      .flow,
+      .example-grid {
         grid-template-columns: 1fr;
       }
 
@@ -440,6 +442,9 @@
       html,
       body {
         background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
       header,
@@ -453,10 +458,10 @@
       }
 
       .intro,
-      .flow-step,
-      .card,
-      .example,
       .stage,
+      .card,
+      .flow-step,
+      .example,
       .teacher-box,
       .warning,
       .links {
@@ -524,16 +529,17 @@
 
   <div class="hero">
 
-    <div class="hero-icon">🧱🎨</div>
+    <div class="hero-icon">🧱👀🧠</div>
 
-    <h1>Konkret & visuellt</h1>
+    <h1>Konkret och visuellt</h1>
 
-    <h2>Göra • Se • Rita • Förklara • Symbolisera</h2>
+    <h2>Gör • Se • Rita • Förklara • Symbolisera</h2>
 
     <p>
-      Stöd för att använda konkret material och visuella representationer
-      så att elever kan utveckla matematiska modeller som gradvis blir
-      mer abstrakta och självständiga.
+      Konkret material och visuella representationer hjälper elever
+      att se matematiska strukturer och relationer.
+      De ska fungera som en bro mellan erfarenhet,
+      språk och abstrakta symboler – inte som en slutstation.
     </p>
 
   </div>
@@ -545,21 +551,23 @@
 
   <section class="intro">
 
-    <h2>🧱 Det konkreta materialet är en bro</h2>
+    <h2>🧱 Från handling till matematisk idé</h2>
 
     <p>
-      Konkret material och bilder kan göra osynliga matematiska relationer synliga.
-      Men förståelsen utvecklas först när elever också får koppla
-      det de gör till språk, bilder, symboler och matematiska samband.
+      Att använda konkret material betyder inte att matematiken blir enklare.
+      Tvärtom kan material, bilder och modeller göra avancerade matematiska
+      idéer synliga och möjliga att resonera om.
+      Det viktiga är att läraren hjälper eleven att se
+      <strong>vad materialet representerar matematiskt</strong>.
     </p>
 
     <div class="important">
 
       <strong>Grundprincip:</strong><br>
-      Materialet är inte slutmålet. Hjälp eleven att röra sig mellan
-      <strong>handling → bild → språk → symbol → generalisering</strong>.
-      Det ska samtidigt vara möjligt att gå tillbaka till en konkret
-      eller visuell representation när en ny idé blir svår.
+      Arbeta återkommande genom
+      <strong>gör → se → rita → förklara → symbolisera</strong>.
+      Växla sedan mellan representationerna så att eleven
+      förstår att samma matematiska idé kan visas på flera olika sätt.
 
     </div>
 
@@ -567,49 +575,81 @@
 
 
   <div class="section-title">
-    <h2>🔄 Fem steg mellan konkret och abstrakt</h2>
-    <p>En flexibel modell för undervisning inom många matematikområden.</p>
+
+    <h2>📈 Progression F–9</h2>
+
+    <p>
+      Konkret och visuellt stöd är relevant i hela grundskolan,
+      men representationerna och resonemangen blir successivt mer avancerade.
+    </p>
+
   </div>
 
 
-  <div class="flow">
+  <div class="progression">
 
-    <div class="flow-step">
-      <span>🧱</span>
-      <strong>1. Gör</strong>
-      <p>Bygg, flytta, dela, mäta eller sortera.</p>
-    </div>
+    <section class="stage green">
 
-    <div class="flow-step">
-      <span>👀</span>
-      <strong>2. Se</strong>
-      <p>Vad händer? Vad är samma? Vad förändras?</p>
-    </div>
+      <h3>🌱 F–3</h3>
 
-    <div class="flow-step">
-      <span>🎨</span>
-      <strong>3. Rita</strong>
-      <p>Gör en modell av det konkreta.</p>
-    </div>
+      <ul>
+        <li>Bygga antal med föremål.</li>
+        <li>Gruppera och dela upp tal.</li>
+        <li>Använda tiobasmaterial.</li>
+        <li>Arbeta på tallinje.</li>
+        <li>Visa räknesätt med konkreta situationer.</li>
+        <li>Vika och dela helheter.</li>
+        <li>Bygga och jämföra geometriska former.</li>
+      </ul>
 
-    <div class="flow-step">
-      <span>💬</span>
-      <strong>4. Förklara</strong>
-      <p>Sätt ord på relationer och samband.</p>
-    </div>
+    </section>
 
-    <div class="flow-step">
-      <span>🔢</span>
-      <strong>5. Symbolisera</strong>
-      <p>Koppla till tal, uttryck, formler eller algebra.</p>
-    </div>
+
+    <section class="stage blue">
+
+      <h3>🔵 4–6</h3>
+
+      <ul>
+        <li>Platsvärde med större tal och decimaler.</li>
+        <li>Bråkremsor och områdesmodeller.</li>
+        <li>Procent som hundradelar.</li>
+        <li>Dubbel tallinje.</li>
+        <li>Tabeller och diagram.</li>
+        <li>Area- och volymmodeller.</li>
+        <li>Skala och proportionalitet visuellt.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage purple">
+
+      <h3>🟣 7–9</h3>
+
+      <ul>
+        <li>Algebraiska modeller.</li>
+        <li>Funktionsgrafer.</li>
+        <li>Variabel som generell storhet.</li>
+        <li>Proportionella modeller.</li>
+        <li>Geometriska konstruktioner.</li>
+        <li>Förändringsfaktor visuellt och symboliskt.</li>
+        <li>Växla mellan konkret, grafisk och algebraisk representation.</li>
+      </ul>
+
+    </section>
 
   </div>
 
 
   <div class="section-title">
-    <h2>🧰 Representationer som gör matematiken synlig</h2>
-    <p>Välj representation utifrån den matematiska idén – inte bara vad som råkar finnas.</p>
+
+    <h2>🧠 Sex användbara representationer</h2>
+
+    <p>
+      Representationen ska väljas för att synliggöra en matematisk idé,
+      inte bara för att skapa variation.
+    </p>
+
   </div>
 
 
@@ -617,20 +657,20 @@
 
     <article class="card">
 
-      <div class="icon">🔟</div>
+      <div class="icon">🧱</div>
 
       <h3>Tiobasmaterial</h3>
 
       <p>
-        Särskilt användbart för platsvärde och relationer mellan ental,
-        tiotal, hundratal och decimaler.
+        Gör positionssystemets struktur synlig.
       </p>
 
       <ul>
-        <li>Bygga tal</li>
-        <li>Växling</li>
-        <li>Addition och subtraktion</li>
-        <li>Decimaltal</li>
+        <li>Ental</li>
+        <li>Tiotal</li>
+        <li>Hundratal</li>
+        <li>Tusental</li>
+        <li>Växling mellan positioner</li>
       </ul>
 
     </article>
@@ -643,14 +683,16 @@
       <h3>Tallinje</h3>
 
       <p>
-        En stark representation för storlek, avstånd, operationer och rationella tal.
+        Tallinjen visar tal som positioner och relationer,
+        inte bara som antal.
       </p>
 
       <ul>
-        <li>Heltal</li>
+        <li>Storlek</li>
+        <li>Avstånd</li>
         <li>Negativa tal</li>
         <li>Bråk</li>
-        <li>Decimaltal</li>
+        <li>Decimaler</li>
       </ul>
 
     </article>
@@ -660,17 +702,18 @@
 
       <div class="icon">🍕</div>
 
-      <h3>Bråkmodeller</h3>
+      <h3>Del–helhet-modeller</h3>
 
       <p>
-        Bråkstavar, cirklar och areamodeller gör delarnas storlek synlig.
+        Gör relationen mellan del och helhet tydlig.
       </p>
 
       <ul>
-        <li>Del av helhet</li>
-        <li>Likvärdiga bråk</li>
+        <li>Bråk</li>
+        <li>Procent</li>
+        <li>Förhållanden</li>
+        <li>Del av antal</li>
         <li>Jämförelser</li>
-        <li>Bråk–decimal–procent</li>
       </ul>
 
     </article>
@@ -678,19 +721,20 @@
 
     <article class="card">
 
-      <div class="icon">🟦</div>
+      <div class="icon">▭</div>
 
-      <h3>Multilink och kuber</h3>
+      <h3>Områdesmodeller</h3>
 
       <p>
-        Kan användas långt upp i åldrarna när materialet kopplas till en tydlig idé.
+        Rektanglar och rutor kan synliggöra flera matematiska strukturer.
       </p>
 
       <ul>
-        <li>Talrelationer</li>
-        <li>Mönster</li>
-        <li>Förhållanden</li>
-        <li>Volym</li>
+        <li>Multiplikation</li>
+        <li>Bråk</li>
+        <li>Procent</li>
+        <li>Algebra</li>
+        <li>Area</li>
       </ul>
 
     </article>
@@ -700,17 +744,18 @@
 
       <div class="icon">📊</div>
 
-      <h3>Tabeller</h3>
+      <h3>Tabeller och grafer</h3>
 
       <p>
-        Hjälper elever att organisera data och se hur två storheter hänger ihop.
+        Organiserar information och gör samband och förändring synliga.
       </p>
 
       <ul>
+        <li>Mönster</li>
         <li>Statistik</li>
         <li>Proportionalitet</li>
-        <li>Mönster</li>
         <li>Funktioner</li>
+        <li>Förändring över tid</li>
       </ul>
 
     </article>
@@ -718,79 +763,21 @@
 
     <article class="card">
 
-      <div class="icon">📈</div>
+      <div class="icon">🔤</div>
 
-      <h3>Grafer</h3>
+      <h3>Symbolisk representation</h3>
 
       <p>
-        Gör förändring och samband synliga på ett annat sätt än tabell och formel.
+        Symbolerna sammanfattar en matematisk idé
+        som först behöver ha fått mening.
       </p>
 
       <ul>
-        <li>Koordinater</li>
-        <li>Förändring</li>
-        <li>Proportionalitet</li>
-        <li>Funktioner</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">📐</div>
-
-      <h3>Geometriska modeller</h3>
-
-      <p>
-        Figurer, rutpapper och modeller kan synliggöra geometriska relationer.
-      </p>
-
-      <ul>
-        <li>Area</li>
-        <li>Omkrets</li>
-        <li>Volym</li>
-        <li>Skala</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">⚖️</div>
-
-      <h3>Balansmodell</h3>
-
-      <p>
-        En visuell modell för likhet och ekvationer.
-      </p>
-
-      <ul>
-        <li>Likhetstecknet</li>
-        <li>Obekanta tal</li>
-        <li>Ekvationer</li>
-        <li>Likvärdiga uttryck</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🧩</div>
-
-      <h3>Mönsterbilder</h3>
-
-      <p>
-        Figurmönster kan bli en bro mellan konkret byggande och algebraisk generalisering.
-      </p>
-
-      <ul>
-        <li>Fortsätta</li>
-        <li>Beskriva</li>
-        <li>Förutsäga</li>
-        <li>Generalisera</li>
+        <li>4 × 6</li>
+        <li>3/4</li>
+        <li>25 %</li>
+        <li>x + 5</li>
+        <li>y = 2x + 3</li>
       </ul>
 
     </article>
@@ -799,8 +786,94 @@
 
 
   <div class="section-title">
-    <h2>🔢 Exempel på representationer genom samma idé</h2>
-    <p>Elever behöver se hur representationerna hänger ihop – inte möta dem som separata aktiviteter.</p>
+
+    <h2>🔄 Representationstrappan</h2>
+
+    <p>
+      Trappan är inte enkelriktad.
+      Elever ska kunna röra sig fram och tillbaka mellan representationerna.
+    </p>
+
+  </div>
+
+
+  <div class="flow">
+
+    <div class="flow-step">
+
+      <span>🧱</span>
+
+      <strong>1. Gör</strong>
+
+      <p>
+        Bygg, flytta, dela, mäta eller sortera.
+      </p>
+
+    </div>
+
+
+    <div class="flow-step">
+
+      <span>👀</span>
+
+      <strong>2. Se</strong>
+
+      <p>
+        Uppmärksamma strukturen och relationerna.
+      </p>
+
+    </div>
+
+
+    <div class="flow-step">
+
+      <span>✏️</span>
+
+      <strong>3. Rita</strong>
+
+      <p>
+        Skapa en bild eller modell av det konkreta.
+      </p>
+
+    </div>
+
+
+    <div class="flow-step">
+
+      <span>💬</span>
+
+      <strong>4. Förklara</strong>
+
+      <p>
+        Beskriv vad varje del representerar matematiskt.
+      </p>
+
+    </div>
+
+
+    <div class="flow-step">
+
+      <span>🔢</span>
+
+      <strong>5. Symbolisera</strong>
+
+      <p>
+        Knyt modellen till tal, uttryck, ekvation eller formel.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧩 Fyra exempel i undervisningen</h2>
+
+    <p>
+      Samma arbetsgång kan användas inom många matematiska områden.
+    </p>
+
   </div>
 
 
@@ -808,60 +881,77 @@
 
     <section class="example green">
 
-      <h3>🍕 3/4</h3>
+      <h3>➕ 47 + 36 med tiobasmaterial</h3>
 
       <ul>
-        <li>Bygg tre av fyra lika delar.</li>
-        <li>Visa på en bråkstav.</li>
-        <li>Placera 3/4 på tallinjen.</li>
-        <li>Rita en areamodell.</li>
-        <li>Skriv 3/4 = 0,75 = 75 %.</li>
+        <li>Bygg 47.</li>
+        <li>Bygg 36.</li>
+        <li>Sammanför mängderna.</li>
+        <li>Växla 10 ental mot ett tiotal.</li>
+        <li>Rita modellen.</li>
+        <li>Skriv 47 + 36 = 83.</li>
       </ul>
+
+      <p>
+        Kopplar algoritmen till positionssystemet.
+      </p>
 
     </section>
 
 
     <section class="example blue">
 
-      <h3>➖ 52 − 38</h3>
+      <h3>🍕 3/4 på flera sätt</h3>
 
       <ul>
-        <li>Bygg 52 med tiobasmaterial.</li>
-        <li>Visa växlingen.</li>
-        <li>Rita hopp på tallinjen.</li>
-        <li>Jämför två strategier.</li>
-        <li>Skriv beräkningen symboliskt.</li>
+        <li>Dela en helhet i fyra lika delar.</li>
+        <li>Markera tre delar.</li>
+        <li>Visa på tallinje.</li>
+        <li>Skriv 3/4.</li>
+        <li>Koppla till 0,75 och 75 %.</li>
       </ul>
+
+      <p>
+        Gör relationen mellan bråk, decimal och procent synlig.
+      </p>
 
     </section>
 
 
     <section class="example yellow">
 
-      <h3>📐 Area</h3>
+      <h3>✖️ Multiplikation som area</h3>
 
       <ul>
-        <li>Täck en yta med rutor.</li>
-        <li>Räkna kvadratenheter.</li>
-        <li>Se rader × kolumner.</li>
-        <li>Koppla till multiplikation.</li>
-        <li>Generalisera till A = b · h för rektanglar.</li>
+        <li>Bygg 6 rader med 8 i varje.</li>
+        <li>Se rektangeln.</li>
+        <li>Dela den till exempel i 6 × 5 och 6 × 3.</li>
+        <li>Räkna 30 + 18.</li>
+        <li>Knyt till 6 × 8 = 48.</li>
       </ul>
+
+      <p>
+        Synliggör distributiva lagen.
+      </p>
 
     </section>
 
 
     <section class="example purple">
 
-      <h3>📈 Linjärt samband</h3>
+      <h3>📈 Från situation till graf</h3>
 
       <ul>
-        <li>Bygg figurer med kuber.</li>
-        <li>Räkna antalet i varje steg.</li>
-        <li>Gör en tabell.</li>
-        <li>Rita en graf.</li>
-        <li>Beskriv sambandet med en formel.</li>
+        <li>En taxi kostar 50 kr i startavgift och 15 kr per kilometer.</li>
+        <li>Bygg en tabell.</li>
+        <li>Rita grafen.</li>
+        <li>Identifiera startvärde och förändring.</li>
+        <li>Skriv y = 15x + 50.</li>
       </ul>
+
+      <p>
+        Knyter verklighet, tabell, graf och algebra samman.
+      </p>
 
     </section>
 
@@ -869,77 +959,150 @@
 
 
   <div class="section-title">
-    <h2>🌱 Konkret och visuellt genom F–9</h2>
-    <p>Abstraktion betyder inte att visuella modeller ska försvinna.</p>
+
+    <h2>🕵️ Vanliga fallgropar</h2>
+
+    <p>
+      Konkret material hjälper inte automatiskt.
+      Det kräver genomtänkta frågor och tydliga kopplingar till matematiken.
+    </p>
+
   </div>
 
 
-  <div class="stage-grid">
+  <div class="grid">
 
-    <section class="stage green">
+    <article class="card">
 
-      <h3>🌱 F–3</h3>
+      <div class="icon">🧱</div>
 
-      <ul>
-        <li>Stor variation av konkret material.</li>
-        <li>Talbilder och tallinje.</li>
-        <li>Rita efter att eleven byggt.</li>
-        <li>Koppla ord till handling.</li>
-        <li>Skapa stabila mentala bilder.</li>
-        <li>Gå stegvis mot symboler.</li>
-      </ul>
+      <h3>Materialet blir aktiviteten</h3>
 
-    </section>
-
-
-    <section class="stage blue">
-
-      <h3>🔵 4–6</h3>
+      <p>
+        Eleven bygger och flyttar utan att förstå den matematiska idén.
+      </p>
 
       <ul>
-        <li>Växla mellan konkret, bild och symbol.</li>
-        <li>Använd modeller för bråk, decimal och procent.</li>
-        <li>Bygg samband mellan tabell och graf.</li>
-        <li>Jämför olika representationer.</li>
-        <li>Diskutera vad varje modell visar.</li>
-        <li>Börja välja representation efter problem.</li>
+        <li>Fråga vad varje del representerar.</li>
+        <li>Knyt materialet till språk och symboler.</li>
       </ul>
 
-    </section>
+    </article>
 
 
-    <section class="stage purple">
+    <article class="card">
 
-      <h3>🟣 7–9</h3>
+      <div class="icon">➡️</div>
+
+      <h3>Övergången går för snabbt</h3>
+
+      <p>
+        Eleven går direkt från konkret material till abstrakt notation.
+      </p>
 
       <ul>
-        <li>Använd visuella modeller för abstrakt algebra.</li>
-        <li>Koppla grafer, tabeller och formler.</li>
-        <li>Visualisera förändring och funktioner.</li>
-        <li>Granska modellernas styrkor och begränsningar.</li>
-        <li>Välj representation utifrån syfte.</li>
-        <li>Återgå till konkreta modeller när nya idéer behöver byggas.</li>
+        <li>Använd bild som mellanled.</li>
+        <li>Låt eleven rita modellen.</li>
+        <li>Förklara innan symbolisering.</li>
       </ul>
 
-    </section>
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🎨</div>
+
+      <h3>Bild blir dekoration</h3>
+
+      <p>
+        Figuren är färgglad men synliggör inte den matematiska strukturen.
+      </p>
+
+      <ul>
+        <li>Välj representation med matematiskt syfte.</li>
+        <li>Ta bort detaljer som inte behövs.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">1️⃣</div>
+
+      <h3>En representation blir den enda</h3>
+
+      <p>
+        Eleven lär sig exempelvis endast bråk som pizzabitar.
+      </p>
+
+      <ul>
+        <li>Visa bråk på tallinje.</li>
+        <li>Visa del av antal.</li>
+        <li>Visa bråk som kvot och operator.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">👶</div>
+
+      <h3>Konkret material ses som ”för små barn”</h3>
+
+      <p>
+        Äldre elever får inte visuella modeller trots att innehållet blir mer abstrakt.
+      </p>
+
+      <ul>
+        <li>Använd områdesmodeller i algebra.</li>
+        <li>Använd modeller för proportionalitet och funktioner.</li>
+        <li>Anpassa representationen efter matematiken.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔢</div>
+
+      <h3>Symbolerna kommer utan mening</h3>
+
+      <p>
+        Eleven lär sig regler men kan inte förklara varför de fungerar.
+      </p>
+
+      <ul>
+        <li>Återvänd till modellen.</li>
+        <li>Låt eleven visa regeln visuellt.</li>
+        <li>Knyt varje symbol till representationen.</li>
+      </ul>
+
+    </article>
 
   </div>
 
 
   <section class="teacher-box">
 
-    <h2>👩‍🏫 Frågor som kopplar representationerna</h2>
+    <h2>👩‍🏫 Frågor som bygger broar mellan representationer</h2>
 
     <ul>
-      <li>Vad visar varje del av modellen?</li>
-      <li>Var ser du talet i bilden?</li>
-      <li>Vad i bilden motsvarar symbolen?</li>
-      <li>Kan du visa samma idé på ett annat sätt?</li>
-      <li>Vad blir tydligare i den här modellen?</li>
-      <li>Finns något modellen inte visar så bra?</li>
-      <li>Hur förändras modellen om talet förändras?</li>
-      <li>Vilken representation skulle hjälpa bäst i det här problemet?</li>
-      <li>Kan du lösa uppgiften utan materialet nu? Hur tänker du då?</li>
+      <li>Vad representerar den här klossen, linjen eller delen?</li>
+      <li>Vad ser du i modellen?</li>
+      <li>Vad förändras?</li>
+      <li>Vad är samma?</li>
+      <li>Kan du rita det du byggde?</li>
+      <li>Hur syns samma tanke i bilden?</li>
+      <li>Vilket matematiskt uttryck passar?</li>
+      <li>Vad betyder varje tal eller symbol?</li>
+      <li>Kan du visa samma matematik på ett annat sätt?</li>
+      <li>Vilken representation gör sambandet tydligast?</li>
+      <li>När är tallinjen bättre än en områdesmodell?</li>
+      <li>Hur hjälper modellen dig att förklara varför metoden fungerar?</li>
     </ul>
 
   </section>
@@ -947,42 +1110,51 @@
 
   <div class="warning">
 
-    <strong>⚠️ Konkret först betyder inte konkret bara för yngre elever.</strong><br>
-    Även äldre elever kan behöva visuella eller konkreta modeller när nya
-    matematiska idéer introduceras. Skillnaden är att modellen i högre grad
-    används för att stödja <strong>abstraktion, generalisering och analys</strong>.
+    <strong>⚠️ Konkret material är ett tankeverktyg – inte bara hjälpmedel.</strong><br>
+    Det bör användas för att synliggöra
+    <strong>struktur, relationer, strategier och generaliseringar</strong>.
+    Låt därför eleverna inte bara använda materialet,
+    utan också beskriva, rita, jämföra och koppla det till matematiska symboler.
 
   </div>
 
 
   <section class="links">
 
-    <h2>➡️ Fortsätt</h2>
+    <h2>➡️ Fortsätt i Matteresan</h2>
 
     <div class="link-row">
 
       <a href="material-laborativt.html">
-        🧱 Laborativ matematik
-      </a>
-
-      <a href="material-mallar.html">
-        🎨 Representationer
-      </a>
-
-      <a href="larare-sprak.html">
-        🔤 Språk
-      </a>
-
-      <a href="larare-npf.html">
-        🧩 NPF
-      </a>
-
-      <a href="larare-stod.html">
-        🌱 Stöd
+        🧱 Laborativt material
       </a>
 
       <a href="larare-undervisning.html">
-        🧠 Undervisning
+        👩‍🏫 Undervisning
+      </a>
+
+      <a href="larare-stod.html">
+        🪜 Stöd
+      </a>
+
+      <a href="larare-npf.html">
+        🧠 NPF
+      </a>
+
+      <a href="larare-sprak.html">
+        🗣️ Språk & begrepp
+      </a>
+
+      <a href="larare-problemlosning.html">
+        🧩 Problemlösning
+      </a>
+
+      <a href="larare-tal.html">
+        🔢 Taluppfattning
+      </a>
+
+      <a href="larare-brak.html">
+        🍕 Bråk
       </a>
 
     </div>
@@ -995,7 +1167,7 @@
 <footer>
 
   <strong>HOLOS Matteresan F–9</strong><br>
-  🧱 Göra • Se • Rita • Förklara • Symbolisera
+  🧱 Gör • Se • Rita • Förklara • Symbolisera
 
 </footer>
 
