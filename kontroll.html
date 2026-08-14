@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Plattformskontroll | HOLOS Matteresan F–9</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --text: #263747;
+      --muted: #667788;
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+      --yellow: #fff6d7;
+      --red: #ffe8e8;
+      --red-strong: #b84d4d;
+      --gray: #eef2f4;
+      --background: #f7f9fb;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,.2), transparent 32%),
+        linear-gradient(135deg, #5f9470, #5d86ad, #8266a3);
+      color: white;
+      padding: 28px 20px 55px;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .hero .icon {
+      font-size: 4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 6vw, 4rem);
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: auto;
+      color: #f7f9fb;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 35px 18px 70px;
+    }
+
+    .info {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,.07);
+      margin-bottom: 24px;
+    }
+
+    .info h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .info p {
+      color: var(--muted);
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    button,
+    .home-button {
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: .9rem;
+    }
+
+    button {
+      background: var(--dark);
+      color: white;
+    }
+
+    button:hover {
+      opacity: .9;
+    }
+
+    .home-button {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--gray);
+      color: var(--dark);
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .summary-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 5px 18px rgba(32,48,64,.06);
+    }
+
+    .summary-card strong {
+      display: block;
+      color: var(--dark);
+      font-size: 2rem;
+    }
+
+    .summary-card span {
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .section {
+      margin-top: 34px;
+    }
+
+    .section h2 {
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .file-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .file {
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      border-left: 6px solid #aab5be;
+      box-shadow: 0 4px 14px rgba(32,48,64,.05);
+    }
+
+    .file.ok {
+      background: var(--green);
+      border-left-color: var(--green-strong);
+    }
+
+    .file.error {
+      background: var(--red);
+      border-left-color: var(--red-strong);
+    }
+
+    .file.checking {
+      background: var(--yellow);
+      border-left-color: #c39b44;
+    }
+
+    .file-name {
+      font-weight: 800;
+      color: var(--dark);
+      word-break: break-word;
+    }
+
+    .status {
+      font-size: .78rem;
+      margin-top: 5px;
+      color: var(--muted);
+    }
+
+    .file a {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--dark);
+      font-size: .78rem;
+      font-weight: bold;
+    }
+
+    .notice {
+      margin-top: 34px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 16px;
+      padding: 20px;
+      color: #665831;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    @media (max-width: 900px) {
+      .file-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .summary {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .file-grid,
+      .summary {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="hero">
+
+    <div class="icon">🔎✅🧩</div>
+
+    <h1>Plattformskontroll</h1>
+
+    <p>
+      Kontrollsida för HOLOS Matteresan F–9.
+      Här testas plattformens HTML-filer automatiskt så att vi snabbt
+      kan upptäcka saknade filer eller felstavade länkar.
+    </p>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="info">
+
+    <h2>🧪 Kontrollera hela Matteresan</h2>
+
+    <p>
+      Tryck på knappen nedan när sidan ligger på GitHub Pages.
+      Varje fil testas. En fungerande fil blir grön.
+      Om en fil inte går att hitta blir den röd.
+    </p>
+
+    <div class="buttons">
+      <button onclick="startCheck()">▶ Kontrollera alla filer</button>
+      <button onclick="showErrors()">❌ Visa bara fel</button>
+      <button onclick="showAll()">📋 Visa alla</button>
+      <a href="index.html" class="home-button">🏠 Öppna Matteresan</a>
+    </div>
+
+  </section>
+
+
+  <section class="summary">
+
+    <div class="summary-card">
+      <strong id="totalCount">0</strong>
+      <span>filer i kontrollen</span>
+    </div>
+
+    <div class="summary-card">
+      <strong id="checkedCount">0</strong>
+      <span>kontrollerade</span>
+    </div>
+
+    <div class="summary-card">
+      <strong id="okCount">0</strong>
+      <span>fungerar</span>
+    </div>
+
+    <div class="summary-card">
+      <strong id="errorCount">0</strong>
+      <span>fel / saknas</span>
+    </div>
+
+  </section>
+
+
+  <div id="fileSections"></div>
+
+
+  <div class="notice">
+    <strong>💡 Viktigt:</strong><br>
+    Kör kontrollen från den publicerade GitHub Pages-sidan.
+    Om en fil blir röd kontrollerar vi filnamnet i GitHub.
+    Ändra inte flera filer på en gång – vi rättar eventuella fel ett i taget.
+  </div>
+
+</main>
+
+
+<footer>
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🔎 Plattformskontroll
+</footer>
+
+
+<script>
+
+const sections = [
+
+  {
+    title: "🏠 Huvudsidor",
+    description: "Startsida och de tre stadierna.",
+    files: [
+      "index.html",
+      "f-3.html",
+      "4-6.html",
+      "7-9.html"
+    ]
+  },
+
+  {
+    title: "🎓 Årskurser",
+    description: "Förskoleklass till årskurs 9.",
+    files: [
+      "forskoleklass.html",
+      "ak1.html",
+      "ak2.html",
+      "ak3.html",
+      "ak4.html",
+      "ak5.html",
+      "ak6.html",
+      "ak7.html",
+      "ak8.html",
+      "ak9.html"
+    ]
+  },
+
+  {
+    title: "🧠 Elevens matematik",
+    description: "Aktiviteter, problemlösning, språk och utveckling.",
+    files: [
+      "matteprat.html",
+      "aventyr.html",
+      "problemlosning.html",
+      "spel.html",
+      "undersok.html",
+      "verkligheten.html",
+      "begrepp.html",
+      "strategier.html",
+      "stod.html",
+      "utmaning.html",
+      "veckansproblem.html",
+      "minresa.html"
+    ]
+  },
+
+  {
+    title: "👩‍🏫 Lärarportal",
+    description: "Huvudsidor för lärarstöd.",
+    files: [
+      "larare.html",
+      "larare-lgr22.html",
+      "larare-progression.html",
+      "larare-missuppfattningar.html",
+      "larare-undervisning.html",
+      "larare-bedomning.html",
+      "larare-material.html",
+      "larare-sprak.html",
+      "larare-stod.html",
+      "larare-utmaning.html"
+    ]
+  },
+
+  {
+    title: "🌱🔵🟣 Lärarstöd per stadium",
+    description: "Lärarstöd F–3, 4–6 och 7–9.",
+    files: [
+      "larare-f3.html",
+      "larare-46.html",
+      "larare-79.html"
+    ]
+  },
+
+  {
+    title: "🔢 Lärarstöd matematiska områden",
+    description: "Lärarsidor för Matteresans matematiska områden.",
+    files: [
+      "larare-tal.html",
+      "larare-raknesatt.html",
+      "larare-brak.html",
+      "larare-decimal.html",
+      "larare-procent.html",
+      "larare-algebra.html",
+      "larare-geometri.html",
+      "larare-statistik.html",
+      "larare-sannolikhet.html",
+      "larare-problemlosning.html",
+      "larare-monster.html",
+      "larare-samband.html"
+    ]
+  },
+
+  {
+    title: "🤝 Anpassningar och undervisningsstöd",
+    description: "SVA, NPF, laborativt arbete och planering.",
+    files: [
+      "larare-sva.html",
+      "larare-npf.html",
+      "larare-konkret.html",
+      "larare-matteprat.html",
+      "larare-exittickets.html",
+      "larare-diagnoser.html",
+      "larare-observation.html",
+      "larare-planering.html",
+      "larare-utskrift.html"
+    ]
+  },
+
+  {
+    title: "📚 Materialbank",
+    description: "Materialöversikter och utskrivbart lärarmaterial.",
+    files: [
+      "material-affischer.html",
+      "material-elevblad.html",
+      "material-matteprat.html",
+      "material-problem.html",
+      "material-begrepp.html",
+      "material-laborativt.html",
+      "material-spel.html",
+      "material-aventyr.html",
+      "material-mallar.html"
+    ]
+  },
+
+  {
+    title: "🖨️ A4-material",
+    description: "Sidor särskilt anpassade för utskrift.",
+    files: [
+      "material-a4-elevblad.html",
+      "material-a4-kort.html",
+      "material-a4-affischer.html",
+      "material-a4-larare.html",
+      "material-lektionsmall.html",
+      "material-observation.html",
+      "material-planering.html",
+      "material-exit.html",
+      "material-diagnos.html"
+    ]
+  },
+
+  {
+    title: "✏️ Elevblad – matematiska områden",
+    description: "Utskrivbara elevblad för de matematiska områdena.",
+    files: [
+      "elevblad-tal.html",
+      "elevblad-raknesatt.html",
+      "elevblad-brak.html",
+      "elevblad-decimal.html",
+      "elevblad-procent.html",
+      "elevblad-algebra.html",
+      "elevblad-geometri.html",
+      "elevblad-statistik.html",
+      "elevblad-sannolikhet.html",
+      "elevblad-problemlosning.html",
+      "elevblad-monster.html",
+      "elevblad-samband.html"
+    ]
+  },
+
+  {
+    title: "✏️ Elevblad – arbetssätt",
+    description: "Elevblad för resonemang, undersökning och strategier.",
+    files: [
+      "elevblad-rita.html",
+      "elevblad-forklara.html",
+      "elevblad-jamfor.html",
+      "elevblad-felfinnaren.html",
+      "elevblad-santfalskt.html",
+      "elevblad-hittaalla.html",
+      "elevblad-utmana.html",
+      "elevblad-verkligheten.html",
+      "elevblad-undersok.html"
+    ]
+  }
+
+];
+
+
+let allFiles = [];
+let checked = 0;
+let ok = 0;
+let errors = 0;
+
+
+function renderFiles() {
+
+  const container = document.getElementById("fileSections");
+  container.innerHTML = "";
+  allFiles = [];
+
+  sections.forEach((section, sectionIndex) => {
+
+    const sectionElement = document.createElement("section");
+    sectionElement.className = "section";
+
+    const title = document.createElement("h2");
+    title.textContent = section.title;
+
+    const description = document.createElement("p");
+    description.className = "section-description";
+    description.textContent = section.description;
+
+    const grid = document.createElement("div");
+    grid.className = "file-grid";
+
+    section.files.forEach((fileName, fileIndex) => {
+
+      const id = "file-" + sectionIndex + "-" + fileIndex;
+
+      const card = document.createElement("div");
+      card.className = "file";
+      card.id = id;
+      card.dataset.status = "notchecked";
+
+      card.innerHTML = `
+        <div class="file-name">⬜ ${fileName}</div>
+        <div class="status">Inte kontrollerad</div>
+        <a href="${fileName}" target="_blank">Öppna filen ↗</a>
+      `;
+
+      grid.appendChild(card);
+
+      allFiles.push({
+        name: fileName,
+        id: id
+      });
+
+    });
+
+    sectionElement.appendChild(title);
+    sectionElement.appendChild(description);
+    sectionElement.appendChild(grid);
+
+    container.appendChild(sectionElement);
+
+  });
+
+  document.getElementById("totalCount").textContent = allFiles.length;
+
+}
+
+
+async function testFile(file) {
+
+  const card = document.getElementById(file.id);
+  const name = card.querySelector(".file-name");
+  const status = card.querySelector(".status");
+
+  card.className = "file checking";
+  card.dataset.status = "checking";
+
+  name.textContent = "⏳ " + file.name;
+  status.textContent = "Kontrollerar...";
+
+  try {
+
+    const response = await fetch(file.name + "?check=" + Date.now(), {
+      method: "GET",
+      cache: "no-store"
+    });
+
+    if (response.ok) {
+
+      card.className = "file ok";
+      card.dataset.status = "ok";
+
+      name.textContent = "✅ " + file.name;
+      status.textContent = "Fungerar";
+
+      ok++;
+
+    } else {
+
+      card.className = "file error";
+      card.dataset.status = "error";
+
+      name.textContent = "❌ " + file.name;
+      status.textContent = "Fel: HTTP " + response.status;
+
+      errors++;
+
+    }
+
+  } catch (error) {
+
+    card.className = "file error";
+    card.dataset.status = "error";
+
+    name.textContent = "❌ " + file.name;
+    status.textContent = "Kunde inte öppnas";
+
+    errors++;
+
+  }
+
+  checked++;
+
+  updateSummary();
+
+}
+
+
+async function startCheck() {
+
+  checked = 0;
+  ok = 0;
+  errors = 0;
+
+  updateSummary();
+  showAll();
+
+  for (const file of allFiles) {
+    await testFile(file);
+  }
+
+  if (errors === 0) {
+    alert("✅ Kontroll klar! Alla " + ok + " filer fungerar.");
+  } else {
+    alert(
+      "🔎 Kontroll klar. " +
+      ok +
+      " filer fungerar och " +
+      errors +
+      " behöver kontrolleras."
+    );
+  }
+
+}
+
+
+function updateSummary() {
+
+  document.getElementById("checkedCount").textContent = checked;
+  document.getElementById("okCount").textContent = ok;
+  document.getElementById("errorCount").textContent = errors;
+
+}
+
+
+function showErrors() {
+
+  document.querySelectorAll(".file").forEach(card => {
+
+    if (card.dataset.status === "error") {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+
+  });
+
+}
+
+
+function showAll() {
+
+  document.querySelectorAll(".file").forEach(card => {
+    card.style.display = "block";
+  });
+
+}
+
+
+renderFiles();
+
+</script>
+
+</body>
+</html>
