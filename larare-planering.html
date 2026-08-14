@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Planering matematik F–9 | HOLOS Matteresan</title>
+  <title>Planering | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,26 +15,32 @@
 
     :root {
       --dark: #17324d;
-      --blue: #4b86b4;
-      --blue-dark: #315e82;
-      --blue-light: #eaf5ff;
-      --green-light: #edf9f1;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --pink-light: #ffe9f1;
-      --teal-light: #eaf7f5;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -44,8 +50,8 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
-        linear-gradient(135deg, #264c6d, #4b86b4);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
       padding: 22px 20px 58px;
     }
@@ -65,554 +71,402 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--blue-dark);
-    }
-
     .hero {
-      max-width: 920px;
-      margin: 50px auto 0;
+      max-width: 930px;
+      margin: 44px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.4rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 7vw, 4.6rem);
+      font-size: clamp(2.4rem, 7vw, 4.4rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
       max-width: 850px;
       margin: auto;
-      color: #eef8ff;
-      font-size: 1.03rem;
+      color: #f6f9fb;
     }
 
     main {
       max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      margin-bottom: 36px;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
+    .intro h2 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 840px;
-      margin: 0 auto 30px;
+    .intro p {
+      color: var(--muted);
+      max-width: 950px;
+    }
+
+    .important {
+      margin-top: 17px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 17px;
+      color: #665831;
+    }
+
+    .section-title {
+      margin: 42px 0 18px;
+    }
+
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
       color: var(--muted);
     }
 
-    .intro-box {
-      background: var(--blue-light);
-      border-radius: 28px;
-      padding: 36px;
-      text-align: center;
+    .planning-flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
     }
 
-    .intro-box h2 {
+    .flow-step {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 10px;
+      min-height: 165px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+    }
+
+    .flow-step:nth-child(1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .flow-step:nth-child(2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .flow-step:nth-child(3) {
+      border-top-color: #c39b44;
+    }
+
+    .flow-step:nth-child(4) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .flow-step:nth-child(5) {
+      border-top-color: #5d9c92;
+    }
+
+    .flow-step:nth-child(6) {
+      border-top-color: #aa7188;
+    }
+
+    .flow-step span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 7px;
+    }
+
+    .flow-step strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .flow-step p {
+      color: var(--muted);
+      font-size: 0.79rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 250px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+    }
+
+    .card:nth-child(3n+1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .card ul {
+      margin-left: 19px;
+      margin-top: 7px;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .level-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .level {
+      border-radius: 18px;
+      padding: 22px;
+      min-height: 235px;
+    }
+
+    .level h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .level p,
+    .level li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .level ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .level li {
+      margin-bottom: 6px;
+    }
+
+    .lesson-box {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+    }
+
+    .lesson-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .lesson-box p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .lesson-parts {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .lesson-part {
+      border-radius: 15px;
+      padding: 16px 12px;
+      min-height: 180px;
+    }
+
+    .lesson-part h3 {
+      color: var(--dark);
+      font-size: 0.95rem;
+      margin-bottom: 7px;
+    }
+
+    .lesson-part p {
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin: 0;
+    }
+
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .analysis {
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .analysis h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .analysis p,
+    .analysis li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .analysis ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .analysis li {
+      margin-bottom: 6px;
+    }
+
+    .teacher-box {
+      margin-top: 36px;
+      background: var(--teal);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box ul {
+      margin-left: 22px;
+      color: var(--muted);
+    }
+
+    .teacher-box li {
+      margin-bottom: 7px;
+    }
+
+    .warning {
+      margin-top: 22px;
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 16px;
+      padding: 20px;
+      color: #654c37;
+    }
+
+    .links {
+      margin-top: 36px;
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+    }
+
+    .links h2 {
       color: var(--dark);
       margin-bottom: 12px;
     }
 
-    .intro-box p {
-      max-width: 880px;
-      margin: auto;
-      color: #5c6872;
-    }
-
-    .core-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .core-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 185px;
-      border: 1px solid #e6ebef;
-    }
-
-    .core-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .core-card h3 {
-      color: var(--blue-dark);
-      margin-bottom: 6px;
-    }
-
-    .core-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .planning-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
-        linear-gradient(135deg, #17324d, #315e82);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .planning-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .planning-box > p {
-      color: #eef8ff;
-      max-width: 850px;
-    }
-
-    .planning-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-      margin-top: 25px;
-    }
-
-    .planning-card {
-      border-radius: 20px;
-      padding: 21px;
-      min-height: 205px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.08);
-    }
-
-    .planning-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .planning-card h3 {
-      margin-bottom: 7px;
-    }
-
-    .planning-card p {
-      color: #f8fbff;
-      font-size: 0.91rem;
-    }
-
-    .section-card {
-      background: white;
-      border-radius: 28px;
-      padding: 32px;
-      border: 1px solid #e6ebef;
-      margin-bottom: 25px;
-    }
-
-    .section-header {
+    .link-row {
       display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 22px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .section-header span {
-      font-size: 2.7rem;
-    }
-
-    .section-header h2 {
-      color: var(--dark);
-      font-size: 1.75rem;
-    }
-
-    .section-header p {
-      color: var(--muted);
-    }
-
-    .three-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .mini-card {
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 190px;
-    }
-
-    .mini-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .mini-card p,
-    .mini-card ul {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .mini-card ul {
-      padding-left: 20px;
-    }
-
-    .mini-card li {
-      margin-bottom: 6px;
-    }
-
-    .m1 { background: var(--green-light); }
-    .m2 { background: var(--blue-light); }
-    .m3 { background: var(--yellow-light); }
-
-    .lesson-box {
-      background: var(--teal-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .lesson-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-      margin-top: 24px;
-    }
-
-    .lesson-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 180px;
-      border: 1px solid #dfe9e6;
-    }
-
-    .lesson-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .lesson-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .lesson-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .form-box {
-      background: var(--yellow-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .table-wrap {
-      overflow-x: auto;
-      margin-top: 24px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      min-width: 900px;
-    }
-
-    th,
-    td {
-      border: 1px solid #d9dee3;
-      padding: 13px;
-      vertical-align: top;
-      text-align: left;
-    }
-
-    th {
+    .link-row a {
       background: var(--dark);
       color: white;
-    }
-
-    td {
-      color: #495866;
-      font-size: 0.92rem;
-      min-height: 55px;
-    }
-
-    .prompt-box {
-      background: var(--purple-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .prompt-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .prompt-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 210px;
-      border: 1px solid #e2dcf1;
-    }
-
-    .prompt-card h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .prompt-card ul {
-      color: var(--muted);
-      padding-left: 20px;
-      font-size: 0.92rem;
-    }
-
-    .prompt-card li {
-      margin-bottom: 7px;
-    }
-
-    .stage-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .stage-card {
-      border-radius: 24px;
-      padding: 26px;
-      min-height: 275px;
-    }
-
-    .stage-card span {
-      display: block;
-      font-size: 2.5rem;
-      margin-bottom: 8px;
-    }
-
-    .stage-card h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .stage-card ul {
-      padding-left: 20px;
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .stage-card li {
-      margin-bottom: 7px;
-    }
-
-    .f3stage { background: var(--green-light); }
-    .m46stage { background: var(--blue-light); }
-    .m79stage { background: var(--purple-light); }
-
-    .check-box {
-      background: var(--orange-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .check-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
-    }
-
-    .check-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 185px;
-      border: 1px solid #eadfd3;
-    }
-
-    .check-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .check-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .check-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .pitfall-box {
-      background: var(--pink-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .pitfall-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .pitfall-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 195px;
-      border: 1px solid #eee1e5;
-    }
-
-    .pitfall-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .pitfall-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .link-card {
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 175px;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.04);
-    }
-
-    .link-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
-    }
-
-    .link-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .link-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .link-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .c1 { background: var(--blue-light); }
-    .c2 { background: var(--green-light); }
-    .c3 { background: var(--yellow-light); }
-    .c4 { background: var(--purple-light); }
-    .c5 { background: var(--teal-light); }
-    .c6 { background: var(--orange-light); }
-
-    .note {
-      background: var(--yellow-light);
-      border-left: 6px solid #dba327;
-      border-radius: 14px;
-      padding: 20px;
-      color: #665528;
-      margin-top: 25px;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.83rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 1100px) {
-      .planning-grid,
-      .lesson-grid {
+    @media (max-width: 1050px) {
+      .planning-flow {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .lesson-parts {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 1000px) {
-      .core-grid,
-      .check-grid {
+    @media (max-width: 900px) {
+      .grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 900px) {
-      .three-grid,
-      .prompt-grid,
-      .stage-grid,
-      .pitfall-grid,
-      .links-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .core-grid,
-      .planning-grid,
-      .lesson-grid,
-      .check-grid {
+      .planning-flow,
+      .grid,
+      .level-grid,
+      .lesson-parts,
+      .analysis-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .planning-box,
-      .section-card,
-      .lesson-box,
-      .form-box,
-      .prompt-box,
-      .check-box,
-      .pitfall-box {
-        padding: 25px 18px;
-      }
-
-      .section-header {
-        align-items: flex-start;
       }
 
       main {
@@ -621,16 +475,28 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link,
-      .links-grid {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+      }
+
+      header,
+      footer {
+        display: none !important;
       }
 
       main {
@@ -638,20 +504,58 @@
         padding: 0;
       }
 
-      section,
-      .section-card,
-      .stage-card {
+      .intro,
+      .flow-step,
+      .card,
+      .level,
+      .lesson-box,
+      .lesson-part,
+      .analysis,
+      .teacher-box,
+      .warning,
+      .links {
         break-inside: avoid;
+        page-break-inside: avoid;
       }
 
-      table {
-        min-width: 0;
-        font-size: 9.5pt;
+      .green {
+        background: var(--green) !important;
       }
 
-      th,
-      td {
-        padding: 7px;
+      .blue {
+        background: var(--blue) !important;
+      }
+
+      .purple {
+        background: var(--purple) !important;
+      }
+
+      .yellow,
+      .important {
+        background: var(--yellow) !important;
+      }
+
+      .orange,
+      .warning {
+        background: var(--orange) !important;
+      }
+
+      .teal,
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .link-row a {
+        background: var(--dark) !important;
+        color: white !important;
       }
     }
   </style>
@@ -663,28 +567,27 @@
 
   <div class="topbar">
 
-    <div class="logo">
-      HOLOS MATTERESAN
-    </div>
+    <div class="logo">HOLOS MATTERESAN</div>
 
     <a href="larare.html" class="back-link">
-      ← Lärarvy
+      ← Lärarportalen
     </a>
 
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">🗓️✏️</div>
+    <div class="hero-icon">📅🧠</div>
 
-    <h1>Planering matematik F–9</h1>
+    <h1>Planering</h1>
 
-    <h2>Mål • Innehåll • Undervisning • Bedömning • Nästa steg</h2>
+    <h2>Från matematiskt mål till nästa undervisningssteg</h2>
 
     <p>
-      En stark matematikplanering börjar inte med hur många sidor som ska göras.
-      Den börjar med vilken matematisk förståelse eleverna ska utveckla,
-      vilka förkunskaper som behövs och vilken undervisning som kan göra lärandet synligt.
+      Planeringsstöd för att skapa en tydlig röd tråd mellan
+      Lgr22, matematiskt innehåll, undervisning, stöd,
+      utmaning, bedömning och uppföljning.
     </p>
 
   </div>
@@ -694,992 +597,510 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>📅 Planera bakifrån från förståelsen</h2>
 
-      <h2>🎯 Planera bakifrån från den förståelse du vill se</h2>
+    <p>
+      Börja inte med frågan ”vilka sidor ska eleverna göra?”.
+      Börja med vilken matematisk förståelse eleverna behöver utveckla
+      och vilket kunnande du vill kunna se i slutet av området.
+    </p>
+
+    <div class="important">
+
+      <strong>Grundprincip:</strong><br>
+      En bra planering håller ihop
+      <strong>mål → förkunskaper → undervisning → aktivitet →
+      bedömning → nästa steg</strong>.
+      Bedömningen planeras alltså samtidigt som undervisningen,
+      inte först efteråt.
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+    <h2>🧭 Planering i sex steg</h2>
+    <p>Från matematisk kärna till uppföljning.</p>
+  </div>
+
+
+  <div class="planning-flow">
+
+    <div class="flow-step">
+      <span>🎯</span>
+      <strong>1. Kärnan</strong>
+      <p>Vad ska eleverna förstå matematiskt?</p>
+    </div>
+
+    <div class="flow-step">
+      <span>🧠</span>
+      <strong>2. Förkunskaper</strong>
+      <p>Vad behöver redan vara begripligt?</p>
+    </div>
+
+    <div class="flow-step">
+      <span>🧱</span>
+      <strong>3. Undervisning</strong>
+      <p>Hur ska idén göras synlig?</p>
+    </div>
+
+    <div class="flow-step">
+      <span>🧩</span>
+      <strong>4. Aktivitet</strong>
+      <p>Vad ska eleverna göra och tänka?</p>
+    </div>
+
+    <div class="flow-step">
+      <span>👀</span>
+      <strong>5. Synliggör</strong>
+      <p>Hur ska elevernas förståelse bli synlig?</p>
+    </div>
+
+    <div class="flow-step">
+      <span>🔁</span>
+      <strong>6. Anpassa</strong>
+      <p>Vad blir nästa steg utifrån det du ser?</p>
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+    <h2>🧠 Åtta delar i en genomtänkt områdesplanering</h2>
+    <p>Alla delar behöver inte vara långa – men de behöver hänga ihop.</p>
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">🎯</div>
+
+      <h3>Matematisk kärna</h3>
 
       <p>
-        Börja med den matematiska kärnan och bestäm sedan vilka aktiviteter,
-        representationer, samtal, stöd och bedömningssituationer som kan hjälpa eleverna dit.
-        Planeringen behöver också vara flexibel nog att förändras när elevsvaren visar något oväntat.
+        Formulera vad eleverna ska förstå, inte bara vilket område ni ska arbeta med.
       </p>
 
-    </div>
+      <ul>
+        <li>Vilka samband är centrala?</li>
+        <li>Vilka idéer ska leva vidare?</li>
+        <li>Vad vill du att eleven ska kunna förklara?</li>
+      </ul>
 
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Fyra delar som behöver hänga ihop
-    </h2>
-
-    <p class="section-intro">
-      En planering blir stark när mål, undervisning och bedömning pekar åt samma håll.
-    </p>
-
-    <div class="core-grid">
-
-      <div class="core-card">
-        <span>🎯</span>
-        <h3>Mål</h3>
-        <p>
-          Vilken matematisk idé, strategi eller förmåga ska utvecklas?
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>👩‍🏫</span>
-        <h3>Undervisning</h3>
-        <p>
-          Vilka aktiviteter och representationer gör den matematiska kärnan möjlig att förstå?
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>👀</span>
-        <h3>Bedömning</h3>
-        <p>
-          Hur ska eleverna få visa sin förståelse under och efter undervisningen?
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>➡️</span>
-        <h3>Nästa steg</h3>
-        <p>
-          Vad gör läraren om eleverna behöver mer stöd, annan väg eller större utmaning?
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="planning-box">
+      <div class="icon">📘</div>
 
-      <h2>🧭 Planeringscykeln</h2>
+      <h3>Koppling till Lgr22</h3>
 
       <p>
-        Planering är inte något som avslutas innan undervisningen börjar.
-        Den fortsätter när läraren får ny information om elevernas lärande.
+        Identifiera relevant centralt innehåll och ämnets långsiktiga riktning.
       </p>
 
-      <div class="planning-grid">
+      <ul>
+        <li>Relevant innehåll</li>
+        <li>Begrepp</li>
+        <li>Metoder</li>
+        <li>Problemlösning och resonemang</li>
+      </ul>
 
-        <div class="planning-card">
-          <span>1️⃣</span>
-          <h3>Matematisk kärna</h3>
-          <p>
-            Vad är det eleverna verkligen ska förstå – bortom enskilda uppgifter?
-          </p>
-        </div>
+    </article>
 
-        <div class="planning-card">
-          <span>2️⃣</span>
-          <h3>Förkunskaper</h3>
-          <p>
-            Vilka tidigare idéer behöver vara aktiverade och vilka missuppfattningar kan finnas?
-          </p>
-        </div>
 
-        <div class="planning-card">
-          <span>3️⃣</span>
-          <h3>Undervisning</h3>
-          <p>
-            Vilka exempel, problem, samtal och representationer leder mot målet?
-          </p>
-        </div>
+    <article class="card">
 
-        <div class="planning-card">
-          <span>4️⃣</span>
-          <h3>Synliggör lärandet</h3>
-          <p>
-            Vilka frågor och aktiviteter ger läraren information under lektionerna?
-          </p>
-        </div>
+      <div class="icon">🧠</div>
 
-        <div class="planning-card">
-          <span>5️⃣</span>
-          <h3>Anpassa</h3>
-          <p>
-            Hur förändras nästa steg när elevsvaren visar olika behov?
-          </p>
-        </div>
+      <h3>Förkunskaper</h3>
 
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🎯</span>
-
-        <div>
-          <h2>1. Formulera den matematiska kärnan</h2>
-          <p>Vad ska eleven förstå, kunna använda och kunna förklara?</p>
-        </div>
-
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Mindre hjälpsamt</h3>
-
-          <p>
-            ”Eleverna ska arbeta med bråk.”
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Tydligare</h3>
-
-          <p>
-            ”Eleverna ska förstå att bråk är tal som kan placeras och jämföras på en tallinje.”
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <ul>
-            <li>Vad ska eleverna se?</li>
-            <li>Vad ska de kunna förklara?</li>
-            <li>Vad ska de kunna använda i en ny situation?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🧠</span>
-
-        <div>
-          <h2>2. Kartlägg förkunskaper</h2>
-          <p>Ny matematik byggs alltid på något eleven redan tänker och vet.</p>
-        </div>
-
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Aktivera</h3>
-
-          <ul>
-            <li>kort problem</li>
-            <li>matteprat</li>
-            <li>bild</li>
-            <li>diagnostisk fråga</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Förutse</h3>
-
-          <p>
-            Vilka vanliga missuppfattningar kan påverka det nya innehållet?
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Planera två vägar</h3>
-
-          <p>
-            Vad gör du om klassen redan kan mer än väntat – och vad gör du om grunden saknas?
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>📚</span>
-
-        <div>
-          <h2>3. Välj centrala begrepp</h2>
-          <p>Prioritera de ord och relationer som eleverna behöver för att kunna tänka och tala om matematiken.</p>
-        </div>
-
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Ämnesbegrepp</h3>
-
-          <p>
-            Exempel: nämnare, faktor, median, variabel, proportionalitet.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Relationsord</h3>
-
-          <p>
-            Exempel: större än, dubbelt, motsvarar, per, ökar med.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Resonemangsspråk</h3>
-
-          <p>
-            Exempel: eftersom, därför, om...så, alltid, ibland och aldrig.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🧱</span>
-
-        <div>
-          <h2>4. Välj representationer</h2>
-          <p>Bestäm hur den matematiska idén ska göras synlig.</p>
-        </div>
-
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Konkret</h3>
-
-          <ul>
-            <li>tiobasmaterial</li>
-            <li>bråkstavar</li>
-            <li>geobräde</li>
-            <li>algebraiska brickor</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Visuellt</h3>
-
-          <ul>
-            <li>tallinje</li>
-            <li>tabell</li>
-            <li>stapelmodell</li>
-            <li>graf</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Symboliskt</h3>
-
-          <p>
-            Planera när och hur eleverna ska koppla modellerna till matematiska symboler, uttryck och formler.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🧠</span>
-
-        <div>
-          <h2>5. Välj uppgifter</h2>
-          <p>Uppgifter ska hjälpa eleverna att tänka om den matematiska idé som är målet.</p>
-        </div>
-
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Variation</h3>
-
-          <p>
-            Välj exempel som varierar på ett medvetet sätt och synliggör vad som förändras och vad som är konstant.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Resonemang</h3>
-
-          <p>
-            Lägg in frågor där eleverna behöver förklara, jämföra, värdera eller generalisera.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Transfer</h3>
-
-          <p>
-            Planera minst en uppgift där eleverna behöver använda idén i en något annorlunda situation.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🛟</span>
-
-        <div>
-          <h2>6. Planera stöd & utmaning från början</h2>
-          <p>Differentiering fungerar bättre när den är planerad innan eleverna fastnar eller blir färdiga.</p>
-        </div>
-
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Stöd</h3>
-
-          <ul>
-            <li>språkstöd</li>
-            <li>visuellt stöd</li>
-            <li>konkret material</li>
-            <li>mindre mängd</li>
-            <li>tydlig arbetsgång</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Behåll kärnan</h3>
-
-          <p>
-            Stödet ska minska barriären men låta eleven fortsätta tänka om samma centrala matematiska idé.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Utmaning</h3>
-
-          <ul>
-            <li>flera lösningar</li>
-            <li>hitta alla</li>
-            <li>ändra villkor</li>
-            <li>generalisera</li>
-            <li>argumentera</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>📊</span>
-
-        <div>
-          <h2>7. Planera bedömningen</h2>
-          <p>Bestäm före lektionen vilken information du behöver få om elevernas lärande.</p>
-        </div>
-
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Under lektionen</h3>
-
-          <ul>
-            <li>observation</li>
-            <li>matteprat</li>
-            <li>minitavlor</li>
-            <li>strategijämförelse</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Efter lektionen</h3>
-
-          <ul>
-            <li>exit ticket</li>
-            <li>kort elevlösning</li>
-            <li>självskattning</li>
-            <li>muntlig förklaring</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <p>
-            Vilket elevsvar skulle visa att den matematiska kärnan verkligen är förstådd?
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="lesson-box">
-
-      <h2 class="section-title">
-        🧭 Lektionsstruktur
-      </h2>
-
-      <p class="section-intro">
-        En möjlig struktur som går att anpassa till olika matematiska områden och årskurser.
+      <p>
+        Ta reda på vilka tidigare idéer den nya matematiken bygger vidare på.
       </p>
 
-      <div class="lesson-grid">
+      <ul>
+        <li>Vad ska återaktiveras?</li>
+        <li>Vilka luckor kan hindra?</li>
+        <li>Vilka missuppfattningar är vanliga?</li>
+      </ul>
 
-        <div class="lesson-card">
-          <span>1️⃣</span>
-          <h3>Aktivera</h3>
-          <p>
-            Knyt an till förkunskaper med en kort fråga, bild eller problemlösning.
-          </p>
-        </div>
-
-        <div class="lesson-card">
-          <span>2️⃣</span>
-          <h3>Utforska</h3>
-          <p>
-            Eleverna undersöker en matematisk idé genom problem, exempel eller representation.
-          </p>
-        </div>
-
-        <div class="lesson-card">
-          <span>3️⃣</span>
-          <h3>Samtala</h3>
-          <p>
-            Lyft elevstrategier och jämför representationer.
-          </p>
-        </div>
-
-        <div class="lesson-card">
-          <span>4️⃣</span>
-          <h3>Sammanfatta</h3>
-          <p>
-            Gör den matematiska kärnan explicit och koppla den till begrepp och symboler.
-          </p>
-        </div>
-
-        <div class="lesson-card">
-          <span>5️⃣</span>
-          <h3>Synliggör lärandet</h3>
-          <p>
-            Avsluta med en uppgift eller fråga som visar vad eleverna nu förstår.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="form-box">
+      <div class="icon">🔤</div>
 
-      <h2 class="section-title">
-        📝 Planeringsmall – undervisningsområde
-      </h2>
+      <h3>Språk och begrepp</h3>
 
-      <p class="section-intro">
-        Denna mall kan användas för en lektion, en vecka eller en längre undervisningssekvens.
+      <p>
+        Planera vilka ord och representationer elever behöver för att kunna tänka och samtala.
       </p>
 
-      <div class="table-wrap">
+      <ul>
+        <li>Centrala matematikord</li>
+        <li>Representationer</li>
+        <li>Meningstarter</li>
+        <li>Problemtextens språk</li>
+      </ul>
 
-        <table>
-
-          <thead>
-            <tr>
-              <th>Del</th>
-              <th>Planering</th>
-              <th>Frågor till läraren</th>
-            </tr>
-          </thead>
-
-          <tbody>
-
-            <tr>
-              <td><strong>Område</strong></td>
-              <td></td>
-              <td>Vilket matematiskt område arbetar vi med?</td>
-            </tr>
-
-            <tr>
-              <td><strong>Matematisk kärna</strong></td>
-              <td></td>
-              <td>Vad ska eleverna förstå på djupet?</td>
-            </tr>
-
-            <tr>
-              <td><strong>Förkunskaper</strong></td>
-              <td></td>
-              <td>Vad behöver eleverna redan kunna eller förstå?</td>
-            </tr>
-
-            <tr>
-              <td><strong>Vanliga missuppfattningar</strong></td>
-              <td></td>
-              <td>Vilka elevtankar behöver jag vara beredd på?</td>
-            </tr>
-
-            <tr>
-              <td><strong>Begrepp & språk</strong></td>
-              <td></td>
-              <td>Vilka ord och språkliga strukturer behöver eleverna?</td>
-            </tr>
-
-            <tr>
-              <td><strong>Representationer</strong></td>
-              <td></td>
-              <td>Vilka modeller gör den matematiska idén synlig?</td>
-            </tr>
-
-            <tr>
-              <td><strong>Aktiviteter</strong></td>
-              <td></td>
-              <td>Vad ska eleverna faktiskt göra och tänka kring?</td>
-            </tr>
-
-            <tr>
-              <td><strong>Matteprat</strong></td>
-              <td></td>
-              <td>Vilka frågor kan synliggöra olika strategier?</td>
-            </tr>
-
-            <tr>
-              <td><strong>Stöd & anpassningar</strong></td>
-              <td></td>
-              <td>Vilka barriärer kan uppstå och hur minskar vi dem?</td>
-            </tr>
-
-            <tr>
-              <td><strong>Utmaning</strong></td>
-              <td></td>
-              <td>Hur kan uppgiften fördjupas istället för att bara ge mer?</td>
-            </tr>
-
-            <tr>
-              <td><strong>Formativ bedömning</strong></td>
-              <td></td>
-              <td>Hur får jag syn på lärandet under processen?</td>
-            </tr>
-
-            <tr>
-              <td><strong>Exit ticket</strong></td>
-              <td></td>
-              <td>Vilken kort fråga visar om kärnan är förstådd?</td>
-            </tr>
-
-            <tr>
-              <td><strong>Nästa steg</strong></td>
-              <td></td>
-              <td>Vad gör jag om eleverna behöver stöd respektive utmaning?</td>
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="prompt-box">
+      <div class="icon">🧱</div>
 
-      <h2 class="section-title">
-        💬 Planeringsfrågor som höjer kvaliteten
-      </h2>
+      <h3>Representationer</h3>
 
-      <p class="section-intro">
-        Använd frågorna när en planering behöver gå från aktivitet till lärande.
+      <p>
+        Bestäm hur matematiken kan synliggöras på flera sätt.
       </p>
 
-      <div class="prompt-grid">
+      <ul>
+        <li>Konkret</li>
+        <li>Bild eller modell</li>
+        <li>Tabell eller graf</li>
+        <li>Symboliskt</li>
+      </ul>
 
-        <div class="prompt-card">
-
-          <h3>Matematiken</h3>
-
-          <ul>
-            <li>Vad är den centrala idén?</li>
-            <li>Vilka samband ska eleverna upptäcka?</li>
-            <li>Vilka exempel gör strukturen synlig?</li>
-            <li>Vad behöver eleverna kunna generalisera?</li>
-          </ul>
-
-        </div>
-
-        <div class="prompt-card">
-
-          <h3>Eleverna</h3>
-
-          <ul>
-            <li>Vad kan de redan?</li>
-            <li>Vilka missuppfattningar är sannolika?</li>
-            <li>Vilka språkliga hinder kan finnas?</li>
-            <li>Vilka elever behöver större djup?</li>
-          </ul>
-
-        </div>
-
-        <div class="prompt-card">
-
-          <h3>Undervisningen</h3>
-
-          <ul>
-            <li>Vem gör mest matematiskt tänkande?</li>
-            <li>Finns tid för elevstrategier?</li>
-            <li>Vilka representationer jämförs?</li>
-            <li>Hur påverkar elevsvaren nästa steg?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <h2 class="section-title">
-      🌱 🌿 🚀 Planering genom F–9
-    </h2>
+      <div class="icon">💬</div>
 
-    <p class="section-intro">
-      Samma didaktiska frågor gäller genom hela skolgången, men matematiken och elevens självständighet utvecklas.
+      <h3>Matteprat</h3>
+
+      <p>
+        Planera frågor och elevlösningar som kan utveckla förståelsen.
+      </p>
+
+      <ul>
+        <li>Hur tänkte du?</li>
+        <li>Vad är lika och olika?</li>
+        <li>Hur vet du?</li>
+        <li>Gäller det alltid?</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🌱🚀</div>
+
+      <h3>Stöd och utmaning</h3>
+
+      <p>
+        Planera variationen innan eleverna kör fast eller blir färdiga.
+      </p>
+
+      <ul>
+        <li>Vilket stöd kan finnas tillgängligt?</li>
+        <li>Hur kan uppgiften öppnas?</li>
+        <li>Hur behåller vi samma matematiska kärna?</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📊</div>
+
+      <h3>Bedömning och uppföljning</h3>
+
+      <p>
+        Bestäm vilken information du behöver för att planera nästa steg.
+      </p>
+
+      <ul>
+        <li>Observation</li>
+        <li>Elevlösningar</li>
+        <li>Exit tickets</li>
+        <li>Diagnostiska frågor</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+    <h2>📚 Tre planeringsnivåer</h2>
+    <p>Planeringen behöver fungera både på lång och kort sikt.</p>
+  </div>
+
+
+  <div class="level-grid">
+
+    <section class="level green">
+
+      <h3>🗓️ Områdesnivå</h3>
+
+      <p>
+        Ger riktningen för flera veckors undervisning.
+      </p>
+
+      <ul>
+        <li>Matematisk kärna</li>
+        <li>Progression</li>
+        <li>Centrala begrepp</li>
+        <li>Representationer</li>
+        <li>Slutmål och bedömningsunderlag</li>
+      </ul>
+
+    </section>
+
+
+    <section class="level blue">
+
+      <h3>📅 Veckonivå</h3>
+
+      <p>
+        Håller ihop progressionen mellan lektionerna.
+      </p>
+
+      <ul>
+        <li>Vad behöver återkomma?</li>
+        <li>Vad ska introduceras?</li>
+        <li>Vilken träning behövs?</li>
+        <li>Var finns problemlösning?</li>
+        <li>Vad ska följas upp?</li>
+      </ul>
+
+    </section>
+
+
+    <section class="level purple">
+
+      <h3>⏱️ Lektionsnivå</h3>
+
+      <p>
+        Fokuserar på vilket matematiskt tänkande som ska ske just idag.
+      </p>
+
+      <ul>
+        <li>Tydligt lärandefokus</li>
+        <li>Aktivera förkunskaper</li>
+        <li>Huvudaktivitet</li>
+        <li>Gemensam sammanfattning</li>
+        <li>Snabb uppföljning</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+    <h2>⏱️ Planera en matematiklektion</h2>
+    <p>En möjlig struktur – inte ett krav på att varje lektion måste se likadan ut.</p>
+  </div>
+
+
+  <section class="lesson-box">
+
+    <h2>🧩 Lektionens fem delar</h2>
+
+    <p>
+      Anpassa tiden efter syftet. Ibland behöver huvudaktiviteten vara lång,
+      ibland behöver samtalet få större utrymme.
     </p>
 
-    <div class="stage-grid">
 
-      <div class="stage-card f3stage">
+    <div class="lesson-parts">
 
-        <span>🌱</span>
-
-        <h3>F–3</h3>
-
-        <ul>
-          <li>konkret och visuellt först</li>
-          <li>korta tydliga mål</li>
-          <li>talrelationer och begrepp</li>
-          <li>mycket muntligt matematiskt språk</li>
-          <li>lek, undersökning och problem</li>
-          <li>observation som viktigt underlag</li>
-        </ul>
-
-      </div>
+      <section class="lesson-part green">
+        <h3>1. 🎯 Start</h3>
+        <p>
+          Synliggör dagens matematiska fokus och skapa en tydlig ingång.
+        </p>
+      </section>
 
 
-      <div class="stage-card m46stage">
-
-        <span>🌿</span>
-
-        <h3>4–6</h3>
-
-        <ul>
-          <li>stark progression mellan områden</li>
-          <li>bråk–decimal–procent kopplas ihop</li>
-          <li>systematisk problemlösning</li>
-          <li>språk- och begreppsplanering</li>
-          <li>flera representationer</li>
-          <li>exit tickets och korta diagnoser</li>
-        </ul>
-
-      </div>
+      <section class="lesson-part blue">
+        <h3>2. 🧠 Aktivera</h3>
+        <p>
+          Plocka fram relevanta förkunskaper genom en kort fråga eller aktivitet.
+        </p>
+      </section>
 
 
-      <div class="stage-card m79stage">
+      <section class="lesson-part yellow">
+        <h3>3. 🧩 Arbeta</h3>
+        <p>
+          Elever utforskar, tränar, problemlöser eller undersöker den centrala idén.
+        </p>
+      </section>
 
-        <span>🚀</span>
 
-        <h3>7–9</h3>
+      <section class="lesson-part purple">
+        <h3>4. 💬 Samla</h3>
+        <p>
+          Jämför elevlösningar och lyft den matematiska kärnan.
+        </p>
+      </section>
 
-        <ul>
-          <li>abstraktion och generalisering</li>
-          <li>algebra och funktionellt tänkande</li>
-          <li>modellering</li>
-          <li>argumentation</li>
-          <li>strategiskt användande av digitala verktyg</li>
-          <li>självständiga och öppna uppgifter</li>
-        </ul>
 
-      </div>
+      <section class="lesson-part teal">
+        <h3>5. ✅ Fånga</h3>
+        <p>
+          Använd en kort fråga, observation eller exit ticket för att se nästa steg.
+        </p>
+      </section>
 
     </div>
 
   </section>
 
 
-  <section>
-
-    <div class="check-box">
-
-      <h2 class="section-title">
-        ✅ Kvalitetskontroll innan undervisningen
-      </h2>
-
-      <p class="section-intro">
-        Fyra snabba frågor kan avslöja om planeringen främst beskriver aktiviteter eller faktiskt planerar för lärande.
-      </p>
-
-      <div class="check-grid">
-
-        <div class="check-card">
-          <span>🎯</span>
-          <h3>Vet jag vad eleverna ska förstå?</h3>
-          <p>
-            Målet beskriver matematisk förståelse – inte bara vilket kapitel som ska göras.
-          </p>
-        </div>
-
-        <div class="check-card">
-          <span>🧠</span>
-          <h3>Vet jag vad eleverna ska tänka?</h3>
-          <p>
-            Aktiviteten kräver matematiska beslut, samband eller resonemang.
-          </p>
-        </div>
-
-        <div class="check-card">
-          <span>👀</span>
-          <h3>Vet jag hur förståelsen ska bli synlig?</h3>
-          <p>
-            Planeringen innehåller frågor eller uppgifter som ger information om lärandet.
-          </p>
-        </div>
-
-        <div class="check-card">
-          <span>➡️</span>
-          <h3>Vet jag vad jag gör med informationen?</h3>
-          <p>
-            Det finns tänkta nästa steg för elever som behöver stöd eller fördjupning.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+  <div class="section-title">
+    <h2>🔁 Planera efter det eleverna visar</h2>
+    <p>Planeringen är en hypotes – undervisningen behöver kunna justeras.</p>
+  </div>
 
 
-  <section>
+  <div class="analysis-grid">
 
-    <div class="pitfall-box">
+    <section class="analysis green">
 
-      <h2 class="section-title">
-        ⚠️ Vanliga planeringsfällor
-      </h2>
+      <h3>✅ Många har förstått</h3>
 
-      <p class="section-intro">
-        Undvik att planeringen blir en checklista över aktiviteter utan tydlig matematisk riktning.
-      </p>
+      <ul>
+        <li>Gå vidare men återkom senare.</li>
+        <li>Öka självständigheten.</li>
+        <li>Öppna uppgifterna.</li>
+        <li>Generaliserande frågor.</li>
+      </ul>
 
-      <div class="pitfall-grid">
+    </section>
 
-        <div class="pitfall-card">
-          <h3>Läromedlet blir planeringen</h3>
-          <p>
-            Sidnummer kan vara en del av undervisningen, men bör inte ersätta mål, progression och didaktiska beslut.
-          </p>
-        </div>
 
-        <div class="pitfall-card">
-          <h3>För många mål samtidigt</h3>
-          <p>
-            Om allt är viktigt blir det svårt för både lärare och elever att se den matematiska kärnan.
-          </p>
-        </div>
+    <section class="analysis blue">
 
-        <div class="pitfall-card">
-          <h3>Stöd läggs till i efterhand</h3>
-          <p>
-            Planera från början för språk, visuellt stöd och varierade representationer.
-          </p>
-        </div>
+      <h3>🟡 Blandad förståelse</h3>
 
-        <div class="pitfall-card">
-          <h3>Snabba elever får bara mer</h3>
-          <p>
-            Förbered fördjupning genom större komplexitet, inte bara fler rutinuppgifter.
-          </p>
-        </div>
+      <ul>
+        <li>Arbeta med strategigrupper.</li>
+        <li>Återanvänd visuella modeller.</li>
+        <li>Planera pararbete med tydligt syfte.</li>
+        <li>Ge stöd och utmaning inom samma kärna.</li>
+      </ul>
 
-        <div class="pitfall-card">
-          <h3>Bedömningen kommer sist</h3>
-          <p>
-            Planera redan från början hur eleverna ska få visa det kunnande som är målet.
-          </p>
-        </div>
+    </section>
 
-        <div class="pitfall-card">
-          <h3>Planeringen ändras aldrig</h3>
-          <p>
-            Formativ information ska kunna påverka tempo, exempel, grupper och nästa undervisningssteg.
-          </p>
-        </div>
 
-      </div>
+    <section class="analysis yellow">
 
-    </div>
+      <h3>🔴 Många har samma missuppfattning</h3>
+
+      <ul>
+        <li>Stanna progressionen.</li>
+        <li>Byt representation.</li>
+        <li>Skapa ett kontrasterande exempel.</li>
+        <li>Planera ny gemensam undervisning.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="analysis purple">
+
+      <h3>🚀 Några behöver större utmaning</h3>
+
+      <ul>
+        <li>Hitta alla lösningar.</li>
+        <li>Ändra villkor.</li>
+        <li>Generalisera.</li>
+        <li>Skapa och granska egna problem.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Kontrollfrågor före ett nytt arbetsområde</h2>
+
+    <ul>
+      <li>Vad är den viktigaste matematiska förståelsen?</li>
+      <li>Vilka delar av tidigare undervisning bygger området vidare på?</li>
+      <li>Vilka begrepp behöver vara aktiva från början?</li>
+      <li>Vilka vanliga missuppfattningar kan jag förutse?</li>
+      <li>Hur ska eleverna få möta matematiken konkret och visuellt?</li>
+      <li>När ska eleverna prata matematik?</li>
+      <li>Var finns problemlösning och undersökande arbete?</li>
+      <li>Vilken färdighetsträning behövs?</li>
+      <li>Vilket stöd kan finnas från början?</li>
+      <li>Hur kan elever som redan förstått få fördjupa samma idé?</li>
+      <li>Vad ska jag observera under området?</li>
+      <li>Hur vet jag när vi är redo att gå vidare?</li>
+    </ul>
 
   </section>
 
 
-  <section>
+  <div class="warning">
 
-    <h2 class="section-title">
-      Relaterade lärarverktyg
-    </h2>
+    <strong>⚠️ Planeringen ska stödja undervisningen – inte låsa den.</strong><br>
+    Om elevernas lösningar visar något annat än du förväntade dig
+    behöver planen kunna förändras. En stark planering innehåller därför
+    inte bara <strong>vad du tänker undervisa om</strong>,
+    utan också <strong>hur du ska upptäcka när undervisningen behöver ändras</strong>.
 
-    <p class="section-intro">
-      Planering knyter samman progression, undervisning, stöd och bedömning.
-    </p>
+  </div>
 
-    <div class="links-grid">
 
-      <a href="larare-progression.html" class="link-card c1">
-        <span>🪜</span>
-        <h3>Progression</h3>
-        <p>
-          Placera undervisningen i en längre utvecklingslinje genom F–9.
-        </p>
+  <section class="links">
+
+    <h2>➡️ Planeringsverktyg</h2>
+
+    <div class="link-row">
+
+      <a href="material-planering.html">
+        📅 A4-planering
       </a>
 
-      <a href="larare-undervisning.html" class="link-card c2">
-        <span>👩‍🏫</span>
-        <h3>Undervisning</h3>
-        <p>
-          Välj undervisningsformer som passar den matematiska kärnan.
-        </p>
+      <a href="material-lektionsmall.html">
+        📋 Lektionsmall
       </a>
 
-      <a href="larare-bedomning.html" class="link-card c3">
-        <span>📊</span>
-        <h3>Bedömning</h3>
-        <p>
-          Planera hur elevens kunnande ska synliggöras och följas upp.
-        </p>
+      <a href="larare-progression.html">
+        📈 Progression
       </a>
 
-      <a href="larare-sva.html" class="link-card c4">
-        <span>🌍💬</span>
-        <h3>SVA & språkstöd</h3>
-        <p>
-          Planera begrepp och språkliga stöttor som en del av matematiken.
-        </p>
+      <a href="larare-lgr22.html">
+        📘 Lgr22
       </a>
 
-      <a href="larare-npf.html" class="link-card c5">
-        <span>🧠🛟</span>
-        <h3>NPF-anpassning</h3>
-        <p>
-          Förutse barriärer och skapa tydliga strukturer från början.
-        </p>
+      <a href="larare-bedomning.html">
+        📊 Bedömning
       </a>
 
-      <a href="larare-exittickets.html" class="link-card c6">
-        <span>🎟️</span>
-        <h3>Exit tickets</h3>
-        <p>
-          Planera den fråga som ska hjälpa dig avgöra nästa undervisningssteg.
-        </p>
+      <a href="larare-stod.html">
+        🌱 Stöd
       </a>
 
-    </div>
+      <a href="larare-utmaning.html">
+        🚀 Utmaning
+      </a>
 
-    <div class="note">
-      <strong>Kom ihåg:</strong>
-      Matteresans årskursvisa upplägg är en pedagogiskt planerad progression inom Lgr22:s bredare stadieinnehåll.
-      Det är inte en officiell årskurs-för-årskurs-fördelning av centralt innehåll.
+      <a href="larare-observation.html">
+        👀 Observation
+      </a>
+
     </div>
 
   </section>
@@ -1689,11 +1110,8 @@
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🗓️✏️ Planering – mål, undervisning, bedömning och nästa steg
+  <strong>HOLOS Matteresan F–9</strong><br>
+  📅 Planera • Undervisa • Observera • Anpassa • Följ upp
 
 </footer>
 
