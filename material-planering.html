@@ -34,13 +34,14 @@
       --gray: #eef2f4;
 
       --background: #f7f9fb;
+      --line: #cfd7de;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
     a {
@@ -49,336 +50,286 @@
     }
 
     header {
-      background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
-        linear-gradient(135deg, #53677a, #8295a8);
-      color: white;
-      padding: 22px 20px 55px;
+      max-width: 1050px;
+      margin: 24px auto 0;
+      padding: 0 18px;
     }
 
     .topbar {
-      max-width: 1180px;
-      margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
+      margin-bottom: 18px;
     }
 
     .logo {
       font-weight: 800;
       letter-spacing: 1px;
+      color: var(--dark);
     }
 
     .back-link {
-      border: 1px solid rgba(255,255,255,0.65);
+      background: var(--dark);
+      color: white;
       border-radius: 999px;
-      padding: 8px 15px;
+      padding: 9px 14px;
       font-weight: bold;
+      font-size: 0.85rem;
     }
 
-    .hero {
-      max-width: 900px;
-      margin: 42px auto 0;
-      text-align: center;
+    .screen-intro {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.07);
+      margin-bottom: 18px;
     }
 
-    .hero-icon {
-      font-size: 4rem;
-      margin-bottom: 8px;
+    .screen-intro h1 {
+      color: var(--dark);
+      margin-bottom: 7px;
     }
 
-    .hero h1 {
-      font-size: clamp(2.3rem, 7vw, 4.2rem);
-      line-height: 1.05;
-      margin-bottom: 12px;
+    .screen-intro p {
+      color: var(--muted);
     }
 
-    .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 14px;
-    }
-
-    .hero p {
-      max-width: 820px;
-      margin: auto;
-      color: #f7f9fc;
+    .screen-note {
+      margin-top: 14px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 15px;
+      color: #665831;
     }
 
     main {
-      max-width: 1040px;
+      max-width: 1050px;
       margin: auto;
-      padding: 42px 20px 65px;
-    }
-
-    .intro {
-      background: white;
-      border-radius: 22px;
-      padding: 28px;
-      margin-bottom: 34px;
-      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
-      text-align: center;
-    }
-
-    .intro h2 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .intro p {
-      color: var(--muted);
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .print-button {
-      margin-top: 16px;
-      background: var(--dark);
-      color: white;
-      border: none;
-      border-radius: 999px;
-      padding: 12px 20px;
-      font-weight: bold;
-      cursor: pointer;
+      padding: 0 18px 50px;
     }
 
     .sheet {
       background: white;
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 22px;
-      padding: 24px;
-      margin-bottom: 28px;
-      min-height: 270mm;
+      width: 100%;
+      min-height: 277mm;
+      margin: 22px auto;
+      padding: 12mm;
+      border-radius: 18px;
+      box-shadow: 0 6px 22px rgba(32,48,64,0.08);
+      page-break-after: always;
+      break-after: page;
     }
 
-    .green-sheet {
-      border-top: 9px solid var(--green-strong);
+    .sheet.final-sheet {
+      page-break-after: auto;
+      break-after: auto;
     }
 
-    .blue-sheet {
-      border-top: 9px solid var(--blue-strong);
+    .sheet.green {
+      border-top: 10px solid var(--green-strong);
     }
 
-    .purple-sheet {
-      border-top: 9px solid var(--purple-strong);
+    .sheet.blue {
+      border-top: 10px solid var(--blue-strong);
     }
 
-    .sheet-head {
+    .sheet.purple {
+      border-top: 10px solid var(--purple-strong);
+    }
+
+    .sheet.teal {
+      border-top: 10px solid #5d9c92;
+    }
+
+    .sheet-header {
       text-align: center;
-      margin-bottom: 18px;
+      margin-bottom: 7mm;
     }
 
-    .sheet-head h2 {
-      color: var(--dark);
-      font-size: 1.7rem;
+    .sheet-header .icon {
+      font-size: 2.4rem;
       margin-bottom: 4px;
     }
 
-    .sheet-head p {
-      color: var(--muted);
-      font-size: 0.9rem;
+    .sheet-header h2 {
+      color: var(--dark);
+      font-size: 1.65rem;
+      margin-bottom: 4px;
     }
 
-    .meta-grid {
+    .sheet-header p {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .two-col {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6mm;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5mm;
     }
 
     .field {
-      background: white;
-      border: 1.4px solid #9aa6ae;
-      border-radius: 10px;
-      min-height: 50px;
-      padding: 9px;
+      margin-bottom: 5mm;
     }
 
-    .field strong {
-      display: block;
+    .field-title {
+      font-weight: 700;
       color: var(--dark);
-      font-size: 0.84rem;
+      margin-bottom: 2mm;
+      font-size: 0.9rem;
     }
 
-    .section-box {
-      border-radius: 14px;
-      padding: 14px;
-      margin-bottom: 12px;
-      break-inside: avoid;
+    .line {
+      border-bottom: 1.5px solid var(--line);
+      height: 8mm;
     }
 
-    .section-box h3 {
+    .box {
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      min-height: 25mm;
+      padding: 4mm;
+      background: white;
+    }
+
+    .box.medium {
+      min-height: 36mm;
+    }
+
+    .box.large {
+      min-height: 52mm;
+    }
+
+    .mini {
+      border-radius: 12px;
+      padding: 5mm;
+      min-height: 38mm;
+    }
+
+    .mini h3 {
       color: var(--dark);
-      margin-bottom: 7px;
-      font-size: 1rem;
+      font-size: 0.92rem;
+      margin-bottom: 3mm;
     }
 
-    .section-box p,
-    .section-box li {
-      color: #4e5d68;
-      font-size: 0.88rem;
+    .mini p {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-bottom: 3mm;
     }
 
-    .section-box ul {
-      margin-left: 20px;
+    .mini-line {
+      border-bottom: 1.3px solid rgba(80,100,115,0.35);
+      height: 6mm;
     }
 
-    .section-box li {
-      margin-bottom: 5px;
+    .green-bg {
+      background: var(--green);
     }
 
-    .green { background: var(--green); }
-    .blue { background: var(--blue); }
-    .purple { background: var(--purple); }
-    .yellow { background: var(--yellow); }
-    .orange { background: var(--orange); }
-    .teal { background: var(--teal); }
-    .pink { background: var(--pink); }
-    .gray { background: var(--gray); }
-
-    .write-area {
-      background: white;
-      border: 1.2px solid #98a4ad;
-      border-radius: 8px;
-      margin-top: 8px;
-      min-height: 70px;
+    .blue-bg {
+      background: var(--blue);
     }
 
-    .write-area.medium {
-      min-height: 105px;
+    .purple-bg {
+      background: var(--purple);
     }
 
-    .write-area.large {
-      min-height: 145px;
+    .yellow-bg {
+      background: var(--yellow);
     }
 
-    .two-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+    .teal-bg {
+      background: var(--teal);
     }
 
-    .three-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+    .pink-bg {
+      background: var(--pink);
     }
 
-    .check-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .check {
-      background: white;
-      border: 1px solid #9aa6ae;
-      border-radius: 9px;
-      min-height: 60px;
-      padding: 8px;
-      text-align: center;
-      color: var(--dark);
-      font-size: 0.77rem;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .table-wrap {
-      margin-top: 10px;
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      table-layout: fixed;
-    }
-
-    th,
-    td {
-      border: 1px solid #86939c;
-      padding: 7px;
-      vertical-align: top;
-    }
-
-    th {
-      background: var(--dark);
-      color: white;
-      font-size: 0.8rem;
-      text-align: center;
-    }
-
-    td {
-      background: white;
-      min-height: 45px;
-      height: 48px;
-      font-size: 0.8rem;
-    }
-
-    .progress-row {
+    .week-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
-      margin-top: 10px;
+      gap: 4mm;
+      margin-bottom: 6mm;
     }
 
-    .progress-step {
-      background: white;
-      border: 1px solid #9aa6ae;
-      border-radius: 10px;
-      padding: 9px 6px;
-      text-align: center;
-      font-size: 0.76rem;
+    .day {
+      border-radius: 12px;
+      padding: 4mm;
+      min-height: 55mm;
+      background: var(--gray);
+    }
+
+    .day h3 {
       color: var(--dark);
-      font-weight: bold;
-      min-height: 62px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      font-size: 0.88rem;
+      margin-bottom: 3mm;
+      text-align: center;
     }
 
-    .footer-note {
-      text-align: center;
-      margin-top: 14px;
-      color: var(--muted);
+    .day .mini-line {
+      margin-bottom: 2mm;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 3mm;
+    }
+
+    .check-item {
+      display: grid;
+      grid-template-columns: 17px 1fr;
+      gap: 7px;
       font-size: 0.8rem;
+      align-items: start;
     }
 
-    .screen-note {
-      background: var(--orange);
-      border-left: 6px solid #c77f43;
-      border-radius: 16px;
-      padding: 20px;
-      color: #654c37;
-      margin-top: 25px;
+    .square {
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid #8996a1;
+      background: white;
+      margin-top: 1px;
     }
 
-    footer {
-      background: var(--dark);
-      color: white;
+    .note {
+      background: var(--yellow);
+      border-radius: 12px;
+      padding: 4mm;
+      color: #665831;
+      font-size: 0.78rem;
+      margin-bottom: 5mm;
+    }
+
+    .sheet-footer {
+      margin-top: 7mm;
       text-align: center;
-      padding: 32px 20px;
+      color: var(--muted);
+      font-size: 0.72rem;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       .topbar {
         flex-direction: column;
       }
 
-      .meta-grid,
-      .two-grid,
-      .three-grid,
-      .check-grid,
-      .progress-row {
+      .two-col,
+      .three-col,
+      .week-grid {
         grid-template-columns: 1fr;
       }
 
-      main {
-        padding-left: 14px;
-        padding-right: 14px;
+      .sheet {
+        min-height: auto;
       }
     }
 
@@ -388,7 +339,6 @@
     }
 
     @media print {
-
       *,
       *::before,
       *::after {
@@ -405,103 +355,67 @@
         forced-color-adjust: none !important;
       }
 
-      header,
-      footer,
-      .intro,
-      .screen-note {
+      header {
         display: none !important;
       }
 
       main {
-        width: 100%;
         max-width: none;
-        margin: 0;
         padding: 0;
+        margin: 0;
       }
 
       .sheet {
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0;
         width: 100%;
         min-height: 277mm;
-        margin: 0;
-        padding: 0;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-        border-bottom: none;
-        page-break-after: always;
-        break-after: page;
       }
 
-      .sheet:last-of-type {
-        page-break-after: auto;
-        break-after: auto;
+      .sheet.green {
+        border-top: 10px solid var(--green-strong) !important;
       }
 
-      .green-sheet {
-        border-top: 7px solid var(--green-strong) !important;
+      .sheet.blue {
+        border-top: 10px solid var(--blue-strong) !important;
       }
 
-      .blue-sheet {
-        border-top: 7px solid var(--blue-strong) !important;
+      .sheet.purple {
+        border-top: 10px solid var(--purple-strong) !important;
       }
 
-      .purple-sheet {
-        border-top: 7px solid var(--purple-strong) !important;
+      .sheet.teal {
+        border-top: 10px solid #5d9c92 !important;
       }
 
-      .green { background: var(--green) !important; }
-      .blue { background: var(--blue) !important; }
-      .purple { background: var(--purple) !important; }
-      .yellow { background: var(--yellow) !important; }
-      .orange { background: var(--orange) !important; }
-      .teal { background: var(--teal) !important; }
-      .pink { background: var(--pink) !important; }
-      .gray { background: var(--gray) !important; }
-
-      .field,
-      .write-area,
-      .check,
-      .progress-step,
-      td {
-        background: white !important;
+      .green-bg {
+        background: var(--green) !important;
       }
 
-      th {
-        background: var(--dark) !important;
-        color: white !important;
+      .blue-bg {
+        background: var(--blue) !important;
       }
 
-      .two-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 3mm !important;
+      .purple-bg {
+        background: var(--purple) !important;
       }
 
-      .three-grid {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 3mm !important;
+      .yellow-bg,
+      .note {
+        background: var(--yellow) !important;
       }
 
-      .check-grid {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 2mm !important;
+      .teal-bg {
+        background: var(--teal) !important;
       }
 
-      .progress-row {
-        display: grid !important;
-        grid-template-columns: repeat(5, 1fr) !important;
-        gap: 2mm !important;
+      .pink-bg {
+        background: var(--pink) !important;
       }
 
-      .section-box,
-      .field,
-      .table-wrap,
-      .check,
-      .progress-step {
-        break-inside: avoid;
-        page-break-inside: avoid;
+      .day {
+        background: var(--gray) !important;
       }
     }
   </style>
@@ -513,387 +427,571 @@
 
   <div class="topbar">
 
-    <div class="logo">HOLOS MATTERESAN</div>
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
 
     <a href="larare-utskrift.html" class="back-link">
-      ← Utskriftsmaterial
+      ← Utskriftscentral
     </a>
 
   </div>
 
-  <div class="hero">
+  <section class="screen-intro">
 
-    <div class="hero-icon">📅🧠</div>
-
-    <h1>Planeringsunderlag</h1>
-
-    <h2>Mål • Progression • Undervisning • Stöd • Utmaning • Uppföljning</h2>
+    <h1>📝 Planeringsunderlag</h1>
 
     <p>
-      Utskriftsbara planeringsunderlag för att bygga en sammanhängande
-      matematikundervisning från mål och förkunskaper till uppföljning.
+      Fyra utskrivbara A4-underlag för områdesplanering,
+      veckoplanering, stöd och utmaning samt uppföljning.
     </p>
 
-  </div>
+    <div class="screen-note">
+      🖨️ <strong>Färgutskrift:</strong>
+      välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+      och kontrollera att skrivaren står på <strong>Färg</strong>.
+      Varje planeringsblad är anpassat till ett eget A4.
+    </div>
+
+  </section>
 
 </header>
 
 
 <main>
 
-  <section class="intro">
-
-    <h2>📅 Planera med den matematiska idén i centrum</h2>
-
-    <p>
-      Underlagen hjälper dig att planera vad eleverna ska förstå,
-      vilka representationer och aktiviteter som kan stödja förståelsen
-      och hur undervisningen kan följas upp.
-    </p>
-
-    <button class="print-button" onclick="window.print()">
-      🖨️ Skriv ut planeringsunderlagen
-    </button>
-
-  </section>
-
-
   <!-- SIDA 1 -->
+  <section class="sheet green">
 
-  <section class="sheet green-sheet">
-
-    <div class="sheet-head">
-      <h2>🗺️ Områdesplanering</h2>
-      <p>Planera ett matematikområde från start till uppföljning</p>
+    <div class="sheet-header">
+      <div class="icon">🗺️</div>
+      <h2>Områdesplanering</h2>
+      <p>Planera från matematisk kärna till uppföljning.</p>
     </div>
 
-    <div class="meta-grid">
-      <div class="field"><strong>Matematikområde</strong></div>
-      <div class="field"><strong>Årskurs / grupp</strong></div>
-      <div class="field"><strong>Period</strong></div>
-    </div>
+    <div class="two-col">
 
-    <div class="section-box green">
-      <h3>1. Matematisk kärna</h3>
-      <p>
-        Vad är det viktigaste eleverna ska förstå?
-      </p>
-      <div class="write-area large"></div>
-    </div>
-
-    <div class="two-grid">
-
-      <div class="section-box blue">
-        <h3>2. Förkunskaper</h3>
-        <div class="write-area medium"></div>
+      <div class="field">
+        <div class="field-title">Område / tema</div>
+        <div class="line"></div>
       </div>
 
-      <div class="section-box yellow">
-        <h3>3. Viktiga begrepp</h3>
-        <div class="write-area medium"></div>
+      <div class="field">
+        <div class="field-title">Årskurs / grupp</div>
+        <div class="line"></div>
       </div>
 
     </div>
 
-    <div class="two-grid">
 
-      <div class="section-box pink">
-        <h3>4. Vanliga missuppfattningar</h3>
-        <div class="write-area medium"></div>
+    <div class="field">
+      <div class="field-title">
+        🎯 Matematisk kärna – vad ska eleverna utveckla förståelse för?
+      </div>
+      <div class="box medium"></div>
+    </div>
+
+
+    <div class="two-col">
+
+      <div class="mini green-bg">
+        <h3>🧠 Förkunskaper</h3>
+        <p>Vad behöver eleverna redan kunna?</p>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
       </div>
 
-      <div class="section-box teal">
-        <h3>5. Representationer</h3>
-        <p>
-          Konkret • bild • språk • symbol • tabell • graf
-        </p>
-        <div class="write-area medium"></div>
+      <div class="mini yellow-bg">
+        <h3>🕵️ Kritiska punkter</h3>
+        <p>Vilka missuppfattningar eller svårigheter kan uppstå?</p>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
       </div>
 
     </div>
 
-    <div class="section-box purple">
-      <h3>6. Progression genom området</h3>
 
-      <div class="progress-row">
-        <div class="progress-step">Förstå</div>
-        <div class="progress-step">Representera</div>
-        <div class="progress-step">Använd strategi</div>
-        <div class="progress-step">Förklara</div>
-        <div class="progress-step">Generalisera</div>
+    <div class="two-col">
+
+      <div class="field">
+        <div class="field-title">🔤 Begrepp och språk</div>
+        <div class="box"></div>
       </div>
 
-      <div class="write-area medium"></div>
+      <div class="field">
+        <div class="field-title">🧱 Representationer</div>
+        <div class="box"></div>
+      </div>
+
     </div>
 
-    <div class="footer-note">
-      HOLOS Matteresan • Områdesplanering
+
+    <div class="field">
+      <div class="field-title">
+        🧩 Centrala aktiviteter, problem och undersökningar
+      </div>
+      <div class="box medium"></div>
+    </div>
+
+
+    <div class="two-col">
+
+      <div class="field">
+        <div class="field-title">🪜 Stöd</div>
+        <div class="box"></div>
+      </div>
+
+      <div class="field">
+        <div class="field-title">🚀 Utmaning</div>
+        <div class="box"></div>
+      </div>
+
+    </div>
+
+
+    <div class="field">
+      <div class="field-title">
+        🔍 Hur ska elevernas lärande bli synligt?
+      </div>
+      <div class="box"></div>
+    </div>
+
+
+    <div class="field">
+      <div class="field-title">
+        ➡️ Hur och när följer jag upp?
+      </div>
+      <div class="box"></div>
+    </div>
+
+
+    <div class="sheet-footer">
+      HOLOS Matteresan F–9 • Områdesplanering
     </div>
 
   </section>
 
 
   <!-- SIDA 2 -->
+  <section class="sheet blue">
 
-  <section class="sheet blue-sheet">
-
-    <div class="sheet-head">
-      <h2>📆 Veckoplanering</h2>
-      <p>Skapa en tydlig röd tråd genom veckans matematiklektioner</p>
+    <div class="sheet-header">
+      <div class="icon">📅</div>
+      <h2>Veckoplanering matematik</h2>
+      <p>Planera progression och variation över veckan.</p>
     </div>
 
-    <div class="meta-grid">
-      <div class="field"><strong>Vecka</strong></div>
-      <div class="field"><strong>Årskurs / grupp</strong></div>
-      <div class="field"><strong>Område</strong></div>
-    </div>
 
-    <div class="section-box blue">
-      <h3>Veckans matematiska mål</h3>
-      <div class="write-area medium"></div>
-    </div>
+    <div class="two-col">
 
-    <div class="table-wrap">
-
-      <table>
-
-        <tr>
-          <th>Dag / lektion</th>
-          <th>Matematisk idé</th>
-          <th>Aktivitet</th>
-          <th>Matteprat / frågor</th>
-          <th>Stöd / utmaning</th>
-          <th>Uppföljning</th>
-        </tr>
-
-        <tr>
-          <td>Måndag</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>Tisdag</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>Onsdag</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>Torsdag</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>Fredag</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-
-      </table>
-
-    </div>
-
-    <div class="two-grid" style="margin-top:14px;">
-
-      <div class="section-box green">
-        <h3>Vad ska återkomma varje dag?</h3>
-        <div class="write-area large"></div>
+      <div class="field">
+        <div class="field-title">Vecka</div>
+        <div class="line"></div>
       </div>
 
-      <div class="section-box yellow">
-        <h3>Vad behöver följas extra noga?</h3>
-        <div class="write-area large"></div>
+      <div class="field">
+        <div class="field-title">Klass / grupp</div>
+        <div class="line"></div>
       </div>
 
     </div>
 
-    <div class="section-box teal">
-      <h3>Veckans sammanfattning</h3>
-      <p>
-        Vad ska eleverna kunna se, använda eller förklara i slutet av veckan?
-      </p>
-      <div class="write-area large"></div>
+
+    <div class="field">
+      <div class="field-title">🎯 Veckans matematiska fokus</div>
+      <div class="box"></div>
     </div>
 
-    <div class="footer-note">
-      HOLOS Matteresan • Veckoplanering
+
+    <div class="week-grid">
+
+      <div class="day">
+        <h3>Måndag</h3>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+      </div>
+
+      <div class="day">
+        <h3>Tisdag</h3>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+      </div>
+
+      <div class="day">
+        <h3>Onsdag</h3>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+      </div>
+
+      <div class="day">
+        <h3>Torsdag</h3>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+      </div>
+
+      <div class="day">
+        <h3>Fredag</h3>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+      </div>
+
+    </div>
+
+
+    <div class="three-col">
+
+      <div class="mini green-bg">
+        <h3>🧱 Konkret / visuellt</h3>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+      </div>
+
+      <div class="mini blue-bg">
+        <h3>💬 Matteprat</h3>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+      </div>
+
+      <div class="mini purple-bg">
+        <h3>🧩 Problemlösning</h3>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+      </div>
+
+    </div>
+
+
+    <div class="two-col">
+
+      <div class="field">
+        <div class="field-title">👀 Det här vill jag observera under veckan</div>
+        <div class="box"></div>
+      </div>
+
+      <div class="field">
+        <div class="field-title">🎫 Uppföljning / exit tickets</div>
+        <div class="box"></div>
+      </div>
+
+    </div>
+
+
+    <div class="note">
+      Variera gärna mellan
+      <strong>gemensam modellering, laborativt arbete, problemlösning,
+      matematiska samtal och självständigt arbete</strong>.
+    </div>
+
+
+    <div class="sheet-footer">
+      HOLOS Matteresan F–9 • Veckoplanering
     </div>
 
   </section>
 
 
   <!-- SIDA 3 -->
+  <section class="sheet purple">
 
-  <section class="sheet purple-sheet">
-
-    <div class="sheet-head">
-      <h2>🌱 Stöd och 🚀 utmaning</h2>
-      <p>Planera olika vägar till samma matematiska kärna</p>
+    <div class="sheet-header">
+      <div class="icon">🪜🚀</div>
+      <h2>Planera stöd och utmaning</h2>
+      <p>Samma matematiska mål – olika vägar och olika djup.</p>
     </div>
 
-    <div class="meta-grid">
-      <div class="field"><strong>Område / uppgift</strong></div>
-      <div class="field"><strong>Årskurs / grupp</strong></div>
-      <div class="field"><strong>Datum</strong></div>
+
+    <div class="field">
+      <div class="field-title">Matematiskt mål / aktivitet</div>
+      <div class="box"></div>
     </div>
 
-    <div class="section-box blue">
-      <h3>🎯 Gemensam matematisk kärna</h3>
-      <p>
-        Vad ska alla elever få möjlighet att förstå?
-      </p>
-      <div class="write-area large"></div>
-    </div>
 
-    <div class="two-grid">
+    <div class="two-col">
 
-      <div class="section-box green">
-        <h3>🌱 Stöd utan att ta bort tänkandet</h3>
-        <ul>
-          <li>Konkret material</li>
-          <li>Visuell modell</li>
-          <li>Färre tal eller enklare tal</li>
-          <li>Begreppsstöd</li>
-          <li>Startad lösning</li>
-          <li>Frågor steg för steg</li>
-        </ul>
-        <div class="write-area medium"></div>
+      <div class="mini green-bg">
+        <h3>🪜 Möjliga stödbehov</h3>
+        <p>Vad kan göra uppgiften otillgänglig?</p>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
       </div>
 
-      <div class="section-box purple">
-        <h3>🚀 Fördjupning</h3>
-        <ul>
-          <li>Hitta fler lösningar</li>
-          <li>Jämför strategier</li>
-          <li>Ändra villkor</li>
-          <li>Generalisera</li>
-          <li>Skapa motexempel</li>
-          <li>Skapa eget problem</li>
-        </ul>
-        <div class="write-area medium"></div>
+      <div class="mini purple-bg">
+        <h3>🚀 Möjliga utmaningsbehov</h3>
+        <p>Vad kan eleven fördjupa när grundidén är säker?</p>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
       </div>
 
     </div>
 
-    <div class="section-box yellow">
-      <h3>🧠 Frågor som håller tänkandet öppet</h3>
 
-      <div class="check-grid">
-        <div class="check">Vad vet du redan?</div>
-        <div class="check">Kan du visa med en bild?</div>
-        <div class="check">Finns ett annat sätt?</div>
-        <div class="check">Hur vet du?</div>
+    <div class="three-col">
+
+      <div class="mini blue-bg">
+        <h3>🧱 Representation</h3>
+        <p>Material, bild, tallinje, tabell...</p>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
       </div>
 
-      <div class="write-area medium"></div>
+      <div class="mini yellow-bg">
+        <h3>🔤 Språk</h3>
+        <p>Begrepp, meningsstarter, visuellt stöd...</p>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+      </div>
+
+      <div class="mini teal-bg">
+        <h3>🧠 Struktur</h3>
+        <p>Checklista, stegkort, exempel...</p>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+      </div>
+
     </div>
 
-    <div class="section-box teal">
-      <h3>👀 Vad ska jag observera?</h3>
-      <div class="write-area large"></div>
+
+    <div class="two-col">
+
+      <div class="field">
+        <div class="field-title">
+          🪜 Stöd jag vill erbjuda
+        </div>
+        <div class="box medium"></div>
+      </div>
+
+      <div class="field">
+        <div class="field-title">
+          🚀 Fördjupning jag vill erbjuda
+        </div>
+        <div class="box medium"></div>
+      </div>
+
     </div>
 
-    <div class="footer-note">
-      HOLOS Matteresan • Stöd och utmaning
+
+    <div class="field">
+
+      <div class="field-title">
+        ✅ Kontroll – behåller eleverna samma matematiska mål?
+      </div>
+
+      <div class="checklist">
+
+        <div class="check-item">
+          <span class="square"></span>
+          <span>Stödet gör uppgiften mer tillgänglig utan att ta bort kärnmatematiken.</span>
+        </div>
+
+        <div class="check-item">
+          <span class="square"></span>
+          <span>Stödet kan trappas ned när eleven blir mer självständig.</span>
+        </div>
+
+        <div class="check-item">
+          <span class="square"></span>
+          <span>Utmaningen innebär mer djup – inte bara fler likadana uppgifter.</span>
+        </div>
+
+        <div class="check-item">
+          <span class="square"></span>
+          <span>Eleven kan få generalisera, argumentera eller skapa egna villkor.</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="field">
+      <div class="field-title">
+        👀 Vad ska jag observera för att se om stödet / utmaningen fungerar?
+      </div>
+      <div class="box"></div>
+    </div>
+
+
+    <div class="sheet-footer">
+      HOLOS Matteresan F–9 • Stöd och utmaning
     </div>
 
   </section>
 
 
   <!-- SIDA 4 -->
+  <section class="sheet teal final-sheet">
 
-  <section class="sheet green-sheet">
-
-    <div class="sheet-head">
-      <h2>🔄 Planera efter uppföljningen</h2>
-      <p>Från elevinformation till nästa undervisningsbeslut</p>
+    <div class="sheet-header">
+      <div class="icon">🔍➡️</div>
+      <h2>Planera efter uppföljningen</h2>
+      <p>Från det eleverna visar till nästa undervisningsbeslut.</p>
     </div>
 
-    <div class="meta-grid">
-      <div class="field"><strong>Klass / grupp</strong></div>
-      <div class="field"><strong>Område</strong></div>
-      <div class="field"><strong>Datum</strong></div>
-    </div>
 
-    <div class="section-box green">
-      <h3>1. Det här visar eleverna förståelse för</h3>
-      <div class="write-area large"></div>
-    </div>
+    <div class="two-col">
 
-    <div class="section-box yellow">
-      <h3>2. Det här är fortfarande osäkert</h3>
-      <div class="write-area large"></div>
-    </div>
-
-    <div class="section-box pink">
-      <h3>3. Missuppfattningar eller mönster jag ser</h3>
-      <div class="write-area large"></div>
-    </div>
-
-    <div class="two-grid">
-
-      <div class="section-box blue">
-        <h3>4. Vad behöver undervisas igen?</h3>
-        <div class="write-area medium"></div>
+      <div class="field">
+        <div class="field-title">Område / aktivitet</div>
+        <div class="line"></div>
       </div>
 
-      <div class="section-box purple">
-        <h3>5. Vad kan fördjupas?</h3>
-        <div class="write-area medium"></div>
+      <div class="field">
+        <div class="field-title">Datum</div>
+        <div class="line"></div>
       </div>
 
     </div>
 
-    <div class="section-box teal">
-      <h3>6. Nästa lektion / nästa steg</h3>
-      <div class="write-area large"></div>
+
+    <div class="field">
+      <div class="field-title">
+        🔍 Vilket underlag har jag?
+      </div>
+
+      <div class="checklist">
+
+        <div class="check-item">
+          <span class="square"></span>
+          <span>Observation</span>
+        </div>
+
+        <div class="check-item">
+          <span class="square"></span>
+          <span>Exit ticket</span>
+        </div>
+
+        <div class="check-item">
+          <span class="square"></span>
+          <span>Diagnos</span>
+        </div>
+
+        <div class="check-item">
+          <span class="square"></span>
+          <span>Elevlösningar</span>
+        </div>
+
+        <div class="check-item">
+          <span class="square"></span>
+          <span>Matematiskt samtal</span>
+        </div>
+
+        <div class="check-item">
+          <span class="square"></span>
+          <span>Annat</span>
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="footer-note">
-      HOLOS Matteresan • Planera nästa steg
+
+    <div class="three-col">
+
+      <div class="mini green-bg">
+        <h3>✅ Det här verkar säkert</h3>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+      </div>
+
+      <div class="mini yellow-bg">
+        <h3>🧩 Det här behöver utvecklas</h3>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+      </div>
+
+      <div class="mini purple-bg">
+        <h3>🚀 Det här kan fördjupas</h3>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+        <div class="mini-line"></div>
+      </div>
+
+    </div>
+
+
+    <div class="field">
+      <div class="field-title">
+        🕵️ Vilket mönster ser jag i gruppens svar?
+      </div>
+      <div class="box medium"></div>
+    </div>
+
+
+    <div class="two-col">
+
+      <div class="field">
+        <div class="field-title">
+          👩‍🏫 Vad behöver tas gemensamt?
+        </div>
+        <div class="box"></div>
+      </div>
+
+      <div class="field">
+        <div class="field-title">
+          👥 Vilka elever behöver annan grupp / annat stöd?
+        </div>
+        <div class="box"></div>
+      </div>
+
+    </div>
+
+
+    <div class="field">
+      <div class="field-title">
+        ➡️ Nästa undervisningsaktivitet
+      </div>
+      <div class="box medium"></div>
+    </div>
+
+
+    <div class="field">
+      <div class="field-title">
+        🔁 Hur ska jag veta om förändringen fungerade?
+      </div>
+      <div class="box"></div>
+    </div>
+
+
+    <div class="note">
+      Planeringen är inte färdig när den skrivits.
+      Den utvecklas när du använder det eleverna visar
+      för att besluta <strong>vad som ska hända härnäst</strong>.
+    </div>
+
+
+    <div class="sheet-footer">
+      HOLOS Matteresan F–9 • Planera efter uppföljningen
     </div>
 
   </section>
 
-
-  <div class="screen-note">
-
-    <strong>🖨️ Färgutskrift:</strong>
-    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
-    och kontrollera att skrivaren står på <strong>Färg</strong>.
-    Varje planeringsunderlag är anpassat till ett eget A4.
-
-  </div>
-
 </main>
-
-
-<footer>
-  <strong>HOLOS Matteresan F–9</strong><br>
-  📅 Mål • Progression • Undervisning • Stöd • Utmaning • Uppföljning
-</footer>
 
 </body>
 </html>
