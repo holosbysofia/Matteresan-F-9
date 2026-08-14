@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>NPF i matematik | HOLOS Matteresan F–9</title>
+  <title>Matematik och NPF | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -78,7 +78,7 @@
     }
 
     .hero {
-      max-width: 930px;
+      max-width: 950px;
       margin: 44px auto 0;
       text-align: center;
     }
@@ -100,7 +100,7 @@
     }
 
     .hero p {
-      max-width: 850px;
+      max-width: 860px;
       margin: auto;
       color: #f6f9fb;
     }
@@ -126,7 +126,7 @@
 
     .intro p {
       color: var(--muted);
-      max-width: 950px;
+      max-width: 970px;
     }
 
     .important {
@@ -152,6 +152,48 @@
       color: var(--muted);
     }
 
+    .progression {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stage {
+      border-radius: 18px;
+      padding: 22px;
+      min-height: 275px;
+    }
+
+    .stage h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.12rem;
+    }
+
+    .stage p,
+    .stage li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .stage ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .stage li {
+      margin-bottom: 6px;
+    }
+
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -162,7 +204,7 @@
       background: white;
       border-radius: 18px;
       padding: 20px;
-      min-height: 235px;
+      min-height: 245px;
       box-shadow: 0 7px 22px rgba(32,48,64,0.06);
       border-top: 6px solid var(--blue-strong);
     }
@@ -205,128 +247,88 @@
       margin-bottom: 5px;
     }
 
-    .green { background: var(--green); }
-    .blue { background: var(--blue); }
-    .purple { background: var(--purple); }
-    .yellow { background: var(--yellow); }
-    .orange { background: var(--orange); }
-    .teal { background: var(--teal); }
-    .pink { background: var(--pink); }
-    .gray { background: var(--gray); }
-
-    .structure {
+    .flow {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 10px;
     }
 
-    .step {
+    .flow-step {
       background: white;
       border-radius: 16px;
       padding: 18px 10px;
       text-align: center;
+      min-height: 160px;
       box-shadow: 0 6px 18px rgba(32,48,64,0.06);
-      min-height: 155px;
       border-top: 6px solid var(--blue-strong);
     }
 
-    .step:nth-child(1) {
+    .flow-step:nth-child(1) {
       border-top-color: var(--green-strong);
     }
 
-    .step:nth-child(2) {
+    .flow-step:nth-child(2) {
       border-top-color: var(--blue-strong);
     }
 
-    .step:nth-child(3) {
+    .flow-step:nth-child(3) {
       border-top-color: #c39b44;
     }
 
-    .step:nth-child(4) {
+    .flow-step:nth-child(4) {
       border-top-color: var(--purple-strong);
     }
 
-    .step:nth-child(5) {
+    .flow-step:nth-child(5) {
       border-top-color: #5d9c92;
     }
 
-    .step span {
+    .flow-step span {
       display: block;
       font-size: 2rem;
       margin-bottom: 6px;
     }
 
-    .step strong {
+    .flow-step strong {
       display: block;
       color: var(--dark);
       margin-bottom: 5px;
     }
 
-    .step p {
+    .flow-step p {
       color: var(--muted);
       font-size: 0.8rem;
     }
 
-    .adapt-grid {
+    .example-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
 
-    .adapt {
+    .example {
       border-radius: 18px;
       padding: 20px;
-      min-height: 200px;
+      min-height: 220px;
     }
 
-    .adapt h3 {
+    .example h3 {
       color: var(--dark);
       margin-bottom: 7px;
     }
 
-    .adapt p,
-    .adapt li {
+    .example p,
+    .example li {
       color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .adapt ul {
+    .example ul {
       margin-left: 20px;
       margin-top: 8px;
     }
 
-    .adapt li {
-      margin-bottom: 6px;
-    }
-
-    .stage-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .stage {
-      border-radius: 18px;
-      padding: 22px;
-    }
-
-    .stage h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .stage p,
-    .stage li {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .stage ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .stage li {
+    .example li {
       margin-bottom: 6px;
     }
 
@@ -395,12 +397,12 @@
       padding: 32px 20px;
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1000px) {
       .grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .structure {
+      .flow {
         grid-template-columns: repeat(3, 1fr);
       }
     }
@@ -410,10 +412,10 @@
         flex-direction: column;
       }
 
+      .progression,
       .grid,
-      .structure,
-      .adapt-grid,
-      .stage-grid {
+      .flow,
+      .example-grid {
         grid-template-columns: 1fr;
       }
 
@@ -453,10 +455,10 @@
       }
 
       .intro,
-      .card,
-      .step,
-      .adapt,
       .stage,
+      .card,
+      .flow-step,
+      .example,
       .teacher-box,
       .warning,
       .links {
@@ -512,25 +514,29 @@
 <header>
 
   <div class="topbar">
+
     <div class="logo">HOLOS MATTERESAN</div>
 
     <a href="larare.html" class="back-link">
       ← Lärarportalen
     </a>
+
   </div>
 
 
   <div class="hero">
 
-    <div class="hero-icon">🧩🧠</div>
+    <div class="hero-icon">🧠🧩</div>
 
-    <h1>NPF i matematik</h1>
+    <h1>Matematik och NPF</h1>
 
-    <h2>Tydlighet • Struktur • Avlastning • Delaktighet • Självständighet</h2>
+    <h2>Tydlighet • Struktur • Tillgänglighet • Flexibilitet • Självständighet</h2>
 
     <p>
-      Stöd för att göra matematikundervisningen mer förutsägbar,
-      begriplig och tillgänglig utan att ta bort det matematiska tänkandet.
+      Tillgänglig matematikundervisning innebär att minska onödiga hinder
+      utan att ta bort det matematiska tänkandet.
+      Elever kan behöva olika vägar till samma mål,
+      olika mängd stöd och olika lång tid för att bearbeta innehållet.
     </p>
 
   </div>
@@ -542,22 +548,24 @@
 
   <section class="intro">
 
-    <h2>🧩 Tillgänglig matematik från början</h2>
+    <h2>🧠 Gör matematiken tydlig – inte tunnare</h2>
 
     <p>
-      Många anpassningar som hjälper elever med neuropsykiatriska
-      funktionsnedsättningar kan också gynna hela gruppen:
-      tydliga mål, synlig arbetsgång, genomtänkt mängd information,
-      visuellt stöd och möjlighet att visa förståelse på flera sätt.
+      Svårigheter i matematik kan förstärkas av otydliga instruktioner,
+      många samtidiga intryck, hög arbetsminnesbelastning,
+      tidsstress eller krav på snabb omställning.
+      En tydlig och förutsägbar lärmiljö kan därför skapa bättre
+      möjligheter för fler elever att visa sitt matematiska kunnande.
     </p>
 
     <div class="important">
 
-      <strong>Grundprincip:</strong><br>
-      Anpassa <strong>vägen in i uppgiften</strong> före du sänker
-      den matematiska nivån. En elev kan behöva färre störmoment,
-      tydligare steg eller konkret stöd men fortfarande kunna arbeta
-      med samma matematiska idé som resten av gruppen.
+      <strong>Viktigt:</strong><br>
+      Elever med samma diagnos eller svårighetsbeskrivning
+      behöver inte samma stöd.
+      Utgå därför från
+      <strong>den aktuella elevens behov, styrkor, hinder och respons på undervisningen</strong>
+      snarare än från generella antaganden.
 
     </div>
 
@@ -565,8 +573,80 @@
 
 
   <div class="section-title">
-    <h2>🧠 Sex områden att tänka på</h2>
-    <p>Svårigheten kan ligga runt matematiken snarare än i själva matematiken.</p>
+
+    <h2>📈 Anpassa utan att sänka målet</h2>
+
+    <p>
+      Stödet förändras beroende på uppgift, elev och situation.
+    </p>
+
+  </div>
+
+
+  <div class="progression">
+
+    <section class="stage green">
+
+      <h3>🌱 Tydlig grund</h3>
+
+      <ul>
+        <li>Förutsägbar lektionsstruktur.</li>
+        <li>Korta och tydliga instruktioner.</li>
+        <li>Visuellt stöd.</li>
+        <li>Konkret material.</li>
+        <li>Ett moment i taget.</li>
+        <li>Gemensam start.</li>
+        <li>Tydligt avslut.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage blue">
+
+      <h3>🔵 Strategiskt stöd</h3>
+
+      <ul>
+        <li>Checklista för arbetsgång.</li>
+        <li>Strategikort.</li>
+        <li>Exempel bredvid uppgiften.</li>
+        <li>Delmål i längre uppgifter.</li>
+        <li>Val mellan representationer.</li>
+        <li>Bearbetningstid.</li>
+        <li>Planerade pauser när det behövs.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage purple">
+
+      <h3>🟣 Ökad självständighet</h3>
+
+      <ul>
+        <li>Eleven väljer lämpligt stöd.</li>
+        <li>Planerar längre uppgifter.</li>
+        <li>Kontrollerar sin arbetsgång.</li>
+        <li>Väljer strategi medvetet.</li>
+        <li>Utvärderar vad som fungerade.</li>
+        <li>Stödet trappas ned när det är möjligt.</li>
+        <li>Självständighet byggs stegvis.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧩 Sex områden att göra tillgängliga</h2>
+
+    <p>
+      Anpassning handlar ofta om hur undervisningen organiseras,
+      presenteras och genomförs.
+    </p>
+
   </div>
 
 
@@ -574,19 +654,20 @@
 
     <article class="card">
 
-      <div class="icon">👀</div>
+      <div class="icon">🗓️</div>
 
-      <h3>Överblick</h3>
+      <h3>Struktur</h3>
 
       <p>
-        Eleven behöver snabbt kunna förstå vad som ska hända och vad som förväntas.
+        Eleven behöver veta vad som händer,
+        i vilken ordning och när arbetet är klart.
       </p>
 
       <ul>
-        <li>Synligt mål</li>
-        <li>Tydlig lektionsordning</li>
-        <li>Start och avslut</li>
-        <li>Markera vad som är viktigast</li>
+        <li>Visuell lektionsplan.</li>
+        <li>Tydliga steg.</li>
+        <li>Avprickning.</li>
+        <li>Start och slut synliggörs.</li>
       </ul>
 
     </article>
@@ -594,39 +675,19 @@
 
     <article class="card">
 
-      <div class="icon">🪜</div>
+      <div class="icon">📝</div>
 
-      <h3>Stegvis arbetsgång</h3>
+      <h3>Instruktioner</h3>
 
       <p>
-        Långa instruktioner kan delas upp utan att uppgiften behöver förenklas matematiskt.
+        Minska mängden information som behöver hållas aktiv samtidigt.
       </p>
 
       <ul>
-        <li>Ett steg i taget</li>
-        <li>Numrerad arbetsgång</li>
-        <li>Exempel på start</li>
-        <li>Checklista</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🎨</div>
-
-      <h3>Visuellt stöd</h3>
-
-      <p>
-        Gör matematiken synlig och minska behovet av att hålla allt i arbetsminnet.
-      </p>
-
-      <ul>
-        <li>Tallinje</li>
-        <li>Begreppsbild</li>
-        <li>Modell</li>
-        <li>Färgkodad struktur</li>
+        <li>Korta meningar.</li>
+        <li>Ett steg i taget.</li>
+        <li>Visa ett exempel.</li>
+        <li>Låt eleven återberätta instruktionen.</li>
       </ul>
 
     </article>
@@ -639,14 +700,14 @@
       <h3>Arbetsminne</h3>
 
       <p>
-        En elev kan förstå matematiken men tappa steg, tal eller instruktioner på vägen.
+        Matematik kan kräva att flera delresultat hålls i minnet samtidigt.
       </p>
 
       <ul>
-        <li>Ha stöd synligt.</li>
-        <li>Tillåt mellananteckningar.</li>
-        <li>Minska onödigt kopierande.</li>
-        <li>Ge färdiga tabeller när tabellen inte är målet.</li>
+        <li>Skriv mellanled.</li>
+        <li>Använd stödanteckningar.</li>
+        <li>Ha strategier synliga.</li>
+        <li>Dela upp komplexa uppgifter.</li>
       </ul>
 
     </article>
@@ -663,10 +724,10 @@
       </p>
 
       <ul>
-        <li>Ge tänketid.</li>
-        <li>Undvik onödig tidspress.</li>
-        <li>Dela längre pass.</li>
-        <li>Planera korta återstarter.</li>
+        <li>Bearbetningstid.</li>
+        <li>Mindre mängd uppgifter med samma mål.</li>
+        <li>Extra tid där det behövs.</li>
+        <li>Undvik onödig tidsstress.</li>
       </ul>
 
     </article>
@@ -674,19 +735,40 @@
 
     <article class="card">
 
-      <div class="icon">💬</div>
+      <div class="icon">👀</div>
 
-      <h3>Kommunikation</h3>
+      <h3>Visuell tydlighet</h3>
 
       <p>
-        Eleven kan behöva fler sätt att visa vad den kan.
+        Sidan eller uppgiften bör göra det enkelt att se vad som är viktigt.
       </p>
 
       <ul>
-        <li>Muntlig förklaring</li>
-        <li>Bild eller modell</li>
-        <li>Symboliskt svar</li>
-        <li>Korta skrivramar</li>
+        <li>Luft mellan uppgifter.</li>
+        <li>Tydliga rubriker.</li>
+        <li>Begränsa störande detaljer.</li>
+        <li>Markera kritisk information.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🧱</div>
+
+      <h3>Representationer</h3>
+
+      <p>
+        Elever kan behöva se samma matematiska idé på flera sätt.
+      </p>
+
+      <ul>
+        <li>Konkret material.</li>
+        <li>Bild.</li>
+        <li>Tallinje.</li>
+        <li>Tabell.</li>
+        <li>Symboler.</li>
       </ul>
 
     </article>
@@ -695,113 +777,134 @@
 
 
   <div class="section-title">
-    <h2>🧭 En tydlig lektionsstruktur</h2>
-    <p>Förutsägbar struktur kan frigöra energi till matematiken.</p>
+
+    <h2>🔄 En arbetsgång för anpassning</h2>
+
+    <p>
+      Stöd bör väljas utifrån ett observerat hinder,
+      följas upp och förändras vid behov.
+    </p>
+
   </div>
 
 
-  <div class="structure">
+  <div class="flow">
 
-    <div class="step">
+    <div class="flow-step">
+      <span>👀</span>
+      <strong>1. Upptäck</strong>
+      <p>Var uppstår hindret?</p>
+    </div>
+
+    <div class="flow-step">
       <span>🎯</span>
-      <strong>1. Vad?</strong>
-      <p>Visa dagens matematiska mål.</p>
+      <strong>2. Avgränsa</strong>
+      <p>Är problemet språk, struktur, tempo, minne eller matematik?</p>
     </div>
 
-    <div class="step">
-      <span>🧠</span>
-      <strong>2. Hur?</strong>
-      <p>Visa arbetsgång och exempel.</p>
+    <div class="flow-step">
+      <span>🧰</span>
+      <strong>3. Välj stöd</strong>
+      <p>Välj minsta stöd som gör uppgiften tillgänglig.</p>
     </div>
 
-    <div class="step">
-      <span>✏️</span>
-      <strong>3. Arbeta</strong>
-      <p>Tydliga uppgifter och stöd nära till hands.</p>
+    <div class="flow-step">
+      <span>🔎</span>
+      <strong>4. Följ upp</strong>
+      <p>Hjälpte stödet eleven att tänka mer självständigt?</p>
     </div>
 
-    <div class="step">
-      <span>🔁</span>
-      <strong>4. Stäm av</strong>
-      <p>Korta stopp för att kontrollera riktningen.</p>
-    </div>
-
-    <div class="step">
-      <span>✅</span>
-      <strong>5. Avsluta</strong>
-      <p>Vad lärde vi oss och vad händer nästa gång?</p>
+    <div class="flow-step">
+      <span>🪜</span>
+      <strong>5. Justera</strong>
+      <p>Behåll, förändra eller trappa ned stödet.</p>
     </div>
 
   </div>
 
 
   <div class="section-title">
-    <h2>🛠️ Anpassa utan att ta bort tänkandet</h2>
-    <p>Exempel på skillnaden mellan stöttning och att göra uppgiften åt eleven.</p>
+
+    <h2>🧩 Fyra konkreta undervisningsgrepp</h2>
+
+    <p>
+      Små förändringar kan minska belastningen utan att sänka den matematiska nivån.
+    </p>
+
   </div>
 
 
-  <div class="adapt-grid">
+  <div class="example-grid">
 
-    <section class="adapt green">
+    <section class="example green">
 
-      <h3>✅ Bra stöttning</h3>
+      <h3>📋 Stegkort vid problemlösning</h3>
 
       <ul>
-        <li>Markera viktig information.</li>
-        <li>Ge eleven en tom tabell att fylla i.</li>
-        <li>Visa första steget.</li>
-        <li>Erbjud tallinje eller konkret material.</li>
-        <li>Ge meningstarter för resonemang.</li>
-        <li>Låt eleven välja mellan två representationer.</li>
+        <li>Vad vet jag?</li>
+        <li>Vad söker jag?</li>
+        <li>Vilken strategi kan jag använda?</li>
+        <li>Genomför.</li>
+        <li>Kontrollera.</li>
       </ul>
+
+      <p>
+        Gör processen synlig utan att ge lösningen.
+      </p>
 
     </section>
 
 
-    <section class="adapt pink">
+    <section class="example blue">
 
-      <h3>⚠️ Risk att stödet tar över</h3>
+      <h3>🧠 Exempel + egen uppgift</h3>
 
       <ul>
-        <li>Berätta vilket räknesätt eleven ska välja när valet är själva målet.</li>
-        <li>Ge alla beräkningssteg färdiga.</li>
-        <li>Byta ut problemet mot rena rutinuppgifter.</li>
-        <li>Säga svaret och be eleven skriva av.</li>
-        <li>Ta bort all problemlösning för att eleven behöver struktur.</li>
+        <li>Visa ett genomarbetat exempel.</li>
+        <li>Markera varför varje steg görs.</li>
+        <li>Låt eleven lösa en liknande uppgift.</li>
+        <li>Ta successivt bort stödet.</li>
       </ul>
+
+      <p>
+        Kan minska arbetsminnesbelastningen vid nya metoder.
+      </p>
 
     </section>
 
 
-    <section class="adapt blue">
+    <section class="example yellow">
 
-      <h3>📄 Anpassa arbetsbladet</h3>
+      <h3>🎯 En uppgift i taget</h3>
 
       <ul>
-        <li>Färre uppgifter per sida.</li>
-        <li>Mer luft mellan uppgifter.</li>
-        <li>Tydliga rubriker.</li>
-        <li>En instruktion i taget.</li>
-        <li>Exempel separat från uppgiften.</li>
-        <li>Undvik dekor som konkurrerar om uppmärksamheten.</li>
+        <li>Dölj resten av sidan vid behov.</li>
+        <li>Markera aktuell uppgift.</li>
+        <li>Färdigställ.</li>
+        <li>Gå vidare till nästa steg.</li>
       </ul>
+
+      <p>
+        Hjälper när mängden synlig information blir störande.
+      </p>
 
     </section>
 
 
-    <section class="adapt purple">
+    <section class="example purple">
 
-      <h3>🧩 Anpassa problemlösning</h3>
+      <h3>🧱 Samma mål – olika representation</h3>
 
       <ul>
-        <li>Läs problemet tillsammans.</li>
-        <li>Dela upp informationen visuellt.</li>
-        <li>Låt eleven återberätta frågan.</li>
-        <li>Ge en strategimeny.</li>
-        <li>Behåll den matematiska utmaningen.</li>
-        <li>Ge extra tid för planering.</li>
+        <li>En elev använder konkret material.</li>
+        <li>En annan använder tallinje.</li>
+        <li>En tredje arbetar symboliskt.</li>
+        <li>Alla arbetar med samma matematiska idé.</li>
       </ul>
+
+      <p>
+        Anpassa vägen utan att byta ut lärandemålet.
+      </p>
 
     </section>
 
@@ -809,77 +912,147 @@
 
 
   <div class="section-title">
-    <h2>🌱 NPF-stöd genom F–9</h2>
-    <p>Behovet av struktur kan finnas kvar även när matematiken blir mer avancerad.</p>
+
+    <h2>🕵️ Vanliga fallgropar</h2>
+
+    <p>
+      Ett stöd kan bli ett nytt hinder om det används mekaniskt eller för länge.
+    </p>
+
   </div>
 
 
-  <div class="stage-grid">
+  <div class="grid">
 
-    <section class="stage green">
+    <article class="card">
 
-      <h3>🌱 F–3</h3>
+      <div class="icon">📚</div>
 
-      <ul>
-        <li>Kort och synlig arbetsgång.</li>
-        <li>Mycket konkret material och bilder.</li>
-        <li>Få uppgifter åt gången.</li>
-        <li>Tydliga övergångar mellan aktiviteter.</li>
-        <li>Återkommande rutiner.</li>
-        <li>Muntligt stöd före skrift.</li>
-      </ul>
+      <h3>För mycket material</h3>
 
-    </section>
-
-
-    <section class="stage blue">
-
-      <h3>🔵 4–6</h3>
+      <p>
+        Extra stödblad, färger, symboler och instruktioner kan tillsammans skapa mer belastning.
+      </p>
 
       <ul>
-        <li>Checklistor för längre uppgifter.</li>
-        <li>Strategikort och begreppsbank nära eleven.</li>
-        <li>Visuell uppdelning av problemtexter.</li>
-        <li>Stöd för planering och kontroll.</li>
-        <li>Tydliga delmål under längre arbetsområden.</li>
-        <li>Minska mängd utan att alltid minska komplexitet.</li>
+        <li>Välj det stöd som faktiskt behövs.</li>
+        <li>Håll layouten lugn.</li>
       </ul>
 
-    </section>
+    </article>
 
 
-    <section class="stage purple">
+    <article class="card">
 
-      <h3>🟣 7–9</h3>
+      <div class="icon">⬇️</div>
+
+      <h3>Stödet sänker matematiken</h3>
+
+      <p>
+        Eleven får enklare innehåll istället för tillgängligare undervisning.
+      </p>
 
       <ul>
-        <li>Planeringsstöd för flerstegsproblem.</li>
-        <li>Struktur för algebraiska lösningar.</li>
-        <li>Stöd att tolka tabeller, grafer och text samtidigt.</li>
-        <li>Tydliga modeller för redovisning.</li>
-        <li>Extra tid för komplexa resonemang.</li>
-        <li>Stöd för självkontroll och prioritering.</li>
+        <li>Behåll kärnan i uppgiften.</li>
+        <li>Stötta språk, struktur eller representation.</li>
       </ul>
 
-    </section>
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔒</div>
+
+      <h3>Stödet blir permanent</h3>
+
+      <p>
+        Eleven tränas aldrig i att klara momentet mer självständigt.
+      </p>
+
+      <ul>
+        <li>Planera nedtrappning.</li>
+        <li>Följ självständigheten.</li>
+        <li>Ta bort ett stöd i taget.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🏷️</div>
+
+      <h3>Diagnosen styr allt</h3>
+
+      <p>
+        Elever med samma diagnos antas behöva exakt samma anpassningar.
+      </p>
+
+      <ul>
+        <li>Observera individens faktiska behov.</li>
+        <li>Pröva och följ upp stödet.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">⚡</div>
+
+      <h3>Snabbhet blir kvalitetsmått</h3>
+
+      <p>
+        En långsam lösning tolkas automatiskt som svag matematisk förståelse.
+      </p>
+
+      <ul>
+        <li>Bedöm strategi och resonemang.</li>
+        <li>Skilj tempo från förståelse.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🙋</div>
+
+      <h3>Eleven måste alltid be om stöd</h3>
+
+      <p>
+        Stödet kommer först när eleven redan fastnat eller tappat fokus.
+      </p>
+
+      <ul>
+        <li>Planera stöd före lektionen.</li>
+        <li>Gör verktygen lättillgängliga.</li>
+        <li>Träna eleven i att välja dem själv.</li>
+      </ul>
+
+    </article>
 
   </div>
 
 
   <section class="teacher-box">
 
-    <h2>👩‍🏫 Frågor när du planerar</h2>
+    <h2>👩‍🏫 Frågor för lärarens observation</h2>
 
     <ul>
-      <li>Är det tydligt vad eleven ska göra först?</li>
-      <li>Vad måste eleven hålla i arbetsminnet?</li>
-      <li>Kan något av det göras synligt på papper eller tavla?</li>
-      <li>Är layouten lugn och lätt att följa?</li>
-      <li>Är problemet språkligt, visuellt eller organisatoriskt onödigt belastande?</li>
-      <li>Vilket stöd kan eleven använda självständigt?</li>
-      <li>Tar stödet bort en del av den matematik jag egentligen vill bedöma?</li>
-      <li>Finns möjlighet till rörelse eller kort återhämtning vid längre pass?</li>
-      <li>Vet eleven hur den ska kontrollera att uppgiften är klar?</li>
+      <li>När under uppgiften uppstår svårigheten?</li>
+      <li>Förstår eleven den matematiska idén?</li>
+      <li>Förstår eleven instruktionen?</li>
+      <li>Är mängden information hanterbar?</li>
+      <li>Behöver eleven en annan representation?</li>
+      <li>Kan uppgiften delas i mindre steg?</li>
+      <li>Behöver eleven mer bearbetningstid?</li>
+      <li>Vilket stöd gör störst skillnad?</li>
+      <li>Använder eleven stödet självständigt?</li>
+      <li>Kan stödet minskas?</li>
+      <li>Vad fungerar redan bra för eleven?</li>
+      <li>Hur kan elevens styrkor användas i undervisningen?</li>
     </ul>
 
   </section>
@@ -887,43 +1060,52 @@
 
   <div class="warning">
 
-    <strong>⚠️ Samma diagnos betyder inte samma behov.</strong><br>
-    Två elever kan behöva helt olika stöd.
-    Utgå därför från <strong>hur eleven fungerar i den konkreta matematiska situationen</strong>:
-    vad som underlättar, vad som belastar och vilket stöd som ökar
-    självständigheten.
+    <strong>⚠️ NPF-anpassning är inte en färdig lista som passar alla.</strong><br>
+    Använd stöd som
+    <strong>tydlig struktur, visuella modeller, konkret material,
+    minnesstöd, extra bearbetningstid och uppdelade instruktioner</strong>
+    när de svarar mot ett faktiskt behov.
+    Följ alltid upp om stödet ökar elevens förståelse och självständighet.
 
   </div>
 
 
   <section class="links">
 
-    <h2>➡️ Fortsätt</h2>
+    <h2>➡️ Fortsätt i Matteresan</h2>
 
     <div class="link-row">
 
       <a href="larare-stod.html">
-        🌱 Stöd
+        🪜 Stöd
       </a>
 
       <a href="larare-konkret.html">
         🧱 Konkret & visuellt
       </a>
 
-      <a href="larare-sprak.html">
-        🔤 Språk
-      </a>
-
       <a href="larare-sva.html">
-        🌍 SVA
+        🗣️ Matematik & SVA
       </a>
 
-      <a href="material-lektionsmall.html">
-        📋 Lektionsmall
+      <a href="larare-sprak.html">
+        🔤 Språk & begrepp
       </a>
 
-      <a href="material-observation.html">
+      <a href="larare-problemlosning.html">
+        🧩 Problemlösning
+      </a>
+
+      <a href="larare-undervisning.html">
+        👩‍🏫 Undervisning
+      </a>
+
+      <a href="larare-observation.html">
         👀 Observation
+      </a>
+
+      <a href="larare-planering.html">
+        🗓️ Planering
       </a>
 
     </div>
@@ -936,7 +1118,7 @@
 <footer>
 
   <strong>HOLOS Matteresan F–9</strong><br>
-  🧩 Tydlighet • Struktur • Delaktighet • Självständighet
+  🧠 Tydlighet • Struktur • Tillgänglighet • Flexibilitet • Självständighet
 
 </footer>
 
