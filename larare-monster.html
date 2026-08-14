@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mönster F–9 | HOLOS Matteresan</title>
+  <title>Mönster | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,25 +15,32 @@
 
     :root {
       --dark: #17324d;
-      --purple: #7657c9;
-      --purple-dark: #563ba5;
-      --purple-light: #f1edff;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --pink-light: #ffe9f1;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -43,8 +50,8 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
-        linear-gradient(135deg, #43316f, #7657c9);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
       padding: 22px 20px 58px;
     }
@@ -64,526 +71,352 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--purple-dark);
-    }
-
     .hero {
-      max-width: 900px;
-      margin: 50px auto 0;
+      max-width: 930px;
+      margin: 44px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.4rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 4.7rem);
+      font-size: clamp(2.4rem, 7vw, 4.4rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 820px;
+      max-width: 850px;
       margin: auto;
-      color: #f5f1ff;
-      font-size: 1.03rem;
+      color: #f6f9fb;
     }
 
     main {
       max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      margin-bottom: 36px;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: var(--muted);
+      max-width: 950px;
+    }
+
+    .important {
+      margin-top: 17px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 17px;
+      color: #665831;
     }
 
     .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
-      color: var(--dark);
-      margin-bottom: 8px;
+      margin: 42px 0 18px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 30px;
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
       color: var(--muted);
     }
 
-    .intro-box {
-      background: var(--purple-light);
-      border-radius: 28px;
-      padding: 36px;
-      text-align: center;
-    }
-
-    .intro-box h2 {
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-
-    .intro-box p {
-      max-width: 860px;
-      margin: auto;
-      color: #5c6872;
-    }
-
-    .core-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .core-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 180px;
-      border: 1px solid #e6ebef;
-    }
-
-    .core-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .core-card h3 {
-      color: var(--purple-dark);
-      margin-bottom: 6px;
-    }
-
-    .core-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .progression-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
-        linear-gradient(135deg, #17324d, #5a458a);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .progression-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .progression-box > p {
-      color: #f5f1ff;
-      max-width: 830px;
-    }
-
-    .progression-grid {
+    .progression {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 25px;
     }
 
-    .progression-card {
-      border-radius: 20px;
+    .stage {
+      border-radius: 18px;
       padding: 22px;
-      min-height: 285px;
-      border: 1px solid rgba(255,255,255,0.18);
+      min-height: 280px;
     }
 
-    .f3 { background: rgba(118,211,149,0.15); }
-    .m46 { background: rgba(110,177,238,0.15); }
-    .m79 { background: rgba(177,147,245,0.15); }
-
-    .progression-card span {
-      display: block;
-      font-size: 2.5rem;
-      margin-bottom: 7px;
-    }
-
-    .progression-card h3 {
+    .stage h3 {
+      color: var(--dark);
       margin-bottom: 8px;
+      font-size: 1.12rem;
     }
 
-    .progression-card ul {
-      padding-left: 20px;
-      color: #fbf9ff;
-      font-size: 0.93rem;
-    }
-
-    .progression-card li {
-      margin-bottom: 6px;
-    }
-
-    .section-card {
-      background: white;
-      border-radius: 28px;
-      padding: 32px;
-      border: 1px solid #e6ebef;
-      margin-bottom: 25px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 22px;
-    }
-
-    .section-header span {
-      font-size: 2.7rem;
-    }
-
-    .section-header h2 {
-      color: var(--dark);
-      font-size: 1.75rem;
-    }
-
-    .section-header p {
-      color: var(--muted);
-    }
-
-    .three-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .mini-card {
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 190px;
-    }
-
-    .mini-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .mini-card p,
-    .mini-card ul {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .mini-card ul {
-      padding-left: 20px;
-    }
-
-    .mini-card li {
-      margin-bottom: 6px;
-    }
-
-    .m1 { background: var(--green-light); }
-    .m2 { background: var(--blue-light); }
-    .m3 { background: var(--yellow-light); }
-
-    .rep-box {
-      background: var(--blue-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .rep-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-      margin-top: 24px;
-    }
-
-    .rep-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      text-align: center;
-      min-height: 175px;
-      border: 1px solid #dfe8ef;
-    }
-
-    .rep-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .rep-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .rep-card p {
+    .stage p,
+    .stage li {
       color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .mis-box {
-      background: var(--pink-light);
-      border-radius: 28px;
-      padding: 36px;
+    .stage ul {
+      margin-left: 20px;
+      margin-top: 8px;
     }
 
-    .mis-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .mis-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 200px;
-      border: 1px solid #eee1e5;
-    }
-
-    .mis-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .mis-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .mis-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .question-box {
-      background: var(--yellow-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .question-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .question-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 175px;
-      border: 1px solid #eee3c6;
-    }
-
-    .question-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .question-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .support-grid,
-    .assessment-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .support-card,
-    .assessment-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 180px;
-      border: 1px solid #e6ebef;
-    }
-
-    .support-card span,
-    .assessment-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .support-card h3,
-    .assessment-card h3 {
-      color: var(--dark);
+    .stage li {
       margin-bottom: 6px;
     }
 
-    .support-card p,
-    .assessment-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
 
-    .challenge-box {
-      background: var(--orange-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .challenge-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
-    .challenge-card {
+    .card {
       background: white;
       border-radius: 18px;
       padding: 20px;
-      min-height: 180px;
-      border: 1px solid #eadfd3;
+      min-height: 245px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
     }
 
-    .challenge-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
+    .card:nth-child(3n+1) {
+      border-top-color: var(--green-strong);
     }
 
-    .challenge-card h3 {
+    .card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
       color: var(--dark);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      font-size: 1.08rem;
     }
 
-    .challenge-card p {
+    .card p,
+    .card li {
       color: var(--muted);
-      font-size: 0.91rem;
+      font-size: 0.88rem;
     }
 
-    .links-grid {
+    .card ul {
+      margin-left: 19px;
+      margin-top: 7px;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+
+    .flow {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
     }
 
-    .link-card {
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 175px;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.04);
+    .flow-step {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 10px;
+      text-align: center;
+      min-height: 155px;
+      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
     }
 
-    .link-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
+    .flow-step:nth-child(1) {
+      border-top-color: var(--green-strong);
     }
 
-    .link-card span {
+    .flow-step:nth-child(2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .flow-step:nth-child(3) {
+      border-top-color: #c39b44;
+    }
+
+    .flow-step:nth-child(4) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .flow-step:nth-child(5) {
+      border-top-color: #5d9c92;
+    }
+
+    .flow-step span {
       display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .link-card h3 {
-      color: var(--dark);
+      font-size: 2rem;
       margin-bottom: 6px;
     }
 
-    .link-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
+    .flow-step strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 5px;
     }
 
-    .c1 { background: var(--purple-light); }
-    .c2 { background: var(--green-light); }
-    .c3 { background: var(--blue-light); }
-    .c4 { background: var(--orange-light); }
-    .c5 { background: var(--yellow-light); }
-    .c6 { background: var(--pink-light); }
+    .flow-step p {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
 
-    .note {
-      background: var(--yellow-light);
-      border-left: 6px solid #dba327;
-      border-radius: 14px;
+    .example-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .example {
+      border-radius: 18px;
       padding: 20px;
-      color: #665528;
-      margin-top: 25px;
+      min-height: 220px;
+    }
+
+    .example h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .example p,
+    .example li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .example ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .example li {
+      margin-bottom: 6px;
+    }
+
+    .teacher-box {
+      margin-top: 36px;
+      background: var(--teal);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box ul {
+      margin-left: 22px;
+      color: var(--muted);
+    }
+
+    .teacher-box li {
+      margin-bottom: 7px;
+    }
+
+    .warning {
+      margin-top: 22px;
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 16px;
+      padding: 20px;
+      color: #654c37;
+    }
+
+    .links {
+      margin-top: 36px;
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+    }
+
+    .links h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .link-row a {
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.83rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 1050px) {
-      .rep-grid {
+    @media (max-width: 1000px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flow {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 1000px) {
-      .core-grid,
-      .support-grid,
-      .assessment-grid,
-      .challenge-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 900px) {
-      .progression-grid,
-      .three-grid,
-      .mis-grid,
-      .question-grid,
-      .links-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .core-grid,
-      .rep-grid,
-      .support-grid,
-      .assessment-grid,
-      .challenge-grid {
+      .progression,
+      .grid,
+      .flow,
+      .example-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .progression-box,
-      .section-card,
-      .rep-box,
-      .mis-box,
-      .question-box,
-      .challenge-box {
-        padding: 25px 18px;
-      }
-
-      .section-header {
-        align-items: flex-start;
       }
 
       main {
@@ -592,15 +425,28 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+      }
+
+      header,
+      footer {
+        display: none !important;
       }
 
       main {
@@ -608,9 +454,56 @@
         padding: 0;
       }
 
-      section,
-      .section-card {
+      .intro,
+      .stage,
+      .card,
+      .flow-step,
+      .example,
+      .teacher-box,
+      .warning,
+      .links {
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .green {
+        background: var(--green) !important;
+      }
+
+      .blue {
+        background: var(--blue) !important;
+      }
+
+      .purple {
+        background: var(--purple) !important;
+      }
+
+      .yellow,
+      .important {
+        background: var(--yellow) !important;
+      }
+
+      .orange,
+      .warning {
+        background: var(--orange) !important;
+      }
+
+      .teal,
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .link-row a {
+        background: var(--dark) !important;
+        color: white !important;
       }
     }
   </style>
@@ -621,25 +514,28 @@
 <header>
 
   <div class="topbar">
+
     <div class="logo">HOLOS MATTERESAN</div>
 
     <a href="larare.html" class="back-link">
-      ← Lärarvy
+      ← Lärarportalen
     </a>
+
   </div>
+
 
   <div class="hero">
 
-    <div class="hero-icon">🧩</div>
+    <div class="hero-icon">🔁🧠</div>
 
-    <h1>Mönster F–9</h1>
+    <h1>Mönster</h1>
 
-    <h2>Upptäcka • Beskriva • Fortsätta • Generalisera</h2>
+    <h2>Upptäck • Beskriv • Fortsätt • Förutsäg • Generalisera</h2>
 
     <p>
-      Mönster är en central väg in i algebra och matematiska samband.
+      Mönster är en väg in i algebra, samband och matematiskt resonemang.
       Elever behöver gå från att se vad som kommer härnäst
-      till att beskriva hur ett mönster förändras och formulera en generell regel.
+      till att kunna beskriva strukturen och formulera en regel som gäller generellt.
     </p>
 
   </div>
@@ -649,896 +545,570 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>🔁 Mönster handlar om struktur</h2>
 
-      <h2>🧩 Mönster handlar om struktur – inte bara nästa figur</h2>
+    <p>
+      Mönsterarbete blir matematiskt intressant när elever inte bara fortsätter
+      en följd utan också förklarar vad som förändras,
+      vad som är konstant och varför ett visst nästa steg måste se ut på ett visst sätt.
+    </p>
+
+    <div class="important">
+
+      <strong>Grundprincip:</strong><br>
+      Arbeta från
+      <strong>se → beskriva → representera → förutsäga → generalisera</strong>.
+      Fråga inte bara <em>”Vad kommer sedan?”</em> utan också
+      <strong>”Hur vet du?” och ”Hur skulle du beskriva regeln?”</strong>
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>📈 Progression F–9</h2>
+
+    <p>
+      Progressionen går från konkreta upprepningar
+      mot funktionella samband och algebraiska generaliseringar.
+    </p>
+
+  </div>
+
+
+  <div class="progression">
+
+    <section class="stage green">
+
+      <h3>🌱 F–3</h3>
+
+      <ul>
+        <li>Upptäcka upprepade mönster.</li>
+        <li>Fortsätta mönster med föremål, bilder och tal.</li>
+        <li>Beskriva mönster med egna ord.</li>
+        <li>Skapa egna mönster.</li>
+        <li>Upptäcka talmönster.</li>
+        <li>Jämföra olika mönster.</li>
+        <li>Förutsäga nästa steg.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage blue">
+
+      <h3>🔵 4–6</h3>
+
+      <ul>
+        <li>Växande figurmönster.</li>
+        <li>Talmönster med flera steg.</li>
+        <li>Beskriva förändring.</li>
+        <li>Organisera i tabell.</li>
+        <li>Förutsäga långt fram i mönstret.</li>
+        <li>Formulera regler med ord.</li>
+        <li>Använda variabel i enkla generaliseringar.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage purple">
+
+      <h3>🟣 7–9</h3>
+
+      <ul>
+        <li>Generalisera tal- och figurmönster.</li>
+        <li>Uttrycka regler algebraiskt.</li>
+        <li>Koppla tabell, graf och formel.</li>
+        <li>Linjära och andra funktionella samband.</li>
+        <li>Analysera förändringstakt.</li>
+        <li>Pröva om en regel gäller generellt.</li>
+        <li>Argumentera för generaliseringar.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧠 Sex centrala mönsteridéer</h2>
+
+    <p>
+      Mönster kan visas på många olika sätt och behöver beskrivas med precision.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">🔴🔵</div>
+
+      <h3>Upprepade mönster</h3>
 
       <p>
-        Att fortsätta ett mönster är en början.
-        Den matematiska utvecklingen sker när eleven kan förklara vad som förändras,
-        vad som är konstant och hur vilken figur eller vilket tal som helst kan bestämmas
-        utan att alla tidigare steg behöver byggas.
+        En enhet återkommer regelbundet.
       </p>
 
-    </div>
+      <ul>
+        <li>ABABAB</li>
+        <li>ABCABC</li>
+        <li>AABB</li>
+        <li>Identifiera mönsterenheten.</li>
+        <li>Skapa variationer.</li>
+      </ul>
 
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Fyra kärnor i mönstertänkande
-    </h2>
-
-    <p class="section-intro">
-      Dessa delar leder successivt mot generalisering och algebra.
-    </p>
-
-    <div class="core-grid">
-
-      <div class="core-card">
-        <span>👀</span>
-        <h3>Upptäcka</h3>
-        <p>
-          Se regelbundenhet, upprepning och förändring.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>💬</span>
-        <h3>Beskriva</h3>
-        <p>
-          Sätta ord på vad som händer från ett steg till nästa.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>📊</span>
-        <h3>Representera</h3>
-        <p>
-          Visa mönstret med material, bild, talföljd, tabell och symboler.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>🚀</span>
-        <h3>Generalisera</h3>
-        <p>
-          Formulera en regel som beskriver alla steg i mönstret.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="progression-box">
+      <div class="icon">📈</div>
 
-      <h2>🌱 → 🌿 → 🚀 Progression F–9</h2>
+      <h3>Växande mönster</h3>
 
       <p>
-        Mönster går från konkret upprepning till algebraiska regler och funktionellt tänkande.
+        Mönstret förändras från figur till figur.
       </p>
 
-      <div class="progression-grid">
+      <ul>
+        <li>Vad läggs till?</li>
+        <li>Hur mycket växer figuren?</li>
+        <li>Vad är konstant?</li>
+        <li>Kan nästa figur förutsägas?</li>
+      </ul>
 
-        <div class="progression-card f3">
+    </article>
 
-          <span>🌱</span>
 
-          <h3>F–3</h3>
+    <article class="card">
 
-          <ul>
-            <li>upprepade mönster</li>
-            <li>växande mönster</li>
-            <li>färg- och formmönster</li>
-            <li>rytmer</li>
-            <li>talserier</li>
-            <li>fortsätta ett mönster</li>
-            <li>beskriva regeln med ord</li>
-            <li>skapa egna mönster</li>
-          </ul>
+      <div class="icon">🔢</div>
 
-        </div>
+      <h3>Talmönster</h3>
 
-
-        <div class="progression-card m46">
-
-          <span>🌿</span>
-
-          <h3>4–6</h3>
-
-          <ul>
-            <li>figurmönster</li>
-            <li>talföljder</li>
-            <li>växande strukturer</li>
-            <li>tabeller</li>
-            <li>regler</li>
-            <li>förutsäga större steg</li>
-            <li>koppla figurnummer till antal</li>
-            <li>börja använda variabler</li>
-          </ul>
-
-        </div>
-
-
-        <div class="progression-card m79">
-
-          <span>🚀</span>
-
-          <h3>7–9</h3>
-
-          <ul>
-            <li>algebraiska uttryck</li>
-            <li>generella regler</li>
-            <li>linjära mönster</li>
-            <li>tabell ↔ graf ↔ formel</li>
-            <li>funktioner</li>
-            <li>jämföra regler</li>
-            <li>förklara varför en formel fungerar</li>
-            <li>generalisera matematiska strukturer</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🔁</span>
-
-        <div>
-          <h2>Upprepade mönster</h2>
-          <p>En sekvens eller enhet upprepas på samma sätt.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Exempel</h3>
-
-          <p>
-            🔴 🔵 🔵 🔴 🔵 🔵 🔴 🔵 🔵 ...
-          </p>
-
-          <p style="margin-top:10px;">
-            Den återkommande enheten är:
-            🔴 🔵 🔵
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Utveckla</h3>
-
-          <ul>
-            <li>hitta mönsterenheten</li>
-            <li>fortsätta mönstret</li>
-            <li>beskriva med ord</li>
-            <li>översätta till andra färger eller symboler</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <ul>
-            <li>Vad är det som upprepas?</li>
-            <li>Hur lång är mönsterenheten?</li>
-            <li>Vilken symbol kommer på plats 20?</li>
-            <li>Hur vet du utan att rita allt?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>📈</span>
-
-        <div>
-          <h2>Växande mönster</h2>
-          <p>Här förändras mönstret på ett regelbundet sätt.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Bygg</h3>
-
-          <p>
-            Figur 1: 3 klossar<br>
-            Figur 2: 5 klossar<br>
-            Figur 3: 7 klossar
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Beskriv förändringen</h3>
-
-          <p>
-            Varje ny figur har två klossar fler än den föregående.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fördjupa</h3>
-
-          <ul>
-            <li>Hur många i figur 10?</li>
-            <li>Hur många i figur 100?</li>
-            <li>Kan du hitta en regel?</li>
-            <li>Var syns startvärdet?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🔢</span>
-
-        <div>
-          <h2>Talföljder</h2>
-          <p>Talföljder behöver kopplas till relationer – inte bara ”lägg till samma tal”.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Exempel</h3>
-
-          <p>
-            4, 7, 10, 13, 16, ...
-          </p>
-
-          <p style="margin-top:10px;">
-            Förändringen är +3.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Andra typer</h3>
-
-          <ul>
-            <li>multiplikativa mönster</li>
-            <li>alternerande mönster</li>
-            <li>kvadrattal</li>
-            <li>geometriska mönster</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <ul>
-            <li>Hur förändras talen?</li>
-            <li>Är skillnaden konstant?</li>
-            <li>Kan tal nummer 50 bestämmas direkt?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>📊</span>
-
-        <div>
-          <h2>Tabell som bro</h2>
-          <p>Tabellen kopplar samman figurnummer och mönstrets värde.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Exempel</h3>
-
-          <p>
-            Figur 1 → 5<br>
-            Figur 2 → 8<br>
-            Figur 3 → 11<br>
-            Figur 4 → 14
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Se sambandet</h3>
-
-          <p>
-            Värdet ökar med 3 för varje nytt figurnummer.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <ul>
-            <li>Vad betyder första kolumnen?</li>
-            <li>Vad betyder andra kolumnen?</li>
-            <li>Hur påverkar +1 i figurnummer värdet?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🔤</span>
-
-        <div>
-          <h2>Från mönster till algebra</h2>
-          <p>En generell regel beskriver vilket steg som helst.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Exempel</h3>
-
-          <p>
-            Mönstret:
-          </p>
-
-          <p style="font-weight:bold; margin-top:8px;">
-            5, 8, 11, 14, ...
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Regel</h3>
-
-          <p>
-            Om n är positionen kan mönstret beskrivas med:
-          </p>
-
-          <p style="font-size:1.3rem; font-weight:bold; margin-top:10px;">
-            3n + 2
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Förklara</h3>
-
-          <p>
-            3n beskriver tre för varje steg och +2 beskriver den del av strukturen som finns kvar utöver de tre grupperna.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>📈</span>
-
-        <div>
-          <h2>Mönster & funktioner</h2>
-          <p>I 7–9 kopplas mönster allt tydligare till funktionellt tänkande.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Situation</h3>
-
-          <p>
-            En kostnad består av en fast avgift på 20 kr och 5 kr per enhet.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Regel</h3>
-
-          <p style="font-size:1.3rem; font-weight:bold;">
-            y = 5x + 20
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Koppla</h3>
-
-          <ul>
-            <li>situation</li>
-            <li>tabell</li>
-            <li>mönster</li>
-            <li>graf</li>
-            <li>formel</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="rep-box">
-
-      <h2 class="section-title">
-        🖼️ Representationer för mönster
-      </h2>
-
-      <p class="section-intro">
-        Elever behöver kunna röra sig mellan olika sätt att visa samma struktur.
+      <p>
+        Tal kan förändras enligt en bestämd struktur.
       </p>
 
-      <div class="rep-grid">
+      <ul>
+        <li>2, 4, 6, 8...</li>
+        <li>5, 10, 20, 40...</li>
+        <li>1, 4, 9, 16...</li>
+        <li>Beskriv regeln – inte bara nästa tal.</li>
+      </ul>
 
-        <div class="rep-card">
-          <span>🧱</span>
-          <h3>Bygga</h3>
-          <p>
-            Klossar, stickor och konkret material gör förändringen synlig.
-          </p>
-        </div>
-
-        <div class="rep-card">
-          <span>🖼️</span>
-          <h3>Bild</h3>
-          <p>
-            Figurmönster hjälper elever att se strukturella delar.
-          </p>
-        </div>
-
-        <div class="rep-card">
-          <span>🔢</span>
-          <h3>Talföljd</h3>
-          <p>
-            Visar hur antalet eller värdet förändras steg för steg.
-          </p>
-        </div>
-
-        <div class="rep-card">
-          <span>📊</span>
-          <h3>Tabell</h3>
-          <p>
-            Kopplar stegnummer till motsvarande värde.
-          </p>
-        </div>
-
-        <div class="rep-card">
-          <span>🔤</span>
-          <h3>Formel</h3>
-          <p>
-            Beskriver mönstret generellt och gör stora steg möjliga att beräkna direkt.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="mis-box">
+      <div class="icon">📋</div>
 
-      <h2 class="section-title">
-        ⚠️ Vanliga missuppfattningar
-      </h2>
+      <h3>Tabell</h3>
 
-      <p class="section-intro">
-        Att kunna fortsätta ett mönster betyder inte automatiskt att eleven förstår dess struktur.
+      <p>
+        En tabell gör förändringen mellan figurens nummer och antal delar tydlig.
       </p>
 
-      <div class="mis-grid">
+      <ul>
+        <li>Figur 1 → 4 delar.</li>
+        <li>Figur 2 → 7 delar.</li>
+        <li>Figur 3 → 10 delar.</li>
+        <li>Vad förändras med varje steg?</li>
+      </ul>
 
-        <div class="mis-card">
-          <span>➡️</span>
-          <h3>Regeln är bara ”vad jag gör nästa gång”</h3>
-          <p>
-            En rekursiv regel som ”lägg till 3” räcker inte för att direkt bestämma exempelvis term 100.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>👀</span>
-          <h3>Man behöver bara titta på färgerna</h3>
-          <p>
-            Ytliga egenskaper kan dölja den matematiska strukturen.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>🔢</span>
-          <h3>Position och värde blandas ihop</h3>
-          <p>
-            Eleven kan exempelvis tro att figur 5 måste innehålla fem objekt.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>📈</span>
-          <h3>Alla mönster växer lika mycket varje gång</h3>
-          <p>
-            Elever behöver möta både linjära och andra typer av förändringar.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>🔤</span>
-          <h3>n betyder ett särskilt tal</h3>
-          <p>
-            I en generell regel representerar n vilket giltigt stegnummer som helst.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>✅</span>
-          <h3>Några exempel bevisar regeln</h3>
-          <p>
-            Att regeln fungerar för flera testade fall är inte samma sak som att förklara varför den alltid fungerar.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="question-box">
+      <div class="icon">🔤</div>
 
-      <h2 class="section-title">
-        💬 Frågor som utvecklar mönstertänkande
-      </h2>
+      <h3>Regel och uttryck</h3>
 
-      <p class="section-intro">
-        Frågorna för eleverna från nästa steg mot struktur och generalisering.
+      <p>
+        En generell regel beskriver vilket steg som helst.
       </p>
 
-      <div class="question-grid">
+      <ul>
+        <li>”Tre gånger figurnumret plus ett.”</li>
+        <li>3n + 1</li>
+        <li>Pröva regeln för flera n.</li>
+        <li>Förklara vad varje del betyder.</li>
+      </ul>
 
-        <div class="question-card">
-          <h3>Vad förändras?</h3>
-          <p>
-            Hjälper eleven identifiera den del av mönstret som växer eller varierar.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Vad är alltid samma?</h3>
-          <p>
-            Synliggör den konstanta delen av strukturen.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Hur ser figur 20 ut?</h3>
-          <p>
-            Flyttar eleven bort från att enbart rita nästa figur.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Kan du göra en tabell?</h3>
-          <p>
-            Hjälper till att synliggöra relationen mellan position och värde.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Kan du skriva regeln med ord?</h3>
-          <p>
-            Språklig generalisering kan komma före symbolisk notation.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Varför fungerar din regel?</h3>
-          <p>
-            Förflyttar undervisningen från gissad formel till matematiskt resonemang.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <h2 class="section-title">
-      🛟 Stöd när mönster blir svårt
-    </h2>
+      <div class="icon">🔗</div>
 
-    <p class="section-intro">
-      Gör förändringen synlig och håll kopplingen mellan stegnummer och värde tydlig.
+      <h3>Samband</h3>
+
+      <p>
+        Mönster är grunden för att förstå hur två storheter förändras tillsammans.
+      </p>
+
+      <ul>
+        <li>Figurnummer och antal delar.</li>
+        <li>Tid och sträcka.</li>
+        <li>Antal och pris.</li>
+        <li>Tabell, graf och formel.</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🔄 Från mönster till generalisering</h2>
+
+    <p>
+      Målet är att elever successivt går från exempel
+      till en regel som beskriver alla relevanta fall.
     </p>
 
-    <div class="support-grid">
+  </div>
 
-      <div class="support-card">
-        <span>🧱</span>
-        <h3>Bygg mönstret</h3>
-        <p>
-          Låt eleven fysiskt bygga flera steg och jämföra vad som läggs till.
-        </p>
-      </div>
 
-      <div class="support-card">
-        <span>🎨</span>
-        <h3>Färgmarkera strukturen</h3>
-        <p>
-          Markera vad som är konstant och vad som tillkommer i varje steg.
-        </p>
-      </div>
+  <div class="flow">
 
-      <div class="support-card">
-        <span>📊</span>
-        <h3>Använd tabell</h3>
-        <p>
-          Skriv figurnummer och antal bredvid varandra för att minska arbetsminnesbelastningen.
-        </p>
-      </div>
-
-      <div class="support-card">
-        <span>💬</span>
-        <h3>Börja med ord</h3>
-        <p>
-          Låt eleven beskriva regeln muntligt innan algebraiska symboler introduceras.
-        </p>
-      </div>
-
+    <div class="flow-step">
+      <span>👀</span>
+      <strong>1. Se</strong>
+      <p>Vad lägger du märke till i mönstret?</p>
     </div>
 
-  </section>
+    <div class="flow-step">
+      <span>💬</span>
+      <strong>2. Beskriv</strong>
+      <p>Vad förändras? Vad är samma?</p>
+    </div>
+
+    <div class="flow-step">
+      <span>📋</span>
+      <strong>3. Organisera</strong>
+      <p>Använd bild, tabell eller talföljd.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>🔮</span>
+      <strong>4. Förutsäg</strong>
+      <p>Vad händer i figur 10, 50 eller 100?</p>
+    </div>
+
+    <div class="flow-step">
+      <span>🔤</span>
+      <strong>5. Generalisera</strong>
+      <p>Skriv en regel som fungerar för figur n.</p>
+    </div>
+
+  </div>
 
 
-  <section>
+  <div class="section-title">
 
-    <div class="challenge-box">
+    <h2>🧩 Fyra undervisningsidéer</h2>
 
-      <h2 class="section-title">
-        🚀 Fördjupa mönster
-      </h2>
+    <p>
+      Aktiviteter som flyttar fokus från nästa steg till struktur och regel.
+    </p>
 
-      <p class="section-intro">
-        Utmana genom flera regler, omvända problem och generalisering.
+  </div>
+
+
+  <div class="example-grid">
+
+    <section class="example green">
+
+      <h3>🧱 Bygg figurmönstret</h3>
+
+      <ul>
+        <li>Bygg figur 1, 2, 3 och 4 med stickor eller klossar.</li>
+        <li>Rita figurerna.</li>
+        <li>Räkna antal delar.</li>
+        <li>Vad läggs till varje gång?</li>
+        <li>Hur många behövs till figur 10?</li>
+      </ul>
+
+      <p>
+        Gör förändringen synlig och konkret.
       </p>
 
-      <div class="challenge-grid">
+    </section>
 
-        <div class="challenge-card">
-          <span>🔎</span>
-          <h3>Hitta term 100</h3>
-          <p>
-            Bestäm ett mycket stort steg utan att bygga eller lista alla tidigare steg.
-          </p>
-        </div>
 
-        <div class="challenge-card">
-          <span>🔄</span>
-          <h3>Arbeta baklänges</h3>
-          <p>
-            Om ett steg innehåller 47 objekt – vilket stegnummer kan det vara?
-          </p>
-        </div>
+    <section class="example blue">
 
-        <div class="challenge-card">
-          <span>🧩</span>
-          <h3>Samma talföljd – olika figurer</h3>
-          <p>
-            Skapa två visuellt olika figurmönster som leder till samma talföljd.
-          </p>
-        </div>
+      <h3>🔍 Hitta regeln</h3>
 
-        <div class="challenge-card">
-          <span>⚖️</span>
-          <h3>Bevisa regeln</h3>
-          <p>
-            Visa i figurens struktur varför det algebraiska uttrycket beskriver varje steg.
-          </p>
-        </div>
+      <ul>
+        <li>Visa talföljden 4, 7, 10, 13...</li>
+        <li>Vad händer mellan talen?</li>
+        <li>Vilket blir det tionde talet?</li>
+        <li>Kan regeln beskrivas med ord?</li>
+        <li>Kan den beskrivas med symboler?</li>
+      </ul>
 
-      </div>
+      <p>
+        Förbereder algebraisk generalisering.
+      </p>
 
-    </div>
+    </section>
+
+
+    <section class="example yellow">
+
+      <h3>🕵️ Vilken figur saknas?</h3>
+
+      <ul>
+        <li>Visa figur 1, 2 och 4.</li>
+        <li>Låt figur 3 saknas.</li>
+        <li>Hur borde den se ut?</li>
+        <li>Finns det mer än en möjlig regel?</li>
+        <li>Vilken information behövs för att vara säker?</li>
+      </ul>
+
+      <p>
+        Synliggör att några exempel inte alltid bestämmer en unik regel.
+      </p>
+
+    </section>
+
+
+    <section class="example purple">
+
+      <h3>🚀 Figur 100</h3>
+
+      <ul>
+        <li>Utgå från ett växande figurmönster.</li>
+        <li>Förbjud eleverna att rita alla figurer fram till 100.</li>
+        <li>Skapa tabell.</li>
+        <li>Hitta en effektiv regel.</li>
+        <li>Motivera varför regeln fungerar.</li>
+      </ul>
+
+      <p>
+        Skapar behov av generalisering och algebra.
+      </p>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🕵️ Vanliga missuppfattningar</h2>
+
+    <p>
+      Ett korrekt nästa steg betyder inte automatiskt
+      att eleven förstått mönstrets struktur.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">➡️</div>
+
+      <h3>Kan fortsätta men inte förklara</h3>
+
+      <p>
+        Eleven ser intuitivt nästa figur men kan inte beskriva regeln.
+      </p>
+
+      <ul>
+        <li>Fråga vad som läggs till.</li>
+        <li>Låt eleven markera den nya delen.</li>
+        <li>Använd tabell.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔢</div>
+
+      <h3>Tittar bara på skillnaden</h3>
+
+      <p>
+        Eleven söker alltid efter addition mellan två tal även när mönstret är multiplikativt.
+      </p>
+
+      <ul>
+        <li>Jämför additiva och multiplikativa mönster.</li>
+        <li>Fråga hur talet förändras relativt föregående tal.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">1️⃣</div>
+
+      <h3>En regel antas vara den enda</h3>
+
+      <p>
+        Ett fåtal givna tal kan passa flera olika regler.
+      </p>
+
+      <ul>
+        <li>Skapa alternativa regler.</li>
+        <li>Diskutera vilken information som behövs.</li>
+        <li>Pröva fler fall.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔤</div>
+
+      <h3>Formeln saknar mening</h3>
+
+      <p>
+        Eleven kan använda 3n + 1 men vet inte vad 3, n eller 1 representerar.
+      </p>
+
+      <ul>
+        <li>Koppla varje term till figuren.</li>
+        <li>Färgkoda strukturen.</li>
+        <li>Låt eleven förklara formeln med ord.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📋</div>
+
+      <h3>Tabellen blir bara en lista</h3>
+
+      <p>
+        Eleven fyller i värden utan att använda tabellen för att se sambandet.
+      </p>
+
+      <ul>
+        <li>Jämför kolumner.</li>
+        <li>Markera förändringen.</li>
+        <li>Fråga hur den ena storheten beror på den andra.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🚀</div>
+
+      <h3>Figur 100 löses genom att fortsätta 96 steg</h3>
+
+      <p>
+        Eleven använder en fungerande men ineffektiv strategi.
+      </p>
+
+      <ul>
+        <li>Skapa behov av en generell regel.</li>
+        <li>Jämför effektivitet.</li>
+        <li>Diskutera varför algebra är användbar.</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Frågor som utvecklar mönstertänkande</h2>
+
+    <ul>
+      <li>Vad lägger du märke till?</li>
+      <li>Vad förändras från ett steg till nästa?</li>
+      <li>Vad är konstant?</li>
+      <li>Vilken del av figuren är ny?</li>
+      <li>Hur kan mönstret beskrivas med ord?</li>
+      <li>Kan du visa det i en tabell?</li>
+      <li>Hur ser figur 10 ut?</li>
+      <li>Hur många delar har figur 100?</li>
+      <li>Kan du ta reda på det utan att rita alla figurer?</li>
+      <li>Vad betyder varje del i din regel?</li>
+      <li>Gäller regeln för alla figurer?</li>
+      <li>Hur kan du bevisa eller motivera det?</li>
+    </ul>
 
   </section>
 
 
-  <section>
+  <div class="warning">
 
-    <h2 class="section-title">
-      📊 Bedömning – vad ska läraren få syn på?
-    </h2>
+    <strong>⚠️ Stanna inte vid ”Vad kommer sedan?”.</strong><br>
+    Den frågan kan ofta besvaras utan djup förståelse.
+    För att utveckla algebraiskt tänkande behöver elever också
+    <strong>beskriva förändringen, göra förutsägelser långt fram,
+    formulera generella regler och motivera varför de fungerar</strong>.
 
-    <p class="section-intro">
-      Bedöm progressionen från igenkänning till generalisering.
-    </p>
-
-    <div class="assessment-grid">
-
-      <div class="assessment-card">
-        <span>👀</span>
-        <h3>Upptäcka</h3>
-        <p>
-          Kan eleven identifiera regelbundenhet och förändring?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>💬</span>
-        <h3>Beskriva</h3>
-        <p>
-          Kan eleven förklara regeln med matematiskt relevant språk?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>🔗</span>
-        <h3>Representera</h3>
-        <p>
-          Kan eleven koppla figur, talföljd, tabell och symbolisk regel?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>🚀</span>
-        <h3>Generalisera</h3>
-        <p>
-          Kan eleven bestämma vilket steg som helst och motivera varför regeln fungerar?
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
+  <section class="links">
 
-    <h2 class="section-title">
-      Relaterade lärarsidor
-    </h2>
+    <h2>➡️ Fortsätt i Matteresan</h2>
 
-    <p class="section-intro">
-      Mönster är en viktig brygga mellan taluppfattning, algebra och funktioner.
-    </p>
+    <div class="link-row">
 
-    <div class="links-grid">
-
-      <a href="larare-algebra.html" class="link-card c1">
-        <span>🔤</span>
-        <h3>Algebra</h3>
-        <p>
-          Mönster utvecklas vidare till variabler, uttryck och generalisering.
-        </p>
+      <a href="elevblad-monster.html">
+        ✏️ Elevblad mönster
       </a>
 
-      <a href="larare-samband.html" class="link-card c2">
-        <span>📈</span>
-        <h3>Samband & förändring</h3>
-        <p>
-          Tabeller, grafer och funktioner bygger vidare på mönstertänkande.
-        </p>
+      <a href="larare-algebra.html">
+        🔤 Algebra
       </a>
 
-      <a href="larare-tal.html" class="link-card c3">
-        <span>🔢</span>
-        <h3>Taluppfattning</h3>
-        <p>
-          Talrelationer och strukturer ger grunden för numeriska mönster.
-        </p>
+      <a href="larare-samband.html">
+        📈 Samband
       </a>
 
-      <a href="larare-problemlosning.html" class="link-card c4">
-        <span>🧠</span>
-        <h3>Problemlösning</h3>
-        <p>
-          Att söka mönster är en viktig problemlösningsstrategi.
-        </p>
+      <a href="larare-tal.html">
+        🔢 Taluppfattning
       </a>
 
-      <a href="larare-utmaning.html" class="link-card c5">
-        <span>🚀</span>
-        <h3>Fördjupning</h3>
-        <p>
-          Mönster lämpar sig särskilt väl för generalisering och bevisidéer.
-        </p>
+      <a href="larare-problemlosning.html">
+        🧩 Problemlösning
       </a>
 
-      <a href="larare-missuppfattningar.html" class="link-card c6">
-        <span>⚠️</span>
-        <h3>Missuppfattningar</h3>
-        <p>
-          Fördjupa analysen av vanliga svårigheter kring regler och generalisering.
-        </p>
+      <a href="larare-konkret.html">
+        🧱 Konkret & visuellt
       </a>
 
-    </div>
+      <a href="larare-matteprat.html">
+        💬 Matteprat
+      </a>
 
-    <div class="note">
-      <strong>Kom ihåg:</strong>
-      frågan ”Vad kommer sedan?” är bara början.
-      Den viktigare frågan är:
-      <strong>”Hur kan du veta vad som finns på vilken plats som helst?”</strong>
+      <a href="larare-utmaning.html">
+        🚀 Utmaning
+      </a>
+
     </div>
 
   </section>
@@ -1548,11 +1118,8 @@
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🧩 Mönster F–9 – upptäcka, beskriva, fortsätta och generalisera
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🔁 Upptäck • Beskriv • Fortsätt • Förutsäg • Generalisera
 
 </footer>
 
