@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Problemlösning | HOLOS Matteresan</title>
+  <title>Problemlösning | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,23 +15,36 @@
 
     :root {
       --dark: #17324d;
-      --blue: #3478c7;
-      --blue-light: #eaf5ff;
-      --green-light: #ecf8f0;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --white: #ffffff;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -41,14 +54,14 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
-        linear-gradient(135deg, #17324d, #376f9d);
+        radial-gradient(circle at top right, rgba(255,255,255,0.20), transparent 32%),
+        linear-gradient(135deg, #5f9470, #5d86ad, #8266a3);
       color: white;
-      padding: 22px 20px 58px;
+      padding: 22px 20px 64px;
     }
 
     .topbar {
-      max-width: 1150px;
+      max-width: 1180px;
       margin: auto;
       display: flex;
       justify-content: space-between;
@@ -57,26 +70,20 @@
     }
 
     .logo {
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 1px;
     }
 
     .back-link {
-      padding: 8px 15px;
-      border: 1px solid rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.75);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--dark);
-    }
-
     .hero {
-      max-width: 850px;
-      margin: 50px auto 0;
+      max-width: 960px;
+      margin: 48px auto 0;
       text-align: center;
     }
 
@@ -86,146 +93,92 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 4.8rem);
-      line-height: 1.05;
-      margin-bottom: 10px;
-    }
-
-    .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      max-width: 720px;
-      margin: auto;
-      color: #edf6ff;
-      font-size: 1.03rem;
-    }
-
-    main {
-      max-width: 1150px;
-      margin: auto;
-      padding: 45px 20px;
-    }
-
-    section {
-      margin-bottom: 62px;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .section-intro {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 30px;
-      color: var(--muted);
-    }
-
-    .intro-box {
-      background: var(--blue-light);
-      border-radius: 28px;
-      padding: 36px;
-      text-align: center;
-    }
-
-    .intro-box h2 {
-      color: var(--dark);
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      line-height: 1.04;
       margin-bottom: 12px;
     }
 
-    .intro-box p {
-      max-width: 760px;
+    .hero h2 {
+      font-size: clamp(1.05rem, 3vw, 1.5rem);
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      max-width: 860px;
       margin: auto;
-      color: #5c6872;
+      color: #f7f9fb;
     }
 
-    .stage-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 42px 20px 70px;
     }
 
-    .stage-card {
-      border-radius: 24px;
-      padding: 30px 24px;
-      min-height: 240px;
-      display: flex;
-      flex-direction: column;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .stage-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
-    }
-
-    .f3 { background: var(--green-light); }
-    .m46 { background: var(--blue-light); }
-    .m79 { background: var(--purple-light); }
-
-    .stage-icon {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    .stage-card h3 {
-      color: var(--dark);
-      font-size: 1.45rem;
-      margin-bottom: 8px;
-    }
-
-    .stage-card p {
-      color: var(--muted);
-      flex-grow: 1;
-    }
-
-    .stage-button {
-      display: inline-block;
-      align-self: flex-start;
-      margin-top: 18px;
-      background: var(--dark);
-      color: white;
-      padding: 10px 17px;
-      border-radius: 999px;
-      font-weight: bold;
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .process-card {
+    .intro {
       background: white;
-      border-radius: 20px;
-      padding: 22px;
-      text-align: center;
-      border: 1px solid #e6ebef;
-      min-height: 180px;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
     }
 
-    .process-card span {
-      display: block;
-      font-size: 2.3rem;
+    .intro h2 {
+      color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .process-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
+    .intro p {
+      color: var(--muted);
     }
 
-    .process-card p {
+    .flow {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .flow div {
+      border-radius: 14px;
+      padding: 14px 10px;
+      text-align: center;
+      color: var(--dark);
+      font-weight: 800;
+      font-size: 0.84rem;
+    }
+
+    .flow div:nth-child(1) {
+      background: var(--green);
+    }
+
+    .flow div:nth-child(2) {
+      background: var(--blue);
+    }
+
+    .flow div:nth-child(3) {
+      background: var(--yellow);
+    }
+
+    .flow div:nth-child(4) {
+      background: var(--purple);
+    }
+
+    .flow div:nth-child(5) {
+      background: var(--teal);
+    }
+
+    .section-title {
+      margin: 42px 0 18px;
+    }
+
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.9rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
       color: var(--muted);
-      font-size: 0.93rem;
     }
 
     .strategy-grid {
@@ -237,130 +190,273 @@
     .strategy-card {
       background: white;
       border-radius: 20px;
-      padding: 22px;
-      border: 1px solid #e6ebef;
-      min-height: 170px;
+      padding: 23px;
+      min-height: 245px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      display: flex;
+      flex-direction: column;
+      border-top: 6px solid var(--green-strong);
     }
 
-    .strategy-card span {
-      font-size: 2rem;
-      display: block;
+    .strategy-card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .strategy-card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .icon {
+      font-size: 2.2rem;
       margin-bottom: 8px;
     }
 
     .strategy-card h3 {
       color: var(--dark);
-      margin-bottom: 6px;
+      margin-bottom: 7px;
     }
 
-    .strategy-card p {
+    .strategy-card p,
+    .strategy-card li {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.86rem;
     }
 
-    .problem-box {
-      background: linear-gradient(135deg, #fff5cc, #ffe49a);
-      border-radius: 28px;
-      padding: 38px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: center;
+    .strategy-card ul {
+      margin: 10px 0 0 20px;
     }
 
-    .problem-box h2 {
-      color: var(--dark);
-      font-size: 2rem;
-      margin-bottom: 10px;
+    .strategy-card li {
+      margin-bottom: 5px;
     }
 
-    .problem-card {
-      background: white;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 8px 25px rgba(70,55,15,0.08);
-    }
-
-    .step {
-      margin-top: 10px;
-      background: #f5f7f8;
-      border-radius: 12px;
-      padding: 11px 14px;
-    }
-
-    .question-grid {
+    .stage-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .question-card {
+    .stage-card {
       border-radius: 20px;
-      padding: 22px;
-      min-height: 170px;
-      border: 1px solid rgba(0,0,0,0.05);
+      padding: 24px;
+      min-height: 260px;
     }
 
-    .q1 { background: var(--yellow-light); }
-    .q2 { background: var(--green-light); }
-    .q3 { background: var(--orange-light); }
-    .q4 { background: var(--blue-light); }
-    .q5 { background: var(--purple-light); }
-    .q6 { background: #fcebf3; }
+    .stage-card.green {
+      background: var(--green);
+      border-top: 7px solid var(--green-strong);
+    }
 
-    .question-card h3 {
+    .stage-card.blue {
+      background: var(--blue);
+      border-top: 7px solid var(--blue-strong);
+    }
+
+    .stage-card.purple {
+      background: var(--purple);
+      border-top: 7px solid var(--purple-strong);
+    }
+
+    .stage-card h3 {
       color: var(--dark);
-      margin-bottom: 7px;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
     }
 
-    .question-card p {
+    .stage-card p,
+    .stage-card li {
       color: var(--muted);
-      font-size: 0.94rem;
+      font-size: 0.86rem;
+    }
+
+    .stage-card ul {
+      margin: 10px 0 0 20px;
+    }
+
+    .stage-card li {
+      margin-bottom: 6px;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .problem-card {
+      border-radius: 18px;
+      padding: 22px;
+      min-height: 225px;
+    }
+
+    .problem-card:nth-child(6n+1) {
+      background: var(--green);
+    }
+
+    .problem-card:nth-child(6n+2) {
+      background: var(--blue);
+    }
+
+    .problem-card:nth-child(6n+3) {
+      background: var(--yellow);
+    }
+
+    .problem-card:nth-child(6n+4) {
+      background: var(--purple);
+    }
+
+    .problem-card:nth-child(6n+5) {
+      background: var(--teal);
+    }
+
+    .problem-card:nth-child(6n+6) {
+      background: var(--pink);
+    }
+
+    .problem-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .problem-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .problem-card .question {
+      margin-top: 12px;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .problem-card .label {
+      display: inline-block;
+      margin-top: 14px;
+      background: rgba(255,255,255,0.75);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .sentence-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .sentence-card {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 165px;
+    }
+
+    .sentence-card:nth-child(4n+1) {
+      background: var(--green);
+    }
+
+    .sentence-card:nth-child(4n+2) {
+      background: var(--blue);
+    }
+
+    .sentence-card:nth-child(4n+3) {
+      background: var(--yellow);
+    }
+
+    .sentence-card:nth-child(4n+4) {
+      background: var(--purple);
+    }
+
+    .sentence-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .sentence-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .teacher-box {
+      margin-top: 42px;
+      background: var(--teal);
+      border-radius: 22px;
+      padding: 26px;
+    }
+
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box p,
+    .teacher-box li {
+      color: var(--muted);
+    }
+
+    .teacher-box ul {
+      margin: 10px 0 0 22px;
+    }
+
+    .teacher-box li {
+      margin-bottom: 6px;
+    }
+
+    .tip {
+      margin-top: 24px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 15px;
+      padding: 18px;
+      color: #665831;
+    }
+
+    .links {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .links a {
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.8rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 950px) {
-      .process-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
+    @media (max-width: 1000px) {
       .strategy-grid,
-      .question-grid {
+      .stage-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .problem-box {
-        grid-template-columns: 1fr;
+      .flow {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 750px) {
-      .stage-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .process-grid,
       .strategy-grid,
-      .question-grid {
+      .stage-grid,
+      .problem-grid,
+      .sentence-grid,
+      .flow {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .problem-box {
-        padding: 25px 18px;
       }
 
       main {
@@ -369,24 +465,64 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
-      main {
-        padding: 0;
-        max-width: none;
+      .flow div:nth-child(1),
+      .stage-card.green,
+      .problem-card:nth-child(6n+1),
+      .sentence-card:nth-child(4n+1) {
+        background: var(--green) !important;
       }
 
-      section {
-        break-inside: avoid;
+      .flow div:nth-child(2),
+      .stage-card.blue,
+      .problem-card:nth-child(6n+2),
+      .sentence-card:nth-child(4n+2) {
+        background: var(--blue) !important;
+      }
+
+      .flow div:nth-child(3),
+      .problem-card:nth-child(6n+3),
+      .sentence-card:nth-child(4n+3),
+      .tip {
+        background: var(--yellow) !important;
+      }
+
+      .flow div:nth-child(4),
+      .stage-card.purple,
+      .problem-card:nth-child(6n+4),
+      .sentence-card:nth-child(4n+4) {
+        background: var(--purple) !important;
+      }
+
+      .flow div:nth-child(5),
+      .problem-card:nth-child(6n+5),
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .problem-card:nth-child(6n+6) {
+        background: var(--pink) !important;
       }
     }
   </style>
@@ -399,7 +535,7 @@
   <div class="topbar">
 
     <div class="logo">
-      HOLOS MATTERESAN
+      HOLOS MATTERESAN F–9
     </div>
 
     <a href="index.html" class="back-link">
@@ -408,339 +544,552 @@
 
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">🧠</div>
+    <div class="hero-icon">🧩🧠🔍</div>
 
     <h1>Problemlösning</h1>
 
-    <h2>Förstå • Planera • Lösa • Kontrollera</h2>
+    <h2>Förstå • Planera • Lös • Förklara • Kontrollera</h2>
 
     <p>
-      Här tränar du på att förstå problem, välja strategier,
-      prova olika vägar och förklara varför din lösning fungerar.
+      Problemlösning handlar om mer än att hitta ett svar.
+      Elever behöver förstå situationen, välja en strategi,
+      genomföra lösningen, förklara sitt tänkande
+      och kontrollera att resultatet är rimligt.
     </p>
 
   </div>
 
 </header>
 
+
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>🧠 När är en uppgift ett problem?</h2>
 
-      <h2>💡 Problemlösning är mer än att räkna</h2>
+    <p>
+      En uppgift blir ett matematiskt problem när lösningsmetoden
+      inte är given direkt för eleven.
+      Eleven behöver tolka situationen,
+      välja eller skapa en strategi och använda tidigare kunskaper
+      på ett sätt som inte bara handlar om att följa en färdig rutin.
+    </p>
+
+    <div class="flow">
+
+      <div>🔍 Förstå</div>
+      <div>🗺️ Planera</div>
+      <div>🧩 Lösa</div>
+      <div>💬 Förklara</div>
+      <div>✅ Kontrollera</div>
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>🧰 Strategiverktygslådan</h2>
+
+    <p>
+      Elever ska inte lära sig att alltid använda samma strategi.
+      De behöver bygga en repertoar av möjliga sätt att angripa problem.
+    </p>
+
+  </div>
+
+
+  <div class="strategy-grid">
+
+    <article class="strategy-card">
+      <div class="icon">🎨</div>
+      <h3>Rita en bild</h3>
+      <p>
+        Gör situationen synlig med en enkel bild,
+        modell, skiss eller tallinje.
+      </p>
+      <ul>
+        <li>Vad vet jag?</li>
+        <li>Vad saknas?</li>
+        <li>Vilka delar hör ihop?</li>
+      </ul>
+    </article>
+
+
+    <article class="strategy-card">
+      <div class="icon">🧱</div>
+      <h3>Bygg problemet</h3>
+      <p>
+        Använd konkret material för att representera situationen.
+      </p>
+      <ul>
+        <li>Klossar</li>
+        <li>Räknemarkörer</li>
+        <li>Bråkmodeller</li>
+        <li>Geometriskt material</li>
+      </ul>
+    </article>
+
+
+    <article class="strategy-card">
+      <div class="icon">📊</div>
+      <h3>Gör en tabell</h3>
+      <p>
+        Organisera information så att mönster och samband blir synliga.
+      </p>
+      <ul>
+        <li>Lista möjliga fall</li>
+        <li>Jämför värden</li>
+        <li>Hitta förändring</li>
+      </ul>
+    </article>
+
+
+    <article class="strategy-card">
+      <div class="icon">🔁</div>
+      <h3>Pröva systematiskt</h3>
+      <p>
+        Testa möjliga lösningar i en genomtänkt ordning.
+      </p>
+      <ul>
+        <li>Börja enkelt</li>
+        <li>Ändra en sak i taget</li>
+        <li>Dokumentera</li>
+        <li>Kontrollera att alla fall finns med</li>
+      </ul>
+    </article>
+
+
+    <article class="strategy-card">
+      <div class="icon">⏪</div>
+      <h3>Arbeta baklänges</h3>
+      <p>
+        Börja med det som är känt i slutet och arbeta tillbaka mot början.
+      </p>
+      <ul>
+        <li>Vilket var sista steget?</li>
+        <li>Vilken motsatt operation behövs?</li>
+        <li>Kan stegen vändas?</li>
+      </ul>
+    </article>
+
+
+    <article class="strategy-card">
+      <div class="icon">🔎</div>
+      <h3>Hitta ett mönster</h3>
+      <p>
+        Undersök flera exempel och leta efter något som återkommer.
+      </p>
+      <ul>
+        <li>Vad förändras?</li>
+        <li>Vad är konstant?</li>
+        <li>Kan du beskriva en regel?</li>
+      </ul>
+    </article>
+
+
+    <article class="strategy-card">
+      <div class="icon">✂️</div>
+      <h3>Dela upp problemet</h3>
+      <p>
+        Ett stort problem kan ibland delas i flera mindre frågor.
+      </p>
+      <ul>
+        <li>Vad behöver jag veta först?</li>
+        <li>Vad kan jag räkna ut sedan?</li>
+        <li>Hur hänger delarna ihop?</li>
+      </ul>
+    </article>
+
+
+    <article class="strategy-card">
+      <div class="icon">🎯</div>
+      <h3>Gissa och förbättra</h3>
+      <p>
+        Gör en rimlig gissning, kontrollera och justera.
+      </p>
+      <ul>
+        <li>Var gissningen för hög?</li>
+        <li>Var den för låg?</li>
+        <li>Vad lärde kontrollen dig?</li>
+      </ul>
+    </article>
+
+
+    <article class="strategy-card">
+      <div class="icon">🧠</div>
+      <h3>Byt representation</h3>
+      <p>
+        Om problemet känns svårt kan samma idé visas på ett annat sätt.
+      </p>
+      <ul>
+        <li>Text → bild</li>
+        <li>Bild → tabell</li>
+        <li>Tabell → graf</li>
+        <li>Situation → uttryck</li>
+      </ul>
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🌱🔵🟣 Progression F–9</h2>
+
+    <p>
+      Problemlösning finns genom hela skolan men fördjupas stegvis.
+    </p>
+
+  </div>
+
+
+  <div class="stage-grid">
+
+    <section class="stage-card green">
+
+      <h3>🌱 F–3</h3>
 
       <p>
-        Ett matematiskt problem är en situation där lösningen inte alltid är given från början.
-        Du behöver fundera, välja strategi, pröva, ändra och ibland hitta flera möjliga lösningar.
+        Elever behöver få bygga, rita, pröva och prata.
       </p>
 
-    </div>
+      <ul>
+        <li>Enkla vardagsproblem</li>
+        <li>Problem med flera möjliga lösningar</li>
+        <li>Rita och bygga</li>
+        <li>Pröva systematiskt</li>
+        <li>Berätta hur man tänkt</li>
+        <li>Kontrollera med material eller bild</li>
+      </ul>
 
-  </section>
+    </section>
 
 
-  <section>
+    <section class="stage-card blue">
 
-    <h2 class="section-title">
-      Välj din nivå
-    </h2>
+      <h3>🔵 4–6</h3>
 
-    <p class="section-intro">
-      Problemen utvecklas från konkreta och visuella uppgifter till mer komplexa problem och modeller.
+      <p>
+        Problemen kan innehålla flera steg och mer information.
+      </p>
+
+      <ul>
+        <li>Välja mellan flera strategier</li>
+        <li>Göra tabell</li>
+        <li>Arbeta baklänges</li>
+        <li>Jämföra lösningar</li>
+        <li>Motivera strategival</li>
+        <li>Bedöma rimlighet</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage-card purple">
+
+      <h3>🟣 7–9</h3>
+
+      <p>
+        Problemen kan kräva modellering, antaganden och generalisering.
+      </p>
+
+      <ul>
+        <li>Välja relevant information</li>
+        <li>Skapa matematiska modeller</li>
+        <li>Formulera antaganden</li>
+        <li>Använda algebra och funktioner</li>
+        <li>Argumentera för lösningen</li>
+        <li>Granska modellens begränsningar</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧩 Sex problem att prova</h2>
+
+    <p>
+      Problemen kan anpassas genom att ändra tal, villkor eller krav på förklaring.
     </p>
 
-    <div class="stage-grid">
-
-      <a href="f3-problemlosning.html" class="stage-card f3">
-        <div class="stage-icon">🌱</div>
-        <h3>Problemlösning F–3</h3>
-        <p>
-          Rita, bygg, prova, jämför och berätta hur du tänker.
-        </p>
-        <span class="stage-button">Öppna F–3 →</span>
-      </a>
-
-      <a href="46-problemlosning.html" class="stage-card m46">
-        <div class="stage-icon">🌿</div>
-        <h3>Problemlösning 4–6</h3>
-        <p>
-          Tolka problem, välja strategi, pröva lösningar och bedöma rimlighet.
-        </p>
-        <span class="stage-button">Öppna 4–6 →</span>
-      </a>
-
-      <a href="79-problemlosning.html" class="stage-card m79">
-        <div class="stage-icon">🚀</div>
-        <h3>Problemlösning 7–9</h3>
-        <p>
-          Modellera, generalisera, analysera och argumentera för dina lösningar.
-        </p>
-        <span class="stage-button">Öppna 7–9 →</span>
-      </a>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
+  <div class="problem-grid">
 
-    <h2 class="section-title">
-      Fyra steg i problemlösning
-    </h2>
+    <article class="problem-card">
 
-    <p class="section-intro">
-      Samma arbetsgång kan användas från F till 9, men blir mer avancerad med tiden.
+      <h3>🐔 Problem 1 – Djurens ben</h3>
+
+      <p>
+        På en gård finns höns och kaniner.
+        Tillsammans har djuren 24 ben.
+      </p>
+
+      <p class="question">
+        Vilka kombinationer av höns och kaniner är möjliga?
+        Hur vet du att du hittat alla?
+      </p>
+
+      <span class="label">
+        Systematiskt prövande • F–6
+      </span>
+
+    </article>
+
+
+    <article class="problem-card">
+
+      <h3>🎟️ Problem 2 – Biljetterna</h3>
+
+      <p>
+        En barnbiljett kostar 50 kr
+        och en vuxenbiljett kostar 80 kr.
+        En grupp betalar totalt 610 kr.
+      </p>
+
+      <p class="question">
+        Vilka kombinationer kan vara möjliga?
+      </p>
+
+      <span class="label">
+        Tabell • Strategi • 4–9
+      </span>
+
+    </article>
+
+
+    <article class="problem-card">
+
+      <h3>📐 Problem 3 – Rektanglarna</h3>
+
+      <p>
+        Rita alla rektanglar med heltalssidor
+        som har arean 36 cm².
+      </p>
+
+      <p class="question">
+        Beräkna omkretsen.
+        Vilken rektangel får minst omkrets?
+        Vad upptäcker du?
+      </p>
+
+      <span class="label">
+        Geometri • Mönster • 4–9
+      </span>
+
+    </article>
+
+
+    <article class="problem-card">
+
+      <h3>🔢 Problem 4 – Hemliga talet</h3>
+
+      <p>
+        Jag tänker på ett tal.
+        Jag multiplicerar talet med 3,
+        lägger till 12 och får 42.
+      </p>
+
+      <p class="question">
+        Vilket tal tänkte jag på?
+        Lös på minst två olika sätt.
+      </p>
+
+      <span class="label">
+        Arbeta baklänges • Algebra
+      </span>
+
+    </article>
+
+
+    <article class="problem-card">
+
+      <h3>🛒 Problem 5 – Matbudgeten</h3>
+
+      <p>
+        En grupp har 600 kr för att köpa mat.
+        De behöver köpa minst fyra olika varor
+        och det ska räcka till sex personer.
+      </p>
+
+      <p class="question">
+        Gör en plan.
+        Hur mycket blir kvar?
+        Finns det ett bättre alternativ?
+      </p>
+
+      <span class="label">
+        Budget • Modellering • 4–9
+      </span>
+
+    </article>
+
+
+    <article class="problem-card">
+
+      <h3>📈 Problem 6 – Två abonnemang</h3>
+
+      <p>
+        Abonnemang A kostar 100 kr per månad
+        plus 2 kr per använd enhet.
+        Abonnemang B kostar 40 kr per månad
+        plus 5 kr per använd enhet.
+      </p>
+
+      <p class="question">
+        När kostar abonnemangen lika mycket?
+        När är A billigast?
+        När är B billigast?
+      </p>
+
+      <span class="label">
+        Funktioner • Ekvationer • 7–9
+      </span>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🗣️ Meningsstarter för problemlösning</h2>
+
+    <p>
+      Språkstöd hjälper elever att förklara både strategi och resonemang.
     </p>
 
-    <div class="process-grid">
-
-      <div class="process-card">
-        <span>👀</span>
-        <h3>1. Förstå</h3>
-        <p>
-          Vad vet du? Vad ska du ta reda på? Vilken information är viktig?
-        </p>
-      </div>
-
-      <div class="process-card">
-        <span>🧩</span>
-        <h3>2. Planera</h3>
-        <p>
-          Välj en strategi. Ska du rita, göra en tabell, prova systematiskt eller använda en formel?
-        </p>
-      </div>
-
-      <div class="process-card">
-        <span>🧠</span>
-        <h3>3. Lös</h3>
-        <p>
-          Genomför din plan och ändra strategi om den inte fungerar.
-        </p>
-      </div>
-
-      <div class="process-card">
-        <span>✅</span>
-        <h3>4. Kontrollera</h3>
-        <p>
-          Är svaret rimligt? Kan du kontrollera med en annan metod?
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
+  <div class="sentence-grid">
 
-    <h2 class="section-title">
-      Strategibank för problemlösning
-    </h2>
+    <article class="sentence-card">
+      <h3>🔍 Förstå</h3>
+      <p>
+        ”Jag vet att...”<br><br>
+        ”Jag ska ta reda på...”<br><br>
+        ”Informationen jag behöver är...”
+      </p>
+    </article>
 
-    <p class="section-intro">
-      Olika problem kräver olika strategier.
+
+    <article class="sentence-card">
+      <h3>🗺️ Planera</h3>
+      <p>
+        ”Jag tänker börja med...”<br><br>
+        ”En strategi som kan passa är...”<br><br>
+        ”Jag väljer den eftersom...”
+      </p>
+    </article>
+
+
+    <article class="sentence-card">
+      <h3>💬 Förklara</h3>
+      <p>
+        ”Först gjorde jag...”<br><br>
+        ”Sedan...”<br><br>
+        ”Det betyder att...”
+      </p>
+    </article>
+
+
+    <article class="sentence-card">
+      <h3>✅ Kontrollera</h3>
+      <p>
+        ”Mitt svar verkar rimligt eftersom...”<br><br>
+        ”Jag kontrollerade genom att...”<br><br>
+        ”Ett annat sätt är...”
+      </p>
+    </article>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Lärarens roll</h2>
+
+    <p>
+      Stöd eleven utan att ta över problemlösningen.
+      Frågor kan hjälpa eleven att komma vidare utan att avslöja metoden.
     </p>
 
-    <div class="strategy-grid">
-
-      <div class="strategy-card">
-        <span>🖍️</span>
-        <h3>Rita en bild</h3>
-        <p>
-          Gör problemet synligt med en bild, modell eller skiss.
-        </p>
-      </div>
-
-      <div class="strategy-card">
-        <span>📋</span>
-        <h3>Gör en tabell</h3>
-        <p>
-          Organisera information och leta efter mönster.
-        </p>
-      </div>
-
-      <div class="strategy-card">
-        <span>🔎</span>
-        <h3>Prova systematiskt</h3>
-        <p>
-          Testa möjligheter i en tydlig ordning så att inget glöms bort.
-        </p>
-      </div>
-
-      <div class="strategy-card">
-        <span>↩️</span>
-        <h3>Arbeta baklänges</h3>
-        <p>
-          Börja vid målet och fundera på vilka steg som måste ha hänt innan.
-        </p>
-      </div>
-
-      <div class="strategy-card">
-        <span>🧩</span>
-        <h3>Förenkla problemet</h3>
-        <p>
-          Börja med mindre tal eller ett enklare fall för att förstå strukturen.
-        </p>
-      </div>
-
-      <div class="strategy-card">
-        <span>🔗</span>
-        <h3>Leta efter mönster</h3>
-        <p>
-          Undersök om något upprepas eller förändras på ett regelbundet sätt.
-        </p>
-      </div>
-
-      <div class="strategy-card">
-        <span>🎭</span>
-        <h3>Spela upp problemet</h3>
-        <p>
-          Använd föremål eller personer för att visa vad som händer.
-        </p>
-      </div>
-
-      <div class="strategy-card">
-        <span>🔢</span>
-        <h3>Skriv ett uttryck</h3>
-        <p>
-          Översätt problemet till tal, symboler, ekvation eller formel.
-        </p>
-      </div>
-
-      <div class="strategy-card">
-        <span>🌍</span>
-        <h3>Skapa en modell</h3>
-        <p>
-          Beskriv en verklig situation med matematik och undersök modellen.
-        </p>
-      </div>
-
-    </div>
+    <ul>
+      <li>Vad vet du redan?</li>
+      <li>Vad försöker du ta reda på?</li>
+      <li>Kan du rita eller bygga situationen?</li>
+      <li>Har du sett något liknande tidigare?</li>
+      <li>Vad händer om du börjar med ett enklare fall?</li>
+      <li>Hur kan du organisera det du har provat?</li>
+      <li>Hur vet du att du hittat alla lösningar?</li>
+      <li>Hur kan du kontrollera ditt svar?</li>
+    </ul>
 
   </section>
 
 
-  <section>
+  <div class="tip">
 
-    <div class="problem-box">
+    <strong>⭐ Viktigt:</strong><br>
+    Om elever alltid får problem direkt efter en genomgång
+    av exakt den metod som ska användas,
+    tränar de ofta främst på att känna igen metod.
+    Ge därför också problem där strategin
+    <strong>inte är given i förväg</strong>.
 
-      <div>
-
-        <h2>⭐ Exempel på ett öppet problem</h2>
-
-        <p>
-          Ett bra problem kan ha flera möjliga strategier och ibland flera möjliga svar.
-        </p>
-
-        <br>
-
-        <p>
-          Det viktiga blir därför inte bara svaret utan också hur du tänker och hur du kan övertyga någon annan.
-        </p>
-
-      </div>
-
-      <div class="problem-card">
-
-        <strong>Problemet</strong>
-
-        <h2 style="margin-top:12px;">
-          Två tal har summan 30.
-        </h2>
-
-        <div class="step">
-          🔎 Vilka två tal kan det vara?
-        </div>
-
-        <div class="step">
-          🧠 Hur många olika lösningar kan du hitta?
-        </div>
-
-        <div class="step">
-          📋 Hur kan du visa att du har hittat alla?
-        </div>
-
-        <div class="step">
-          🚀 Vad händer om talen måste vara positiva heltal?
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
+  <div class="links">
 
-    <h2 class="section-title">
-      Frågor som hjälper dig vidare
-    </h2>
+    <a href="strategier.html">
+      🧰 Strategier
+    </a>
 
-    <p class="section-intro">
-      Fastnar du? Prova någon av de här frågorna.
-    </p>
+    <a href="matteprat.html">
+      💬 Matteprat
+    </a>
 
-    <div class="question-grid">
+    <a href="undersok.html">
+      🔬 Undersök
+    </a>
 
-      <div class="question-card q1">
-        <h3>Vad vet jag?</h3>
-        <p>
-          Skriv eller markera den information som redan finns.
-        </p>
-      </div>
+    <a href="aventyr.html">
+      🗺️ Matematikäventyr
+    </a>
 
-      <div class="question-card q2">
-        <h3>Vad söker jag?</h3>
-        <p>
-          Formulera tydligt vad problemet faktiskt frågar efter.
-        </p>
-      </div>
+    <a href="material-problem.html">
+      👩‍🏫 Lärarmaterial
+    </a>
 
-      <div class="question-card q3">
-        <h3>Kan jag rita?</h3>
-        <p>
-          En bild eller modell kan göra problemet mycket tydligare.
-        </p>
-      </div>
+    <a href="elevblad-problemlosning.html">
+      ✏️ Elevblad
+    </a>
 
-      <div class="question-card q4">
-        <h3>Har jag löst något liknande?</h3>
-        <p>
-          Använd tidigare erfarenheter och strategier.
-        </p>
-      </div>
+    <a href="larare-problemlosning.html">
+      👩‍🏫 Lärarstöd problemlösning
+    </a>
 
-      <div class="question-card q5">
-        <h3>Kan jag prova enklare tal?</h3>
-        <p>
-          Ett enklare exempel kan hjälpa dig att upptäcka strukturen.
-        </p>
-      </div>
-
-      <div class="question-card q6">
-        <h3>Kan det finnas fler lösningar?</h3>
-        <p>
-          Stanna inte automatiskt när du hittat ett svar.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 </main>
 
+
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-  <br>
-  🧠 Problemlösning – förstå, planera, lösa och kontrollera
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🧩 Problemlösning • Förstå • Planera • Lös • Förklara • Kontrollera
 
 </footer>
 
