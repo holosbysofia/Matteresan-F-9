@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Jag behöver hjälp | HOLOS Matteresan</title>
+  <title>Stöd i matematik | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,25 +15,36 @@
 
     :root {
       --dark: #17324d;
-      --blue: #4d8fd6;
-      --blue-dark: #2d659c;
-      --blue-light: #eaf5ff;
-      --green-light: #edf9f1;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --orange-light: #ffe7cf;
-      --pink-light: #ffe9f1;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -43,14 +54,14 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
-        linear-gradient(135deg, #275b86, #4e91c9);
+        radial-gradient(circle at top right, rgba(255,255,255,0.20), transparent 32%),
+        linear-gradient(135deg, #5f9470, #5d86ad, #8266a3);
       color: white;
-      padding: 22px 20px 58px;
+      padding: 22px 20px 64px;
     }
 
     .topbar {
-      max-width: 1150px;
+      max-width: 1180px;
       margin: auto;
       display: flex;
       justify-content: space-between;
@@ -59,26 +70,20 @@
     }
 
     .logo {
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 1px;
     }
 
     .back-link {
-      padding: 8px 15px;
-      border: 1px solid rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.75);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--blue-dark);
-    }
-
     .hero {
-      max-width: 850px;
-      margin: 50px auto 0;
+      max-width: 960px;
+      margin: 48px auto 0;
       text-align: center;
     }
 
@@ -88,343 +93,312 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 4.8rem);
-      line-height: 1.05;
-      margin-bottom: 10px;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      line-height: 1.04;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.05rem, 3vw, 1.5rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 720px;
+      max-width: 860px;
       margin: auto;
-      color: #eef8ff;
-      font-size: 1.03rem;
+      color: #f7f9fb;
     }
 
     main {
-      max-width: 1150px;
+      max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
     }
 
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
+    .intro h2 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 30px;
+    .intro p {
       color: var(--muted);
     }
 
-    .intro-box {
-      background: var(--blue-light);
-      border-radius: 28px;
-      padding: 36px;
+    .flow {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .flow div {
+      border-radius: 14px;
+      padding: 14px 10px;
       text-align: center;
-    }
-
-    .intro-box h2 {
       color: var(--dark);
-      margin-bottom: 12px;
+      font-weight: 800;
+      font-size: 0.84rem;
     }
 
-    .intro-box p {
-      max-width: 780px;
-      margin: auto;
-      color: #5c6872;
+    .flow div:nth-child(1) {
+      background: var(--green);
+    }
+
+    .flow div:nth-child(2) {
+      background: var(--blue);
+    }
+
+    .flow div:nth-child(3) {
+      background: var(--yellow);
+    }
+
+    .flow div:nth-child(4) {
+      background: var(--purple);
+    }
+
+    .flow div:nth-child(5) {
+      background: var(--teal);
+    }
+
+    .section-title {
+      margin: 42px 0 18px;
+    }
+
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.9rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
+      color: var(--muted);
     }
 
     .stage-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
     .stage-card {
-      border-radius: 24px;
-      padding: 30px 24px;
-      min-height: 245px;
-      display: flex;
-      flex-direction: column;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 20px;
+      padding: 24px;
+      min-height: 270px;
     }
 
-    .stage-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    .stage-card.green {
+      background: var(--green);
+      border-top: 7px solid var(--green-strong);
     }
 
-    .f3 { background: var(--green-light); }
-    .m46 { background: var(--blue-light); }
-    .m79 { background: var(--purple-light); }
+    .stage-card.blue {
+      background: var(--blue);
+      border-top: 7px solid var(--blue-strong);
+    }
 
-    .stage-icon {
-      font-size: 3rem;
-      margin-bottom: 10px;
+    .stage-card.purple {
+      background: var(--purple);
+      border-top: 7px solid var(--purple-strong);
     }
 
     .stage-card h3 {
       color: var(--dark);
-      font-size: 1.45rem;
+      font-size: 1.25rem;
       margin-bottom: 8px;
     }
 
-    .stage-card p {
+    .stage-card p,
+    .stage-card li {
       color: var(--muted);
-      flex-grow: 1;
+      font-size: 0.86rem;
     }
 
-    .stage-button {
-      display: inline-block;
-      align-self: flex-start;
-      margin-top: 18px;
+    .stage-card ul {
+      margin: 10px 0 0 20px;
+    }
+
+    .stage-card li {
+      margin-bottom: 6px;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .support-card {
+      background: white;
+      border-radius: 20px;
+      padding: 23px;
+      min-height: 285px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--green-strong);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .support-card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .support-card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .support-card .icon {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .support-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .support-card p,
+    .support-card li {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .support-card ul {
+      margin: 10px 0 14px 20px;
+    }
+
+    .support-card li {
+      margin-bottom: 5px;
+    }
+
+    .support-card strong {
+      margin-top: auto;
+      color: var(--dark);
+      font-size: 0.82rem;
+    }
+
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .language-card {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 180px;
+    }
+
+    .language-card:nth-child(4n+1) {
+      background: var(--green);
+    }
+
+    .language-card:nth-child(4n+2) {
+      background: var(--blue);
+    }
+
+    .language-card:nth-child(4n+3) {
+      background: var(--yellow);
+    }
+
+    .language-card:nth-child(4n+4) {
+      background: var(--purple);
+    }
+
+    .language-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .language-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .teacher-box {
+      margin-top: 42px;
+      background: var(--teal);
+      border-radius: 22px;
+      padding: 26px;
+    }
+
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box p,
+    .teacher-box li {
+      color: var(--muted);
+    }
+
+    .teacher-box ul {
+      margin: 10px 0 0 22px;
+    }
+
+    .teacher-box li {
+      margin-bottom: 6px;
+    }
+
+    .tip {
+      margin-top: 24px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 15px;
+      padding: 18px;
+      color: #665831;
+    }
+
+    .links {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .links a {
       background: var(--dark);
       color: white;
-      padding: 10px 17px;
       border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.8rem;
       font-weight: bold;
-    }
-
-    .help-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .help-card {
-      border-radius: 22px;
-      padding: 24px;
-      min-height: 200px;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .help-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 11px 26px rgba(30,50,60,0.09);
-    }
-
-    .help-card span {
-      font-size: 2.5rem;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .help-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .help-card p {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .c1 { background: var(--yellow-light); }
-    .c2 { background: var(--green-light); }
-    .c3 { background: var(--blue-light); }
-    .c4 { background: var(--orange-light); }
-    .c5 { background: var(--purple-light); }
-    .c6 { background: var(--pink-light); }
-
-    .steps-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 35%),
-        linear-gradient(135deg, #17324d, #3a6e98);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .steps-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .steps-box > p {
-      max-width: 760px;
-      color: #edf7ff;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 25px;
-    }
-
-    .step-card {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 18px;
-      padding: 20px;
-    }
-
-    .step-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .step-card h3 {
-      margin-bottom: 6px;
-    }
-
-    .step-card p {
-      color: #edf7ff;
-      font-size: 0.92rem;
-    }
-
-    .example-box {
-      background: var(--yellow-light);
-      border-radius: 28px;
-      padding: 36px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .example-box h2 {
-      color: var(--dark);
-      margin-bottom: 10px;
-    }
-
-    .example-card {
-      background: white;
-      border-radius: 20px;
-      padding: 25px;
-    }
-
-    .example-step {
-      margin-top: 10px;
-      padding: 11px 14px;
-      background: #f5f7f8;
-      border-radius: 12px;
-    }
-
-    .sentence-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .sentence-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      border: 1px solid #e6ebef;
-      min-height: 170px;
-    }
-
-    .sentence-card h3 {
-      color: var(--blue-dark);
-      margin-bottom: 8px;
-    }
-
-    .sentence-card p {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .remember-box {
-      background: var(--blue-light);
-      border-radius: 28px;
-      padding: 36px;
-      text-align: center;
-    }
-
-    .remember-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 25px;
-    }
-
-    .remember-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 165px;
-    }
-
-    .remember-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .remember-card h3 {
-      color: var(--blue-dark);
-      margin-bottom: 6px;
-    }
-
-    .remember-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 950px) {
-      .help-grid,
-      .sentence-grid {
+    @media (max-width: 1000px) {
+      .stage-grid,
+      .support-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .steps-grid,
-      .remember-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .example-box {
-        grid-template-columns: 1fr;
+      .flow {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 750px) {
-      .stage-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .help-grid,
-      .sentence-grid,
-      .steps-grid,
-      .remember-grid {
+      .stage-grid,
+      .support-grid,
+      .language-grid,
+      .flow {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .steps-box,
-      .example-box,
-      .remember-box {
-        padding: 25px 18px;
       }
 
       main {
@@ -433,24 +407,55 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
-      main {
-        padding: 0;
-        max-width: none;
+      .flow div:nth-child(1),
+      .stage-card.green,
+      .language-card:nth-child(4n+1) {
+        background: var(--green) !important;
       }
 
-      section {
-        break-inside: avoid;
+      .flow div:nth-child(2),
+      .stage-card.blue,
+      .language-card:nth-child(4n+2) {
+        background: var(--blue) !important;
+      }
+
+      .flow div:nth-child(3),
+      .language-card:nth-child(4n+3),
+      .tip {
+        background: var(--yellow) !important;
+      }
+
+      .flow div:nth-child(4),
+      .stage-card.purple,
+      .language-card:nth-child(4n+4) {
+        background: var(--purple) !important;
+      }
+
+      .flow div:nth-child(5),
+      .teacher-box {
+        background: var(--teal) !important;
       }
     }
   </style>
@@ -463,7 +468,7 @@
   <div class="topbar">
 
     <div class="logo">
-      HOLOS MATTERESAN
+      HOLOS MATTERESAN F–9
     </div>
 
     <a href="index.html" class="back-link">
@@ -472,17 +477,20 @@
 
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">🛟</div>
+    <div class="hero-icon">🪜🧠🤝</div>
 
-    <h1>Jag behöver hjälp</h1>
+    <h1>Stöd i matematik</h1>
 
-    <h2>Stanna inte – ta ett nytt steg</h2>
+    <h2>Synliggör • Förenkla vägen • Behåll målet • Förklara • Bygg vidare</h2>
 
     <p>
-      När matematiken känns svår finns det flera sätt att komma vidare.
-      Här får du stöd med bilder, frågor, modeller, begrepp och strategier.
+      När matematik blir svårt behöver eleven inte alltid enklare matematik.
+      Ofta behövs en tydligare väg till samma matematiska idé:
+      konkret material, visuellt stöd, språkstöd,
+      mindre informationsmängd och möjlighet att tänka i flera steg.
     </p>
 
   </div>
@@ -492,414 +500,558 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>🪜 Stöd utan att ta bort matematiken</h2>
 
-      <h2>💡 Att behöva hjälp är en del av lärandet</h2>
+    <p>
+      Bra stöd hjälper eleven att komma åt den matematiska kärnan.
+      Det kan innebära att minska talstorleken,
+      tydliggöra språk, visa en modell eller dela upp arbetet i steg.
+      Målet är att eleven successivt ska kunna använda stödet
+      mer självständigt och så småningom klara sig utan delar av det.
+    </p>
+
+    <div class="flow">
+
+      <div>👀 Synliggör</div>
+      <div>🧩 Dela upp</div>
+      <div>🧱 Representera</div>
+      <div>💬 Förklara</div>
+      <div>🚀 Bygg vidare</div>
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>🌱🔵🟣 Stöd genom F–9</h2>
+
+    <p>
+      Stödet förändras med matematiken men samma princip gäller: gör tänkandet möjligt att se.
+    </p>
+
+  </div>
+
+
+  <div class="stage-grid">
+
+    <section class="stage-card green">
+
+      <h3>🌱 F–3</h3>
 
       <p>
-        Du behöver inte förstå allt direkt.
-        Matematik utvecklas när du får tänka, prova, använda stöd,
-        ställa frågor och upptäcka nya sätt att lösa en uppgift.
+        Elever behöver ofta stöd som går att se, röra och prata om.
       </p>
 
-    </div>
+      <ul>
+        <li>Räknemarkörer och klossar</li>
+        <li>Tiobasmaterial</li>
+        <li>Tallinje</li>
+        <li>Talbilder</li>
+        <li>Rita problemet</li>
+        <li>Korta muntliga instruktioner</li>
+        <li>Meningsstarter</li>
+      </ul>
 
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Välj din nivå
-    </h2>
-
-    <p class="section-intro">
-      Hjälpen anpassas efter var du befinner dig i matteresan.
-    </p>
-
-    <div class="stage-grid">
-
-      <a href="stod-f3.html" class="stage-card f3">
-
-        <div class="stage-icon">🌱</div>
-
-        <h3>Hjälp F–3</h3>
-
-        <p>
-          Bilder, konkret material, tallinjer, enkla exempel och tydliga steg.
-        </p>
-
-        <span class="stage-button">
-          Få hjälp F–3 →
-        </span>
-
-      </a>
+    </section>
 
 
-      <a href="stod-46.html" class="stage-card m46">
+    <section class="stage-card blue">
 
-        <div class="stage-icon">🌿</div>
-
-        <h3>Hjälp 4–6</h3>
-
-        <p>
-          Modeller, exempel, begrepp, strategier och stöd för problemlösning.
-        </p>
-
-        <span class="stage-button">
-          Få hjälp 4–6 →
-        </span>
-
-      </a>
-
-
-      <a href="stod-79.html" class="stage-card m79">
-
-        <div class="stage-icon">🚀</div>
-
-        <h3>Hjälp 7–9</h3>
-
-        <p>
-          Steg-för-steg-stöd, algebraiska modeller, grafer, begrepp och resonemang.
-        </p>
-
-        <span class="stage-button">
-          Få hjälp 7–9 →
-        </span>
-
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Vad behöver du hjälp med?
-    </h2>
-
-    <p class="section-intro">
-      Välj det som bäst beskriver var du har fastnat.
-    </p>
-
-    <div class="help-grid">
-
-      <a href="stod-forsta.html" class="help-card c1">
-        <span>👀</span>
-        <h3>Jag förstår inte frågan</h3>
-        <p>
-          Hjälp att hitta viktig information och förstå vad uppgiften frågar efter.
-        </p>
-      </a>
-
-
-      <a href="stod-begrepp.html" class="help-card c2">
-        <span>💬</span>
-        <h3>Jag förstår inte orden</h3>
-        <p>
-          Få hjälp med matematiska begrepp, symboler och förklaringar.
-        </p>
-      </a>
-
-
-      <a href="stod-strategi.html" class="help-card c3">
-        <span>🧩</span>
-        <h3>Jag vet inte hur jag ska börja</h3>
-        <p>
-          Få förslag på strategier som kan hjälpa dig att komma igång.
-        </p>
-      </a>
-
-
-      <a href="stod-bild.html" class="help-card c4">
-        <span>🖼️</span>
-        <h3>Visa mig med en bild</h3>
-        <p>
-          Se modeller, tallinjer, bilder, tabeller och visuella förklaringar.
-        </p>
-      </a>
-
-
-      <a href="stod-exempel.html" class="help-card c5">
-        <span>🔢</span>
-        <h3>Visa ett exempel</h3>
-        <p>
-          Se ett liknande exempel steg för steg innan du försöker själv.
-        </p>
-      </a>
-
-
-      <a href="stod-kontroll.html" class="help-card c6">
-        <span>✅</span>
-        <h3>Jag vet inte om svaret är rätt</h3>
-        <p>
-          Lär dig kontrollera resultatet med överslag eller en annan metod.
-        </p>
-      </a>
-
-
-      <a href="stod-raknefel.html" class="help-card c1">
-        <span>🔍</span>
-        <h3>Jag hittar inte mitt fel</h3>
-        <p>
-          Gå tillbaka steg för steg och undersök var lösningen förändrades.
-        </p>
-      </a>
-
-
-      <a href="stod-problem.html" class="help-card c2">
-        <span>🧠</span>
-        <h3>Jag fastnar i problemlösning</h3>
-        <p>
-          Använd frågor och strategier som hjälper dig att strukturera problemet.
-        </p>
-      </a>
-
-
-      <a href="stod-forklara.html" class="help-card c3">
-        <span>🗣️</span>
-        <h3>Jag kan svaret men inte förklara</h3>
-        <p>
-          Få språkstöd för att beskriva strategi, samband och slutsats.
-        </p>
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="steps-box">
-
-      <h2>🛟 När du fastnar – prova detta</h2>
+      <h3>🔵 4–6</h3>
 
       <p>
-        Börja med första steget. Om det inte räcker går du vidare till nästa.
+        Elever behöver stöd för att hålla ihop flera representationer och steg.
       </p>
 
-      <div class="steps-grid">
+      <ul>
+        <li>Platsvärdestabell</li>
+        <li>Bråkmodeller</li>
+        <li>Hundraruta</li>
+        <li>Stegkort för problemlösning</li>
+        <li>Tabeller och modeller</li>
+        <li>Begreppslistor</li>
+        <li>Exempel på strategier</li>
+      </ul>
 
-        <div class="step-card">
-          <span>1️⃣</span>
-          <h3>Läs igen</h3>
-          <p>
-            Läs långsamt och markera viktig information.
-          </p>
-        </div>
-
-        <div class="step-card">
-          <span>2️⃣</span>
-          <h3>Visa problemet</h3>
-          <p>
-            Rita, bygg, gör en tabell eller använd en tallinje.
-          </p>
-        </div>
-
-        <div class="step-card">
-          <span>3️⃣</span>
-          <h3>Prova en strategi</h3>
-          <p>
-            Välj ett sätt att börja. Det behöver inte vara perfekt direkt.
-          </p>
-        </div>
-
-        <div class="step-card">
-          <span>4️⃣</span>
-          <h3>Be om hjälp</h3>
-          <p>
-            Berätta vad du redan förstått och exakt var du fastnade.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </section>
 
 
-  <section>
+    <section class="stage-card purple">
 
-    <div class="example-box">
+      <h3>🟣 7–9</h3>
 
-      <div>
+      <p>
+        Stöd behöver hjälpa eleven koppla abstrakta symboler till betydelse.
+      </p>
 
-        <h2>🧠 Exempel: ett steg i taget</h2>
+      <ul>
+        <li>Balansmodell vid ekvationer</li>
+        <li>Tabell–graf–uttryck</li>
+        <li>Färgkodning av algebra</li>
+        <li>Procentmodeller</li>
+        <li>Strukturer för resonemang</li>
+        <li>Problemlösning i tydliga steg</li>
+        <li>Kontroll med alternativ metod</li>
+      </ul>
 
-        <p>
-          Du behöver inte lösa hela problemet i huvudet.
-          Dela upp det och gör en sak i taget.
-        </p>
+    </section>
 
-      </div>
-
-      <div class="example-card">
-
-        <strong>Problem:</strong>
-
-        <h2 style="margin-top:12px;">
-          5 pennor kostar 40 kr.<br>
-          Vad kostar 8 pennor?
-        </h2>
-
-        <div class="example-step">
-          👀 <strong>Vad vet jag?</strong><br>
-          5 pennor kostar 40 kr.
-        </div>
-
-        <div class="example-step">
-          ❓ <strong>Vad söker jag?</strong><br>
-          Kostnaden för 8 pennor.
-        </div>
-
-        <div class="example-step">
-          🧩 <strong>Första steget:</strong><br>
-          Vad kostar 1 penna?
-        </div>
-
-        <div class="example-step">
-          🔢 40 ÷ 5 = 8 kr
-        </div>
-
-        <div class="example-step">
-          🚀 <strong>Nu kan du fortsätta:</strong><br>
-          Vad kostar 8 pennor?
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
+  <div class="section-title">
 
-    <h2 class="section-title">
-      Så kan du be om matematikhjälp
-    </h2>
+    <h2>🧰 Tolv stöd som kan användas direkt</h2>
 
-    <p class="section-intro">
-      Ju tydligare du kan beskriva vad du behöver hjälp med, desto bättre hjälp kan du få.
+    <p>
+      Välj stöd utifrån vad eleven behöver förstå – inte bara utifrån vilket svar som blev fel.
     </p>
 
-    <div class="sentence-grid">
-
-      <div class="sentence-card">
-        <h3>💬 Jag förstår...</h3>
-        <p>
-          Jag förstår att jag ska..., men jag vet inte hur jag ska...
-        </p>
-      </div>
-
-      <div class="sentence-card">
-        <h3>❓ Vad betyder...?</h3>
-        <p>
-          Vad betyder ordet eller symbolen ... i den här uppgiften?
-        </p>
-      </div>
-
-      <div class="sentence-card">
-        <h3>🧩 Hur börjar jag?</h3>
-        <p>
-          Kan du ge mig en första ledtråd utan att ge hela svaret?
-        </p>
-      </div>
-
-      <div class="sentence-card">
-        <h3>🔎 Här fastnade jag</h3>
-        <p>
-          Jag gjorde så här..., men sedan vet jag inte vad nästa steg är.
-        </p>
-      </div>
-
-      <div class="sentence-card">
-        <h3>🖼️ Kan du visa?</h3>
-        <p>
-          Kan du visa samma matematik med en bild eller modell?
-        </p>
-      </div>
-
-      <div class="sentence-card">
-        <h3>🔄 Finns ett annat sätt?</h3>
-        <p>
-          Jag förstår inte den här metoden. Finns det en annan strategi?
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
+  <div class="support-grid">
 
-    <div class="remember-box">
+    <article class="support-card">
 
-      <h2 class="section-title">
-        🌱 Kom ihåg
-      </h2>
+      <div class="icon">🧱</div>
 
-      <p class="section-intro">
-        När något känns svårt betyder det ofta att du befinner dig mitt i lärandet.
+      <h3>1. Konkret material</h3>
+
+      <p>
+        Låt eleven bygga den matematiska idén innan symbolerna används.
       </p>
 
-      <div class="remember-grid">
+      <ul>
+        <li>Klossar</li>
+        <li>Räknemarkörer</li>
+        <li>Tiobasmaterial</li>
+        <li>Bråkdelar</li>
+      </ul>
 
-        <div class="remember-card">
-          <span>🧠</span>
-          <h3>Tänk</h3>
-          <p>
-            Vad förstår du redan?
-          </p>
-        </div>
+      <strong>
+        Från handling till symbol.
+      </strong>
 
-        <div class="remember-card">
-          <span>🔄</span>
-          <h3>Prova</h3>
-          <p>
-            En första strategi behöver inte vara den bästa.
-          </p>
-        </div>
+    </article>
 
-        <div class="remember-card">
-          <span>❌</span>
-          <h3>Lär av fel</h3>
-          <p>
-            Ett fel kan visa exakt vad du behöver förstå bättre.
-          </p>
-        </div>
 
-        <div class="remember-card">
-          <span>🚀</span>
-          <h3>Ta nästa steg</h3>
-          <p>
-            Målet är att förstå lite mer än innan.
-          </p>
-        </div>
+    <article class="support-card">
 
-      </div>
+      <div class="icon">🎨</div>
 
-    </div>
+      <h3>2. Rita problemet</h3>
+
+      <p>
+        Textproblem blir ofta mer begripliga när informationen görs visuell.
+      </p>
+
+      <ul>
+        <li>Skiss</li>
+        <li>Stapelmodell</li>
+        <li>Del–helhet</li>
+        <li>Tallinje</li>
+      </ul>
+
+      <strong>
+        Gör relationer synliga.
+      </strong>
+
+    </article>
+
+
+    <article class="support-card">
+
+      <div class="icon">📍</div>
+
+      <h3>3. Tallinje</h3>
+
+      <p>
+        Tallinjen hjälper eleven se tal som positioner och avstånd.
+      </p>
+
+      <ul>
+        <li>Heltal</li>
+        <li>Bråk</li>
+        <li>Decimaltal</li>
+        <li>Negativa tal</li>
+      </ul>
+
+      <strong>
+        F–9 • Talrelationer
+      </strong>
+
+    </article>
+
+
+    <article class="support-card">
+
+      <div class="icon">🔟</div>
+
+      <h3>4. Platsvärdestabell</h3>
+
+      <p>
+        Synliggör värdet av varje siffra och kopplingen mellan positionerna.
+      </p>
+
+      <ul>
+        <li>Tusental</li>
+        <li>Hundratal</li>
+        <li>Tiotal</li>
+        <li>Ental</li>
+        <li>Tiondelar och hundradelar</li>
+      </ul>
+
+      <strong>
+        Taluppfattning och decimalform.
+      </strong>
+
+    </article>
+
+
+    <article class="support-card">
+
+      <div class="icon">🍕</div>
+
+      <h3>5. Bråkmodell</h3>
+
+      <p>
+        Låt eleven se bråk som storlek och relation, inte bara två siffror.
+      </p>
+
+      <ul>
+        <li>Bråkcirkel</li>
+        <li>Bråkstavar</li>
+        <li>Tallinje</li>
+        <li>Del av mängd</li>
+      </ul>
+
+      <strong>
+        Bråk • Procent • Decimal
+      </strong>
+
+    </article>
+
+
+    <article class="support-card">
+
+      <div class="icon">💯</div>
+
+      <h3>6. Hundraruta</h3>
+
+      <p>
+        Hundrarutan kan synliggöra procent och delar av hundra.
+      </p>
+
+      <ul>
+        <li>1 %</li>
+        <li>10 %</li>
+        <li>25 %</li>
+        <li>50 %</li>
+        <li>Jämförelser</li>
+      </ul>
+
+      <strong>
+        Procentförståelse.
+      </strong>
+
+    </article>
+
+
+    <article class="support-card">
+
+      <div class="icon">🪜</div>
+
+      <h3>7. Stegkort</h3>
+
+      <p>
+        Dela upp komplexa uppgifter i tydliga mentala steg.
+      </p>
+
+      <ul>
+        <li>Vad vet jag?</li>
+        <li>Vad ska jag ta reda på?</li>
+        <li>Vilken strategi passar?</li>
+        <li>Hur kontrollerar jag?</li>
+      </ul>
+
+      <strong>
+        Problemlösning.
+      </strong>
+
+    </article>
+
+
+    <article class="support-card">
+
+      <div class="icon">🗣️</div>
+
+      <h3>8. Meningsstarter</h3>
+
+      <p>
+        Ge språk för det matematiska tänkandet.
+      </p>
+
+      <ul>
+        <li>”Jag vet att...”</li>
+        <li>”Jag började med...”</li>
+        <li>”Jag valde denna strategi eftersom...”</li>
+        <li>”Mitt svar är rimligt eftersom...”</li>
+      </ul>
+
+      <strong>
+        Språk och resonemang.
+      </strong>
+
+    </article>
+
+
+    <article class="support-card">
+
+      <div class="icon">📊</div>
+
+      <h3>9. Gör en tabell</h3>
+
+      <p>
+        Strukturera information som annars blir svår att hålla i minnet.
+      </p>
+
+      <ul>
+        <li>Mönster</li>
+        <li>Proportionalitet</li>
+        <li>Funktioner</li>
+        <li>Systematiskt prövande</li>
+      </ul>
+
+      <strong>
+        Struktur och samband.
+      </strong>
+
+    </article>
+
+
+    <article class="support-card">
+
+      <div class="icon">⚖️</div>
+
+      <h3>10. Balansmodellen</h3>
+
+      <p>
+        Visa ekvationen som två lika stora sidor av en balans.
+      </p>
+
+      <ul>
+        <li>Samma förändring i båda led</li>
+        <li>Likhet</li>
+        <li>Kontroll</li>
+        <li>Varför metoden fungerar</li>
+      </ul>
+
+      <strong>
+        Algebra • Ekvationer
+      </strong>
+
+    </article>
+
+
+    <article class="support-card">
+
+      <div class="icon">📈</div>
+
+      <h3>11. Växla representation</h3>
+
+      <p>
+        När symbolerna känns svåra, byt form utan att byta matematisk idé.
+      </p>
+
+      <ul>
+        <li>Text</li>
+        <li>Bild</li>
+        <li>Tabell</li>
+        <li>Graf</li>
+        <li>Uttryck</li>
+      </ul>
+
+      <strong>
+        F–9 • Förståelse
+      </strong>
+
+    </article>
+
+
+    <article class="support-card">
+
+      <div class="icon">✅</div>
+
+      <h3>12. Kontrollstöd</h3>
+
+      <p>
+        Hjälp eleven bygga en vana att kontrollera sina lösningar.
+      </p>
+
+      <ul>
+        <li>Överslag</li>
+        <li>Motsatt operation</li>
+        <li>Sätt tillbaka svaret</li>
+        <li>Kontrollera mot modell</li>
+      </ul>
+
+      <strong>
+        Självständighet och rimlighet.
+      </strong>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🗣️ Språkstöd i matematik</h2>
+
+    <p>
+      Språkligt stöd kan vara avgörande för att eleven ska kunna visa sin matematiska förståelse.
+    </p>
+
+  </div>
+
+
+  <div class="language-grid">
+
+    <article class="language-card">
+
+      <h3>🔍 Förstå uppgiften</h3>
+
+      <p>
+        Vad handlar problemet om?<br><br>
+        Vilka ord är matematiskt viktiga?<br><br>
+        Vad vet jag redan?<br><br>
+        Vad ska jag ta reda på?
+      </p>
+
+    </article>
+
+
+    <article class="language-card">
+
+      <h3>🧠 Förklara strategi</h3>
+
+      <p>
+        ”Jag valde att...”<br><br>
+        ”Först...”<br><br>
+        ”Sedan...”<br><br>
+        ”Jag gjorde så eftersom...”
+      </p>
+
+    </article>
+
+
+    <article class="language-card">
+
+      <h3>⚖️ Jämföra</h3>
+
+      <p>
+        ”De är lika eftersom...”<br><br>
+        ”Skillnaden är...”<br><br>
+        ”Min metod är effektiv här eftersom...”
+      </p>
+
+    </article>
+
+
+    <article class="language-card">
+
+      <h3>✅ Kontrollera</h3>
+
+      <p>
+        ”Svaret verkar rimligt eftersom...”<br><br>
+        ”Jag kontrollerade genom...”<br><br>
+        ”Om svaret vore fel skulle...”
+      </p>
+
+    </article>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Innan du ger mer stöd – ta reda på vad som är svårt</h2>
+
+    <p>
+      Samma felsvar kan bero på helt olika saker.
+      Försök därför först identifiera var i tänkandet hindret finns.
+    </p>
+
+    <ul>
+      <li>Förstår eleven orden i uppgiften?</li>
+      <li>Förstår eleven det matematiska begreppet?</li>
+      <li>Kan eleven representera situationen?</li>
+      <li>Vet eleven vilken strategi som kan användas?</li>
+      <li>Kan eleven genomföra strategin?</li>
+      <li>Tappar eleven bort sig mellan flera steg?</li>
+      <li>Behöver eleven automatisera någon grundläggande kunskap?</li>
+      <li>Kan eleven förklara varför svaret är rimligt?</li>
+    </ul>
 
   </section>
+
+
+  <div class="tip">
+
+    <strong>⭐ Viktigt:</strong><br>
+    Stöd ska helst fungera som en <strong>bro till självständighet</strong>.
+    Om eleven alltid får exakt samma mall utan att förstå varför,
+    finns risk att stödet blir en ny procedur att följa.
+    Återkom därför till frågan:
+    <strong>”Vad kan eleven nu göra själv som tidigare krävde stöd?”</strong>
+
+  </div>
+
+
+  <div class="links">
+
+    <a href="larare-stod.html">
+      👩‍🏫 Lärarstöd
+    </a>
+
+    <a href="larare-npf.html">
+      🧩 NPF-stöd
+    </a>
+
+    <a href="larare-sva.html">
+      🌍 SVA-stöd
+    </a>
+
+    <a href="larare-sprak.html">
+      🗣️ Språk i matematik
+    </a>
+
+    <a href="begrepp.html">
+      🔤 Begrepp
+    </a>
+
+    <a href="strategier.html">
+      🧰 Strategier
+    </a>
+
+    <a href="utmaning.html">
+      🚀 Utmaning
+    </a>
+
+  </div>
 
 </main>
 
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🛟 Jag behöver hjälp – stanna inte, ta nästa steg
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🪜 Stöd i matematik • Synliggör • Förenkla vägen • Behåll målet • Bygg vidare
 
 </footer>
 
