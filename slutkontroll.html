@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Slutkontroll | HOLOS Matteresan F–9</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark: #17324d;
+      --text: #263747;
+      --muted: #667788;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+
+      --red: #ffe8e8;
+      --red-strong: #b84d4d;
+
+      --teal: #eaf7f5;
+      --gray: #eef2f4;
+      --background: #f7f9fb;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,.20), transparent 32%),
+        linear-gradient(135deg, #5f9470, #5d86ad, #8266a3);
+      color: white;
+      padding: 28px 20px 60px;
+    }
+
+    .hero {
+      max-width: 1050px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 4.3rem;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 7vw, 4.8rem);
+      line-height: 1.04;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 860px;
+      margin: auto;
+      color: #f7f9fb;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 38px 18px 70px;
+    }
+
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 27px;
+      box-shadow: 0 8px 24px rgba(32,48,64,.07);
+      margin-bottom: 26px;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: var(--muted);
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    button,
+    .button-link {
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 17px;
+      font-family: inherit;
+      font-size: .88rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button {
+      background: var(--dark);
+      color: white;
+    }
+
+    .button-link {
+      display: inline-block;
+      background: var(--gray);
+      color: var(--dark);
+    }
+
+    .score-area {
+      background: white;
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 7px 22px rgba(32,48,64,.06);
+      margin-bottom: 32px;
+    }
+
+    .score-top {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .score-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: var(--gray);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      border: 10px solid #dbe3e8;
+    }
+
+    .score-circle.good {
+      background: var(--green);
+      border-color: var(--green-strong);
+    }
+
+    .score-circle.warning {
+      background: var(--yellow);
+      border-color: #c39b44;
+    }
+
+    .score-circle.bad {
+      background: var(--red);
+      border-color: var(--red-strong);
+    }
+
+    .score-circle strong {
+      font-size: 2.7rem;
+      color: var(--dark);
+      line-height: 1;
+    }
+
+    .score-circle span {
+      color: var(--muted);
+      font-size: .8rem;
+      margin-top: 5px;
+    }
+
+    .score-text h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .score-text p {
+      color: var(--muted);
+    }
+
+    .summary {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 13px;
+    }
+
+    .summary-card {
+      border-radius: 17px;
+      padding: 17px;
+      text-align: center;
+      background: var(--gray);
+    }
+
+    .summary-card strong {
+      display: block;
+      font-size: 1.8rem;
+      color: var(--dark);
+    }
+
+    .summary-card span {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .section-title {
+      margin: 38px 0 16px;
+    }
+
+    .section-title h2 {
+      color: var(--dark);
+      margin-bottom: 4px;
+      font-size: 1.9rem;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .check-card {
+      background: white;
+      border-radius: 19px;
+      padding: 21px;
+      box-shadow: 0 5px 17px rgba(32,48,64,.05);
+      border-top: 6px solid #abb6bf;
+      min-height: 210px;
+    }
+
+    .check-card.ok {
+      background: var(--green);
+      border-top-color: var(--green-strong);
+    }
+
+    .check-card.error {
+      background: var(--red);
+      border-top-color: var(--red-strong);
+    }
+
+    .check-card.checking {
+      background: var(--yellow);
+      border-top-color: #c39b44;
+    }
+
+    .check-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .check-card p {
+      color: var(--muted);
+      font-size: .85rem;
+      margin-bottom: 7px;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.75);
+      padding: 6px 10px;
+      font-weight: bold;
+      font-size: .76rem;
+      color: var(--dark);
+    }
+
+    .manual-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .manual-card {
+      border-radius: 18px;
+      padding: 21px;
+      min-height: 190px;
+    }
+
+    .manual-card:nth-child(4n+1) {
+      background: var(--green);
+    }
+
+    .manual-card:nth-child(4n+2) {
+      background: var(--blue);
+    }
+
+    .manual-card:nth-child(4n+3) {
+      background: var(--yellow);
+    }
+
+    .manual-card:nth-child(4n+4) {
+      background: var(--purple);
+    }
+
+    .manual-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .manual-card p,
+    .manual-card li {
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .manual-card ul {
+      margin: 8px 0 0 20px;
+    }
+
+    .manual-card li {
+      margin-bottom: 5px;
+    }
+
+    .final-box {
+      margin-top: 34px;
+      background: var(--teal);
+      border-radius: 22px;
+      padding: 26px;
+    }
+
+    .final-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .final-box p {
+      color: var(--muted);
+    }
+
+    .final-box ul {
+      margin: 12px 0 0 22px;
+    }
+
+    .final-box li {
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .notice {
+      margin-top: 24px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 15px;
+      padding: 18px;
+      color: #665831;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    @media (max-width: 950px) {
+      .check-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .summary {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .score-top {
+        grid-template-columns: 1fr;
+      }
+
+      .check-grid,
+      .manual-grid,
+      .summary {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="hero">
+
+    <div class="hero-icon">🏁✅🔎</div>
+
+    <h1>Slutkontroll</h1>
+
+    <h2>HOLOS Matteresan F–9</h2>
+
+    <p>
+      Den här sidan gör en sista teknisk kontroll
+      av plattformens viktigaste ingångar.
+      När allt är grönt återstår bara den visuella kontrollen
+      på dator, mobil och vid utskrift.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section class="intro">
+
+    <h2>🏁 Sista kontrollen</h2>
+
+    <p>
+      Här kontrolleras startsidan, stadierna, alla årskurser,
+      de viktigaste elevdelarna, lärarportalen,
+      materialbanken och kontrollsidorna.
+    </p>
+
+    <div class="buttons">
+
+      <button onclick="runFinalCheck()">
+        ▶ Starta slutkontrollen
+      </button>
+
+      <a href="kontroll.html" class="button-link">
+        🔎 Kontrollera alla filer
+      </a>
+
+      <a href="navigationskontroll.html" class="button-link">
+        🔗 Kontrollera länkar
+      </a>
+
+      <a href="index.html" class="button-link">
+        🏠 Öppna Matteresan
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section class="score-area">
+
+    <div class="score-top">
+
+      <div class="score-circle" id="scoreCircle">
+        <strong id="scoreNumber">–</strong>
+        <span>resultat</span>
+      </div>
+
+      <div class="score-text">
+
+        <h2 id="scoreTitle">
+          Kontroll har inte körts ännu
+        </h2>
+
+        <p id="scoreDescription">
+          Tryck på Starta slutkontrollen.
+          Sidan testar de viktigaste delarna av plattformen.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="summary">
+
+      <div class="summary-card">
+        <strong id="total">0</strong>
+        <span>kontroller</span>
+      </div>
+
+      <div class="summary-card">
+        <strong id="checked">0</strong>
+        <span>genomförda</span>
+      </div>
+
+      <div class="summary-card">
+        <strong id="passed">0</strong>
+        <span>godkända</span>
+      </div>
+
+      <div class="summary-card">
+        <strong id="failed">0</strong>
+        <span>fel</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>💻 Automatisk kontroll</h2>
+
+    <p>
+      Varje kort representerar en viktig del av plattformen.
+    </p>
+
+  </div>
+
+
+  <div class="check-grid" id="checkGrid"></div>
+
+
+  <div class="section-title">
+
+    <h2>👀 Visuell kontroll</h2>
+
+    <p>
+      Dessa delar behöver fortfarande kontrolleras med ögonen.
+    </p>
+
+  </div>
+
+
+  <div class="manual-grid">
+
+    <article class="manual-card">
+
+      <h3>🖥️ Dator</h3>
+
+      <p>
+        Öppna startsidan på en vanlig dator.
+      </p>
+
+      <ul>
+        <li>Ser rubrikerna rätt ut?</li>
+        <li>Ligger korten snyggt?</li>
+        <li>Fungerar knapparna?</li>
+        <li>Finns inga tomma stora ytor?</li>
+      </ul>
+
+    </article>
+
+
+    <article class="manual-card">
+
+      <h3>📱 Mobil</h3>
+
+      <p>
+        Gör webbläsarfönstret smalt eller öppna sidan på mobil.
+      </p>
+
+      <ul>
+        <li>Hamnar korten under varandra?</li>
+        <li>Går texten att läsa?</li>
+        <li>Sticker inget ut åt sidan?</li>
+        <li>Är knapparna lätta att trycka på?</li>
+      </ul>
+
+    </article>
+
+
+    <article class="manual-card">
+
+      <h3>🖨️ Utskrift</h3>
+
+      <p>
+        Testa särskilt elevblad och A4-material.
+      </p>
+
+      <ul>
+        <li>Välj A4.</li>
+        <li>Kontrollera Färg.</li>
+        <li>Aktivera Bakgrundsgrafik.</li>
+        <li>Kontrollera att varje elevblad ligger på eget papper.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="manual-card">
+
+      <h3>🧭 Navigation</h3>
+
+      <p>
+        Gör en riktig resa genom sidan.
+      </p>
+
+      <ul>
+        <li>Startsida → stadium</li>
+        <li>Stadium → årskurs</li>
+        <li>Årskurs → aktivitet</li>
+        <li>Aktivitet → lärarstöd</li>
+        <li>Lärarportal → material</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <section class="final-box">
+
+    <h2>✅ När plattformen är färdig</h2>
+
+    <p>
+      En slutkontrollerad Matteresan bör ha:
+    </p>
+
+    <ul>
+      <li>En tydlig startsida för hela F–9.</li>
+      <li>Gröna F–3-sidor, blå 4–6-sidor och lila 7–9-sidor.</li>
+      <li>Separata årskurssidor F–9.</li>
+      <li>Matteprat, matematikäventyr, problemlösning och spel.</li>
+      <li>Undersökande och verklighetsnära matematik.</li>
+      <li>Begrepp, strategier, stöd och utmaning.</li>
+      <li>Veckans problem och Min Matteresa.</li>
+      <li>En omfattande lärarportal.</li>
+      <li>Materialbank och A4-material.</li>
+      <li>Elevblad för matematikområden och arbetssätt.</li>
+      <li>Fungerande intern navigation.</li>
+      <li>Responsiv visning och fungerande färgutskrift.</li>
+    </ul>
+
+  </section>
+
+
+  <div class="notice">
+
+    <strong>🖨️ Färgutskrift:</strong><br>
+    CSS-koden försöker bevara färger,
+    men webbläsarens utskriftsinställningar kan fortfarande behöva
+    <strong>Bakgrundsgrafik PÅ</strong> och skrivaren måste vara inställd på
+    <strong>Färg</strong>.
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🏁 Slutkontroll • Upptäck • Tänk • Prata • Lös
+
+</footer>
+
+
+<script>
+
+const checks = [
+
+  {
+    title: "🏠 Startsida",
+    description: "Kontrollerar huvudingången.",
+    files: [
+      "index.html"
+    ]
+  },
+
+  {
+    title: "🌱 F–3",
+    description: "Kontrollerar stadium och årskurser.",
+    files: [
+      "f-3.html",
+      "forskoleklass.html",
+      "ak1.html",
+      "ak2.html",
+      "ak3.html"
+    ]
+  },
+
+  {
+    title: "🔵 4–6",
+    description: "Kontrollerar stadium och årskurser.",
+    files: [
+      "4-6.html",
+      "ak4.html",
+      "ak5.html",
+      "ak6.html"
+    ]
+  },
+
+  {
+    title: "🟣 7–9",
+    description: "Kontrollerar stadium och årskurser.",
+    files: [
+      "7-9.html",
+      "ak7.html",
+      "ak8.html",
+      "ak9.html"
+    ]
+  },
+
+  {
+    title: "💬 Matteprat",
+    description: "Kontrollerar elevens matematiska samtal.",
+    files: [
+      "matteprat.html"
+    ]
+  },
+
+  {
+    title: "🗺️ Matematikäventyr",
+    description: "Kontrollerar äventyrssidan.",
+    files: [
+      "aventyr.html"
+    ]
+  },
+
+  {
+    title: "🧩 Problemlösning",
+    description: "Kontrollerar problemlösningssidan.",
+    files: [
+      "problemlosning.html"
+    ]
+  },
+
+  {
+    title: "🎲 Spel",
+    description: "Kontrollerar matematikspelet.",
+    files: [
+      "spel.html"
+    ]
+  },
+
+  {
+    title: "🔬 Undersök",
+    description: "Kontrollerar undersökande matematik.",
+    files: [
+      "undersok.html"
+    ]
+  },
+
+  {
+    title: "🌍 Verkligheten",
+    description: "Kontrollerar verklighetsanknuten matematik.",
+    files: [
+      "verkligheten.html"
+    ]
+  },
+
+  {
+    title: "🔤 Begrepp",
+    description: "Kontrollerar begreppssidan.",
+    files: [
+      "begrepp.html"
+    ]
+  },
+
+  {
+    title: "🧰 Strategier",
+    description: "Kontrollerar strategisidan.",
+    files: [
+      "strategier.html"
+    ]
+  },
+
+  {
+    title: "🪜 Stöd",
+    description: "Kontrollerar elevstödet.",
+    files: [
+      "stod.html"
+    ]
+  },
+
+  {
+    title: "🚀 Utmaning",
+    description: "Kontrollerar fördjupningssidan.",
+    files: [
+      "utmaning.html"
+    ]
+  },
+
+  {
+    title: "📅 Veckans problem",
+    description: "Kontrollerar veckoproblemen.",
+    files: [
+      "veckansproblem.html"
+    ]
+  },
+
+  {
+    title: "🧭 Min Matteresa",
+    description: "Kontrollerar elevens reflektionssida.",
+    files: [
+      "minresa.html"
+    ]
+  },
+
+  {
+    title: "👩‍🏫 Lärarportal",
+    description: "Kontrollerar centrala lärarsidor.",
+    files: [
+      "larare.html",
+      "larare-lgr22.html",
+      "larare-progression.html",
+      "larare-undervisning.html",
+      "larare-bedomning.html",
+      "larare-material.html"
+    ]
+  },
+
+  {
+    title: "🌱🔵🟣 Lärarstöd stadium",
+    description: "Kontrollerar lärarstöd för F–3, 4–6 och 7–9.",
+    files: [
+      "larare-f3.html",
+      "larare-46.html",
+      "larare-79.html"
+    ]
+  },
+
+  {
+    title: "📚 Materialbank",
+    description: "Kontrollerar materialbankens huvudingångar.",
+    files: [
+      "material-elevblad.html",
+      "material-matteprat.html",
+      "material-problem.html",
+      "material-spel.html",
+      "material-aventyr.html",
+      "material-mallar.html"
+    ]
+  },
+
+  {
+    title: "🖨️ A4-material",
+    description: "Kontrollerar centralt utskriftsmaterial.",
+    files: [
+      "material-a4-elevblad.html",
+      "material-a4-kort.html",
+      "material-a4-affischer.html",
+      "material-a4-larare.html",
+      "material-exit.html",
+      "material-diagnos.html"
+    ]
+  },
+
+  {
+    title: "✏️ Elevblad",
+    description: "Stickprov på elevblad från olika områden.",
+    files: [
+      "elevblad-tal.html",
+      "elevblad-brak.html",
+      "elevblad-procent.html",
+      "elevblad-geometri.html",
+      "elevblad-sannolikhet.html",
+      "elevblad-problemlosning.html",
+      "elevblad-utmana.html",
+      "elevblad-undersok.html"
+    ]
+  },
+
+  {
+    title: "🔎 Kontrollsystem",
+    description: "Kontrollerar plattformens egna kontrollsidor.",
+    files: [
+      "kontroll.html",
+      "navigationskontroll.html",
+      "slutkontroll.html"
+    ]
+  }
+
+];
+
+
+let totalChecks = checks.length;
+let completed = 0;
+let passed = 0;
+let failed = 0;
+
+
+function renderChecks() {
+
+  const grid = document.getElementById("checkGrid");
+
+  grid.innerHTML = "";
+
+  checks.forEach((check, index) => {
+
+    const card = document.createElement("article");
+
+    card.className = "check-card";
+    card.id = "check-" + index;
+
+    card.innerHTML = `
+      <h3>${check.title}</h3>
+      <p>${check.description}</p>
+      <p>
+        <strong>${check.files.length}</strong>
+        fil${check.files.length === 1 ? "" : "er"} kontrolleras.
+      </p>
+      <span class="status">
+        ⬜ Inte kontrollerad
+      </span>
+    `;
+
+    grid.appendChild(card);
+
+  });
+
+  document.getElementById("total").textContent = totalChecks;
+
+}
+
+
+async function fileExists(file) {
+
+  try {
+
+    const response = await fetch(
+      file + "?finalcheck=" + Date.now(),
+      {
+        method: "GET",
+        cache: "no-store"
+      }
+    );
+
+    return response.ok;
+
+  } catch (error) {
+
+    return false;
+
+  }
+
+}
+
+
+async function runGroup(check, index) {
+
+  const card = document.getElementById("check-" + index);
+  const status = card.querySelector(".status");
+
+  card.className = "check-card checking";
+  status.textContent = "⏳ Kontrollerar...";
+
+
+  const missing = [];
+
+
+  for (const file of check.files) {
+
+    const works = await fileExists(file);
+
+    if (!works) {
+      missing.push(file);
+    }
+
+  }
+
+
+  if (missing.length === 0) {
+
+    card.className = "check-card ok";
+
+    status.textContent = "✅ Godkänd";
+
+    passed++;
+
+  } else {
+
+    card.className = "check-card error";
+
+    status.textContent =
+      "❌ Saknas: " + missing.join(", ");
+
+    failed++;
+
+  }
+
+
+  completed++;
+
+  updateScore();
+
+}
+
+
+function updateScore() {
+
+  document.getElementById("checked").textContent = completed;
+  document.getElementById("passed").textContent = passed;
+  document.getElementById("failed").textContent = failed;
+
+
+  if (completed === 0) {
+    return;
+  }
+
+
+  const percent = Math.round(
+    (passed / totalChecks) * 100
+  );
+
+
+  document.getElementById("scoreNumber").textContent =
+    percent + "%";
+
+
+  const circle = document.getElementById("scoreCircle");
+
+
+  if (completed < totalChecks) {
+
+    circle.className = "score-circle warning";
+
+    document.getElementById("scoreTitle").textContent =
+      "Kontrollen pågår";
+
+    document.getElementById("scoreDescription").textContent =
+      completed +
+      " av " +
+      totalChecks +
+      " delar är kontrollerade.";
+
+    return;
+
+  }
+
+
+  if (failed === 0) {
+
+    circle.className = "score-circle good";
+
+    document.getElementById("scoreTitle").textContent =
+      "✅ Teknisk slutkontroll godkänd";
+
+    document.getElementById("scoreDescription").textContent =
+      "Alla kontrollerade huvuddelar i Matteresan går att nå. Gör nu den visuella kontrollen på dator, mobil och utskrift.";
+
+  } else {
+
+    circle.className = "score-circle bad";
+
+    document.getElementById("scoreTitle").textContent =
+      "❌ Några delar behöver rättas";
+
+    document.getElementById("scoreDescription").textContent =
+      failed +
+      " kontrollgrupper innehåller minst en fil som inte kunde öppnas. De röda korten visar var vi ska börja.";
+
+  }
+
+}
+
+
+async function runFinalCheck() {
+
+  completed = 0;
+  passed = 0;
+  failed = 0;
+
+  document.getElementById("checked").textContent = "0";
+  document.getElementById("passed").textContent = "0";
+  document.getElementById("failed").textContent = "0";
+
+  document.getElementById("scoreNumber").textContent = "0%";
+
+  document.getElementById("scoreCircle").className =
+    "score-circle warning";
+
+  document.getElementById("scoreTitle").textContent =
+    "Kontrollen startar...";
+
+  document.getElementById("scoreDescription").textContent =
+    "Matteresans huvuddelar kontrolleras en efter en.";
+
+
+  renderChecks();
+
+
+  for (let i = 0; i < checks.length; i++) {
+
+    await runGroup(checks[i], i);
+
+  }
+
+}
+
+
+renderChecks();
+
+</script>
+
+</body>
+</html>
