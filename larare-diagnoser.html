@@ -78,7 +78,7 @@
     }
 
     .hero {
-      max-width: 930px;
+      max-width: 950px;
       margin: 44px auto 0;
       text-align: center;
     }
@@ -100,7 +100,7 @@
     }
 
     .hero p {
-      max-width: 850px;
+      max-width: 860px;
       margin: auto;
       color: #f6f9fb;
     }
@@ -126,7 +126,7 @@
 
     .intro p {
       color: var(--muted);
-      max-width: 950px;
+      max-width: 970px;
     }
 
     .important {
@@ -152,55 +152,55 @@
       color: var(--muted);
     }
 
-    .cycle {
+    .flow {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 10px;
     }
 
-    .cycle-step {
+    .flow-step {
       background: white;
       border-radius: 16px;
       padding: 18px 10px;
-      min-height: 160px;
       text-align: center;
+      min-height: 160px;
       box-shadow: 0 6px 18px rgba(32,48,64,0.06);
       border-top: 6px solid var(--blue-strong);
     }
 
-    .cycle-step:nth-child(1) {
+    .flow-step:nth-child(1) {
       border-top-color: var(--green-strong);
     }
 
-    .cycle-step:nth-child(2) {
+    .flow-step:nth-child(2) {
       border-top-color: var(--blue-strong);
     }
 
-    .cycle-step:nth-child(3) {
+    .flow-step:nth-child(3) {
       border-top-color: #c39b44;
     }
 
-    .cycle-step:nth-child(4) {
+    .flow-step:nth-child(4) {
       border-top-color: var(--purple-strong);
     }
 
-    .cycle-step:nth-child(5) {
+    .flow-step:nth-child(5) {
       border-top-color: #5d9c92;
     }
 
-    .cycle-step span {
+    .flow-step span {
       display: block;
       font-size: 2rem;
       margin-bottom: 6px;
     }
 
-    .cycle-step strong {
+    .flow-step strong {
       display: block;
       color: var(--dark);
       margin-bottom: 5px;
     }
 
-    .cycle-step p {
+    .flow-step p {
       color: var(--muted);
       font-size: 0.8rem;
     }
@@ -258,6 +258,38 @@
       margin-bottom: 5px;
     }
 
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .analysis-card {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 220px;
+    }
+
+    .analysis-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .analysis-card p,
+    .analysis-card li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .analysis-card ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .analysis-card li {
+      margin-bottom: 6px;
+    }
+
     .green { background: var(--green); }
     .blue { background: var(--blue); }
     .purple { background: var(--purple); }
@@ -266,101 +298,6 @@
     .teal { background: var(--teal); }
     .pink { background: var(--pink); }
     .gray { background: var(--gray); }
-
-    .analysis-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .analysis {
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 210px;
-    }
-
-    .analysis h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .analysis p,
-    .analysis li {
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .analysis ul {
-      margin-left: 18px;
-      margin-top: 8px;
-    }
-
-    .analysis li {
-      margin-bottom: 6px;
-    }
-
-    .question-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .question {
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 210px;
-    }
-
-    .question h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .question p,
-    .question li {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .question ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .question li {
-      margin-bottom: 6px;
-    }
-
-    .stage-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .stage {
-      border-radius: 18px;
-      padding: 22px;
-    }
-
-    .stage h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .stage p,
-    .stage li {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .stage ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .stage li {
-      margin-bottom: 6px;
-    }
 
     .teacher-box {
       margin-top: 36px;
@@ -428,16 +365,12 @@
     }
 
     @media (max-width: 1000px) {
-      .cycle {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
       .grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .analysis-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .flow {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -446,11 +379,9 @@
         flex-direction: column;
       }
 
-      .cycle,
       .grid,
-      .analysis-grid,
-      .question-grid,
-      .stage-grid {
+      .flow,
+      .analysis-grid {
         grid-template-columns: 1fr;
       }
 
@@ -477,6 +408,9 @@
       html,
       body {
         background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
       header,
@@ -490,11 +424,9 @@
       }
 
       .intro,
-      .cycle-step,
+      .flow-step,
       .card,
-      .analysis,
-      .question,
-      .stage,
+      .analysis-card,
       .teacher-box,
       .warning,
       .links {
@@ -562,16 +494,16 @@
 
   <div class="hero">
 
-    <div class="hero-icon">🩺📊</div>
+    <div class="hero-icon">🔎🧠📊</div>
 
     <h1>Diagnoser</h1>
 
-    <h2>Upptäck • Tolka • Planera • Undervisa • Följ upp</h2>
+    <h2>Synliggör • Tolka • Undervisa • Följ upp</h2>
 
     <p>
-      Diagnostiska uppgifter används för att förstå
-      hur eleven tänker och för att planera undervisning
-      som möter det faktiska behovet.
+      Diagnostiska uppgifter hjälper läraren att upptäcka
+      hur elever tänker, vilka strategier de använder
+      och vilka matematiska idéer som behöver utvecklas vidare.
     </p>
 
   </div>
@@ -583,22 +515,23 @@
 
   <section class="intro">
 
-    <h2>🩺 Diagnosen ska svara på en undervisningsfråga</h2>
+    <h2>🔎 Diagnos som vägledning för undervisningen</h2>
 
     <p>
-      En matematikdiagnos är mest användbar när läraren redan från början
-      vet vilken information som behövs.
-      Syftet är inte bara att räkna antal rätt,
-      utan att upptäcka elevens förståelse, strategier och möjliga missuppfattningar.
+      En diagnos ska inte bara visa hur många uppgifter eleven klarar.
+      Den behöver hjälpa läraren att förstå
+      <strong>vad eleven kan, hur eleven tänker och var ett möjligt hinder finns</strong>.
+      Därför behöver svaren analyseras kvalitativt och följas av undervisning.
     </p>
 
     <div class="important">
 
       <strong>Grundprincip:</strong><br>
-      Fråga inte bara <strong>”Hur många rätt?”</strong>.
-      Fråga också:
-      <strong>”Vad visar svaren om hur eleven tänker,
-      och vad behöver undervisningen göra nu?”</strong>
+      Arbeta genom
+      <strong>bestäm fokus → välj uppgifter → analysera svar →
+      undervisa → följ upp</strong>.
+      Diagnosen är alltså början på ett undervisningsbeslut,
+      inte slutpunkten.
 
     </div>
 
@@ -610,42 +543,76 @@
     <h2>🔄 Diagnostisk arbetsgång</h2>
 
     <p>
-      Diagnosen är början på ett undervisningsbeslut – inte slutet.
+      En tydlig cykel gör diagnostiken användbar i det dagliga arbetet.
     </p>
 
   </div>
 
 
-  <div class="cycle">
+  <div class="flow">
 
-    <div class="cycle-step">
+    <div class="flow-step">
+
       <span>🎯</span>
+
       <strong>1. Bestäm fokus</strong>
-      <p>Vilken matematisk förståelse behöver du undersöka?</p>
+
+      <p>
+        Vilken matematisk förståelse vill du undersöka?
+      </p>
+
     </div>
 
-    <div class="cycle-step">
-      <span>✏️</span>
+
+    <div class="flow-step">
+
+      <span>📝</span>
+
       <strong>2. Välj uppgifter</strong>
-      <p>Använd uppgifter som skiljer mellan olika sätt att tänka.</p>
+
+      <p>
+        Använd uppgifter som synliggör strategi och förståelse.
+      </p>
+
     </div>
 
-    <div class="cycle-step">
-      <span>👀</span>
+
+    <div class="flow-step">
+
+      <span>🔍</span>
+
       <strong>3. Analysera</strong>
-      <p>Leta efter mönster, strategier och återkommande fel.</p>
+
+      <p>
+        Leta efter mönster, strategier och återkommande missuppfattningar.
+      </p>
+
     </div>
 
-    <div class="cycle-step">
-      <span>🧠</span>
+
+    <div class="flow-step">
+
+      <span>👩‍🏫</span>
+
       <strong>4. Undervisa</strong>
-      <p>Planera undervisning utifrån det analysen visar.</p>
+
+      <p>
+        Anpassa undervisningen efter det analysen visar.
+      </p>
+
     </div>
 
-    <div class="cycle-step">
+
+    <div class="flow-step">
+
       <span>🔁</span>
+
       <strong>5. Följ upp</strong>
-      <p>Undersök om förståelsen förändrats i nya uppgifter.</p>
+
+      <p>
+        Kontrollera om elevens förståelse har förändrats.
+      </p>
+
     </div>
 
   </div>
@@ -653,10 +620,10 @@
 
   <div class="section-title">
 
-    <h2>🧠 Vad kan en diagnos undersöka?</h2>
+    <h2>🧠 Sex områden att diagnostisera</h2>
 
     <p>
-      En stark diagnos undersöker den matematiska idén från flera håll.
+      Diagnoser blir mer användbara när de riktas mot specifika matematiska idéer.
     </p>
 
   </div>
@@ -666,38 +633,19 @@
 
     <article class="card">
 
-      <div class="icon">🔤</div>
-
-      <h3>Begrepp</h3>
-
-      <p>
-        Förstår eleven betydelsen av centrala matematiska begrepp?
-      </p>
-
-      <ul>
-        <li>Förklara begreppet.</li>
-        <li>Välja rätt exempel.</li>
-        <li>Skapa eget exempel.</li>
-        <li>Koppla till närliggande begrepp.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
       <div class="icon">🔢</div>
 
-      <h3>Talrelationer</h3>
+      <h3>Taluppfattning</h3>
 
       <p>
-        Ser eleven relationer mellan tal eller arbetar eleven endast med procedurer?
+        Undersök hur eleven förstår talens struktur och relationer.
       </p>
 
       <ul>
-        <li>Storlek</li>
         <li>Platsvärde</li>
-        <li>Del–helhet</li>
+        <li>Storlek</li>
+        <li>Tallinje</li>
+        <li>Taluppdelning</li>
         <li>Rimlighet</li>
       </ul>
 
@@ -706,19 +654,19 @@
 
     <article class="card">
 
-      <div class="icon">🧰</div>
+      <div class="icon">➕➖✖️➗</div>
 
-      <h3>Strategier</h3>
+      <h3>Räknesätt och strategier</h3>
 
       <p>
-        Vilka metoder väljer eleven och kan eleven anpassa strategin efter uppgiften?
+        Titta på både innebörd, strategi och beräkning.
       </p>
 
       <ul>
-        <li>Huvudräkning</li>
-        <li>Skriftliga metoder</li>
-        <li>Rita eller modellera</li>
-        <li>Strategibyte</li>
+        <li>Vilket räknesätt väljs?</li>
+        <li>Varför?</li>
+        <li>Vilken strategi används?</li>
+        <li>Är metoden flexibel?</li>
       </ul>
 
     </article>
@@ -726,19 +674,20 @@
 
     <article class="card">
 
-      <div class="icon">🎨</div>
+      <div class="icon">🍕</div>
 
-      <h3>Representationer</h3>
+      <h3>Bråk, decimal och procent</h3>
 
       <p>
-        Kan eleven koppla samman bild, konkret modell och symboler?
+        Undersök om eleven ser relationen mellan olika representationer.
       </p>
 
       <ul>
+        <li>Del och helhet</li>
+        <li>Storlek</li>
         <li>Tallinje</li>
-        <li>Bild</li>
-        <li>Tabell</li>
-        <li>Graf</li>
+        <li>Likvärdiga former</li>
+        <li>Bråk–decimal–procent</li>
       </ul>
 
     </article>
@@ -751,14 +700,14 @@
       <h3>Problemlösning</h3>
 
       <p>
-        Vad händer när metoden inte är given i förväg?
+        Diagnostisera processen, inte bara slutsvaret.
       </p>
 
       <ul>
-        <li>Tolka problemet.</li>
-        <li>Välja information.</li>
-        <li>Planera strategi.</li>
-        <li>Kontrollera lösningen.</li>
+        <li>Förstår eleven situationen?</li>
+        <li>Väljer eleven strategi?</li>
+        <li>Kan eleven byta strategi?</li>
+        <li>Kontrolleras svaret?</li>
       </ul>
 
     </article>
@@ -766,19 +715,42 @@
 
     <article class="card">
 
-      <div class="icon">💬</div>
+      <div class="icon">🔤</div>
 
-      <h3>Resonemang</h3>
+      <h3>Algebra och samband</h3>
 
       <p>
-        Kan eleven motivera varför en lösning eller ett påstående fungerar?
+        Undersök förståelsen av likhet, variabel och generalisering.
       </p>
 
       <ul>
-        <li>Förklara.</li>
-        <li>Jämföra.</li>
-        <li>Motivera.</li>
-        <li>Granska.</li>
+        <li>Likhetstecknet</li>
+        <li>Mönster</li>
+        <li>Variabel</li>
+        <li>Uttryck</li>
+        <li>Tabell–graf–formel</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📐</div>
+
+      <h3>Geometri och mätning</h3>
+
+      <p>
+        Undersök om eleven förstår egenskaper och mätbegrepp.
+      </p>
+
+      <ul>
+        <li>Former och egenskaper</li>
+        <li>Vinkel</li>
+        <li>Omkrets</li>
+        <li>Area</li>
+        <li>Volym</li>
+        <li>Skala</li>
       </ul>
 
     </article>
@@ -788,97 +760,11 @@
 
   <div class="section-title">
 
-    <h2>🔎 Diagnostiska frågetyper</h2>
+    <h2>🔍 Vad ska läraren analysera?</h2>
 
     <p>
-      Variera frågorna för att minska risken att diagnosen bara mäter rutin.
-    </p>
-
-  </div>
-
-
-  <div class="question-grid">
-
-    <section class="question green">
-
-      <h3>✅❌ Sant eller falskt</h3>
-
-      <p>
-        Ett påstående kan snabbt avslöja hur eleven tolkar en matematisk idé.
-      </p>
-
-      <ul>
-        <li>0,45 är större än 0,5.</li>
-        <li>1/8 är större än 1/4.</li>
-        <li>Större omkrets ger alltid större area.</li>
-        <li>Alla multiplikationer gör ett tal större.</li>
-      </ul>
-
-    </section>
-
-
-    <section class="question blue">
-
-      <h3>🕵️ Analysera ett fel</h3>
-
-      <p>
-        Låt eleven förklara vad någon annan kan ha tänkt.
-      </p>
-
-      <ul>
-        <li>Var börjar felet?</li>
-        <li>Vad verkar personen tro?</li>
-        <li>Hur skulle du förklara annorlunda?</li>
-        <li>Vilket exempel visar varför regeln inte fungerar?</li>
-      </ul>
-
-    </section>
-
-
-    <section class="question yellow">
-
-      <h3>🎨 Visa på flera sätt</h3>
-
-      <p>
-        Undersök om förståelsen är kopplad till en enda representation.
-      </p>
-
-      <ul>
-        <li>Rita.</li>
-        <li>Visa på tallinje.</li>
-        <li>Skriv med symboler.</li>
-        <li>Förklara med ord.</li>
-      </ul>
-
-    </section>
-
-
-    <section class="question purple">
-
-      <h3>⚖️ Jämför</h3>
-
-      <p>
-        Jämförelseuppgifter kan göra relationer och strategier synliga.
-      </p>
-
-      <ul>
-        <li>Vilket är störst?</li>
-        <li>Vilken strategi är effektivast?</li>
-        <li>Vad är lika?</li>
-        <li>Vad är olika?</li>
-      </ul>
-
-    </section>
-
-  </div>
-
-
-  <div class="section-title">
-
-    <h2>📊 Från elevsvar till undervisning</h2>
-
-    <p>
-      Sortera efter tänkande och behov – inte bara poäng.
+      Ett felaktigt svar kan ha flera olika orsaker.
+      Försök därför förstå tanken bakom svaret.
     </p>
 
   </div>
@@ -886,74 +772,75 @@
 
   <div class="analysis-grid">
 
-    <section class="analysis green">
+    <section class="analysis-card green">
 
-      <h3>🟢 Stabil förståelse</h3>
-
-      <p>
-        Eleven visar förståelse i flera typer av uppgifter.
-      </p>
+      <h3>✅ Vad fungerar?</h3>
 
       <ul>
-        <li>Gå vidare.</li>
-        <li>Öka komplexiteten.</li>
-        <li>Generalisera.</li>
-        <li>Ge öppna problem.</li>
+        <li>Vilka idéer verkar eleven förstå?</li>
+        <li>Vilka strategier används säkert?</li>
+        <li>Vilka representationer hjälper?</li>
+        <li>Vad kan eleven förklara?</li>
       </ul>
+
+      <p>
+        Börja analysen i elevens befintliga kunnande.
+      </p>
 
     </section>
 
 
-    <section class="analysis blue">
+    <section class="analysis-card blue">
 
-      <h3>🔵 Procedur utan djup</h3>
-
-      <p>
-        Eleven kan utföra metoden men förklaringen eller representationen är svag.
-      </p>
+      <h3>🛣️ Vilken strategi används?</h3>
 
       <ul>
-        <li>Arbeta med modeller.</li>
-        <li>Fråga varför.</li>
-        <li>Jämför strategier.</li>
-        <li>Variera uppgifterna.</li>
+        <li>Är strategin effektiv?</li>
+        <li>Är den flexibel?</li>
+        <li>Är den begriplig för eleven?</li>
+        <li>Kan eleven välja en annan metod?</li>
       </ul>
+
+      <p>
+        Två elever med samma svar kan ha helt olika förståelse.
+      </p>
 
     </section>
 
 
-    <section class="analysis yellow">
+    <section class="analysis-card yellow">
 
-      <h3>🟡 Instabil förståelse</h3>
-
-      <p>
-        Eleven lyckas i vissa uppgifter men inte när formen förändras.
-      </p>
+      <h3>🕵️ Vilken missuppfattning syns?</h3>
 
       <ul>
-        <li>Byt representation.</li>
-        <li>Undersök med följdfrågor.</li>
-        <li>Arbeta med kontraster.</li>
-        <li>Följ upp snart igen.</li>
+        <li>Är felet systematiskt?</li>
+        <li>Återkommer samma tanke?</li>
+        <li>Vilken regel verkar eleven använda?</li>
+        <li>Var kan idén komma ifrån?</li>
       </ul>
+
+      <p>
+        Leta efter logiken i elevens fel.
+      </p>
 
     </section>
 
 
-    <section class="analysis pink">
+    <section class="analysis-card purple">
 
-      <h3>🔴 Tydlig missuppfattning</h3>
-
-      <p>
-        Ett konsekvent felmönster visar att en underliggande modell behöver byggas om.
-      </p>
+      <h3>🧠 Vad behöver undervisningen göra?</h3>
 
       <ul>
-        <li>Undersök elevens resonemang.</li>
-        <li>Gå tillbaka till kärnidén.</li>
-        <li>Använd konkret eller visuell modell.</li>
-        <li>Följ upp i ny situation.</li>
+        <li>Bygga begrepp?</li>
+        <li>Byta representation?</li>
+        <li>Modellera strategi?</li>
+        <li>Ge språkstöd?</li>
+        <li>Öka utmaningen?</li>
       </ul>
+
+      <p>
+        Analysen ska mynna ut i en konkret undervisningsåtgärd.
+      </p>
 
     </section>
 
@@ -962,84 +849,274 @@
 
   <div class="section-title">
 
-    <h2>🌱 Diagnoser genom F–9</h2>
+    <h2>🧩 Exempel på diagnostiska frågor</h2>
 
     <p>
-      Diagnosen behöver anpassas efter vilka uttrycksformer eleverna kan använda.
+      Bra frågor visar hur eleven tänker, inte bara om eleven kan producera ett svar.
     </p>
 
   </div>
 
 
-  <div class="stage-grid">
+  <div class="grid">
 
-    <section class="stage green">
+    <article class="card">
 
-      <h3>🌱 F–3</h3>
+      <div class="icon">📏</div>
 
-      <ul>
-        <li>Observera konkret arbete.</li>
-        <li>Låt eleven berätta muntligt.</li>
-        <li>Använd bilder och tallinje.</li>
-        <li>Undersök talrelationer.</li>
-        <li>Ha få uppgifter med hög informationsnivå.</li>
-        <li>Komplettera skriftliga svar med samtal.</li>
-      </ul>
+      <h3>Tallinje</h3>
 
-    </section>
-
-
-    <section class="stage blue">
-
-      <h3>🔵 4–6</h3>
+      <p>
+        Placera <strong>0,4</strong>, <strong>1/2</strong> och <strong>0,75</strong>
+        på samma tallinje.
+      </p>
 
       <ul>
-        <li>Jämför representationer.</li>
-        <li>Undersök bråk, decimal och procent tillsammans.</li>
-        <li>Analysera strategival.</li>
-        <li>Ta med problemlösning.</li>
-        <li>Låt eleven motivera.</li>
-        <li>Identifiera överförda heltalsregler.</li>
+        <li>Hur tänkte du?</li>
+        <li>Vilket tal är störst?</li>
+        <li>Hur vet du?</li>
       </ul>
 
-    </section>
+    </article>
 
 
-    <section class="stage purple">
+    <article class="card">
 
-      <h3>🟣 7–9</h3>
+      <div class="icon">➗</div>
+
+      <h3>Division</h3>
+
+      <p>
+        <strong>84 ÷ 6</strong>
+      </p>
 
       <ul>
-        <li>Undersök algebraisk förståelse.</li>
-        <li>Koppla text, tabell, graf och formel.</li>
-        <li>Analysera generaliseringar.</li>
-        <li>Ta med modellering.</li>
-        <li>Granska argument.</li>
-        <li>Skilj metodfel från begreppsliga missuppfattningar.</li>
+        <li>Lös på två olika sätt.</li>
+        <li>Vilken strategi tycker du är tydligast?</li>
+        <li>Hur kan svaret kontrolleras?</li>
       </ul>
 
-    </section>
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🍕</div>
+
+      <h3>Bråk</h3>
+
+      <p>
+        En elev säger:
+        <strong>1/8 är större än 1/6 eftersom 8 är större än 6.</strong>
+      </p>
+
+      <ul>
+        <li>Vad tänker du om påståendet?</li>
+        <li>Visa med bild eller tallinje.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔤</div>
+
+      <h3>Likhetstecknet</h3>
+
+      <p>
+        Fyll i talet:
+        <strong>8 + 4 = □ + 7</strong>
+      </p>
+
+      <ul>
+        <li>Hur tänkte du?</li>
+        <li>Vad betyder =?</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📐</div>
+
+      <h3>Area och omkrets</h3>
+
+      <p>
+        Två rektanglar har samma area.
+      </p>
+
+      <ul>
+        <li>Måste de ha samma omkrets?</li>
+        <li>Visa ett exempel.</li>
+        <li>Förklara.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📈</div>
+
+      <h3>Samband</h3>
+
+      <p>
+        En tabell visar:
+        x = 1, 2, 3, 4 och y = 5, 8, 11, 14.
+      </p>
+
+      <ul>
+        <li>Vad förändras?</li>
+        <li>Beskriv regeln med ord.</li>
+        <li>Kan du skriva en formel?</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🕵️ Vanliga fallgropar</h2>
+
+    <p>
+      Diagnostik tappar värde om fokus bara ligger på poäng och antal rätt.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">🏁</div>
+
+      <h3>Diagnosen blir slutpunkt</h3>
+
+      <p>
+        Resultatet registreras men leder inte vidare till undervisning.
+      </p>
+
+      <ul>
+        <li>Bestäm nästa steg direkt efter analysen.</li>
+        <li>Planera uppföljning.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📊</div>
+
+      <h3>Bara poäng analyseras</h3>
+
+      <p>
+        7 av 10 säger inte vilken förståelse som saknas.
+      </p>
+
+      <ul>
+        <li>Titta på vilka uppgifter som blev fel.</li>
+        <li>Studera strategier och representationer.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">❌</div>
+
+      <h3>Alla fel behandlas lika</h3>
+
+      <p>
+        Ett slarvfel, ett språkproblem och en begreppslig missuppfattning kräver olika svar.
+      </p>
+
+      <ul>
+        <li>Försök identifiera orsaken.</li>
+        <li>Ställ följdfrågor.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">⏱️</div>
+
+      <h3>Tidspress påverkar resultatet</h3>
+
+      <p>
+        Diagnosen börjar mäta snabbhet istället för den förståelse du vill undersöka.
+      </p>
+
+      <ul>
+        <li>Använd rimlig tid.</li>
+        <li>Skilj automatisering från förståelse.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📚</div>
+
+      <h3>För många områden samtidigt</h3>
+
+      <p>
+        En stor diagnos ger mycket data men liten precision.
+      </p>
+
+      <ul>
+        <li>Avgränsa fokus.</li>
+        <li>Använd kortare diagnostiska sekvenser.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔁</div>
+
+      <h3>Ingen uppföljning</h3>
+
+      <p>
+        Läraren vet inte om den nya undervisningen faktiskt hjälpte.
+      </p>
+
+      <ul>
+        <li>Återkom till samma kärnidé.</li>
+        <li>Använd en ny men jämförbar uppgift.</li>
+      </ul>
+
+    </article>
 
   </div>
 
 
   <section class="teacher-box">
 
-    <h2>👩‍🏫 Frågor när du analyserar en diagnos</h2>
+    <h2>👩‍🏫 Frågor för diagnosanalysen</h2>
 
     <ul>
-      <li>Vilka uppgifter klarar eleven säkert?</li>
-      <li>Vilka typer av uppgifter blir svåra?</li>
-      <li>Finns ett återkommande felmönster?</li>
-      <li>Vilken strategi verkar eleven använda?</li>
-      <li>Kan eleven förklara sin metod?</li>
-      <li>Kan eleven växla representation?</li>
-      <li>Är problemet matematiskt eller kan språk och layout påverka?</li>
-      <li>Vilka elever visar liknande behov?</li>
-      <li>Vad behöver tas i helklass?</li>
-      <li>Vad behöver tas i mindre grupp?</li>
-      <li>Vilka elever är redo för fördjupning?</li>
-      <li>När och hur ska förståelsen följas upp?</li>
+      <li>Vilka matematiska idéer verkar eleven förstå?</li>
+      <li>Vilken strategi använder eleven?</li>
+      <li>Är strategin stabil eller situationsbunden?</li>
+      <li>Vilket felmönster återkommer?</li>
+      <li>Kan felet bero på språk eller instruktion?</li>
+      <li>Vilken representation använder eleven?</li>
+      <li>Skulle en annan representation kunna hjälpa?</li>
+      <li>Kan eleven förklara sitt resonemang?</li>
+      <li>Vilket är det minsta nästa undervisningssteget?</li>
+      <li>Behöver eleven repetition, ny modell eller fördjupning?</li>
+      <li>Hur ska förståelsen följas upp?</li>
     </ul>
 
   </section>
@@ -1047,48 +1124,52 @@
 
   <div class="warning">
 
-    <strong>⚠️ Diagnosen är inte ett betyg.</strong><br>
-    Ett diagnostiskt material är till för att
-    <strong>identifiera undervisningsbehov</strong>.
-    Resultaten bör därför tolkas tillsammans med annan information,
-    exempelvis observationer, elevsamtal, tidigare lösningar och elevens
-    prestation i undervisningen.
+    <strong>⚠️ En diagnos är inte ett betyg.</strong><br>
+    Diagnostiska uppgifter används främst för att
+    <strong>förstå elevens tänkande och planera undervisningen</strong>.
+    Dra därför inte stora slutsatser från ett enda tillfälle.
+    Kombinera gärna diagnosen med samtal, observationer,
+    elevlösningar och uppföljande uppgifter.
 
   </div>
 
 
   <section class="links">
 
-    <h2>➡️ Diagnosmaterial och nästa steg</h2>
+    <h2>➡️ Fortsätt i Matteresan</h2>
 
     <div class="link-row">
 
       <a href="material-diagnos.html">
-        🖨️ Diagnoser A4
+        🔎 Utskrivbara diagnoser
       </a>
 
       <a href="larare-bedomning.html">
         📊 Bedömning
       </a>
 
-      <a href="larare-missuppfattningar.html">
-        🧠 Missuppfattningar
+      <a href="larare-exittickets.html">
+        🎫 Exit tickets
       </a>
 
       <a href="larare-observation.html">
         👀 Observation
       </a>
 
-      <a href="larare-exittickets.html">
-        🚪 Exit tickets
+      <a href="larare-missuppfattningar.html">
+        🕵️ Missuppfattningar
       </a>
 
-      <a href="material-a4-larare.html">
-        📝 Analysblad
+      <a href="larare-stod.html">
+        🪜 Stöd
+      </a>
+
+      <a href="larare-utmaning.html">
+        🚀 Utmaning
       </a>
 
       <a href="larare-planering.html">
-        📅 Planering
+        🗓️ Planering
       </a>
 
     </div>
@@ -1101,7 +1182,7 @@
 <footer>
 
   <strong>HOLOS Matteresan F–9</strong><br>
-  🩺 Upptäck • Tolka • Undervisa • Följ upp
+  🔎 Synliggör • Tolka • Undervisa • Följ upp
 
 </footer>
 
