@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Förskoleklass | HOLOS Matteresan</title>
+  <title>Förskoleklass | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,25 +15,36 @@
 
     :root {
       --dark: #17324d;
-      --green: #4fa66f;
-      --green-dark: #32764c;
-      --green-light: #edf9f1;
-      --yellow: #fff3bd;
-      --blue: #e4f3ff;
-      --pink: #ffe7f1;
-      --orange: #ffe4c5;
-      --purple: #eee8ff;
-      --white: #ffffff;
-      --background: #f8fbfa;
       --text: #263747;
       --muted: #667788;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -43,14 +54,14 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.25), transparent 32%),
-        linear-gradient(135deg, #367d51, #67bb7f);
+        radial-gradient(circle at top right, rgba(255,255,255,0.22), transparent 32%),
+        linear-gradient(135deg, #5f9470, #92b79d);
       color: white;
-      padding: 22px 20px 52px;
+      padding: 22px 20px 62px;
     }
 
     .topbar {
-      max-width: 1150px;
+      max-width: 1180px;
       margin: auto;
       display: flex;
       justify-content: space-between;
@@ -59,26 +70,20 @@
     }
 
     .logo {
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 1px;
     }
 
     .back-link {
-      padding: 8px 15px;
-      border: 1px solid rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.7);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--green-dark);
-    }
-
     .hero {
-      max-width: 800px;
-      margin: 45px auto 0;
+      max-width: 960px;
+      margin: 46px auto 0;
       text-align: center;
     }
 
@@ -88,144 +93,138 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4.4rem);
-      line-height: 1.05;
-      margin-bottom: 10px;
+      font-size: clamp(2.7rem, 7vw, 4.8rem);
+      line-height: 1.04;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.5rem);
-      margin-bottom: 16px;
+      font-size: clamp(1.05rem, 3vw, 1.45rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 680px;
+      max-width: 850px;
       margin: auto;
-      color: #f1fff5;
-      font-size: 1.03rem;
+      color: #f5fbf7;
     }
 
     main {
-      max-width: 1150px;
+      max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 60px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      margin-bottom: 34px;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.35rem);
+    .intro h2 {
       color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 740px;
-      margin: 0 auto 30px;
+    .intro p {
       color: var(--muted);
     }
 
-    /* MÅL */
+    .progression {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
 
-    .goal-box {
-      background: var(--green-light);
-      border-radius: 26px;
-      padding: 34px;
+    .progression div {
+      background: var(--green);
+      border-radius: 14px;
+      padding: 14px 10px;
       text-align: center;
-    }
-
-    .goal-box h2 {
       color: var(--dark);
-      margin-bottom: 12px;
+      font-weight: 800;
+      font-size: 0.84rem;
     }
 
-    .goal-box p {
-      max-width: 760px;
-      margin: auto;
-      color: #536574;
+    .section-title {
+      margin: 42px 0 18px;
     }
 
-    /* OMRÅDEN */
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.9rem;
+      margin-bottom: 5px;
+    }
 
-    .area-grid {
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .area-card {
-      border-radius: 22px;
-      padding: 24px;
-      min-height: 180px;
-      border: 1px solid rgba(0,0,0,0.05);
-      transition: 0.2s;
+    .card {
+      border-radius: 19px;
+      padding: 22px;
+      min-height: 235px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .area-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 28px rgba(30,50,60,0.10);
+    .card:nth-child(6n+1) {
+      background: var(--green);
     }
 
-    .area-icon {
-      font-size: 2.3rem;
+    .card:nth-child(6n+2) {
+      background: var(--blue);
+    }
+
+    .card:nth-child(6n+3) {
+      background: var(--yellow);
+    }
+
+    .card:nth-child(6n+4) {
+      background: var(--purple);
+    }
+
+    .card:nth-child(6n+5) {
+      background: var(--teal);
+    }
+
+    .card:nth-child(6n+6) {
+      background: var(--pink);
+    }
+
+    .icon {
+      font-size: 2.2rem;
       margin-bottom: 8px;
     }
 
-    .area-card h3 {
+    .card h3 {
       color: var(--dark);
       margin-bottom: 7px;
-      font-size: 1.12rem;
+      font-size: 1.08rem;
     }
 
-    .area-card p {
-      color: #596978;
-      font-size: 0.94rem;
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.86rem;
     }
 
-    .c1 { background: var(--green-light); }
-    .c2 { background: var(--yellow); }
-    .c3 { background: var(--blue); }
-    .c4 { background: var(--pink); }
-    .c5 { background: var(--orange); }
-    .c6 { background: var(--purple); }
-
-    /* MATTEPRAT */
-
-    .talk-box {
-      background: linear-gradient(135deg, #fff5cc, #ffe79e);
-      border-radius: 28px;
-      padding: 38px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: center;
+    .card ul {
+      margin: 10px 0 0 20px;
     }
 
-    .talk-box h2 {
-      color: var(--dark);
-      font-size: 2rem;
-      margin-bottom: 10px;
+    .card li {
+      margin-bottom: 5px;
     }
-
-    .example {
-      background: white;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 8px 25px rgba(70,55,15,0.08);
-    }
-
-    .bubble {
-      margin-top: 10px;
-      padding: 11px 14px;
-      border-radius: 12px;
-      background: #f5f7f8;
-    }
-
-    /* AKTIVITETER */
 
     .activity-grid {
       display: grid;
@@ -235,168 +234,122 @@
 
     .activity-card {
       background: white;
-      border-radius: 20px;
+      border-radius: 19px;
       padding: 22px;
-      border: 1px solid #e6ece8;
-      min-height: 160px;
+      min-height: 240px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--green-strong);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .activity-card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .activity-card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
     }
 
     .activity-card span {
       font-size: 2rem;
-      display: block;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
     .activity-card h3 {
-      color: var(--green-dark);
+      color: var(--dark);
       margin-bottom: 7px;
     }
 
     .activity-card p {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.86rem;
+      margin-bottom: 14px;
     }
 
-    /* UPPDRAG */
-
-    .mission {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.15), transparent 35%),
-        linear-gradient(135deg, #254962, #3d7893);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
+    .activity-card strong {
+      margin-top: auto;
+      color: var(--dark);
+      font-size: 0.8rem;
     }
 
-    .mission h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+    .teacher-box {
+      margin-top: 42px;
+      background: var(--teal);
+      border-radius: 22px;
+      padding: 26px;
     }
 
-    .mission p {
-      color: #edf8ff;
-      max-width: 760px;
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
     }
 
-    .mission-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+    .teacher-box p,
+    .teacher-box li {
+      color: var(--muted);
+    }
+
+    .teacher-box ul {
+      margin: 10px 0 0 22px;
+    }
+
+    .teacher-box li {
+      margin-bottom: 6px;
+    }
+
+    .links {
       margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .mission-card {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 18px;
-      padding: 20px;
-    }
-
-    /* STÖD */
-
-    .support-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .support-card {
-      background: white;
-      border: 1px solid #e6ece8;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 150px;
-    }
-
-    .support-card div {
-      font-size: 2rem;
-    }
-
-    .support-card h3 {
-      margin: 7px 0;
-      color: var(--dark);
-    }
-
-    .support-card p {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    /* PROGRESSION */
-
-    .next-step {
-      background: var(--green-light);
-      border-radius: 28px;
-      padding: 38px;
-      text-align: center;
-    }
-
-    .next-step h2 {
-      color: var(--dark);
-      margin-bottom: 10px;
-    }
-
-    .next-step p {
-      max-width: 740px;
-      margin: auto;
-      color: var(--muted);
-    }
-
-    .arrow {
-      font-size: 2.5rem;
-      margin: 16px 0;
-    }
-
-    .next-button {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 11px 19px;
-      border-radius: 999px;
-      background: var(--green-dark);
+    .links a {
+      background: var(--dark);
       color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.8rem;
       font-weight: bold;
+    }
+
+    .curriculum-note {
+      margin-top: 24px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 15px;
+      padding: 18px;
+      color: #665831;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 900px) {
-      .area-grid,
-      .activity-grid,
-      .support-grid {
+    @media (max-width: 1000px) {
+      .grid,
+      .activity-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .talk-box {
-        grid-template-columns: 1fr;
-      }
-
-      .mission-grid {
-        grid-template-columns: 1fr;
+      .progression {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .area-grid,
+      .grid,
       .activity-grid,
-      .support-grid {
+      .progression {
         grid-template-columns: 1fr;
-      }
-
-      .talk-box,
-      .goal-box,
-      .mission,
-      .next-step {
-        padding: 25px 18px;
       }
 
       main {
@@ -405,24 +358,53 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
-      main {
-        padding: 0;
-        max-width: none;
+      .progression div,
+      .card:nth-child(6n+1) {
+        background: var(--green) !important;
       }
 
-      section {
-        break-inside: avoid;
+      .card:nth-child(6n+2) {
+        background: var(--blue) !important;
+      }
+
+      .card:nth-child(6n+3),
+      .curriculum-note {
+        background: var(--yellow) !important;
+      }
+
+      .card:nth-child(6n+4) {
+        background: var(--purple) !important;
+      }
+
+      .card:nth-child(6n+5),
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .card:nth-child(6n+6) {
+        background: var(--pink) !important;
       }
     }
   </style>
@@ -435,27 +417,29 @@
   <div class="topbar">
 
     <div class="logo">
-      HOLOS MATTERESAN
+      HOLOS MATTERESAN F–9
     </div>
 
     <a href="f-3.html" class="back-link">
-      ← Till F–3
+      ← F–3
     </a>
 
   </div>
 
+
   <div class="hero">
 
-    <div class="hero-icon">🌼</div>
+    <div class="hero-icon">🌱🧸🔢</div>
 
     <h1>Förskoleklass</h1>
 
-    <h2>Jag upptäcker matematiken</h2>
+    <h2>Lek • Upptäck • Sortera • Jämför • Berätta</h2>
 
     <p>
-      Matematik finns överallt.
-      Här får du leka, sortera, jämföra, bygga, räkna,
-      prata och upptäcka matematiska mönster.
+      Matematik i förskoleklass växer fram i lek,
+      vardag, rörelse och samtal.
+      Barnen får upptäcka antal, mönster, former,
+      lägen, storlek och förändring genom konkreta erfarenheter.
     </p>
 
   </div>
@@ -465,427 +449,473 @@
 
 <main>
 
-  <!-- INTRO -->
+  <section class="intro">
 
-  <section>
+    <h2>🌱 Matematik börjar i erfarenheten</h2>
 
-    <div class="goal-box">
-
-      <h2>🌱 Här börjar din matteresa</h2>
-
-      <p>
-        I förskoleklass bygger vi en trygg matematisk grund genom lek,
-        samtal, rörelse, bilder, konkret material och problemlösning.
-        Det viktigaste är att våga prova, tänka och berätta hur man tänker.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- MATEMATIKOMRÅDEN -->
-
-  <section>
-
-    <h2 class="section-title">
-      Vad vill du upptäcka?
-    </h2>
-
-    <p class="section-intro">
-      Välj ett område och börja utforska.
+    <p>
+      I förskoleklass behöver matematiken vara synlig och möjlig att undersöka.
+      Barnen får sortera föremål, bygga mönster,
+      jämföra mängder, beskriva former, orientera sig i rummet
+      och samtala om hur de vet.
+      Det viktiga är inte att skynda mot symboler,
+      utan att bygga en stark förståelse som symbolerna senare kan kopplas till.
     </p>
 
-    <div class="area-grid">
+    <div class="progression">
 
-      <a href="f-antal.html" class="area-card c1">
-
-        <div class="area-icon">🔢</div>
-
-        <h3>Antal & tal</h3>
-
-        <p>
-          Räkna föremål, jämför mängder och upptäck hur antal och tal hör ihop.
-        </p>
-
-      </a>
-
-
-      <a href="f-sortera.html" class="area-card c2">
-
-        <div class="area-icon">🧺</div>
-
-        <h3>Sortera & jämföra</h3>
-
-        <p>
-          Sortera efter färg, form och storlek och fundera över vad som är lika och olika.
-        </p>
-
-      </a>
-
-
-      <a href="f-monster.html" class="area-card c3">
-
-        <div class="area-icon">🟡🔵</div>
-
-        <h3>Mönster</h3>
-
-        <p>
-          Upptäck, fortsätt och skapa egna mönster.
-        </p>
-
-      </a>
-
-
-      <a href="f-geometri.html" class="area-card c4">
-
-        <div class="area-icon">🔺</div>
-
-        <h3>Former</h3>
-
-        <p>
-          Upptäck cirklar, trianglar, kvadrater och andra geometriska former.
-        </p>
-
-      </a>
-
-
-      <a href="f-matning.html" class="area-card c5">
-
-        <div class="area-icon">📏</div>
-
-        <h3>Mäta & jämföra</h3>
-
-        <p>
-          Längre, kortare, tyngre, lättare, mer och mindre.
-        </p>
-
-      </a>
-
-
-      <a href="f-lage.html" class="area-card c6">
-
-        <div class="area-icon">🧭</div>
-
-        <h3>Läge & riktning</h3>
-
-        <p>
-          Över, under, bredvid, framför, bakom, höger och vänster.
-        </p>
-
-      </a>
-
-
-      <a href="f-tid.html" class="area-card c1">
-
-        <div class="area-icon">⏰</div>
-
-        <h3>Tid</h3>
-
-        <p>
-          Före, efter, dagar, ordningsföljd och hur vi beskriver tid.
-        </p>
-
-      </a>
-
-
-      <a href="f-problem.html" class="area-card c2">
-
-        <div class="area-icon">🧠</div>
-
-        <h3>Små problem</h3>
-
-        <p>
-          Tänk, prova, bygg och hitta olika sätt att lösa problem.
-        </p>
-
-      </a>
-
-
-      <a href="f-data.html" class="area-card c3">
-
-        <div class="area-icon">📊</div>
-
-        <h3>Samla & visa</h3>
-
-        <p>
-          Samla information, sortera den och visa resultat med bilder.
-        </p>
-
-      </a>
+      <div>👀 Upptäcka</div>
+      <div>✋ Göra</div>
+      <div>🧱 Bygga</div>
+      <div>💬 Berätta</div>
+      <div>🎨 Visa</div>
 
     </div>
 
   </section>
 
 
-  <!-- MATTEPRAT -->
+  <div class="section-title">
 
-  <section>
+    <h2>🔢 Matematiska områden</h2>
 
-    <div class="talk-box">
-
-      <div>
-
-        <h2>🗣️ Matteprat</h2>
-
-        <p>
-          Vi lär oss mycket matematik genom att prata med varandra.
-          Det finns ofta flera sätt att tänka.
-        </p>
-
-        <br>
-
-        <a href="matteprat-f.html" class="next-button">
-          Öppna Matteprat →
-        </a>
-
-      </div>
-
-
-      <div class="example">
-
-        <strong>Vad ser du?</strong>
-
-        <h2 style="margin-top:12px;">
-          🍎 🍎 🍎 🍎 🍎
-        </h2>
-
-        <div class="bubble">
-          💭 Hur många äpplen ser du?
-        </div>
-
-        <div class="bubble">
-          💭 Hur kan du veta utan att räkna ett och ett?
-        </div>
-
-        <div class="bubble">
-          💭 Vad händer om vi lägger till två?
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- AKTIVITETER -->
-
-  <section>
-
-    <h2 class="section-title">
-      Matematik med hela kroppen
-    </h2>
-
-    <p class="section-intro">
-      Matematik behöver inte göras vid ett bord.
+    <p>
+      Innehållet vävs gärna in i lek, rutiner, stationer, rörelse och teman.
     </p>
 
-    <div class="activity-grid">
-
-      <div class="activity-card">
-        <span>🏃</span>
-        <h3>Rörelsematte</h3>
-        <p>
-          Hoppa antal, bygg tal med kroppen och följ matematiska instruktioner.
-        </p>
-      </div>
-
-      <div class="activity-card">
-        <span>🌳</span>
-        <h3>Utematte</h3>
-        <p>
-          Leta former, samla föremål, sortera och jämför ute.
-        </p>
-      </div>
-
-      <div class="activity-card">
-        <span>🧱</span>
-        <h3>Byggmatte</h3>
-        <p>
-          Bygg mönster, former och konstruktioner med klossar.
-        </p>
-      </div>
-
-      <div class="activity-card">
-        <span>🎲</span>
-        <h3>Spelmatte</h3>
-        <p>
-          Träna antal, turordning och strategier genom enkla spel.
-        </p>
-      </div>
-
-      <div class="activity-card">
-        <span>🎨</span>
-        <h3>Skapande matte</h3>
-        <p>
-          Rita mönster, skapa symmetri och bygg geometriska bilder.
-        </p>
-      </div>
-
-      <div class="activity-card">
-        <span>📖</span>
-        <h3>Sagomatte</h3>
-        <p>
-          Lös matematiska frågor och problem genom berättelser.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <!-- ÄVENTYR -->
+  <div class="grid">
 
-  <section>
+    <article class="card">
 
-    <div class="mission">
+      <div class="icon">🔢</div>
 
-      <h2>🧭 Matematikäventyr</h2>
+      <h3>Antal och räkning</h3>
 
       <p>
-        Följ berättelsen och hjälp figurerna genom att lösa matematiska uppdrag.
+        Utveckla förståelse för antal och hur antal kan bestämmas.
       </p>
 
-      <div class="mission-grid">
+      <ul>
+        <li>Räkna föremål</li>
+        <li>Para ihop ett till ett</li>
+        <li>Jämföra mängder</li>
+        <li>Se små antal utan att räkna ett och ett</li>
+      </ul>
 
-        <a href="aventyr-f.html" class="mission-card">
-          <h3>🐉 Drakens försvunna former</h3>
-          <p>
-            Leta former och hjälp draken hitta sin skatt.
-          </p>
-        </a>
-
-        <a href="f-skattjakt.html" class="mission-card">
-          <h3>🗺️ Matematikskatten</h3>
-          <p>
-            Följ riktningar och lös små problem för att hitta skatten.
-          </p>
-        </a>
-
-        <a href="f-monsteruppdrag.html" class="mission-card">
-          <h3>🌈 Mönstermysteriet</h3>
-          <p>
-            Upptäck vilket mönster som saknas och skapa egna.
-          </p>
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <!-- STÖD OCH UTMANING -->
+    <article class="card">
 
-  <section>
+      <div class="icon">⚖️</div>
 
-    <h2 class="section-title">
-      Jag vill...
-    </h2>
+      <h3>Jämföra</h3>
 
-    <p class="section-intro">
-      Välj det som passar dig just nu.
+      <p>
+        Upptäck relationer mellan mängder, storlekar och längder.
+      </p>
+
+      <ul>
+        <li>Fler och färre</li>
+        <li>Större och mindre</li>
+        <li>Längre och kortare</li>
+        <li>Tyngre och lättare</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🧺</div>
+
+      <h3>Sortera och klassificera</h3>
+
+      <p>
+        Hitta egenskaper som gör att föremål kan grupperas på olika sätt.
+      </p>
+
+      <ul>
+        <li>Färg</li>
+        <li>Form</li>
+        <li>Storlek</li>
+        <li>Flera möjliga sorteringsregler</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔁</div>
+
+      <h3>Mönster</h3>
+
+      <p>
+        Upptäck vad som upprepas och vad som förändras.
+      </p>
+
+      <ul>
+        <li>Färgmönster</li>
+        <li>Rörelsemönster</li>
+        <li>Ljudmönster</li>
+        <li>Fortsätta och skapa egna mönster</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔺</div>
+
+      <h3>Former</h3>
+
+      <p>
+        Undersök och beskriv former utifrån deras egenskaper.
+      </p>
+
+      <ul>
+        <li>Cirkel</li>
+        <li>Triangel</li>
+        <li>Rektangel</li>
+        <li>Kvadrat</li>
+        <li>Bygga och skapa former</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🧭</div>
+
+      <h3>Läge och riktning</h3>
+
+      <p>
+        Använd ord för att beskriva var något finns och hur man rör sig.
+      </p>
+
+      <ul>
+        <li>Över och under</li>
+        <li>Framför och bakom</li>
+        <li>Bredvid och mellan</li>
+        <li>Höger och vänster i konkreta sammanhang</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📏</div>
+
+      <h3>Mätning</h3>
+
+      <p>
+        Jämför och undersök längd, tid, massa och volym.
+      </p>
+
+      <ul>
+        <li>Mäta med klossar eller steg</li>
+        <li>Jämföra längder</li>
+        <li>Fylla och hälla</li>
+        <li>Ordna händelser i tid</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🧩</div>
+
+      <h3>Problemlösning</h3>
+
+      <p>
+        Arbeta med små vardagsproblem där barnen får prova flera idéer.
+      </p>
+
+      <ul>
+        <li>Bygga</li>
+        <li>Rita</li>
+        <li>Pröva</li>
+        <li>Förklara</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📊</div>
+
+      <h3>Samla och visa</h3>
+
+      <p>
+        Samla enkel information och visa resultaten tillsammans.
+      </p>
+
+      <ul>
+        <li>Rösta</li>
+        <li>Sortera svar</li>
+        <li>Göra bilddiagram</li>
+        <li>Jämföra resultat</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🎲 Aktiviteter att använda direkt</h2>
+
+    <p>
+      Korta aktiviteter som fungerar i helklass, stationer, par eller ute.
     </p>
 
-    <div class="support-grid">
-
-      <a href="spel-f.html" class="support-card">
-        <div>🎮</div>
-        <h3>Spela</h3>
-        <p>
-          Träna matematik genom enkla spel.
-        </p>
-      </a>
-
-      <a href="stod-f.html" class="support-card">
-        <div>🛟</div>
-        <h3>Få hjälp</h3>
-        <p>
-          Se bilder, konkreta exempel och hjälp steg för steg.
-        </p>
-      </a>
-
-      <a href="utmaning-f.html" class="support-card">
-        <div>🚀</div>
-        <h3>Få en utmaning</h3>
-        <p>
-          Prova kluringar där du behöver tänka på nya sätt.
-        </p>
-      </a>
-
-      <a href="matteord-f.html" class="support-card">
-        <div>💬</div>
-        <h3>Lära matteord</h3>
-        <p>
-          Träna ord som fler, färre, störst, minst, över och under.
-        </p>
-      </a>
-
-      <a href="verkligheten-f.html" class="support-card">
-        <div>🌍</div>
-        <h3>Hitta matte överallt</h3>
-        <p>
-          Leta matematik i klassrummet, hemma och ute.
-        </p>
-      </a>
-
-      <a href="veckansproblem-f.html" class="support-card">
-        <div>⭐</div>
-        <h3>Lösa veckans problem</h3>
-        <p>
-          Ett problem att tänka och prata om tillsammans.
-        </p>
-      </a>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <!-- NÄSTA STEG -->
+  <div class="activity-grid">
 
-  <section>
+    <article class="activity-card">
 
-    <div class="next-step">
+      <span>👀</span>
 
-      <h2>🌱 Från förskoleklass till årskurs 1</h2>
+      <h3>Hur många såg du?</h3>
 
       <p>
-        Det du upptäcker här följer med dig vidare.
-        I årskurs 1 kommer du fortsätta arbeta med tal,
-        strategier, former, mönster och problemlösning.
+        Visa snabbt ett litet antal föremål.
+        Dölj dem och fråga hur många barnen såg och hur de såg antalet.
       </p>
-
-      <div class="arrow">↓</div>
 
       <strong>
-        Upptäcka → Förstå → Använda → Förklara
+        Tränar antal och strategier.
       </strong>
 
-      <br>
+    </article>
 
-      <a href="ak1.html" class="next-button">
-        Se nästa steg: Åk 1 →
+
+    <article class="activity-card">
+
+      <span>🧦</span>
+
+      <h3>Sorteringsdetektiver</h3>
+
+      <p>
+        Lägg fram olika föremål.
+        Barnen sorterar dem och andra försöker lista ut sorteringsregeln.
+      </p>
+
+      <strong>
+        Tränar klassificering och språk.
+      </strong>
+
+    </article>
+
+
+    <article class="activity-card">
+
+      <span>🔁</span>
+
+      <h3>Fortsätt mönstret</h3>
+
+      <p>
+        Skapa ett mönster med färger, rörelser eller klossar.
+        Barnen fortsätter och beskriver vad som upprepas.
+      </p>
+
+      <strong>
+        Tränar mönster och generalisering.
+      </strong>
+
+    </article>
+
+
+    <article class="activity-card">
+
+      <span>🏃</span>
+
+      <h3>Matematikbanan</h3>
+
+      <p>
+        Gör en rörelsebana:
+        gå tre steg framåt,
+        ställ dig bakom stolen,
+        hoppa över linjen och ställ dig mellan två koner.
+      </p>
+
+      <strong>
+        Tränar läge, riktning och tal.
+      </strong>
+
+    </article>
+
+
+    <article class="activity-card">
+
+      <span>📏</span>
+
+      <h3>Vad är längst?</h3>
+
+      <p>
+        Barnen letar efter tre föremål,
+        jämför dem och ordnar dem från kortast till längst.
+      </p>
+
+      <strong>
+        Tränar mätning och jämförelse.
+      </strong>
+
+    </article>
+
+
+    <article class="activity-card">
+
+      <span>🧱</span>
+
+      <h3>Bygg på flera sätt</h3>
+
+      <p>
+        Ge barnen till exempel sex klossar.
+        Hur många olika torn eller uppdelningar kan de skapa?
+      </p>
+
+      <strong>
+        Tränar antal, struktur och problemlösning.
+      </strong>
+
+    </article>
+
+
+    <article class="activity-card">
+
+      <span>🔺</span>
+
+      <h3>Formjakten</h3>
+
+      <p>
+        Leta efter former i klassrummet eller ute.
+        Fotografera, rita eller beskriv vad ni hittar.
+      </p>
+
+      <strong>
+        Tränar geometri och matematiskt språk.
+      </strong>
+
+    </article>
+
+
+    <article class="activity-card">
+
+      <span>📊</span>
+
+      <h3>Klassens diagram</h3>
+
+      <p>
+        Ställ en enkel fråga, till exempel favoritfrukt.
+        Låt barnen placera sin markering och jämför staplarna.
+      </p>
+
+      <strong>
+        Tränar data och jämförelser.
+      </strong>
+
+    </article>
+
+
+    <article class="activity-card">
+
+      <span>💬</span>
+
+      <h3>Vilken hör inte ihop?</h3>
+
+      <p>
+        Visa fyra bilder, former eller mängder.
+        Barnen väljer vilken som inte hör ihop och förklarar varför.
+      </p>
+
+      <strong>
+        Flera svar kan vara möjliga.
+      </strong>
+
+    </article>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Att tänka på i undervisningen</h2>
+
+    <p>
+      Matematik i förskoleklass bör ge många möjligheter att tänka, göra och prata.
+    </p>
+
+    <ul>
+      <li>Fråga inte bara ”Vad är svaret?” utan också ”Hur såg du det?”.</li>
+      <li>Låt barn använda konkret material innan symboler blir centrala.</li>
+      <li>Återkom till matematiska ord i vardagliga situationer.</li>
+      <li>Acceptera flera sätt att visa samma idé.</li>
+      <li>Använd rörelse, lek och utomhusmiljö som matematisk resurs.</li>
+      <li>Var uppmärksam på barn som räknar korrekt men ännu inte kopplar sista räkneordet till mängdens antal.</li>
+      <li>Ge utmaning genom frågor som ”Kan du göra det på ett annat sätt?” och ”Hur vet du att du hittat alla?”.</li>
+    </ul>
+
+    <div class="links">
+
+      <a href="f-3.html">
+        🌱 Till F–3
+      </a>
+
+      <a href="ak1.html">
+        1️⃣ Nästa: Årskurs 1
+      </a>
+
+      <a href="matteprat.html">
+        💬 Matteprat
+      </a>
+
+      <a href="spel.html">
+        🎲 Spel
+      </a>
+
+      <a href="aventyr.html">
+        🗺️ Matematikäventyr
+      </a>
+
+      <a href="larare-f3.html">
+        👩‍🏫 Lärarstöd F–3
       </a>
 
     </div>
 
   </section>
+
+
+  <div class="curriculum-note">
+
+    <strong>📘 Om Lgr22:</strong><br>
+    Matteresan är planerad med Lgr22 som grund.
+    Den här sidan är <strong>Matteresans pedagogiska planering för förskoleklass</strong>.
+    Den ska användas som stöd för undervisning och progression,
+    inte som en ordagrann återgivning av läroplanens centrala innehåll.
+
+  </div>
 
 </main>
 
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🌼 Förskoleklass – Jag upptäcker matematiken
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🌱 Förskoleklass • Lek • Upptäck • Sortera • Jämför • Berätta
 
 </footer>
 
