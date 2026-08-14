@@ -34,13 +34,14 @@
       --gray: #eef2f4;
 
       --background: #f7f9fb;
+      --line: #cfd7de;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
     a {
@@ -49,281 +50,316 @@
     }
 
     header {
-      background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
-        linear-gradient(135deg, #53677a, #8295a8);
-      color: white;
-      padding: 22px 20px 55px;
+      max-width: 1120px;
+      margin: 24px auto 0;
+      padding: 0 18px;
     }
 
     .topbar {
-      max-width: 1180px;
-      margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
+      margin-bottom: 18px;
     }
 
     .logo {
       font-weight: 800;
       letter-spacing: 1px;
+      color: var(--dark);
     }
 
     .back-link {
-      border: 1px solid rgba(255,255,255,0.65);
+      background: var(--dark);
+      color: white;
       border-radius: 999px;
-      padding: 8px 15px;
+      padding: 9px 14px;
       font-weight: bold;
+      font-size: 0.85rem;
     }
 
-    .hero {
-      max-width: 900px;
-      margin: 42px auto 0;
-      text-align: center;
+    .screen-intro {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.07);
+      margin-bottom: 18px;
     }
 
-    .hero-icon {
-      font-size: 4rem;
-      margin-bottom: 8px;
+    .screen-intro h1 {
+      color: var(--dark);
+      margin-bottom: 7px;
     }
 
-    .hero h1 {
-      font-size: clamp(2.3rem, 7vw, 4.2rem);
-      line-height: 1.05;
-      margin-bottom: 12px;
+    .screen-intro p {
+      color: var(--muted);
     }
 
-    .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 14px;
-    }
-
-    .hero p {
-      max-width: 820px;
-      margin: auto;
-      color: #f7f9fc;
+    .screen-note {
+      margin-top: 14px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 15px;
+      color: #665831;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1120px;
       margin: auto;
-      padding: 42px 20px 65px;
-    }
-
-    .intro {
-      background: white;
-      border-radius: 22px;
-      padding: 28px;
-      margin-bottom: 34px;
-      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
-      text-align: center;
-    }
-
-    .intro h2 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .intro p {
-      color: var(--muted);
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .print-button {
-      margin-top: 16px;
-      background: var(--dark);
-      color: white;
-      border: none;
-      border-radius: 999px;
-      padding: 12px 20px;
-      font-weight: bold;
-      cursor: pointer;
+      padding: 0 18px 50px;
     }
 
     .sheet {
       background: white;
-      border: 1px solid rgba(0,0,0,0.08);
-      border-top: 9px solid var(--blue-strong);
-      border-radius: 22px;
-      padding: 24px;
-      margin-bottom: 28px;
+      width: 100%;
       min-height: 190mm;
+      margin: 22px auto;
+      padding: 10mm;
+      border-radius: 18px;
+      box-shadow: 0 6px 22px rgba(32,48,64,0.08);
+      page-break-after: always;
+      break-after: page;
     }
 
-    .sheet.green-sheet {
-      border-top-color: var(--green-strong);
+    .sheet.final-sheet {
+      page-break-after: auto;
+      break-after: auto;
     }
 
-    .sheet.purple-sheet {
-      border-top-color: var(--purple-strong);
+    .sheet.green {
+      border-top: 10px solid var(--green-strong);
     }
 
-    .sheet-head {
+    .sheet.blue {
+      border-top: 10px solid var(--blue-strong);
+    }
+
+    .sheet.purple {
+      border-top: 10px solid var(--purple-strong);
+    }
+
+    .sheet-header {
       text-align: center;
-      margin-bottom: 18px;
+      margin-bottom: 7mm;
     }
 
-    .sheet-head h2 {
-      color: var(--dark);
-      font-size: 1.7rem;
+    .sheet-header .icon {
+      font-size: 2.4rem;
       margin-bottom: 4px;
     }
 
-    .sheet-head p {
-      color: var(--muted);
-      font-size: 0.9rem;
+    .sheet-header h2 {
+      color: var(--dark);
+      font-size: 1.6rem;
+      margin-bottom: 4px;
     }
 
-    .meta-grid {
+    .sheet-header p {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .two-col {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6mm;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5mm;
     }
 
     .field {
+      margin-bottom: 5mm;
+    }
+
+    .field-title {
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 2mm;
+      font-size: 0.9rem;
+    }
+
+    .line {
+      border-bottom: 1.5px solid var(--line);
+      height: 8mm;
+    }
+
+    .box {
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      min-height: 24mm;
+      padding: 4mm;
       background: white;
-      border: 1.4px solid #9aa6ae;
-      border-radius: 10px;
-      min-height: 48px;
-      padding: 9px;
     }
 
-    .field strong {
-      display: block;
+    .box.medium {
+      min-height: 34mm;
+    }
+
+    .box.large {
+      min-height: 48mm;
+    }
+
+    .note {
+      background: var(--yellow);
+      border-radius: 12px;
+      padding: 4mm;
+      color: #665831;
+      font-size: 0.78rem;
+      margin-bottom: 5mm;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4mm;
+      margin-bottom: 6mm;
+    }
+
+    .focus-card {
+      border-radius: 12px;
+      padding: 4mm;
+      min-height: 32mm;
+    }
+
+    .focus-card h3 {
       color: var(--dark);
-      font-size: 0.82rem;
-    }
-
-    .section-box {
-      border-radius: 14px;
-      padding: 14px;
-      margin-bottom: 12px;
-    }
-
-    .section-box h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-      font-size: 1rem;
-    }
-
-    .section-box p {
-      color: #4e5d68;
       font-size: 0.86rem;
+      margin-bottom: 2mm;
     }
 
-    .green { background: var(--green); }
-    .blue { background: var(--blue); }
-    .purple { background: var(--purple); }
-    .yellow { background: var(--yellow); }
-    .orange { background: var(--orange); }
-    .teal { background: var(--teal); }
-    .pink { background: var(--pink); }
-    .gray { background: var(--gray); }
+    .focus-card p {
+      color: var(--muted);
+      font-size: 0.73rem;
+    }
 
-    .table-wrap {
-      margin-top: 10px;
-      overflow-x: auto;
+    .green-bg {
+      background: var(--green);
+    }
+
+    .blue-bg {
+      background: var(--blue);
+    }
+
+    .purple-bg {
+      background: var(--purple);
+    }
+
+    .yellow-bg {
+      background: var(--yellow);
+    }
+
+    .teal-bg {
+      background: var(--teal);
+    }
+
+    .pink-bg {
+      background: var(--pink);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      table-layout: fixed;
+      font-size: 0.74rem;
     }
 
     th,
     td {
-      border: 1px solid #86939c;
-      padding: 7px;
+      border: 1px solid #bfc9d1;
+      padding: 5px;
       vertical-align: top;
     }
 
     th {
-      background: var(--dark);
-      color: white;
-      font-size: 0.8rem;
+      background: var(--gray);
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .class-table td {
+      height: 12mm;
+    }
+
+    .student-table td {
+      height: 17mm;
+    }
+
+    .talk-table td {
+      height: 18mm;
+    }
+
+    .check {
+      font-size: 1rem;
+      color: #6f7f8d;
       text-align: center;
     }
 
-    td {
-      background: white;
-      min-height: 40px;
-      height: 44px;
-      font-size: 0.78rem;
-    }
-
-    .name-col {
-      width: 15%;
-    }
-
-    .small-col {
-      width: 10%;
-      text-align: center;
-    }
-
-    .notes-col {
-      width: 25%;
-    }
-
-    .two-grid {
+    .reflection {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      gap: 5mm;
+      margin-top: 6mm;
     }
 
-    .write-area {
-      background: white;
-      border: 1.2px solid #98a4ad;
-      border-radius: 8px;
-      margin-top: 8px;
-      min-height: 85px;
+    .reflection-card {
+      border-radius: 12px;
+      padding: 4mm;
+      min-height: 34mm;
     }
 
-    .write-area.large {
-      min-height: 130px;
-    }
-
-    .legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .legend span {
-      background: white;
-      border: 1px solid #a7b0b7;
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 0.76rem;
+    .reflection-card h3 {
       color: var(--dark);
-      font-weight: bold;
+      font-size: 0.85rem;
+      margin-bottom: 2mm;
     }
 
-    .footer-note {
-      text-align: center;
-      margin-top: 14px;
+    .reflection-card p {
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: 0.74rem;
+      margin-bottom: 2mm;
     }
 
-    .screen-note {
-      background: var(--orange);
-      border-left: 6px solid #c77f43;
-      border-radius: 16px;
-      padding: 20px;
-      color: #654c37;
-      margin-top: 25px;
+    .write-line {
+      border-bottom: 1.2px solid rgba(80,100,115,0.35);
+      height: 6mm;
     }
 
-    footer {
-      background: var(--dark);
-      color: white;
+    .sentence-box {
+      background: var(--teal);
+      border-radius: 13px;
+      padding: 5mm;
+      margin-bottom: 5mm;
+    }
+
+    .sentence-box h3 {
+      color: var(--dark);
+      font-size: 0.9rem;
+      margin-bottom: 3mm;
+    }
+
+    .sentence-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3mm;
+    }
+
+    .sentence {
+      background: white;
+      border-radius: 9px;
+      padding: 3mm;
+      color: var(--text);
+      font-size: 0.75rem;
+    }
+
+    .sheet-footer {
+      margin-top: 7mm;
       text-align: center;
-      padding: 32px 20px;
+      color: var(--muted);
+      font-size: 0.72rem;
     }
 
     @media (max-width: 800px) {
@@ -331,28 +367,26 @@
         flex-direction: column;
       }
 
-      .meta-grid,
-      .two-grid {
+      .two-col,
+      .three-col,
+      .focus-grid,
+      .reflection,
+      .sentence-grid {
         grid-template-columns: 1fr;
       }
 
-      main {
-        padding-left: 14px;
-        padding-right: 14px;
+      .sheet {
+        min-height: auto;
+        overflow-x: auto;
       }
     }
 
-    /* ===========================
-       A4 LIGGANDE + FÄRGUTSKRIFT
-       =========================== */
-
     @page {
       size: A4 landscape;
-      margin: 10mm;
+      margin: 8mm;
     }
 
     @media print {
-
       *,
       *::before,
       *::after {
@@ -369,86 +403,64 @@
         forced-color-adjust: none !important;
       }
 
-      header,
-      footer,
-      .intro,
-      .screen-note {
+      header {
         display: none !important;
       }
 
       main {
-        width: 100%;
         max-width: none;
         margin: 0;
         padding: 0;
       }
 
       .sheet {
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0;
         width: 100%;
         min-height: 190mm;
-        margin: 0;
-        padding: 0;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-        border-bottom: none;
-        border-top: 7px solid var(--blue-strong) !important;
-        page-break-after: always;
-        break-after: page;
       }
 
-      .sheet.green-sheet {
-        border-top-color: var(--green-strong) !important;
+      .sheet.green {
+        border-top: 10px solid var(--green-strong) !important;
       }
 
-      .sheet.purple-sheet {
-        border-top-color: var(--purple-strong) !important;
+      .sheet.blue {
+        border-top: 10px solid var(--blue-strong) !important;
       }
 
-      .sheet:last-of-type {
-        page-break-after: auto;
-        break-after: auto;
+      .sheet.purple {
+        border-top: 10px solid var(--purple-strong) !important;
       }
 
-      .green { background: var(--green) !important; }
-      .blue { background: var(--blue) !important; }
-      .purple { background: var(--purple) !important; }
-      .yellow { background: var(--yellow) !important; }
-      .orange { background: var(--orange) !important; }
-      .teal { background: var(--teal) !important; }
-      .pink { background: var(--pink) !important; }
-      .gray { background: var(--gray) !important; }
+      .green-bg {
+        background: var(--green) !important;
+      }
 
-      .field,
-      td,
-      .write-area,
-      .legend span {
-        background: white !important;
+      .blue-bg {
+        background: var(--blue) !important;
+      }
+
+      .purple-bg {
+        background: var(--purple) !important;
+      }
+
+      .yellow-bg,
+      .note {
+        background: var(--yellow) !important;
+      }
+
+      .teal-bg,
+      .sentence-box {
+        background: var(--teal) !important;
+      }
+
+      .pink-bg {
+        background: var(--pink) !important;
       }
 
       th {
-        background: var(--dark) !important;
-        color: white !important;
-      }
-
-      .meta-grid {
-        display: grid !important;
-        grid-template-columns: 1.4fr 1fr 1fr 1fr !important;
-        gap: 3mm !important;
-      }
-
-      .two-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 3mm !important;
-      }
-
-      .section-box,
-      .table-wrap,
-      .field,
-      .write-area {
-        break-inside: avoid;
-        page-break-inside: avoid;
+        background: var(--gray) !important;
       }
     }
   </style>
@@ -459,282 +471,587 @@
 <header>
 
   <div class="topbar">
-    <div class="logo">HOLOS MATTERESAN</div>
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
 
     <a href="larare-utskrift.html" class="back-link">
-      ← Utskriftsmaterial
+      ← Utskriftscentral
     </a>
+
   </div>
 
-  <div class="hero">
+  <section class="screen-intro">
 
-    <div class="hero-icon">👀📋</div>
-
-    <h1>Observationsunderlag</h1>
-
-    <h2>Strategier • Begrepp • Resonemang • Representationer • Nästa steg</h2>
+    <h1>👀 Observationsunderlag</h1>
 
     <p>
-      Utskriftsbara observationsunderlag för att dokumentera
-      vad eleverna gör, säger och visar under matematikundervisningen.
+      Tre utskrivbara observationsblad:
+      helklass, fördjupad observation av en elev
+      och observation av matematiskt samtal.
     </p>
 
-  </div>
+    <div class="screen-note">
+      🖨️ <strong>Utskrift:</strong>
+      detta material är anpassat för <strong>A4 liggande</strong>.
+      Välj också <strong>Bakgrundsgrafik</strong> och kontrollera att skrivaren står på <strong>Färg</strong>.
+    </div>
+
+  </section>
 
 </header>
 
 
 <main>
 
-  <section class="intro">
-
-    <h2>👀 Se mer än rätt och fel</h2>
-
-    <p>
-      Observationerna hjälper läraren att uppmärksamma hur eleverna
-      använder strategier, matematiskt språk, representationer och resonemang.
-      Materialet är gjort i liggande A4 för att ge gott om plats för anteckningar.
-    </p>
-
-    <button class="print-button" onclick="window.print()">
-      🖨️ Skriv ut observationsunderlagen
-    </button>
-
-  </section>
-
-
   <!-- SIDA 1 -->
+  <section class="sheet green">
 
-  <section class="sheet">
+    <div class="sheet-header">
 
-    <div class="sheet-head">
-      <h2>👀 Klassobservation – matematiskt lärande</h2>
-      <p>Snabb överblick under en lektion eller aktivitet</p>
-    </div>
+      <div class="icon">👥👀</div>
 
-    <div class="meta-grid">
-      <div class="field"><strong>Klass / grupp</strong></div>
-      <div class="field"><strong>Område</strong></div>
-      <div class="field"><strong>Lektion</strong></div>
-      <div class="field"><strong>Datum</strong></div>
-    </div>
+      <h2>Helklassobservation</h2>
 
-    <div class="section-box blue">
-      <h3>Vad observeras?</h3>
       <p>
-        Markera exempelvis ✓ = självständigt, S = med stöd,
-        ? = osäkert eller skriv en kort kommentar.
+        Fånga matematiska mönster i gruppen utan att försöka observera allt samtidigt.
       </p>
 
-      <div class="legend">
-        <span>✓ Självständigt</span>
-        <span>S Med stöd</span>
-        <span>? Osäkert</span>
-        <span>★ Styrka</span>
+    </div>
+
+
+    <div class="two-col">
+
+      <div class="field">
+        <div class="field-title">Klass / grupp</div>
+        <div class="line"></div>
       </div>
-    </div>
 
-    <div class="table-wrap">
-
-      <table>
-
-        <tr>
-          <th class="name-col">Elev</th>
-          <th class="small-col">Förstår uppgiften</th>
-          <th class="small-col">Väljer strategi</th>
-          <th class="small-col">Använder representation</th>
-          <th class="small-col">Använder begrepp</th>
-          <th class="small-col">Förklarar</th>
-          <th class="small-col">Kontrollerar</th>
-          <th class="notes-col">Kort anteckning / nästa steg</th>
-        </tr>
-
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-
-      </table>
+      <div class="field">
+        <div class="field-title">Datum / lektion</div>
+        <div class="line"></div>
+      </div>
 
     </div>
 
-    <div class="footer-note">
-      HOLOS Matteresan • Klassobservation
+
+    <div class="field">
+
+      <div class="field-title">
+        🎯 Dagens observationsfokus
+      </div>
+
+      <div class="box"></div>
+
+    </div>
+
+
+    <div class="focus-grid">
+
+      <div class="focus-card green-bg">
+        <h3>🛣️ Strategier</h3>
+        <p>
+          Hur börjar eleverna? Vilka strategier väljs? Byter någon strategi?
+        </p>
+      </div>
+
+      <div class="focus-card blue-bg">
+        <h3>🧱 Representationer</h3>
+        <p>
+          Material, bild, tallinje, tabell, graf eller symboler?
+        </p>
+      </div>
+
+      <div class="focus-card purple-bg">
+        <h3>💬 Resonemang</h3>
+        <p>
+          Förklarar, jämför och motiverar eleverna sina idéer?
+        </p>
+      </div>
+
+    </div>
+
+
+    <table class="class-table">
+
+      <tr>
+        <th style="width:14%;">Elev</th>
+        <th>Strategi</th>
+        <th>Representation</th>
+        <th>Begrepp / språk</th>
+        <th>Resonemang</th>
+        <th>Stöd / nästa steg</th>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+    </table>
+
+
+    <div class="reflection">
+
+      <div class="reflection-card yellow-bg">
+
+        <h3>🕵️ Mönster i gruppen</h3>
+
+        <p>
+          Vad behöver tas upp gemensamt?
+        </p>
+
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+
+      </div>
+
+
+      <div class="reflection-card teal-bg">
+
+        <h3>➡️ Nästa undervisningssteg</h3>
+
+        <p>
+          Vad förändrar jag i nästa lektion?
+        </p>
+
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="sheet-footer">
+      HOLOS Matteresan F–9 • Helklassobservation
     </div>
 
   </section>
 
 
   <!-- SIDA 2 -->
+  <section class="sheet blue">
 
-  <section class="sheet green-sheet">
+    <div class="sheet-header">
 
-    <div class="sheet-head">
-      <h2>🧠 Fördjupad observation – en elev</h2>
-      <p>Dokumentera hur eleven tänker och vilka undervisningssteg som behövs</p>
-    </div>
+      <div class="icon">👤🧠</div>
 
-    <div class="meta-grid">
-      <div class="field"><strong>Elev</strong></div>
-      <div class="field"><strong>Område</strong></div>
-      <div class="field"><strong>Uppgift</strong></div>
-      <div class="field"><strong>Datum</strong></div>
-    </div>
+      <h2>Fördjupad observation – en elev</h2>
 
-    <div class="two-grid">
-
-      <div class="section-box green">
-        <h3>1. Vad gör eleven?</h3>
-        <p>
-          Beskriv strategi, material, bilder eller beräkningar.
-        </p>
-        <div class="write-area large"></div>
-      </div>
-
-      <div class="section-box blue">
-        <h3>2. Vad säger eleven?</h3>
-        <p>
-          Skriv gärna elevens egna ord.
-        </p>
-        <div class="write-area large"></div>
-      </div>
-
-    </div>
-
-    <div class="two-grid">
-
-      <div class="section-box yellow">
-        <h3>3. Vad verkar eleven förstå?</h3>
-        <div class="write-area large"></div>
-      </div>
-
-      <div class="section-box pink">
-        <h3>4. Vad verkar ännu vara osäkert?</h3>
-        <div class="write-area large"></div>
-      </div>
-
-    </div>
-
-    <div class="two-grid">
-
-      <div class="section-box purple">
-        <h3>5. Vilken representation använder eleven?</h3>
-        <p>
-          Konkret • bild • språk • symbol • tabell • graf
-        </p>
-        <div class="write-area"></div>
-      </div>
-
-      <div class="section-box teal">
-        <h3>6. Matematiskt språk</h3>
-        <p>
-          Vilka begrepp använder eleven säkert eller osäkert?
-        </p>
-        <div class="write-area"></div>
-      </div>
-
-    </div>
-
-    <div class="section-box orange">
-      <h3>7. Nästa undervisningssteg</h3>
       <p>
-        Vilken fråga, modell, aktivitet eller kontrast kan föra förståelsen vidare?
+        Följ elevens matematiska process från första tanke till kontroll.
       </p>
-      <div class="write-area large"></div>
+
     </div>
 
-    <div class="footer-note">
-      HOLOS Matteresan • Fördjupad elevobservation
+
+    <div class="three-col">
+
+      <div class="field">
+        <div class="field-title">Elev</div>
+        <div class="line"></div>
+      </div>
+
+      <div class="field">
+        <div class="field-title">Datum</div>
+        <div class="line"></div>
+      </div>
+
+      <div class="field">
+        <div class="field-title">Uppgift / område</div>
+        <div class="line"></div>
+      </div>
+
+    </div>
+
+
+    <div class="note">
+      Skriv gärna korta citat och konkreta handlingar.
+      Exempel:
+      <strong>”Ritar först en tallinje och markerar 0,5 mitt mellan 0 och 1.”</strong>
+      Det är starkare underlag än att skriva ”eleven förstår ganska bra”.
+    </div>
+
+
+    <table class="student-table">
+
+      <tr>
+        <th style="width:17%;">Fokus</th>
+        <th style="width:43%;">Vad gör / säger eleven?</th>
+        <th>Min tolkning / fråga att följa upp</th>
+      </tr>
+
+      <tr>
+        <td><strong>Start</strong><br>Hur börjar eleven?</td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td><strong>Strategi</strong><br>Vilken väg väljs?</td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td><strong>Representation</strong><br>Hur visas matematiken?</td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td><strong>Språk</strong><br>Vilka begrepp används?</td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td><strong>Fastnar</strong><br>Vad händer då?</td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td><strong>Stöd</strong><br>Hur reagerar eleven på stöd?</td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td><strong>Kontroll</strong><br>Granskar eleven sitt svar?</td>
+        <td></td>
+        <td></td>
+      </tr>
+
+    </table>
+
+
+    <div class="reflection">
+
+      <div class="reflection-card green-bg">
+
+        <h3>✅ Det eleven redan visar</h3>
+
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+
+      </div>
+
+
+      <div class="reflection-card yellow-bg">
+
+        <h3>🧩 Möjlig kritisk punkt</h3>
+
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+
+      </div>
+
+
+      <div class="reflection-card teal-bg">
+
+        <h3>❓ Fråga jag behöver ställa</h3>
+
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+
+      </div>
+
+
+      <div class="reflection-card purple-bg">
+
+        <h3>➡️ Nästa steg</h3>
+
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="sheet-footer">
+      HOLOS Matteresan F–9 • Fördjupad elevobservation
     </div>
 
   </section>
 
 
   <!-- SIDA 3 -->
+  <section class="sheet purple final-sheet">
 
-  <section class="sheet purple-sheet">
+    <div class="sheet-header">
 
-    <div class="sheet-head">
-      <h2>💬 Observation av matematiska samtal</h2>
-      <p>Hur eleverna lyssnar, förklarar, jämför och bygger vidare</p>
-    </div>
+      <div class="icon">💬👥🧠</div>
 
-    <div class="meta-grid">
-      <div class="field"><strong>Grupp</strong></div>
-      <div class="field"><strong>Område</strong></div>
-      <div class="field"><strong>Aktivitet</strong></div>
-      <div class="field"><strong>Datum</strong></div>
-    </div>
+      <h2>Observation av matematiskt samtal</h2>
 
-    <div class="table-wrap">
-
-      <table>
-
-        <tr>
-          <th class="name-col">Elev</th>
-          <th>Förklarar egen strategi</th>
-          <th>Lyssnar på andra</th>
-          <th>Ställer frågor</th>
-          <th>Jämför strategier</th>
-          <th>Använder matematikord</th>
-          <th>Motiverar / argumenterar</th>
-          <th class="notes-col">Exempel / anteckning</th>
-        </tr>
-
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-
-      </table>
+      <p>
+        Lyssna efter hur elever förklarar, jämför, bygger vidare och motiverar.
+      </p>
 
     </div>
 
-    <div class="two-grid" style="margin-top:14px;">
 
-      <div class="section-box green">
-        <h3>Styrkor i samtalet</h3>
-        <div class="write-area large"></div>
+    <div class="three-col">
+
+      <div class="field">
+        <div class="field-title">Grupp / par</div>
+        <div class="line"></div>
       </div>
 
-      <div class="section-box yellow">
-        <h3>Nästa fokus i mattepratet</h3>
-        <div class="write-area large"></div>
+      <div class="field">
+        <div class="field-title">Datum</div>
+        <div class="line"></div>
+      </div>
+
+      <div class="field">
+        <div class="field-title">Uppgift / samtalsfråga</div>
+        <div class="line"></div>
       </div>
 
     </div>
 
-    <div class="footer-note">
-      HOLOS Matteresan • Matematiska samtal
+
+    <section class="sentence-box">
+
+      <h3>🗣️ Lyssna efter uttryck som...</h3>
+
+      <div class="sentence-grid">
+
+        <div class="sentence">
+          ”Jag tänkte så här eftersom...”
+        </div>
+
+        <div class="sentence">
+          ”Jag håller med eftersom...”
+        </div>
+
+        <div class="sentence">
+          ”Jag tänkte annorlunda...”
+        </div>
+
+        <div class="sentence">
+          ”Min metod liknar din eftersom...”
+        </div>
+
+        <div class="sentence">
+          ”Jag ser ett samband mellan...”
+        </div>
+
+        <div class="sentence">
+          ”Det gäller inte alltid eftersom...”
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <table class="talk-table">
+
+      <tr>
+        <th style="width:17%;">Elev</th>
+        <th>Förklarar egen strategi</th>
+        <th>Lyssnar / bygger vidare</th>
+        <th>Använder matematiska begrepp</th>
+        <th>Jämför / motiverar</th>
+        <th>Kort observation / citat</th>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td class="check">□</td>
+        <td></td>
+      </tr>
+
+    </table>
+
+
+    <div class="reflection">
+
+      <div class="reflection-card green-bg">
+
+        <h3>💡 Matematiska idéer som kom fram</h3>
+
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+
+      </div>
+
+
+      <div class="reflection-card yellow-bg">
+
+        <h3>🔤 Begrepp som behöver utvecklas</h3>
+
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+
+      </div>
+
+
+      <div class="reflection-card pink-bg">
+
+        <h3>👥 Deltagande</h3>
+
+        <p>
+          Vilka hördes? Vilka behöver annan struktur för att komma in i samtalet?
+        </p>
+
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+
+      </div>
+
+
+      <div class="reflection-card teal-bg">
+
+        <h3>➡️ Nästa matteprat</h3>
+
+        <p>
+          Vilken fråga eller struktur vill jag använda nästa gång?
+        </p>
+
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="sheet-footer">
+      HOLOS Matteresan F–9 • Observation av matematiskt samtal
     </div>
 
   </section>
 
-
-  <div class="screen-note">
-    <strong>🖨️ Utskrift:</strong>
-    detta material är gjort för <strong>A4 liggande</strong>.
-    Välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
-    och kontrollera att skrivaren står på <strong>Färg</strong>.
-  </div>
-
 </main>
-
-
-<footer>
-  <strong>HOLOS Matteresan F–9</strong><br>
-  👀 Observera • Lyssna • Förstå • Planera nästa steg
-</footer>
 
 </body>
 </html>
