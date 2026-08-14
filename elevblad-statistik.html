@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Statistik F–9 | HOLOS Matteresan</title>
+  <title>Statistik | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,15 +15,17 @@
 
     :root {
       --dark: #17324d;
+      --text: #263747;
+      --muted: #667788;
 
-      --f3: #e8f7ed;
-      --f3-strong: #5f9470;
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
 
-      --46: #e8f3ff;
-      --46-strong: #5d86ad;
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
 
-      --79: #f0eaff;
-      --79-strong: #8266a3;
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
 
       --yellow: #fff6d7;
       --orange: #ffe7cf;
@@ -31,16 +33,14 @@
       --pink: #ffe9f1;
       --gray: #eef2f4;
 
-      --background: #f8fafc;
-      --text: #263747;
-      --muted: #667788;
+      --background: #f7f9fb;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     a {
@@ -50,10 +50,10 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
-        linear-gradient(135deg, #4e6673, #8095a0);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
-      padding: 22px 20px 50px;
+      padding: 22px 20px 58px;
     }
 
     .topbar {
@@ -71,15 +71,15 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
     .hero {
-      max-width: 920px;
-      margin: 42px auto 0;
+      max-width: 930px;
+      margin: 44px auto 0;
       text-align: center;
     }
 
@@ -89,34 +89,34 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4rem);
+      font-size: clamp(2.4rem, 7vw, 4.4rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
       margin-bottom: 14px;
     }
 
     .hero p {
       max-width: 850px;
       margin: auto;
-      color: #f7fbfd;
+      color: #f6f9fb;
     }
 
     main {
-      max-width: 1040px;
+      max-width: 1180px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 42px 20px 70px;
     }
 
     .intro {
-      background: var(--gray);
-      border-radius: 24px;
-      padding: 30px;
-      text-align: center;
-      margin-bottom: 34px;
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      margin-bottom: 36px;
     }
 
     .intro h2 {
@@ -125,256 +125,286 @@
     }
 
     .intro p {
-      max-width: 850px;
-      margin: auto;
+      color: var(--muted);
+      max-width: 950px;
+    }
+
+    .important {
+      margin-top: 17px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 17px;
+      color: #665831;
+    }
+
+    .section-title {
+      margin: 42px 0 18px;
+    }
+
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
       color: var(--muted);
     }
 
-    .print-button {
-      margin-top: 16px;
-      background: var(--dark);
-      color: white;
-      border: none;
-      border-radius: 999px;
-      padding: 12px 20px;
-      font-weight: bold;
-      cursor: pointer;
+    .progression {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
-    .sheet {
-      background: white;
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 22px;
-      padding: 24px;
-      margin-bottom: 28px;
-      min-height: 270mm;
+    .stage {
+      border-radius: 18px;
+      padding: 22px;
+      min-height: 280px;
     }
 
-    .sheet.f3 {
-      border-top: 9px solid var(--f3-strong);
-    }
-
-    .sheet.stage46 {
-      border-top: 9px solid var(--46-strong);
-    }
-
-    .sheet.stage79 {
-      border-top: 9px solid var(--79-strong);
-    }
-
-    .sheet-head {
-      text-align: center;
-      margin-bottom: 18px;
-    }
-
-    .stage-label {
-      display: inline-block;
-      padding: 6px 13px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    .f3-label {
-      background: var(--f3);
-      color: #356345;
-    }
-
-    .stage46-label {
-      background: var(--46);
-      color: #345e86;
-    }
-
-    .stage79-label {
-      background: var(--79);
-      color: #634a83;
-    }
-
-    .sheet-head h2 {
+    .stage h3 {
       color: var(--dark);
-      font-size: 1.7rem;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
+      font-size: 1.12rem;
     }
 
-    .sheet-head p {
+    .stage p,
+    .stage li {
       color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .meta-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 14px;
+    .stage ul {
+      margin-left: 20px;
+      margin-top: 8px;
     }
 
-    .field {
-      background: white;
-      border: 1.5px solid #9aa6ae;
-      border-radius: 10px;
-      min-height: 50px;
-      padding: 9px;
-    }
-
-    .field strong {
-      display: block;
-      color: var(--dark);
-      font-size: 0.86rem;
-    }
-
-    .task {
-      border-radius: 14px;
-      padding: 14px;
-      margin-bottom: 12px;
-      break-inside: avoid;
-    }
-
-    .task h3 {
-      color: var(--dark);
-      font-size: 1rem;
+    .stage li {
       margin-bottom: 6px;
     }
 
-    .task p,
-    .task li {
-      color: #4e5d68;
-      font-size: 0.88rem;
-    }
-
-    .task ul {
-      margin: 8px 0 0 22px;
-    }
-
-    .task li {
-      margin-bottom: 5px;
-    }
-
-    .green { background: var(--f3); }
-    .blue { background: var(--46); }
-    .purple { background: var(--79); }
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
     .yellow { background: var(--yellow); }
     .orange { background: var(--orange); }
     .teal { background: var(--teal); }
     .pink { background: var(--pink); }
     .gray { background: var(--gray); }
 
-    .write-area {
-      background: white;
-      border: 1.2px solid #98a4ad;
-      border-radius: 8px;
-      margin-top: 8px;
-      min-height: 70px;
-    }
-
-    .write-area.medium {
-      min-height: 100px;
-    }
-
-    .write-area.large {
-      min-height: 145px;
-    }
-
-    .two-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .three-grid {
+    .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 245px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+    }
+
+    .card:nth-child(3n+1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .card ul {
+      margin-left: 19px;
+      margin-top: 7px;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
       gap: 10px;
     }
 
-    .four-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 9px;
+    .flow-step {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 10px;
+      text-align: center;
+      min-height: 155px;
+      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
     }
 
-    .number-box,
-    .data-box {
-      background: white;
-      border: 1.2px solid #89969f;
-      border-radius: 10px;
-      min-height: 70px;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+    .flow-step:nth-child(1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .flow-step:nth-child(2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .flow-step:nth-child(3) {
+      border-top-color: #c39b44;
+    }
+
+    .flow-step:nth-child(4) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .flow-step:nth-child(5) {
+      border-top-color: #5d9c92;
+    }
+
+    .flow-step span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .flow-step strong {
+      display: block;
       color: var(--dark);
-      font-weight: bold;
+      margin-bottom: 5px;
     }
 
-    .data-box {
-      font-size: 1.1rem;
-    }
-
-    .chart-area {
-      background:
-        linear-gradient(to right, #d8dee3 1px, transparent 1px),
-        linear-gradient(to bottom, #d8dee3 1px, transparent 1px);
-      background-size: 20px 20px;
-      background-color: white;
-      border: 1.2px solid #89969f;
-      border-radius: 8px;
-      min-height: 175px;
-      margin-top: 8px;
-    }
-
-    .table-wrap {
-      margin-top: 10px;
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      table-layout: fixed;
-    }
-
-    th,
-    td {
-      border: 1px solid #86939c;
-      padding: 8px;
-      text-align: center;
-    }
-
-    th {
-      background: var(--dark);
-      color: white;
-      font-size: 0.84rem;
-    }
-
-    td {
-      background: white;
-      height: 45px;
-    }
-
-    .footer-note {
-      text-align: center;
-      margin-top: 14px;
+    .flow-step p {
       color: var(--muted);
       font-size: 0.8rem;
     }
 
-    .screen-note {
+    .example-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .example {
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 220px;
+    }
+
+    .example h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .example p,
+    .example li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .example ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .example li {
+      margin-bottom: 6px;
+    }
+
+    .teacher-box {
+      margin-top: 36px;
+      background: var(--teal);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .teacher-box h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box ul {
+      margin-left: 22px;
+      color: var(--muted);
+    }
+
+    .teacher-box li {
+      margin-bottom: 7px;
+    }
+
+    .warning {
+      margin-top: 22px;
       background: var(--orange);
       border-left: 6px solid #c77f43;
-      border-radius: 14px;
-      padding: 18px;
-      margin-top: 24px;
+      border-radius: 16px;
+      padding: 20px;
       color: #654c37;
+    }
+
+    .links {
+      margin-top: 36px;
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+    }
+
+    .links h2 {
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .link-row a {
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.83rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
       color: white;
       text-align: center;
-      padding: 30px 20px;
-      margin-top: 30px;
+      padding: 32px 20px;
+    }
+
+    @media (max-width: 1000px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flow {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     @media (max-width: 700px) {
@@ -382,10 +412,10 @@
         flex-direction: column;
       }
 
-      .meta-grid,
-      .two-grid,
-      .three-grid,
-      .four-grid {
+      .progression,
+      .grid,
+      .flow,
+      .example-grid {
         grid-template-columns: 1fr;
       }
 
@@ -395,17 +425,12 @@
       }
     }
 
-    /* ===========================
-       A4 + FÄRGUTSKRIFT
-       =========================== */
-
     @page {
       size: A4 portrait;
       margin: 10mm;
     }
 
     @media print {
-
       *,
       *::before,
       *::after {
@@ -417,138 +442,68 @@
       html,
       body {
         background: white !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        forced-color-adjust: none !important;
       }
 
       header,
-      footer,
-      .intro,
-      .screen-note {
+      footer {
         display: none !important;
       }
 
       main {
-        width: 100%;
         max-width: none;
-        margin: 0;
         padding: 0;
       }
 
-      .sheet {
-        width: 100%;
-        min-height: 277mm;
-        margin: 0;
-        padding: 0;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-        border-bottom: none;
-        page-break-after: always;
-        break-after: page;
-      }
-
-      .sheet:last-of-type {
-        page-break-after: auto;
-        break-after: auto;
-      }
-
-      .sheet.f3 {
-        border-top: 7px solid var(--f3-strong) !important;
-      }
-
-      .sheet.stage46 {
-        border-top: 7px solid var(--46-strong) !important;
-      }
-
-      .sheet.stage79 {
-        border-top: 7px solid var(--79-strong) !important;
-      }
-
-      .green,
-      .f3-label {
-        background: var(--f3) !important;
-      }
-
-      .blue,
-      .stage46-label {
-        background: var(--46) !important;
-      }
-
-      .purple,
-      .stage79-label {
-        background: var(--79) !important;
-      }
-
-      .yellow { background: var(--yellow) !important; }
-      .orange { background: var(--orange) !important; }
-      .teal { background: var(--teal) !important; }
-      .pink { background: var(--pink) !important; }
-      .gray { background: var(--gray) !important; }
-
-      .field,
-      .write-area,
-      .number-box,
-      .data-box,
-      td {
-        background: white !important;
-      }
-
-      .chart-area {
-        background:
-          linear-gradient(to right, #d8dee3 1px, transparent 1px),
-          linear-gradient(to bottom, #d8dee3 1px, transparent 1px) !important;
-        background-size: 20px 20px !important;
-        background-color: white !important;
-      }
-
-      th {
-        background: var(--dark) !important;
-        color: white !important;
-      }
-
-      .two-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 3mm !important;
-      }
-
-      .three-grid {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 3mm !important;
-      }
-
-      .four-grid {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 2.5mm !important;
-      }
-
-      .task,
-      .field,
-      .number-box,
-      .data-box,
-      .chart-area,
-      .table-wrap {
+      .intro,
+      .stage,
+      .card,
+      .flow-step,
+      .example,
+      .teacher-box,
+      .warning,
+      .links {
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      .sheet-head h2,
-      .task h3,
-      .field strong,
-      .number-box,
-      .data-box {
-        color: var(--dark) !important;
+      .green {
+        background: var(--green) !important;
       }
 
-      .sheet-head p,
-      .task p,
-      .task li,
-      .footer-note {
-        color: var(--muted) !important;
+      .blue {
+        background: var(--blue) !important;
+      }
+
+      .purple {
+        background: var(--purple) !important;
+      }
+
+      .yellow,
+      .important {
+        background: var(--yellow) !important;
+      }
+
+      .orange,
+      .warning {
+        background: var(--orange) !important;
+      }
+
+      .teal,
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .link-row a {
+        background: var(--dark) !important;
+        color: white !important;
       }
     }
   </style>
@@ -559,24 +514,29 @@
 <header>
 
   <div class="topbar">
+
     <div class="logo">HOLOS MATTERESAN</div>
 
-    <a href="material-a4-elevblad.html" class="back-link">
-      ← A4 Elevblad
+    <a href="larare.html" class="back-link">
+      ← Lärarportalen
     </a>
+
   </div>
+
 
   <div class="hero">
 
-    <div class="hero-icon">📊✏️</div>
+    <div class="hero-icon">📊🧠</div>
 
-    <h1>Statistik F–9</h1>
+    <h1>Statistik</h1>
 
-    <h2>Samla • Ordna • Visa • Tolka • Granska</h2>
+    <h2>Samla • Representera • Sammanfatta • Tolka • Granska</h2>
 
     <p>
-      Sex utskriftsklara elevblad med progression från enkla tabeller och diagram
-      till lägesmått, spridning och kritisk granskning av statistik.
+      Statistik handlar om att använda data för att förstå,
+      jämföra och beskriva verkligheten.
+      Elever behöver lära sig både att skapa representationer
+      och att kritiskt tolka den information de möter.
     </p>
 
   </div>
@@ -586,589 +546,584 @@
 
 <main>
 
-  <div class="intro">
+  <section class="intro">
 
-    <h2>📊 Statistik hjälper oss att förstå data</h2>
+    <h2>📊 Statistik börjar med en fråga</h2>
 
     <p>
-      Elever behöver kunna samla information, organisera den,
-      välja lämpliga representationer och resonera om vad data faktiskt visar.
+      Ett diagram eller ett medelvärde har inget värde i sig om det inte
+      kopplas till en fråga och ett sammanhang.
+      Därför behöver statistikundervisningen utgå från
+      vad elever vill undersöka, vilken data som behövs
+      och vilka slutsatser som faktiskt kan dras.
     </p>
 
-    <button class="print-button" onclick="window.print()">
-      🖨️ Skriv ut alla sex elevblad
-    </button>
+    <div class="important">
+
+      <strong>Grundprincip:</strong><br>
+      Arbeta genom hela processen:
+      <strong>fråga → samla data → organisera → representera →
+      sammanfatta → tolka → granska</strong>.
+      Statistik är alltså mycket mer än att rita stapeldiagram.
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>📈 Progression F–9</h2>
+
+    <p>
+      Statistiska aktiviteter utvecklas från enkel sortering
+      till analys av data, lägesmått och kritisk granskning.
+    </p>
 
   </div>
 
 
-  <!-- F–3 BLAD 1 -->
+  <div class="progression">
 
-  <section class="sheet f3">
+    <section class="stage green">
 
-    <div class="sheet-head">
-      <span class="stage-label f3-label">🌱 F–3</span>
-      <h2>Statistik – blad 1</h2>
-      <p>Samla • räkna • tabell</p>
-    </div>
-
-    <div class="meta-grid">
-      <div class="field"><strong>Namn</strong></div>
-      <div class="field"><strong>Klass</strong></div>
-      <div class="field"><strong>Datum</strong></div>
-    </div>
-
-
-    <div class="task green">
-
-      <h3>1. Favoritfrukt</h3>
-
-      <p>
-        Fråga 10 personer vilken frukt de tycker bäst om.
-        Gör streck i tabellen.
-      </p>
-
-      <div class="table-wrap">
-        <table>
-          <tr>
-            <th>Frukt</th>
-            <th>Streck</th>
-            <th>Antal</th>
-          </tr>
-          <tr>
-            <td>Äpple</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Banan</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Päron</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Annat</td>
-            <td></td>
-            <td></td>
-          </tr>
-        </table>
-      </div>
-
-    </div>
-
-
-    <div class="task yellow">
-
-      <h3>2. Vad blev vanligast?</h3>
-
-      <p>
-        Vilken frukt fick flest röster?
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="task blue">
-
-      <h3>3. Vad blev minst vanligt?</h3>
-
-      <p>
-        Vilken frukt fick minst antal röster?
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="task teal">
-
-      <h3>4. Förklara</h3>
-
-      <p>
-        Hur kan tabellen hjälpa någon att snabbt förstå undersökningen?
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-    <div class="footer-note">
-      HOLOS Matteresan • Statistik F–3
-    </div>
-
-  </section>
-
-
-  <!-- F–3 BLAD 2 -->
-
-  <section class="sheet f3">
-
-    <div class="sheet-head">
-      <span class="stage-label f3-label">🌱 F–3</span>
-      <h2>Statistik – blad 2</h2>
-      <p>Stapeldiagram • läsa • jämföra</p>
-    </div>
-
-    <div class="meta-grid">
-      <div class="field"><strong>Namn</strong></div>
-      <div class="field"><strong>Klass</strong></div>
-      <div class="field"><strong>Datum</strong></div>
-    </div>
-
-
-    <div class="task green">
-
-      <h3>1. Gör ett stapeldiagram</h3>
-
-      <p>
-        Använd informationen:
-      </p>
+      <h3>🌱 F–3</h3>
 
       <ul>
-        <li>Hund: 6</li>
-        <li>Katt: 4</li>
-        <li>Fisk: 2</li>
-        <li>Annat djur: 3</li>
+        <li>Sortera föremål och information.</li>
+        <li>Ställa enkla frågor.</li>
+        <li>Samla data i klassen.</li>
+        <li>Göra tabeller och enkla diagram.</li>
+        <li>Läsa av diagram.</li>
+        <li>Jämföra flest, minst och lika många.</li>
+        <li>Formulera enkla slutsatser.</li>
       </ul>
 
-      <div class="chart-area"></div>
+    </section>
 
-    </div>
 
+    <section class="stage blue">
 
-    <div class="task blue">
-
-      <h3>2. Läs diagrammet</h3>
-
-      <p>
-        Hur många fler valde hund än fisk?
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="task yellow">
-
-      <h3>3. Hur många totalt?</h3>
-
-      <p>
-        Hur många personer deltog i undersökningen?
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="task orange">
-
-      <h3>4. Skapa en fråga</h3>
-
-      <p>
-        Skriv en egen fråga som någon kan besvara genom att läsa ditt diagram.
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-    <div class="footer-note">
-      HOLOS Matteresan • Statistik F–3
-    </div>
-
-  </section>
-
-
-  <!-- 4–6 BLAD 1 -->
-
-  <section class="sheet stage46">
-
-    <div class="sheet-head">
-      <span class="stage-label stage46-label">🔎 4–6</span>
-      <h2>Statistik – blad 1</h2>
-      <p>Typvärde • median • medelvärde</p>
-    </div>
-
-    <div class="meta-grid">
-      <div class="field"><strong>Namn</strong></div>
-      <div class="field"><strong>Klass</strong></div>
-      <div class="field"><strong>Datum</strong></div>
-    </div>
-
-
-    <div class="task blue">
-
-      <h3>1. Undersök datan</h3>
-
-      <div class="data-box">
-        3, 4, 4, 5, 6, 6, 6, 8
-      </div>
-
-      <p style="margin-top:8px;">
-        Bestäm typvärdet.
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="task green">
-
-      <h3>2. Median</h3>
-
-      <p>
-        Bestäm medianen för samma data.
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="task yellow">
-
-      <h3>3. Medelvärde</h3>
-
-      <p>
-        Beräkna medelvärdet.
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="task purple">
-
-      <h3>4. Jämför lägesmåtten</h3>
-
-      <p>
-        Är typvärde, median och medelvärde lika?
-        Vad berättar de olika måtten?
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="task teal">
-
-      <h3>5. Skapa data</h3>
-
-      <p>
-        Skapa fem tal som har medianen 10.
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-    <div class="footer-note">
-      HOLOS Matteresan • Statistik 4–6
-    </div>
-
-  </section>
-
-
-  <!-- 4–6 BLAD 2 -->
-
-  <section class="sheet stage46">
-
-    <div class="sheet-head">
-      <span class="stage-label stage46-label">🔎 4–6</span>
-      <h2>Statistik – blad 2</h2>
-      <p>Diagram • välja representation • tolka</p>
-    </div>
-
-    <div class="meta-grid">
-      <div class="field"><strong>Namn</strong></div>
-      <div class="field"><strong>Klass</strong></div>
-      <div class="field"><strong>Datum</strong></div>
-    </div>
-
-
-    <div class="task blue">
-
-      <h3>1. Temperatur</h3>
-
-      <p>
-        Temperaturen under fem dagar var:
-      </p>
-
-      <div class="data-box">
-        12°, 15°, 14°, 18°, 16°
-      </div>
-
-      <p style="margin-top:8px;">
-        Vilken typ av diagram skulle passa bra?
-        Motivera.
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="task green">
-
-      <h3>2. Rita diagrammet</h3>
-
-      <div class="chart-area"></div>
-
-    </div>
-
-
-    <div class="task yellow">
-
-      <h3>3. Tolka</h3>
-
-      <p>
-        Vilken dag var temperaturen högst?
-        Hur stor var skillnaden mellan högsta och lägsta temperatur?
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="task orange">
-
-      <h3>4. Förändra data</h3>
-
-      <p>
-        Lägg till ett nytt värde som gör medelvärdet större.
-        Förklara varför.
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-    <div class="footer-note">
-      HOLOS Matteresan • Statistik 4–6
-    </div>
-
-  </section>
-
-
-  <!-- 7–9 BLAD 1 -->
-
-  <section class="sheet stage79">
-
-    <div class="sheet-head">
-      <span class="stage-label stage79-label">🚀 7–9</span>
-      <h2>Statistik – blad 1</h2>
-      <p>Lägesmått • variationsbredd • extremvärden</p>
-    </div>
-
-    <div class="meta-grid">
-      <div class="field"><strong>Namn</strong></div>
-      <div class="field"><strong>Klass</strong></div>
-      <div class="field"><strong>Datum</strong></div>
-    </div>
-
-
-    <div class="task purple">
-
-      <h3>1. Löner</h3>
-
-      <div class="data-box">
-        28 000, 29 000, 30 000, 31 000, 95 000
-      </div>
-
-      <p style="margin-top:8px;">
-        Beräkna medelvärde och median.
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="task blue">
-
-      <h3>2. Vilket mått beskriver bäst?</h3>
-
-      <p>
-        Vilket lägesmått tycker du bäst beskriver en typisk lön i gruppen?
-        Motivera.
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="task yellow">
-
-      <h3>3. Variationsbredd</h3>
-
-      <p>
-        Beräkna variationsbredden för lönerna.
-      </p>
-
-      <div class="write-area medium"></div>
-
-    </div>
-
-
-    <div class="task orange">
-
-      <h3>4. Extremvärdet</h3>
-
-      <p>
-        Vad händer med medelvärdet om 95 000 tas bort?
-        Vad händer med medianen?
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-    <div class="footer-note">
-      HOLOS Matteresan • Statistik 7–9
-    </div>
-
-  </section>
-
-
-  <!-- 7–9 BLAD 2 -->
-
-  <section class="sheet stage79">
-
-    <div class="sheet-head">
-      <span class="stage-label stage79-label">🚀 7–9</span>
-      <h2>Statistik – blad 2</h2>
-      <p>Kritisk granskning • diagram • slutsatser</p>
-    </div>
-
-    <div class="meta-grid">
-      <div class="field"><strong>Namn</strong></div>
-      <div class="field"><strong>Klass</strong></div>
-      <div class="field"><strong>Datum</strong></div>
-    </div>
-
-
-    <div class="task purple">
-
-      <h3>1. Samma data – olika intryck</h3>
-
-      <p>
-        Ett diagram visar försäljningen:
-        98, 100, 102 och 104 produkter.
-      </p>
-
-      <p>
-        Hur kan ett diagram få skillnaden att se mycket större ut än den egentligen är?
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="task blue">
-
-      <h3>2. Rita två diagram</h3>
-
-      <p>
-        Rita två diagram över samma data.
-        Låt y-axeln börja på 0 i det ena och på 95 i det andra.
-      </p>
-
-      <div class="two-grid">
-        <div class="chart-area"></div>
-        <div class="chart-area"></div>
-      </div>
-
-    </div>
-
-
-    <div class="task yellow">
-
-      <h3>3. Jämför</h3>
-
-      <p>
-        Hur förändras intrycket?
-        Vilket diagram tycker du är mest rättvisande?
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="task orange">
-
-      <h3>4. Undersök en slutsats</h3>
-
-      <p>
-        8 av 10 tillfrågade elever föredrar alternativ A.
-        Någon skriver:
-        <strong>"80 % av alla elever föredrar A."</strong>
-      </p>
-
-      <p>
-        Vilken information behöver du innan du kan bedöma slutsatsen?
-      </p>
-
-      <div class="write-area large"></div>
-
-    </div>
-
-
-    <div class="task teal">
-
-      <h3>5. Skapa en bra undersökning</h3>
-
-      <p>
-        Skriv en statistisk fråga och beskriv:
-      </p>
+      <h3>🔵 4–6</h3>
 
       <ul>
-        <li>vilka som ska tillfrågas</li>
-        <li>hur data ska samlas</li>
-        <li>hur resultatet ska visas</li>
-        <li>vilka felkällor som kan finnas</li>
+        <li>Planera enklare undersökningar.</li>
+        <li>Frekvenstabeller.</li>
+        <li>Stapeldiagram och linjediagram.</li>
+        <li>Medelvärde.</li>
+        <li>Median.</li>
+        <li>Typvärde.</li>
+        <li>Jämföra datamängder.</li>
+        <li>Tolka och diskutera resultat.</li>
       </ul>
 
-      <div class="write-area large"></div>
-
-    </div>
-
-    <div class="footer-note">
-      HOLOS Matteresan • Statistik 7–9
-    </div>
-
-  </section>
+    </section>
 
 
-  <div class="screen-note">
-    <strong>🖨️ Färgutskrift:</strong>
-    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
-    och kontrollera att skrivaren står på <strong>Färg</strong>.
-    Varje elevblad ska hamna på ett eget A4.
+    <section class="stage purple">
+
+      <h3>🟣 7–9</h3>
+
+      <ul>
+        <li>Planera och värdera undersökningar.</li>
+        <li>Olika typer av diagram och representationer.</li>
+        <li>Lägesmått och spridning som idé.</li>
+        <li>Jämföra datamängder.</li>
+        <li>Tolka statistik i samhälle och medier.</li>
+        <li>Urval och representativitet.</li>
+        <li>Vilseledande presentationer.</li>
+        <li>Dra och granska slutsatser.</li>
+      </ul>
+
+    </section>
+
   </div>
+
+
+  <div class="section-title">
+
+    <h2>🧠 Sex centrala statistikidéer</h2>
+
+    <p>
+      Elever behöver förstå både hur data skapas och vad den kan säga.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">❓</div>
+
+      <h3>Frågan</h3>
+
+      <p>
+        En tydlig undersökningsfråga styr vilken data som behöver samlas.
+      </p>
+
+      <ul>
+        <li>Vad vill vi veta?</li>
+        <li>Vilka behöver vi fråga?</li>
+        <li>Vilka värden behöver samlas?</li>
+        <li>Hur ska frågan formuleras?</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📝</div>
+
+      <h3>Datainsamling</h3>
+
+      <p>
+        Hur data samlas påverkar vilka slutsatser som kan dras.
+      </p>
+
+      <ul>
+        <li>Observation</li>
+        <li>Mätning</li>
+        <li>Enkät</li>
+        <li>Experiment</li>
+        <li>Urval</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📋</div>
+
+      <h3>Tabeller</h3>
+
+      <p>
+        Tabeller hjälper elever att organisera rådata och upptäcka mönster.
+      </p>
+
+      <ul>
+        <li>Frekvens</li>
+        <li>Kategorier</li>
+        <li>Värden</li>
+        <li>Ordning</li>
+        <li>Jämförelse</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📊</div>
+
+      <h3>Diagram</h3>
+
+      <p>
+        Representationen behöver väljas efter vilken information som ska synliggöras.
+      </p>
+
+      <ul>
+        <li>Stapeldiagram</li>
+        <li>Linjediagram</li>
+        <li>Cirkeldiagram när relevant</li>
+        <li>Skala på axlar</li>
+        <li>Rubrik och etiketter</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🎯</div>
+
+      <h3>Lägesmått</h3>
+
+      <p>
+        Olika sammanfattningar beskriver datamängden på olika sätt.
+      </p>
+
+      <ul>
+        <li>Medelvärde</li>
+        <li>Median</li>
+        <li>Typvärde</li>
+        <li>Vilket mått passar situationen?</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔍</div>
+
+      <h3>Kritisk granskning</h3>
+
+      <p>
+        Statistik ska inte bara läsas – den behöver värderas.
+      </p>
+
+      <ul>
+        <li>Vem har samlat data?</li>
+        <li>Hur stort är urvalet?</li>
+        <li>Är diagrammets skala rimlig?</li>
+        <li>Stöds slutsatsen av data?</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🔄 Statistikens arbetsgång</h2>
+
+    <p>
+      Låt elever delta i hela undersökningsprocessen.
+    </p>
+
+  </div>
+
+
+  <div class="flow">
+
+    <div class="flow-step">
+      <span>❓</span>
+      <strong>1. Fråga</strong>
+      <p>Formulera vad som ska undersökas.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>📝</span>
+      <strong>2. Samla</strong>
+      <p>Samla data på ett genomtänkt sätt.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>📋</span>
+      <strong>3. Organisera</strong>
+      <p>Sortera i tabeller eller kategorier.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>📊</span>
+      <strong>4. Representera</strong>
+      <p>Välj en representation som visar det viktiga.</p>
+    </div>
+
+    <div class="flow-step">
+      <span>🔍</span>
+      <strong>5. Tolka</strong>
+      <p>Dra slutsatser och granska deras rimlighet.</p>
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧩 Fyra undervisningsidéer</h2>
+
+    <p>
+      Aktiviteter som gör statistik till undersökande matematik.
+    </p>
+
+  </div>
+
+
+  <div class="example-grid">
+
+    <section class="example green">
+
+      <h3>👥 Klassens data</h3>
+
+      <ul>
+        <li>Välj en gemensam fråga.</li>
+        <li>Samla klassens svar.</li>
+        <li>Gör frekvenstabell.</li>
+        <li>Skapa diagram.</li>
+        <li>Skriv tre slutsatser.</li>
+      </ul>
+
+      <p>
+        En enkel väg till hela statistikprocessen.
+      </p>
+
+    </section>
+
+
+    <section class="example blue">
+
+      <h3>🎯 Vilket lägesmått passar?</h3>
+
+      <ul>
+        <li>Ge elever en liten datamängd.</li>
+        <li>Beräkna medelvärde.</li>
+        <li>Bestäm median.</li>
+        <li>Bestäm typvärde.</li>
+        <li>Diskutera vilket mått som bäst beskriver gruppen.</li>
+      </ul>
+
+      <p>
+        Flyttar fokus från beräkning till tolkning.
+      </p>
+
+    </section>
+
+
+    <section class="example yellow">
+
+      <h3>🕵️ Diagramdetektiven</h3>
+
+      <ul>
+        <li>Visa två diagram med samma data.</li>
+        <li>Låt ena axeln börja på 0 och den andra högre.</li>
+        <li>Vilket diagram får skillnaden att se störst ut?</li>
+        <li>Är något diagram fel?</li>
+        <li>Hur påverkas läsaren?</li>
+      </ul>
+
+      <p>
+        Utvecklar kritisk statistikförståelse.
+      </p>
+
+    </section>
+
+
+    <section class="example purple">
+
+      <h3>📊 Samma data – ny representation</h3>
+
+      <ul>
+        <li>Ge elever en tabell.</li>
+        <li>Visa informationen i ett diagram.</li>
+        <li>Pröva en annan diagramtyp.</li>
+        <li>Vilken gör mönstret tydligast?</li>
+        <li>Vad blir svårare att se?</li>
+      </ul>
+
+      <p>
+        Synliggör att representationer gör olika saker tydliga.
+      </p>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🕵️ Vanliga missuppfattningar</h2>
+
+    <p>
+      Statistikfel handlar ofta om hur data representeras eller tolkas.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">📊</div>
+
+      <h3>Högsta stapeln = störst skillnad</h3>
+
+      <p>
+        Eleven tittar på staplarnas visuella höjd utan att läsa skalan.
+      </p>
+
+      <ul>
+        <li>Jämför diagram med olika axelskalor.</li>
+        <li>Träna på att läsa axlar före slutsats.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">➗</div>
+
+      <h3>Medelvärde är alltid ett observerat värde</h3>
+
+      <p>
+        Eleven förväntar sig att medelvärdet måste finnas i datamängden.
+      </p>
+
+      <ul>
+        <li>Använd konkreta fördelningsmodeller.</li>
+        <li>Visa exempel där medelvärdet inte förekommer.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🎯</div>
+
+      <h3>Median och medelvärde blandas ihop</h3>
+
+      <p>
+        Eleven använder samma metod för båda.
+      </p>
+
+      <ul>
+        <li>Sortera alltid data inför median.</li>
+        <li>Jämför betydelsen av måtten.</li>
+        <li>Använd extremvärden som kontrast.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📋</div>
+
+      <h3>Typvärde betyder största talet</h3>
+
+      <p>
+        Eleven tolkar ”typvärde” som det numeriskt största värdet.
+      </p>
+
+      <ul>
+        <li>Betona att det handlar om vanligast förekommande värde.</li>
+        <li>Använd frekvenstabell.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔍</div>
+
+      <h3>Alla undersökningar är lika tillförlitliga</h3>
+
+      <p>
+        Eleven granskar inte urval eller hur frågan har ställts.
+      </p>
+
+      <ul>
+        <li>Jämför olika urval.</li>
+        <li>Diskutera ledande frågor.</li>
+        <li>Fråga vem resultaten gäller för.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">✅</div>
+
+      <h3>Diagrammet bevisar slutsatsen</h3>
+
+      <p>
+        Eleven går längre i sin slutsats än datan tillåter.
+      </p>
+
+      <ul>
+        <li>Skilj observation från tolkning.</li>
+        <li>Fråga: Vad kan vi faktiskt säga?</li>
+        <li>Vad vet vi inte?</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Frågor som utvecklar statistiskt tänkande</h2>
+
+    <ul>
+      <li>Vilken fråga försöker vi besvara?</li>
+      <li>Vilken data behöver vi?</li>
+      <li>Hur har informationen samlats in?</li>
+      <li>Är urvalet rimligt?</li>
+      <li>Vilken representation passar bäst?</li>
+      <li>Vad visar diagrammet tydligt?</li>
+      <li>Vad visar det inte?</li>
+      <li>Vilket lägesmått beskriver datan bäst?</li>
+      <li>Hur påverkar ett extremvärde medelvärdet?</li>
+      <li>Vilka mönster ser du?</li>
+      <li>Vilka slutsatser stöds av data?</li>
+      <li>Finns det någon annan rimlig tolkning?</li>
+    </ul>
+
+  </section>
+
+
+  <div class="warning">
+
+    <strong>⚠️ Statistik är inte bara beräkning.</strong><br>
+    Elever kan kunna räkna ut ett medelvärde utan att förstå
+    vad det säger om datamängden.
+    Låt därför alltid <strong>beräkning följas av tolkning, jämförelse och kritisk granskning</strong>.
+    Statistik blir särskilt meningsfull när elever arbetar med data som faktiskt svarar på en fråga.
+
+  </div>
+
+
+  <section class="links">
+
+    <h2>➡️ Fortsätt i Matteresan</h2>
+
+    <div class="link-row">
+
+      <a href="elevblad-statistik.html">
+        ✏️ Elevblad statistik
+      </a>
+
+      <a href="larare-sannolikhet.html">
+        🎲 Sannolikhet
+      </a>
+
+      <a href="larare-tal.html">
+        🔢 Taluppfattning
+      </a>
+
+      <a href="larare-procent.html">
+        💯 Procent
+      </a>
+
+      <a href="larare-samband.html">
+        📈 Samband
+      </a>
+
+      <a href="larare-problemlosning.html">
+        🧩 Problemlösning
+      </a>
+
+      <a href="larare-missuppfattningar.html">
+        🕵️ Missuppfattningar
+      </a>
+
+      <a href="larare-bedomning.html">
+        📊 Bedömning
+      </a>
+
+    </div>
+
+  </section>
 
 </main>
 
 
 <footer>
-  <strong>HOLOS Matteresan F–9</strong>
-  <br>
-  📊 Statistik – samla, ordna, visa, tolka och granska
+
+  <strong>HOLOS Matteresan F–9</strong><br>
+  📊 Samla • Representera • Sammanfatta • Tolka • Granska
+
 </footer>
 
 </body>
