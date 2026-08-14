@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Problemlösning F–9 | HOLOS Matteresan</title>
+  <title>Problemlösning | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -15,25 +15,32 @@
 
     :root {
       --dark: #17324d;
-      --orange: #d47b3f;
-      --orange-dark: #985226;
-      --orange-light: #fff0df;
-      --green-light: #edf9f1;
-      --blue-light: #eaf5ff;
-      --purple-light: #f1edff;
-      --yellow-light: #fff6d7;
-      --pink-light: #ffe9f1;
-      --background: #f8fafc;
       --text: #263747;
       --muted: #667788;
-      --white: #ffffff;
+
+      --green: #e8f7ed;
+      --green-strong: #5f9470;
+
+      --blue: #e8f3ff;
+      --blue-strong: #5d86ad;
+
+      --purple: #f0eaff;
+      --purple-strong: #8266a3;
+
+      --yellow: #fff6d7;
+      --orange: #ffe7cf;
+      --teal: #eaf7f5;
+      --pink: #ffe9f1;
+      --gray: #eef2f4;
+
+      --background: #f7f9fb;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a {
@@ -43,8 +50,8 @@
 
     header {
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 30%),
-        linear-gradient(135deg, #75421f, #d47b3f);
+        radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
+        linear-gradient(135deg, #53677a, #8295a8);
       color: white;
       padding: 22px 20px 58px;
     }
@@ -64,569 +71,352 @@
     }
 
     .back-link {
-      padding: 8px 15px;
       border: 1px solid rgba(255,255,255,0.65);
       border-radius: 999px;
-      color: white;
+      padding: 8px 15px;
       font-weight: bold;
     }
 
-    .back-link:hover {
-      background: white;
-      color: var(--orange-dark);
-    }
-
     .hero {
-      max-width: 900px;
-      margin: 50px auto 0;
+      max-width: 930px;
+      margin: 44px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4.4rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 4.7rem);
+      font-size: clamp(2.4rem, 7vw, 4.4rem);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 820px;
+      max-width: 850px;
       margin: auto;
-      color: #fff6ee;
-      font-size: 1.03rem;
+      color: #f6f9fb;
     }
 
     main {
       max-width: 1180px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 20px 70px;
     }
 
-    section {
-      margin-bottom: 62px;
+    .intro {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.07);
+      margin-bottom: 36px;
+    }
+
+    .intro h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: var(--muted);
+      max-width: 950px;
+    }
+
+    .important {
+      margin-top: 17px;
+      background: var(--yellow);
+      border-left: 6px solid #c39b44;
+      border-radius: 14px;
+      padding: 17px;
+      color: #665831;
     }
 
     .section-title {
-      text-align: center;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
-      color: var(--dark);
-      margin-bottom: 8px;
+      margin: 42px 0 18px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 30px;
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
       color: var(--muted);
     }
 
-    .intro-box {
-      background: var(--orange-light);
-      border-radius: 28px;
-      padding: 36px;
-      text-align: center;
-    }
-
-    .intro-box h2 {
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-
-    .intro-box p {
-      max-width: 860px;
-      margin: auto;
-      color: #5c6872;
-    }
-
-    .core-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .core-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 180px;
-      border: 1px solid #e6ebef;
-    }
-
-    .core-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .core-card h3 {
-      color: var(--orange-dark);
-      margin-bottom: 6px;
-    }
-
-    .core-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .progression-box {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.13), transparent 35%),
-        linear-gradient(135deg, #17324d, #7c4f31);
-      color: white;
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .progression-box h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .progression-box > p {
-      color: #fff6ee;
-      max-width: 830px;
-    }
-
-    .progression-grid {
+    .progression {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 25px;
     }
 
-    .progression-card {
-      border-radius: 20px;
+    .stage {
+      border-radius: 18px;
       padding: 22px;
       min-height: 285px;
-      border: 1px solid rgba(255,255,255,0.18);
     }
 
-    .f3 { background: rgba(118,211,149,0.15); }
-    .m46 { background: rgba(110,177,238,0.15); }
-    .m79 { background: rgba(177,147,245,0.15); }
-
-    .progression-card span {
-      display: block;
-      font-size: 2.5rem;
-      margin-bottom: 7px;
-    }
-
-    .progression-card h3 {
-      margin-bottom: 8px;
-    }
-
-    .progression-card ul {
-      padding-left: 20px;
-      color: #fffaf6;
-      font-size: 0.93rem;
-    }
-
-    .progression-card li {
-      margin-bottom: 6px;
-    }
-
-    .process-box {
-      background: var(--blue-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-      margin-top: 24px;
-    }
-
-    .process-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 190px;
-      border: 1px solid #dfe8ef;
-    }
-
-    .process-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .process-card h3 {
+    .stage h3 {
       color: var(--dark);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      font-size: 1.12rem;
     }
 
-    .process-card p {
+    .stage p,
+    .stage li {
       color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .strategy-box {
-      background: white;
-      border-radius: 28px;
-      padding: 32px;
-      border: 1px solid #e6ebef;
+    .stage ul {
+      margin-left: 20px;
+      margin-top: 8px;
     }
 
-    .strategy-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
-    }
-
-    .strategy-card {
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 185px;
-    }
-
-    .strategy-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .strategy-card h3 {
-      color: var(--dark);
+    .stage li {
       margin-bottom: 6px;
     }
 
-    .strategy-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .orange { background: var(--orange); }
+    .teal { background: var(--teal); }
+    .pink { background: var(--pink); }
+    .gray { background: var(--gray); }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
     }
 
-    .s1 { background: var(--green-light); }
-    .s2 { background: var(--blue-light); }
-    .s3 { background: var(--yellow-light); }
-    .s4 { background: var(--purple-light); }
-
-    .section-card {
+    .flow-step {
       background: white;
-      border-radius: 28px;
-      padding: 32px;
-      border: 1px solid #e6ebef;
-      margin-bottom: 25px;
+      border-radius: 16px;
+      padding: 18px 10px;
+      text-align: center;
+      min-height: 165px;
+      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
     }
 
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 22px;
+    .flow-step:nth-child(1) {
+      border-top-color: var(--green-strong);
     }
 
-    .section-header span {
-      font-size: 2.7rem;
+    .flow-step:nth-child(2) {
+      border-top-color: var(--blue-strong);
     }
 
-    .section-header h2 {
+    .flow-step:nth-child(3) {
+      border-top-color: #c39b44;
+    }
+
+    .flow-step:nth-child(4) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .flow-step:nth-child(5) {
+      border-top-color: #5d9c92;
+    }
+
+    .flow-step span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .flow-step strong {
+      display: block;
       color: var(--dark);
-      font-size: 1.75rem;
+      margin-bottom: 5px;
     }
 
-    .section-header p {
+    .flow-step p {
       color: var(--muted);
+      font-size: 0.8rem;
     }
 
-    .three-grid {
+    .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 245px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
+      border-top: 6px solid var(--blue-strong);
+    }
+
+    .card:nth-child(3n+1) {
+      border-top-color: var(--green-strong);
+    }
+
+    .card:nth-child(3n+2) {
+      border-top-color: var(--blue-strong);
+    }
+
+    .card:nth-child(3n+3) {
+      border-top-color: var(--purple-strong);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .card ul {
+      margin-left: 19px;
+      margin-top: 7px;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
 
-    .mini-card {
+    .example {
       border-radius: 18px;
       padding: 20px;
-      min-height: 190px;
+      min-height: 225px;
     }
 
-    .mini-card h3 {
+    .example h3 {
       color: var(--dark);
       margin-bottom: 7px;
     }
 
-    .mini-card p,
-    .mini-card ul {
+    .example p,
+    .example li {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.9rem;
     }
 
-    .mini-card ul {
-      padding-left: 20px;
+    .example ul {
+      margin-left: 20px;
+      margin-top: 8px;
     }
 
-    .mini-card li {
+    .example li {
       margin-bottom: 6px;
     }
 
-    .m1 { background: var(--green-light); }
-    .m2 { background: var(--blue-light); }
-    .m3 { background: var(--yellow-light); }
-
-    .mis-box {
-      background: var(--pink-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .mis-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .mis-card {
-      background: white;
+    .teacher-box {
+      margin-top: 36px;
+      background: var(--teal);
       border-radius: 20px;
-      padding: 22px;
-      min-height: 200px;
-      border: 1px solid #eee1e5;
+      padding: 24px;
     }
 
-    .mis-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .mis-card h3 {
+    .teacher-box h2 {
       color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .teacher-box ul {
+      margin-left: 22px;
+      color: var(--muted);
+    }
+
+    .teacher-box li {
       margin-bottom: 7px;
     }
 
-    .mis-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .question-box {
-      background: var(--yellow-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .question-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .question-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 175px;
-      border: 1px solid #eee3c6;
-    }
-
-    .question-card h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .question-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .support-grid,
-    .assessment-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .support-card,
-    .assessment-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      min-height: 180px;
-      border: 1px solid #e6ebef;
-    }
-
-    .support-card span,
-    .assessment-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .support-card h3,
-    .assessment-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .support-card p,
-    .assessment-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .challenge-box {
-      background: var(--purple-light);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .challenge-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 24px;
-    }
-
-    .challenge-card {
-      background: white;
-      border-radius: 18px;
+    .warning {
+      margin-top: 22px;
+      background: var(--orange);
+      border-left: 6px solid #c77f43;
+      border-radius: 16px;
       padding: 20px;
-      min-height: 180px;
-      border: 1px solid #e2dcf1;
+      color: #654c37;
     }
 
-    .challenge-card span {
-      display: block;
-      font-size: 2.1rem;
-      margin-bottom: 7px;
-    }
-
-    .challenge-card h3 {
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .challenge-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .link-card {
+    .links {
+      margin-top: 36px;
+      background: white;
       border-radius: 20px;
-      padding: 22px;
-      min-height: 175px;
-      transition: 0.2s;
-      border: 1px solid rgba(0,0,0,0.04);
+      padding: 24px;
+      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
     }
 
-    .link-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 9px 22px rgba(30,50,60,0.08);
-    }
-
-    .link-card span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-    }
-
-    .link-card h3 {
+    .links h2 {
       color: var(--dark);
-      margin-bottom: 6px;
+      margin-bottom: 12px;
     }
 
-    .link-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .c1 { background: var(--orange-light); }
-    .c2 { background: var(--green-light); }
-    .c3 { background: var(--blue-light); }
-    .c4 { background: var(--yellow-light); }
-    .c5 { background: var(--purple-light); }
-    .c6 { background: var(--pink-light); }
-
-    .note {
-      background: var(--yellow-light);
-      border-left: 6px solid #dba327;
-      border-radius: 14px;
-      padding: 20px;
-      color: #665528;
-      margin-top: 25px;
+    .link-row a {
+      background: var(--dark);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.83rem;
+      font-weight: bold;
     }
 
     footer {
       background: var(--dark);
-      color: #edf3f7;
-      padding: 35px 20px;
+      color: white;
       text-align: center;
-      margin-top: 35px;
+      padding: 32px 20px;
     }
 
-    @media (max-width: 1100px) {
-      .process-grid {
+    @media (max-width: 1000px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flow {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 1000px) {
-      .core-grid,
-      .strategy-grid,
-      .support-grid,
-      .assessment-grid,
-      .challenge-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 900px) {
-      .progression-grid,
-      .three-grid,
-      .mis-grid,
-      .question-grid,
-      .links-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .topbar {
         flex-direction: column;
       }
 
-      .core-grid,
-      .process-grid,
-      .strategy-grid,
-      .support-grid,
-      .assessment-grid,
-      .challenge-grid {
+      .progression,
+      .grid,
+      .flow,
+      .example-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro-box,
-      .progression-box,
-      .process-box,
-      .strategy-box,
-      .section-card,
-      .mis-box,
-      .question-box,
-      .challenge-box {
-        padding: 25px 18px;
-      }
-
-      .section-header {
-        align-items: flex-start;
       }
 
       main {
@@ -635,15 +425,28 @@
       }
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      header,
-      footer,
-      .back-link {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        forced-color-adjust: none !important;
       }
 
+      html,
       body {
-        background: white;
+        background: white !important;
+      }
+
+      header,
+      footer {
+        display: none !important;
       }
 
       main {
@@ -651,9 +454,56 @@
         padding: 0;
       }
 
-      section,
-      .section-card {
+      .intro,
+      .stage,
+      .flow-step,
+      .card,
+      .example,
+      .teacher-box,
+      .warning,
+      .links {
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .green {
+        background: var(--green) !important;
+      }
+
+      .blue {
+        background: var(--blue) !important;
+      }
+
+      .purple {
+        background: var(--purple) !important;
+      }
+
+      .yellow,
+      .important {
+        background: var(--yellow) !important;
+      }
+
+      .orange,
+      .warning {
+        background: var(--orange) !important;
+      }
+
+      .teal,
+      .teacher-box {
+        background: var(--teal) !important;
+      }
+
+      .pink {
+        background: var(--pink) !important;
+      }
+
+      .gray {
+        background: var(--gray) !important;
+      }
+
+      .link-row a {
+        background: var(--dark) !important;
+        color: white !important;
       }
     }
   </style>
@@ -664,25 +514,31 @@
 <header>
 
   <div class="topbar">
-    <div class="logo">HOLOS MATTERESAN</div>
+
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
 
     <a href="larare.html" class="back-link">
-      ← Lärarvy
+      ← Lärarportalen
     </a>
+
   </div>
+
 
   <div class="hero">
 
-    <div class="hero-icon">🧠</div>
+    <div class="hero-icon">🧩🧠</div>
 
-    <h1>Problemlösning F–9</h1>
+    <h1>Problemlösning</h1>
 
     <h2>Förstå • Planera • Lösa • Förklara • Kontrollera</h2>
 
     <p>
-      Problemlösning är inte ett separat moment efter att eleverna har ”lärt sig matematiken”.
-      Genom problem utvecklar elever matematiska begrepp, strategier,
-      resonemang, uthållighet och förmåga att välja och värdera metoder.
+      Problemlösning är både ett matematiskt innehåll
+      och ett sätt att lära matematik.
+      Elever behöver utveckla strategier,
+      uthållighet, representationer och förmåga att motivera sina lösningar.
     </p>
 
   </div>
@@ -692,858 +548,670 @@
 
 <main>
 
-  <section>
+  <section class="intro">
 
-    <div class="intro-box">
+    <h2>🧩 Problemlösning är mer än textuppgifter</h2>
 
-      <h2>🧠 Ett problem kräver ett beslut</h2>
+    <p>
+      Ett matematiskt problem är en uppgift där lösningsvägen
+      inte är helt given från början.
+      Eleven behöver därför tolka situationen,
+      välja en väg, pröva idéer och värdera resultatet.
+      Samma problem kan dessutom lösas på flera olika sätt.
+    </p>
+
+    <div class="important">
+
+      <strong>Grundprincip:</strong><br>
+      Låt undervisningen återkommande följa
+      <strong>förstå → planera → lösa → förklara → kontrollera</strong>.
+      Strategier ska vara verktyg att välja mellan,
+      inte steg som elever mekaniskt måste följa.
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>📈 Progression F–9</h2>
+
+    <p>
+      Progressionen handlar inte bara om större tal,
+      utan också om mer komplex information, fler möjliga strategier
+      och högre krav på resonemang.
+    </p>
+
+  </div>
+
+
+  <div class="progression">
+
+    <section class="stage green">
+
+      <h3>🌱 F–3</h3>
+
+      <ul>
+        <li>Förstå enkla problemsituationer.</li>
+        <li>Berätta med egna ord vad problemet handlar om.</li>
+        <li>Använda konkret material.</li>
+        <li>Rita bilder.</li>
+        <li>Pröva sig fram.</li>
+        <li>Använda enkla tabeller eller systematiska listor.</li>
+        <li>Förklara hur lösningen hittades.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage blue">
+
+      <h3>🔵 4–6</h3>
+
+      <ul>
+        <li>Välja mellan flera strategier.</li>
+        <li>Identifiera relevant information.</li>
+        <li>Problemlösning i flera steg.</li>
+        <li>Använda tabeller, bilder, modeller och uttryck.</li>
+        <li>Arbeta systematiskt.</li>
+        <li>Jämföra olika lösningsmetoder.</li>
+        <li>Bedöma rimlighet.</li>
+        <li>Formulera egna problem.</li>
+      </ul>
+
+    </section>
+
+
+    <section class="stage purple">
+
+      <h3>🟣 7–9</h3>
+
+      <ul>
+        <li>Komplexa problem med flera villkor.</li>
+        <li>Algebraisk problemlösning.</li>
+        <li>Proportionella och funktionella modeller.</li>
+        <li>Generalisering.</li>
+        <li>Välja mellan digitala och manuella metoder.</li>
+        <li>Argumentera för strategival.</li>
+        <li>Granska lösningar kritiskt.</li>
+        <li>Modellera verkliga situationer matematiskt.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🔄 Problemlösningsprocessen</h2>
+
+    <p>
+      En tydlig process hjälper elever att veta vad de kan göra
+      när lösningen inte syns direkt.
+    </p>
+
+  </div>
+
+
+  <div class="flow">
+
+    <div class="flow-step">
+      <span>👀</span>
+      <strong>1. Förstå</strong>
+      <p>
+        Vad vet vi? Vad söker vi?
+        Vilken information är viktig?
+      </p>
+    </div>
+
+
+    <div class="flow-step">
+      <span>🗺️</span>
+      <strong>2. Planera</strong>
+      <p>
+        Vilken strategi kan passa?
+        Finns det flera möjliga vägar?
+      </p>
+    </div>
+
+
+    <div class="flow-step">
+      <span>🧠</span>
+      <strong>3. Lös</strong>
+      <p>
+        Genomför planen.
+        Byt strategi om den inte fungerar.
+      </p>
+    </div>
+
+
+    <div class="flow-step">
+      <span>💬</span>
+      <strong>4. Förklara</strong>
+      <p>
+        Visa hur du tänkte med ord,
+        bild, symboler eller modell.
+      </p>
+    </div>
+
+
+    <div class="flow-step">
+      <span>✅</span>
+      <strong>5. Kontrollera</strong>
+      <p>
+        Är svaret rimligt?
+        Kan lösningen kontrolleras på annat sätt?
+      </p>
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧰 Strategiverktyg</h2>
+
+    <p>
+      Elever behöver möta strategier många gånger
+      och diskutera när de är användbara.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">🎨</div>
+
+      <h3>Rita en bild</h3>
 
       <p>
-        En uppgift blir ett matematiskt problem när lösningsvägen inte redan är given för eleven.
-        Eleven behöver tolka situationen, välja representation eller strategi,
-        pröva idéer och värdera resultatet.
-        Samma uppgift kan därför vara rutin för en elev och problem för en annan.
+        En bild kan göra relationerna i problemet synliga.
       </p>
 
-    </div>
+      <ul>
+        <li>Skiss</li>
+        <li>Del–helhet-modell</li>
+        <li>Stapeldiagram</li>
+        <li>Tallinje</li>
+        <li>Geometrisk modell</li>
+      </ul>
 
-  </section>
-
-
-  <section>
-
-    <h2 class="section-title">
-      Fyra kärnor i problemlösning
-    </h2>
-
-    <p class="section-intro">
-      Problemlösning handlar både om matematisk kunskap och om hur den används.
-    </p>
-
-    <div class="core-grid">
-
-      <div class="core-card">
-        <span>🔎</span>
-        <h3>Förstå</h3>
-        <p>
-          Tolka situationen, identifiera relevant information och förstå vad som efterfrågas.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>🧩</span>
-        <h3>Strategi</h3>
-        <p>
-          Välja representation, metod eller angreppssätt utifrån problemets struktur.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>💬</span>
-        <h3>Resonemang</h3>
-        <p>
-          Motivera val, förklara samband och jämföra olika lösningar.
-        </p>
-      </div>
-
-      <div class="core-card">
-        <span>✅</span>
-        <h3>Värdera</h3>
-        <p>
-          Kontrollera lösningen och bedöma om svaret är rimligt i situationen.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="progression-box">
+      <div class="icon">🧱</div>
 
-      <h2>🌱 → 🌿 → 🚀 Progression F–9</h2>
+      <h3>Bygg eller konkretisera</h3>
 
       <p>
-        Problemlösningsförmågan utvecklas genom allt större självständighet, systematik och abstraktion.
+        Konkret material kan användas för att undersöka problemet.
       </p>
 
-      <div class="progression-grid">
+      <ul>
+        <li>Klossar</li>
+        <li>Bråkremsor</li>
+        <li>Pengar</li>
+        <li>Geometriskt material</li>
+        <li>Fysiska modeller</li>
+      </ul>
 
-        <div class="progression-card f3">
-
-          <span>🌱</span>
-
-          <h3>F–3</h3>
-
-          <ul>
-            <li>förstå enkla problemsituationer</li>
-            <li>dramatisera</li>
-            <li>bygga med material</li>
-            <li>rita</li>
-            <li>använda tallinje</li>
-            <li>pröva sig fram</li>
-            <li>berätta hur man tänkte</li>
-            <li>kontrollera svaret</li>
-          </ul>
-
-        </div>
+    </article>
 
 
-        <div class="progression-card m46">
+    <article class="card">
 
-          <span>🌿</span>
+      <div class="icon">📋</div>
 
-          <h3>4–6</h3>
+      <h3>Gör en tabell</h3>
 
-          <ul>
-            <li>flerstegsproblem</li>
-            <li>välja strategi</li>
-            <li>systematiskt prövande</li>
-            <li>tabeller och modeller</li>
-            <li>arbeta baklänges</li>
-            <li>söka mönster</li>
-            <li>jämföra lösningar</li>
-            <li>bedöma rimlighet</li>
-          </ul>
-
-        </div>
-
-
-        <div class="progression-card m79">
-
-          <span>🚀</span>
-
-          <h3>7–9</h3>
-
-          <ul>
-            <li>komplexa och öppna problem</li>
-            <li>algebraiska modeller</li>
-            <li>grafer och funktioner</li>
-            <li>antaganden</li>
-            <li>generalisering</li>
-            <li>digitala verktyg</li>
-            <li>argumentera för metod</li>
-            <li>värdera modellens begränsningar</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="process-box">
-
-      <h2 class="section-title">
-        🧭 Problemlösningsprocessen
-      </h2>
-
-      <p class="section-intro">
-        Processen är inte alltid linjär – elever kan behöva gå tillbaka och ändra strategi.
+      <p>
+        Tabeller hjälper elever att organisera information
+        och upptäcka mönster.
       </p>
 
-      <div class="process-grid">
+      <ul>
+        <li>Ordna försök.</li>
+        <li>Jämför värden.</li>
+        <li>Se förändring.</li>
+        <li>Hitta samband.</li>
+      </ul>
 
-        <div class="process-card">
-          <span>1️⃣</span>
-          <h3>Förstå</h3>
-          <p>
-            Vad vet vi? Vad ska vi ta reda på? Vilken information är relevant?
-          </p>
-        </div>
-
-        <div class="process-card">
-          <span>2️⃣</span>
-          <h3>Representera</h3>
-          <p>
-            Rita, bygg, gör tabell, använd tallinje, graf eller algebraisk modell.
-          </p>
-        </div>
-
-        <div class="process-card">
-          <span>3️⃣</span>
-          <h3>Välj strategi</h3>
-          <p>
-            Bestäm ett angreppssätt som passar problemets struktur.
-          </p>
-        </div>
-
-        <div class="process-card">
-          <span>4️⃣</span>
-          <h3>Lös & förklara</h3>
-          <p>
-            Genomför strategin och dokumentera hur resonemanget hänger ihop.
-          </p>
-        </div>
-
-        <div class="process-card">
-          <span>5️⃣</span>
-          <h3>Kontrollera</h3>
-          <p>
-            Är lösningen rimlig? Finns annan metod? Svarar lösningen verkligen på frågan?
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="strategy-box">
+      <div class="icon">🔎</div>
 
-      <h2 class="section-title">
-        🧩 Strategibank
-      </h2>
+      <h3>Pröva systematiskt</h3>
 
-      <p class="section-intro">
-        Strategier ska bli verktyg att välja mellan – inte regler som används mekaniskt.
+      <p>
+        Systematiskt prövande är något annat än att gissa slumpmässigt.
       </p>
 
-      <div class="strategy-grid">
+      <ul>
+        <li>Bestäm en ordning.</li>
+        <li>Registrera försöken.</li>
+        <li>Undvik dubbletter.</li>
+        <li>Kontrollera att alla möjligheter prövats.</li>
+      </ul>
 
-        <div class="strategy-card s1">
-          <span>🖼️</span>
-          <h3>Rita en bild</h3>
-          <p>
-            Visualisera personer, mängder, former eller relationer.
-          </p>
-        </div>
+    </article>
 
-        <div class="strategy-card s2">
-          <span>📊</span>
-          <h3>Gör en tabell</h3>
-          <p>
-            Organisera information och upptäck samband eller mönster.
-          </p>
-        </div>
 
-        <div class="strategy-card s3">
-          <span>🔎</span>
-          <h3>Systematiskt pröva</h3>
-          <p>
-            Pröva möjligheter på ett organiserat sätt så att inget missas eller upprepas.
-          </p>
-        </div>
+    <article class="card">
 
-        <div class="strategy-card s4">
-          <span>🔄</span>
-          <h3>Arbeta baklänges</h3>
-          <p>
-            Börja vid slutresultatet och återskapa tidigare steg.
-          </p>
-        </div>
+      <div class="icon">🔙</div>
 
-        <div class="strategy-card s1">
-          <span>🧱</span>
-          <h3>Bygg en modell</h3>
-          <p>
-            Använd konkreta material eller stapelmodeller för att synliggöra relationen.
-          </p>
-        </div>
+      <h3>Arbeta baklänges</h3>
 
-        <div class="strategy-card s2">
-          <span>🧩</span>
-          <h3>Dela upp problemet</h3>
-          <p>
-            Lös mindre delar och sätt sedan samman dem till en helhet.
-          </p>
-        </div>
-
-        <div class="strategy-card s3">
-          <span>🔢</span>
-          <h3>Prova enklare tal</h3>
-          <p>
-            Undersök samma struktur med mindre tal innan problemet generaliseras.
-          </p>
-        </div>
-
-        <div class="strategy-card s4">
-          <span>🚀</span>
-          <h3>Sök ett mönster</h3>
-          <p>
-            Identifiera regelbundenhet och använd den för att lösa fler eller större fall.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🔎</span>
-
-        <div>
-          <h2>Systematiskt prövande</h2>
-          <p>Att pröva är en avancerad strategi när den görs systematiskt.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Inte slumpmässigt</h3>
-
-          <p>
-            Eleven behöver bestämma vad som ska varieras och hålla andra villkor stabila.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Dokumentera</h3>
-
-          <ul>
-            <li>tabell</li>
-            <li>lista</li>
-            <li>diagram</li>
-            <li>systematiska kombinationer</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Fråga</h3>
-
-          <ul>
-            <li>Hur vet du vad du redan har testat?</li>
-            <li>Hur vet du att du hittat alla?</li>
-            <li>Vilket fall prövar du härnäst?</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🖼️</span>
-
-        <div>
-          <h2>Representationer</h2>
-          <p>En bra representation kan göra problemets struktur synlig.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Visuella</h3>
-
-          <ul>
-            <li>bild</li>
-            <li>stapelmodell</li>
-            <li>tallinje</li>
-            <li>geometrisk figur</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Organiserande</h3>
-
-          <ul>
-            <li>tabell</li>
-            <li>lista</li>
-            <li>träddiagram</li>
-            <li>koordinatsystem</li>
-          </ul>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Symboliska</h3>
-
-          <ul>
-            <li>uttryck</li>
-            <li>ekvation</li>
-            <li>formel</li>
-            <li>funktion</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>💬</span>
-
-        <div>
-          <h2>Resonemang & kommunikation</h2>
-          <p>Problemlösning blir synlig när eleven får förklara sina val.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Beskriva</h3>
-
-          <p>
-            ”Först gjorde jag... sedan...”
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Motivera</h3>
-
-          <p>
-            ”Jag valde den här strategin eftersom...”
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Värdera</h3>
-
-          <p>
-            ”Den här lösningen är effektivare eftersom...” eller
-            ”Mitt svar verkar rimligt eftersom...”
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-card">
-
-      <div class="section-header">
-        <span>🌍</span>
-
-        <div>
-          <h2>Modellering</h2>
-          <p>I äldre årskurser blir problemlösning allt mer kopplad till verkliga situationer.</p>
-        </div>
-      </div>
-
-      <div class="three-grid">
-
-        <div class="mini-card m1">
-
-          <h3>Matematisera</h3>
-
-          <p>
-            Översätt en verklig situation till en matematisk modell.
-          </p>
-
-        </div>
-
-        <div class="mini-card m2">
-
-          <h3>Antaganden</h3>
-
-          <p>
-            Bestäm vilka förenklingar och antaganden som behövs för att kunna arbeta matematiskt.
-          </p>
-
-        </div>
-
-        <div class="mini-card m3">
-
-          <h3>Tolka tillbaka</h3>
-
-          <p>
-            Ett matematiskt resultat måste tolkas i den ursprungliga situationen och värderas.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="mis-box">
-
-      <h2 class="section-title">
-        ⚠️ Vanliga hinder & missuppfattningar
-      </h2>
-
-      <p class="section-intro">
-        När en elev fastnar behöver läraren skilja mellan språkproblem, begreppsproblem och strategiproblem.
+      <p>
+        I vissa problem är slutresultatet känt,
+        medan tidigare steg behöver hittas.
       </p>
 
-      <div class="mis-grid">
+      <ul>
+        <li>Börja vid slutet.</li>
+        <li>Använd inversa operationer.</li>
+        <li>Kontrollera genom att gå framåt igen.</li>
+      </ul>
 
-        <div class="mis-card">
-          <span>🔑</span>
-          <h3>Nyckelordsjakt</h3>
-          <p>
-            Eleven väljer exempelvis addition bara för att ordet ”tillsammans” förekommer, utan att förstå situationen.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>🔢</span>
-          <h3>Alla tal måste användas</h3>
-          <p>
-            Eleven antar att varje tal i texten automatiskt behövs i beräkningen.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>⚡</span>
-          <h3>Man måste börja räkna direkt</h3>
-          <p>
-            Planering och representation hoppas över innan problemets struktur är förstådd.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>1️⃣</span>
-          <h3>Det finns alltid bara en metod</h3>
-          <p>
-            Eleven behöver möta uppgifter där olika strategier kan jämföras.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>✅</span>
-          <h3>Ett uträknat svar är automatiskt rätt</h3>
-          <p>
-            Beräkningen kan vara korrekt men svara på fel fråga eller vara orimlig i sammanhanget.
-          </p>
-        </div>
-
-        <div class="mis-card">
-          <span>🚫</span>
-          <h3>Att fastna betyder att man inte kan</h3>
-          <p>
-            Produktiv kamp behöver normaliseras: pröva, ändra representation och använda tidigare kunskap.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <div class="question-box">
+      <div class="icon">🔤</div>
 
-      <h2 class="section-title">
-        💬 Lärarfrågor utan att ta över lösningen
-      </h2>
+      <h3>Skriv ett uttryck</h3>
 
-      <p class="section-intro">
-        Frågorna ska hjälpa eleven att tänka vidare, inte avslöja nästa steg.
+      <p>
+        Symboler och algebra kan göra problemets struktur tydligare.
       </p>
 
-      <div class="question-grid">
+      <ul>
+        <li>Numeriskt uttryck.</li>
+        <li>Ekvation.</li>
+        <li>Variabel.</li>
+        <li>Formel.</li>
+        <li>Generell regel.</li>
+      </ul>
 
-        <div class="question-card">
-          <h3>Vad vet du redan?</h3>
-          <p>
-            Hjälper eleven att aktivera information och tidigare kunskap.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Vad försöker du ta reda på?</h3>
-          <p>
-            För tillbaka uppmärksamheten till problemets fråga.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Kan du visa problemet på ett annat sätt?</h3>
-          <p>
-            Uppmuntrar byte av representation när eleven fastnat.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Vad har du prövat?</h3>
-          <p>
-            Gör strategin synlig och minskar risken för slumpmässiga försök.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Kan ett enklare exempel hjälpa?</h3>
-          <p>
-            Behåller problemstrukturen men sänker den numeriska belastningen.
-          </p>
-        </div>
-
-        <div class="question-card">
-          <h3>Hur kan du kontrollera?</h3>
-          <p>
-            Flyttar eleven från svar till värdering och rimlighet.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section>
+    <article class="card">
 
-    <h2 class="section-title">
-      🛟 Stöd utan att ta bort tänkandet
-    </h2>
+      <div class="icon">🧩</div>
 
-    <p class="section-intro">
-      Stödet ska göra problemet tillgängligt men behålla den matematiska utmaningen.
+      <h3>Dela upp problemet</h3>
+
+      <p>
+        Komplexa problem blir ofta hanterbara
+        om de delas i mindre frågor.
+      </p>
+
+      <ul>
+        <li>Vad behöver jag veta först?</li>
+        <li>Vilket delproblem kommer sedan?</li>
+        <li>Hur hänger delarna ihop?</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🔁</div>
+
+      <h3>Sök ett mönster</h3>
+
+      <p>
+        Mönster kan användas för att förutsäga
+        och generalisera.
+      </p>
+
+      <ul>
+        <li>Gör flera exempel.</li>
+        <li>Jämför resultaten.</li>
+        <li>Beskriv förändringen.</li>
+        <li>Formulera en regel.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🎯</div>
+
+      <h3>Förenkla problemet</h3>
+
+      <p>
+        Ett enklare fall kan avslöja strukturen
+        i ett svårt problem.
+      </p>
+
+      <ul>
+        <li>Använd mindre tal.</li>
+        <li>Testa ett specialfall.</li>
+        <li>Hitta sambandet.</li>
+        <li>Återgå till ursprungsproblemet.</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🧩 Fyra undervisningsidéer</h2>
+
+    <p>
+      Aktiviteter där processen och resonemanget blir minst lika viktiga som svaret.
     </p>
 
-    <div class="support-grid">
-
-      <div class="support-card">
-        <span>💬</span>
-        <h3>Språkstöd</h3>
-        <p>
-          Förklara centrala ord, dela texten och låt eleven återberätta situationen.
-        </p>
-      </div>
-
-      <div class="support-card">
-        <span>🖼️</span>
-        <h3>Representation</h3>
-        <p>
-          Erbjud tallinje, stapelmodell, konkret material eller tabell – men låt eleven använda modellen.
-        </p>
-      </div>
-
-      <div class="support-card">
-        <span>🧩</span>
-        <h3>Dela upp</h3>
-        <p>
-          Hjälp eleven identifiera delmål utan att ge hela lösningsvägen.
-        </p>
-      </div>
-
-      <div class="support-card">
-        <span>💡</span>
-        <h3>Ledtrappa</h3>
-        <p>
-          Ge minsta möjliga ledtråd och öka stödet endast om det behövs.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
+  <div class="example-grid">
 
-    <div class="challenge-box">
+    <section class="example green">
 
-      <h2 class="section-title">
-        🚀 Fördjupa problemlösningen
-      </h2>
+      <h3>🛣️ Flera vägar till samma svar</h3>
 
-      <p class="section-intro">
-        Ett bra problem kan öppnas upp utan att bytas mot ett helt nytt.
+      <ul>
+        <li>Välj ett problem med flera möjliga strategier.</li>
+        <li>Låt elever arbeta enskilt först.</li>
+        <li>Jämför lösningar i par.</li>
+        <li>Samla tre olika lösningsvägar.</li>
+        <li>Diskutera likheter och skillnader.</li>
+      </ul>
+
+      <p>
+        Synliggör att matematisk kvalitet inte handlar om en enda metod.
       </p>
 
-      <div class="challenge-grid">
+    </section>
 
-        <div class="challenge-card">
-          <span>🔎</span>
-          <h3>Hitta alla</h3>
-          <p>
-            Be eleven hitta samtliga lösningar och visa varför inga saknas.
-          </p>
-        </div>
 
-        <div class="challenge-card">
-          <span>🔄</span>
-          <h3>Ändra villkoret</h3>
-          <p>
-            Vad händer om ett tal, en regel eller en begränsning förändras?
-          </p>
-        </div>
+    <section class="example blue">
 
-        <div class="challenge-card">
-          <span>⚖️</span>
-          <h3>Jämför strategier</h3>
-          <p>
-            Vilken lösning är mest effektiv, tydlig eller generell – och varför?
-          </p>
-        </div>
+      <h3>🕵️ Felfinnaren</h3>
 
-        <div class="challenge-card">
-          <span>🚀</span>
-          <h3>Generalisera</h3>
-          <p>
-            Formulera en regel eller metod som fungerar för en hel grupp liknande problem.
-          </p>
-        </div>
+      <ul>
+        <li>Visa en felaktig lösning.</li>
+        <li>Var börjar felet?</li>
+        <li>Vilken tanke kan eleven ha haft?</li>
+        <li>Hur kan lösningen rättas?</li>
+        <li>Finns en annan lösningsstrategi?</li>
+      </ul>
 
-      </div>
+      <p>
+        Utvecklar analys och metakognition.
+      </p>
 
-    </div>
+    </section>
+
+
+    <section class="example yellow">
+
+      <h3>🔎 Hitta alla</h3>
+
+      <ul>
+        <li>Ge ett kombinatoriskt eller öppet problem.</li>
+        <li>Be elever hitta alla lösningar.</li>
+        <li>Hur organiseras arbetet?</li>
+        <li>Hur vet vi att inget saknas?</li>
+        <li>Kan resultatet generaliseras?</li>
+      </ul>
+
+      <p>
+        Tränar systematik, struktur och argumentation.
+      </p>
+
+    </section>
+
+
+    <section class="example purple">
+
+      <h3>🌍 Verklighetsproblemet</h3>
+
+      <ul>
+        <li>Utgå från en verklig situation.</li>
+        <li>Vilken information behövs?</li>
+        <li>Vilka antaganden måste göras?</li>
+        <li>Skapa en matematisk modell.</li>
+        <li>Tolka svaret tillbaka i verkligheten.</li>
+      </ul>
+
+      <p>
+        Gör modellering till en naturlig del av problemlösning.
+      </p>
+
+    </section>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>🕵️ Vanliga hinder och missuppfattningar</h2>
+
+    <p>
+      Det som ser ut som ett beräkningsproblem
+      kan egentligen handla om språk, strategi eller uthållighet.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">🔑</div>
+
+      <h3>Letar efter nyckelord</h3>
+
+      <p>
+        Eleven väljer räknesätt utifrån ord som
+        ”sammanlagt”, ”kvar” eller ”varje”.
+      </p>
+
+      <ul>
+        <li>Samma ord kan förekomma i olika problemtyper.</li>
+        <li>Fokusera på situationens relationer.</li>
+        <li>Be eleven återberätta problemet.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">⚡</div>
+
+      <h3>Börjar räkna direkt</h3>
+
+      <p>
+        Eleven använder alla tal i texten utan att först förstå situationen.
+      </p>
+
+      <ul>
+        <li>Vad söker vi?</li>
+        <li>Vad vet vi?</li>
+        <li>Behövs all information?</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🚫</div>
+
+      <h3>Ett misslyckat försök betyder stopp</h3>
+
+      <p>
+        Eleven tolkar en strategi som inte fungerade
+        som att problemet inte går att lösa.
+      </p>
+
+      <ul>
+        <li>Normalisera omprövning.</li>
+        <li>Diskutera vad försöket lärde oss.</li>
+        <li>Byt representation.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">1️⃣</div>
+
+      <h3>Det finns bara en rätt metod</h3>
+
+      <p>
+        Eleven tror att lärarens metod är den enda godtagbara.
+      </p>
+
+      <ul>
+        <li>Jämför flera korrekta lösningar.</li>
+        <li>Diskutera effektivitet.</li>
+        <li>Diskutera tydlighet.</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">✅</div>
+
+      <h3>Svaret är slutpunkten</h3>
+
+      <p>
+        Eleven slutar när ett tal har producerats.
+      </p>
+
+      <ul>
+        <li>Vad betyder svaret?</li>
+        <li>Är enheten rätt?</li>
+        <li>Är svaret rimligt?</li>
+        <li>Kan det kontrolleras?</li>
+      </ul>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">📝</div>
+
+      <h3>Lång text = svårt problem</h3>
+
+      <p>
+        Språklig belastning kan dölja den matematiska strukturen.
+      </p>
+
+      <ul>
+        <li>Visualisera.</li>
+        <li>Markera viktig information.</li>
+        <li>Arbeta med begrepp.</li>
+        <li>Låt elever återberätta.</li>
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <section class="teacher-box">
+
+    <h2>👩‍🏫 Frågor som för problemlösningen framåt</h2>
+
+    <ul>
+      <li>Vad handlar problemet om med dina egna ord?</li>
+      <li>Vad vet vi?</li>
+      <li>Vad behöver vi ta reda på?</li>
+      <li>Vilken information är viktig?</li>
+      <li>Kan du rita eller bygga situationen?</li>
+      <li>Har du sett ett liknande problem tidigare?</li>
+      <li>Vilken strategi skulle kunna passa?</li>
+      <li>Vad har du redan prövat?</li>
+      <li>Vad upptäckte du genom försöket?</li>
+      <li>Kan du lösa problemet på ett annat sätt?</li>
+      <li>Hur kan du visa att lösningen stämmer?</li>
+      <li>Är svaret rimligt?</li>
+      <li>Kan det finnas fler lösningar?</li>
+      <li>Hur vet du att du hittat alla?</li>
+    </ul>
 
   </section>
 
 
-  <section>
+  <div class="warning">
 
-    <h2 class="section-title">
-      📊 Bedömning – vad ska läraren få syn på?
-    </h2>
+    <strong>⚠️ Undvik nyckelordsmetoden.</strong><br>
+    Att lära elever att
+    <strong>”sammanlagt betyder plus”</strong>,
+    <strong>”kvar betyder minus”</strong> eller
+    <strong>”varje betyder gånger”</strong>
+    kan leda till felaktigt strategival.
+    Lär istället elever att förstå
+    <strong>relationen mellan storheterna i problemet</strong>.
 
-    <p class="section-intro">
-      Bedöm både lösningen och processen.
-    </p>
-
-    <div class="assessment-grid">
-
-      <div class="assessment-card">
-        <span>🔎</span>
-        <h3>Problemtolkning</h3>
-        <p>
-          Förstår eleven vad problemet handlar om och vad som efterfrågas?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>🧩</span>
-        <h3>Strategival</h3>
-        <p>
-          Kan eleven välja, genomföra och vid behov byta strategi?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>💬</span>
-        <h3>Resonemang</h3>
-        <p>
-          Kan eleven förklara lösningen och motivera sina matematiska val?
-        </p>
-      </div>
-
-      <div class="assessment-card">
-        <span>✅</span>
-        <h3>Värdering</h3>
-        <p>
-          Kan eleven kontrollera resultatet och bedöma rimlighet och eventuella begränsningar?
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <section>
+  <section class="links">
 
-    <h2 class="section-title">
-      Relaterade lärarsidor
-    </h2>
+    <h2>➡️ Fortsätt i Matteresan</h2>
 
-    <p class="section-intro">
-      Problemlösning går genom hela Matteresan och binder samman matematikens innehåll och förmågor.
-    </p>
+    <div class="link-row">
 
-    <div class="links-grid">
-
-      <a href="larare-undervisning.html" class="link-card c1">
-        <span>🧠</span>
-        <h3>Undervisningsidéer</h3>
-        <p>
-          Planera problemlösande och undersökande undervisning.
-        </p>
+      <a href="elevblad-problemlosning.html">
+        ✏️ Elevblad problemlösning
       </a>
 
-      <a href="larare-matteprat.html" class="link-card c2">
-        <span>💬</span>
-        <h3>Matteprat</h3>
-        <p>
-          Gör olika strategier och resonemang synliga i klassrummet.
-        </p>
+      <a href="material-problem.html">
+        📄 Problemmaterial
       </a>
 
-      <a href="larare-sprak.html" class="link-card c3">
-        <span>📖</span>
-        <h3>Språk & begrepp</h3>
-        <p>
-          Språklig förståelse är central när problem presenteras i text och sammanhang.
-        </p>
+      <a href="larare-matteprat.html">
+        💬 Matteprat
       </a>
 
-      <a href="larare-stod.html" class="link-card c4">
-        <span>🛟</span>
-        <h3>Stöd & anpassningar</h3>
-        <p>
-          Gör problem tillgängliga utan att ta bort det matematiska tänkandet.
-        </p>
+      <a href="larare-raknesatt.html">
+        ➕➖✖️➗ Räknesätt
       </a>
 
-      <a href="larare-utmaning.html" class="link-card c5">
-        <span>🚀</span>
-        <h3>Fördjupning</h3>
-        <p>
-          Öppna problem genom fler lösningar, generalisering och förändrade villkor.
-        </p>
+      <a href="larare-sprak.html">
+        🗣️ Språk
       </a>
 
-      <a href="larare-bedomning.html" class="link-card c6">
-        <span>📊</span>
-        <h3>Bedömning</h3>
-        <p>
-          Samla underlag om förståelse, strategier, resonemang och självständighet.
-        </p>
+      <a href="larare-missuppfattningar.html">
+        🕵️ Missuppfattningar
       </a>
 
-    </div>
+      <a href="larare-stod.html">
+        🪜 Stöd
+      </a>
 
-    <div class="note">
-      <strong>Kom ihåg:</strong>
-      om läraren visar lösningsmetoden innan eleven hunnit tänka själv
-      riskerar problemet att bli en rutinuppgift.
-      Ge därför tid för individuell tanke, representation, samtal och jämförelse av strategier.
+      <a href="larare-utmaning.html">
+        🚀 Utmaning
+      </a>
+
     </div>
 
   </section>
@@ -1553,11 +1221,8 @@
 
 <footer>
 
-  <strong>HOLOS Matteresan F–9</strong>
-
-  <br>
-
-  🧠 Problemlösning F–9 – förstå, planera, lösa, förklara och kontrollera
+  <strong>HOLOS Matteresan F–9</strong><br>
+  🧩 Förstå • Planera • Lösa • Förklara • Kontrollera
 
 </footer>
 
