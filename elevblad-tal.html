@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Taluppfattning | HOLOS Matteresan F–9</title>
+  <title>Elevblad – Taluppfattning | HOLOS Matteresan F–9</title>
 
   <style>
     * {
@@ -40,7 +40,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.45;
     }
 
     a {
@@ -53,7 +53,7 @@
         radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 32%),
         linear-gradient(135deg, #53677a, #8295a8);
       color: white;
-      padding: 22px 20px 58px;
+      padding: 22px 20px 50px;
     }
 
     .topbar {
@@ -71,52 +71,52 @@
     }
 
     .back-link {
-      border: 1px solid rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.7);
       border-radius: 999px;
       padding: 8px 15px;
       font-weight: bold;
     }
 
     .hero {
-      max-width: 930px;
-      margin: 44px auto 0;
+      max-width: 920px;
+      margin: 38px auto 0;
       text-align: center;
     }
 
     .hero-icon {
-      font-size: 4rem;
-      margin-bottom: 8px;
+      font-size: 3.8rem;
+      margin-bottom: 7px;
     }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 7vw, 4.4rem);
+      font-size: clamp(2.3rem, 7vw, 4.2rem);
       line-height: 1.05;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .hero h2 {
-      font-size: clamp(1.05rem, 3vw, 1.4rem);
-      margin-bottom: 14px;
+      font-size: clamp(1.05rem, 3vw, 1.35rem);
+      margin-bottom: 12px;
     }
 
     .hero p {
-      max-width: 850px;
+      max-width: 820px;
       margin: auto;
       color: #f6f9fb;
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1100px;
       margin: auto;
-      padding: 42px 20px 70px;
+      padding: 38px 20px 70px;
     }
 
     .intro {
       background: white;
       border-radius: 22px;
-      padding: 28px;
+      padding: 26px;
       box-shadow: 0 8px 25px rgba(32,48,64,0.07);
-      margin-bottom: 36px;
+      margin-bottom: 28px;
     }
 
     .intro h2 {
@@ -126,285 +126,284 @@
 
     .intro p {
       color: var(--muted);
-      max-width: 950px;
     }
 
-    .important {
-      margin-top: 17px;
+    .screen-note {
       background: var(--yellow);
       border-left: 6px solid #c39b44;
       border-radius: 14px;
       padding: 17px;
+      margin-bottom: 30px;
       color: #665831;
     }
 
-    .section-title {
-      margin: 42px 0 18px;
-    }
-
-    .section-title h2 {
-      color: var(--dark);
-      font-size: 1.8rem;
-      margin-bottom: 5px;
-    }
-
-    .section-title p {
-      color: var(--muted);
-    }
-
-    .progression {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .stage {
-      border-radius: 18px;
-      padding: 22px;
-      min-height: 270px;
-    }
-
-    .stage h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-      font-size: 1.12rem;
-    }
-
-    .stage p,
-    .stage li {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .stage ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .stage li {
-      margin-bottom: 6px;
-    }
-
-    .green { background: var(--green); }
-    .blue { background: var(--blue); }
-    .purple { background: var(--purple); }
-    .yellow { background: var(--yellow); }
-    .orange { background: var(--orange); }
-    .teal { background: var(--teal); }
-    .pink { background: var(--pink); }
-    .gray { background: var(--gray); }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
+    .sheet {
+      width: 100%;
+      min-height: 277mm;
       background: white;
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 240px;
-      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
-      border-top: 6px solid var(--blue-strong);
+      margin: 0 auto 28px;
+      padding: 12mm;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(32,48,64,0.08);
+      border-top: 8px solid var(--green-strong);
+
+      page-break-after: always;
+      break-after: page;
     }
 
-    .card:nth-child(3n+1) {
-      border-top-color: var(--green-strong);
-    }
-
-    .card:nth-child(3n+2) {
+    .sheet:nth-of-type(2) {
       border-top-color: var(--blue-strong);
     }
 
-    .card:nth-child(3n+3) {
+    .sheet:nth-of-type(3) {
+      border-top-color: #c39b44;
+    }
+
+    .sheet:nth-of-type(4) {
       border-top-color: var(--purple-strong);
     }
 
-    .icon {
-      font-size: 2rem;
-      margin-bottom: 8px;
+    .sheet:nth-of-type(5) {
+      border-top-color: #5d9c92;
     }
 
-    .card h3 {
+    .sheet:nth-of-type(6) {
+      border-top-color: #aa7188;
+    }
+
+    .sheet.final-sheet {
+      page-break-after: auto;
+      break-after: auto;
+    }
+
+    .sheet-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      border-bottom: 2px solid #dce3e8;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    .sheet-header h2 {
       color: var(--dark);
-      margin-bottom: 8px;
-      font-size: 1.08rem;
+      font-size: 1.7rem;
+      margin-bottom: 4px;
     }
 
-    .card p,
-    .card li {
+    .sheet-header p {
       color: var(--muted);
       font-size: 0.88rem;
     }
 
-    .card ul {
-      margin-left: 19px;
-      margin-top: 7px;
-    }
-
-    .card li {
-      margin-bottom: 5px;
-    }
-
-    .flow {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-    }
-
-    .flow-step {
-      background: white;
-      border-radius: 16px;
-      padding: 18px 10px;
-      text-align: center;
-      min-height: 155px;
-      box-shadow: 0 6px 18px rgba(32,48,64,0.06);
-      border-top: 6px solid var(--blue-strong);
-    }
-
-    .flow-step:nth-child(1) {
-      border-top-color: var(--green-strong);
-    }
-
-    .flow-step:nth-child(2) {
-      border-top-color: var(--blue-strong);
-    }
-
-    .flow-step:nth-child(3) {
-      border-top-color: #c39b44;
-    }
-
-    .flow-step:nth-child(4) {
-      border-top-color: var(--purple-strong);
-    }
-
-    .flow-step:nth-child(5) {
-      border-top-color: #5d9c92;
-    }
-
-    .flow-step span {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 6px;
-    }
-
-    .flow-step strong {
-      display: block;
-      color: var(--dark);
-      margin-bottom: 5px;
-    }
-
-    .flow-step p {
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    .example-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .example {
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 215px;
-    }
-
-    .example h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
-    }
-
-    .example p,
-    .example li {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .example ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .example li {
-      margin-bottom: 6px;
-    }
-
-    .teacher-box {
-      margin-top: 36px;
-      background: var(--teal);
-      border-radius: 20px;
-      padding: 24px;
-    }
-
-    .teacher-box h2 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .teacher-box ul {
-      margin-left: 22px;
-      color: var(--muted);
-    }
-
-    .teacher-box li {
-      margin-bottom: 7px;
-    }
-
-    .warning {
-      margin-top: 22px;
-      background: var(--orange);
-      border-left: 6px solid #c77f43;
-      border-radius: 16px;
-      padding: 20px;
-      color: #654c37;
-    }
-
-    .links {
-      margin-top: 36px;
-      background: white;
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 7px 22px rgba(32,48,64,0.06);
-    }
-
-    .links h2 {
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-
-    .link-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .link-row a {
+    .sheet-number {
       background: var(--dark);
       color: white;
       border-radius: 999px;
-      padding: 9px 14px;
-      font-size: 0.83rem;
+      padding: 6px 11px;
       font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .student-row {
+      display: grid;
+      grid-template-columns: 1fr 0.7fr;
+      gap: 15px;
+      margin-bottom: 16px;
+    }
+
+    .field {
+      border-bottom: 1px solid #63717b;
+      padding: 7px 2px;
+      min-height: 32px;
+    }
+
+    .goal {
+      background: var(--green);
+      border-radius: 13px;
+      padding: 13px;
+      margin-bottom: 16px;
+    }
+
+    .goal strong {
+      color: var(--dark);
+    }
+
+    .task {
+      margin-bottom: 17px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .task h3 {
+      color: var(--dark);
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .task p {
+      font-size: 0.91rem;
+    }
+
+    .answer-line {
+      border-bottom: 1px solid #687682;
+      height: 29px;
+      margin-top: 5px;
+    }
+
+    .answer-lines {
+      margin-top: 5px;
+    }
+
+    .answer-lines div {
+      border-bottom: 1px solid #687682;
+      height: 28px;
+    }
+
+    .box {
+      border: 2px solid #9aa8b1;
+      border-radius: 10px;
+      min-height: 90px;
+      margin-top: 8px;
+      padding: 8px;
+    }
+
+    .large-box {
+      border: 2px solid #9aa8b1;
+      border-radius: 10px;
+      min-height: 145px;
+      margin-top: 8px;
+      padding: 8px;
+    }
+
+    .tiny-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
+      margin-top: 10px;
+    }
+
+    .tiny-card {
+      border: 1px solid #aeb9c0;
+      border-radius: 10px;
+      min-height: 78px;
+      padding: 9px;
+      text-align: center;
+    }
+
+    .number-line {
+      position: relative;
+      height: 75px;
+      margin: 16px 8px 8px;
+    }
+
+    .number-line::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 35px;
+      height: 3px;
+      background: #364b5c;
+    }
+
+    .number-line .mark {
+      position: absolute;
+      top: 27px;
+      width: 2px;
+      height: 19px;
+      background: #364b5c;
+    }
+
+    .number-line .label {
+      position: absolute;
+      top: 47px;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 1fr 70px 1fr;
+      gap: 8px;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .comparison-value {
+      border: 1px solid #9aa8b1;
+      border-radius: 9px;
+      padding: 10px;
+      text-align: center;
+      min-height: 42px;
+    }
+
+    .comparison-symbol {
+      border: 1px solid #9aa8b1;
+      border-radius: 9px;
+      padding: 10px;
+      text-align: center;
+      min-height: 42px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 9px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th,
+    td {
+      border: 1px solid #9faab2;
+      padding: 9px;
+      text-align: center;
+    }
+
+    th {
+      background: var(--blue);
+      color: var(--dark);
+    }
+
+    td {
+      height: 42px;
+    }
+
+    .reflection {
+      background: var(--yellow);
+      border-radius: 13px;
+      padding: 13px;
+      margin-top: 15px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .reflection h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .check-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      font-size: 0.9rem;
     }
 
     footer {
       background: var(--dark);
       color: white;
       text-align: center;
-      padding: 32px 20px;
-    }
-
-    @media (max-width: 1000px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .flow {
-        grid-template-columns: repeat(3, 1fr);
-      }
+      padding: 30px 20px;
     }
 
     @media (max-width: 700px) {
@@ -412,16 +411,26 @@
         flex-direction: column;
       }
 
-      .progression,
-      .grid,
-      .flow,
-      .example-grid {
+      .student-row {
         grid-template-columns: 1fr;
       }
 
+      .tiny-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .comparison-row {
+        grid-template-columns: 1fr 55px 1fr;
+      }
+
+      .sheet {
+        padding: 20px 15px;
+        min-height: auto;
+      }
+
       main {
-        padding-left: 14px;
-        padding-right: 14px;
+        padding-left: 12px;
+        padding-right: 12px;
       }
     }
 
@@ -431,6 +440,7 @@
     }
 
     @media print {
+
       *,
       *::before,
       *::after {
@@ -445,65 +455,54 @@
       }
 
       header,
-      footer {
+      footer,
+      .intro,
+      .screen-note {
         display: none !important;
       }
 
       main {
         max-width: none;
         padding: 0;
+        margin: 0;
       }
 
-      .intro,
-      .stage,
-      .card,
-      .flow-step,
-      .example,
-      .teacher-box,
-      .warning,
-      .links {
-        break-inside: avoid;
-        page-break-inside: avoid;
+      .sheet {
+        width: auto;
+        min-height: 277mm;
+        margin: 0;
+        padding: 7mm;
+        border-radius: 0;
+        box-shadow: none;
+
+        page-break-after: always;
+        break-after: page;
       }
 
-      .green {
+      .sheet.final-sheet {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .goal {
         background: var(--green) !important;
       }
 
-      .blue {
-        background: var(--blue) !important;
-      }
-
-      .purple {
-        background: var(--purple) !important;
-      }
-
-      .yellow,
-      .important {
+      .reflection {
         background: var(--yellow) !important;
       }
 
-      .orange,
-      .warning {
-        background: var(--orange) !important;
+      th {
+        background: var(--blue) !important;
       }
 
-      .teal,
-      .teacher-box {
-        background: var(--teal) !important;
-      }
-
-      .pink {
-        background: var(--pink) !important;
-      }
-
-      .gray {
-        background: var(--gray) !important;
-      }
-
-      .link-row a {
-        background: var(--dark) !important;
-        color: white !important;
+      .sheet,
+      .task,
+      .reflection,
+      .tiny-card,
+      table {
+        break-inside: avoid;
+        page-break-inside: avoid;
       }
     }
   </style>
@@ -515,10 +514,12 @@
 
   <div class="topbar">
 
-    <div class="logo">HOLOS MATTERESAN</div>
+    <div class="logo">
+      HOLOS MATTERESAN
+    </div>
 
-    <a href="larare.html" class="back-link">
-      ← Lärarportalen
+    <a href="material-elevblad.html" class="back-link">
+      ← Elevblad
     </a>
 
   </div>
@@ -526,16 +527,15 @@
 
   <div class="hero">
 
-    <div class="hero-icon">🔢🧠</div>
+    <div class="hero-icon">🔢✏️</div>
 
-    <h1>Taluppfattning</h1>
+    <h1>Elevblad – Taluppfattning</h1>
 
-    <h2>Storlek • Struktur • Relation • Representation • Rimlighet</h2>
+    <h2>6 utskrivbara elevblad</h2>
 
     <p>
-      Taluppfattning är grunden för stora delar av matematiken.
-      Elever behöver förstå hur tal är uppbyggda, hur de förhåller sig
-      till varandra och hur samma tal kan representeras på flera sätt.
+      Träna talens värde, platsvärde, tallinje, jämförelser,
+      representationer, rimlighet och matematiska resonemang.
     </p>
 
   </div>
@@ -547,571 +547,840 @@
 
   <section class="intro">
 
-    <h2>🔢 Tal är mer än siffror</h2>
+    <h2>📄 Taluppfattning från flera håll</h2>
 
     <p>
-      En elev kan kunna läsa och skriva ett tal utan att ha en stabil
-      uppfattning om talets storlek, struktur eller relation till andra tal.
-      Därför behöver taluppfattning utvecklas genom jämförelser,
-      representationer, strategier och resonemang genom hela F–9.
+      Paketet innehåller sex fristående elevblad.
+      De kan användas individuellt, i par, på stationer,
+      som kartläggning eller som underlag för matematiska samtal.
     </p>
 
-    <div class="important">
+  </section>
 
-      <strong>Grundprincip:</strong><br>
-      Hjälp elever att gå mellan
-      <strong>antal → struktur → tallinje → språk → symbol → relation</strong>.
-      När taluppfattningen är flexibel blir även beräkningar,
-      algebra, bråk, procent och problemlösning mer begripliga.
+
+  <div class="screen-note">
+    🖨️ <strong>Färgutskrift:</strong>
+    välj <strong>Skriv ut → Fler inställningar → Bakgrundsgrafik</strong>
+    och kontrollera att skrivaren står på <strong>Färg</strong>.
+    Varje elevblad är anpassat till ett eget A4.
+  </div>
+
+
+  <!-- ELEVBLAD 1 -->
+
+  <section class="sheet">
+
+    <div class="sheet-header">
+
+      <div>
+        <h2>🔢 Elevblad 1 – Visa talet</h2>
+        <p>Visa samma tal på flera matematiska sätt.</p>
+      </div>
+
+      <div class="sheet-number">
+        1 / 6
+      </div>
+
+    </div>
+
+
+    <div class="student-row">
+
+      <div class="field">
+        <strong>Namn:</strong>
+      </div>
+
+      <div class="field">
+        <strong>Datum:</strong>
+      </div>
+
+    </div>
+
+
+    <div class="goal">
+      <strong>Mitt mål:</strong>
+      Jag kan visa ett tal på flera sätt och förklara vad siffrorna är värda.
+    </div>
+
+
+    <div class="task">
+
+      <h3>1. Välj eller få ett tal av din lärare</h3>
+
+      <div class="answer-line"></div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>2. Skriv talet med ord</h3>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>3. Dela upp talet efter platsvärde</h3>
+
+      <p>Exempel: 4 582 = 4 000 + 500 + 80 + 2</p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>4. Rita eller bygg talet</h3>
+
+      <div class="large-box">
+        Rita exempelvis tiobasmaterial, talbild eller annan modell här.
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>5. Skriv tre andra uttryck som har samma värde</h3>
+
+      <div class="tiny-grid">
+
+        <div class="tiny-card">
+          Uttryck 1
+        </div>
+
+        <div class="tiny-card">
+          Uttryck 2
+        </div>
+
+        <div class="tiny-card">
+          Uttryck 3
+        </div>
+
+        <div class="tiny-card">
+          Eget sätt
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="reflection">
+
+      <h3>💬 Förklara</h3>
+
+      <p>
+        Vilken representation gjorde talets värde tydligast? Varför?
+      </p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
 
     </div>
 
   </section>
 
 
-  <div class="section-title">
+  <!-- ELEVBLAD 2 -->
 
-    <h2>📈 Progression F–9</h2>
+  <section class="sheet">
 
-    <p>
-      Progressionen går från konkreta antal och heltal mot rationella,
-      negativa och mer generella talrelationer.
-    </p>
+    <div class="sheet-header">
 
-  </div>
+      <div>
+        <h2>📏 Elevblad 2 – Tallinjen</h2>
+        <p>Placera, jämför och resonera om talens storlek.</p>
+      </div>
 
+      <div class="sheet-number">
+        2 / 6
+      </div>
 
-  <div class="progression">
-
-    <section class="stage green">
-
-      <h3>🌱 F–3</h3>
-
-      <ul>
-        <li>Antal och räkneord.</li>
-        <li>Subitisering och strukturerade talbilder.</li>
-        <li>Del–helhet.</li>
-        <li>Tiobassystemet.</li>
-        <li>Jämföra och ordna tal.</li>
-        <li>Tallinje.</li>
-        <li>Udda och jämna tal.</li>
-        <li>Enkla bråk som del av helhet.</li>
-      </ul>
-
-    </section>
-
-
-    <section class="stage blue">
-
-      <h3>🔵 4–6</h3>
-
-      <ul>
-        <li>Stora tal och platsvärde.</li>
-        <li>Decimaltal.</li>
-        <li>Bråk som tal.</li>
-        <li>Bråk på tallinje.</li>
-        <li>Relation mellan bråk, decimal och procent.</li>
-        <li>Negativa tal som idé.</li>
-        <li>Överslag och rimlighet.</li>
-        <li>Multiplikativa relationer.</li>
-      </ul>
-
-    </section>
-
-
-    <section class="stage purple">
-
-      <h3>🟣 7–9</h3>
-
-      <ul>
-        <li>Positiva och negativa tal.</li>
-        <li>Rationella tal.</li>
-        <li>Proportioner och förhållanden.</li>
-        <li>Procentuell förändring.</li>
-        <li>Potenser och storleksordning.</li>
-        <li>Tal i algebraiska sammanhang.</li>
-        <li>Rimlighet i komplexa beräkningar.</li>
-        <li>Generalisering av talmönster.</li>
-      </ul>
-
-    </section>
-
-  </div>
-
-
-  <div class="section-title">
-
-    <h2>🧠 Sex delar av stark taluppfattning</h2>
-
-    <p>
-      Taluppfattning är ett nätverk av förståelse, inte en enskild färdighet.
-    </p>
-
-  </div>
-
-
-  <div class="grid">
-
-    <article class="card">
-
-      <div class="icon">🔍</div>
-
-      <h3>Storlek</h3>
-
-      <p>
-        Eleven behöver kunna bedöma hur stort ett tal är och jämföra med andra tal.
-      </p>
-
-      <ul>
-        <li>Vilket är störst?</li>
-        <li>Vilket ligger närmast 100?</li>
-        <li>Var ligger talet på tallinjen?</li>
-        <li>Är svaret rimligt?</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🧱</div>
-
-      <h3>Struktur</h3>
-
-      <p>
-        Tal kan delas upp och sättas samman på flera sätt.
-      </p>
-
-      <ul>
-        <li>8 = 5 + 3</li>
-        <li>48 = 40 + 8</li>
-        <li>0,75 = 0,7 + 0,05</li>
-        <li>3/4 = 6/8</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🔗</div>
-
-      <h3>Relationer</h3>
-
-      <p>
-        Ett tal förstås bättre när det kopplas till andra tal.
-      </p>
-
-      <ul>
-        <li>Dubbelt och hälften</li>
-        <li>Skillnad</li>
-        <li>Förhållande</li>
-        <li>Nära kända tal</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🎨</div>
-
-      <h3>Representationer</h3>
-
-      <p>
-        Samma tal behöver kunna ses i flera former.
-      </p>
-
-      <ul>
-        <li>Material</li>
-        <li>Tallinje</li>
-        <li>Bild</li>
-        <li>Bråk</li>
-        <li>Decimal</li>
-        <li>Procent</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🧰</div>
-
-      <h3>Flexibilitet</h3>
-
-      <p>
-        Eleven väljer strategi utifrån talens struktur.
-      </p>
-
-      <ul>
-        <li>49 + 27 → nära 50</li>
-        <li>25 × 16 → dela upp</li>
-        <li>99 × 4 → 100 × 4 − 4</li>
-        <li>15 % → 10 % + 5 %</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">✅</div>
-
-      <h3>Rimlighet</h3>
-
-      <p>
-        Eleven behöver kunna upptäcka resultat som inte passar situationen.
-      </p>
-
-      <ul>
-        <li>Överslag</li>
-        <li>Storleksbedömning</li>
-        <li>Kontroll med annan strategi</li>
-        <li>Tolka svaret i sammanhanget</li>
-      </ul>
-
-    </article>
-
-  </div>
-
-
-  <div class="section-title">
-
-    <h2>🔄 Undervisa taluppfattning genom flera representationer</h2>
-
-    <p>
-      Symbolen bör hela tiden kopplas tillbaka till en meningsfull matematisk idé.
-    </p>
-
-  </div>
-
-
-  <div class="flow">
-
-    <div class="flow-step">
-      <span>🧱</span>
-      <strong>1. Bygg</strong>
-      <p>Använd material, mängder eller verkliga situationer.</p>
     </div>
 
-    <div class="flow-step">
-      <span>👀</span>
-      <strong>2. Se</strong>
-      <p>Upptäck struktur, storlek och relation.</p>
+
+    <div class="student-row">
+
+      <div class="field">
+        <strong>Namn:</strong>
+      </div>
+
+      <div class="field">
+        <strong>Datum:</strong>
+      </div>
+
     </div>
 
-    <div class="flow-step">
-      <span>📏</span>
-      <strong>3. Placera</strong>
-      <p>Använd tallinje och jämförelser.</p>
+
+    <div class="goal">
+      <strong>Mitt mål:</strong>
+      Jag kan använda tallinjen för att visa talens storlek och avstånd.
     </div>
 
-    <div class="flow-step">
-      <span>💬</span>
-      <strong>4. Förklara</strong>
-      <p>Sätt ord på vad talet betyder.</p>
+
+    <div class="task">
+
+      <h3>1. Markera talen på tallinjen</h3>
+
+      <p>
+        Tal: __________________  __________________  __________________
+      </p>
+
+      <div class="number-line">
+
+        <span class="mark" style="left:0%;"></span>
+        <span class="label" style="left:0%;">0</span>
+
+        <span class="mark" style="left:25%;"></span>
+
+        <span class="mark" style="left:50%;"></span>
+
+        <span class="mark" style="left:75%;"></span>
+
+        <span class="mark" style="left:100%;"></span>
+        <span class="label" style="left:100%;">100</span>
+
+      </div>
+
     </div>
 
-    <div class="flow-step">
-      <span>🔢</span>
-      <strong>5. Symbolisera</strong>
-      <p>Koppla till siffror, bråk, decimal, procent och algebra.</p>
+
+    <div class="task">
+
+      <h3>2. Vilket tal ligger närmast mitten?</h3>
+
+      <div class="answer-line"></div>
+
+      <p><strong>Jag vet det eftersom:</strong></p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
     </div>
 
-  </div>
+
+    <div class="task">
+
+      <h3>3. Skapa ett tal som ligger mellan två av talen</h3>
+
+      <div class="answer-line"></div>
+
+      <p><strong>Hur vet du att det ligger mellan?</strong></p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
 
 
-  <div class="section-title">
+    <div class="task">
 
-    <h2>🧩 Fyra undervisningsidéer</h2>
-
-    <p>
-      Aktiviteter som fungerar i flera åldrar genom att talen och kraven förändras.
-    </p>
-
-  </div>
-
-
-  <div class="example-grid">
-
-    <section class="example green">
-
-      <h3>📏 Tom tallinje</h3>
-
-      <ul>
-        <li>Markera två referenstal.</li>
-        <li>Placera ett nytt tal ungefärligt.</li>
-        <li>Motivera placeringen.</li>
-        <li>Jämför flera elevers placeringar.</li>
-        <li>Diskutera avstånd och storlek.</li>
-      </ul>
+      <h3>4. Rita en egen tallinje</h3>
 
       <p>
-        Fungerar med heltal, bråk, decimaler och negativa tal.
+        Välj själv starttal och sluttal.
       </p>
 
-    </section>
+      <div class="large-box"></div>
+
+    </div>
 
 
-    <section class="example blue">
+    <div class="reflection">
 
-      <h3>🔢 Talet på många sätt</h3>
-
-      <ul>
-        <li>Visa talet som summa.</li>
-        <li>Visa med multiplikation.</li>
-        <li>Placera på tallinje.</li>
-        <li>Skapa ett problem där talet är svaret.</li>
-        <li>Visa en närliggande representation.</li>
-      </ul>
+      <h3>🧠 Tänk vidare</h3>
 
       <p>
-        Exempel: 24, 0,5, 3/4 eller −8 beroende på nivå.
+        Kan det finnas fler än ett tal mellan två tal?
       </p>
 
-    </section>
-
-
-    <section class="example yellow">
-
-      <h3>⚖️ Vilket är störst?</h3>
-
-      <ul>
-        <li>0,6 eller 0,58?</li>
-        <li>3/5 eller 5/8?</li>
-        <li>−3 eller −7?</li>
-        <li>25 % eller 1/5?</li>
-        <li>Motivera utan att bara använda en regel.</li>
-      </ul>
-
-      <p>
-        Gör storlek och representationer synliga.
-      </p>
-
-    </section>
-
-
-    <section class="example purple">
-
-      <h3>🧠 Hur nära?</h3>
-
-      <ul>
-        <li>Vilket tal ligger närmast 100?</li>
-        <li>Hur långt är 0,72 från 1?</li>
-        <li>Vilket bråk ligger närmast 1/2?</li>
-        <li>Hur långt från noll ligger −12?</li>
-        <li>Hur vet du?</li>
-      </ul>
-
-      <p>
-        Tränar referenstal, avstånd och rimlighet.
-      </p>
-
-    </section>
-
-  </div>
-
-
-  <div class="section-title">
-
-    <h2>🕵️ Vanliga missuppfattningar</h2>
-
-    <p>
-      Fel kan ge viktig information om vilken talmodell eleven använder.
-    </p>
-
-  </div>
-
-
-  <div class="grid">
-
-    <article class="card">
-
-      <div class="icon">🔟</div>
-
-      <h3>Platsvärde</h3>
-
-      <p>
-        Eleven kan läsa siffrorna men inte förstå deras värde i talet.
-      </p>
-
-      <ul>
-        <li>203 läses som 23.</li>
-        <li>4,08 uppfattas som större än 4,8.</li>
-        <li>Siffrans position kopplas inte till värdet.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🍕</div>
-
-      <h3>Bråk</h3>
-
-      <p>
-        Heltalstänkande överförs till bråk.
-      </p>
-
-      <ul>
-        <li>1/8 anses större än 1/4 eftersom 8 &gt; 4.</li>
-        <li>Täljare och nämnare behandlas som separata heltal.</li>
-        <li>Bråk ses bara som delar av cirklar.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">🔵</div>
-
-      <h3>Decimaler</h3>
-
-      <p>
-        Antalet decimaler används som mått på storlek.
-      </p>
-
-      <ul>
-        <li>0,125 anses större än 0,8.</li>
-        <li>Decimaltecknet förstås som separator snarare än platsvärde.</li>
-        <li>Kopplingen till bråk saknas.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">➖</div>
-
-      <h3>Negativa tal</h3>
-
-      <p>
-        Eleven kan ha svårt att tolka ordningen på tallinjen.
-      </p>
-
-      <ul>
-        <li>−8 anses större än −3 eftersom 8 &gt; 3.</li>
-        <li>Minustecknets olika betydelser blandas ihop.</li>
-        <li>Avstånd från noll förväxlas med talets värde.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">💯</div>
-
-      <h3>Procent</h3>
-
-      <p>
-        Procent ses som en fristående regel istället för ett relationstal.
-      </p>
-
-      <ul>
-        <li>25 % kopplas inte till 1/4.</li>
-        <li>10 % beräknas mekaniskt utan förståelse.</li>
-        <li>Det hela identifieras fel.</li>
-      </ul>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="icon">📏</div>
-
-      <h3>Tallinje</h3>
-
-      <p>
-        Tallinjen kan användas som räknestreck snarare än som kontinuerlig modell.
-      </p>
-
-      <ul>
-        <li>Avstånden blir olika stora.</li>
-        <li>Bråk placeras efter nämnarens storlek.</li>
-        <li>Negativa tal ordnas fel.</li>
-      </ul>
-
-    </article>
-
-  </div>
-
-
-  <section class="teacher-box">
-
-    <h2>👩‍🏫 Frågor som avslöjar taluppfattning</h2>
-
-    <ul>
-      <li>Vilket tal är störst? Hur vet du?</li>
-      <li>Kan du placera talet på en tom tallinje?</li>
-      <li>Vilket tal ligger närmast?</li>
-      <li>Kan du dela upp talet på tre olika sätt?</li>
-      <li>Vilket referenstal hjälper dig?</li>
-      <li>Kan du visa samma tal som bråk, decimal eller procent?</li>
-      <li>Vad händer om talet blir tio gånger större?</li>
-      <li>Vad händer om en siffra flyttas ett steg åt höger?</li>
-      <li>Är svaret rimligt utan att du räknar exakt?</li>
-      <li>Kan du skapa ett tal som ligger mellan dessa två?</li>
-      <li>Kan du hitta flera sådana tal?</li>
-      <li>Hur vet du att din jämförelse stämmer?</li>
-    </ul>
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
 
   </section>
 
 
-  <div class="warning">
+  <!-- ELEVBLAD 3 -->
 
-    <strong>⚠️ Taluppfattning blir aldrig ”färdig”.</strong><br>
-    När elever möter decimaler, negativa tal, bråk, procent,
-    potenser och algebra behöver deras tidigare talbilder utvecklas.
-    Fortsätt därför använda
-    <strong>tallinje, referenstal, jämförelser, representationer och rimlighetsresonemang även i 7–9</strong>.
+  <section class="sheet">
 
-  </div>
+    <div class="sheet-header">
+
+      <div>
+        <h2>⚖️ Elevblad 3 – Jämför tal</h2>
+        <p>Större än, mindre än och lika med.</p>
+      </div>
+
+      <div class="sheet-number">
+        3 / 6
+      </div>
+
+    </div>
 
 
-  <section class="links">
+    <div class="student-row">
 
-    <h2>➡️ Fortsätt i Matteresan</h2>
+      <div class="field">
+        <strong>Namn:</strong>
+      </div>
 
-    <div class="link-row">
+      <div class="field">
+        <strong>Datum:</strong>
+      </div>
 
-      <a href="elevblad-tal.html">
-        ✏️ Elevblad tal
-      </a>
+    </div>
 
-      <a href="larare-raknesatt.html">
-        ➕ Räknesätt
-      </a>
 
-      <a href="larare-brak.html">
-        🍕 Bråk
-      </a>
+    <div class="goal">
+      <strong>Mitt mål:</strong>
+      Jag kan jämföra tal och motivera vilken storlek de har.
+    </div>
 
-      <a href="larare-decimal.html">
-        🔵 Decimaler
-      </a>
 
-      <a href="larare-procent.html">
-        💯 Procent
-      </a>
+    <div class="task">
 
-      <a href="larare-konkret.html">
-        🧱 Konkret & visuellt
-      </a>
+      <h3>1. Skriv &gt;, &lt; eller =</h3>
 
-      <a href="larare-missuppfattningar.html">
-        🕵️ Missuppfattningar
-      </a>
+      <div class="comparison-row">
 
-      <a href="larare-progression.html">
-        📈 Progression F–9
-      </a>
+        <div class="comparison-value">48</div>
+
+        <div class="comparison-symbol"></div>
+
+        <div class="comparison-value">52</div>
+
+      </div>
+
+
+      <div class="comparison-row">
+
+        <div class="comparison-value">305</div>
+
+        <div class="comparison-symbol"></div>
+
+        <div class="comparison-value">350</div>
+
+      </div>
+
+
+      <div class="comparison-row">
+
+        <div class="comparison-value">0,7</div>
+
+        <div class="comparison-symbol"></div>
+
+        <div class="comparison-value">0,65</div>
+
+      </div>
+
+
+      <div class="comparison-row">
+
+        <div class="comparison-value">−3</div>
+
+        <div class="comparison-symbol"></div>
+
+        <div class="comparison-value">−8</div>
+
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>2. Välj en av jämförelserna ovan och förklara</h3>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>3. Skriv talen i storleksordning</h3>
+
+      <p>
+        Börja med det minsta.
+      </p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>4. Skapa två egna jämförelser</h3>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="reflection">
+
+      <h3>💬 Förklara</h3>
+
+      <p>
+        Vad behöver du titta på när två tal nästan är lika stora?
+      </p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ELEVBLAD 4 -->
+
+  <section class="sheet">
+
+    <div class="sheet-header">
+
+      <div>
+        <h2>🔟 Elevblad 4 – Platsvärde</h2>
+        <p>Vad är varje siffra värd?</p>
+      </div>
+
+      <div class="sheet-number">
+        4 / 6
+      </div>
+
+    </div>
+
+
+    <div class="student-row">
+
+      <div class="field">
+        <strong>Namn:</strong>
+      </div>
+
+      <div class="field">
+        <strong>Datum:</strong>
+      </div>
+
+    </div>
+
+
+    <div class="goal">
+      <strong>Mitt mål:</strong>
+      Jag kan förklara att samma siffra får olika värde beroende på sin plats.
+    </div>
+
+
+    <div class="task">
+
+      <h3>1. Undersök talet 47 325</h3>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <tr>
+            <th>Tiotusental</th>
+            <th>Tusental</th>
+            <th>Hundratal</th>
+            <th>Tiotal</th>
+            <th>Ental</th>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>7</td>
+            <td>3</td>
+            <td>2</td>
+            <td>5</td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+        </table>
+
+      </div>
+
+      <p style="margin-top:8px;">
+        Skriv värdet av varje siffra i nedersta raden.
+      </p>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>2. Vad är siffran 7 värd i talet?</h3>
+
+      <div class="answer-line"></div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>3. Hur förändras talet om 7 flyttas ett steg åt höger?</h3>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>4. Skapa ett eget femsiffrigt tal</h3>
+
+      <div class="answer-line"></div>
+
+      <p><strong>Dela upp talet:</strong></p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>5. Utmaning – decimaler</h3>
+
+      <p>
+        Vad är siffrorna värda i talet <strong>4,582</strong>?
+      </p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="reflection">
+
+      <h3>🧠 Jag har upptäckt...</h3>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ELEVBLAD 5 -->
+
+  <section class="sheet">
+
+    <div class="sheet-header">
+
+      <div>
+        <h2>🎯 Elevblad 5 – Rimligt eller orimligt?</h2>
+        <p>Träna överslag och storleksbedömning.</p>
+      </div>
+
+      <div class="sheet-number">
+        5 / 6
+      </div>
+
+    </div>
+
+
+    <div class="student-row">
+
+      <div class="field">
+        <strong>Namn:</strong>
+      </div>
+
+      <div class="field">
+        <strong>Datum:</strong>
+      </div>
+
+    </div>
+
+
+    <div class="goal">
+      <strong>Mitt mål:</strong>
+      Jag kan bedöma om ett svar verkar rimligt innan eller efter en beräkning.
+    </div>
+
+
+    <div class="task">
+
+      <h3>1. Utan att räkna exakt – ungefär hur mycket?</h3>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <tr>
+            <th>Beräkning</th>
+            <th>Mitt överslag</th>
+            <th>Exakt svar</th>
+          </tr>
+
+          <tr>
+            <td>198 + 304</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>49 × 21</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>603 − 297</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>798 ÷ 4</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>2. Vilket svar verkar orimligt?</h3>
+
+      <p>
+        51 × 19 = 969 &nbsp;&nbsp;&nbsp;
+        51 × 19 = 96 &nbsp;&nbsp;&nbsp;
+        51 × 19 ≈ 1 000
+      </p>
+
+      <div class="answer-line"></div>
+
+      <p><strong>Förklara varför:</strong></p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>3. Skapa en egen beräkning</h3>
+
+      <p>
+        Skriv ett korrekt svar och ett svar som är tydligt orimligt.
+      </p>
+
+      <div class="large-box"></div>
+
+    </div>
+
+
+    <div class="reflection">
+
+      <h3>✅ När är överslag användbart?</h3>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ELEVBLAD 6 -->
+
+  <section class="sheet final-sheet">
+
+    <div class="sheet-header">
+
+      <div>
+        <h2>🚀 Elevblad 6 – Talutmaningen</h2>
+        <p>Undersök, resonera och generalisera.</p>
+      </div>
+
+      <div class="sheet-number">
+        6 / 6
+      </div>
+
+    </div>
+
+
+    <div class="student-row">
+
+      <div class="field">
+        <strong>Namn:</strong>
+      </div>
+
+      <div class="field">
+        <strong>Datum:</strong>
+      </div>
+
+    </div>
+
+
+    <div class="goal">
+      <strong>Mitt mål:</strong>
+      Jag kan undersöka tal systematiskt och förklara mina slutsatser.
+    </div>
+
+
+    <div class="task">
+
+      <h3>1. Använd siffrorna 2, 4, 5 och 8</h3>
+
+      <p>
+        Skapa det största fyrsiffriga talet.
+      </p>
+
+      <div class="answer-line"></div>
+
+      <p>
+        Skapa det minsta fyrsiffriga talet.
+      </p>
+
+      <div class="answer-line"></div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>2. Vad är skillnaden mellan talen?</h3>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>3. Skapa ett tal som ligger så nära 5 000 som möjligt</h3>
+
+      <p>
+        Du får fortfarande bara använda siffrorna 2, 4, 5 och 8 en gång var.
+      </p>
+
+      <div class="answer-line"></div>
+
+      <p><strong>Så tänkte jag:</strong></p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>4. Hitta alla tal som uppfyller villkoren</h3>
+
+      <p>
+        Skapa tresiffriga tal med siffrorna 2, 4 och 8.
+        Varje siffra får användas en gång.
+      </p>
+
+      <div class="large-box">
+        Skriv talen systematiskt här.
+      </div>
+
+    </div>
+
+
+    <div class="task">
+
+      <h3>5. Hur vet du att du hittat alla?</h3>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div class="reflection">
+
+      <h3>🌟 Min talreflektion</h3>
+
+      <p>
+        Det viktigaste jag har upptäckt om tal är:
+      </p>
+
+      <div class="answer-lines">
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="check-row">
+        <span>☐ Jag kan visa tal.</span>
+        <span>☐ Jag kan jämföra tal.</span>
+        <span>☐ Jag kan använda tallinje.</span>
+        <span>☐ Jag kan bedöma rimlighet.</span>
+      </div>
 
     </div>
 
@@ -1123,7 +1392,7 @@
 <footer>
 
   <strong>HOLOS Matteresan F–9</strong><br>
-  🔢 Storlek • Struktur • Relation • Representation • Rimlighet
+  🔢 Elevblad – Taluppfattning
 
 </footer>
 
