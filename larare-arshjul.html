@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Redigerbar terminsöversikt och matematiskt årshjul F–9 för HOLOS Matteresan, med lokal sparning, uppföljning och A4-utskrift.">
+  <title>Terminsöversikt och årshjul F–9 | HOLOS Matteresan</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--dark:#17324d;--brown:#765844;--brown-dark:#5d4333;--text:#263747;--muted:#667788;--bg:#f7f9fb;--white:#fff;--line:#d8e0e6;--green:#e8f7ed;--blue:#e8f3ff;--purple:#f0eaff;--yellow:#fff6d7;--orange:#ffe7cf;--teal:#eaf7f5;--pink:#ffe9f1;--focus:#d08a36}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+    a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}
+    header{background:radial-gradient(circle at top right,rgba(255,255,255,.16),transparent 31%),linear-gradient(135deg,#5d4333,#8a694f 55%,#315a7e);color:white;padding:22px 20px 68px}
+    .topbar{max-width:1180px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px}.logo{font-weight:900;letter-spacing:1px}.top-links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px}.top-links a{border:1px solid rgba(255,255,255,.65);border-radius:999px;padding:8px 13px;font-size:.8rem;font-weight:bold}.top-links a:hover{background:white;color:var(--brown-dark)}
+    .hero{max-width:980px;margin:48px auto 0;text-align:center}.hero-icon{font-size:4.3rem}.hero h1{font-size:clamp(2.4rem,7vw,4.8rem);line-height:1.04;margin:7px 0 12px}.hero h2{font-size:clamp(1.05rem,3vw,1.45rem);margin-bottom:14px}.hero p{max-width:850px;margin:auto;color:#fffaf6}
+    .jumpbar{max-width:1120px;margin:-27px auto 38px;padding:0 20px;display:grid;grid-template-columns:repeat(5,1fr);gap:9px;position:relative}.jumpbar a{background:var(--dark);color:white;padding:14px 8px;border-radius:12px;text-align:center;font-weight:bold;font-size:.78rem}.jumpbar span{display:block;font-size:1.45rem}
+    main{max-width:1180px;margin:auto;padding:24px 20px 75px}.notice{background:var(--yellow);border-left:6px solid #c39b44;border-radius:15px;padding:18px 20px;margin-bottom:30px;color:#645835}.notice strong{color:var(--dark)}
+    .panel{background:white;border:1px solid var(--line);border-radius:25px;padding:27px;margin-bottom:32px;box-shadow:0 9px 25px rgba(23,50,77,.06)}.panel h2{color:var(--dark);font-size:1.8rem;margin-bottom:5px}.panel-intro{color:var(--muted);margin-bottom:20px;max-width:920px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.grid.three{grid-template-columns:repeat(3,1fr)}.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}.field label{font-size:.86rem;font-weight:bold;color:var(--dark)}.field small{color:var(--muted);font-size:.75rem}.field input,.field select,.field textarea{width:100%;padding:10px 11px;border:1px solid #aebbc5;border-radius:9px;background:white;color:var(--text)}.field textarea{min-height:86px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus,button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-color:transparent}
+    .term-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.term{border-radius:20px;padding:22px;border:1px solid rgba(0,0,0,.05)}.term.ht{background:var(--orange)}.term.vt{background:var(--blue)}.term h3{color:var(--dark);margin-bottom:13px;font-size:1.3rem}.date-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.date-grid .field.full{grid-column:1/-1}
+    .stage-tools{display:flex;flex-wrap:wrap;align-items:end;gap:11px;background:var(--teal);border-radius:18px;padding:18px;margin-bottom:20px}.stage-tools .field{min-width:210px;flex:1}.stage-tools button{border:0;border-radius:10px;padding:11px 15px;background:var(--dark);color:white;font-weight:bold}.stage-tools button.secondary{background:white;color:var(--dark);border:1px solid #aebbc5}
+    .months{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}.month{border-radius:20px;padding:20px;border:1px solid rgba(0,0,0,.06);break-inside:avoid}.month:nth-child(6n+1){background:var(--green)}.month:nth-child(6n+2){background:var(--blue)}.month:nth-child(6n+3){background:var(--yellow)}.month:nth-child(6n+4){background:var(--purple)}.month:nth-child(6n+5){background:var(--teal)}.month:nth-child(6n+6){background:var(--pink)}.month-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:13px}.month-head h3{font-family:Georgia,serif;color:var(--dark);font-size:1.5rem}.month-head input{width:130px;padding:7px;border:1px solid #aebbc5;border-radius:8px;background:rgba(255,255,255,.85)}.month .field{margin-top:10px}.month textarea{background:rgba(255,255,255,.88);min-height:72px}.month select{background:rgba(255,255,255,.9)}
+    .coverage{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.check{display:flex;align-items:flex-start;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px;font-size:.83rem}.check input{width:18px;height:18px;flex:0 0 18px;margin-top:1px}
+    .milestones{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.milestone{border-radius:17px;padding:18px;border:1px solid rgba(0,0,0,.05)}.milestone:nth-child(1){background:var(--green)}.milestone:nth-child(2){background:var(--blue)}.milestone:nth-child(3){background:var(--yellow)}.milestone:nth-child(4){background:var(--purple)}.milestone:nth-child(5){background:var(--orange)}.milestone:nth-child(6){background:var(--pink)}.milestone h3{color:var(--dark);margin-bottom:8px}.milestone textarea{width:100%;min-height:90px;border:1px solid #aebbc5;border-radius:9px;padding:10px;background:rgba(255,255,255,.9);resize:vertical}
+    .analysis-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.analysis-box{border-radius:17px;padding:18px}.analysis-box:nth-child(1){background:var(--green)}.analysis-box:nth-child(2){background:var(--yellow)}.analysis-box:nth-child(3){background:var(--purple)}.analysis-box:nth-child(4){background:var(--orange)}.analysis-box label{display:block;color:var(--dark);font-weight:bold;margin-bottom:5px}.analysis-box textarea{width:100%;min-height:110px;border:1px solid #aebbc5;border-radius:9px;padding:10px;background:rgba(255,255,255,.9);resize:vertical}
+    .toolbar{position:sticky;bottom:12px;z-index:8;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;background:rgba(23,50,77,.96);border-radius:16px;padding:12px;margin-top:28px;box-shadow:0 9px 25px rgba(0,0,0,.16)}.toolbar button{border:1px solid rgba(255,255,255,.5);border-radius:9px;padding:9px 13px;background:rgba(255,255,255,.1);color:white;font-weight:bold}.toolbar button.primary{background:white;color:var(--dark)}.toolbar button.danger{color:#ffe4df;border-color:#f5b6aa}.save-status{width:100%;text-align:center;color:#e3ebf1;font-size:.8rem}.save-status.ok{color:#c8f5d5}
+    footer{background:var(--dark);color:#eef3f7;text-align:center;padding:34px 20px}.print-title{display:none}
+    @media(max-width:900px){.months,.term-grid,.milestones{grid-template-columns:1fr}.coverage{grid-template-columns:repeat(2,1fr)}.jumpbar{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:650px){.topbar{flex-direction:column}.top-links{justify-content:center}.grid,.grid.three,.analysis-grid,.date-grid{grid-template-columns:1fr}.field.full,.date-grid .field.full{grid-column:auto}.coverage,.jumpbar{grid-template-columns:1fr}.jumpbar{margin-top:18px}.panel{padding:20px}main{padding-left:14px;padding-right:14px}.toolbar{position:static}.toolbar button{width:100%}}
+    @page{size:A4 portrait;margin:10mm}
+    @media print{*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}body{background:white;font-size:9pt}header,.jumpbar,.notice,.stage-tools,.toolbar,footer,.no-print{display:none!important}main{max-width:none;padding:0}.print-title{display:block;border-bottom:2px solid var(--dark);padding-bottom:3mm;margin-bottom:4mm}.print-title h1{font-size:19pt;color:var(--dark)}.panel{box-shadow:none;border:0;padding:0;margin:0 0 5mm}.panel h2{font-size:15pt}.term-grid,.months{grid-template-columns:1fr 1fr;gap:3mm}.milestones,.coverage{grid-template-columns:repeat(3,1fr);gap:2mm}.analysis-grid{grid-template-columns:1fr 1fr;gap:3mm}.month,.term,.milestone,.analysis-box,.check{break-inside:avoid;page-break-inside:avoid;padding:3mm}.month-head h3{font-size:13pt}.field input,.field select,.field textarea,.month-head input,.milestone textarea,.analysis-box textarea{border:0;border-bottom:1px solid #777;border-radius:0;padding:1mm;background:white}.field textarea,.month textarea{min-height:13mm}.milestone textarea,.analysis-box textarea{min-height:18mm}.page-break{break-before:page}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="logo">HOLOS MATTERESAN F–9</div>
+      <nav class="top-links" aria-label="Lärarnavigering">
+        <a href="larare-planering.html">🗓️ Planering</a>
+        <a href="larare-planeringsrum.html">🧭 Planeringsrum</a>
+        <a href="larare.html">← Lärarportal</a>
+      </nav>
+    </div>
+    <div class="hero">
+      <div class="hero-icon">🗓️🔄📐</div>
+      <h1>Terminsöversikt och årshjul</h1>
+      <h2>Progression • Lov • Undervisning • Uppföljning • Nästa steg</h2>
+      <p>Planera matematikåret från augusti till juni och håll ihop matematisk kärna, språk, aktiviteter, bedömning, stöd och utmaning genom F–9.</p>
+    </div>
+  </header>
+
+  <nav class="jumpbar" aria-label="Sidans delar">
+    <a href="#ramar"><span>1️⃣</span>Ramar</a>
+    <a href="#terminer"><span>2️⃣</span>Termin & lov</a>
+    <a href="#arshjul"><span>3️⃣</span>Årshjul</a>
+    <a href="#gemensamt"><span>4️⃣</span>Gemensamt</a>
+    <a href="#analys"><span>5️⃣</span>Analys</a>
+  </nav>
+
+  <main>
+    <div class="print-title"><h1>HOLOS Matteresan – Terminsöversikt och matematiskt årshjul F–9</h1><p>Redigerad planering för läsåret.</p></div>
+
+    <div class="notice"><strong>🔒 Planera utan personuppgifter.</strong> Skriv gruppens eller undervisningens behov, inte elevnamn, personnummer, diagnoser eller andra känsliga uppgifter. Innehållet sparas endast lokalt i den här webbläsaren.</div>
+
+    <form id="yearForm">
+      <section class="panel" id="ramar">
+        <h2>1. Läsårets ramar</h2>
+        <p class="panel-intro">Börja med gemensamma förutsättningar. Datum och lov är redigerbara eftersom de varierar mellan kommuner och läsår.</p>
+        <div class="grid three">
+          <div class="field"><label for="schoolYear">Läsår</label><input id="schoolYear" name="schoolYear" placeholder="Exempel: 2026/2027"></div>
+          <div class="field"><label for="stage">Stadium</label><select id="stage" name="stage"><option value="f3">F–3</option><option value="46">4–6</option><option value="79">7–9</option></select></div>
+          <div class="field"><label for="groupCode">Klass/gruppkod</label><input id="groupCode" name="groupCode" placeholder="Använd kod – inte elevnamn"></div>
+          <div class="field"><label for="municipality">Kommun/skola</label><input id="municipality" name="municipality" placeholder="Valfritt"></div>
+          <div class="field"><label for="minutes">Matematik per vecka</label><input id="minutes" name="minutes" placeholder="Minuter eller antal lektioner"></div>
+          <div class="field"><label for="planningDate">Planeringen uppdaterad</label><input id="planningDate" name="planningDate" type="date"></div>
+          <div class="field full"><label for="yearGoal">Läsårets övergripande matematiska mål</label><textarea id="yearGoal" name="yearGoal" placeholder="Vad ska elevgruppen framför allt utveckla under läsåret?"></textarea></div>
+          <div class="field full"><label for="groupNeeds">Gruppens utgångsläge och gemensamma behov</label><textarea id="groupNeeds" name="groupNeeds" placeholder="Beskriv anonymt: styrkor, förkunskaper, språkbehov, vanliga missuppfattningar och behov av stöd eller utmaning."></textarea></div>
+        </div>
+      </section>
+
+      <section class="panel" id="terminer">
+        <h2>2. Termin, lov och viktiga perioder</h2>
+        <p class="panel-intro">Fyll i skolans faktiska datum. Lägg bedömning och större uppdrag så att eleverna får tid för undervisning, återkoppling och nya försök.</p>
+        <div class="term-grid">
+          <article class="term ht">
+            <h3>🍂 Hösttermin</h3>
+            <div class="date-grid">
+              <div class="field"><label for="htStart">Terminsstart</label><input id="htStart" name="htStart" type="date"></div>
+              <div class="field"><label for="htEnd">Terminsavslutning</label><input id="htEnd" name="htEnd" type="date"></div>
+              <div class="field"><label for="autumnBreak">Höstlov</label><input id="autumnBreak" name="autumnBreak" placeholder="Vecka eller datum"></div>
+              <div class="field"><label for="studyDaysHt">Studiedagar</label><input id="studyDaysHt" name="studyDaysHt" placeholder="Datum"></div>
+              <div class="field full"><label for="htEvents">NP, temaveckor och andra händelser</label><textarea id="htEvents" name="htEvents" placeholder="Skriv endast sådant som påverkar planeringen."></textarea></div>
+            </div>
+          </article>
+          <article class="term vt">
+            <h3>🌱 Vårtermin</h3>
+            <div class="date-grid">
+              <div class="field"><label for="vtStart">Terminsstart</label><input id="vtStart" name="vtStart" type="date"></div>
+              <div class="field"><label for="vtEnd">Terminsavslutning</label><input id="vtEnd" name="vtEnd" type="date"></div>
+              <div class="field"><label for="winterBreak">Sportlov</label><input id="winterBreak" name="winterBreak" placeholder="Vecka eller datum"></div>
+              <div class="field"><label for="easterBreak">Påsklov</label><input id="easterBreak" name="easterBreak" placeholder="Vecka eller datum"></div>
+              <div class="field"><label for="studyDaysVt">Studiedagar</label><input id="studyDaysVt" name="studyDaysVt" placeholder="Datum"></div>
+              <div class="field"><label for="mayDays">Lovdagar i maj/juni</label><input id="mayDays" name="mayDays" placeholder="Datum"></div>
+              <div class="field full"><label for="vtEvents">NP, temaveckor och andra händelser</label><textarea id="vtEvents" name="vtEvents" placeholder="Skriv endast sådant som påverkar planeringen."></textarea></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel page-break" id="arshjul">
+        <h2>3. Matematiskt årshjul – augusti till juni</h2>
+        <p class="panel-intro">Ladda ett stadiumförslag och anpassa sedan varje månad efter elevernas faktiska lärande. Om du laddar ett nytt förslag ersätts endast årshjulets månadsfält.</p>
+        <div class="stage-tools no-print">
+          <div class="field"><label for="presetStage">Förslag för stadium</label><select id="presetStage"><option value="f3">F–3</option><option value="46">4–6</option><option value="79">7–9</option></select></div>
+          <button type="button" id="loadPreset">Ladda stadiumförslag</button>
+          <button type="button" class="secondary" id="clearMonths">Töm endast årshjulet</button>
+        </div>
+        <div class="months" id="months"></div>
+      </section>
+
+      <section class="panel" id="tackning">
+        <h2>4. Kontroll av matematiska områden</h2>
+        <p class="panel-intro">Markera när ett område har undervisats, följts upp och fått ett planerat nästa steg. Markeringen visar täckning – inte att alla elever behärskar området.</p>
+        <div class="coverage" id="coverage"></div>
+      </section>
+
+      <section class="panel" id="gemensamt">
+        <h2>5. Gemensamma matematiska hållpunkter</h2>
+        <p class="panel-intro">Planera återkommande inslag som stärker språk, problemlösning, rörelse, kreativitet och progression genom hela läsåret.</p>
+        <div class="milestones">
+          <article class="milestone"><h3>💬 Matteprat</h3><textarea name="milestoneTalk" aria-label="Plan för matteprat" placeholder="När och hur återkommer matematiska samtal?"></textarea></article>
+          <article class="milestone"><h3>🗺️ Matematikäventyr</h3><textarea name="milestoneAdventure" aria-label="Plan för matematikäventyr" placeholder="Tema, period och koppling till matematiskt innehåll."></textarea></article>
+          <article class="milestone"><h3>🧩 Problemlösning</h3><textarea name="milestoneProblems" aria-label="Plan för problemlösning" placeholder="Strategier, rika problem och dokumentation."></textarea></article>
+          <article class="milestone"><h3>🌍 Språk och begrepp</h3><textarea name="milestoneLanguage" aria-label="Plan för språk och begrepp" placeholder="Begrepp, meningsstarter, representationer och SVA-stöd."></textarea></article>
+          <article class="milestone"><h3>🏃 Rörelse och utematematik</h3><textarea name="milestoneMovement" aria-label="Plan för rörelse och utematematik" placeholder="När matematiken flyttar ut eller kopplas till rörelse."></textarea></article>
+          <article class="milestone"><h3>🎯 Kunskapsuppdrag</h3><textarea name="milestoneMission" aria-label="Plan för kunskapsuppdrag" placeholder="Praktiska individuella uppdrag och möjligheter till nya försök."></textarea></article>
+        </div>
+      </section>
+
+      <section class="panel page-break" id="analys">
+        <h2>6. Terminsanalys och överlämning</h2>
+        <p class="panel-intro">Analysera undervisningen på gruppnivå. Utgå från elevlösningar, observationer, samtal, exit tickets och diagnoser – inte bara från genomförda sidor.</p>
+        <div class="analysis-grid">
+          <div class="analysis-box"><label for="works">Detta fungerar och ska fortsätta</label><textarea id="works" name="works" placeholder="Undervisningssätt, representationer, frågor och strukturer som stödjer lärandet."></textarea></div>
+          <div class="analysis-box"><label for="needs">Detta behöver undervisas igen</label><textarea id="needs" name="needs" placeholder="Matematiska idéer, begrepp eller strategier som ännu är osäkra."></textarea></div>
+          <div class="analysis-box"><label for="supportChallenge">Stöd och utmaning nästa period</label><textarea id="supportChallenge" name="supportChallenge" placeholder="Gemensamma anpassningar, konkret stöd, språkstöd och fördjupning."></textarea></div>
+          <div class="analysis-box"><label for="handover">Pedagogisk överlämning</label><textarea id="handover" name="handover" placeholder="Vad behöver nästa lärare eller termin känna till om gruppens matematiska lärande? Inga elevnamn."></textarea></div>
+        </div>
+      </section>
+    </form>
+
+    <div class="toolbar no-print" aria-label="Verktyg">
+      <button type="button" class="primary" id="saveBtn">💾 Spara lokalt</button>
+      <button type="button" id="printBtn">🖨️ Skriv ut A4</button>
+      <button type="button" id="exportBtn">⬇️ Exportera text</button>
+      <button type="button" class="danger" id="clearBtn">🗑️ Töm allt</button>
+      <div class="save-status" id="saveStatus" aria-live="polite">Ändringar sparas automatiskt i den här webbläsaren.</div>
+    </div>
+  </main>
+
+  <footer><strong>HOLOS Matteresan F–9</strong><br>Terminsöversikt och matematiskt årshjul – planera, följ upp och justera.</footer>
+
+  <script>
+    const storageKey='holos-matteresan-arshjul-v1';
+    const months=['Augusti','September','Oktober','November','December','Januari','Februari','Mars','April','Maj','Juni'];
+    const areas=['Taluppfattning','De fyra räknesätten','Bråk','Decimaltal','Procent','Algebra','Geometri','Mätning','Statistik','Sannolikhet','Mönster','Samband och förändring','Problemlösning'];
+    const plans={
+      f3:[
+        ['Taluppfattning','Tals betydelse, antal och representationer','tal, antal, fler, färre, lika många','Laborativa sorteringar, tallinje och matteprat','Observation och kort exitbild'],
+        ['De fyra räknesätten','Addition och subtraktion som situationer','summa, skillnad, tillsammans, kvar','Berättelser, konkret material och egna bilder','Lyssna efter strategier och begrepp'],
+        ['Mönster','Upptäcka, beskriva och fortsätta mönster','mönster, upprepa, regel, nästa','Bygg mönster och formulera regeln','Fotodokumentation och muntlig förklaring'],
+        ['Geometri','Former, läge och enkla konstruktioner','hörn, sida, kant, framför, bakom','Formjakt, bygga och rita','Begreppskort och praktiskt uppdrag'],
+        ['Mätning','Jämföra och mäta längd, tid och massa','längd, enhet, uppskatta, mäta','Mätstationer och rimlighetsprat','Praktisk mini-diagnos'],
+        ['Taluppfattning','Positionssystem och talrelationer','ental, tiotal, hundratal, större än','Bygg tal på flera sätt','Exit ticket med representationer'],
+        ['De fyra räknesätten','Multiplikation som lika stora grupper och delning','grupp, gånger, dubbelt, hälften','Bygg grupper, rita och skriv uttryck','Jämför två strategier'],
+        ['Bråk','Del av helhet och del av antal','hel, halv, fjärdedel, lika delar','Dela konkreta föremål och bilder','Praktiskt kunskapsuppdrag'],
+        ['Samband och förändring','Enkla tabeller och proportionella vardagssamband','samband, tabell, ökar, minskar','Växande mönster och vardagstabeller','Förklara vad som förändras'],
+        ['Statistik','Samla, sortera och visa data','data, tabell, diagram, vanligast','Klassundersökning utan personkänsliga frågor','Skapa och tolka diagram'],
+        ['Problemlösning','Välja strategi, visa lösning och kontrollera','problem, strategi, rimligt, lösning','Matematikäventyr och öppna problem','Individuellt kunskapsuppdrag']
+      ],
+      '46':[
+        ['Taluppfattning','Heltal, positionssystem, negativa tal och rimlighet','platsvärde, negativt tal, avrunda, uppskatta','Tallinjer, talbygge och Number Talks','Diagnos och analys av felsvar'],
+        ['De fyra räknesätten','Effektiva skriftliga och mentala metoder','term, faktor, produkt, kvot, differens','Strategijämförelser och problemlösning','Exit ticket med metodförklaring'],
+        ['Bråk','Bråk som tal, jämförelse och enkla beräkningar','täljare, nämnare, förlänga, förkorta','Bråkband och flera representationer','Praktisk mini-diagnos'],
+        ['Decimaltal','Positionssystem, beräkningar och närmevärden','tiondel, hundradel, decimal, precision','Pengar, mätning och tallinje','Rimlighetskontroll och elevförklaring'],
+        ['Geometri','Vinklar, omkrets, area, skala och konstruktion','vinkel, omkrets, area, skala','Mätuppdrag inne och ute','Praktiskt kunskapsuppdrag'],
+        ['Procent','Del av hundra och samband mellan bråk, decimal och procent','procent, helhet, andel, hundradel','Hundraruta, erbjudanden och jämförelser','Exit ticket med tre representationer'],
+        ['Algebra','Likhet, obekanta tal, uttryck och enkla ekvationer','likhet, uttryck, variabel, ekvation','Balansmodeller och mönstergeneralisering','Analysera lösningsstrategier'],
+        ['Samband och förändring','Proportionalitet, tabeller, grafer och skala','förhållande, proportionell, graf, axel','Recept, kartor och rörelsedata','Tolka och skapa graf'],
+        ['Statistik','Datainsamling, diagram och lägesmått','medelvärde, median, typvärde, frekvens','Undersökning och kritisk diagramgranskning','Mini-diagnos och resonemang'],
+        ['Sannolikhet','Slump, chans, risk och enkla simuleringar','sannolikhet, utfall, chans, risk','Tärningsförsök och digital simulering','Jämför teori och experiment'],
+        ['Problemlösning','Flerstegsproblem, modeller och kommunikation','strategi, modell, metod, rimlighet','Matematikäventyr och rika problem','Individuellt kunskapsuppdrag']
+      ],
+      '79':[
+        ['Taluppfattning','Reella tal, potenser, rötter och grundpotensform','rationell, irrationell, potens, exponent','Talområdeskarta och uppskattningsproblem','Diagnos och felsvarsanalys'],
+        ['De fyra räknesätten','Prioriteringsregler, beräkningsmetoder och digitala verktyg','prioritet, operation, överslag, precision','Strategijämförelse och kontroll med verktyg','Exit ticket med rimlighetsargument'],
+        ['Bråk','Rationella tal och beräkningar i bråk- och decimalform','rationellt tal, förlänga, förkorta, decimalform','Representationer och kontextproblem','Mini-diagnos och metodanalys'],
+        ['Procent','Förändring, förändringsfaktor och promille','procentenhet, förändringsfaktor, promille','Prisförändringar och källkritiska exempel','Praktiskt kunskapsuppdrag'],
+        ['Algebra','Uttryck, ekvationer, formler och generalisering','variabel, koefficient, uttryck, ekvation','Mönster, balans och modellering','Analysera lösningar och vanliga fel'],
+        ['Geometri','Satser, likformighet, skala, area och volym','likformig, skala, sats, bevis','Konstruktion och mätuppdrag','Skriftlig och praktisk förklaring'],
+        ['Samband och förändring','Funktioner, linjära samband och förändringstakt','funktion, proportionalitet, k-värde, m-värde','Rörelsedata, tabeller och grafer','Tolka och skapa modeller'],
+        ['Statistik','Lägesmått, spridning och kritisk granskning','median, medelvärde, spridning, urval','Granska diagram och genomför undersökning','Argumentera om slutsatsers rimlighet'],
+        ['Sannolikhet','Träddiagram, kombinatorik och simulering','utfall, händelse, oberoende, kombinatorik','Spelanalys och simulering','Jämför teoretisk och empirisk sannolikhet'],
+        ['Problemlösning','Matematiska modeller och flerstegsproblem','antagande, modell, begränsning, validera','Öppna verklighetsproblem i grupp och enskilt','Bedöm modell, metod och kommunikation'],
+        ['Problemlösning','Repetition, fördjupning och identifierade behov','representation, samband, generalisering, argument','Kunskapsuppdrag och riktad återundervisning','Individuell uppföljning utan provkänsla']
+      ]
+    };
+
+    const form=document.getElementById('yearForm');
+    const monthBox=document.getElementById('months');
+    const coverageBox=document.getElementById('coverage');
+    const saveStatus=document.getElementById('saveStatus');
+
+    function areaOptions(selected){return areas.map(a=>'<option'+(a===selected?' selected':'')+'>'+a+'</option>').join('')}
+    function renderMonths(){monthBox.innerHTML=months.map((month,i)=>'<article class="month"><div class="month-head"><h3>'+month+'</h3><input name="month'+i+'Weeks" aria-label="Veckor för '+month+'" placeholder="Veckor/datum"></div><div class="field"><label for="month'+i+'Area">Matematiskt område</label><select id="month'+i+'Area" name="month'+i+'Area">'+areaOptions('Taluppfattning')+'</select></div><div class="field"><label for="month'+i+'Core">Matematisk kärna</label><textarea id="month'+i+'Core" name="month'+i+'Core"></textarea></div><div class="field"><label for="month'+i+'Language">Begrepp och språk</label><textarea id="month'+i+'Language" name="month'+i+'Language"></textarea></div><div class="field"><label for="month'+i+'Activity">Aktivitet och representationer</label><textarea id="month'+i+'Activity" name="month'+i+'Activity"></textarea></div><div class="field"><label for="month'+i+'Follow">Uppföljning och nästa steg</label><textarea id="month'+i+'Follow" name="month'+i+'Follow"></textarea></div></article>').join('')}
+    function renderCoverage(){coverageBox.innerHTML=areas.map((a,i)=>'<label class="check"><input type="checkbox" name="coverage'+i+'"><span>'+a+'</span></label>').join('')}
+    function monthHasContent(){return months.some((_,i)=>['Core','Language','Activity','Follow'].some(k=>(form.elements['month'+i+k]?.value||'').trim()))}
+    function applyPlan(stage,ask){if(ask&&monthHasContent()&&!confirm('Vill du ersätta innehållet i årshjulets månadsfält med förslaget för valt stadium? Övriga fält påverkas inte.'))return;plans[stage].forEach((p,i)=>{form.elements['month'+i+'Area'].value=p[0];form.elements['month'+i+'Core'].value=p[1];form.elements['month'+i+'Language'].value=p[2];form.elements['month'+i+'Activity'].value=p[3];form.elements['month'+i+'Follow'].value=p[4]});document.getElementById('stage').value=stage;savePlan('Stadiumförslaget är inläst och sparat lokalt.')}
+    function dataFromForm(){const data={};form.querySelectorAll('input,select,textarea').forEach(el=>{if(el.type==='checkbox')data[el.name]=el.checked;else data[el.name]=el.value});return data}
+    function applyData(data){form.querySelectorAll('input,select,textarea').forEach(el=>{if(el.type==='checkbox')el.checked=Boolean(data[el.name]);else if(data[el.name]!==undefined)el.value=data[el.name]})}
+    function savePlan(message){localStorage.setItem(storageKey,JSON.stringify(dataFromForm()));saveStatus.textContent=message||'Sparat lokalt '+new Date().toLocaleString('sv-SE');saveStatus.classList.add('ok')}
+    function loadPlan(){try{const saved=JSON.parse(localStorage.getItem(storageKey)||'null');if(saved){applyData(saved);document.getElementById('presetStage').value=saved.stage||'f3';saveStatus.textContent='Den lokalt sparade årsplaneringen har lästs in.';saveStatus.classList.add('ok');return true}}catch(e){saveStatus.textContent='Den lokala sparningen kunde inte läsas.'}return false}
+    function clearAll(){if(!confirm('Vill du tömma hela terminsöversikten och årshjulet? Den lokala sparningen tas också bort.'))return;form.reset();localStorage.removeItem(storageKey);applyPlan('f3',false);saveStatus.textContent='Allt är tömt. Ett nytt F–3-förslag har lagts in.'}
+    function clearMonthFields(){if(!confirm('Vill du tömma endast årshjulets månadsfält?'))return;months.forEach((_,i)=>{form.elements['month'+i+'Weeks'].value='';form.elements['month'+i+'Area'].selectedIndex=0;['Core','Language','Activity','Follow'].forEach(k=>form.elements['month'+i+k].value='')});savePlan('Årshjulets månadsfält är tömda.')}
+    function exportText(){const d=dataFromForm();let out='HOLOS MATTERESAN F–9\nTERMINSÖVERSIKT OCH MATEMATISKT ÅRSHJUL\n\nLäsår: '+(d.schoolYear||'')+'\nStadium: '+(d.stage||'')+'\nKlass/gruppkod: '+(d.groupCode||'')+'\n\nÖVERGRIPANDE MÅL\n'+(d.yearGoal||'')+'\n\nGRUPPENS UTGÅNGSLÄGE\n'+(d.groupNeeds||'')+'\n\nTERMIN OCH LOV\nHT: '+(d.htStart||'')+' – '+(d.htEnd||'')+' | Höstlov: '+(d.autumnBreak||'')+'\nVT: '+(d.vtStart||'')+' – '+(d.vtEnd||'')+' | Sportlov: '+(d.winterBreak||'')+' | Påsklov: '+(d.easterBreak||'')+'\n\nÅRSHJUL\n';months.forEach((m,i)=>{out+='\n'+m.toUpperCase()+' '+(d['month'+i+'Weeks']||'')+'\nOmråde: '+(d['month'+i+'Area']||'')+'\nMatematisk kärna: '+(d['month'+i+'Core']||'')+'\nBegrepp och språk: '+(d['month'+i+'Language']||'')+'\nAktivitet: '+(d['month'+i+'Activity']||'')+'\nUppföljning: '+(d['month'+i+'Follow']||'')+'\n'});out+='\nTERMINSANALYS\nDetta fungerar:\n'+(d.works||'')+'\n\nBehöver undervisas igen:\n'+(d.needs||'')+'\n\nStöd och utmaning:\n'+(d.supportChallenge||'')+'\n\nÖverlämning:\n'+(d.handover||'');const blob=new Blob([out],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='matteresan-arshjul-'+(d.schoolYear||'lasar').replaceAll('/','-')+'.txt';a.click();URL.revokeObjectURL(a.href)}
+
+    renderMonths();renderCoverage();
+    document.getElementById('loadPreset').addEventListener('click',()=>applyPlan(document.getElementById('presetStage').value,true));
+    document.getElementById('clearMonths').addEventListener('click',clearMonthFields);
+    document.getElementById('saveBtn').addEventListener('click',()=>savePlan());
+    document.getElementById('printBtn').addEventListener('click',()=>window.print());
+    document.getElementById('exportBtn').addEventListener('click',exportText);
+    document.getElementById('clearBtn').addEventListener('click',clearAll);
+    document.getElementById('stage').addEventListener('change',e=>document.getElementById('presetStage').value=e.target.value);
+    let timer;form.addEventListener('input',()=>{clearTimeout(timer);saveStatus.textContent='Ändringar väntar på att sparas.';saveStatus.classList.remove('ok');timer=setTimeout(()=>savePlan(),1500)});
+    if(!loadPlan())applyPlan('f3',false);
+  </script>
+</body>
+</html>
