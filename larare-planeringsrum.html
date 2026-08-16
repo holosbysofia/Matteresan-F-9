@@ -10,6 +10,7 @@
     :root{--dark:#17324d;--brown:#8a694f;--brown-dark:#654a38;--cream:#fff8ef;--green:#edf9f1;--blue:#eaf5ff;--purple:#f1edff;--yellow:#fff6d7;--orange:#ffe7cf;--pink:#ffe9f1;--teal:#eaf7f5;--bg:#f8fafc;--text:#263747;--muted:#667788;--white:#fff;--line:#d8e0e6;--focus:#d08a36}
     html{scroll-behavior:smooth}body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}
     header{background:radial-gradient(circle at top right,rgba(255,255,255,.16),transparent 30%),linear-gradient(135deg,#5f4737,#8a694f);color:white;padding:22px 20px 62px}.topbar{max-width:1180px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px}.logo{font-weight:800;letter-spacing:1px}.back-link{padding:8px 15px;border:1px solid rgba(255,255,255,.65);border-radius:999px;color:white;font-weight:bold}.back-link:hover{background:white;color:var(--brown-dark)}.hero{max-width:940px;margin:48px auto 0;text-align:center}.hero-icon{font-size:4.2rem}.hero h1{font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.05;margin:5px 0 10px}.hero h2{font-size:clamp(1.1rem,3vw,1.5rem);margin-bottom:16px}.hero p{max-width:850px;margin:auto;color:#fff9f4;font-size:1.03rem}
+    .top-links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px}
     .workflow{max-width:1120px;margin:-27px auto 38px;padding:0 20px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;position:relative}.workflow a{background:var(--dark);color:white;padding:15px 8px;border-radius:12px;text-align:center;font-size:.77rem;font-weight:bold}.workflow span{display:block;font-size:1.55rem;margin-bottom:2px}
     main{max-width:1180px;margin:auto;padding:26px 20px 70px}.notice{background:var(--yellow);border-left:6px solid #d0a33f;border-radius:14px;padding:18px 20px;margin:0 auto 35px;color:#5c5138}.notice strong{color:var(--dark)}
     .section-title{text-align:center;font-size:clamp(1.7rem,4vw,2.4rem);color:var(--dark);margin-bottom:7px}.section-intro{text-align:center;max-width:850px;margin:0 auto 27px;color:var(--muted)}
@@ -26,7 +27,14 @@
 </head>
 <body>
   <header>
-    <div class="topbar"><div class="logo">HOLOS MATTERESAN F–9</div><a href="larare.html" class="back-link">← Lärarvy</a></div>
+    <div class="topbar">
+      <div class="logo">HOLOS MATTERESAN F–9</div>
+      <nav class="top-links" aria-label="Lärarnavigering">
+        <a href="larare-planering.html" class="back-link">🗓️ Planering</a>
+        <a href="larare-utskrift.html" class="back-link">🖨️ Utskriftscentral</a>
+        <a href="larare.html" class="back-link">← Lärarportal</a>
+      </nav>
+    </div>
     <div class="hero"><div class="hero-icon">🧭🗓️</div><h1>Lärarens planeringsrum</h1><h2>Planera • Genomför • Observera • Analysera • Gå vidare</h2><p>Samla den matematiska kärnan, språkstödet, aktiviteten, bedömningen och nästa undervisningssteg i en sammanhållen planering.</p></div>
   </header>
   <nav class="workflow" aria-label="Planeringsrummets arbetsgång"><a href="#fore"><span>1️⃣</span>Planera</a><a href="#under"><span>2️⃣</span>Genomför</a><a href="#under"><span>3️⃣</span>Observera</a><a href="#efter"><span>4️⃣</span>Exit/diagnos</a><a href="#analys"><span>5️⃣</span>Analysera</a><a href="#nasta"><span>6️⃣</span>Nästa steg</a></nav>
